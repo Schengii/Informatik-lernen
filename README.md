@@ -1,6 +1,6 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, OAuth2 & OpenID Connect (OIDC), WebSockets Realtime Communication, Performance Profiling & Memory Leak Handling, Kubernetes Orchestrierung, Local RAG Vector AI Pipelines, WebAssembly & Rust Compilation, Apache Kafka Event-Driven Architecture, Docker & Containerisierung, Cloud Infrastructure (AWS/GitHub Actions CI/CD), Cybersecurity Red vs Blue Team, GraphQL & REST API Testing, AI Business Prompts & Deep Learning, IT-Berufe & IHK Prüfungspodcasts, IHK Berufsschul-Lernfeldern (FISI/FIAE), Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), Generativer KI (RAG/LLMs), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, IHK Berufsschul-Lernfeldern (FISI/FIAE LF 1 - 12b), Stefan Macke IT-Berufe Podcasts, Advanced Prompt Engineering (Chain-of-Thought, Few-Shot), Deep Learning, OAuth2 & OpenID Connect (OIDC), WebSockets Realtime Communication, Performance Profiling & Memory Leak Handling, Kubernetes Orchestrierung, Local RAG Vector AI Pipelines, WebAssembly & Rust Compilation, Apache Kafka Event-Driven Architecture, Docker & Containerisierung, Cloud Infrastructure (AWS/GitHub Actions CI/CD), Cybersecurity Red vs Blue Team, GraphQL & REST API Testing, Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
@@ -25,23 +25,23 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - Lernen ohne jegliche Vorkenntnisse.
    - Grundlagen spielerisch erklärt: Wie denkt ein PC? Was sind Bits/Bytes? Erste Schritte in Python, HTML/CSS & Binärlogik.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI, IT-Systemelektroniker)**:
-   - Alle 12 IHK-Berufsschul Lernfelder (1. bis 3. Lehrjahr), Prüfungswissen für AP Teil 1 & AP Teil 2, IHK-Podcast Tipps für Doku & Fachgespräch.
+   - Detaillierte IHK-Berufsschul Lernfelder (LF 1 bis LF 12b), prüfungsrelevante Tipps für AP Teil 1 & AP Teil 2, Amortisationsrechnungen, Handelskalkulationen, RTO/RPO Definitionen & Stefan Macke Podcast-Tipps.
 3. **🚀 Junior Developer**:
    - Clean Code Prinzipien, REST & GraphQL APIs, Docker, CI/CD Pipelines, JavaScript, TypeScript, React, Angular, Node.js, Vite, RegEx, TDD Unit-Testing & Git-Workflows.
 4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
-   - **OAuth2 PKCE & JWT Claims Decoding**, **WebSockets HTTP 101 Handshake**, **V8 Performance & Memory Leak Profiling**, **Kubernetes Deployments**, **RAG Vector AI Pipelines**, **WebAssembly & Rust** & **Apache Kafka Events**.
+   - Advanced Prompt Engineering (Chain-of-Thought, Few-Shot), OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments, RAG Vector AI Pipelines & Apache Kafka Events.
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v2.5.0)
+## 🔥 Hauptfunktionen & Neue Features (v2.6.0 Knowledge Upgrade)
 
-* **🔐 OAuth2 & OpenID Connect (OIDC) Security Playground (`OauthOidcLab.jsx` & `oauthData.js`)**:
-  * PKCE Authorization Flow (S256), Access Tokens & JWT Claims Decoding.
-* **📻 WebSockets & Realtime Live Collaboration Lab (`WebSocketsLab.jsx` & `websocketData.js`)**:
-  * HTTP 101 Switching Protocols Handshake, Full-Duplex TCP Connections & Socket.io Event Broadcasts.
-* **📊 Performance Profiling & Memory Leak Lab (`PerformanceProfilingLab.jsx` & `perfData.js`)**:
-  * V8 Engine Garbage Collection (Mark-and-Sweep) & Behebung von Memory Leaks.
-* **☸️ Kubernetes Lab, 🤖 RAG Vector AI, ⚡ Wasm Rust & 🔄 Kafka Events**.
+* **🎓 Umfangreiches IHK FISI/FIAE Lernfelder Knowledge Upgrade (`lernfelderData.js`)**:
+  * Detaillierte Prüfungstipps für alle **12 Lernfelder** (LF 1 bis 12b), Handelskalkulationen, Subnetting, RTO/RPO, ITIL Incident/Problem Unterscheidung & Nutzwertanalyse.
+* **🤖 Advanced AI Prompt Engineering & Deep Learning (`aiBusinessData.js`)**:
+  * Chain-of-Thought (CoT) "Think step-by-step" Prompts, Few-Shot Prompting mit Beispielen & PyTorch Neural Network Architekturen.
+* **🎧 IT-Berufe & IHK Podcast Hub Erweiterung (`podcastData.js`)**:
+  * Neue Episoden zur gezielten Vorbereitung auf AP Teil 1 (GAP1), AP Teil 2 (GAP2) & mündliches Fachgespräch.
+* **🔐 OAuth2 OIDC, 📻 WebSockets, 📊 Performance Profiling & ☸️ Kubernetes**.
 
 ---
 
@@ -200,10 +200,13 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v2.6.0] - Content & Knowledge Deep-Dive Upgrade
+* **IHK Lernfelder Knowledge Upgrade (`lernfelderData.js`)**: Prüfungs-Tipps, RTO/RPO, Handelskalkulationen für alle 12 Lernfelder.
+* **Advanced Prompting & Deep Learning (`aiBusinessData.js`)**: Chain-of-Thought CoT & Few-Shot Prompting.
+* **IHK Podcast Hub Upgrade (`podcastData.js`)**: AP1 GAP1 Vorbereitung.
+
 #### [v2.5.0] - OAuth2 Security, WebSockets Realtime & Performance Profiling
-* **OAuth2 & OIDC Lab (`OauthOidcLab.jsx`)**: PKCE Flow, JWT Decoding & Access Tokens.
-* **WebSockets Realtime Lab (`WebSocketsLab.jsx`)**: HTTP 101 Handshake & Socket.io Broadcasts.
-* **Performance Profiling Lab (`PerformanceProfilingLab.jsx`)**: V8 Garbage Collection & Memory Leaks.
+* OAuth2 PKCE Flow, WebSockets HTTP 101 Handshake & V8 Memory Leak Profiling.
 
 #### [v2.4.1] - Systematisches Audit, Clean Build & Refactoring
 * Bereinigung aller unbenutzten Variablen über 82 Komponenten.
