@@ -58,7 +58,7 @@ import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
-import { BookOpen, Sparkles, ArrowRight, CheckCircle, BookMarked, Compass, Activity, Network, Layers, Keyboard, Rocket, GraduationCap, Headphones, Bot, Box, Cloud, ShieldAlert, Cpu, Database, Zap } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, CheckCircle, Box, Cpu } from 'lucide-react';
 
 export default function App() {
   const [userState, setUserState] = useState(loadUserState());
@@ -137,7 +137,7 @@ export default function App() {
     if (!isReducedMotion) {
       try {
         confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 } });
-      } catch (e) {}
+      } catch (_e) {}
     }
 
     setUserState((prev) => {
@@ -280,19 +280,19 @@ export default function App() {
                 </span>
               </div>
 
-              {/* RAG Vector AI Card */}
+              {/* Docker Card */}
               <div
                 className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('rag_ai')}
+                onClick={() => setActiveTab('docker')}
                 style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
               >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🤖</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>RAG Vector AI Pipelines</h3>
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🐳</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Docker & Containers</h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Chunking, Cosine Similarity & Vector DB Storage.
+                  Dockerfile Builder & Docker Compose.
                 </p>
-                <span style={{ fontSize: '0.9rem', color: 'var(--accent-purple)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  RAG AI Öffnen <ArrowRight size={16} />
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Docker Lab Öffnen <ArrowRight size={16} />
                 </span>
               </div>
             </div>
@@ -475,22 +475,22 @@ export default function App() {
 
         {/* IHK EXAM TAB */}
         {activeTab === 'exam' && (
-          <ExamSimulator onCompleteExam={(score, xp) => awardXP(xp, 'exam_passed')} />
+          <ExamSimulator onCompleteExam={(_score, xp) => awardXP(xp, 'exam_passed')} />
         )}
 
         {/* LÜCKENTEXT TAB */}
         {activeTab === 'lueckentext' && (
-          <ClozeTester userState={userState} onCompleteCloze={(id, xp) => awardXP(xp, 'cloze_wizard')} />
+          <ClozeTester userState={userState} onCompleteCloze={(_id, xp) => awardXP(xp, 'cloze_wizard')} />
         )}
 
         {/* VIDEOS TAB */}
         {activeTab === 'videos' && (
-          <VideoHub onCompleteVideo={(id, xp) => awardXP(xp)} />
+          <VideoHub onCompleteVideo={(_id, xp) => awardXP(xp)} />
         )}
 
         {/* PROJEKTE TAB */}
         {activeTab === 'projekte' && (
-          <ProjectViewer onCompleteProject={(id, xp) => awardXP(xp)} />
+          <ProjectViewer onCompleteProject={(_id, xp) => awardXP(xp)} />
         )}
       </main>
 
