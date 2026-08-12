@@ -4,40 +4,40 @@ export const IHK_LERNFELDER = [
     number: 'Lernfeld 1',
     year: '1. Lehrjahr',
     title: 'Das Unternehmen und die eigene Rolle im Betrieb beschreiben',
-    summary: 'Überblick über die Wertschöpfungskette des Unternehmens, Rechte & Pflichten in der Ausbildung, Arbeitsrecht, Unternehmensrechtsformen & Wirtschaftskreisläufe.',
+    summary: 'Überblick über die Wertschöpfungskette des Unternehmens, ökonomische & ökologische Ziele, Rechte & Pflichten in der Ausbildung, Arbeitsrecht, Unternehmensrechtsformen & Wirtschaftskreisläufe.',
     topics: [
       'Rechte & Pflichten nach BBiG (Berufsbildungsgesetz) & JArbSchG',
-      'Arbeitsrecht: Kündigungsschutz, Arbeitsvertrag, Betriebsrat',
+      'Arbeitsrecht: Kündigungsschutz, Arbeitsvertrag, Betriebsrat & Mitbestimmung',
       'Aufbauorganisation (Einlinien-, Mehrlinien-, Matrixsystem) & Ablauforganisation',
       'Unternehmensrechtsformen: Einzelunternehmen, GmbH, AG, Kommanditgesellschaft (KG), UG',
       'Wertschöpfungs- & Geschäftsprozesse: Primäre vs. Sekundäre Aktivitäten',
-      'Marktsituationen (Monopol, Oligopol, Polypol) & Wirtschaftskreislauf'
+      'Produktionsfaktoren, Marktsituationen (Monopol, Oligopol, Polypol) & Wirtschaftskreislauf'
     ],
-    examTip: 'Für AP Teil 1 häufig gefragt: Unterscheidung zwischen Handelsregister A (Einzelkaufmann, Personengesellschaften) und B (Kapitalgesellschaften wie GmbH/AG) sowie Pflichten des Auszubildenden.'
+    examTip: 'Für AP Teil 1 häufig gefragt: Unterscheidung zwischen Handelsregister A (Einzelkaufmann, Personengesellschaften) und B (Kapitalgesellschaften wie GmbH/AG) sowie Pflichten des Auszubildenden nach BBiG.'
   },
   {
     id: 'lf2',
     number: 'Lernfeld 2',
     year: '1. Lehrjahr',
     title: 'Arbeitsplätze nach Kundenwunsch ausstatten',
-    summary: 'Bedarfsanalysen durchführen, Hardware-Komponenten (CPU, RAM, Mainboard, Netzteile, Grafikkarten, SSDs) auswählen, Angebote kalkulieren, Pflichtenhefte erstellen & Ergonomie beachten.',
+    summary: 'Bedarfs- & Anforderungsanalysen durchführen, Hardware-Komponenten (CPU, RAM, Mainboard, Netzteile, Grafikkarten, SSDs) auswählen, Ergonomie, Nachhaltigkeit, Angebote kalkulieren & Pflichtenhefte erstellen.',
     topics: [
-      'Hardware-Komponenten: CPU (Taktfrequenz, Cores, Cache), Mainboard (Sockel, Chipset), DDR4/DDR5 RAM, NVMe M.2 SSDs',
-      'Bedarfs- & Anforderungsanalyse durchführen',
+      'Hardware-Komponenten: CPU (Taktfrequenz, Cores, Cache), Mainboard (Sockel, Chipset), DDR4/DDR5 RAM, NVMe M.2 SSDs, Netzteile (80-Plus)',
+      'Bedarfs- & Anforderungsanalyse beim Kunden durchführen',
       'Lastenheft (Was der Kunde will) vs. Pflichtenheft (Wie der Entwickler es umsetzt)',
-      'Angebotsvergleich & Stundensatz-Kalkulation (Handlungskostenzuschlag, Gewinnzuschlag, Skonto)',
+      'Angebotsvergleich & Stundensatz-Kalkulation (Handlungskostenzuschlag, Gewinnzuschlag, Skonto, Rabatt)',
       'Ergonomie & Ökologie am IT-Arbeitsplatz (Bildschirmarbeitsverordnung, Energy Star, 80-Plus Netzteile)'
     ],
-    examTip: 'Berechnung von Handelskalkulationen (Vorwärts- und Rückwärtskalkulation) sowie der Unterschied zwischen Angebot und Kaufvertrag.'
+    examTip: 'Berechnung von Handelskalkulationen (Vorwärts- und Rückwärtskalkulation) sowie der rechtliche Unterschied zwischen Angebot und Kaufvertrag.'
   },
   {
     id: 'lf3',
     number: 'Lernfeld 3',
     year: '1. Lehrjahr',
     title: 'Clients in Netzwerke einbinden',
-    summary: 'Netzwerkinfrastruktur, TCP/IP-Protokollfamilie, ISO/OSI-7-Schichtenmodell, Switch-/Router-Konfiguration, RAID-Level & USV Stromversorgung.',
+    summary: 'Netzwerkinfrastruktur, TCP/IP-Protokollfamilie, ISO/OSI-7-Schichtenmodell, Switch-/Router-Konfiguration, RAID-Level, Backup-Strategien & USV Stromversorgung.',
     topics: [
-      'Netzwerktopologien: Stern, Ring, Bus, Mesh (Vorteile/Nachteile)',
+      'Netzwerktopologien: Stern, Ring, Bus, Mesh (Vorteile/Nachteile & Redundanz)',
       'ISO/OSI-Schichtenmodell (7 Schichten: Physical, Data Link, Network, Transport, Session, Presentation, Application)',
       'IP-Adressierung: IPv4 Subnetting (CIDR-Notation, Netz-ID, Broadcast-ID, Host-ID) & IPv6 (Global Unicast, Link-Local)',
       'Routing (Statisch vs. Dynamisch OSPF/BGP) & Switching (VLANs, Trunking 802.1Q)',
@@ -51,7 +51,7 @@ export const IHK_LERNFELDER = [
     number: 'Lernfeld 4',
     year: '1. Lehrjahr',
     title: 'Schutzbedarfsanalyse im eigenen Arbeitsbereich durchführen',
-    summary: 'BSI IT-Grundschutz Standards, Schutzziele (Vertraulichkeit, Integrität, Verfügbarkeit, Authentizität), Risikobewertung & Technisch-Organisatorische Maßnahmen (TOM).',
+    summary: 'BSI IT-Grundschutz Standards, Schutzziele (Vertraulichkeit, Integrität, Verfügbarkeit, Authentizität), Risikobewertung, Schadensszenarien & Technisch-Organisatorische Maßnahmen (TOM).',
     topics: [
       'BSI IT-Grundschutz Standards (200-1, 200-2, 200-3)',
       'Schutzziele der Informationssicherheit (CIA-Triade: Confidentiality, Integrity, Availability)',
@@ -66,7 +66,7 @@ export const IHK_LERNFELDER = [
     number: 'Lernfeld 5',
     year: '1. Lehrjahr',
     title: 'Software zur Verwaltung von Daten anpassen',
-    summary: 'Softwareentwicklungs-Modelle (Wasserfall, V-Modell, Scrum, Kanban), ER-Modellierung (1:1, 1:n, m:n), SQL-Datenbanken & Testprozesse.',
+    summary: 'Softwareentwicklungs-Modelle (Wasserfall, V-Modell, Scrum, Kanban), Zahlensysteme, ER-Modellierung (1:1, 1:n, m:n), SQL-Datenbanken & Testprozesse.',
     topics: [
       'Vorgehensmodelle: Klassisch (Wasserfall, V-Modell) vs. Agil (Scrum, Kanban)',
       'Zahlensysteme: Umrechnung zwischen Binär, Oktal, Dezimal und Hexadezimal & Zweierkomplement',
@@ -97,7 +97,7 @@ export const IHK_LERNFELDER = [
     number: 'Lernfeld 7',
     year: '2. Lehrjahr',
     title: 'Cyber-physische Systeme ergänzen',
-    summary: 'Internet of Things (IoT), Sensoren & Aktoren, MQTT-Protokoll, Edge Computing & Industrie 4.0 Netzwerke.',
+    summary: 'Internet of Things (IoT), Sensoren & Aktoren, MQTT-Protokoll, CoAP, Edge Computing & Industrie 4.0 Netzwerke.',
     topics: [
       'Internet of Things (IoT) Architektur & Industrie 4.0 Integration',
       'IoT Protokolle: MQTT (Publish/Subscribe, Broker, Topics), CoAP, Modbus',

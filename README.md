@@ -1,6 +1,6 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), W3Schools-Style Programmier-Masterclasses (Python Complete Guide, JS ES6+, TS, Java, C#), Coursera Deep Learning (CNNs, RNNs, Transformers), IT-Berufe Podcast Specials (Datenschutz vs. Datensicherheit vs. Datensicherung, Encodings UTF-8/ASCII), interaktiven Video-Tutorials, Schritt-für-Schritt Praxis-Projekten, IHK Berufsschul-Lernfeldern (FISI/FIAE LF 1 - 12b), Advanced Prompt Engineering (Chain-of-Thought, Few-Shot), OAuth2 & OpenID Connect (OIDC), WebSockets Realtime Communication, Performance Profiling & Memory Leak Handling, Kubernetes Orchestrierung, Local RAG Vector AI Pipelines, WebAssembly & Rust Compilation, Apache Kafka Event-Driven Architecture, Docker & Containerisierung, Cloud Infrastructure (AWS/GitHub Actions CI/CD), Cybersecurity Red vs Blue Team, GraphQL & REST API Testing, Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), W3Schools-Style Programmier-Masterclasses (Python Complete Guide, JS ES6+, TS, Java, C#), Coursera Deep Learning (CNNs, RNNs, Transformers), IT-Berufe Podcast Specials (Datenschutz vs. Datensicherheit vs. Datensicherung, Encodings UTF-8/ASCII), interaktiven Video-Tutorials, Schritt-für-Schritt Praxis-Projekten, Advanced Prompt Engineering (Chain-of-Thought, Few-Shot), OAuth2 & OpenID Connect (OIDC), WebSockets Realtime Communication, Performance Profiling & Memory Leak Handling, Kubernetes Orchestrierung, Local RAG Vector AI Pipelines, WebAssembly & Rust Compilation, Apache Kafka Event-Driven Architecture, Docker & Containerisierung, Cloud Infrastructure (AWS/GitHub Actions CI/CD), Cybersecurity Red vs Blue Team, GraphQL & REST API Testing, Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
@@ -25,7 +25,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Einsteiger-Kurs (`AnfaengerGuideHub.jsx`)**: Lernen ohne jegliche Vorkenntnisse.
    - Grundlagen leicht verständlich erklärt: **EVA-Prinzip**, **CPU-Gehirn** (ALU, Steuerwerk, Register), **Binärsystem & Bytes**, **Internet & DNS**.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI, IT-Systemelektroniker)**:
-   - Detaillierte IHK-Berufsschul Lernfelder (LF 1 bis LF 12b), prüfungsrelevante Tipps für AP Teil 1 & AP Teil 2, Amortisationsrechnungen, Handelskalkulationen, RTO/RPO Definitionen & Stefan Macke Podcast-Tipps.
+   - Detaillierte IHK-Berufsschul Lernfelder (`ausbildung-in-der-it.de` LF 1 bis LF 12b), prüfungsrelevante Tipps für AP Teil 1 & AP Teil 2, Amortisationsrechnungen, Handelskalkulationen, RTO/RPO Definitionen & Stefan Macke Podcast-Tipps.
 3. **🚀 Junior Developer**:
    - Clean Code Prinzipien, REST & GraphQL APIs, Docker, CI/CD Pipelines, JavaScript, TypeScript, React, Angular, Node.js, Vite, RegEx, TDD Unit-Testing & Git-Workflows.
 4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
@@ -33,13 +33,12 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v3.1.0 Web Knowledge Integration)
+## 🔥 Hauptfunktionen & Neue Features (v3.2.0 Full Web Sources Integration)
 
-* **📄 IT-Berufe Podcast Knowledge Module (`topicsData.js`)**:
-  * Unterscheidung zwischen Datenschutz (DSGVO), Datensicherheit (CIA-Triade) und Datensicherung (Backups).
-  * Zeichensätze: ASCII, Latin-1 & UTF-8 Encodings sowie Plain-Text Formate (Markdown vs. Asciidoc).
-* **🤖 Coursera AI Deep Learning Module (`topicsData.js`)**:
-  * Neural Network Layers, ReLU & Sigmoid Activations, Convolutional Neural Networks (CNNs), RNNs & Transformer-Architekturen.
+* **🎓 Ausbildung-in-der-IT Lernfelder Master Integration (`lernfelderData.js`)**:
+  * Detaillierte Themen & Prüfungsfokus für alle 12 Lernfelder aus `ausbildung-in-der-it.de`.
+* **📄 IT-Berufe Podcast & Coursera AI Integration (`topicsData.js`)**:
+  * Datenschutz vs. Datensicherheit vs. Datensicherung, Encodings UTF-8/ASCII & Deep Learning CNN/RNN/Transformer Architekturen.
 * **📚 W3Schools Python Complete Guide & IT-Lexikon Expansion**.
 
 ---
@@ -200,9 +199,11 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v3.2.0] - Full Web Sources Integration (`ausbildung-in-der-it.de`, `it-berufe-podcast.de`, `w3schools.com`, `coursera.org`)
+* Complete Content Fetching & Integration von allen angegebenen Web-Quellen.
+
 #### [v3.1.0] - Web Knowledge Integration (IT-Berufe Podcast & Coursera AI)
-* **IT-Berufe Podcast Module (`topicsData.js`)**: Datenschutz vs. Datensicherheit vs. Datensicherung, Encodings UTF-8/ASCII & Markdown.
-* **Coursera AI Module (`topicsData.js`)**: CNNs, RNNs & Transformer-Architekturen.
+* IT-Berufe Podcast Module & Coursera AI Module.
 
 #### [v3.0.0] - Ultimate W3Schools Content & Knowledge Upgrade
 * Python Complete Guide & Lexikonerweiterung.
