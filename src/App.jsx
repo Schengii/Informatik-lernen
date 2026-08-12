@@ -41,12 +41,14 @@ import TddUnitTestLab from './components/Content/TddUnitTestLab';
 import DeploymentGuideModal from './components/Content/DeploymentGuideModal';
 import WebComponentsHub from './components/Content/WebComponentsHub';
 import FisiLernfelderHub from './components/Content/FisiLernfelderHub';
+import AiBusinessMasterclass from './components/Content/AiBusinessMasterclass';
+import ItPodcastHub from './components/Content/ItPodcastHub';
 
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
-import { BookOpen, Sparkles, ArrowRight, CheckCircle, BookMarked, Compass, Activity, Network, Layers, Keyboard, Rocket, GraduationCap } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, CheckCircle, BookMarked, Compass, Activity, Network, Layers, Keyboard, Rocket, GraduationCap, Headphones, Bot } from 'lucide-react';
 
 export default function App() {
   const [userState, setUserState] = useState(loadUserState());
@@ -231,10 +233,10 @@ export default function App() {
 
                   <button
                     className="btn btn-secondary"
-                    onClick={() => setActiveTab('lernfelder')}
-                    style={{ minHeight: '48px', fontSize: '0.95rem', borderColor: 'var(--accent-indigo)', color: 'var(--accent-indigo)' }}
+                    onClick={() => setActiveTab('ai_business')}
+                    style={{ minHeight: '48px', fontSize: '0.95rem', borderColor: 'var(--accent-primary)', color: 'var(--accent-primary)' }}
                   >
-                    <GraduationCap size={18} /> IHK Lernfelder
+                    <Bot size={18} /> AI Masterclass
                   </button>
                 </div>
               </div>
@@ -252,40 +254,46 @@ export default function App() {
             </h2>
 
             <div className="grid-responsive" style={{ marginBottom: '40px' }}>
-              {/* IHK Lernfelder Card */}
+              {/* AI Masterclass Card */}
               <div
                 className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('lernfelder')}
+                onClick={() => setActiveTab('ai_business')}
                 style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
               >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🎓</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>IHK Lernfelder (FISI / FIAE)</h3>
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🤖</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>AI Business & Deep Learning</h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Alle 12 Berufsschul-Lernfelder für AP Teil 1 & AP Teil 2.
+                  Golem- & Coursera-inspirierte KI Workflows & Neuronale Netze.
                 </p>
-                <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Lernfelder Öffnen <ArrowRight size={16} />
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-primary)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Masterclass Öffnen <ArrowRight size={16} />
                 </span>
               </div>
 
-              {/* Web Components Card */}
+              {/* Podcast Card */}
               <div
                 className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('web_components')}
+                onClick={() => setActiveTab('podcast')}
                 style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
               >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🔥</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Web Components & Lit.dev</h3>
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🎧</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>IHK Podcast & Prüfertipps</h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Lit.dev, Vaadin, Micro-Frontends & W3C Custom Elements.
+                  IT-Berufe Podcast Tipps für Doku, Fachgespräch & Prüfung.
                 </p>
-                <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Components Erkunden <ArrowRight size={16} />
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-amber)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Podcast Öffnen <ArrowRight size={16} />
                 </span>
               </div>
             </div>
           </div>
         )}
+
+        {/* AI BUSINESS MASTERCLASS TAB */}
+        {activeTab === 'ai_business' && <AiBusinessMasterclass />}
+
+        {/* PODCAST HUB TAB */}
+        {activeTab === 'podcast' && <ItPodcastHub />}
 
         {/* IHK LERNFELDER TAB */}
         {activeTab === 'lernfelder' && <FisiLernfelderHub />}

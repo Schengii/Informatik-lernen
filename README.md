@@ -1,6 +1,6 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, IHK Berufsschul-Lernfeldern (FISI/FIAE), Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), Generativer KI (RAG/LLMs), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, AI Business Prompts & Deep Learning (Golem/Coursera-basiert), IT-Berufe & IHK Prüfungspodcasts (Stefan Macke & Superprof-basiert), IHK Berufsschul-Lernfeldern (FISI/FIAE), Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), Generativer KI (RAG/LLMs), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
@@ -25,26 +25,23 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - Lernen ohne jegliche Vorkenntnisse.
    - Grundlagen spielerisch erklärt: Wie denkt ein PC? Was sind Bits/Bytes? Erste Schritte in Python, HTML/CSS & Binärlogik.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI, IT-Systemelektroniker)**:
-   - Alle 12 IHK-Berufsschul Lernfelder (1. bis 3. Lehrjahr), Prüfungswissen für AP Teil 1 & AP Teil 2, SQL, Netzwerke, Virtualisierung, Bash/PowerShell Scripting & Lückentexte.
+   - Alle 12 IHK-Berufsschul Lernfelder (1. bis 3. Lehrjahr), Prüfungswissen für AP Teil 1 & AP Teil 2, IHK-Podcast Tipps für Doku & Fachgespräch.
 3. **🚀 Junior Developer**:
    - Clean Code Prinzipien, REST-APIs, JavaScript, TypeScript, React, Angular, Node.js, Vite, RegEx, TDD Unit-Testing, Git-Workflows und Design Patterns.
 4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
-   - Fortgeschrittene Web Components (**Lit.dev**, **Vaadin**), C++ Systemprogrammierung, Systemarchitektur (Microservices, Load Balancer, Redis Cache), Cybersecurity (OWASP Top 10), Generative AI (LLMs, RAG-Architekturen), Big-O Notation & PWA Live Deployment.
+   - AI Business Masterclass, Deep Learning (PyTorch/TensorFlow), Web Components (**Lit.dev**, **Vaadin**), C++ Systemprogrammierung, Systemarchitektur (Microservices, Load Balancer, Redis Cache) & PWA Live Deployment.
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v2.1.0)
+## 🔥 Hauptfunktionen & Neue Features (v2.2.0)
 
-* **🎓 Offizielle IHK FISI/FIAE Lernfelder Hub (`FisiLernfelderHub.jsx` & `lernfelderData.js`)**:
-  * Übersicht aller **12 Berufsschul-Lernfelder** gemäß offiziellem KMK-Rahmenlehrplan für Fachinformatiker Systemintegration (FISI) und Anwendungsentwicklung (FIAE):
-    * **1. Lehrjahr (LF 1 - 5)**: Betrieb, IT-Arbeitsplätze, Clients in Netzwerken, Schutzbedarfsanalyse, Software & SQL Datenverwaltung.
-    * **2. Lehrjahr (LF 6 - 9)**: Service-Management (ITIL), Cyber-physische Systeme (IoT), Datenbereitstellung, Netzwerke & Virtualisierung.
-    * **3. Lehrjahr (LF 10b - 12b)**: Serverdienste & Automatisierung (Active Directory, Scripting), Sicherheit vernetzter Systeme (Firewalls, VPN), Kundenspezifische Systemintegration (Abschlussprojekt).
-* **🔥 Web Components & Micro-Frontends Hub (`WebComponentsHub.jsx`)**: Lit.dev, Vaadin & W3C Custom Elements.
-* **📚 10+ Sprachen W3Schools Academy (`LanguageAcademy.jsx`)**: JS, TS, Java, C#, Angular, PHP, React, Vite & C++.
-* **🌐 Internationalisierung (i18n / DE & EN Mehrsprachigkeit)**.
-* **🧪 Unit-Testing & TDD Challenge Lab (`TddUnitTestLab.jsx`)**.
-* **🚀 Live Deployment Leitfaden (`DeploymentGuideModal.jsx`)**.
+* **🤖 AI Business & Deep Learning Masterclass (`AiBusinessMasterclass.jsx` & `aiBusinessData.js`)**:
+  * Golem Karrierewelt & Coursera-inspirierte Lerneinheiten für Business Prompts, Marketing-Automatisierung & Deep Learning Grundlagen.
+* **🎧 IT-Berufe & IHK Podcast Hub (`ItPodcastHub.jsx` & `podcastData.js`)**:
+  * Stefan Macke & Superprof-inspirierte Prüfertipps für Projektdokumentation, Fachgespräch & AP Teil 2.
+* **🎓 Offizielle IHK FISI/FIAE Lernfelder Hub (`FisiLernfelderHub.jsx`)**: Alle 12 Berufsschul-Lernfelder (LF 1 bis 12b).
+* **🔥 Web Components Hub (`WebComponentsHub.jsx`)**: Lit.dev, Vaadin & Custom Elements.
+* **📚 10+ Sprachen W3Schools Academy (`LanguageAcademy.jsx`)**.
 
 ---
 
@@ -81,6 +78,7 @@ Informatik-lernen/
     ├── main.jsx
     ├── components/
     │   ├── Content/
+    │   │   ├── AiBusinessMasterclass.jsx
     │   │   ├── AiPromptLab.jsx
     │   │   ├── AppWorkshop.jsx
     │   │   ├── ArchitectureVisualizer.jsx
@@ -92,6 +90,7 @@ Informatik-lernen/
     │   │   ├── ExamSimulator.jsx
     │   │   ├── FisiLernfelderHub.jsx
     │   │   ├── GlossaryModal.jsx
+    │   │   ├── ItPodcastHub.jsx
     │   │   ├── KnowledgeQuizArena.jsx
     │   │   ├── LanguageAcademy.jsx
     │   │   ├── TddUnitTestLab.jsx
@@ -129,6 +128,7 @@ Informatik-lernen/
     │   └── Projects/
     │       └── ProjectViewer.jsx
     ├── data/
+    │   ├── aiBusinessData.js
     │   ├── clozeData.js
     │   ├── examData.js
     │   ├── flashcardsData.js
@@ -136,6 +136,7 @@ Informatik-lernen/
     │   ├── glossaryData.js
     │   ├── languageData.js
     │   ├── lernfelderData.js
+    │   ├── podcastData.js
     │   ├── projectsData.js
     │   ├── quizArenaData.js
     │   ├── roadmapData.js
@@ -177,11 +178,15 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v2.2.0] - AI Business Masterclass & IT Podcast Hub (Superprof/Golem/Coursera)
+* **AI Business Masterclass (`AiBusinessMasterclass.jsx`)**: Golem & Coursera-basierte KI Business Prompts & Deep Learning.
+* **IT-Berufe Podcast Hub (`ItPodcastHub.jsx`)**: Stefan Macke & Superprof-basierte IHK Prüfungstipps.
+
 #### [v2.1.0] - Offizieller IHK FISI / FIAE Lernfelder Hub (LF 1 bis 12b)
-* **IHK Lernfelder Hub (`FisiLernfelderHub.jsx` & `lernfelderData.js`)**: Vollständiger Überblick über alle 12 Lernfelder der Berufsschule nach KMK-Rahmenlehrplan.
+* IHK Lernfelder Hub mit allen 12 Berufsschul-Lernfeldern.
 
 #### [v2.0.0] - Web Components (Lit.dev, Vaadin) & 10+ Sprachen W3Schools Hub
-* Web Components Hub & erweiterte Sprachen Academy (JS, TS, Java, C#, Angular, PHP, React, Vite, C++).
+* Web Components Hub & erweiterte Sprachen Academy.
 
 #### [v1.9.0] - i18n Mehrsprachigkeit (DE/EN), TDD Unit-Testing & Live Deployment Guide
 * i18n Mehrsprachigkeit, Jest TDD Unit Testing Lab & Deployment Guide.
