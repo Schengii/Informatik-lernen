@@ -37,12 +37,14 @@ import CareerRoadmap from './components/Content/CareerRoadmap';
 import BigOVisualizer from './components/Content/BigOVisualizer';
 import ArchitectureVisualizer from './components/Content/ArchitectureVisualizer';
 import DesignPatternsLab from './components/Content/DesignPatternsLab';
+import TddUnitTestLab from './components/Content/TddUnitTestLab';
+import DeploymentGuideModal from './components/Content/DeploymentGuideModal';
 
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
-import { BookOpen, Sparkles, ArrowRight, CheckCircle, BookMarked, Compass, Activity, Network, Layers, Keyboard } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, CheckCircle, BookMarked, Compass, Activity, Network, Layers, Keyboard, Rocket } from 'lucide-react';
 
 export default function App() {
   const [userState, setUserState] = useState(loadUserState());
@@ -53,7 +55,9 @@ export default function App() {
   const [isFlashcardsModalOpen, setIsFlashcardsModalOpen] = useState(false);
   const [isBackupModalOpen, setIsBackupModalOpen] = useState(false);
   const [isVocabularyModalOpen, setIsVocabularyModalOpen] = useState(false);
+  const [isDeploymentModalOpen, setIsDeploymentModalOpen] = useState(false);
 
+  const [lang, setLang] = useState('de');
   const [activeTab, setActiveTab] = useState('dashboard');
 
   // Accessibility State & Theme (Light / Dark)
@@ -165,8 +169,11 @@ export default function App() {
         onOpenFlashcardsModal={() => setIsFlashcardsModalOpen(true)}
         onOpenVocabularyModal={() => setIsVocabularyModalOpen(true)}
         onOpenBackupModal={() => setIsBackupModalOpen(true)}
+        onOpenDeploymentModal={() => setIsDeploymentModalOpen(true)}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
+        lang={lang}
+        setLang={setLang}
         fontSize={fontSize}
         setFontSize={setFontSize}
         isDyslexic={isDyslexic}
@@ -222,10 +229,10 @@ export default function App() {
 
                   <button
                     className="btn btn-secondary"
-                    onClick={() => setActiveTab('architecture')}
-                    style={{ minHeight: '48px', fontSize: '0.95rem', borderColor: 'var(--accent-teal)', color: 'var(--accent-teal)' }}
+                    onClick={() => setIsDeploymentModalOpen(true)}
+                    style={{ minHeight: '48px', fontSize: '0.95rem', borderColor: 'var(--accent-amber)', color: 'var(--accent-amber)' }}
                   >
-                    <Network size={18} /> Architektur
+                    <Rocket size={18} /> Live Deployment Guide
                   </button>
                 </div>
               </div>
@@ -243,6 +250,22 @@ export default function App() {
             </h2>
 
             <div className="grid-responsive" style={{ marginBottom: '40px' }}>
+              {/* TDD Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('tdd')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🧪</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Unit-Tests & TDD Lab</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Schreibe und repariere automatizierte Jest Unit Tests.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  TDD Starten <ArrowRight size={16} />
+                </span>
+              </div>
+
               {/* Architecture Card */}
               <div
                 className="glass-panel glass-panel-hover"
@@ -258,41 +281,12 @@ export default function App() {
                   Architektur Starten <ArrowRight size={16} />
                 </span>
               </div>
-
-              {/* Design Patterns Card */}
-              <div
-                className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('design_patterns')}
-                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-              >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🧩</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Design Patterns Lab</h3>
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Singleton, Observer, Factory & Refactoring Aufgaben.
-                </p>
-                <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Patterns Lernen <ArrowRight size={16} />
-                </span>
-              </div>
-
-              {/* Code Speedrun Card */}
-              <div
-                className="glass-panel glass-panel-hover"
-                onClick={() => { setActiveTab('games'); setActiveGameId('typing_speedrun'); }}
-                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-              >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>⌨️</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Code Speedrun & WPM</h3>
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Entwickler Tipptrainer für maximale Code-Tippgeschwindigkeit.
-                </p>
-                <span style={{ fontSize: '0.9rem', color: 'var(--accent-amber)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Speedrun Starten <ArrowRight size={16} />
-                </span>
-              </div>
             </div>
           </div>
         )}
+
+        {/* TDD UNIT TESTING TAB */}
+        {activeTab === 'tdd' && <TddUnitTestLab onRewardXP={(xp) => awardXP(xp, 'tdd_master')} />}
 
         {/* SYSTEM ARCHITECTURE TAB */}
         {activeTab === 'architecture' && <ArchitectureVisualizer />}
@@ -496,6 +490,12 @@ export default function App() {
         isOpen={isVocabularyModalOpen}
         onClose={() => setIsVocabularyModalOpen(false)}
         onRewardXP={(xp) => awardXP(xp)}
+      />
+
+      {/* Live Deployment Guide Modal */}
+      <DeploymentGuideModal
+        isOpen={isDeploymentModalOpen}
+        onClose={() => setIsDeploymentModalOpen(false)}
       />
 
       {/* Backup & Restore Modal */}

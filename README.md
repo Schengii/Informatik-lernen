@@ -1,6 +1,6 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, Generativer KI (RAG/LLMs), Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, Generativer KI (RAG/LLMs), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
@@ -27,23 +27,24 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI, IT-Systemelektroniker)**:
    - Gezieltes IHK-Prüfungswissen, Berufsschul-Themen (SQL JOINs, Netzwerke/OSI, Java, C#, Bash-Terminal, Pseudocode, Lückentexte).
 3. **🚀 Junior Developer**:
-   - Clean Code Prinzipien, REST-APIs, React, Node.js, RegEx, Git-Workflows, Design Patterns und praxisnahe Mikroprojekte.
+   - Clean Code Prinzipien, REST-APIs, React, Node.js, RegEx, TDD Unit-Testing, Git-Workflows, Design Patterns und praxisnahe Mikroprojekte.
 4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
-   - Fortgeschrittene Systemarchitektur (Microservices, Load Balancer, Redis Cache), Cybersecurity (OWASP Top 10), Generative AI (LLMs, RAG-Architekturen), Big-O Notation, Cloud Native (Docker, Kubernetes) & PWA Offline Deployment.
+   - Fortgeschrittene Systemarchitektur (Microservices, Load Balancer, Redis Cache), Cybersecurity (OWASP Top 10), Generative AI (LLMs, RAG-Architekturen), Big-O Notation, Cloud Native (Docker, Kubernetes) & PWA Live Deployment.
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v1.8.0)
+## 🔥 Hauptfunktionen & Neue Features (v1.9.0)
 
+* **🌐 Internationalisierung (i18n / DE & EN Mehrsprachigkeit) (`i18n.js`)**:
+  * Umschaltbare Sprachunterstützung zwischen Deutsch und Englisch direkt in der Header-Leiste.
+* **🧪 Unit-Testing & TDD Challenge Lab (`TddUnitTestLab.jsx`)**:
+  * Interaktives Test-Driven Development Training mit automatisierter Jest Unit-Test Auswertung.
+* **🚀 1-Klick Live Deployment Leitfaden (`DeploymentGuideModal.jsx`)**:
+  * Schritt-für-Schritt Veröffentlichungs-Guide für Vercel, Netlify und GitHub Pages.
 * **🌐 Systemarchitektur & Microservices Visualizer (`ArchitectureVisualizer.jsx`)**:
-  * Interaktives Diagramm zum Verstehen von **Clients**, **API Gateways**, **Load Balancern**, **Microservices**, **Redis In-Memory Cache** und **SQL/NoSQL Datenbanken**.
-* **🧩 Software Design Patterns & Refactoring Lab (`DesignPatternsLab.jsx`)**:
-  * Interaktiver Code-Workshop für **Singleton**, **Observer**, **Factory** und **Strategy** Muster mit Vorher/Nachher Code-Refactoring.
-* **⌨️ Code Typing Speedrun & WPM Tipptrainer (`CodeTypingSpeedrun.jsx`)**:
-  * Gamifizierter Entwickler-Tipptrainer mit WPM-Messung (Words Per Minute) und Tippgenauigkeits-Auswertung für JavaScript, Python & SQL.
-* **📱 Progressive Web App (PWA) & Offline-Support (`manifest.json` & `sw.js`)**:
-  * Service Worker Caching & Web App Manifest – installierbar auf iOS, Android und Desktops für ständige Verfügbarkeit.
-* **🧭 IT Karriere Roadmaps, ⚔️ Boss-Battle Mode & 📊 Big-O Notation Visualizer**.
+  * Diagramm für Microservices, API Gateways, Redis Cache & DBs.
+* **🧩 Software Design Patterns & Refactoring Lab (`DesignPatternsLab.jsx`)**.
+* **⌨️ Code Typing Speedrun, 📱 PWA Offline-Support, 🧭 IT Roadmaps & ⚔️ Boss Battles**.
 
 ---
 
@@ -86,11 +87,13 @@ Informatik-lernen/
     │   │   ├── BigOVisualizer.jsx
     │   │   ├── CareerRoadmap.jsx
     │   │   ├── ClozeTester.jsx
+    │   │   ├── DeploymentGuideModal.jsx
     │   │   ├── DesignPatternsLab.jsx
     │   │   ├── ExamSimulator.jsx
     │   │   ├── GlossaryModal.jsx
     │   │   ├── KnowledgeQuizArena.jsx
     │   │   ├── LanguageAcademy.jsx
+    │   │   ├── TddUnitTestLab.jsx
     │   │   ├── TopicReader.jsx
     │   │   ├── ToolingSetupGuide.jsx
     │   │   ├── VideoHub.jsx
@@ -140,6 +143,7 @@ Informatik-lernen/
     ├── styles/
     │   └── global.css
     └── utils/
+        ├── i18n.js
         └── storage.js
 ```
 
@@ -169,11 +173,13 @@ npm run lint
 
 ### Versionsverlauf
 
-#### [v1.8.0] - Systemarchitektur, Design Patterns, Code Speedrun & PWA Offline Support
-* **Systemarchitektur Visualizer (`ArchitectureVisualizer.jsx`)**: Diagramm für Microservices, Gateway, Redis Cache & DBs.
-* **Design Patterns Lab (`DesignPatternsLab.jsx`)**: Refactoring-Lab für Singleton, Observer, Factory & Strategy.
-* **Code Speedrun (`CodeTypingSpeedrun.jsx`)**: Entwickler Tipptrainer mit WPM-Messung.
-* **PWA & Offline-Support (`manifest.json` & `sw.js`)**: Installierbare Web-App & Offline-Caching.
+#### [v1.9.0] - i18n Mehrsprachigkeit (DE/EN), TDD Unit-Testing & Live Deployment Guide
+* **i18n Mehrsprachigkeit (`i18n.js`)**: Umschalten zwischen Deutsch und Englisch.
+* **Unit-Testing & TDD Challenge (`TddUnitTestLab.jsx`)**: Jest Test-Runner Simulator.
+* **Live Deployment Guide (`DeploymentGuideModal.jsx`)**: Veröffentlichungs-Guide für Vercel & GitHub Pages.
+
+#### [v1.8.0] - Systemarchitektur, Design Patterns, Code Speedrun & PWA Support
+* Systemarchitektur Visualizer, Design Patterns Lab, Code Speedrun & PWA Offline-Support.
 
 #### [v1.7.0] - IT Roadmaps, Code Duel Boss Battle & Big-O Visualizer
 * IT Karriere Roadmaps, Boss Battle Mode & Big-O Notation Visualizer.

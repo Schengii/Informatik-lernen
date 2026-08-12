@@ -1,7 +1,8 @@
 import React from 'react';
 import { USER_ROLES } from '../../data/userProfiles';
-import { Trophy, Flame, UserCheck, Code2, Sun, Moon, BookOpen, Award, Layers, ShieldCheck, BookMarked, Network, Keyboard } from 'lucide-react';
+import { Trophy, Flame, UserCheck, Code2, Sun, Moon, BookOpen, Award, Layers, ShieldCheck, BookMarked, Globe, Rocket } from 'lucide-react';
 import AccessibilityToolbar from './AccessibilityToolbar';
+import { getTranslation } from '../../utils/i18n';
 
 export default function Navbar({
   userState,
@@ -12,8 +13,11 @@ export default function Navbar({
   onOpenFlashcardsModal,
   onOpenVocabularyModal,
   onOpenBackupModal,
+  onOpenDeploymentModal,
   activeTab,
   setActiveTab,
+  lang,
+  setLang,
   fontSize,
   setFontSize,
   isDyslexic,
@@ -28,6 +32,8 @@ export default function Navbar({
   setTheme
 }) {
   const currentRole = USER_ROLES[userState.role] || USER_ROLES.anfaenger;
+
+  const t = (key) => getTranslation(lang, key);
 
   return (
     <header
@@ -87,19 +93,20 @@ export default function Navbar({
         {/* Desktop Navigation Tabs */}
         <nav className="desktop-only" style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
           {[
-            { id: 'dashboard', label: 'Dashboard' },
-            { id: 'wissen', label: 'Wissen' },
-            { id: 'roadmaps', label: '🧭 Roadmaps' },
-            { id: 'architecture', label: '🌐 Architektur' },
-            { id: 'design_patterns', label: '🧩 Patterns' },
-            { id: 'languages', label: '🐍 Sprachen' },
-            { id: 'quiz_arena', label: '🏆 Quiz Arena' },
-            { id: 'big_o', label: '📊 Big-O' },
-            { id: 'games', label: 'Games' },
-            { id: 'exam', label: '🎓 IHK' },
-            { id: 'ai', label: '🤖 KI-Lab' },
-            { id: 'tooling', label: '🛠️ Tools' },
-            { id: 'app_workshop', label: '📱 App-Shop' }
+            { id: 'dashboard', label: t('dashboard') },
+            { id: 'wissen', label: t('wissen') },
+            { id: 'roadmaps', label: '🧭 ' + t('roadmaps') },
+            { id: 'architecture', label: '🌐 ' + t('architecture') },
+            { id: 'design_patterns', label: '🧩 ' + t('patterns') },
+            { id: 'tdd', label: '🧪 ' + t('tdd') },
+            { id: 'languages', label: '🐍 ' + t('languages') },
+            { id: 'quiz_arena', label: '🏆 ' + t('quiz_arena') },
+            { id: 'big_o', label: '📊 ' + t('big_o') },
+            { id: 'games', label: t('games') },
+            { id: 'exam', label: '🎓 ' + t('exam') },
+            { id: 'ai', label: '🤖 ' + t('ai') },
+            { id: 'tooling', label: '🛠️ ' + t('tooling') },
+            { id: 'app_workshop', label: '📱 ' + t('app_workshop') }
           ].map((tab) => (
             <button
               key={tab.id}
@@ -124,6 +131,28 @@ export default function Navbar({
 
         {/* User Controls Bar */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+          {/* Language Switcher DE / EN */}
+          <button
+            className="btn btn-secondary btn-sm"
+            onClick={() => setLang(lang === 'de' ? 'en' : 'de')}
+            style={{ gap: '6px', fontWeight: 800, borderColor: 'var(--accent-primary)', color: 'var(--accent-primary)' }}
+            title="Sprache wechseln (DE / EN)"
+          >
+            <Globe size={16} />
+            <span>{lang.toUpperCase()}</span>
+          </button>
+
+          {/* Live Deployment Guide Button */}
+          <button
+            className="btn btn-secondary btn-sm"
+            onClick={onOpenDeploymentModal}
+            style={{ gap: '6px', fontWeight: 700, borderColor: 'var(--accent-amber)', color: 'var(--accent-amber)' }}
+            title="App Live Veröffentlichen"
+          >
+            <Rocket size={16} />
+            <span className="desktop-only">Deploy</span>
+          </button>
+
           {/* IT Vokabeltrainer Button */}
           <button
             className="btn btn-secondary btn-sm"
@@ -132,7 +161,7 @@ export default function Navbar({
             title="IT-Vokabeltrainer & Fachbegriffe"
           >
             <BookMarked size={16} />
-            <span className="desktop-only">Vokabeln</span>
+            <span className="desktop-only">{t('vocabulary')}</span>
           </button>
 
           {/* IT Lexikon Button */}
@@ -143,7 +172,7 @@ export default function Navbar({
             title="IT-Lexikon & Fachbegriffe"
           >
             <BookOpen size={16} />
-            <span className="desktop-only">Lexikon</span>
+            <span className="desktop-only">{t('lexicon')}</span>
           </button>
 
           {/* Flashcards Button */}
@@ -157,17 +186,6 @@ export default function Navbar({
             <span className="desktop-only">Karteikarten</span>
           </button>
 
-          {/* Certificate Button */}
-          <button
-            className="btn btn-secondary btn-sm"
-            onClick={onOpenCertificateModal}
-            style={{ gap: '6px', fontWeight: 700, borderColor: 'var(--accent-amber)', color: 'var(--accent-amber)' }}
-            title="Zertifikat anzeigen"
-          >
-            <Award size={16} />
-            <span className="desktop-only">Zertifikat</span>
-          </button>
-
           {/* Backup Button */}
           <button
             className="btn btn-secondary btn-sm"
@@ -176,7 +194,7 @@ export default function Navbar({
             title="Daten sichern / Wiederherstellen"
           >
             <ShieldCheck size={16} />
-            <span className="desktop-only">Backup</span>
+            <span className="desktop-only">{t('backup')}</span>
           </button>
 
           {/* XP & Level Badge */}
