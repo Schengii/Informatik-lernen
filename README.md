@@ -1,6 +1,6 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), Generativer KI (RAG/LLMs), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, IHK Berufsschul-Lernfeldern (FISI/FIAE), Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), Generativer KI (RAG/LLMs), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
@@ -25,7 +25,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - Lernen ohne jegliche Vorkenntnisse.
    - Grundlagen spielerisch erklärt: Wie denkt ein PC? Was sind Bits/Bytes? Erste Schritte in Python, HTML/CSS & Binärlogik.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI, IT-Systemelektroniker)**:
-   - Gezieltes IHK-Prüfungswissen, Berufsschul-Themen (SQL JOINs, Netzwerke/OSI, Java, C#, PHP, Bash-Terminal, Pseudocode, Lückentexte).
+   - Alle 12 IHK-Berufsschul Lernfelder (1. bis 3. Lehrjahr), Prüfungswissen für AP Teil 1 & AP Teil 2, SQL, Netzwerke, Virtualisierung, Bash/PowerShell Scripting & Lückentexte.
 3. **🚀 Junior Developer**:
    - Clean Code Prinzipien, REST-APIs, JavaScript, TypeScript, React, Angular, Node.js, Vite, RegEx, TDD Unit-Testing, Git-Workflows und Design Patterns.
 4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
@@ -33,16 +33,18 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v2.0.0)
+## 🔥 Hauptfunktionen & Neue Features (v2.1.0)
 
-* **🔥 Web Components & Micro-Frontends Hub (`WebComponentsHub.jsx` & `webComponentsData.js`)**:
-  * Interaktive Lernbereiche für **Lit.dev (LitElement)**, **Vaadin Web Framework** und **Native W3C Web Components (Shadow DOM & Custom Elements)**.
-* **📚 W3Schools-Inspirierte Sprachen Academy (`LanguageAcademy.jsx` & `languageData.js`)**:
-  * Vollständige Lernbereiche, Code-Beispiele und Syntax-Anleitungen für 10+ Technologien: **JavaScript (JS)**, **TypeScript (TS)**, **Java & Spring Boot**, **C# / .NET**, **Angular**, **PHP 8 & Laravel**, **React.js**, **Vite Build Tool**, **Python 3** und **C++**.
+* **🎓 Offizielle IHK FISI/FIAE Lernfelder Hub (`FisiLernfelderHub.jsx` & `lernfelderData.js`)**:
+  * Übersicht aller **12 Berufsschul-Lernfelder** gemäß offiziellem KMK-Rahmenlehrplan für Fachinformatiker Systemintegration (FISI) und Anwendungsentwicklung (FIAE):
+    * **1. Lehrjahr (LF 1 - 5)**: Betrieb, IT-Arbeitsplätze, Clients in Netzwerken, Schutzbedarfsanalyse, Software & SQL Datenverwaltung.
+    * **2. Lehrjahr (LF 6 - 9)**: Service-Management (ITIL), Cyber-physische Systeme (IoT), Datenbereitstellung, Netzwerke & Virtualisierung.
+    * **3. Lehrjahr (LF 10b - 12b)**: Serverdienste & Automatisierung (Active Directory, Scripting), Sicherheit vernetzter Systeme (Firewalls, VPN), Kundenspezifische Systemintegration (Abschlussprojekt).
+* **🔥 Web Components & Micro-Frontends Hub (`WebComponentsHub.jsx`)**: Lit.dev, Vaadin & W3C Custom Elements.
+* **📚 10+ Sprachen W3Schools Academy (`LanguageAcademy.jsx`)**: JS, TS, Java, C#, Angular, PHP, React, Vite & C++.
 * **🌐 Internationalisierung (i18n / DE & EN Mehrsprachigkeit)**.
 * **🧪 Unit-Testing & TDD Challenge Lab (`TddUnitTestLab.jsx`)**.
 * **🚀 Live Deployment Leitfaden (`DeploymentGuideModal.jsx`)**.
-* **🌐 Systemarchitektur, 🧩 Design Patterns, ⌨️ Code Speedrun & 📱 PWA Support**.
 
 ---
 
@@ -88,6 +90,7 @@ Informatik-lernen/
     │   │   ├── DeploymentGuideModal.jsx
     │   │   ├── DesignPatternsLab.jsx
     │   │   ├── ExamSimulator.jsx
+    │   │   ├── FisiLernfelderHub.jsx
     │   │   ├── GlossaryModal.jsx
     │   │   ├── KnowledgeQuizArena.jsx
     │   │   ├── LanguageAcademy.jsx
@@ -132,6 +135,7 @@ Informatik-lernen/
     │   ├── gamesData.js
     │   ├── glossaryData.js
     │   ├── languageData.js
+    │   ├── lernfelderData.js
     │   ├── projectsData.js
     │   ├── quizArenaData.js
     │   ├── roadmapData.js
@@ -173,9 +177,11 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v2.1.0] - Offizieller IHK FISI / FIAE Lernfelder Hub (LF 1 bis 12b)
+* **IHK Lernfelder Hub (`FisiLernfelderHub.jsx` & `lernfelderData.js`)**: Vollständiger Überblick über alle 12 Lernfelder der Berufsschule nach KMK-Rahmenlehrplan.
+
 #### [v2.0.0] - Web Components (Lit.dev, Vaadin) & 10+ Sprachen W3Schools Hub
-* **Web Components Hub (`WebComponentsHub.jsx`)**: Lit.dev, Vaadin & Native Web Components.
-* **Erweiterte Sprachen Academy (`LanguageAcademy.jsx`)**: JS, TS, Java, C#, Angular, PHP, React, Vite & C++.
+* Web Components Hub & erweiterte Sprachen Academy (JS, TS, Java, C#, Angular, PHP, React, Vite, C++).
 
 #### [v1.9.0] - i18n Mehrsprachigkeit (DE/EN), TDD Unit-Testing & Live Deployment Guide
 * i18n Mehrsprachigkeit, Jest TDD Unit Testing Lab & Deployment Guide.

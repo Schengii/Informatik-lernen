@@ -1,6 +1,6 @@
 import React from 'react';
 import { USER_ROLES } from '../../data/userProfiles';
-import { Trophy, Flame, UserCheck, Code2, Sun, Moon, BookOpen, Award, Layers, ShieldCheck, BookMarked, Globe, Rocket } from 'lucide-react';
+import { Trophy, Flame, UserCheck, Code2, Sun, Moon, BookOpen, Award, Layers, ShieldCheck, BookMarked, Globe, Rocket, GraduationCap } from 'lucide-react';
 import AccessibilityToolbar from './AccessibilityToolbar';
 import { getTranslation } from '../../utils/i18n';
 
@@ -94,6 +94,7 @@ export default function Navbar({
         <nav className="desktop-only" style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
           {[
             { id: 'dashboard', label: t('dashboard') },
+            { id: 'lernfelder', label: '🎓 IHK Lernfelder' },
             { id: 'wissen', label: t('wissen') },
             { id: 'languages', label: '🐍 ' + t('languages') },
             { id: 'web_components', label: '🔥 Web Components' },

@@ -40,12 +40,13 @@ import DesignPatternsLab from './components/Content/DesignPatternsLab';
 import TddUnitTestLab from './components/Content/TddUnitTestLab';
 import DeploymentGuideModal from './components/Content/DeploymentGuideModal';
 import WebComponentsHub from './components/Content/WebComponentsHub';
+import FisiLernfelderHub from './components/Content/FisiLernfelderHub';
 
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
-import { BookOpen, Sparkles, ArrowRight, CheckCircle, BookMarked, Compass, Activity, Network, Layers, Keyboard, Rocket } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, CheckCircle, BookMarked, Compass, Activity, Network, Layers, Keyboard, Rocket, GraduationCap } from 'lucide-react';
 
 export default function App() {
   const [userState, setUserState] = useState(loadUserState());
@@ -230,10 +231,10 @@ export default function App() {
 
                   <button
                     className="btn btn-secondary"
-                    onClick={() => setActiveTab('web_components')}
-                    style={{ minHeight: '48px', fontSize: '0.95rem', borderColor: 'var(--accent-teal)', color: 'var(--accent-teal)' }}
+                    onClick={() => setActiveTab('lernfelder')}
+                    style={{ minHeight: '48px', fontSize: '0.95rem', borderColor: 'var(--accent-indigo)', color: 'var(--accent-indigo)' }}
                   >
-                    <Layers size={18} /> Web Components Hub
+                    <GraduationCap size={18} /> IHK Lernfelder
                   </button>
                 </div>
               </div>
@@ -251,6 +252,22 @@ export default function App() {
             </h2>
 
             <div className="grid-responsive" style={{ marginBottom: '40px' }}>
+              {/* IHK Lernfelder Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('lernfelder')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🎓</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>IHK Lernfelder (FISI / FIAE)</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Alle 12 Berufsschul-Lernfelder für AP Teil 1 & AP Teil 2.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Lernfelder Öffnen <ArrowRight size={16} />
+                </span>
+              </div>
+
               {/* Web Components Card */}
               <div
                 className="glass-panel glass-panel-hover"
@@ -266,25 +283,12 @@ export default function App() {
                   Components Erkunden <ArrowRight size={16} />
                 </span>
               </div>
-
-              {/* Sprachen Academy Card */}
-              <div
-                className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('languages')}
-                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-              >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🐍</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Sprachen & W3Schools Academy</h3>
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  JS, TS, Java, C#, Angular, PHP, React, Vite & C++.
-                </p>
-                <span style={{ fontSize: '0.9rem', color: 'var(--accent-primary)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Sprachen Lernen <ArrowRight size={16} />
-                </span>
-              </div>
             </div>
           </div>
         )}
+
+        {/* IHK LERNFELDER TAB */}
+        {activeTab === 'lernfelder' && <FisiLernfelderHub />}
 
         {/* WEB COMPONENTS TAB */}
         {activeTab === 'web_components' && <WebComponentsHub />}
