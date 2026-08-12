@@ -1,51 +1,53 @@
-# 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform
+# 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, Datenbanken, IT-Sicherheit, Logikschaltungen und Netzwerken – **barrierefrei, WCAG-konform und 100% DSGVO-kompatibel**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, Datenbanken, IT-Sicherheit, Logikschaltungen und Netzwerken – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
 ## 📋 Inhaltsverzeichnis
-- [Übersicht & Beschreibung](#-übersicht--beschreibung)
+- [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
 - [Hauptfunktionen & Barrierefreiheit](#-hauptfunktionen--barrierefreiheit)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
-- [Funktionsweise](#-funktionsweise)
+- [Funktionsweise & Schwierigkeitsgrad-Filter](#-funktionsweise--schwierigkeitsgrad-filter)
 - [DSGVO & Datenschutz](#-dsgvo--datenschutz)
 - [Anleitung (Installation & Ausführung)](#-anleitung-installation--ausführung)
 - [Änderungshistorie & Entwicklungsdokumentation](#-änderungshistorie--entwicklungsdokumentation)
 
 ---
 
-## 🎯 Übersicht & Beschreibung
+## 🎯 Übersicht & Zielgruppen
 
-**IT-DevGame** ist eine interaktive, barrierefreie Lernplattform für angehende Informatiker (u. a. Fachinformatiker Anwendungsentwicklung, Systemintegration, IT-Systemelektroniker). Die Anwendung kombiniert theoretische Lerneinheiten mit praxisnahen Mini-Games, Lückentext-Tests, Code-Sandboxes, Audio-Vorlesefunktionen und Gamification-Elementen (XP, Level, Streaks, Badges).
+**IT-DevGame** ist so konzipiert, dass **jeder Mensch – unabhängig von Alter oder Vorkenntnissen** – spielerisch in die Welt der Informatik einsteigen oder bestehendes Wissen gezielt vertiefen kann:
+
+1. **🌱 Einsteiger & Neugierige (Kinder, Senioren, Quereinsteiger)**:
+   - Lernen ohne jegliche Vorkenntnisse.
+   - Grundlagen spielerisch erklärt: Wie denkt ein PC? Was sind Bits/Bytes? Erste Schritte in HTML/CSS & Binärlogik.
+2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI, IT-Systemelektroniker)**:
+   - Gezieltes IHK-Prüfungswissen, Berufsschul-Themen (SQL JOINs, Netzwerke/OSI, OOP, Pseudocode, Lückentexte).
+3. **🚀 Junior Developer**:
+   - Clean Code Prinzipien, REST-APIs, Git-Workflows und praxisnahe Mikroprojekte.
+4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
+   - Fortgeschrittene Cybersecurity (OWASP Top 10, SQLi, XSS), Datenbank-Performance & Indexing, RegEx & System-Architektur.
 
 ---
 
 ## 🔥 Hauptfunktionen & Barrierefreiheit
 
+* **🎚️ Interaktiver Schwierigkeitsgrad-Filter**:
+  * Dynamische Umschaltung zwischen `🟢 Einsteiger`, `🔵 Azubi / IHK`, `🟣 Senior / Expert` und `Alle Levels`.
 * **🎨 Modernes, helles & kontraststarkes UI-Design**:
-  * Vollständig überarbeitetes Farbschema (vibrante Indigo-, Teal-, Amber- & Emerald-Akzente).
-  * Optimierte Textkontraste nach **WCAG 2.1 Level AA / AAA** für hervorragende Lesbarkeit.
+  * Optimierte Textkontraste nach **WCAG 2.1 Level AA / AAA**.
   * Dynamischer Wechsel zwischen Hell- & Dunkelmodus.
 * **♿ Umfassende Barrierefreiheit & Inklusion**:
-  * **Lese-Rechtschreib-Hilfe (Dyslexie-Modus)**: Spezialschriftart (*Atkinson Hyperlegible*), erweiterter Zeichen- & Zeilenabstand für vereinfachtes Lesen.
-  * **Rot-Grün-Sehhilfe (Farbenblindheits-Modus)**: Zusätzliche Icon-Indikatoren (✓ / ✗) und angepasste Farbpaletten, sodass kein Lerninhalt rein farbabhängig ist.
-  * **Vorlesefunktion (Text-to-Speech)**: Integrierte Audio-Steuerung (Play/Pause/Stopp) in der Fachkunde zum Vorlesen von Theorietexten.
-  * **Schriftgrößen-Skalierung**: Stufenlose Anpassung (A- / 100% / A+) über die Barrierefreiheits-Toolbar.
-  * **Hoher Kontrast & Reduzierte Animationen**: Schalter für maximale Kontraste und sanfte Bewegungen.
+  * **Lese-Rechtschreib-Hilfe (Dyslexie-Modus)**: Spezialschriftart (*Atkinson Hyperlegible*), erweiterter Zeichen- & Zeilenabstand.
+  * **Rot-Grün-Sehhilfe (Farbenblindheits-Modus)**: Zusätzliche Icon-Indikatoren (✓ / ✗) und barrierefreie Farbpaletten.
+  * **Vorlesefunktion (Text-to-Speech)**: Audio-Steuerung (Play/Pause/Stopp) zum Vorlesen aller Lerneinheiten.
+  * **Schriftgrößen-Skalierung**: Stufenlose Anpassung (A- / 100% / A+).
 * **🔒 DSGVO & Privacy First**:
-  * 100% DSGVO-konform: Keine Tracking-Cookies, keine externen Analyse-Tools.
-  * Sämtliche Fortschritte verbleiben ausschließlich im lokalen Speicher (`localStorage`) des Nutzers.
-  * Integriertes DSGVO & Impressum Modal in der Fußzeile.
+  * 100% DSGVO-konform: Keine Tracking-Cookies, alle Daten bleiben rein lokal im `localStorage`.
 * **🎮 Interaktive Mini-Games**:
-  * **Logic Gates Simulator**: Digitale Logikgatter (AND, OR, NOT, XOR, NAND, NOR) testen & Schaltungen simulieren.
-  * **SQL Dungeon**: Datenbankabfragen (SELECT, JOIN, WHERE, GROUP BY) lösen.
-  * **Web Sandbox**: Live HTML/CSS/JS Code-Editor mit Echtzeit-Vorschau.
-  * **Security Lab**: Cyber-Security Scenarios (Phishing, Passwort-Stärke, Hashing, Port-Scans).
-  * **Code Puzzle**: Code-Blöcke per Drag/Click in die richtige Reihenfolge bringen.
-* **📱 Responsive & Touch-Optimiert**:
-  * Barrierefreie Touch-Targets (mind. 44px) für Smartphone-, Tablet- und Desktop-Nutzung.
+  * **Logic Gates Simulator**, **SQL Dungeon**, **Web Sandbox**, **Cyber Defense Lab**, **Code Bug Hunter**.
 
 ---
 
@@ -68,7 +70,6 @@ Informatik-lernen/
     ├── App.jsx
     ├── index.css
     ├── main.jsx
-    ├── assets/
     ├── components/
     │   ├── Content/
     │   │   ├── ClozeTester.jsx
@@ -86,6 +87,7 @@ Informatik-lernen/
     │   │   └── BadgesModal.jsx
     │   ├── Navigation/
     │   │   ├── AccessibilityToolbar.jsx
+    │   │   ├── DifficultyFilterBar.jsx
     │   │   ├── MobileNav.jsx
     │   │   └── Navbar.jsx
     │   ├── Onboarding/
@@ -109,34 +111,11 @@ Informatik-lernen/
 
 ## 📄 Dateiinhalt & Komponentenübersicht
 
-### Core & Navigation
-* **`src/App.jsx`**: Hauptkomponente mit State-Management für Routing, Gamification, Barrierefreiheit (Dyslexie, Rot-Grün-Sehhilfe, High Contrast) und Theme-Modi.
-* **`src/components/Navigation/Navbar.jsx`**: Kopfzeile mit XP, Level, Rolle, Theme-Wechsler & Barrierefreiheits-Button.
-* **`src/components/Navigation/AccessibilityToolbar.jsx`**: Interaktive Toolbar für Schriftgrößen, Lese-Rechtschreib-Hilfe, Rot-Grün-Sehhilfe & reduziertes Motion-Setting.
-* **`src/components/Footer/DsgvoFooterModal.jsx`**: Fußzeile & Modal für Datenschutz (DSGVO), Impressum und lokale Datentransparenz.
-* **`src/components/Navigation/MobileNav.jsx`**: Untere Navigationsleiste mit touch-optimierten Buttons (mind. 44px).
-
-### Inhalte & Lernen
-* **`src/components/Content/TopicReader.jsx`**: Fachkunde-Artikel mit integrierter **Audio Vorlesefunktion (Text-to-Speech)**, Quizzes & Barrierefreiheits-Icons.
-* **`src/components/Content/ClozeTester.jsx`**: Interaktiver Lückentext-Tester mit deutlichen Icon-Feedback-Indikatoren.
-* **`src/styles/global.css`**: Zentrales CSS-Designsystem mit WCAG-Farbtokens, Dyslexie-Font-Regeln, Rot-Grün-Hilfe & Mikro-Animationen.
-
----
-
-## ⚙️ Funktionsweise
-
-1. **Accessibility & Inklusions-Engine**:
-   - Die Anwendung schaltet dynamisch CSS-Klassen (`.dyslexia-mode`, `.colorblind-mode`, `.high-contrast-mode`) am `body`-Element.
-   - Die Vorlesefunktion greift direkt auf die native `SpeechSynthesisUtterance` Web API des Browsers zu.
-2. **Gamification-Engine**:
-   - XP und Level-Aufstiege werden bei allen absolvierten Einheiten vergeben. Konfetti-Animationen berücksichtigen die Benutzereinstellung für reduzierte Bewegung (`isReducedMotion`).
-
----
-
-## 🔒 DSGVO & Datenschutz
-
-* **Kein Server-Tracking**: Weder IPs noch Nutzerdaten werden an Drittanbieter oder Server übermittelt.
-* **Lokaler Speicher**: Fortschrittsdaten liegen verschlüsselt/rein im `localStorage` des jeweiligen Endgeräts.
+### Navigation & Level-Steuerung
+* **`src/components/Navigation/DifficultyFilterBar.jsx`**: Dynamische Barrierefreiheits-Filterleiste zur Auswahl von Vorwissens-Stufen (`Einsteiger`, `Azubi / IHK`, `Senior / Expert`).
+* **`src/components/Onboarding/RoleSelectionModal.jsx`**: Personalisierter Einstiegs-Dialog zur Wahl der passenden Zielgruppe und Lern-Roadmap.
+* **`src/data/userProfiles.js`**: Definition der 4 Haupt-Zielgruppen (Einsteiger, Azubi, Junior, Senior).
+* **`src/data/topicsData.js`**: Fachkunde-Lektionen mit zugewiesenen Schwierigkeitsgraden.
 
 ---
 
@@ -164,15 +143,14 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v1.2.0] - Zielgruppen-Erweiterung für jedes Alter & Vorwissen (Einsteiger bis Senior Dev)
+* **Zielgruppen-Expansion**: Erweiterung des Nutzerprofil-Systems auf 4 Hauptgruppen (`🌱 Einsteiger ohne Vorwissen`, `⚡ Azubi / IHK`, `🚀 Junior Dev`, `🔥 Senior Dev / Architekt`).
+* **Schwierigkeitsgrad-Filter (`DifficultyFilterBar.jsx`)**: Ermöglicht das Filtern aller Wissens- und Praxismodule nach Vorkenntnissen und Alter.
+* **Didaktische Anpassungen**: Einfache Sprache in Einsteiger-Modulen, gezieltes Prüfungswissen für Azubis & OWASP/Performance-Themen für Profis.
+
 #### [v1.1.0] - Helles High-Contrast Design, Barrierefreiheit (WCAG/Dyslexie/Sehhilfe), TTS & DSGVO
-* **UI Redesign**: Umstellung auf ein helles, modernes Design mit kontrastreichen Akzentfarben (Indigo, Teal, Emerald, Amber).
-* **Barrierefreiheit (WCAG 2.1 AA/AAA)**:
-  * **Lese-Rechtschreib-Hilfe**: Integration des Dyslexie-Modus mit adaptierter Typografie (*Atkinson Hyperlegible*) & Abständen.
-  * **Rot-Grün-Sehhilfe**: Ergänzung barrierefreier Icon-Indikatoren (✓/✗) & kontraststarker Farbwelten.
-  * **Vorlesefunktion**: Text-to-Speech Vorlese-Steuerung in den Fachkunde-Themen.
-  * **Accessibility Toolbar**: Menü zur Steuerung von Schriftgröße, Bewegung, Kontrast und Hilfsmodi.
-* **DSGVO & Rechtliches**: Ergänzung von Datenschutz- & Impressum-Modalen sowie transparenter Deklaration des lokalen Speichers.
-* **Responsive Touch-Targets**: Mindesthöhe von 44px für alle interaktiven Steuerelemente auf Mobilgeräten.
+* **UI Redesign**: Umstellung auf ein helles, modernes Design mit kontrastreichen Akzentfarben.
+* **Barrierefreiheit (WCAG 2.1 AA/AAA)**: Dyslexie-Modus, Rot-Grün-Sehhilfe, Text-to-Speech Vorlesefunktion & Accessibility-Toolbar.
 
 #### [v1.0.0] - initiales Release & Git Repository Push
-* **Initiales Setup**: Einrichtung des Repositories, Mini-Games (Logic Gates, SQL Dungeon, Web Sandbox, Security Lab, Code Puzzle) & Theorie-Module.
+* Initiales Setup des IT-DevGame Repositories.

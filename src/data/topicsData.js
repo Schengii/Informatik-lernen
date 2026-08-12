@@ -3,7 +3,8 @@ export const TOPICS = [
     id: 'it_basics',
     title: 'Computer-Grundlagen & Binärsystem',
     category: 'Grundlagen',
-    targetRoles: ['anfaenger', 'azubi'],
+    difficultyLevel: 'Einsteiger',
+    targetRoles: ['anfaenger', 'azubi', 'junior', 'pro'],
     icon: '💻',
     readTime: '8 Min',
     summary: 'Wie verarbeiten Computer Daten? Verstehe Bits, Bytes, Binärcode, Hexadezimal und das Zusammenspiel von CPU und RAM.',
@@ -60,7 +61,8 @@ console.log(bin2dec("1111")); // Output: 15`,
     id: 'web_html_css',
     title: 'Webentwicklung: HTML5 & CSS3',
     category: 'Webentwicklung',
-    targetRoles: ['anfaenger', 'azubi'],
+    difficultyLevel: 'Einsteiger',
+    targetRoles: ['anfaenger', 'azubi', 'junior', 'pro'],
     icon: '🌐',
     readTime: '10 Min',
     summary: 'Erstelle das Gerüst und das Aussehen moderner Webseiten. Lerne Semantic HTML, CSS Flexbox & Responsive Webdesign.',
@@ -89,8 +91,8 @@ console.log(bin2dec("1111")); // Output: 15`,
 \`\`\`css
 /* Flexbox Zentrierung */
 body {
-  background-color: #0a0d14;
-  color: #ffffff;
+  background-color: #f8fafc;
+  color: #0f172a;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,7 +100,7 @@ body {
 }
 
 button {
-  background: linear-gradient(135deg, #06b6d4, #3b82f6);
+  background: linear-gradient(135deg, #4f46e5, #0d9488);
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
@@ -120,199 +122,210 @@ Jedes Element in HTML besteht aus:
 </div>`,
     quiz: [
       {
-        question: 'Welches HTML-Tag definiert die Hauptüberschrift ersten Grades?',
-        options: ['<head>', '<h6>', '<h1>', '<header>'],
-        correct: 2,
-        explanation: '<h1> definiert die primäre Überschrift einer HTML-Seite.'
-      },
-      {
-        question: 'Welche CSS-Eigenschaft richtet Elemente flexibel in einer Reihe oder Spalte aus?',
-        options: ['display: flex', 'position: absolute', 'float: left', 'margin: auto'],
+        question: 'Wofür steht die Abkürzung HTML?',
+        options: [
+          'HyperText Markup Language',
+          'High Tech Modern Language',
+          'Home Tool Markup List',
+          'Hyperlink Test Mode Logic'
+        ],
         correct: 0,
-        explanation: 'display: flex aktiviert das moderne Flexbox-Layout-Modell.'
+        explanation: 'HTML steht für HyperText Markup Language und bildet die Struktur von Webseiten.'
+      }
+    ]
+  },
+  {
+    id: 'js_programming',
+    title: 'Programmierung mit JavaScript (ES6+)',
+    category: 'Programmierung',
+    difficultyLevel: 'Azubi / IHK',
+    targetRoles: ['azubi', 'junior', 'pro'],
+    icon: '⚡',
+    readTime: '12 Min',
+    summary: 'Verstehe Variablen, Datentypen, Schleifen, Funktionen, ES6 Arrows & Arrow Functions und DOM-Manipulation.',
+    content: `
+### 1. Grundlagen der Softwareentwicklung
+Variablen speichern Daten im Speicher:
+- \`let\`: Verändere Variablenwert.
+- \`const\`: Unveränderliche Konstante (Standard).
+
+\`\`\`javascript
+const spielerName = "Alex";
+let xp = 150;
+let hatSchluessel = true;
+
+// Kontrollstruktur
+if (xp >= 100 && hatSchluessel) {
+  console.log("Tür zum nächsten Level geöffnet!");
+} else {
+  console.log("Sammle mehr XP oder suche den Schlüssel.");
+}
+\`\`\`
+
+### 2. Arrays & Objekte
+\`\`\`javascript
+// Array (Liste)
+const inventar = ["Schwert", "Trank", "Schild"];
+
+// Objekt (Schlüssel-Wert Paar)
+const spieler = {
+  name: "Alex",
+  level: 5,
+  skills: ["JavaScript", "SQL"]
+};
+\`\`\`
+`,
+    codeSnippet: `// Array-Methoden
+const zahlen = [1, 2, 3, 4, 5];
+const verdoppelt = zahlen.map(n => n * 2);
+console.log(verdoppelt); // [2, 4, 6, 8, 10]`,
+    quiz: [
+      {
+        question: 'Welches Schlüsselwort deklariert eine unveränderliche Konstante in JavaScript?',
+        options: ['let', 'var', 'const', 'static'],
+        correct: 2,
+        explanation: 'Mit `const` deklarierte Variablen können nach der Zuweisung nicht mehr neu zugewiesen werden.'
       }
     ]
   },
   {
     id: 'sql_databases',
-    title: 'Datenbanken & SQL (Relational DBs)',
+    title: 'Relationales Datenbank-Design & SQL Querying',
     category: 'Datenbanken',
-    targetRoles: ['azubi', 'pro'],
+    difficultyLevel: 'Azubi / IHK',
+    targetRoles: ['azubi', 'junior', 'pro'],
     icon: '🗄️',
     readTime: '12 Min',
-    summary: 'Lerne wie relationale Datenbanken strukturiert sind. Schreibe Queries mit SELECT, WHERE, JOIN, INSERT und GROUP BY.',
+    summary: 'Master SQL SELECT, WHERE, JOINs (INNER, LEFT), GROUP BY und Tabellen-Relationalität (1:N, M:N).',
     content: `
-### 1. Was sind Relationale Datenbanken?
-Datenbanken wie MySQL, PostgreSQL oder SQLite speichern Daten in strukturierten **Tabellen** mit Zeilen (Datensätze) und Spalten (Attribute).
+### 1. Warum relationale Datenbanken?
+Datenbanken speichern Daten strukturiert in Tabellen mit Zeilen (Datensätze) und Spalten (Attribute).
 
-### 2. Die wichtigsten SQL-Befehle (w3schools Standard)
+### 2. Die wichtigsten SQL-Befehle
+- **SELECT:** Daten abfragen.
+- **INSERT:** Neue Daten einfügen.
+- **UPDATE:** Bestehende Daten ändern.
+- **DELETE:** Daten löschen.
 
-#### 🔹 Daten abfragen: SELECT & WHERE
 \`\`\`sql
-SELECT name, rolle, gehalt 
-FROM mitarbeiter 
-WHERE gehalt > 50000 
-ORDER BY gehalt DESC;
+-- Abfrage von Benutzern aus Berlin
+SELECT name, email, level 
+FROM user_profiles 
+WHERE stadt = 'Berlin' 
+ORDER BY level DESC;
 \`\`\`
 
-#### 🔹 Tabellen verknüpfen: INNER JOIN
+### 3. Verknüpfung von Tabellen (JOIN)
 \`\`\`sql
-SELECT mitarbeiter.name, abteilungen.abteilungs_name 
-FROM mitarbeiter
-INNER JOIN abteilungen ON mitarbeiter.abteilung_id = abteilungen.id;
-\`\`\`
-
-#### 🔹 Aggregationen & Gruppierung: GROUP BY
-\`\`\`sql
-SELECT abteilung_id, COUNT(*) AS anzahl, AVG(gehalt) AS durchschnitt_gehalt
-FROM mitarbeiter
-GROUP BY abteilung_id;
-\`\`\`
-
-#### 🔹 Daten einfügen & aktualisieren: INSERT & UPDATE
-\`\`\`sql
-INSERT INTO mitarbeiter (name, rolle, gehalt) 
-VALUES ('Alex Dev', 'Frontend Engineer', 55000);
-
-UPDATE mitarbeiter 
-SET gehalt = 60000 
-WHERE name = 'Alex Dev';
+SELECT k.kunden_name, b.bestell_datum, b.betrag
+FROM kunden k
+JOIN bestellungen b ON k.id = b.kunden_id;
 \`\`\`
 `,
-    codeSnippet: `-- Beispiel: Erstellung einer Tabelle mit Primär- & Fremdschlüssel
-CREATE TABLE kunden (
-  kunden_id INT PRIMARY KEY AUTO_INCREMENT,
-  vorname VARCHAR(50) NOT NULL,
-  email VARCHAR(100) UNIQUE
-);`,
+    codeSnippet: `SELECT department, COUNT(*) as anzahl, AVG(gehalt) as avg_gehalt
+FROM mitarbeiter
+GROUP BY department
+HAVING AVG(gehalt) > 50000;`,
     quiz: [
       {
-        question: 'Mit welchem SQL-Befehl verknüpft man zwei Tabellen anhand einer Schlüsselbeziehung?',
-        options: ['CONNECT', 'INNER JOIN', 'MERGE', 'GROUP BY'],
+        question: 'Welcher SQL-Befehl verknüpft Datensätze zweier Tabellen über ein gemeinsames Attribut?',
+        options: ['MERGE', 'JOIN', 'CONNECT', 'UNION'],
         correct: 1,
-        explanation: 'INNER JOIN verbindet Zeilen aus zwei Tabellen, bei denen die Verknüpfungsbedingung erfüllt ist.'
-      },
-      {
-        question: 'Welcher Befehl filtert Aggregat-Ergebnisse nach einem GROUP BY?',
-        options: ['WHERE', 'HAVING', 'FILTER', 'LIMIT'],
-        correct: 1,
-        explanation: 'HAVING filtert nach einer Aggregation (z. B. HAVING COUNT(*) > 5), während WHERE vor der Gruppierung filtert.'
-      }
-    ]
-  },
-  {
-    id: 'it_security_advanced',
-    title: 'IT-Sicherheit & OWASP Cybersecurity',
-    category: 'IT-Sicherheit',
-    targetRoles: ['azubi', 'pro'],
-    icon: '🛡️',
-    readTime: '15 Min',
-    summary: 'Schütze deine Anwendungen vor Hacks. Verstehe SQL Injection, Cross-Site Scripting (XSS), Hashing, Salting & Phishing.',
-    content: `
-### 1. Die Dreifaltigkeit der IT-Sicherheit (CIA-Triade)
-1. **Vertraulichkeit (Confidentiality):** Nur autorisierte Personen dürfen Daten lesen.
-2. **Integrität (Integrity):** Daten dürfen nicht unbemerkt verändert werden.
-3. **Verfügbarkeit (Availability):** Systeme müssen erreichbar bleiben (Schutz vor DoS/DDoS).
-
-### 2. OWASP Top 10 Sicherheitslücken
-
-#### ⚠️ A) SQL Injection (SQLi)
-Passiert, wenn Benutzereingaben ungesichert direkt in SQL-Strings zusammengebaut werden.
-
-**Unsicherer Code:**
-\`\`\`javascript
-// GEFÄHRLICH! Angreifer gibt als passwort " ' OR '1'='1 " ein
-const query = "SELECT * FROM user WHERE username = '" + inputUser + "' AND password = '" + inputPass + "'";
-\`\`\`
-
-**Sicherer Code (Parameterized Queries):**
-\`\`\`javascript
-// SICHER! Nutzung von PreparedStatement / Prepared Parameters
-const query = "SELECT * FROM user WHERE username = ? AND password = ?";
-db.execute(query, [inputUser, inputPass]);
-\`\`\`
-
-#### ⚠️ B) Cross-Site Scripting (XSS)
-Angreifer schleusen bösartigen JavaScript-Code in die Webseite ein, der bei anderen Nutzern ausgeführt wird.
-
-**Schutz:**
-- Alle Benutzereingaben vor der HTML-Ausgabe **escapen / sanitizen** (z. B. \`<script>\` zu \`&lt;script&gt;\`).
-- Content Security Policy (CSP) Header setzen.
-
-### 3. Sicheres Passwort-Management
-Speicher Passwörter **NIEMALS im Klartext**!
-Nutze moderne Hashing-Algorithmen wie **bcrypt** oder **Argon2** mit einem eindeutigen zufälligen **Salt** für jeden Nutzer.
-`,
-    codeSnippet: `// Passwort-Hashing in Node.js mit bcrypt
-import bcrypt from 'bcrypt';
-
-const saltRounds = 12;
-const myPlainPassword = 'Geheim123!';
-
-// Erstelle einen sicheren Hash
-const hash = await bcrypt.hash(myPlainPassword, saltRounds);
-
-// Überprüfe das Passwort beim Login
-const match = await bcrypt.compare('Geheim123!', hash); // returns true`,
-    quiz: [
-      {
-        question: 'Wie schützt man eine Anwendung am besten gegen SQL Injection?',
-        options: [
-          'Passwörter in Großbuchstaben umwandeln',
-          'Prepared Statements / Parametrisierte Abfragen verwenden',
-          'Die Datenbank verbergen',
-          'Nur GET-Requests erlauben'
-        ],
-        correct: 1,
-        explanation: 'Parametrisierte Abfragen trennen SQL-Code strikt von den eingegebenen Daten des Nutzers.'
-      },
-      {
-        question: 'Was unterscheidet Hashing von Verschlüsselung?',
-        options: [
-          'Verschlüsselung ist eine Einwegfunktion, Hashing ist umkehrbar.',
-          'Hashing ist eine Einwegfunktion, Verschlüsselung ist mit einem Schlüssel umkehrbar.',
-          'Es gibt keinen Unterschied.',
-          'Hashing funktioniert nur bei Zahlen.'
-        ],
-        correct: 1,
-        explanation: 'Ein Hash kann nicht rückentschlüsselt werden. Verschlüsselung kann mit dem richtigen Schlüssel wieder entschlüsselt werden.'
+        explanation: 'Der JOIN-Befehl verbindet Zeilen aus zwei oder mehr Tabellen basierend auf einer verknüpften Spalte.'
       }
     ]
   },
   {
     id: 'networking_osi',
-    title: 'Netzwerke & OSI-Modell',
-    category: 'Netzwerk & Hardware',
-    targetRoles: ['azubi', 'pro'],
+    title: 'Netzwerke & das OSI 7-Schichten Modell',
+    category: 'Netzwerke',
+    difficultyLevel: 'Azubi / IHK',
+    targetRoles: ['azubi', 'junior', 'pro'],
     icon: '📡',
-    readTime: '10 Min',
-    summary: 'Wie wandern Pakete durch das Internet? Verstehe das 7-Schichten OSI-Modell, IP-Adressen (IPv4/IPv6), TCP/UDP und DNS.',
+    readTime: '15 Min',
+    summary: 'Das Fundament der IT-Infrastruktur: IP-Adressen (IPv4/IPv6), Subnetting, TCP/UDP, DNS, HTTP/HTTPS.',
     content: `
-### Das 7-Schichten OSI-Modell
-Das OSI-Modell beschreibt wie Daten über ein Netzwerk von einer Anwendung zum Empfänger übertragen werden:
+### 1. Das OSI-Referenzmodell
+Das OSI-Modell unterteilt die Netzwerkkommunikation in 7 Schichten:
 
-1. **Layer 7 - Anwendung (Application):** HTTP, HTTPS, FTP, SMTP, DNS
-2. **Layer 6 - Darstellung (Presentation):** Verschlüsselung (TLS/SSL), JSON, PNG
-3. **Layer 5 - Sitzung (Session):** Verbindungssteuerung
-4. **Layer 4 - Transport (Transport):** TCP (zuverlässig) & UDP (schnell, paketlos)
-5. **Layer 3 - Netzwerk (Network):** IP-Routing (IPv4, IPv6), Router
-6. **Layer 2 - Sicherung (Data Link):** MAC-Adressen, Switches, Ethernet
-7. **Layer 1 - Bitübertragung (Physical):** Kabel, Glasfaser, WLAN-Frequenzen
+1. **Physical Layer (Bitübertragung):** Kabel, Glasfaser, WLAN-Frequenzen.
+2. **Data Link Layer (Sicherung):** MAC-Adressen, Switches, Ethernet.
+3. **Network Layer (Vermittlung):** IP-Adressen, Router, ICMP.
+4. **Transport Layer (Transport):** TCP (zuverlässig), UDP (schnell).
+5. **Session Layer (Sitzung):** Verbindungssteuerung.
+6. **Presentation Layer (Darstellung):** Verschlüsselung (TLS/SSL), Formate.
+7. **Application Layer (Anwendung):** HTTP, HTTPS, FTP, SSH, DNS.
 
-### TCP vs. UDP
-- **TCP (Transmission Control Protocol):** Handshake (SYN, SYN-ACK, ACK), garantiert korrekte Reihenfolge und Fehlerfreiheit (z. B. Webseiten, E-Mails).
-- **UDP (User Datagram Protocol):** Paketversand ohne Verbindungsgarantie, extrem schnell (z. B. Video-Streaming, Online-Gaming, VoIP).
+### 2. IP-Adressen & Subnetting
+Eine IPv4-Adresse besteht aus 32 Bit (4 Oktette à 8 Bit), z. B. \`192.168.1.1\`.
+Die Subnetzmaske \`255.255.255.0\` (oder \`/24\`) trennt Netz-ID von Host-ID.
 `,
-    codeSnippet: `// HTTP GET Abfrage Beispiel (Layer 7)
-fetch('https://api.github.com/users/octocat')
-  .then(response => response.json())
-  .then(data => console.log('Empfangene Daten:', data.name));`,
+    codeSnippet: `# Ping-Test zur Erreichbarkeit
+ping 8.8.8.8
+
+# Traceroute zur IP-Routenverfolgung
+traceroute google.com`,
     quiz: [
       {
-        question: 'Auf welcher OSI-Schicht arbeitet das IP-Protokoll und Router?',
-        options: ['Schicht 1 (Physical)', 'Schicht 2 (Data Link)', 'Schicht 3 (Network)', 'Schicht 4 (Transport)'],
-        correct: 2,
-        explanation: 'Layer 3 (Netzwerkschicht) kümmert sich um logische Adressierung (IP) und Routing.'
+        question: 'Auf welcher OSI-Schicht arbeitet das IP-Protokoll?',
+        options: ['Schicht 2 (Sicherung)', 'Schicht 3 (Vermittlung)', 'Schicht 4 (Transport)', 'Schicht 7 (Anwendung)'],
+        correct: 1,
+        explanation: 'Das IP-Protokoll gehört zur Schicht 3 (Network Layer / Vermittlungsschicht).'
+      }
+    ]
+  },
+  {
+    id: 'it_security_advanced',
+    title: 'Cyber-Security, OWASP & Hashing',
+    category: 'Security',
+    difficultyLevel: 'Senior / Expert',
+    targetRoles: ['azubi', 'junior', 'pro'],
+    icon: '🛡️',
+    readTime: '15 Min',
+    summary: 'OWASP Top 10, SQL Injections, Cross-Site Scripting (XSS), Kryptographie, Hashes (bcrypt) & JWT Tokens.',
+    content: `
+### 1. OWASP Top 10 Schwachstellen
+1. **Broken Access Control:** Mangelhafte Rechteprüfung.
+2. **Cryptographic Failures:** Unverschlüsselte sensible Daten.
+3. **Injection (z. B. SQLi):** Schadcode in Benutzereingaben.
+4. **Insecure Design:** Sicherheitsmängel im Softwarearchitektur-Plan.
+
+### 2. SQL Injection Schutz (Prepared Statements)
+🔴 **Unsicher (Vulnerabel):**
+\`\`\`javascript
+// GEFÄHRLICH: Zeichenketten-Konkatenation!
+const query = "SELECT * FROM users WHERE name = '" + userInput + "'";
+\`\`\`
+
+🟢 **Sicher (Prepared Statement):**
+\`\`\`javascript
+// SICHER: Parameterbindung verhindert SQLi!
+const query = "SELECT * FROM users WHERE name = ?";
+db.execute(query, [userInput]);
+\`\`\`
+
+### 3. Passwort-Hashing (bcrypt / Argon2)
+Passwörter dürfen **niemals** im Klartext gespeichert werden. Verwende Kryptographische Hashing-Algorithmen mit Salt.
+`,
+    codeSnippet: `import bcrypt from 'bcrypt';
+
+// Passwort hashen (10 Salt Rounds)
+const hash = await bcrypt.hash("MeinPasswort123!", 10);
+
+// Passwort überprüfen
+const match = await bcrypt.compare("MeinPasswort123!", hash);
+console.log(match); // true`,
+    quiz: [
+      {
+        question: 'Wie schützt man eine Anwendung effektiv vor SQL-Injection Angriffsvektoren?',
+        options: [
+          'Durch Deaktivieren von JavaScript',
+          'Durch die Verwendung von Prepared Statements / Parameterisierten Abfragen',
+          'Durch Ausblenden der Eingabefelder',
+          'Durch Neustart des Datenbankservers'
+        ],
+        correct: 1,
+        explanation: 'Prepared Statements trennen den SQL-Befehl von den Nutzereingaben und verhindern das Einschleusen von Schadcode.'
       }
     ]
   }

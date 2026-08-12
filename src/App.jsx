@@ -14,6 +14,7 @@ import WebSandbox from './components/Games/WebSandbox';
 import ProjectViewer from './components/Projects/ProjectViewer';
 import BadgesModal from './components/Gamification/BadgesModal';
 import DsgvoFooterModal from './components/Footer/DsgvoFooterModal';
+import DifficultyFilterBar from './components/Navigation/DifficultyFilterBar';
 
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
@@ -34,6 +35,9 @@ export default function App() {
   const [isColorblind, setIsColorblind] = useState(false);
   const [isHighContrast, setIsHighContrast] = useState(false);
   const [isReducedMotion, setIsReducedMotion] = useState(false);
+
+  // Difficulty Filter State ('all' | 'Einsteiger' | 'Azubi / IHK' | 'Senior / Expert')
+  const [difficultyFilter, setDifficultyFilter] = useState('all');
 
   // Topic Reader state
   const [selectedTopicId, setSelectedTopicId] = useState(null);
@@ -111,6 +115,12 @@ export default function App() {
 
   const currentRole = USER_ROLES[userState.role] || USER_ROLES.anfaenger;
 
+  // Filter Topics by Difficulty
+  const filteredTopics = TOPICS.filter((t) => {
+    if (difficultyFilter === 'all') return true;
+    return t.difficultyLevel === difficultyFilter;
+  });
+
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--bg-primary)', color: 'var(--text-main)' }}>
       {/* Top Navbar */}
@@ -154,7 +164,7 @@ export default function App() {
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '20px' }}>
                 <div>
                   <span className="badge badge-indigo" style={{ marginBottom: '12px' }}>
-                    <Sparkles size={14} /> Aktuelles Profil: {currentRole.title}
+                    <Sparkles size={14} /> Aktuelles Level & Zielgruppe: {currentRole.title}
                   </span>
                   <h1 style={{ fontSize: '2.4rem', fontWeight: '800', margin: '8px 0', color: 'var(--text-main)' }}>
                     Willkommen zurück, <span className="text-gradient">Developer</span>!
@@ -189,7 +199,7 @@ export default function App() {
                 <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📚</div>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Fachkunde & Wissen</h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Standard-Texte, Praxis-Codebeispiele, Audio-Vorlesefunktion & Quizzes.
+                  Standard-Texte, Praxis-Codebeispiele, Audio-Vorlesefunktion & Level-Filter.
                 </p>
                 <span style={{ fontSize: '0.9rem', color: 'var(--accent-primary)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
                   Themen Erkunden <ArrowRight size={16} />
@@ -262,12 +272,18 @@ export default function App() {
                 <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-main)' }}>
                   <BookOpen size={30} style={{ color: 'var(--accent-primary)' }} /> Fachkunde & Wissensmodule
                 </h2>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '24px', fontSize: '1.05rem' }}>
-                  Interaktive Artikel, Vorlesefunktion und Praxis-Codebeispiele.
+                <p style={{ color: 'var(--text-muted)', marginBottom: '20px', fontSize: '1.05rem' }}>
+                  Gefiltert nach Vorwissen, Alter und Erfahrung.
                 </p>
 
+                {/* Difficulty Level Filter Bar */}
+                <DifficultyFilterBar
+                  activeFilter={difficultyFilter}
+                  onSelectFilter={(filterId) => setDifficultyFilter(filterId)}
+                />
+
                 <div className="grid-responsive">
-                  {TOPICS.map((topic) => {
+                  {filteredTopics.map((topic) => {
                     const isDone = userState.completedTopics.includes(topic.id);
                     return (
                       <div
@@ -277,7 +293,7 @@ export default function App() {
                         style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
                       >
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
-                          <span className="badge badge-indigo">{topic.category}</span>
+                          <span className="badge badge-indigo">{topic.difficultyLevel || topic.category}</span>
                           {isDone && <CheckCircle size={20} style={{ color: 'var(--accent-emerald)' }} />}
                         </div>
                         <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>
