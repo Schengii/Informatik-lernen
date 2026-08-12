@@ -95,11 +95,12 @@ export default function Navbar({
           {[
             { id: 'dashboard', label: t('dashboard') },
             { id: 'wissen', label: t('wissen') },
+            { id: 'languages', label: '🐍 ' + t('languages') },
+            { id: 'web_components', label: '🔥 Web Components' },
             { id: 'roadmaps', label: '🧭 ' + t('roadmaps') },
             { id: 'architecture', label: '🌐 ' + t('architecture') },
             { id: 'design_patterns', label: '🧩 ' + t('patterns') },
             { id: 'tdd', label: '🧪 ' + t('tdd') },
-            { id: 'languages', label: '🐍 ' + t('languages') },
             { id: 'quiz_arena', label: '🏆 ' + t('quiz_arena') },
             { id: 'big_o', label: '📊 ' + t('big_o') },
             { id: 'games', label: t('games') },

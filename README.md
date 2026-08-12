@@ -1,6 +1,6 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, Generativer KI (RAG/LLMs), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), Generativer KI (RAG/LLMs), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
@@ -25,26 +25,24 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - Lernen ohne jegliche Vorkenntnisse.
    - Grundlagen spielerisch erklärt: Wie denkt ein PC? Was sind Bits/Bytes? Erste Schritte in Python, HTML/CSS & Binärlogik.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI, IT-Systemelektroniker)**:
-   - Gezieltes IHK-Prüfungswissen, Berufsschul-Themen (SQL JOINs, Netzwerke/OSI, Java, C#, Bash-Terminal, Pseudocode, Lückentexte).
+   - Gezieltes IHK-Prüfungswissen, Berufsschul-Themen (SQL JOINs, Netzwerke/OSI, Java, C#, PHP, Bash-Terminal, Pseudocode, Lückentexte).
 3. **🚀 Junior Developer**:
-   - Clean Code Prinzipien, REST-APIs, React, Node.js, RegEx, TDD Unit-Testing, Git-Workflows, Design Patterns und praxisnahe Mikroprojekte.
+   - Clean Code Prinzipien, REST-APIs, JavaScript, TypeScript, React, Angular, Node.js, Vite, RegEx, TDD Unit-Testing, Git-Workflows und Design Patterns.
 4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
-   - Fortgeschrittene Systemarchitektur (Microservices, Load Balancer, Redis Cache), Cybersecurity (OWASP Top 10), Generative AI (LLMs, RAG-Architekturen), Big-O Notation, Cloud Native (Docker, Kubernetes) & PWA Live Deployment.
+   - Fortgeschrittene Web Components (**Lit.dev**, **Vaadin**), C++ Systemprogrammierung, Systemarchitektur (Microservices, Load Balancer, Redis Cache), Cybersecurity (OWASP Top 10), Generative AI (LLMs, RAG-Architekturen), Big-O Notation & PWA Live Deployment.
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v1.9.0)
+## 🔥 Hauptfunktionen & Neue Features (v2.0.0)
 
-* **🌐 Internationalisierung (i18n / DE & EN Mehrsprachigkeit) (`i18n.js`)**:
-  * Umschaltbare Sprachunterstützung zwischen Deutsch und Englisch direkt in der Header-Leiste.
-* **🧪 Unit-Testing & TDD Challenge Lab (`TddUnitTestLab.jsx`)**:
-  * Interaktives Test-Driven Development Training mit automatisierter Jest Unit-Test Auswertung.
-* **🚀 1-Klick Live Deployment Leitfaden (`DeploymentGuideModal.jsx`)**:
-  * Schritt-für-Schritt Veröffentlichungs-Guide für Vercel, Netlify und GitHub Pages.
-* **🌐 Systemarchitektur & Microservices Visualizer (`ArchitectureVisualizer.jsx`)**:
-  * Diagramm für Microservices, API Gateways, Redis Cache & DBs.
-* **🧩 Software Design Patterns & Refactoring Lab (`DesignPatternsLab.jsx`)**.
-* **⌨️ Code Typing Speedrun, 📱 PWA Offline-Support, 🧭 IT Roadmaps & ⚔️ Boss Battles**.
+* **🔥 Web Components & Micro-Frontends Hub (`WebComponentsHub.jsx` & `webComponentsData.js`)**:
+  * Interaktive Lernbereiche für **Lit.dev (LitElement)**, **Vaadin Web Framework** und **Native W3C Web Components (Shadow DOM & Custom Elements)**.
+* **📚 W3Schools-Inspirierte Sprachen Academy (`LanguageAcademy.jsx` & `languageData.js`)**:
+  * Vollständige Lernbereiche, Code-Beispiele und Syntax-Anleitungen für 10+ Technologien: **JavaScript (JS)**, **TypeScript (TS)**, **Java & Spring Boot**, **C# / .NET**, **Angular**, **PHP 8 & Laravel**, **React.js**, **Vite Build Tool**, **Python 3** und **C++**.
+* **🌐 Internationalisierung (i18n / DE & EN Mehrsprachigkeit)**.
+* **🧪 Unit-Testing & TDD Challenge Lab (`TddUnitTestLab.jsx`)**.
+* **🚀 Live Deployment Leitfaden (`DeploymentGuideModal.jsx`)**.
+* **🌐 Systemarchitektur, 🧩 Design Patterns, ⌨️ Code Speedrun & 📱 PWA Support**.
 
 ---
 
@@ -97,7 +95,8 @@ Informatik-lernen/
     │   │   ├── TopicReader.jsx
     │   │   ├── ToolingSetupGuide.jsx
     │   │   ├── VideoHub.jsx
-    │   │   └── VocabularyTrainerModal.jsx
+    │   │   ├── VocabularyTrainerModal.jsx
+    │   │   └── WebComponentsHub.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
     │   ├── Games/
@@ -139,6 +138,7 @@ Informatik-lernen/
     │   ├── topicsData.js
     │   ├── userProfiles.js
     │   ├── vocabularyData.js
+    │   ├── webComponentsData.js
     │   └── videosData.js
     ├── styles/
     │   └── global.css
@@ -173,10 +173,12 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v2.0.0] - Web Components (Lit.dev, Vaadin) & 10+ Sprachen W3Schools Hub
+* **Web Components Hub (`WebComponentsHub.jsx`)**: Lit.dev, Vaadin & Native Web Components.
+* **Erweiterte Sprachen Academy (`LanguageAcademy.jsx`)**: JS, TS, Java, C#, Angular, PHP, React, Vite & C++.
+
 #### [v1.9.0] - i18n Mehrsprachigkeit (DE/EN), TDD Unit-Testing & Live Deployment Guide
-* **i18n Mehrsprachigkeit (`i18n.js`)**: Umschalten zwischen Deutsch und Englisch.
-* **Unit-Testing & TDD Challenge (`TddUnitTestLab.jsx`)**: Jest Test-Runner Simulator.
-* **Live Deployment Guide (`DeploymentGuideModal.jsx`)**: Veröffentlichungs-Guide für Vercel & GitHub Pages.
+* i18n Mehrsprachigkeit, Jest TDD Unit Testing Lab & Deployment Guide.
 
 #### [v1.8.0] - Systemarchitektur, Design Patterns, Code Speedrun & PWA Support
 * Systemarchitektur Visualizer, Design Patterns Lab, Code Speedrun & PWA Offline-Support.

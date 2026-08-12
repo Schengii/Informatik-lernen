@@ -39,6 +39,7 @@ import ArchitectureVisualizer from './components/Content/ArchitectureVisualizer'
 import DesignPatternsLab from './components/Content/DesignPatternsLab';
 import TddUnitTestLab from './components/Content/TddUnitTestLab';
 import DeploymentGuideModal from './components/Content/DeploymentGuideModal';
+import WebComponentsHub from './components/Content/WebComponentsHub';
 
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
@@ -229,10 +230,10 @@ export default function App() {
 
                   <button
                     className="btn btn-secondary"
-                    onClick={() => setIsDeploymentModalOpen(true)}
-                    style={{ minHeight: '48px', fontSize: '0.95rem', borderColor: 'var(--accent-amber)', color: 'var(--accent-amber)' }}
+                    onClick={() => setActiveTab('web_components')}
+                    style={{ minHeight: '48px', fontSize: '0.95rem', borderColor: 'var(--accent-teal)', color: 'var(--accent-teal)' }}
                   >
-                    <Rocket size={18} /> Live Deployment Guide
+                    <Layers size={18} /> Web Components Hub
                   </button>
                 </div>
               </div>
@@ -250,40 +251,43 @@ export default function App() {
             </h2>
 
             <div className="grid-responsive" style={{ marginBottom: '40px' }}>
-              {/* TDD Card */}
+              {/* Web Components Card */}
               <div
                 className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('tdd')}
+                onClick={() => setActiveTab('web_components')}
                 style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
               >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🧪</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Unit-Tests & TDD Lab</h3>
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🔥</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Web Components & Lit.dev</h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Schreibe und repariere automatizierte Jest Unit Tests.
+                  Lit.dev, Vaadin, Micro-Frontends & W3C Custom Elements.
                 </p>
-                <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  TDD Starten <ArrowRight size={16} />
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Components Erkunden <ArrowRight size={16} />
                 </span>
               </div>
 
-              {/* Architecture Card */}
+              {/* Sprachen Academy Card */}
               <div
                 className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('architecture')}
+                onClick={() => setActiveTab('languages')}
                 style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
               >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🌐</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Systemarchitektur</h3>
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🐍</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Sprachen & W3Schools Academy</h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Microservices, API Gateways, Redis Cache & Caching interaktiv verstehen.
+                  JS, TS, Java, C#, Angular, PHP, React, Vite & C++.
                 </p>
                 <span style={{ fontSize: '0.9rem', color: 'var(--accent-primary)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Architektur Starten <ArrowRight size={16} />
+                  Sprachen Lernen <ArrowRight size={16} />
                 </span>
               </div>
             </div>
           </div>
         )}
+
+        {/* WEB COMPONENTS TAB */}
+        {activeTab === 'web_components' && <WebComponentsHub />}
 
         {/* TDD UNIT TESTING TAB */}
         {activeTab === 'tdd' && <TddUnitTestLab onRewardXP={(xp) => awardXP(xp, 'tdd_master')} />}
