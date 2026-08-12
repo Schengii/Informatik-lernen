@@ -1,6 +1,6 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, Generativer KI (RAG/LLMs), Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, Generativer KI (RAG/LLMs), Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
@@ -29,29 +29,23 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 3. **🚀 Junior Developer**:
    - Clean Code Prinzipien, REST-APIs, React, Node.js, RegEx, Git-Workflows und praxisnahe Mikroprojekte.
 4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
-   - Fortgeschrittene Cybersecurity (OWASP Top 10, SQLi, XSS), Generative AI (LLMs, RAG-Architekturen), Cloud Native (Docker, Kubernetes) & System-Architektur.
+   - Fortgeschrittene Cybersecurity (OWASP Top 10, SQLi, XSS), Generative AI (LLMs, RAG-Architekturen), Big-O Notation, Cloud Native (Docker, Kubernetes) & System-Architektur.
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v1.6.0)
+## 🔥 Hauptfunktionen & Neue Features (v1.7.0)
 
-* **📖 IT-Vokabeltrainer & Fachbegriffe (`VocabularyTrainerModal.jsx` & `vocabularyData.js`)**:
-  * Interaktiver Vokabeltrainer für englische & deutsche IT-Fachbegriffe mit US-Audio-Aussprache, Übersetzung & Beispielsätzen.
-* **🏆 Wissens-Quiz Arena (`KnowledgeQuizArena.jsx` & `quizArenaData.js`)**:
-  * Interaktive Quiz-Arena mit Kategorien zu KI-Trends 2026 (RAG, LLMs, AI Agents), Cloud, Kubernetes & IHK-Basics.
-* **🎥 Erweiterte Lernvideo-Bibliothek (`videosData.js`)**:
-  * Neue Trend-Lernvideos zu Generative AI, RAG-Architekturen, Docker & Kubernetes.
-* **🐍 Sprachen & Frameworks Academy (`LanguageAcademy.jsx`)**:
-  * Python, Java, C#, React & Node.js interaktiv erlernen.
-* **🤖 KI-Nutzung & Prompt Engineering Lab (`AiPromptLab.jsx`)**:
-  * Professionelles Training zur sicheren KI-Nutzung (ChatGPT, GitHub Copilot).
-* **💻 Interaktives Terminal & CLI Lab (`CliTerminalLab.jsx`)**:
-  * Linux/Bash Terminal-Simulator für Befehle & Scripts.
-* **🛠️ IDEs & Tools Setup Guides (`ToolingSetupGuide.jsx`)**:
-  * VS Code, Git & Docker Einrichtungsleitfaden.
-* **📱 Fullstack App-Entwicklungs Workshop (`AppWorkshop.jsx`)**:
-  * Praxis-Workshop zum Bauen einer eigenen App.
-* **🔍 RegEx Lab, 🎴 Karteikarten-Trainer & 💾 Backup Manager**.
+* **🧭 Interaktive IT Karriere Roadmaps (`CareerRoadmap.jsx` & `roadmapData.js`)**:
+  * Visuelle Lernpfade für **Fullstack Developer**, **Cybersecurity Specialist** und **AI & Data Engineer** mit Fortschritts-Check.
+* **⚔️ Code Duel Boss-Battle Mode (`BossBattleGame.jsx`)**:
+  * Bekämpfe den Boss *"Bugzilla den Monolith"* in rasanten Code- & Security-Duellen, verteile Schaden bei richtigen Antworten und verdiene die *Boss Slayer Badge*.
+* **📊 Big-O Notation Visualizer (`BigOVisualizer.jsx`)**:
+  * Interaktive Visualisierung von Laufzeit-Komplexitäten ($O(1)$, $O(\log n)$, $O(n)$, $O(n \log n)$, $O(n^2)$) bei veränderbarer Eingabegröße $n$.
+* **📖 IT-Vokabeltrainer & Fachbegriffe (`VocabularyTrainerModal.jsx`)**:
+  * Englische & deutsche IT-Fachbegriffe mit US-Audio-Aussprache.
+* **🏆 Wissens-Quiz Arena (`KnowledgeQuizArena.jsx`)**:
+  * Quizzes zu KI-Trends 2026, Cloud Native & IHK-Basics.
+* **🐍 Sprachen Academy, 🤖 KI-Prompt Lab, 💻 CLI Terminal & 📱 App-Workshop**.
 
 ---
 
@@ -88,6 +82,8 @@ Informatik-lernen/
     │   ├── Content/
     │   │   ├── AiPromptLab.jsx
     │   │   ├── AppWorkshop.jsx
+    │   │   ├── BigOVisualizer.jsx
+    │   │   ├── CareerRoadmap.jsx
     │   │   ├── ClozeTester.jsx
     │   │   ├── ExamSimulator.jsx
     │   │   ├── GlossaryModal.jsx
@@ -100,6 +96,7 @@ Informatik-lernen/
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
     │   ├── Games/
+    │   │   ├── BossBattleGame.jsx
     │   │   ├── CliTerminalLab.jsx
     │   │   ├── CodePuzzle.jsx
     │   │   ├── LogicGatesGame.jsx
@@ -132,6 +129,7 @@ Informatik-lernen/
     │   ├── languageData.js
     │   ├── projectsData.js
     │   ├── quizArenaData.js
+    │   ├── roadmapData.js
     │   ├── topicsData.js
     │   ├── userProfiles.js
     │   ├── vocabularyData.js
@@ -168,10 +166,13 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v1.7.0] - IT Roadmaps, Code Duel Boss Battle & Big-O Visualizer
+* **IT Karriere Roadmaps (`CareerRoadmap.jsx`)**: Lernpfade für Fullstack, Cybersecurity & AI.
+* **Code Duel Boss Battle (`BossBattleGame.jsx`)**: Kampfsystem gegen "Bugzilla den Monolith".
+* **Big-O Notation Visualizer (`BigOVisualizer.jsx`)**: Laufzeit-Komplexität visualisieren.
+
 #### [v1.6.0] - IT-Vokabeltrainer, Wissensquiz Arena & Trend-Lernvideos
-* **IT-Vokabeltrainer (`VocabularyTrainerModal.jsx`)**: Englische & deutsche IT-Fachausdrücke mit Audio-Aussprache.
-* **Wissens-Quiz Arena (`KnowledgeQuizArena.jsx`)**: Quiz-Formate zu KI-Trends 2026 (RAG, LLMs), Cloud & Kubernetes.
-* **Lernvideos**: Ergänzung von Video-Tutorials für Generative AI & Cloud Native.
+* IT-Vokabeltrainer, Wissensquiz Arena & Trend-Lernvideos.
 
 #### [v1.5.0] - Sprachen Academy, KI Prompt Lab, CLI Terminal & Tooling
 * Python, Java, C#, React, Node.js, KI Prompting & Terminal CLI.
