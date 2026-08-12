@@ -1,6 +1,6 @@
 import React from 'react';
 import { USER_ROLES } from '../../data/userProfiles';
-import { Trophy, Flame, UserCheck, Code2, Sun, Moon, BookOpen, Award, Layers, ShieldCheck, Terminal, Bot, Wrench, Smartphone } from 'lucide-react';
+import { Trophy, Flame, UserCheck, Code2, Sun, Moon, BookOpen, Award, Layers, ShieldCheck, BookMarked, HelpCircle } from 'lucide-react';
 import AccessibilityToolbar from './AccessibilityToolbar';
 
 export default function Navbar({
@@ -10,6 +10,7 @@ export default function Navbar({
   onOpenGlossaryModal,
   onOpenCertificateModal,
   onOpenFlashcardsModal,
+  onOpenVocabularyModal,
   onOpenBackupModal,
   activeTab,
   setActiveTab,
@@ -89,12 +90,12 @@ export default function Navbar({
             { id: 'dashboard', label: 'Dashboard' },
             { id: 'wissen', label: 'Wissen' },
             { id: 'languages', label: '🐍 Sprachen' },
+            { id: 'quiz_arena', label: '🏆 Quiz Arena' },
             { id: 'games', label: 'Games' },
             { id: 'exam', label: '🎓 IHK' },
             { id: 'ai', label: '🤖 KI-Lab' },
             { id: 'tooling', label: '🛠️ Tools' },
-            { id: 'app_workshop', label: '📱 App-Shop' },
-            { id: 'projekte', label: 'Projekte' }
+            { id: 'app_workshop', label: '📱 App-Shop' }
           ].map((tab) => (
             <button
               key={tab.id}
@@ -119,11 +120,22 @@ export default function Navbar({
 
         {/* User Controls Bar */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+          {/* IT Vokabeltrainer Button */}
+          <button
+            className="btn btn-secondary btn-sm"
+            onClick={onOpenVocabularyModal}
+            style={{ gap: '6px', fontWeight: 700, borderColor: 'var(--accent-teal)', color: 'var(--accent-teal)' }}
+            title="IT-Vokabeltrainer & Fachbegriffe"
+          >
+            <BookMarked size={16} />
+            <span className="desktop-only">Vokabeln</span>
+          </button>
+
           {/* IT Lexikon Button */}
           <button
             className="btn btn-secondary btn-sm"
             onClick={onOpenGlossaryModal}
-            style={{ gap: '6px', fontWeight: 700, borderColor: 'var(--accent-teal)', color: 'var(--accent-teal)' }}
+            style={{ gap: '6px', fontWeight: 700, borderColor: 'var(--accent-primary)', color: 'var(--accent-primary)' }}
             title="IT-Lexikon & Fachbegriffe"
           >
             <BookOpen size={16} />
@@ -134,7 +146,7 @@ export default function Navbar({
           <button
             className="btn btn-secondary btn-sm"
             onClick={onOpenFlashcardsModal}
-            style={{ gap: '6px', fontWeight: 700, borderColor: 'var(--accent-primary)', color: 'var(--accent-primary)' }}
+            style={{ gap: '6px', fontWeight: 700, borderColor: 'var(--accent-purple)', color: 'var(--accent-purple)' }}
             title="IT-Karteikarten Trainer"
           >
             <Layers size={16} />

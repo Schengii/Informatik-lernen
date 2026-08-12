@@ -5,7 +5,7 @@ export const TUTORIAL_VIDEOS = [
     id: 'vid_basics',
     title: 'Grundlagen der Informatik & Programmierung (Crashkurs)',
     category: 'Grundlagen',
-    targetRoles: ['anfaenger'],
+    targetRoles: ['anfaenger', 'azubi'],
     embedUrl: 'https://www.youtube-nocookie.com/embed/zOjov-2OZ0E',
     duration: '15 Min',
     author: 'Dev Education Media',
@@ -15,6 +15,22 @@ export const TUTORIAL_VIDEOS = [
       { time: '03:20', label: 'Wie Computer Programmcode verstehen' },
       { time: '08:45', label: 'Variablen, Schleifen & Bedingungen' },
       { time: '12:30', label: 'Der beste Einstieg für Anfänger' }
+    ]
+  },
+  {
+    id: 'vid_ai_llm',
+    title: 'Generative AI, LLMs & RAG Architekturen (Trend 2026)',
+    category: 'KI & Trend 2026',
+    targetRoles: ['azubi', 'junior', 'pro'],
+    embedUrl: 'https://www.youtube-nocookie.com/embed/aircAruvnKk',
+    duration: '20 Min',
+    author: 'AI Engineering Lab',
+    summary: 'Verstehe die Funktionsweise von Large Language Models (LLMs), Prompt Engineering, Vektordatenbanken und RAG-Architekturen.',
+    timestamps: [
+      { time: '00:00', label: 'Was sind Transformer & LLMs?' },
+      { time: '05:00', label: 'Prompt Engineering Techniken' },
+      { time: '11:30', label: 'RAG: Dokumentensuche mit Vektor-DBs' },
+      { time: '16:45', label: 'AI Agenten in der Praxis' }
     ]
   },
   {
@@ -31,6 +47,21 @@ export const TUTORIAL_VIDEOS = [
       { time: '05:10', label: 'Tabellenstruktur & Datentypen' },
       { time: '12:00', label: 'SELECT Abfragen & Filter' },
       { time: '20:15', label: 'INNER & LEFT JOIN anschaulich' }
+    ]
+  },
+  {
+    id: 'vid_cloud_k8s',
+    title: 'Cloud Native, Docker & Kubernetes Praxis-Leitfaden',
+    category: 'Cloud & DevOps',
+    targetRoles: ['azubi', 'pro'],
+    embedUrl: 'https://www.youtube-nocookie.com/embed/X48VuDVv0do',
+    duration: '25 Min',
+    author: 'DevOps Campus',
+    summary: 'Lerne wie modernste Cloud-Infrastrukturen mit Docker-Containern und Kubernetes skaliert und verwaltet werden.',
+    timestamps: [
+      { time: '00:00', label: 'Container vs. Virtuelle Maschinen' },
+      { time: '07:15', label: 'Dockerfiles & Container-Images' },
+      { time: '15:30', label: 'Kubernetes Pods, Deployments & Services' }
     ]
   },
   {

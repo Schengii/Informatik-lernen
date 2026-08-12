@@ -1,6 +1,6 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, KI-Prompting und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, Generativer KI (RAG/LLMs), Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
@@ -29,30 +29,29 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 3. **🚀 Junior Developer**:
    - Clean Code Prinzipien, REST-APIs, React, Node.js, RegEx, Git-Workflows und praxisnahe Mikroprojekte.
 4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
-   - Fortgeschrittene Cybersecurity (OWASP Top 10, SQLi, XSS), KI-Prompt Engineering, Datenbank-Performance & Docker System-Architektur.
+   - Fortgeschrittene Cybersecurity (OWASP Top 10, SQLi, XSS), Generative AI (LLMs, RAG-Architekturen), Cloud Native (Docker, Kubernetes) & System-Architektur.
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v1.5.0)
+## 🔥 Hauptfunktionen & Neue Features (v1.6.0)
 
+* **📖 IT-Vokabeltrainer & Fachbegriffe (`VocabularyTrainerModal.jsx` & `vocabularyData.js`)**:
+  * Interaktiver Vokabeltrainer für englische & deutsche IT-Fachbegriffe mit US-Audio-Aussprache, Übersetzung & Beispielsätzen.
+* **🏆 Wissens-Quiz Arena (`KnowledgeQuizArena.jsx` & `quizArenaData.js`)**:
+  * Interaktive Quiz-Arena mit Kategorien zu KI-Trends 2026 (RAG, LLMs, AI Agents), Cloud, Kubernetes & IHK-Basics.
+* **🎥 Erweiterte Lernvideo-Bibliothek (`videosData.js`)**:
+  * Neue Trend-Lernvideos zu Generative AI, RAG-Architekturen, Docker & Kubernetes.
 * **🐍 Sprachen & Frameworks Academy (`LanguageAcademy.jsx`)**:
-  * Lerne neue Programmiersprachen & Web-Frameworks: **Python**, **Java**, **C#**, **React** und **Node.js**.
+  * Python, Java, C#, React & Node.js interaktiv erlernen.
 * **🤖 KI-Nutzung & Prompt Engineering Lab (`AiPromptLab.jsx`)**:
-  * Interaktives Training zur sinnvollen und sicheren Nutzung von KI-Tools (ChatGPT, GitHub Copilot, Claude) für Entwickler.
+  * Professionelles Training zur sicheren KI-Nutzung (ChatGPT, GitHub Copilot).
 * **💻 Interaktives Terminal & CLI Lab (`CliTerminalLab.jsx`)**:
-  * Simulator für Linux- & Bash-Kommandozeilenbefehle (`ls`, `mkdir`, `cd`, `pwd`, `git status`) mit Aufgaben-Check.
+  * Linux/Bash Terminal-Simulator für Befehle & Scripts.
 * **🛠️ IDEs & Tools Setup Guides (`ToolingSetupGuide.jsx`)**:
-  * Schritt-für-Schritt Einrichtung für **VS Code**, **Git & SSH** sowie **Docker Container**.
+  * VS Code, Git & Docker Einrichtungsleitfaden.
 * **📱 Fullstack App-Entwicklungs Workshop (`AppWorkshop.jsx`)**:
-  * Praxis-Workshop zum Bauen einer eigenen Task-Manager Web & Mobile App von A bis Z.
-* **🔍 RegEx Lab & Pattern Tester (`RegexLab.jsx`)**:
-  * Interaktive RegEx Testumgebung für Musterprüfung (E-Mail, IP-Adressen).
-* **🎴 Spaced Repetition Karteikarten-Trainer (`FlashcardsModal.jsx`)**:
-  * Anki-inspirierte IT-Karteikarten für IHK-Fachbegriffe.
-* **💾 Daten Backup & Wiederherstellungs-Manager (`BackupModal.jsx`)**:
-  * Exportiere und importiere deinen Lernfortschritt als JSON-Datei.
-* **📖 IT-Lexikon & IHK-Prüfungssimulator**:
-  * Durchsuchbares Glossar und realistischer IHK GAP 1 / GAP 2 Prüfungstrainer.
+  * Praxis-Workshop zum Bauen einer eigenen App.
+* **🔍 RegEx Lab, 🎴 Karteikarten-Trainer & 💾 Backup Manager**.
 
 ---
 
@@ -92,10 +91,12 @@ Informatik-lernen/
     │   │   ├── ClozeTester.jsx
     │   │   ├── ExamSimulator.jsx
     │   │   ├── GlossaryModal.jsx
+    │   │   ├── KnowledgeQuizArena.jsx
     │   │   ├── LanguageAcademy.jsx
     │   │   ├── TopicReader.jsx
     │   │   ├── ToolingSetupGuide.jsx
-    │   │   └── VideoHub.jsx
+    │   │   ├── VideoHub.jsx
+    │   │   └── VocabularyTrainerModal.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
     │   ├── Games/
@@ -130,8 +131,10 @@ Informatik-lernen/
     │   ├── glossaryData.js
     │   ├── languageData.js
     │   ├── projectsData.js
+    │   ├── quizArenaData.js
     │   ├── topicsData.js
     │   ├── userProfiles.js
+    │   ├── vocabularyData.js
     │   └── videosData.js
     ├── styles/
     │   └── global.css
@@ -165,24 +168,25 @@ npm run lint
 
 ### Versionsverlauf
 
-#### [v1.5.0] - Sprachen Academy, KI Prompt Lab, CLI Terminal, Tooling Setup & App Workshop
-* **Sprachen & Frameworks Academy (`LanguageAcademy.jsx`)**: Tutorials & Codebeispiele für Python, Java, C#, React & Node.js.
-* **KI Prompt Engineering Lab (`AiPromptLab.jsx`)**: Professionelle KI-Nutzung & Prompt-Regeln.
-* **CLI Terminal Lab (`CliTerminalLab.jsx`)**: Interaktiver Linux/Bash Terminal Simulator.
-* **IDE & Tools Setup (`ToolingSetupGuide.jsx`)**: Schritt-für-Schritt Anleitungen für VS Code, Git & Docker.
-* **App Entwicklungs-Workshop (`AppWorkshop.jsx`)**: Schritt-für-Schritt Anleitung zum Bauen einer vollwertigen App.
+#### [v1.6.0] - IT-Vokabeltrainer, Wissensquiz Arena & Trend-Lernvideos
+* **IT-Vokabeltrainer (`VocabularyTrainerModal.jsx`)**: Englische & deutsche IT-Fachausdrücke mit Audio-Aussprache.
+* **Wissens-Quiz Arena (`KnowledgeQuizArena.jsx`)**: Quiz-Formate zu KI-Trends 2026 (RAG, LLMs), Cloud & Kubernetes.
+* **Lernvideos**: Ergänzung von Video-Tutorials für Generative AI & Cloud Native.
 
-#### [v1.4.0] - RegEx Lab, IT-Karteikarten Trainer & Backup Manager
+#### [v1.5.0] - Sprachen Academy, KI Prompt Lab, CLI Terminal & Tooling
+* Python, Java, C#, React, Node.js, KI Prompting & Terminal CLI.
+
+#### [v1.4.0] - RegEx Lab, Karteikarten & Backup Manager
 * RegEx Lab, Karteikarten-Trainer & JSON Backup Manager.
 
-#### [v1.3.0] - IT-Lexikon, IHK Prüfungssimulator, Skill-Matrix, Tages-Challenge & Zertifikate
-* IT-Lexikon, IHK Prüfungssimulator, Skill-Matrix & Zertifikat-Generator.
+#### [v1.3.0] - IT-Lexikon, IHK Simulator & Zertifikate
+* IT-Lexikon, IHK Prüfungssimulator & Zertifikat-Generator.
 
-#### [v1.2.0] - Zielgruppen-Erweiterung für jedes Alter & Vorwissen
+#### [v1.2.0] - Zielgruppen-Erweiterung für jedes Alter
 * Erweiterung des Nutzerprofil-Systems & Einführung von `DifficultyFilterBar.jsx`.
 
 #### [v1.1.0] - Helles High-Contrast Design, Barrierefreiheit & DSGVO
-* UI-Redesign, Barrierefreiheit, Vorlesefunktion & DSGVO-Modal.
+* UI-Redesign, Barrierefreiheit & DSGVO-Modal.
 
 #### [v1.0.0] - Initiales Release
 * Initiales Setup des IT-DevGame Repositories.

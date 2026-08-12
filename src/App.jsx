@@ -29,12 +29,14 @@ import LanguageAcademy from './components/Content/LanguageAcademy';
 import AiPromptLab from './components/Content/AiPromptLab';
 import ToolingSetupGuide from './components/Content/ToolingSetupGuide';
 import AppWorkshop from './components/Content/AppWorkshop';
+import VocabularyTrainerModal from './components/Content/VocabularyTrainerModal';
+import KnowledgeQuizArena from './components/Content/KnowledgeQuizArena';
 
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
-import { BookOpen, Sparkles, ArrowRight, CheckCircle, GraduationCap, Award, Code2, Bot, Wrench, Smartphone, Terminal } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, CheckCircle, Trophy, BookMarked, Layers } from 'lucide-react';
 
 export default function App() {
   const [userState, setUserState] = useState(loadUserState());
@@ -44,6 +46,7 @@ export default function App() {
   const [isCertificateModalOpen, setIsCertificateModalOpen] = useState(false);
   const [isFlashcardsModalOpen, setIsFlashcardsModalOpen] = useState(false);
   const [isBackupModalOpen, setIsBackupModalOpen] = useState(false);
+  const [isVocabularyModalOpen, setIsVocabularyModalOpen] = useState(false);
 
   const [activeTab, setActiveTab] = useState('dashboard');
 
@@ -154,6 +157,7 @@ export default function App() {
         onOpenGlossaryModal={() => setIsGlossaryModalOpen(true)}
         onOpenCertificateModal={() => setIsCertificateModalOpen(true)}
         onOpenFlashcardsModal={() => setIsFlashcardsModalOpen(true)}
+        onOpenVocabularyModal={() => setIsVocabularyModalOpen(true)}
         onOpenBackupModal={() => setIsBackupModalOpen(true)}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
@@ -212,10 +216,10 @@ export default function App() {
 
                   <button
                     className="btn btn-secondary"
-                    onClick={() => setIsGlossaryModalOpen(true)}
+                    onClick={() => setIsVocabularyModalOpen(true)}
                     style={{ minHeight: '48px', fontSize: '0.95rem', borderColor: 'var(--accent-teal)', color: 'var(--accent-teal)' }}
                   >
-                    <BookOpen size={18} /> IT-Lexikon Öffnen
+                    <BookMarked size={18} /> Vokabeltrainer
                   </button>
                 </div>
               </div>
@@ -233,6 +237,22 @@ export default function App() {
             </h2>
 
             <div className="grid-responsive" style={{ marginBottom: '40px' }}>
+              {/* Quiz Arena Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('quiz_arena')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🏆</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Wissens-Quiz Arena</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Interaktive Quizzes zu KI-Trends 2026, Cloud, Kubernetes & IT-Basics.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-amber)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Quiz Starten <ArrowRight size={16} />
+                </span>
+              </div>
+
               {/* Sprachen & Frameworks Card */}
               <div
                 className="glass-panel glass-panel-hover"
@@ -264,72 +284,13 @@ export default function App() {
                   KI-Lab Erkunden <ArrowRight size={16} />
                 </span>
               </div>
-
-              {/* CLI Terminal Card */}
-              <div
-                className="glass-panel glass-panel-hover"
-                onClick={() => { setActiveTab('games'); setActiveGameId('cli'); }}
-                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-              >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>💻</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Terminal & CLI Lab</h3>
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Interaktiver Linux/Bash Simulator für Befehle & Scripts.
-                </p>
-                <span style={{ fontSize: '0.9rem', color: 'var(--accent-purple)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Terminal Starten <ArrowRight size={16} />
-                </span>
-              </div>
-
-              {/* IDE & Tools Card */}
-              <div
-                className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('tooling')}
-                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-              >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🛠️</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>IDEs & Tools Setup</h3>
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  VS Code, Git & Docker Schritt für Schritt einrichten.
-                </p>
-                <span style={{ fontSize: '0.9rem', color: 'var(--accent-amber)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Tools Entdecken <ArrowRight size={16} />
-                </span>
-              </div>
-
-              {/* App Workshop Card */}
-              <div
-                className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('app_workshop')}
-                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-              >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📱</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>App-Entwicklungs Workshop</h3>
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Baue deine eigene Task-Manager App Schritt für Schritt.
-                </p>
-                <span style={{ fontSize: '0.9rem', color: 'var(--accent-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Workshop Starten <ArrowRight size={16} />
-                </span>
-              </div>
-
-              {/* Games Card */}
-              <div
-                className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('games')}
-                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-              >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🎮</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Mini-Games Arcade</h3>
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  SQL Dungeon, Cyber Defense Lab & Logik-Schaltungen.
-                </p>
-                <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Spiele Starten <ArrowRight size={16} />
-                </span>
-              </div>
             </div>
           </div>
+        )}
+
+        {/* WISSENS QUIZ ARENA TAB */}
+        {activeTab === 'quiz_arena' && (
+          <KnowledgeQuizArena onRewardXP={(xp) => awardXP(xp, 'quiz_master')} />
         )}
 
         {/* SPRACHEN ACADEMY TAB */}
@@ -505,6 +466,13 @@ export default function App() {
       <FlashcardsModal
         isOpen={isFlashcardsModalOpen}
         onClose={() => setIsFlashcardsModalOpen(false)}
+        onRewardXP={(xp) => awardXP(xp)}
+      />
+
+      {/* Vocabulary Trainer Modal */}
+      <VocabularyTrainerModal
+        isOpen={isVocabularyModalOpen}
+        onClose={() => setIsVocabularyModalOpen(false)}
         onRewardXP={(xp) => awardXP(xp)}
       />
 
