@@ -13,33 +13,66 @@ import LogicGatesGame from './components/Games/LogicGatesGame';
 import WebSandbox from './components/Games/WebSandbox';
 import ProjectViewer from './components/Projects/ProjectViewer';
 import BadgesModal from './components/Gamification/BadgesModal';
+import DsgvoFooterModal from './components/Footer/DsgvoFooterModal';
 
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
-import { BookOpen, Gamepad2, FileText, Video, FolderGit2, Sparkles, ArrowRight, Trophy, CheckCircle } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, CheckCircle } from 'lucide-react';
 
 export default function App() {
   const [userState, setUserState] = useState(loadUserState());
   const [isRoleModalOpen, setIsRoleModalOpen] = useState(!userState.role);
   const [isBadgesModalOpen, setIsBadgesModalOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('dashboard');
-  
+
+  // Accessibility State & Theme (Light / Dark)
+  const [theme, setTheme] = useState('light'); // 'light' | 'dark'
+  const [fontSize, setFontSize] = useState(100);
+  const [isDyslexic, setIsDyslexic] = useState(false);
+  const [isColorblind, setIsColorblind] = useState(false);
+  const [isHighContrast, setIsHighContrast] = useState(false);
+  const [isReducedMotion, setIsReducedMotion] = useState(false);
+
   // Topic Reader state
   const [selectedTopicId, setSelectedTopicId] = useState(null);
 
   // Active Mini-Game Selector ('sql' | 'security' | 'puzzle' | 'logic' | 'sandbox')
   const [activeGameId, setActiveGameId] = useState('sql');
 
-  // Save state on change
+  // Apply Theme & Accessibility Classes to <body>
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.style.fontSize = `${fontSize}%`;
+
+    if (isDyslexic) {
+      document.body.classList.add('dyslexia-mode');
+    } else {
+      document.body.classList.remove('dyslexia-mode');
+    }
+
+    if (isColorblind) {
+      document.body.classList.add('colorblind-mode');
+    } else {
+      document.body.classList.remove('colorblind-mode');
+    }
+
+    if (isHighContrast) {
+      document.body.classList.add('high-contrast-mode');
+    } else {
+      document.body.classList.remove('high-contrast-mode');
+    }
+  }, [theme, fontSize, isDyslexic, isColorblind, isHighContrast]);
+
+  // Save user state on change
   useEffect(() => {
     saveUserState(userState);
   }, [userState]);
 
   // Handle Role Select
   const handleSelectRole = (roleId) => {
-    setUserState(prev => ({
+    setUserState((prev) => ({
       ...prev,
       role: roleId
     }));
@@ -47,11 +80,13 @@ export default function App() {
 
   // Award XP and trigger Confetti
   const awardXP = (amount, achievementId = null) => {
-    try {
-      confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 } });
-    } catch (e) {}
+    if (!isReducedMotion) {
+      try {
+        confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 } });
+      } catch (e) {}
+    }
 
-    setUserState(prev => {
+    setUserState((prev) => {
       const newXP = prev.xp + amount;
       const newLevel = calculateLevel(newXP);
       const unlocked = [...prev.unlockedBadges];
@@ -69,7 +104,7 @@ export default function App() {
 
   const handleCompleteTopic = (topicId, xp) => {
     if (!userState.completedTopics.includes(topicId)) {
-      setUserState(prev => ({ ...prev, completedTopics: [...prev.completedTopics, topicId] }));
+      setUserState((prev) => ({ ...prev, completedTopics: [...prev.completedTopics, topicId] }));
       awardXP(xp, 'first_steps');
     }
   };
@@ -77,8 +112,7 @@ export default function App() {
   const currentRole = USER_ROLES[userState.role] || USER_ROLES.anfaenger;
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--bg-primary)' }}>
-      
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--bg-primary)', color: 'var(--text-main)' }}>
       {/* Top Navbar */}
       <Navbar
         userState={userState}
@@ -86,32 +120,46 @@ export default function App() {
         onOpenBadgesModal={() => setIsBadgesModalOpen(true)}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
+        fontSize={fontSize}
+        setFontSize={setFontSize}
+        isDyslexic={isDyslexic}
+        setIsDyslexic={setIsDyslexic}
+        isColorblind={isColorblind}
+        setIsColorblind={setIsColorblind}
+        isHighContrast={isHighContrast}
+        setIsHighContrast={setIsHighContrast}
+        isReducedMotion={isReducedMotion}
+        setIsReducedMotion={setIsReducedMotion}
+        theme={theme}
+        setTheme={setTheme}
       />
 
       {/* Main Content Area */}
-      <main style={{ flex: 1, maxWidth: '1280px', width: '100%', margin: '0 auto', padding: '24px 20px 80px 20px' }}>
-        
+      <main style={{ flex: 1, maxWidth: '1280px', width: '100%', margin: '0 auto', padding: '24px 20px 40px 20px' }}>
         {/* DASHBOARD TAB */}
         {activeTab === 'dashboard' && (
           <div>
             {/* Hero Welcome Banner */}
-            <div className="glass-panel" style={{
-              padding: '36px',
-              borderRadius: 'var(--radius-xl)',
-              background: `linear-gradient(135deg, rgba(20, 28, 45, 0.95), ${currentRole.color}25)`,
-              border: `1px solid ${currentRole.color}50`,
-              marginBottom: '32px',
-              boxShadow: 'var(--shadow-card)'
-            }}>
+            <div
+              className="glass-panel"
+              style={{
+                padding: '36px',
+                borderRadius: 'var(--radius-xl)',
+                background: 'var(--bg-card)',
+                border: '2px solid var(--accent-primary)',
+                marginBottom: '32px',
+                boxShadow: 'var(--shadow-card)'
+              }}
+            >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '20px' }}>
                 <div>
-                  <span className="badge badge-cyan" style={{ marginBottom: '12px' }}>
+                  <span className="badge badge-indigo" style={{ marginBottom: '12px' }}>
                     <Sparkles size={14} /> Aktuelles Profil: {currentRole.title}
                   </span>
-                  <h1 style={{ fontSize: '2.2rem', fontWeight: '800', margin: '8px 0' }}>
+                  <h1 style={{ fontSize: '2.4rem', fontWeight: '800', margin: '8px 0', color: 'var(--text-main)' }}>
                     Willkommen zurück, <span className="text-gradient">Developer</span>!
                   </h1>
-                  <p style={{ color: 'var(--text-muted)', maxWidth: '650px', fontSize: '1rem', lineHeight: '1.5' }}>
+                  <p style={{ color: 'var(--text-muted)', maxWidth: '680px', fontSize: '1.05rem', lineHeight: '1.6' }}>
                     {currentRole.description}
                   </p>
                 </div>
@@ -119,7 +167,7 @@ export default function App() {
                 <button
                   className="btn btn-primary"
                   onClick={() => setIsRoleModalOpen(true)}
-                  style={{ background: currentRole.color }}
+                  style={{ minHeight: '48px', fontSize: '1rem' }}
                 >
                   Profil / Level Anpassen
                 </button>
@@ -127,76 +175,74 @@ export default function App() {
             </div>
 
             {/* Feature Modules Quick Access */}
-            <h3 style={{ fontSize: '1.4rem', fontWeight: '800', marginBottom: '16px' }}>
+            <h2 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '20px', color: 'var(--text-main)' }}>
               Empfohlene Lernbereiche für dich
-            </h3>
+            </h2>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px', marginBottom: '40px' }}>
-              
+            <div className="grid-responsive" style={{ marginBottom: '40px' }}>
               {/* Fachkunde Card */}
-              <div 
-                className="glass-panel glass-panel-hover" 
+              <div
+                className="glass-panel glass-panel-hover"
                 onClick={() => setActiveTab('wissen')}
-                style={{ padding: '24px', cursor: 'pointer' }}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
               >
                 <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📚</div>
-                <h4 style={{ fontSize: '1.2rem', fontWeight: '700', marginBottom: '6px' }}>Fachkunde & Wissen</h4>
-                <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '16px' }}>
-                  W3schools-stil Texte, Codebeispiele & Express-Quizzes für IT-Themen.
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Fachkunde & Wissen</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Standard-Texte, Praxis-Codebeispiele, Audio-Vorlesefunktion & Quizzes.
                 </p>
-                <span style={{ fontSize: '0.85rem', color: 'var(--accent-cyan)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-primary)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
                   Themen Erkunden <ArrowRight size={16} />
                 </span>
               </div>
 
               {/* Games Card */}
-              <div 
-                className="glass-panel glass-panel-hover" 
+              <div
+                className="glass-panel glass-panel-hover"
                 onClick={() => setActiveTab('games')}
-                style={{ padding: '24px', cursor: 'pointer' }}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
               >
                 <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🎮</div>
-                <h4 style={{ fontSize: '1.2rem', fontWeight: '700', marginBottom: '6px' }}>Mini-Games Arcade</h4>
-                <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '16px' }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Mini-Games Arcade</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
                   SQL Dungeon, Cyber Defense Lab, Code Bug Hunter & Logik-Schaltungen.
                 </p>
-                <span style={{ fontSize: '0.85rem', color: 'var(--accent-green)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
                   Spiele Starten <ArrowRight size={16} />
                 </span>
               </div>
 
               {/* Lückentexte Card */}
-              <div 
-                className="glass-panel glass-panel-hover" 
+              <div
+                className="glass-panel glass-panel-hover"
                 onClick={() => setActiveTab('lueckentext')}
-                style={{ padding: '24px', cursor: 'pointer' }}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
               >
                 <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📜</div>
-                <h4 style={{ fontSize: '1.2rem', fontWeight: '700', marginBottom: '6px' }}>Interaktive Lückentexte</h4>
-                <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '16px' }}>
-                  Prüfungswissen & Fachbegriffe durch Ausfüllen testen.
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Interaktive Lückentexte</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Prüfungswissen & IHK-Fachbegriffe interaktiv ausfüllen.
                 </p>
-                <span style={{ fontSize: '0.85rem', color: 'var(--accent-purple)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-purple)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
                   Lückentext Wählen <ArrowRight size={16} />
                 </span>
               </div>
 
               {/* Praxis Projekte Card */}
-              <div 
-                className="glass-panel glass-panel-hover" 
+              <div
+                className="glass-panel glass-panel-hover"
                 onClick={() => setActiveTab('projekte')}
-                style={{ padding: '24px', cursor: 'pointer' }}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
               >
                 <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🚀</div>
-                <h4 style={{ fontSize: '1.2rem', fontWeight: '700', marginBottom: '6px' }}>Praxis-Mikroprojekte</h4>
-                <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '16px' }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Praxis-Mikroprojekte</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
                   Schritt-für-Schritt Anleitungen für echte Entwickler-Projekte.
                 </p>
-                <span style={{ fontSize: '0.85rem', color: 'var(--accent-amber)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-amber)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
                   Projekt Starten <ArrowRight size={16} />
                 </span>
               </div>
-
             </div>
           </div>
         )}
@@ -213,34 +259,34 @@ export default function App() {
               />
             ) : (
               <div>
-                <h2 style={{ fontSize: '1.8rem', fontWeight: '800', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <BookOpen size={28} color="var(--accent-cyan)" /> Fachkunde & Wissensmodule
+                <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-main)' }}>
+                  <BookOpen size={30} style={{ color: 'var(--accent-primary)' }} /> Fachkunde & Wissensmodule
                 </h2>
-                <p style={{ color: 'var(--text-muted)', marginBottom: '24px' }}>
-                  Interaktive Artikel und w3schools-inspirierte Erklärungen.
+                <p style={{ color: 'var(--text-muted)', marginBottom: '24px', fontSize: '1.05rem' }}>
+                  Interaktive Artikel, Vorlesefunktion und Praxis-Codebeispiele.
                 </p>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
-                  {TOPICS.map(topic => {
+                <div className="grid-responsive">
+                  {TOPICS.map((topic) => {
                     const isDone = userState.completedTopics.includes(topic.id);
                     return (
                       <div
                         key={topic.id}
                         className="glass-panel glass-panel-hover"
                         onClick={() => setSelectedTopicId(topic.id)}
-                        style={{ padding: '24px', cursor: 'pointer' }}
+                        style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
                       >
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
-                          <span className="badge badge-cyan">{topic.category}</span>
-                          {isDone && <CheckCircle size={18} color="var(--accent-green)" />}
+                          <span className="badge badge-indigo">{topic.category}</span>
+                          {isDone && <CheckCircle size={20} style={{ color: 'var(--accent-emerald)' }} />}
                         </div>
-                        <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px' }}>
+                        <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>
                           {topic.icon} {topic.title}
                         </h3>
-                        <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '16px' }}>
+                        <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
                           {topic.summary}
                         </p>
-                        <span style={{ fontSize: '0.85rem', color: 'var(--accent-cyan)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <span style={{ fontSize: '0.9rem', color: 'var(--accent-primary)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
                           Artikel Lesen <ArrowRight size={16} />
                         </span>
                       </div>
@@ -256,25 +302,26 @@ export default function App() {
         {activeTab === 'games' && (
           <div>
             {/* Game Category Selector */}
-            <div style={{ display: 'flex', gap: '8px', marginBottom: '24px', overflowX: 'auto', paddingBottom: '4px' }}>
+            <div style={{ display: 'flex', gap: '10px', marginBottom: '24px', overflowX: 'auto', paddingBottom: '6px' }}>
               {[
                 { id: 'sql', label: '🗄️ SQL Dungeon' },
                 { id: 'security', label: '🛡️ Cyber Defense Lab' },
                 { id: 'puzzle', label: '🧩 Code Bug Hunter' },
                 { id: 'logic', label: '⚡ Logikgatter Simulator' },
                 { id: 'sandbox', label: '🌐 Live Web Sandbox' }
-              ].map(g => (
+              ].map((g) => (
                 <button
                   key={g.id}
                   onClick={() => setActiveGameId(g.id)}
                   style={{
-                    padding: '10px 18px',
+                    minHeight: '44px',
+                    padding: '10px 20px',
                     borderRadius: 'var(--radius-md)',
                     fontWeight: '700',
-                    fontSize: '0.9rem',
-                    background: activeGameId === g.id ? 'var(--gradient-cyber)' : 'var(--bg-card)',
-                    color: '#fff',
-                    border: activeGameId === g.id ? 'none' : '1px solid var(--border-color)',
+                    fontSize: '0.92rem',
+                    background: activeGameId === g.id ? 'var(--accent-primary)' : 'var(--bg-card)',
+                    color: activeGameId === g.id ? '#ffffff' : 'var(--text-main)',
+                    border: activeGameId === g.id ? '2px solid var(--accent-primary)' : '2px solid var(--border-color)',
                     cursor: 'pointer',
                     whiteSpace: 'nowrap'
                   }}
@@ -306,8 +353,10 @@ export default function App() {
         {activeTab === 'projekte' && (
           <ProjectViewer onCompleteProject={(id, xp) => awardXP(xp)} />
         )}
-
       </main>
+
+      {/* Footer with DSGVO Privacy & Impressum Modal */}
+      <DsgvoFooterModal />
 
       {/* Mobile Bottom Navigation */}
       <MobileNav activeTab={activeTab} setActiveTab={setActiveTab} />
@@ -326,7 +375,6 @@ export default function App() {
         onClose={() => setIsBadgesModalOpen(false)}
         userState={userState}
       />
-
     </div>
   );
 }

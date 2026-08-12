@@ -12,20 +12,23 @@ export default function MobileNav({ activeTab, setActiveTab }) {
   ];
 
   return (
-    <div style={{
-      position: 'fixed',
-      bottom: 0,
-      left: 0,
-      right: 0,
-      background: 'rgba(10, 13, 20, 0.96)',
-      backdropFilter: 'blur(20px)',
-      borderTop: '1px solid var(--border-color)',
-      display: 'flex',
-      justifyContent: 'space-around',
-      padding: '8px 4px',
-      zIndex: 1000
-    }} className="mobile-nav-bar">
-      {tabs.map(tab => {
+    <nav
+      style={{
+        position: 'fixed',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        background: 'var(--bg-secondary)',
+        borderTop: '2px solid var(--border-color)',
+        display: 'flex',
+        justifyContent: 'space-around',
+        padding: '6px 4px',
+        zIndex: 1000,
+        boxShadow: '0 -4px 15px rgba(0, 0, 0, 0.1)'
+      }}
+      aria-label="Mobile Navigation"
+    >
+      {tabs.map((tab) => {
         const Icon = tab.icon;
         const isActive = activeTab === tab.id;
         return (
@@ -39,19 +42,22 @@ export default function MobileNav({ activeTab, setActiveTab }) {
               justifyContent: 'center',
               background: 'transparent',
               border: 'none',
-              color: isActive ? 'var(--accent-cyan)' : 'var(--text-dim)',
-              fontSize: '0.7rem',
-              fontWeight: isActive ? '700' : '500',
+              color: isActive ? 'var(--accent-primary)' : 'var(--text-muted)',
+              fontSize: '0.72rem',
+              fontWeight: isActive ? '800' : '600',
               cursor: 'pointer',
-              gap: '3px',
-              flex: 1
+              gap: '2px',
+              flex: 1,
+              minHeight: '44px',
+              padding: '4px 0'
             }}
+            aria-label={tab.label}
           >
-            <Icon size={20} color={isActive ? 'var(--accent-cyan)' : 'var(--text-dim)'} />
+            <Icon size={20} style={{ color: isActive ? 'var(--accent-primary)' : 'var(--text-muted)' }} />
             <span>{tab.label}</span>
           </button>
         );
       })}
-    </div>
+    </nav>
   );
 }

@@ -1,46 +1,76 @@
 import React from 'react';
 import { USER_ROLES } from '../../data/userProfiles';
-import { Trophy, Flame, UserCheck, Code2, Sparkles } from 'lucide-react';
+import { Trophy, Flame, UserCheck, Code2, Sun, Moon } from 'lucide-react';
+import AccessibilityToolbar from './AccessibilityToolbar';
 
-export default function Navbar({ userState, onOpenProfileModal, onOpenBadgesModal, activeTab, setActiveTab }) {
+export default function Navbar({
+  userState,
+  onOpenProfileModal,
+  onOpenBadgesModal,
+  activeTab,
+  setActiveTab,
+  fontSize,
+  setFontSize,
+  isDyslexic,
+  setIsDyslexic,
+  isColorblind,
+  setIsColorblind,
+  isHighContrast,
+  setIsHighContrast,
+  isReducedMotion,
+  setIsReducedMotion,
+  theme,
+  setTheme
+}) {
   const currentRole = USER_ROLES[userState.role] || USER_ROLES.anfaenger;
 
   return (
-    <header style={{
-      background: 'rgba(10, 13, 20, 0.9)',
-      backdropFilter: 'blur(16px)',
-      borderBottom: '1px solid var(--border-color)',
-      position: 'sticky',
-      top: 0,
-      zIndex: 100
-    }}>
-      <div style={{
-        maxWidth: '1280px',
-        margin: '0 auto',
-        padding: '12px 20px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        flexWrap: 'wrap',
-        gap: '12px'
-      }}>
-        
+    <header
+      style={{
+        background: 'var(--bg-secondary)',
+        borderBottom: '1px solid var(--border-color)',
+        position: 'sticky',
+        top: 0,
+        zIndex: 100,
+        boxShadow: 'var(--shadow-sm)'
+      }}
+    >
+      <div
+        style={{
+          maxWidth: '1280px',
+          margin: '0 auto',
+          padding: '12px 20px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: '12px'
+        }}
+      >
         {/* Brand Logo */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }} onClick={() => setActiveTab('dashboard')}>
-          <div style={{
-            width: '42px',
-            height: '42px',
-            borderRadius: '12px',
-            background: 'var(--gradient-cyber)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 0 15px rgba(6, 182, 212, 0.4)'
-          }}>
+        <div
+          style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }}
+          onClick={() => setActiveTab('dashboard')}
+          role="button"
+          tabIndex={0}
+          aria-label="Zum Dashboard"
+        >
+          <div
+            style={{
+              width: '42px',
+              height: '42px',
+              borderRadius: '12px',
+              background: 'var(--gradient-cyber)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 4px 12px rgba(79, 70, 229, 0.3)'
+            }}
+          >
             <Code2 size={24} color="#ffffff" />
           </div>
           <div>
-            <h1 style={{ fontSize: '1.25rem', fontWeight: '800', letterSpacing: '-0.5px' }}>
+            <h1 style={{ fontSize: '1.25rem', fontWeight: '800', letterSpacing: '-0.5px', margin: 0 }}>
               IT<span className="text-gradient">-DEVGAME</span>
             </h1>
             <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', display: 'block', marginTop: '-2px' }}>
@@ -58,18 +88,19 @@ export default function Navbar({ userState, onOpenProfileModal, onOpenBadgesModa
             { id: 'lueckentext', label: 'Lückentexte' },
             { id: 'videos', label: 'Video-Tutorials' },
             { id: 'projekte', label: 'Praxis-Projekte' }
-          ].map(tab => (
+          ].map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               style={{
-                padding: '8px 14px',
+                minHeight: '44px',
+                padding: '8px 16px',
                 borderRadius: 'var(--radius-md)',
-                fontSize: '0.88rem',
+                fontSize: '0.9rem',
                 fontWeight: '600',
                 background: activeTab === tab.id ? 'var(--bg-tertiary)' : 'transparent',
-                color: activeTab === tab.id ? 'var(--accent-cyan)' : 'var(--text-muted)',
-                border: activeTab === tab.id ? '1px solid var(--border-highlight)' : '1px solid transparent',
+                color: activeTab === tab.id ? 'var(--accent-primary)' : 'var(--text-muted)',
+                border: activeTab === tab.id ? '2px solid var(--accent-primary)' : '2px solid transparent',
                 cursor: 'pointer',
                 transition: 'all 0.2s ease'
               }}
@@ -79,10 +110,10 @@ export default function Navbar({ userState, onOpenProfileModal, onOpenBadgesModa
           ))}
         </nav>
 
-        {/* User Stats & Profile Pill */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        {/* User Stats, Accessibility & Profile Controls */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
           {/* XP & Level Badge */}
-          <div 
+          <div
             onClick={onOpenBadgesModal}
             style={{
               display: 'flex',
@@ -90,21 +121,52 @@ export default function Navbar({ userState, onOpenProfileModal, onOpenBadgesModa
               gap: '8px',
               background: 'var(--bg-tertiary)',
               border: '1px solid var(--border-color)',
-              padding: '6px 12px',
+              padding: '6px 14px',
               borderRadius: '9999px',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              minHeight: '40px'
             }}
+            role="button"
+            tabIndex={0}
+            aria-label="Level und Erfolge anzeigen"
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--accent-amber)', fontSize: '0.85rem', fontWeight: '700' }}>
-              <Flame size={16} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--accent-amber)', fontSize: '0.88rem', fontWeight: '700' }}>
+              <Flame size={18} />
               <span>{userState.xp} XP</span>
             </div>
             <div style={{ height: '14px', width: '1px', background: 'var(--border-color)' }}></div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--accent-cyan)', fontSize: '0.85rem', fontWeight: '700' }}>
-              <Trophy size={16} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--accent-teal)', fontSize: '0.88rem', fontWeight: '700' }}>
+              <Trophy size={18} />
               <span>Lvl {userState.level}</span>
             </div>
           </div>
+
+          {/* Theme Switcher (Light / Dark) */}
+          <button
+            className="btn btn-secondary btn-sm"
+            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+            style={{ minHeight: '40px', width: '40px', padding: 0, borderRadius: '50%' }}
+            aria-label="Farbschema wechseln"
+            title={`Wechsle zu ${theme === 'light' ? 'Dunkelmodus' : 'Hellmodus'}`}
+          >
+            {theme === 'light' ? <Moon size={18} style={{ color: 'var(--accent-primary)' }} /> : <Sun size={18} style={{ color: 'var(--accent-amber)' }} />}
+          </button>
+
+          {/* Accessibility Toolbar */}
+          <AccessibilityToolbar
+            fontSize={fontSize}
+            setFontSize={setFontSize}
+            isDyslexic={isDyslexic}
+            setIsDyslexic={setIsDyslexic}
+            isColorblind={isColorblind}
+            setIsColorblind={setIsColorblind}
+            isHighContrast={isHighContrast}
+            setIsHighContrast={setIsHighContrast}
+            isReducedMotion={isReducedMotion}
+            setIsReducedMotion={setIsReducedMotion}
+            theme={theme}
+            setTheme={setTheme}
+          />
 
           {/* Role Switch Button */}
           <button
@@ -113,21 +175,21 @@ export default function Navbar({ userState, onOpenProfileModal, onOpenBadgesModa
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
-              padding: '6px 12px',
+              padding: '6px 14px',
               borderRadius: '9999px',
-              background: `${currentRole.color}20`,
-              color: currentRole.color,
-              border: `1px solid ${currentRole.color}50`,
-              fontWeight: '600',
-              fontSize: '0.82rem',
-              cursor: 'pointer'
+              background: 'rgba(79, 70, 229, 0.1)',
+              color: 'var(--accent-primary)',
+              border: '1px solid var(--accent-primary)',
+              fontWeight: '700',
+              fontSize: '0.85rem',
+              cursor: 'pointer',
+              minHeight: '40px'
             }}
           >
             <UserCheck size={16} />
-            <span>{currentRole.badge}</span>
+            <span className="desktop-only">{currentRole.badge}</span>
           </button>
         </div>
-
       </div>
     </header>
   );

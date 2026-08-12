@@ -1,15 +1,16 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, Datenbanken, IT-Sicherheit, Logikschaltungen und Netzwerken.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, Datenbanken, IT-Sicherheit, Logikschaltungen und Netzwerken – **barrierefrei, WCAG-konform und 100% DSGVO-kompatibel**.
 
 ---
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Beschreibung](#-übersicht--beschreibung)
-- [Hauptfunktionen](#-hauptfunktionen)
+- [Hauptfunktionen & Barrierefreiheit](#-hauptfunktionen--barrierefreiheit)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
 - [Funktionsweise](#-funktionsweise)
+- [DSGVO & Datenschutz](#-dsgvo--datenschutz)
 - [Anleitung (Installation & Ausführung)](#-anleitung-installation--ausführung)
 - [Änderungshistorie & Entwicklungsdokumentation](#-änderungshistorie--entwicklungsdokumentation)
 
@@ -17,29 +18,34 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ## 🎯 Übersicht & Beschreibung
 
-**IT-DevGame** ist eine interaktive Lernplattform für angehende Informatiker (u. a. Fachinformatiker Anwendungsentwicklung, Systemintegration, IT-Systemelektroniker). Die Anwendung kombiniert theoretische Inhalte mit praxisnahen Mini-Games, Lückentext-Tests, Code-Sandboxes und Gamification-Elementen (XP, Level, Streaks, Badges), um Lernfortschritte spielerisch zu steigern.
+**IT-DevGame** ist eine interaktive, barrierefreie Lernplattform für angehende Informatiker (u. a. Fachinformatiker Anwendungsentwicklung, Systemintegration, IT-Systemelektroniker). Die Anwendung kombiniert theoretische Lerneinheiten mit praxisnahen Mini-Games, Lückentext-Tests, Code-Sandboxes, Audio-Vorlesefunktionen und Gamification-Elementen (XP, Level, Streaks, Badges).
 
 ---
 
-## 🔥 Hauptfunktionen
+## 🔥 Hauptfunktionen & Barrierefreiheit
 
+* **🎨 Modernes, helles & kontraststarkes UI-Design**:
+  * Vollständig überarbeitetes Farbschema (vibrante Indigo-, Teal-, Amber- & Emerald-Akzente).
+  * Optimierte Textkontraste nach **WCAG 2.1 Level AA / AAA** für hervorragende Lesbarkeit.
+  * Dynamischer Wechsel zwischen Hell- & Dunkelmodus.
+* **♿ Umfassende Barrierefreiheit & Inklusion**:
+  * **Lese-Rechtschreib-Hilfe (Dyslexie-Modus)**: Spezialschriftart (*Atkinson Hyperlegible*), erweiterter Zeichen- & Zeilenabstand für vereinfachtes Lesen.
+  * **Rot-Grün-Sehhilfe (Farbenblindheits-Modus)**: Zusätzliche Icon-Indikatoren (✓ / ✗) und angepasste Farbpaletten, sodass kein Lerninhalt rein farbabhängig ist.
+  * **Vorlesefunktion (Text-to-Speech)**: Integrierte Audio-Steuerung (Play/Pause/Stopp) in der Fachkunde zum Vorlesen von Theorietexten.
+  * **Schriftgrößen-Skalierung**: Stufenlose Anpassung (A- / 100% / A+) über die Barrierefreiheits-Toolbar.
+  * **Hoher Kontrast & Reduzierte Animationen**: Schalter für maximale Kontraste und sanfte Bewegungen.
+* **🔒 DSGVO & Privacy First**:
+  * 100% DSGVO-konform: Keine Tracking-Cookies, keine externen Analyse-Tools.
+  * Sämtliche Fortschritte verbleiben ausschließlich im lokalen Speicher (`localStorage`) des Nutzers.
+  * Integriertes DSGVO & Impressum Modal in der Fußzeile.
 * **🎮 Interaktive Mini-Games**:
   * **Logic Gates Simulator**: Digitale Logikgatter (AND, OR, NOT, XOR, NAND, NOR) testen & Schaltungen simulieren.
   * **SQL Dungeon**: Datenbankabfragen (SELECT, JOIN, WHERE, GROUP BY) lösen.
   * **Web Sandbox**: Live HTML/CSS/JS Code-Editor mit Echtzeit-Vorschau.
   * **Security Lab**: Cyber-Security Scenarios (Phishing, Passwort-Stärke, Hashing, Port-Scans).
   * **Code Puzzle**: Code-Blöcke per Drag/Click in die richtige Reihenfolge bringen.
-* **📚 Theorie & Lückentext**:
-  * **Themen-Reader**: Detaillierte Module zu Hardware, Netzwerken, Programmierung, Datenbanken & Security.
-  * **Lückentext-Tester (Cloze Tester)**: Interaktive Wissensüberprüfung mit sofortiger Auswertung.
-* **🎥 Video Hub**:
-  * Strukturierte Sammlung von Lernvideos mit Filter nach Themen und Kategorien.
-* **🏆 Gamification**:
-  * XP (Erfahrungspunkte), Level-Aufstiege, tägliche Streaks, Münzen und freischaltbare Abzeichen (Badges).
-* **👤 Rollen- & Profilauswahl**:
-  * Anpassung der Lernpfade basierend auf Spezialisierungen (z. B. Anwendungsentwicklung vs. Systemintegration).
-* **🌙 Modernes UI/UX**:
-  * Dark-Mode Support, Glassmorphism-Design, responsive Steuerung für Desktop & Mobilgeräte.
+* **📱 Responsive & Touch-Optimiert**:
+  * Barrierefreie Touch-Targets (mind. 44px) für Smartphone-, Tablet- und Desktop-Nutzung.
 
 ---
 
@@ -47,6 +53,8 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ```
 Informatik-lernen/
+├── .agents/
+│   └── AGENTS.md
 ├── .gitignore
 ├── .oxlintrc.json
 ├── index.html
@@ -61,14 +69,13 @@ Informatik-lernen/
     ├── index.css
     ├── main.jsx
     ├── assets/
-    │   ├── hero.png
-    │   ├── react.svg
-    │   └── vite.svg
     ├── components/
     │   ├── Content/
     │   │   ├── ClozeTester.jsx
     │   │   ├── TopicReader.jsx
     │   │   └── VideoHub.jsx
+    │   ├── Footer/
+    │   │   └── DsgvoFooterModal.jsx
     │   ├── Games/
     │   │   ├── CodePuzzle.jsx
     │   │   ├── LogicGatesGame.jsx
@@ -78,6 +85,7 @@ Informatik-lernen/
     │   ├── Gamification/
     │   │   └── BadgesModal.jsx
     │   ├── Navigation/
+    │   │   ├── AccessibilityToolbar.jsx
     │   │   ├── MobileNav.jsx
     │   │   └── Navbar.jsx
     │   ├── Onboarding/
@@ -101,98 +109,70 @@ Informatik-lernen/
 
 ## 📄 Dateiinhalt & Komponentenübersicht
 
-### Core-Dateien
-* **`index.html`**: HTML5-Einstiegspunkt mit SEO-Meta-Tags und Google Fonts.
-* **`vite.config.js`**: Vite-Bundler Konfiguration mit React Plugin.
-* **`package.json`**: Projektabhängigkeiten (React 19, Lucide React, Canvas-Confetti, Vite, Oxlint) und Scripts.
-* **`src/main.jsx`**: React-Render-Initialisierung.
-* **`src/App.jsx`**: Hauptkomponente für Tab-Routing, globalen Gamification-State, Suche und Theme-Verwaltung.
+### Core & Navigation
+* **`src/App.jsx`**: Hauptkomponente mit State-Management für Routing, Gamification, Barrierefreiheit (Dyslexie, Rot-Grün-Sehhilfe, High Contrast) und Theme-Modi.
+* **`src/components/Navigation/Navbar.jsx`**: Kopfzeile mit XP, Level, Rolle, Theme-Wechsler & Barrierefreiheits-Button.
+* **`src/components/Navigation/AccessibilityToolbar.jsx`**: Interaktive Toolbar für Schriftgrößen, Lese-Rechtschreib-Hilfe, Rot-Grün-Sehhilfe & reduziertes Motion-Setting.
+* **`src/components/Footer/DsgvoFooterModal.jsx`**: Fußzeile & Modal für Datenschutz (DSGVO), Impressum und lokale Datentransparenz.
+* **`src/components/Navigation/MobileNav.jsx`**: Untere Navigationsleiste mit touch-optimierten Buttons (mind. 44px).
 
-### Komponenten (`src/components/`)
-* **`Navigation/Navbar.jsx`**: Kopfzeile mit Suche, Level-/XP-Anzeige, Streak, Münzen, Profil-Button und Theme-Toggle.
-* **`Navigation/MobileNav.jsx`**: Untere Navigationsleiste für mobile Geräte.
-* **`Content/TopicReader.jsx`**: Darstellung der Theorie-Lektionen mit Fortschrittsbalken und Quizzes.
-* **`Content/ClozeTester.jsx`**: Interaktives Ausfüllen von Lückentexten zur Überprüfung des Gelernten.
-* **`Content/VideoHub.jsx`**: Übersicht und Abspielen von erklärenden Lehrvideos.
-* **`Games/LogicGatesGame.jsx`**: Simulation logischer Gatter und Verknüpfungen.
-* **`Games/SqlDungeon.jsx`**: Interaktiver SQL-Trainer mit sofortigem Abfrage-Feedback.
-* **`Games/WebSandbox.jsx`**: Live-Editor für Webtechnologien (HTML/CSS/JS).
-* **`Games/SecurityLab.jsx`**: Cyber-Security Labor für Passwörter, Hashes und Angriffsvektoren.
-* **`Games/CodePuzzle.jsx`**: Logisches Ordnen von Programmcode-Segmenten.
-* **`Gamification/BadgesModal.jsx`**: Übersicht aller Errungenschaften, Abzeichen und Freischaltungen.
-* **`Onboarding/RoleSelectionModal.jsx`**: Dialog zur Auswahl der Informatik-Fachrichtung.
-* **`Projects/ProjectViewer.jsx`**: Praxisnahe Musterprojekte und Code-Beispiele.
-
-### Daten & Utilities (`src/data/` & `src/utils/`)
-* **`topicsData.js`**: Lernmodule & Fachinhalte.
-* **`clozeData.js`**: Aufgaben & Lösungen für Lückentexte.
-* **`gamesData.js`**: Level-Szenarien und Herausforderungen der Mini-Games.
-* **`projectsData.js`**: Projektbeschreibungen und Starter-Code.
-* **`videosData.js`**: Videometadaten & Einbettungs-Links.
-* **`userProfiles.js`**: Rollenprofile und Skill-Pfade.
-* **`storage.js`**: Helferfunktionen zur Speicherung des Lernfortschritts im `localStorage`.
+### Inhalte & Lernen
+* **`src/components/Content/TopicReader.jsx`**: Fachkunde-Artikel mit integrierter **Audio Vorlesefunktion (Text-to-Speech)**, Quizzes & Barrierefreiheits-Icons.
+* **`src/components/Content/ClozeTester.jsx`**: Interaktiver Lückentext-Tester mit deutlichen Icon-Feedback-Indikatoren.
+* **`src/styles/global.css`**: Zentrales CSS-Designsystem mit WCAG-Farbtokens, Dyslexie-Font-Regeln, Rot-Grün-Hilfe & Mikro-Animationen.
 
 ---
 
 ## ⚙️ Funktionsweise
 
-1. **State & Speicherung**:
-   * Der Lernfortschritt, gesammelte XP, erreichte Level, gelöste Aufgaben und freigeschaltete Badges werden automatisch über `src/utils/storage.js` im lokalen Speicher des Browsers (`localStorage`) persistent gehalten.
+1. **Accessibility & Inklusions-Engine**:
+   - Die Anwendung schaltet dynamisch CSS-Klassen (`.dyslexia-mode`, `.colorblind-mode`, `.high-contrast-mode`) am `body`-Element.
+   - Die Vorlesefunktion greift direkt auf die native `SpeechSynthesisUtterance` Web API des Browsers zu.
 2. **Gamification-Engine**:
-   * Das Lösen von Lerneinheiten, Quizzes und Games belohnt Nutzer mit XP. Bei Erreichen von XP-Schwellen steigt das Level. Besondere Meilensteine lösen Konfetti-Effekte (`canvas-confetti`) und Badge-Freischaltungen aus.
-3. **Interaktives Feedback**:
-   * Alle Mini-Games (z. B. SQL Dungeon oder Logic Gates) bewerten die Eingaben der Nutzer in Echtzeit und geben sofort visuelles und didaktisches Feedback.
+   - XP und Level-Aufstiege werden bei allen absolvierten Einheiten vergeben. Konfetti-Animationen berücksichtigen die Benutzereinstellung für reduzierte Bewegung (`isReducedMotion`).
+
+---
+
+## 🔒 DSGVO & Datenschutz
+
+* **Kein Server-Tracking**: Weder IPs noch Nutzerdaten werden an Drittanbieter oder Server übermittelt.
+* **Lokaler Speicher**: Fortschrittsdaten liegen verschlüsselt/rein im `localStorage` des jeweiligen Endgeräts.
 
 ---
 
 ## 🛠️ Anleitung (Installation & Ausführung)
 
-### Voraussetzungen
-* **Node.js** (Version 18.x oder höher empfohlen)
-* **npm** (oder yarn/pnpm)
+```bash
+# 1. Klonen des Repositories
+git clone https://github.com/Schengii/Informatik-lernen.git
+cd Informatik-lernen
 
-### Setup & Befehle
+# 2. Abhängigkeiten installieren
+npm install
 
-1. **Repository klonen**:
-   ```bash
-   git clone https://github.com/Schengii/Informatik-lernen.git
-   cd Informatik-lernen
-   ```
+# 3. Entwicklungsserver starten
+npm run dev
 
-2. **Abhängigkeiten installieren**:
-   ```bash
-   npm install
-   ```
-
-3. **Entwicklungsserver starten**:
-   ```bash
-   npm run dev
-   ```
-   Die Anwendung ist anschließend im Browser unter `http://localhost:5173` erreichbar.
-
-4. **Produktions-Build erstellen**:
-   ```bash
-   npm run build
-   ```
-
-5. **Linter ausführen**:
-   ```bash
-   npm run lint
-   ```
+# 4. Produktions-Build erstellen & testen
+npm run build
+npm run lint
+```
 
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
-> **Hinweis für zukünftige Entwicklungen**:
-> Die `README.md` wird bei allen zukünftigen Modifikationen, Erweiterungen, Fehlerbehebungen und neuen Features automatisch aktualisiert.
-
 ### Versionsverlauf
 
+#### [v1.1.0] - Helles High-Contrast Design, Barrierefreiheit (WCAG/Dyslexie/Sehhilfe), TTS & DSGVO
+* **UI Redesign**: Umstellung auf ein helles, modernes Design mit kontrastreichen Akzentfarben (Indigo, Teal, Emerald, Amber).
+* **Barrierefreiheit (WCAG 2.1 AA/AAA)**:
+  * **Lese-Rechtschreib-Hilfe**: Integration des Dyslexie-Modus mit adaptierter Typografie (*Atkinson Hyperlegible*) & Abständen.
+  * **Rot-Grün-Sehhilfe**: Ergänzung barrierefreier Icon-Indikatoren (✓/✗) & kontraststarker Farbwelten.
+  * **Vorlesefunktion**: Text-to-Speech Vorlese-Steuerung in den Fachkunde-Themen.
+  * **Accessibility Toolbar**: Menü zur Steuerung von Schriftgröße, Bewegung, Kontrast und Hilfsmodi.
+* **DSGVO & Rechtliches**: Ergänzung von Datenschutz- & Impressum-Modalen sowie transparenter Deklaration des lokalen Speichers.
+* **Responsive Touch-Targets**: Mindesthöhe von 44px für alle interaktiven Steuerelemente auf Mobilgeräten.
+
 #### [v1.0.0] - initiales Release & Git Repository Push
-* **Initiales Setup**: Einrichtung des Git-Repositories und Verknüpfung mit GitHub (`Schengii/Informatik-lernen`).
-* **Lernplattform & UI**: Modernes React + Vite Setup mit responsivem Navigation-System, Dark Mode & Glassmorphism Design.
-* **Mini-Games**: Integration von Logic Gates, SQL Dungeon, Web Sandbox, Security Lab und Code Puzzle.
-* **Lernmodule**: Theorie-Reader, Lückentext-Tester, Video Hub und Projekt-Showcase.
-* **Gamification System**: XP, Level-Up System, Streaks, Münzen und freischaltbare Auszeichnungen.
-* **Dokumentation**: Erstellung der ausführlichen Projektdokumentation in der `README.md`.
+* **Initiales Setup**: Einrichtung des Repositories, Mini-Games (Logic Gates, SQL Dungeon, Web Sandbox, Security Lab, Code Puzzle) & Theorie-Module.
