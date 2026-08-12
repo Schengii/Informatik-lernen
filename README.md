@@ -1,6 +1,6 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Docker & Containerisierung, Cloud Infrastructure (AWS/GitHub Actions CI/CD), Cybersecurity Red vs Blue Team, GraphQL & REST API Testing, AI Business Prompts & Deep Learning, IT-Berufe & IHK Prüfungspodcasts, IHK Berufsschul-Lernfeldern (FISI/FIAE), Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), Generativer KI (RAG/LLMs), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Kubernetes Orchestrierung, Local RAG Vector AI Pipelines, WebAssembly & Rust Compilation, Apache Kafka Event-Driven Architecture, Docker & Containerisierung, Cloud Infrastructure (AWS/GitHub Actions CI/CD), Cybersecurity Red vs Blue Team, GraphQL & REST API Testing, AI Business Prompts & Deep Learning, IT-Berufe & IHK Prüfungspodcasts, IHK Berufsschul-Lernfeldern (FISI/FIAE), Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), Generativer KI (RAG/LLMs), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
@@ -29,23 +29,22 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 3. **🚀 Junior Developer**:
    - Clean Code Prinzipien, REST & GraphQL APIs, Docker, CI/CD Pipelines, JavaScript, TypeScript, React, Angular, Node.js, Vite, RegEx, TDD Unit-Testing & Git-Workflows.
 4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
-   - Multi-Container Docker Compose, Red vs Blue Team Security Hardening, Cloud AWS Lambda Serverless, AI Business Masterclass, Deep Learning & PWA Live Deployment.
+   - **Kubernetes (K8s) Deployments & Services**, **RAG Vector AI Pipelines**, **WebAssembly & Rust**, **Apache Kafka Event-Driven Architecture**, Red vs Blue Team Security Hardening & PWA Live Deployment.
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v2.3.0)
+## 🔥 Hauptfunktionen & Neue Features (v2.4.0)
 
-* **🐳 Docker & Containerization Interactive Lab (`DockerLab.jsx` & `dockerData.js`)**:
-  * Multi-Stage Dockerfile Builder, Container Lifecycle & Docker Compose Orchestrierung.
-* **🌩️ Cloud Infrastructure & DevOps Playground (`CloudDevOpsLab.jsx` & `cloudData.js`)**:
-  * GitHub Actions CI/CD Pipeline Simulator & AWS Lambda Serverless Funktionen.
-* **🔒 Cybersecurity Red Team vs. Blue Team Challenge (`RedBlueTeamLab.jsx` & `securityTeamData.js`)**:
-  * Hacker Angriffs-Szenarien (SQL Injection, XSS, CSRF) vs. System-Hardening (Prepared Statements, CSP, Sanitization).
-* **⚡ GraphQL & REST API Benchmark Studio (`ApiBenchStudio.jsx` & `apiStudioData.js`)**:
-  * Postman-style API Tester für REST Endpunkte vs. GraphQL Queries.
-* **🤖 AI Business & Deep Learning Masterclass (`AiBusinessMasterclass.jsx`)**.
-* **🎧 IT-Berufe & IHK Podcast Hub (`ItPodcastHub.jsx`)**.
-* **🎓 Offizielle IHK FISI/FIAE Lernfelder Hub (`FisiLernfelderHub.jsx`)**.
+* **☸️ Kubernetes & Cloud Native Lab (`KubernetesLab.jsx` & `k8sData.js`)**:
+  * K8s Deployments, Replicas, LoadBalancer Services & Ingress Controller Rules.
+* **🤖 Local AI LLM & RAG Pipeline Simulator (`RagAiSimulator.jsx` & `ragAiData.js`)**:
+  * Document Chunking, Vector Embeddings (Cosine Similarity) & Vector DB Storage (Chroma/Pinecone).
+* **⚡ WebAssembly (Wasm) & Rust Compiler Lab (`WasmRustLab.jsx` & `wasmRustData.js`)**:
+  * Rust Source Code zu WebAssembly kompilieren und direkt mit JavaScript im Browser ausführen.
+* **🔄 Event-Driven Microservices (Apache Kafka) (`KafkaEventLab.jsx` & `kafkaData.js`)**:
+  * Kafka Event Producers, Topics & Consumer Groups Architecture.
+* **🐳 Docker & Containerization Interactive Lab (`DockerLab.jsx`)**.
+* **🌩️ Cloud Infrastructure & DevOps Playground (`CloudDevOpsLab.jsx`)**.
 
 ---
 
@@ -98,14 +97,18 @@ Informatik-lernen/
     │   │   ├── FisiLernfelderHub.jsx
     │   │   ├── GlossaryModal.jsx
     │   │   ├── ItPodcastHub.jsx
+    │   │   ├── KafkaEventLab.jsx
     │   │   ├── KnowledgeQuizArena.jsx
+    │   │   ├── KubernetesLab.jsx
     │   │   ├── LanguageAcademy.jsx
+    │   │   ├── RagAiSimulator.jsx
     │   │   ├── RedBlueTeamLab.jsx
     │   │   ├── TddUnitTestLab.jsx
     │   │   ├── TopicReader.jsx
     │   │   ├── ToolingSetupGuide.jsx
     │   │   ├── VideoHub.jsx
     │   │   ├── VocabularyTrainerModal.jsx
+    │   │   ├── WasmRustLab.jsx
     │   │   └── WebComponentsHub.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
@@ -145,16 +148,20 @@ Informatik-lernen/
     │   ├── flashcardsData.js
     │   ├── gamesData.js
     │   ├── glossaryData.js
+    │   ├── k8sData.js
+    │   ├── kafkaData.js
     │   ├── languageData.js
     │   ├── lernfelderData.js
     │   ├── podcastData.js
     │   ├── projectsData.js
     │   ├── quizArenaData.js
+    │   ├── ragAiData.js
     │   ├── roadmapData.js
     │   ├── securityTeamData.js
     │   ├── topicsData.js
     │   ├── userProfiles.js
     │   ├── vocabularyData.js
+    │   ├── wasmRustData.js
     │   ├── webComponentsData.js
     │   └── videosData.js
     ├── styles/
@@ -190,11 +197,14 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v2.4.0] - Kubernetes, RAG Vector AI, Wasm Rust & Kafka Event-Driven Architecture
+* **Kubernetes Lab (`KubernetesLab.jsx`)**: K8s Deployments & Services.
+* **RAG Vector AI Simulator (`RagAiSimulator.jsx`)**: Chunking & Vector DBs.
+* **WebAssembly & Rust Lab (`WasmRustLab.jsx`)**: Rust to Wasm Compiler.
+* **Event-Driven Kafka Lab (`KafkaEventLab.jsx`)**: Apache Kafka Producers & Consumers.
+
 #### [v2.3.0] - Docker Lab, Cloud DevOps, Red/Blue Security & API Studio
-* **Docker Lab (`DockerLab.jsx`)**: Multi-Stage Dockerfiles & Docker Compose.
-* **Cloud DevOps (`CloudDevOpsLab.jsx`)**: GitHub Actions Pipelines & AWS Lambda.
-* **Red/Blue Team Security (`RedBlueTeamLab.jsx`)**: Hacker Attacker vs Defender.
-* **API Studio (`ApiBenchStudio.jsx`)**: Postman-style REST vs GraphQL Tester.
+* Multi-Stage Dockerfiles, GitHub Actions Pipelines & Red/Blue Team Hardening.
 
 #### [v2.2.0] - AI Business Masterclass & IT Podcast Hub (Superprof/Golem/Coursera)
 * AI Business Prompts, Deep Learning & IHK Podcast Hub.

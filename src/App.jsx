@@ -49,11 +49,16 @@ import CloudDevOpsLab from './components/Content/CloudDevOpsLab';
 import RedBlueTeamLab from './components/Content/RedBlueTeamLab';
 import ApiBenchStudio from './components/Content/ApiBenchStudio';
 
+import KubernetesLab from './components/Content/KubernetesLab';
+import RagAiSimulator from './components/Content/RagAiSimulator';
+import WasmRustLab from './components/Content/WasmRustLab';
+import KafkaEventLab from './components/Content/KafkaEventLab';
+
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
-import { BookOpen, Sparkles, ArrowRight, CheckCircle, BookMarked, Compass, Activity, Network, Layers, Keyboard, Rocket, GraduationCap, Headphones, Bot, Box, Cloud, ShieldAlert } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, CheckCircle, BookMarked, Compass, Activity, Network, Layers, Keyboard, Rocket, GraduationCap, Headphones, Bot, Box, Cloud, ShieldAlert, Cpu, Database, Zap } from 'lucide-react';
 
 export default function App() {
   const [userState, setUserState] = useState(loadUserState());
@@ -238,10 +243,10 @@ export default function App() {
 
                   <button
                     className="btn btn-secondary"
-                    onClick={() => setActiveTab('docker')}
-                    style={{ minHeight: '48px', fontSize: '0.95rem', borderColor: 'var(--accent-primary)', color: 'var(--accent-primary)' }}
+                    onClick={() => setActiveTab('kubernetes')}
+                    style={{ minHeight: '48px', fontSize: '0.95rem', borderColor: 'var(--accent-indigo)', color: 'var(--accent-indigo)' }}
                   >
-                    <Box size={18} /> Docker Lab
+                    <Cpu size={18} /> Kubernetes Lab
                   </button>
                 </div>
               </div>
@@ -255,44 +260,56 @@ export default function App() {
 
             {/* Feature Modules Quick Access Grid */}
             <h2 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '20px', color: 'var(--text-main)' }}>
-              Empfohlene Lernbereiche für dich
+              Empfohlene Expert-Lernbereiche für dich
             </h2>
 
             <div className="grid-responsive" style={{ marginBottom: '40px' }}>
-              {/* Docker Lab Card */}
+              {/* K8s Card */}
               <div
                 className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('docker')}
+                onClick={() => setActiveTab('kubernetes')}
                 style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
               >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🐳</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Docker & Containers</h3>
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>☸️</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Kubernetes Orchestration</h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Dockerfile Builder, Multi-Stage & Docker Compose.
+                  Pods, Replicas, LoadBalancer Services & Ingress Rules.
                 </p>
-                <span style={{ fontSize: '0.9rem', color: 'var(--accent-primary)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Docker Lab Öffnen <ArrowRight size={16} />
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  K8s Lab Öffnen <ArrowRight size={16} />
                 </span>
               </div>
 
-              {/* Cloud DevOps Card */}
+              {/* RAG Vector AI Card */}
               <div
                 className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('cloud_devops')}
+                onClick={() => setActiveTab('rag_ai')}
                 style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
               >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🌩️</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Cloud & CI/CD Pipelines</h3>
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🤖</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>RAG Vector AI Pipelines</h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  GitHub Actions Pipelines & AWS Lambda Serverless.
+                  Chunking, Cosine Similarity & Vector DB Storage.
                 </p>
-                <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  DevOps Öffnen <ArrowRight size={16} />
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-purple)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  RAG AI Öffnen <ArrowRight size={16} />
                 </span>
               </div>
             </div>
           </div>
         )}
+
+        {/* KUBERNETES LAB TAB */}
+        {activeTab === 'kubernetes' && <KubernetesLab />}
+
+        {/* RAG VECTOR AI SIMULATOR TAB */}
+        {activeTab === 'rag_ai' && <RagAiSimulator />}
+
+        {/* WEBASSEMBLY RUST LAB TAB */}
+        {activeTab === 'wasm_rust' && <WasmRustLab />}
+
+        {/* KAFKA EVENT-DRIVEN LAB TAB */}
+        {activeTab === 'kafka' && <KafkaEventLab />}
 
         {/* DOCKER LAB TAB */}
         {activeTab === 'docker' && <DockerLab />}
