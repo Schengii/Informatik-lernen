@@ -1,6 +1,6 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), interaktiven Video-Tutorials, Schritt-für-Schritt Praxis-Projekten, IHK Berufsschul-Lernfeldern (FISI/FIAE LF 1 - 12b), Stefan Macke IT-Berufe Podcasts, Advanced Prompt Engineering (Chain-of-Thought, Few-Shot), Deep Learning, OAuth2 & OpenID Connect (OIDC), WebSockets Realtime Communication, Performance Profiling & Memory Leak Handling, Kubernetes Orchestrierung, Local RAG Vector AI Pipelines, WebAssembly & Rust Compilation, Apache Kafka Event-Driven Architecture, Docker & Containerisierung, Cloud Infrastructure (AWS/GitHub Actions CI/CD), Cybersecurity Red vs Blue Team, GraphQL & REST API Testing, Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), W3Schools-Style Programmier-Masterclasses (Python, JS ES6+, TS, Java, C#), interaktiven Video-Tutorials, Schritt-für-Schritt Praxis-Projekten, IHK Berufsschul-Lernfeldern (FISI/FIAE LF 1 - 12b), Stefan Macke IT-Berufe Podcasts, Advanced Prompt Engineering (Chain-of-Thought, Few-Shot), Deep Learning, OAuth2 & OpenID Connect (OIDC), WebSockets Realtime Communication, Performance Profiling & Memory Leak Handling, Kubernetes Orchestrierung, Local RAG Vector AI Pipelines, WebAssembly & Rust Compilation, Apache Kafka Event-Driven Architecture, Docker & Containerisierung, Cloud Infrastructure (AWS/GitHub Actions CI/CD), Cybersecurity Red vs Blue Team, GraphQL & REST API Testing, Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
@@ -33,13 +33,14 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v2.8.0 Content & Projects Upgrade)
+## 🔥 Hauptfunktionen & Neue Features (v2.9.0 W3Schools Expansion)
 
-* **🎥 Interaktive Video-Tutorials (`videosData.js`)**:
-  * Python Kurs für Anfänger, Docker & Container Crash-Kurs, Kubernetes Kompakt-Erklärung & SQL Datenbanken Masterclass.
-* **💻 Praxis-Mini-Projekte mit Code-Snippets (`projectsData.js`)**:
-  * React ToDo App mit useState & localStorage, Python Web Scraper für IT-News, Dockerisierte Node.js Express REST API mit Multi-Stage Dockerfile.
-* **🌱 Anfänger-Lernbereich & IHK Lernfelder Upgrade**.
+* **🐍 W3Schools-Style Programmiersprachen Hub (`languageData.js`)**:
+  * **Python Masterclass**: Datentypen, Lists/Tuples/Dicts, Lambdas, Exception Handling (`try-except`) & OOP Klassen.
+  * **Modern JavaScript (ES6+)**: `let`/`const`, Arrow Functions, `map`/`filter`/`reduce` & `async`/`await` Promises.
+  * **TypeScript Enterprise**: Interfaces, Types & Generics (`getFirstElement<T>`).
+  * **Java & C# OOP**: Vererbung, Interfaces & Klassenstrukturen.
+* **🎥 Video Tutorials, 💻 Praxis-Mini-Projekte, 🌱 Anfänger-Lernbereich & 🎓 IHK Lernfelder**.
 
 ---
 
@@ -199,27 +200,14 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v2.9.0] - W3Schools-Style Language Masterclasses Expansion
+* **Language Academy (`languageData.js`)**: W3Schools Tutorials für Python, JS ES6+, TypeScript & Java.
+
 #### [v2.8.0] - Video Tutorials & Mini-Projects Expansion
-* **Video Tutorials Hub (`videosData.js`)**: Python, Docker, Kubernetes & SQL Video-Lerneinheiten.
-* **Praxis Mini-Projekte (`projectsData.js`)**: React ToDo App, Python Scraper & Dockerized Express API.
+* Video Tutorials Hub (`videosData.js`) & Praxis Mini-Projekte (`projectsData.js`).
 
 #### [v2.7.0] - Dedicated Beginners Hub Upgrade
-* **Anfänger-Lernbereich (`AnfaengerGuideHub.jsx`)**: EVA-Prinzip, CPU-Architektur, Binärlogik & Netzwerke leicht erklärt.
-
-#### [v2.6.0] - Content & Knowledge Deep-Dive Upgrade
-* IHK Lernfelder Knowledge Upgrade, Advanced AI Prompting & IHK Podcast Hub.
-
-#### [v2.5.0] - OAuth2 Security, WebSockets Realtime & Performance Profiling
-* OAuth2 PKCE Flow, WebSockets HTTP 101 Handshake & V8 Memory Leak Profiling.
-
-#### [v2.4.1] - Systematisches Audit, Clean Build & Refactoring
-* Bereinigung aller unbenutzten Variablen über 82 Komponenten.
-
-#### [v2.4.0] - Kubernetes, RAG Vector AI, Wasm Rust & Kafka Event-Driven Architecture
-* Kubernetes Lab, RAG Vector AI Simulator, WebAssembly Rust & Apache Kafka Events.
-
-#### [v2.3.0] - Docker Lab, Cloud DevOps, Red/Blue Security & API Studio
-* Multi-Stage Dockerfiles, GitHub Actions Pipelines & Red/Blue Team Hardening.
+* Anfänger-Lernbereich (`AnfaengerGuideHub.jsx`).
 
 #### [v1.0.0] - Initiales Release
 * Initiales Setup des IT-DevGame Repositories.
