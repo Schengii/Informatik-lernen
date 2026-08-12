@@ -1,6 +1,6 @@
 import React from 'react';
 import { USER_ROLES } from '../../data/userProfiles';
-import { Trophy, Flame, UserCheck, Code2, Sun, Moon, BookOpen, Award, Layers, ShieldCheck, BookMarked, Globe, Rocket, Headphones, Bot } from 'lucide-react';
+import { Trophy, Flame, UserCheck, Code2, Sun, Moon, BookOpen, Award, Layers, ShieldCheck, BookMarked, Globe, Rocket, Headphones, Bot, Box, Cloud, ShieldAlert, Network } from 'lucide-react';
 import AccessibilityToolbar from './AccessibilityToolbar';
 import { getTranslation } from '../../utils/i18n';
 
@@ -94,6 +94,10 @@ export default function Navbar({
         <nav className="desktop-only" style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
           {[
             { id: 'dashboard', label: t('dashboard') },
+            { id: 'docker', label: '🐳 Docker Lab' },
+            { id: 'cloud_devops', label: '🌩️ Cloud DevOps' },
+            { id: 'security_lab_v2', label: '🔒 Red/Blue Security' },
+            { id: 'api_studio', label: '⚡ API Studio' },
             { id: 'lernfelder', label: '🎓 IHK Lernfelder' },
             { id: 'podcast', label: '🎧 IHK Podcast' },
             { id: 'ai_business', label: '🤖 AI Masterclass' },

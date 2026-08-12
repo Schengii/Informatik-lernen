@@ -1,6 +1,6 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, AI Business Prompts & Deep Learning (Golem/Coursera-basiert), IT-Berufe & IHK Prüfungspodcasts (Stefan Macke & Superprof-basiert), IHK Berufsschul-Lernfeldern (FISI/FIAE), Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), Generativer KI (RAG/LLMs), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Docker & Containerisierung, Cloud Infrastructure (AWS/GitHub Actions CI/CD), Cybersecurity Red vs Blue Team, GraphQL & REST API Testing, AI Business Prompts & Deep Learning, IT-Berufe & IHK Prüfungspodcasts, IHK Berufsschul-Lernfeldern (FISI/FIAE), Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), Generativer KI (RAG/LLMs), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
@@ -27,21 +27,25 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI, IT-Systemelektroniker)**:
    - Alle 12 IHK-Berufsschul Lernfelder (1. bis 3. Lehrjahr), Prüfungswissen für AP Teil 1 & AP Teil 2, IHK-Podcast Tipps für Doku & Fachgespräch.
 3. **🚀 Junior Developer**:
-   - Clean Code Prinzipien, REST-APIs, JavaScript, TypeScript, React, Angular, Node.js, Vite, RegEx, TDD Unit-Testing, Git-Workflows und Design Patterns.
+   - Clean Code Prinzipien, REST & GraphQL APIs, Docker, CI/CD Pipelines, JavaScript, TypeScript, React, Angular, Node.js, Vite, RegEx, TDD Unit-Testing & Git-Workflows.
 4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
-   - AI Business Masterclass, Deep Learning (PyTorch/TensorFlow), Web Components (**Lit.dev**, **Vaadin**), C++ Systemprogrammierung, Systemarchitektur (Microservices, Load Balancer, Redis Cache) & PWA Live Deployment.
+   - Multi-Container Docker Compose, Red vs Blue Team Security Hardening, Cloud AWS Lambda Serverless, AI Business Masterclass, Deep Learning & PWA Live Deployment.
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v2.2.0)
+## 🔥 Hauptfunktionen & Neue Features (v2.3.0)
 
-* **🤖 AI Business & Deep Learning Masterclass (`AiBusinessMasterclass.jsx` & `aiBusinessData.js`)**:
-  * Golem Karrierewelt & Coursera-inspirierte Lerneinheiten für Business Prompts, Marketing-Automatisierung & Deep Learning Grundlagen.
-* **🎧 IT-Berufe & IHK Podcast Hub (`ItPodcastHub.jsx` & `podcastData.js`)**:
-  * Stefan Macke & Superprof-inspirierte Prüfertipps für Projektdokumentation, Fachgespräch & AP Teil 2.
-* **🎓 Offizielle IHK FISI/FIAE Lernfelder Hub (`FisiLernfelderHub.jsx`)**: Alle 12 Berufsschul-Lernfelder (LF 1 bis 12b).
-* **🔥 Web Components Hub (`WebComponentsHub.jsx`)**: Lit.dev, Vaadin & Custom Elements.
-* **📚 10+ Sprachen W3Schools Academy (`LanguageAcademy.jsx`)**.
+* **🐳 Docker & Containerization Interactive Lab (`DockerLab.jsx` & `dockerData.js`)**:
+  * Multi-Stage Dockerfile Builder, Container Lifecycle & Docker Compose Orchestrierung.
+* **🌩️ Cloud Infrastructure & DevOps Playground (`CloudDevOpsLab.jsx` & `cloudData.js`)**:
+  * GitHub Actions CI/CD Pipeline Simulator & AWS Lambda Serverless Funktionen.
+* **🔒 Cybersecurity Red Team vs. Blue Team Challenge (`RedBlueTeamLab.jsx` & `securityTeamData.js`)**:
+  * Hacker Angriffs-Szenarien (SQL Injection, XSS, CSRF) vs. System-Hardening (Prepared Statements, CSP, Sanitization).
+* **⚡ GraphQL & REST API Benchmark Studio (`ApiBenchStudio.jsx` & `apiStudioData.js`)**:
+  * Postman-style API Tester für REST Endpunkte vs. GraphQL Queries.
+* **🤖 AI Business & Deep Learning Masterclass (`AiBusinessMasterclass.jsx`)**.
+* **🎧 IT-Berufe & IHK Podcast Hub (`ItPodcastHub.jsx`)**.
+* **🎓 Offizielle IHK FISI/FIAE Lernfelder Hub (`FisiLernfelderHub.jsx`)**.
 
 ---
 
@@ -80,19 +84,23 @@ Informatik-lernen/
     │   ├── Content/
     │   │   ├── AiBusinessMasterclass.jsx
     │   │   ├── AiPromptLab.jsx
+    │   │   ├── ApiBenchStudio.jsx
     │   │   ├── AppWorkshop.jsx
     │   │   ├── ArchitectureVisualizer.jsx
     │   │   ├── BigOVisualizer.jsx
     │   │   ├── CareerRoadmap.jsx
     │   │   ├── ClozeTester.jsx
+    │   │   ├── CloudDevOpsLab.jsx
     │   │   ├── DeploymentGuideModal.jsx
     │   │   ├── DesignPatternsLab.jsx
+    │   │   ├── DockerLab.jsx
     │   │   ├── ExamSimulator.jsx
     │   │   ├── FisiLernfelderHub.jsx
     │   │   ├── GlossaryModal.jsx
     │   │   ├── ItPodcastHub.jsx
     │   │   ├── KnowledgeQuizArena.jsx
     │   │   ├── LanguageAcademy.jsx
+    │   │   ├── RedBlueTeamLab.jsx
     │   │   ├── TddUnitTestLab.jsx
     │   │   ├── TopicReader.jsx
     │   │   ├── ToolingSetupGuide.jsx
@@ -129,7 +137,10 @@ Informatik-lernen/
     │       └── ProjectViewer.jsx
     ├── data/
     │   ├── aiBusinessData.js
+    │   ├── apiStudioData.js
     │   ├── clozeData.js
+    │   ├── cloudData.js
+    │   ├── dockerData.js
     │   ├── examData.js
     │   ├── flashcardsData.js
     │   ├── gamesData.js
@@ -140,6 +151,7 @@ Informatik-lernen/
     │   ├── projectsData.js
     │   ├── quizArenaData.js
     │   ├── roadmapData.js
+    │   ├── securityTeamData.js
     │   ├── topicsData.js
     │   ├── userProfiles.js
     │   ├── vocabularyData.js
@@ -178,9 +190,14 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v2.3.0] - Docker Lab, Cloud DevOps, Red/Blue Security & API Studio
+* **Docker Lab (`DockerLab.jsx`)**: Multi-Stage Dockerfiles & Docker Compose.
+* **Cloud DevOps (`CloudDevOpsLab.jsx`)**: GitHub Actions Pipelines & AWS Lambda.
+* **Red/Blue Team Security (`RedBlueTeamLab.jsx`)**: Hacker Attacker vs Defender.
+* **API Studio (`ApiBenchStudio.jsx`)**: Postman-style REST vs GraphQL Tester.
+
 #### [v2.2.0] - AI Business Masterclass & IT Podcast Hub (Superprof/Golem/Coursera)
-* **AI Business Masterclass (`AiBusinessMasterclass.jsx`)**: Golem & Coursera-basierte KI Business Prompts & Deep Learning.
-* **IT-Berufe Podcast Hub (`ItPodcastHub.jsx`)**: Stefan Macke & Superprof-basierte IHK Prüfungstipps.
+* AI Business Prompts, Deep Learning & IHK Podcast Hub.
 
 #### [v2.1.0] - Offizieller IHK FISI / FIAE Lernfelder Hub (LF 1 bis 12b)
 * IHK Lernfelder Hub mit allen 12 Berufsschul-Lernfeldern.

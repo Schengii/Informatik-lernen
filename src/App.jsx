@@ -44,11 +44,16 @@ import FisiLernfelderHub from './components/Content/FisiLernfelderHub';
 import AiBusinessMasterclass from './components/Content/AiBusinessMasterclass';
 import ItPodcastHub from './components/Content/ItPodcastHub';
 
+import DockerLab from './components/Content/DockerLab';
+import CloudDevOpsLab from './components/Content/CloudDevOpsLab';
+import RedBlueTeamLab from './components/Content/RedBlueTeamLab';
+import ApiBenchStudio from './components/Content/ApiBenchStudio';
+
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
-import { BookOpen, Sparkles, ArrowRight, CheckCircle, BookMarked, Compass, Activity, Network, Layers, Keyboard, Rocket, GraduationCap, Headphones, Bot } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, CheckCircle, BookMarked, Compass, Activity, Network, Layers, Keyboard, Rocket, GraduationCap, Headphones, Bot, Box, Cloud, ShieldAlert } from 'lucide-react';
 
 export default function App() {
   const [userState, setUserState] = useState(loadUserState());
@@ -233,10 +238,10 @@ export default function App() {
 
                   <button
                     className="btn btn-secondary"
-                    onClick={() => setActiveTab('ai_business')}
+                    onClick={() => setActiveTab('docker')}
                     style={{ minHeight: '48px', fontSize: '0.95rem', borderColor: 'var(--accent-primary)', color: 'var(--accent-primary)' }}
                   >
-                    <Bot size={18} /> AI Masterclass
+                    <Box size={18} /> Docker Lab
                   </button>
                 </div>
               </div>
@@ -254,40 +259,52 @@ export default function App() {
             </h2>
 
             <div className="grid-responsive" style={{ marginBottom: '40px' }}>
-              {/* AI Masterclass Card */}
+              {/* Docker Lab Card */}
               <div
                 className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('ai_business')}
+                onClick={() => setActiveTab('docker')}
                 style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
               >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🤖</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>AI Business & Deep Learning</h3>
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🐳</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Docker & Containers</h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Golem- & Coursera-inspirierte KI Workflows & Neuronale Netze.
+                  Dockerfile Builder, Multi-Stage & Docker Compose.
                 </p>
                 <span style={{ fontSize: '0.9rem', color: 'var(--accent-primary)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Masterclass Öffnen <ArrowRight size={16} />
+                  Docker Lab Öffnen <ArrowRight size={16} />
                 </span>
               </div>
 
-              {/* Podcast Card */}
+              {/* Cloud DevOps Card */}
               <div
                 className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('podcast')}
+                onClick={() => setActiveTab('cloud_devops')}
                 style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
               >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🎧</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>IHK Podcast & Prüfertipps</h3>
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🌩️</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Cloud & CI/CD Pipelines</h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  IT-Berufe Podcast Tipps für Doku, Fachgespräch & Prüfung.
+                  GitHub Actions Pipelines & AWS Lambda Serverless.
                 </p>
-                <span style={{ fontSize: '0.9rem', color: 'var(--accent-amber)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Podcast Öffnen <ArrowRight size={16} />
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  DevOps Öffnen <ArrowRight size={16} />
                 </span>
               </div>
             </div>
           </div>
         )}
+
+        {/* DOCKER LAB TAB */}
+        {activeTab === 'docker' && <DockerLab />}
+
+        {/* CLOUD DEVOPS TAB */}
+        {activeTab === 'cloud_devops' && <CloudDevOpsLab />}
+
+        {/* RED / BLUE TEAM SECURITY TAB */}
+        {activeTab === 'security_lab_v2' && <RedBlueTeamLab />}
+
+        {/* API BENCH STUDIO TAB */}
+        {activeTab === 'api_studio' && <ApiBenchStudio />}
 
         {/* AI BUSINESS MASTERCLASS TAB */}
         {activeTab === 'ai_business' && <AiBusinessMasterclass />}
