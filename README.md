@@ -1,6 +1,6 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, Datenbanken, IT-Sicherheit, Logikschaltungen und Netzwerken – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken und RegEx – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
@@ -27,7 +27,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI, IT-Systemelektroniker)**:
    - Gezieltes IHK-Prüfungswissen, Berufsschul-Themen (SQL JOINs, Netzwerke/OSI, OOP, Pseudocode, Lückentexte).
 3. **🚀 Junior Developer**:
-   - Clean Code Prinzipien, REST-APIs, Git-Workflows und praxisnahe Mikroprojekte.
+   - Clean Code Prinzipien, REST-APIs, RegEx, Git-Workflows und praxisnahe Mikroprojekte.
 4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
    - Fortgeschrittene Cybersecurity (OWASP Top 10, SQLi, XSS), Datenbank-Performance & Indexing, RegEx & System-Architektur.
 
@@ -35,6 +35,12 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ## 🔥 Hauptfunktionen & Neue Features
 
+* **🔍 RegEx Lab & Pattern Tester (`RegexLab.jsx`)**:
+  * Interaktiver Simulator zum Ausprobieren und Testen regulärer Ausdrücke mit sofortiger Treffer-Visualisierung & Level-Aufgaben.
+* **🎴 Spaced Repetition Karteikarten-Trainer (`FlashcardsModal.jsx`)**:
+  * Anki-inspirierte IT-Karteikarten mit Umklapp-Animation zur Vorbereitung auf Prüfungen.
+* **💾 Daten Backup & Wiederherstellungs-Manager (`BackupModal.jsx`)**:
+  * Exportiere den gesamten Lernfortschritt (XP, Level, Badges) als JSON-Datei und importiere ihn geräteübergreifend.
 * **📖 Interaktives IT-Lexikon & Fachbegriffe (`GlossaryModal.jsx`)**:
   * Durchsuchbares Glossar mit einfachen Erklärungen für Einsteiger und technischen Details für Azubis & Devs inklusive Audio-Vorlesefunktion.
 * **🎓 IHK-Prüfungssimulator (`ExamSimulator.jsx`)**:
@@ -45,8 +51,6 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
   * Tägliche Quests zur Wissensüberprüfung und Bonus-XP Belohnung.
 * **📜 Zertifikat-Generator (`CertificateModal.jsx`)**:
   * Generierung und Export/Druck von Qualifikations-Zertifikaten für erreichte Lernfortschritte.
-* **🎚️ Interaktiver Schwierigkeitsgrad-Filter**:
-  * Umschaltung zwischen `🟢 Einsteiger`, `🔵 Azubi / IHK`, `🟣 Senior / Expert` und `Alle Levels`.
 
 ---
 
@@ -91,13 +95,16 @@ Informatik-lernen/
     │   ├── Games/
     │   │   ├── CodePuzzle.jsx
     │   │   ├── LogicGatesGame.jsx
+    │   │   ├── RegexLab.jsx
     │   │   ├── SecurityLab.jsx
     │   │   ├── SqlDungeon.jsx
     │   │   └── WebSandbox.jsx
     │   ├── Gamification/
     │   │   ├── BadgesModal.jsx
+    │   │   ├── BackupModal.jsx
     │   │   ├── CertificateModal.jsx
     │   │   ├── DailyChallengeWidget.jsx
+    │   │   ├── FlashcardsModal.jsx
     │   │   └── SkillMatrixWidget.jsx
     │   ├── Navigation/
     │   │   ├── AccessibilityToolbar.jsx
@@ -111,6 +118,7 @@ Informatik-lernen/
     ├── data/
     │   ├── clozeData.js
     │   ├── examData.js
+    │   ├── flashcardsData.js
     │   ├── gamesData.js
     │   ├── glossaryData.js
     │   ├── projectsData.js
@@ -122,17 +130,6 @@ Informatik-lernen/
     └── utils/
         └── storage.js
 ```
-
----
-
-## 📄 Dateiinhalt & Komponentenübersicht
-
-### Neue Module
-* **`src/components/Content/GlossaryModal.jsx`**: Interaktives IT-Lexikon mit Suchfunktion, Kategorien & Vorleser.
-* **`src/components/Content/ExamSimulator.jsx`**: IHK Prüfungssimulation mit auswertbaren Prüfungsfragen.
-* **`src/components/Gamification/SkillMatrixWidget.jsx`**: Visuelle Kompetenzverteilung.
-* **`src/components/Gamification/DailyChallengeWidget.jsx`**: Tägliche Aufgaben mit Bonus XP.
-* **`src/components/Gamification/CertificateModal.jsx`**: Qualifikations-Zertifikat mit Druck- / PDF-Funktion.
 
 ---
 
@@ -160,18 +157,19 @@ npm run lint
 
 ### Versionsverlauf
 
-#### [v1.3.0] - IT-Lexikon, IHK Prüfungssimulator, Skill-Matrix, Tages-Challenge & Zertifikate
-* **Interaktives IT-Lexikon (`GlossaryModal.jsx`)**: Suchbares Glossar mit einfachen Erklärungen für Einsteiger und Experten-Details.
-* **IHK Prüfungssimulator (`ExamSimulator.jsx`)**: Realistische Prüfungsfragen mit Auswertung, Erklärung und Fortschritt.
-* **Skill-Matrix (`SkillMatrixWidget.jsx`)**: Kompetenzübersicht in 6 IT-Bereichen.
-* **Tages-Challenge (`DailyChallengeWidget.jsx`)**: Tägliche Wechsel-Quests & Streak-Vorteile.
-* **Zertifikat-Generator (`CertificateModal.jsx`)**: Ausstellbare Zertifikate mit Druck- & PDF-Funktion.
+#### [v1.4.0] - RegEx Lab, IT-Karteikarten Trainer & Backup Manager
+* **RegEx Lab (`RegexLab.jsx`)**: Interaktive RegEx-Umgebung mit Suchmuster-Aufgaben.
+* **Karteikarten-Trainer (`FlashcardsModal.jsx`)**: Spaced Repetition Karteikarten für IHK-Fachbegriffe.
+* **Backup Manager (`BackupModal.jsx`)**: JSON Export & Import des Lernfortschritts.
 
-#### [v1.2.0] - Zielgruppen-Erweiterung für jedes Alter & Vorwissen (Einsteiger bis Senior Dev)
+#### [v1.3.0] - IT-Lexikon, IHK Prüfungssimulator, Skill-Matrix, Tages-Challenge & Zertifikate
+* IT-Lexikon, IHK Prüfungssimulator, Skill-Matrix, Tages-Challenge & Zertifikat-Generator.
+
+#### [v1.2.0] - Zielgruppen-Erweiterung für jedes Alter & Vorwissen
 * Erweiterung des Nutzerprofil-Systems & Einführung von `DifficultyFilterBar.jsx`.
 
-#### [v1.1.0] - Helles High-Contrast Design, Barrierefreiheit (WCAG/Dyslexie/Sehhilfe), TTS & DSGVO
+#### [v1.1.0] - Helles High-Contrast Design, Barrierefreiheit & DSGVO
 * UI-Redesign, Barrierefreiheit, Vorlesefunktion & DSGVO-Modal.
 
-#### [v1.0.0] - initiales Release & Git Repository Push
+#### [v1.0.0] - Initiales Release
 * Initiales Setup des IT-DevGame Repositories.

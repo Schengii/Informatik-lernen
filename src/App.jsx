@@ -11,6 +11,7 @@ import SecurityLab from './components/Games/SecurityLab';
 import CodePuzzle from './components/Games/CodePuzzle';
 import LogicGatesGame from './components/Games/LogicGatesGame';
 import WebSandbox from './components/Games/WebSandbox';
+import RegexLab from './components/Games/RegexLab';
 import ProjectViewer from './components/Projects/ProjectViewer';
 import BadgesModal from './components/Gamification/BadgesModal';
 import DsgvoFooterModal from './components/Footer/DsgvoFooterModal';
@@ -20,12 +21,14 @@ import ExamSimulator from './components/Content/ExamSimulator';
 import SkillMatrixWidget from './components/Gamification/SkillMatrixWidget';
 import CertificateModal from './components/Gamification/CertificateModal';
 import DailyChallengeWidget from './components/Gamification/DailyChallengeWidget';
+import FlashcardsModal from './components/Gamification/FlashcardsModal';
+import BackupModal from './components/Gamification/BackupModal';
 
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
-import { BookOpen, Sparkles, ArrowRight, CheckCircle, GraduationCap, Award } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, CheckCircle, GraduationCap, Award, Search, Layers, ShieldCheck } from 'lucide-react';
 
 export default function App() {
   const [userState, setUserState] = useState(loadUserState());
@@ -33,11 +36,13 @@ export default function App() {
   const [isBadgesModalOpen, setIsBadgesModalOpen] = useState(false);
   const [isGlossaryModalOpen, setIsGlossaryModalOpen] = useState(false);
   const [isCertificateModalOpen, setIsCertificateModalOpen] = useState(false);
+  const [isFlashcardsModalOpen, setIsFlashcardsModalOpen] = useState(false);
+  const [isBackupModalOpen, setIsBackupModalOpen] = useState(false);
 
   const [activeTab, setActiveTab] = useState('dashboard');
 
   // Accessibility State & Theme (Light / Dark)
-  const [theme, setTheme] = useState('light'); // 'light' | 'dark'
+  const [theme, setTheme] = useState('light');
   const [fontSize, setFontSize] = useState(100);
   const [isDyslexic, setIsDyslexic] = useState(false);
   const [isColorblind, setIsColorblind] = useState(false);
@@ -50,7 +55,7 @@ export default function App() {
   // Topic Reader state
   const [selectedTopicId, setSelectedTopicId] = useState(null);
 
-  // Active Mini-Game Selector ('sql' | 'security' | 'puzzle' | 'logic' | 'sandbox')
+  // Active Mini-Game Selector ('sql' | 'security' | 'puzzle' | 'logic' | 'sandbox' | 'regex')
   const [activeGameId, setActiveGameId] = useState('sql');
 
   // Apply Theme & Accessibility Classes to <body>
@@ -81,6 +86,10 @@ export default function App() {
   useEffect(() => {
     saveUserState(userState);
   }, [userState]);
+
+  const refreshStateFromStorage = () => {
+    setUserState(loadUserState());
+  };
 
   // Handle Role Select
   const handleSelectRole = (roleId) => {
@@ -138,6 +147,8 @@ export default function App() {
         onOpenBadgesModal={() => setIsBadgesModalOpen(true)}
         onOpenGlossaryModal={() => setIsGlossaryModalOpen(true)}
         onOpenCertificateModal={() => setIsCertificateModalOpen(true)}
+        onOpenFlashcardsModal={() => setIsFlashcardsModalOpen(true)}
+        onOpenBackupModal={() => setIsBackupModalOpen(true)}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         fontSize={fontSize}
@@ -241,7 +252,7 @@ export default function App() {
                 <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🎮</div>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Mini-Games Arcade</h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  SQL Dungeon, Cyber Defense Lab, Code Bug Hunter & Logik-Schaltungen.
+                  SQL Dungeon, Cyber Defense Lab, RegEx Lab & Logik-Schaltungen.
                 </p>
                 <span style={{ fontSize: '0.9rem', color: 'var(--accent-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
                   Spiele Starten <ArrowRight size={16} />
@@ -348,6 +359,7 @@ export default function App() {
               {[
                 { id: 'sql', label: '🗄️ SQL Dungeon' },
                 { id: 'security', label: '🛡️ Cyber Defense Lab' },
+                { id: 'regex', label: '🔍 RegEx Lab' },
                 { id: 'puzzle', label: '🧩 Code Bug Hunter' },
                 { id: 'logic', label: '⚡ Logikgatter Simulator' },
                 { id: 'sandbox', label: '🌐 Live Web Sandbox' }
@@ -375,6 +387,7 @@ export default function App() {
 
             {activeGameId === 'sql' && <SqlDungeon onCompleteGame={(id, xp) => awardXP(xp, 'sql_master')} />}
             {activeGameId === 'security' && <SecurityLab onCompleteGame={(id, xp) => awardXP(xp, 'security_expert')} />}
+            {activeGameId === 'regex' && <RegexLab onCompleteGame={(id, xp) => awardXP(xp, 'regex_master')} />}
             {activeGameId === 'puzzle' && <CodePuzzle onCompleteGame={(id, xp) => awardXP(xp)} />}
             {activeGameId === 'logic' && <LogicGatesGame onCompleteGame={(id, xp) => awardXP(xp, 'logic_genius')} />}
             {activeGameId === 'sandbox' && <WebSandbox onCompleteGame={(id, xp) => awardXP(xp, 'web_builder')} />}
@@ -434,6 +447,20 @@ export default function App() {
         isOpen={isCertificateModalOpen}
         onClose={() => setIsCertificateModalOpen(false)}
         userState={userState}
+      />
+
+      {/* Flashcards Modal */}
+      <FlashcardsModal
+        isOpen={isFlashcardsModalOpen}
+        onClose={() => setIsFlashcardsModalOpen(false)}
+        onRewardXP={(xp) => awardXP(xp)}
+      />
+
+      {/* Backup & Restore Modal */}
+      <BackupModal
+        isOpen={isBackupModalOpen}
+        onClose={() => setIsBackupModalOpen(false)}
+        onStateRestored={refreshStateFromStorage}
       />
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { USER_ROLES } from '../../data/userProfiles';
-import { Trophy, Flame, UserCheck, Code2, Sun, Moon, BookOpen, GraduationCap, Award } from 'lucide-react';
+import { Trophy, Flame, UserCheck, Code2, Sun, Moon, BookOpen, Award, Layers, ShieldCheck } from 'lucide-react';
 import AccessibilityToolbar from './AccessibilityToolbar';
 
 export default function Navbar({
@@ -9,6 +9,8 @@ export default function Navbar({
   onOpenBadgesModal,
   onOpenGlossaryModal,
   onOpenCertificateModal,
+  onOpenFlashcardsModal,
+  onOpenBackupModal,
   activeTab,
   setActiveTab,
   fontSize,
@@ -113,7 +115,7 @@ export default function Navbar({
           ))}
         </nav>
 
-        {/* User Stats, Accessibility, Glossary & Certificate Controls */}
+        {/* User Controls Bar */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
           {/* IT Lexikon Button */}
           <button
@@ -123,7 +125,18 @@ export default function Navbar({
             title="IT-Lexikon & Fachbegriffe"
           >
             <BookOpen size={16} />
-            <span className="desktop-only">IT-Lexikon</span>
+            <span className="desktop-only">Lexikon</span>
+          </button>
+
+          {/* Flashcards Button */}
+          <button
+            className="btn btn-secondary btn-sm"
+            onClick={onOpenFlashcardsModal}
+            style={{ gap: '6px', fontWeight: 700, borderColor: 'var(--accent-primary)', color: 'var(--accent-primary)' }}
+            title="IT-Karteikarten Trainer"
+          >
+            <Layers size={16} />
+            <span className="desktop-only">Karteikarten</span>
           </button>
 
           {/* Certificate Button */}
@@ -135,6 +148,17 @@ export default function Navbar({
           >
             <Award size={16} />
             <span className="desktop-only">Zertifikat</span>
+          </button>
+
+          {/* Backup Button */}
+          <button
+            className="btn btn-secondary btn-sm"
+            onClick={onOpenBackupModal}
+            style={{ gap: '6px', fontWeight: 700, borderColor: 'var(--border-color)', color: 'var(--text-muted)' }}
+            title="Daten sichern / Wiederherstellen"
+          >
+            <ShieldCheck size={16} />
+            <span className="desktop-only">Backup</span>
           </button>
 
           {/* XP & Level Badge */}
