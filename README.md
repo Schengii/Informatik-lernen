@@ -1,6 +1,6 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Kubernetes Orchestrierung, Local RAG Vector AI Pipelines, WebAssembly & Rust Compilation, Apache Kafka Event-Driven Architecture, Docker & Containerisierung, Cloud Infrastructure (AWS/GitHub Actions CI/CD), Cybersecurity Red vs Blue Team, GraphQL & REST API Testing, AI Business Prompts & Deep Learning, IT-Berufe & IHK Prüfungspodcasts, IHK Berufsschul-Lernfeldern (FISI/FIAE), Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), Generativer KI (RAG/LLMs), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, OAuth2 & OpenID Connect (OIDC), WebSockets Realtime Communication, Performance Profiling & Memory Leak Handling, Kubernetes Orchestrierung, Local RAG Vector AI Pipelines, WebAssembly & Rust Compilation, Apache Kafka Event-Driven Architecture, Docker & Containerisierung, Cloud Infrastructure (AWS/GitHub Actions CI/CD), Cybersecurity Red vs Blue Team, GraphQL & REST API Testing, AI Business Prompts & Deep Learning, IT-Berufe & IHK Prüfungspodcasts, IHK Berufsschul-Lernfeldern (FISI/FIAE), Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), Generativer KI (RAG/LLMs), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
@@ -29,20 +29,19 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 3. **🚀 Junior Developer**:
    - Clean Code Prinzipien, REST & GraphQL APIs, Docker, CI/CD Pipelines, JavaScript, TypeScript, React, Angular, Node.js, Vite, RegEx, TDD Unit-Testing & Git-Workflows.
 4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
-   - **Kubernetes (K8s) Deployments & Services**, **RAG Vector AI Pipelines**, **WebAssembly & Rust**, **Apache Kafka Event-Driven Architecture**, Red vs Blue Team Security Hardening & PWA Live Deployment.
+   - **OAuth2 PKCE & JWT Claims Decoding**, **WebSockets HTTP 101 Handshake**, **V8 Performance & Memory Leak Profiling**, **Kubernetes Deployments**, **RAG Vector AI Pipelines**, **WebAssembly & Rust** & **Apache Kafka Events**.
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v2.4.1 Audit)
+## 🔥 Hauptfunktionen & Neue Features (v2.5.0)
 
-* **🧹 Systematisches Code-Audit & Performance Optimierung (v2.4.1)**:
-  * Bereinigung aller unbenutzten Variablendeklarationen über 82 Komponenten hinweg.
-  * Blitzschneller Produktions-Build in 382ms ohne Warnungen oder Fehler.
-* **☸️ Kubernetes & Cloud Native Lab (`KubernetesLab.jsx`)**: K8s Deployments & Services.
-* **🤖 Local AI LLM & RAG Pipeline Simulator (`RagAiSimulator.jsx`)**: Document Chunking & Vector DBs.
-* **⚡ WebAssembly (Wasm) & Rust Compiler Lab (`WasmRustLab.jsx`)**: Rust to Wasm.
-* **🔄 Event-Driven Microservices (Apache Kafka) (`KafkaEventLab.jsx`)**: Kafka Producers & Consumers.
-* **🐳 Docker Lab, 🌩️ Cloud DevOps, 🔒 Red/Blue Security & ⚡ API Studio**.
+* **🔐 OAuth2 & OpenID Connect (OIDC) Security Playground (`OauthOidcLab.jsx` & `oauthData.js`)**:
+  * PKCE Authorization Flow (S256), Access Tokens & JWT Claims Decoding.
+* **📻 WebSockets & Realtime Live Collaboration Lab (`WebSocketsLab.jsx` & `websocketData.js`)**:
+  * HTTP 101 Switching Protocols Handshake, Full-Duplex TCP Connections & Socket.io Event Broadcasts.
+* **📊 Performance Profiling & Memory Leak Lab (`PerformanceProfilingLab.jsx` & `perfData.js`)**:
+  * V8 Engine Garbage Collection (Mark-and-Sweep) & Behebung von Memory Leaks.
+* **☸️ Kubernetes Lab, 🤖 RAG Vector AI, ⚡ Wasm Rust & 🔄 Kafka Events**.
 
 ---
 
@@ -99,6 +98,8 @@ Informatik-lernen/
     │   │   ├── KnowledgeQuizArena.jsx
     │   │   ├── KubernetesLab.jsx
     │   │   ├── LanguageAcademy.jsx
+    │   │   ├── OauthOidcLab.jsx
+    │   │   ├── PerformanceProfilingLab.jsx
     │   │   ├── RagAiSimulator.jsx
     │   │   ├── RedBlueTeamLab.jsx
     │   │   ├── TddUnitTestLab.jsx
@@ -107,7 +108,8 @@ Informatik-lernen/
     │   │   ├── VideoHub.jsx
     │   │   ├── VocabularyTrainerModal.jsx
     │   │   ├── WasmRustLab.jsx
-    │   │   └── WebComponentsHub.jsx
+    │   │   ├── WebComponentsHub.jsx
+    │   │   └── WebSocketsLab.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
     │   ├── Games/
@@ -150,6 +152,8 @@ Informatik-lernen/
     │   ├── kafkaData.js
     │   ├── languageData.js
     │   ├── lernfelderData.js
+    │   ├── oauthData.js
+    │   ├── perfData.js
     │   ├── podcastData.js
     │   ├── projectsData.js
     │   ├── quizArenaData.js
@@ -161,6 +165,7 @@ Informatik-lernen/
     │   ├── vocabularyData.js
     │   ├── wasmRustData.js
     │   ├── webComponentsData.js
+    │   ├── websocketData.js
     │   └── videosData.js
     ├── styles/
     │   └── global.css
@@ -195,9 +200,13 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v2.5.0] - OAuth2 Security, WebSockets Realtime & Performance Profiling
+* **OAuth2 & OIDC Lab (`OauthOidcLab.jsx`)**: PKCE Flow, JWT Decoding & Access Tokens.
+* **WebSockets Realtime Lab (`WebSocketsLab.jsx`)**: HTTP 101 Handshake & Socket.io Broadcasts.
+* **Performance Profiling Lab (`PerformanceProfilingLab.jsx`)**: V8 Garbage Collection & Memory Leaks.
+
 #### [v2.4.1] - Systematisches Audit, Clean Build & Refactoring
 * Bereinigung aller unbenutzten Variablen über 82 Komponenten.
-* 100% robuster Produktions-Build ohne Fehler.
 
 #### [v2.4.0] - Kubernetes, RAG Vector AI, Wasm Rust & Kafka Event-Driven Architecture
 * Kubernetes Lab, RAG Vector AI Simulator, WebAssembly Rust & Apache Kafka Events.

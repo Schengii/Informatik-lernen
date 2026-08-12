@@ -54,11 +54,15 @@ import RagAiSimulator from './components/Content/RagAiSimulator';
 import WasmRustLab from './components/Content/WasmRustLab';
 import KafkaEventLab from './components/Content/KafkaEventLab';
 
+import OauthOidcLab from './components/Content/OauthOidcLab';
+import WebSocketsLab from './components/Content/WebSocketsLab';
+import PerformanceProfilingLab from './components/Content/PerformanceProfilingLab';
+
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
-import { BookOpen, Sparkles, ArrowRight, CheckCircle, Box, Cpu } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, CheckCircle, Lock, Radio, Activity } from 'lucide-react';
 
 export default function App() {
   const [userState, setUserState] = useState(loadUserState());
@@ -243,10 +247,10 @@ export default function App() {
 
                   <button
                     className="btn btn-secondary"
-                    onClick={() => setActiveTab('kubernetes')}
+                    onClick={() => setActiveTab('oauth_oidc')}
                     style={{ minHeight: '48px', fontSize: '0.95rem', borderColor: 'var(--accent-indigo)', color: 'var(--accent-indigo)' }}
                   >
-                    <Cpu size={18} /> Kubernetes Lab
+                    <Lock size={18} /> OAuth2 & JWT
                   </button>
                 </div>
               </div>
@@ -264,40 +268,49 @@ export default function App() {
             </h2>
 
             <div className="grid-responsive" style={{ marginBottom: '40px' }}>
-              {/* K8s Card */}
+              {/* OAuth2 Card */}
               <div
                 className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('kubernetes')}
+                onClick={() => setActiveTab('oauth_oidc')}
                 style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
               >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>☸️</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Kubernetes Orchestration</h3>
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🔐</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>OAuth2 & JWT Security</h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Pods, Replicas, LoadBalancer Services & Ingress Rules.
+                  PKCE Flow, Access Tokens & JWT Claims Decoding.
                 </p>
                 <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  K8s Lab Öffnen <ArrowRight size={16} />
+                  OAuth2 Öffnen <ArrowRight size={16} />
                 </span>
               </div>
 
-              {/* Docker Card */}
+              {/* WebSockets Card */}
               <div
                 className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('docker')}
+                onClick={() => setActiveTab('websockets')}
                 style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
               >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🐳</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Docker & Containers</h3>
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📻</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>WebSockets & Realtime</h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Dockerfile Builder & Docker Compose.
+                  HTTP 101 Handshake & Socket.io Broadcasts.
                 </p>
                 <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Docker Lab Öffnen <ArrowRight size={16} />
+                  WebSockets Öffnen <ArrowRight size={16} />
                 </span>
               </div>
             </div>
           </div>
         )}
+
+        {/* OAUTH2 & OIDC LAB TAB */}
+        {activeTab === 'oauth_oidc' && <OauthOidcLab />}
+
+        {/* WEBSOCKETS REALTIME LAB TAB */}
+        {activeTab === 'websockets' && <WebSocketsLab />}
+
+        {/* PERFORMANCE PROFILING LAB TAB */}
+        {activeTab === 'perf_lab' && <PerformanceProfilingLab />}
 
         {/* KUBERNETES LAB TAB */}
         {activeTab === 'kubernetes' && <KubernetesLab />}
