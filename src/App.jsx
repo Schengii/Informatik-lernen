@@ -57,12 +57,13 @@ import KafkaEventLab from './components/Content/KafkaEventLab';
 import OauthOidcLab from './components/Content/OauthOidcLab';
 import WebSocketsLab from './components/Content/WebSocketsLab';
 import PerformanceProfilingLab from './components/Content/PerformanceProfilingLab';
+import AnfaengerGuideHub from './components/Content/AnfaengerGuideHub';
 
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
-import { BookOpen, Sparkles, ArrowRight, CheckCircle, Lock, Radio, Activity } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, CheckCircle, Sprout } from 'lucide-react';
 
 export default function App() {
   const [userState, setUserState] = useState(loadUserState());
@@ -247,10 +248,10 @@ export default function App() {
 
                   <button
                     className="btn btn-secondary"
-                    onClick={() => setActiveTab('oauth_oidc')}
-                    style={{ minHeight: '48px', fontSize: '0.95rem', borderColor: 'var(--accent-indigo)', color: 'var(--accent-indigo)' }}
+                    onClick={() => setActiveTab('anfaenger_guide')}
+                    style={{ minHeight: '48px', fontSize: '0.95rem', borderColor: 'var(--accent-emerald)', color: 'var(--accent-emerald)' }}
                   >
-                    <Lock size={18} /> OAuth2 & JWT
+                    <Sprout size={18} /> Einsteiger Kurs
                   </button>
                 </div>
               </div>
@@ -264,10 +265,26 @@ export default function App() {
 
             {/* Feature Modules Quick Access Grid */}
             <h2 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '20px', color: 'var(--text-main)' }}>
-              Empfohlene Expert-Lernbereiche für dich
+              Empfohlene Lernbereiche für dich
             </h2>
 
             <div className="grid-responsive" style={{ marginBottom: '40px' }}>
+              {/* Anfänger Guide Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('anfaenger_guide')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🌱</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Einsteiger Kurs ohne Vorkenntnisse</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  EVA-Prinzip, CPU, Binärlogik & Netzwerke leicht erklärt.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Kurs Öffnen <ArrowRight size={16} />
+                </span>
+              </div>
+
               {/* OAuth2 Card */}
               <div
                 className="glass-panel glass-panel-hover"
@@ -283,25 +300,12 @@ export default function App() {
                   OAuth2 Öffnen <ArrowRight size={16} />
                 </span>
               </div>
-
-              {/* WebSockets Card */}
-              <div
-                className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('websockets')}
-                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-              >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📻</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>WebSockets & Realtime</h3>
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  HTTP 101 Handshake & Socket.io Broadcasts.
-                </p>
-                <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  WebSockets Öffnen <ArrowRight size={16} />
-                </span>
-              </div>
             </div>
           </div>
         )}
+
+        {/* ANFAENGER GUIDE TAB */}
+        {activeTab === 'anfaenger_guide' && <AnfaengerGuideHub />}
 
         {/* OAUTH2 & OIDC LAB TAB */}
         {activeTab === 'oauth_oidc' && <OauthOidcLab />}

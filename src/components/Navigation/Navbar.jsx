@@ -1,6 +1,6 @@
 import React from 'react';
 import { USER_ROLES } from '../../data/userProfiles';
-import { Trophy, Flame, UserCheck, Code2, Sun, Moon, BookOpen, Layers, ShieldCheck, BookMarked, Globe, Rocket, Lock, Radio, Activity } from 'lucide-react';
+import { Trophy, Flame, UserCheck, Code2, Sun, Moon, BookOpen, Layers, ShieldCheck, BookMarked, Globe, Rocket, Lock, Radio, Activity, Sparkles } from 'lucide-react';
 import AccessibilityToolbar from './AccessibilityToolbar';
 import { getTranslation } from '../../utils/i18n';
 
@@ -94,6 +94,7 @@ export default function Navbar({
         <nav className="desktop-only" style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
           {[
             { id: 'dashboard', label: t('dashboard') },
+            { id: 'anfaenger_guide', label: '🌱 Einsteiger Kurs' },
             { id: 'oauth_oidc', label: '🔐 OAuth2 & JWT' },
             { id: 'websockets', label: '📻 WebSockets' },
             { id: 'perf_lab', label: '📊 Perf Profiling' },
