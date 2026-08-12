@@ -58,6 +58,80 @@ console.log(bin2dec("1111")); // Output: 15`,
     ]
   },
   {
+    id: 'python_master_course',
+    title: 'Python Complete Guide (W3Schools-Style)',
+    category: 'Programmierung',
+    difficultyLevel: 'Einsteiger',
+    targetRoles: ['anfaenger', 'azubi', 'junior', 'pro'],
+    icon: '🐍',
+    readTime: '15 Min',
+    summary: 'Der umfassende Python-Kurs von Variablen, Kontrollstrukturen, Listen, Dictionaries bis hin zu Objektorientierung & Exception Handling.',
+    content: `
+### 1. Warum Python lernen?
+Python ist eine der weltweit beliebtesten Programmiersprachen. Sie zeichnet sich durch eine extrem einfache, englisch-ähnliche Syntax aus.
+
+### 2. Variablen & Datentypen
+\`\`\`python
+name = "DevGame"    # String (Text)
+alter = 25          # Integer (Ganzzahl)
+preis = 19.99       # Float (Fließkommazahl)
+is_active = True    # Boolean (Wahrheitswert)
+\`\`\`
+
+### 3. Datenstrukturen in Python
+- **Lists (Listen):** Geordnet und veränderbar (\`[1, 2, 3]\`)
+- **Tuples:** Geordnet und unveränderbar (\`(1, 2, 3)\`)
+- **Dictionaries:** Schlüssel-Wert Paare (\`{"name": "Alex", "age": 30}\`)
+
+### 4. Kontrollstrukturen & Schleifen
+\`\`\`python
+score = 85
+
+if score >= 90:
+    print("Grade A")
+elif score >= 75:
+    print("Grade B")
+else:
+    print("Grade C")
+
+# For-Schleife über eine Liste
+fruits = ["Apfel", "Banane", "Kirsche"]
+for fruit in fruits:
+    print(f"Frucht: {fruit}")
+\`\`\`
+
+### 5. Funktionen & OOP
+\`\`\`python
+def greet(user_name):
+    return f"Hallo {user_name}!"
+
+class Player:
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+player1 = Player("Alex", 100)
+\`\`\`
+`,
+    codeSnippet: `# Python Komplett-Beispiel
+def calculate_average(numbers_list):
+    if not numbers_list:
+        return 0
+    return sum(numbers_list) / len(numbers_list)
+
+scores = [80, 95, 70, 100, 85]
+avg = calculate_average(scores)
+print(f"Durchschnitt: {avg:.2f}")`,
+    quiz: [
+      {
+        question: 'Welches Schlüsselwort definiert eine eigene Funktion in Python?',
+        options: ['function', 'def', 'fn', 'void'],
+        correct: 1,
+        explanation: 'In Python werden eigene Funktionen mit dem Schlüsselwort `def` definiert.'
+      }
+    ]
+  },
+  {
     id: 'web_html_css',
     title: 'Webentwicklung: HTML5 & CSS3',
     category: 'Webentwicklung',

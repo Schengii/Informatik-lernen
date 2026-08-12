@@ -99,12 +99,30 @@ export const GLOSSARY_TERMS = [
     example: '16 GB DDR5-RAM ermöglichen das flüssige Ausführen mehrerer Entwickler-Tools zeitgleich.'
   },
   {
-    id: 'sql_join',
-    term: 'SQL JOIN (Verknüpfung)',
+    id: 'sql',
+    term: 'SQL (Structured Query Language)',
     category: 'Datenbanken',
     difficulty: 'Azubi / IHK',
-    simpleExplanation: 'Verbindet Daten aus zwei verschiedenen Datenbank-Tabellen über ein gemeinsames Merkmal (z. B. Kundennummer).',
-    expertExplanation: 'Relationaler Operator zur Kombination von Zeilen aus zwei Tabellen basierend auf Join-Bedingungen (INNER, LEFT OUTER, RIGHT OUTER, FULL OUTER).',
-    example: 'SELECT * FROM kunden JOIN bestellungen ON kunden.id = bestellungen.kunden_id;'
+    simpleExplanation: 'Die Standard-Abfragesprache für relationale Datenbanken.',
+    expertExplanation: 'Deklarative Abfragesprache für Relationale Datenbankmanagementsysteme (RDBMS) unterteilt in DDL, DML und DCL.',
+    example: 'SELECT * FROM users WHERE active = 1;'
+  },
+  {
+    id: 'docker',
+    term: 'Docker & Containerisierung',
+    category: 'DevOps & Cloud',
+    difficulty: 'Senior / Expert',
+    simpleExplanation: 'Ein Container verpackt eine Anwendung zusammen mit all ihren Abhängigkeiten, sodass sie auf jedem Betriebssystem identisch läuft.',
+    expertExplanation: 'OS-Level Virtualisierungstechnologie, die Linux Namespaces und Cgroups nutzt, um Prozesse isoliert auszuführen.',
+    example: 'docker run -p 80:80 nginx'
+  },
+  {
+    id: 'k8s',
+    term: 'Kubernetes (K8s)',
+    category: 'DevOps & Cloud',
+    difficulty: 'Senior / Expert',
+    simpleExplanation: 'Ein System zur automatischen Verwaltung von hunderten Docker-Containern (Orchestrierung).',
+    expertExplanation: 'Open-Source Orchestrierungsplattform zur automatisierten Skalierung, Bereitstellung und Verwaltung von containerisierten Anwendungen.',
+    example: 'kubectl apply -f deployment.yaml'
   }
 ];
