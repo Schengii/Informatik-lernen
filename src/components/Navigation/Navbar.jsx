@@ -1,6 +1,6 @@
 import React from 'react';
 import { USER_ROLES } from '../../data/userProfiles';
-import { Trophy, Flame, UserCheck, Code2, Sun, Moon, BookOpen, Award, Layers, ShieldCheck, BookMarked, Compass, Activity, Swords } from 'lucide-react';
+import { Trophy, Flame, UserCheck, Code2, Sun, Moon, BookOpen, Award, Layers, ShieldCheck, BookMarked, Network, Keyboard } from 'lucide-react';
 import AccessibilityToolbar from './AccessibilityToolbar';
 
 export default function Navbar({
@@ -90,6 +90,8 @@ export default function Navbar({
             { id: 'dashboard', label: 'Dashboard' },
             { id: 'wissen', label: 'Wissen' },
             { id: 'roadmaps', label: '🧭 Roadmaps' },
+            { id: 'architecture', label: '🌐 Architektur' },
+            { id: 'design_patterns', label: '🧩 Patterns' },
             { id: 'languages', label: '🐍 Sprachen' },
             { id: 'quiz_arena', label: '🏆 Quiz Arena' },
             { id: 'big_o', label: '📊 Big-O' },

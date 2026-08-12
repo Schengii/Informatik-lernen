@@ -1,6 +1,6 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, Generativer KI (RAG/LLMs), Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, Generativer KI (RAG/LLMs), Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
@@ -27,25 +27,23 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI, IT-Systemelektroniker)**:
    - Gezieltes IHK-Prüfungswissen, Berufsschul-Themen (SQL JOINs, Netzwerke/OSI, Java, C#, Bash-Terminal, Pseudocode, Lückentexte).
 3. **🚀 Junior Developer**:
-   - Clean Code Prinzipien, REST-APIs, React, Node.js, RegEx, Git-Workflows und praxisnahe Mikroprojekte.
+   - Clean Code Prinzipien, REST-APIs, React, Node.js, RegEx, Git-Workflows, Design Patterns und praxisnahe Mikroprojekte.
 4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
-   - Fortgeschrittene Cybersecurity (OWASP Top 10, SQLi, XSS), Generative AI (LLMs, RAG-Architekturen), Big-O Notation, Cloud Native (Docker, Kubernetes) & System-Architektur.
+   - Fortgeschrittene Systemarchitektur (Microservices, Load Balancer, Redis Cache), Cybersecurity (OWASP Top 10), Generative AI (LLMs, RAG-Architekturen), Big-O Notation, Cloud Native (Docker, Kubernetes) & PWA Offline Deployment.
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v1.7.0)
+## 🔥 Hauptfunktionen & Neue Features (v1.8.0)
 
-* **🧭 Interaktive IT Karriere Roadmaps (`CareerRoadmap.jsx` & `roadmapData.js`)**:
-  * Visuelle Lernpfade für **Fullstack Developer**, **Cybersecurity Specialist** und **AI & Data Engineer** mit Fortschritts-Check.
-* **⚔️ Code Duel Boss-Battle Mode (`BossBattleGame.jsx`)**:
-  * Bekämpfe den Boss *"Bugzilla den Monolith"* in rasanten Code- & Security-Duellen, verteile Schaden bei richtigen Antworten und verdiene die *Boss Slayer Badge*.
-* **📊 Big-O Notation Visualizer (`BigOVisualizer.jsx`)**:
-  * Interaktive Visualisierung von Laufzeit-Komplexitäten ($O(1)$, $O(\log n)$, $O(n)$, $O(n \log n)$, $O(n^2)$) bei veränderbarer Eingabegröße $n$.
-* **📖 IT-Vokabeltrainer & Fachbegriffe (`VocabularyTrainerModal.jsx`)**:
-  * Englische & deutsche IT-Fachbegriffe mit US-Audio-Aussprache.
-* **🏆 Wissens-Quiz Arena (`KnowledgeQuizArena.jsx`)**:
-  * Quizzes zu KI-Trends 2026, Cloud Native & IHK-Basics.
-* **🐍 Sprachen Academy, 🤖 KI-Prompt Lab, 💻 CLI Terminal & 📱 App-Workshop**.
+* **🌐 Systemarchitektur & Microservices Visualizer (`ArchitectureVisualizer.jsx`)**:
+  * Interaktives Diagramm zum Verstehen von **Clients**, **API Gateways**, **Load Balancern**, **Microservices**, **Redis In-Memory Cache** und **SQL/NoSQL Datenbanken**.
+* **🧩 Software Design Patterns & Refactoring Lab (`DesignPatternsLab.jsx`)**:
+  * Interaktiver Code-Workshop für **Singleton**, **Observer**, **Factory** und **Strategy** Muster mit Vorher/Nachher Code-Refactoring.
+* **⌨️ Code Typing Speedrun & WPM Tipptrainer (`CodeTypingSpeedrun.jsx`)**:
+  * Gamifizierter Entwickler-Tipptrainer mit WPM-Messung (Words Per Minute) und Tippgenauigkeits-Auswertung für JavaScript, Python & SQL.
+* **📱 Progressive Web App (PWA) & Offline-Support (`manifest.json` & `sw.js`)**:
+  * Service Worker Caching & Web App Manifest – installierbar auf iOS, Android und Desktops für ständige Verfügbarkeit.
+* **🧭 IT Karriere Roadmaps, ⚔️ Boss-Battle Mode & 📊 Big-O Notation Visualizer**.
 
 ---
 
@@ -73,6 +71,8 @@ Informatik-lernen/
 ├── README.md
 ├── vite.config.js
 ├── public/
+│   ├── manifest.json
+│   └── sw.js
 └── src/
     ├── App.css
     ├── App.jsx
@@ -82,9 +82,11 @@ Informatik-lernen/
     │   ├── Content/
     │   │   ├── AiPromptLab.jsx
     │   │   ├── AppWorkshop.jsx
+    │   │   ├── ArchitectureVisualizer.jsx
     │   │   ├── BigOVisualizer.jsx
     │   │   ├── CareerRoadmap.jsx
     │   │   ├── ClozeTester.jsx
+    │   │   ├── DesignPatternsLab.jsx
     │   │   ├── ExamSimulator.jsx
     │   │   ├── GlossaryModal.jsx
     │   │   ├── KnowledgeQuizArena.jsx
@@ -99,6 +101,7 @@ Informatik-lernen/
     │   │   ├── BossBattleGame.jsx
     │   │   ├── CliTerminalLab.jsx
     │   │   ├── CodePuzzle.jsx
+    │   │   ├── CodeTypingSpeedrun.jsx
     │   │   ├── LogicGatesGame.jsx
     │   │   ├── RegexLab.jsx
     │   │   ├── SecurityLab.jsx
@@ -166,10 +169,14 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v1.8.0] - Systemarchitektur, Design Patterns, Code Speedrun & PWA Offline Support
+* **Systemarchitektur Visualizer (`ArchitectureVisualizer.jsx`)**: Diagramm für Microservices, Gateway, Redis Cache & DBs.
+* **Design Patterns Lab (`DesignPatternsLab.jsx`)**: Refactoring-Lab für Singleton, Observer, Factory & Strategy.
+* **Code Speedrun (`CodeTypingSpeedrun.jsx`)**: Entwickler Tipptrainer mit WPM-Messung.
+* **PWA & Offline-Support (`manifest.json` & `sw.js`)**: Installierbare Web-App & Offline-Caching.
+
 #### [v1.7.0] - IT Roadmaps, Code Duel Boss Battle & Big-O Visualizer
-* **IT Karriere Roadmaps (`CareerRoadmap.jsx`)**: Lernpfade für Fullstack, Cybersecurity & AI.
-* **Code Duel Boss Battle (`BossBattleGame.jsx`)**: Kampfsystem gegen "Bugzilla den Monolith".
-* **Big-O Notation Visualizer (`BigOVisualizer.jsx`)**: Laufzeit-Komplexität visualisieren.
+* IT Karriere Roadmaps, Boss Battle Mode & Big-O Notation Visualizer.
 
 #### [v1.6.0] - IT-Vokabeltrainer, Wissensquiz Arena & Trend-Lernvideos
 * IT-Vokabeltrainer, Wissensquiz Arena & Trend-Lernvideos.

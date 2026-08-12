@@ -14,6 +14,7 @@ import WebSandbox from './components/Games/WebSandbox';
 import RegexLab from './components/Games/RegexLab';
 import CliTerminalLab from './components/Games/CliTerminalLab';
 import BossBattleGame from './components/Games/BossBattleGame';
+import CodeTypingSpeedrun from './components/Games/CodeTypingSpeedrun';
 import ProjectViewer from './components/Projects/ProjectViewer';
 import BadgesModal from './components/Gamification/BadgesModal';
 import DsgvoFooterModal from './components/Footer/DsgvoFooterModal';
@@ -34,12 +35,14 @@ import VocabularyTrainerModal from './components/Content/VocabularyTrainerModal'
 import KnowledgeQuizArena from './components/Content/KnowledgeQuizArena';
 import CareerRoadmap from './components/Content/CareerRoadmap';
 import BigOVisualizer from './components/Content/BigOVisualizer';
+import ArchitectureVisualizer from './components/Content/ArchitectureVisualizer';
+import DesignPatternsLab from './components/Content/DesignPatternsLab';
 
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
-import { BookOpen, Sparkles, ArrowRight, CheckCircle, BookMarked, Compass, Activity, Swords } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, CheckCircle, BookMarked, Compass, Activity, Network, Layers, Keyboard } from 'lucide-react';
 
 export default function App() {
   const [userState, setUserState] = useState(loadUserState());
@@ -67,7 +70,7 @@ export default function App() {
   // Topic Reader state
   const [selectedTopicId, setSelectedTopicId] = useState(null);
 
-  // Active Mini-Game Selector ('sql' | 'security' | 'boss' | 'puzzle' | 'logic' | 'sandbox' | 'regex' | 'cli')
+  // Active Mini-Game Selector ('sql' | 'security' | 'boss' | 'typing_speedrun' | 'cli' | 'regex' | 'puzzle' | 'logic' | 'sandbox')
   const [activeGameId, setActiveGameId] = useState('sql');
 
   // Apply Theme & Accessibility Classes to <body>
@@ -219,10 +222,10 @@ export default function App() {
 
                   <button
                     className="btn btn-secondary"
-                    onClick={() => setActiveTab('roadmaps')}
+                    onClick={() => setActiveTab('architecture')}
                     style={{ minHeight: '48px', fontSize: '0.95rem', borderColor: 'var(--accent-teal)', color: 'var(--accent-teal)' }}
                   >
-                    <Compass size={18} /> IT Roadmaps Öffnen
+                    <Network size={18} /> Architektur
                   </button>
                 </div>
               </div>
@@ -240,56 +243,62 @@ export default function App() {
             </h2>
 
             <div className="grid-responsive" style={{ marginBottom: '40px' }}>
-              {/* Roadmaps Card */}
+              {/* Architecture Card */}
               <div
                 className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('roadmaps')}
+                onClick={() => setActiveTab('architecture')}
                 style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
               >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🧭</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>IT Karriere Roadmaps</h3>
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🌐</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Systemarchitektur</h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Strukturierte Lernpfade für Fullstack, Security & AI Engineering.
+                  Microservices, API Gateways, Redis Cache & Caching interaktiv verstehen.
                 </p>
                 <span style={{ fontSize: '0.9rem', color: 'var(--accent-primary)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Roadmaps Erkunden <ArrowRight size={16} />
+                  Architektur Starten <ArrowRight size={16} />
                 </span>
               </div>
 
-              {/* Boss Fight Card */}
+              {/* Design Patterns Card */}
               <div
                 className="glass-panel glass-panel-hover"
-                onClick={() => { setActiveTab('games'); setActiveGameId('boss'); }}
+                onClick={() => setActiveTab('design_patterns')}
                 style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
               >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>⚔️</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Code Duel Boss Battle</h3>
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🧩</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Design Patterns Lab</h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Bekämpfe "Bugzilla den Monolith" in temporeichen Code-Runden.
-                </p>
-                <span style={{ fontSize: '0.9rem', color: 'var(--accent-rose)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Boss Bekämpfen <ArrowRight size={16} />
-                </span>
-              </div>
-
-              {/* Big-O Visualizer Card */}
-              <div
-                className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('big_o')}
-                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-              >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📊</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Big-O Notation Visualizer</h3>
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Laufzeit-Komplexität O(1) bis O(n²) von Algorithmen vergleichen.
+                  Singleton, Observer, Factory & Refactoring Aufgaben.
                 </p>
                 <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Algorithmen Testen <ArrowRight size={16} />
+                  Patterns Lernen <ArrowRight size={16} />
+                </span>
+              </div>
+
+              {/* Code Speedrun Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => { setActiveTab('games'); setActiveGameId('typing_speedrun'); }}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>⌨️</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Code Speedrun & WPM</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Entwickler Tipptrainer für maximale Code-Tippgeschwindigkeit.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-amber)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Speedrun Starten <ArrowRight size={16} />
                 </span>
               </div>
             </div>
           </div>
         )}
+
+        {/* SYSTEM ARCHITECTURE TAB */}
+        {activeTab === 'architecture' && <ArchitectureVisualizer />}
+
+        {/* DESIGN PATTERNS TAB */}
+        {activeTab === 'design_patterns' && <DesignPatternsLab />}
 
         {/* CAREER ROADMAPS TAB */}
         {activeTab === 'roadmaps' && <CareerRoadmap userState={userState} />}
@@ -380,6 +389,7 @@ export default function App() {
                 { id: 'sql', label: '🗄️ SQL Dungeon' },
                 { id: 'security', label: '🛡️ Cyber Defense Lab' },
                 { id: 'boss', label: '⚔️ Code Duel Boss Battle' },
+                { id: 'typing_speedrun', label: '⌨️ Code Speedrun WPM' },
                 { id: 'cli', label: '💻 Terminal CLI Lab' },
                 { id: 'regex', label: '🔍 RegEx Lab' },
                 { id: 'puzzle', label: '🧩 Code Bug Hunter' },
@@ -410,6 +420,7 @@ export default function App() {
             {activeGameId === 'sql' && <SqlDungeon onCompleteGame={(id, xp) => awardXP(xp, 'sql_master')} />}
             {activeGameId === 'security' && <SecurityLab onCompleteGame={(id, xp) => awardXP(xp, 'security_expert')} />}
             {activeGameId === 'boss' && <BossBattleGame onCompleteGame={(id, xp) => awardXP(xp, 'boss_slayer')} />}
+            {activeGameId === 'typing_speedrun' && <CodeTypingSpeedrun onCompleteGame={(id, xp) => awardXP(xp, 'typing_god')} />}
             {activeGameId === 'cli' && <CliTerminalLab onCompleteGame={(id, xp) => awardXP(xp, 'cli_master')} />}
             {activeGameId === 'regex' && <RegexLab onCompleteGame={(id, xp) => awardXP(xp, 'regex_master')} />}
             {activeGameId === 'puzzle' && <CodePuzzle onCompleteGame={(id, xp) => awardXP(xp)} />}
