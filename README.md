@@ -1,6 +1,6 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken und RegEx – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen, Softwareentwicklung, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, KI-Prompting und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
@@ -23,34 +23,36 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 1. **🌱 Einsteiger & Neugierige (Kinder, Senioren, Quereinsteiger)**:
    - Lernen ohne jegliche Vorkenntnisse.
-   - Grundlagen spielerisch erklärt: Wie denkt ein PC? Was sind Bits/Bytes? Erste Schritte in HTML/CSS & Binärlogik.
+   - Grundlagen spielerisch erklärt: Wie denkt ein PC? Was sind Bits/Bytes? Erste Schritte in Python, HTML/CSS & Binärlogik.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI, IT-Systemelektroniker)**:
-   - Gezieltes IHK-Prüfungswissen, Berufsschul-Themen (SQL JOINs, Netzwerke/OSI, OOP, Pseudocode, Lückentexte).
+   - Gezieltes IHK-Prüfungswissen, Berufsschul-Themen (SQL JOINs, Netzwerke/OSI, Java, C#, Bash-Terminal, Pseudocode, Lückentexte).
 3. **🚀 Junior Developer**:
-   - Clean Code Prinzipien, REST-APIs, RegEx, Git-Workflows und praxisnahe Mikroprojekte.
+   - Clean Code Prinzipien, REST-APIs, React, Node.js, RegEx, Git-Workflows und praxisnahe Mikroprojekte.
 4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
-   - Fortgeschrittene Cybersecurity (OWASP Top 10, SQLi, XSS), Datenbank-Performance & Indexing, RegEx & System-Architektur.
+   - Fortgeschrittene Cybersecurity (OWASP Top 10, SQLi, XSS), KI-Prompt Engineering, Datenbank-Performance & Docker System-Architektur.
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features
+## 🔥 Hauptfunktionen & Neue Features (v1.5.0)
 
+* **🐍 Sprachen & Frameworks Academy (`LanguageAcademy.jsx`)**:
+  * Lerne neue Programmiersprachen & Web-Frameworks: **Python**, **Java**, **C#**, **React** und **Node.js**.
+* **🤖 KI-Nutzung & Prompt Engineering Lab (`AiPromptLab.jsx`)**:
+  * Interaktives Training zur sinnvollen und sicheren Nutzung von KI-Tools (ChatGPT, GitHub Copilot, Claude) für Entwickler.
+* **💻 Interaktives Terminal & CLI Lab (`CliTerminalLab.jsx`)**:
+  * Simulator für Linux- & Bash-Kommandozeilenbefehle (`ls`, `mkdir`, `cd`, `pwd`, `git status`) mit Aufgaben-Check.
+* **🛠️ IDEs & Tools Setup Guides (`ToolingSetupGuide.jsx`)**:
+  * Schritt-für-Schritt Einrichtung für **VS Code**, **Git & SSH** sowie **Docker Container**.
+* **📱 Fullstack App-Entwicklungs Workshop (`AppWorkshop.jsx`)**:
+  * Praxis-Workshop zum Bauen einer eigenen Task-Manager Web & Mobile App von A bis Z.
 * **🔍 RegEx Lab & Pattern Tester (`RegexLab.jsx`)**:
-  * Interaktiver Simulator zum Ausprobieren und Testen regulärer Ausdrücke mit sofortiger Treffer-Visualisierung & Level-Aufgaben.
+  * Interaktive RegEx Testumgebung für Musterprüfung (E-Mail, IP-Adressen).
 * **🎴 Spaced Repetition Karteikarten-Trainer (`FlashcardsModal.jsx`)**:
-  * Anki-inspirierte IT-Karteikarten mit Umklapp-Animation zur Vorbereitung auf Prüfungen.
+  * Anki-inspirierte IT-Karteikarten für IHK-Fachbegriffe.
 * **💾 Daten Backup & Wiederherstellungs-Manager (`BackupModal.jsx`)**:
-  * Exportiere den gesamten Lernfortschritt (XP, Level, Badges) als JSON-Datei und importiere ihn geräteübergreifend.
-* **📖 Interaktives IT-Lexikon & Fachbegriffe (`GlossaryModal.jsx`)**:
-  * Durchsuchbares Glossar mit einfachen Erklärungen für Einsteiger und technischen Details für Azubis & Devs inklusive Audio-Vorlesefunktion.
-* **🎓 IHK-Prüfungssimulator (`ExamSimulator.jsx`)**:
-  * Realistische Prüfungssimulation für Fachinformatiker (GAP 1 / GAP 2) mit automatischer Auswertung, Erklärungen & XP.
-* **📊 Skill-Matrix Visualizer (`SkillMatrixWidget.jsx`)**:
-  * Visueller Fortschrittsbalken für 6 Kernkompetenzen (Hardware, Web, Code, Datenbanken, Netzwerke, Security).
-* **⚡ Tages-Challenge & Streak-Bonus (`DailyChallengeWidget.jsx`)**:
-  * Tägliche Quests zur Wissensüberprüfung und Bonus-XP Belohnung.
-* **📜 Zertifikat-Generator (`CertificateModal.jsx`)**:
-  * Generierung und Export/Druck von Qualifikations-Zertifikaten für erreichte Lernfortschritte.
+  * Exportiere und importiere deinen Lernfortschritt als JSON-Datei.
+* **📖 IT-Lexikon & IHK-Prüfungssimulator**:
+  * Durchsuchbares Glossar und realistischer IHK GAP 1 / GAP 2 Prüfungstrainer.
 
 ---
 
@@ -85,14 +87,19 @@ Informatik-lernen/
     ├── main.jsx
     ├── components/
     │   ├── Content/
+    │   │   ├── AiPromptLab.jsx
+    │   │   ├── AppWorkshop.jsx
     │   │   ├── ClozeTester.jsx
     │   │   ├── ExamSimulator.jsx
     │   │   ├── GlossaryModal.jsx
+    │   │   ├── LanguageAcademy.jsx
     │   │   ├── TopicReader.jsx
+    │   │   ├── ToolingSetupGuide.jsx
     │   │   └── VideoHub.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
     │   ├── Games/
+    │   │   ├── CliTerminalLab.jsx
     │   │   ├── CodePuzzle.jsx
     │   │   ├── LogicGatesGame.jsx
     │   │   ├── RegexLab.jsx
@@ -121,6 +128,7 @@ Informatik-lernen/
     │   ├── flashcardsData.js
     │   ├── gamesData.js
     │   ├── glossaryData.js
+    │   ├── languageData.js
     │   ├── projectsData.js
     │   ├── topicsData.js
     │   ├── userProfiles.js
@@ -157,13 +165,18 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v1.5.0] - Sprachen Academy, KI Prompt Lab, CLI Terminal, Tooling Setup & App Workshop
+* **Sprachen & Frameworks Academy (`LanguageAcademy.jsx`)**: Tutorials & Codebeispiele für Python, Java, C#, React & Node.js.
+* **KI Prompt Engineering Lab (`AiPromptLab.jsx`)**: Professionelle KI-Nutzung & Prompt-Regeln.
+* **CLI Terminal Lab (`CliTerminalLab.jsx`)**: Interaktiver Linux/Bash Terminal Simulator.
+* **IDE & Tools Setup (`ToolingSetupGuide.jsx`)**: Schritt-für-Schritt Anleitungen für VS Code, Git & Docker.
+* **App Entwicklungs-Workshop (`AppWorkshop.jsx`)**: Schritt-für-Schritt Anleitung zum Bauen einer vollwertigen App.
+
 #### [v1.4.0] - RegEx Lab, IT-Karteikarten Trainer & Backup Manager
-* **RegEx Lab (`RegexLab.jsx`)**: Interaktive RegEx-Umgebung mit Suchmuster-Aufgaben.
-* **Karteikarten-Trainer (`FlashcardsModal.jsx`)**: Spaced Repetition Karteikarten für IHK-Fachbegriffe.
-* **Backup Manager (`BackupModal.jsx`)**: JSON Export & Import des Lernfortschritts.
+* RegEx Lab, Karteikarten-Trainer & JSON Backup Manager.
 
 #### [v1.3.0] - IT-Lexikon, IHK Prüfungssimulator, Skill-Matrix, Tages-Challenge & Zertifikate
-* IT-Lexikon, IHK Prüfungssimulator, Skill-Matrix, Tages-Challenge & Zertifikat-Generator.
+* IT-Lexikon, IHK Prüfungssimulator, Skill-Matrix & Zertifikat-Generator.
 
 #### [v1.2.0] - Zielgruppen-Erweiterung für jedes Alter & Vorwissen
 * Erweiterung des Nutzerprofil-Systems & Einführung von `DifficultyFilterBar.jsx`.

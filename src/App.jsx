@@ -12,6 +12,7 @@ import CodePuzzle from './components/Games/CodePuzzle';
 import LogicGatesGame from './components/Games/LogicGatesGame';
 import WebSandbox from './components/Games/WebSandbox';
 import RegexLab from './components/Games/RegexLab';
+import CliTerminalLab from './components/Games/CliTerminalLab';
 import ProjectViewer from './components/Projects/ProjectViewer';
 import BadgesModal from './components/Gamification/BadgesModal';
 import DsgvoFooterModal from './components/Footer/DsgvoFooterModal';
@@ -24,11 +25,16 @@ import DailyChallengeWidget from './components/Gamification/DailyChallengeWidget
 import FlashcardsModal from './components/Gamification/FlashcardsModal';
 import BackupModal from './components/Gamification/BackupModal';
 
+import LanguageAcademy from './components/Content/LanguageAcademy';
+import AiPromptLab from './components/Content/AiPromptLab';
+import ToolingSetupGuide from './components/Content/ToolingSetupGuide';
+import AppWorkshop from './components/Content/AppWorkshop';
+
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
-import { BookOpen, Sparkles, ArrowRight, CheckCircle, GraduationCap, Award, Search, Layers, ShieldCheck } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, CheckCircle, GraduationCap, Award, Code2, Bot, Wrench, Smartphone, Terminal } from 'lucide-react';
 
 export default function App() {
   const [userState, setUserState] = useState(loadUserState());
@@ -55,7 +61,7 @@ export default function App() {
   // Topic Reader state
   const [selectedTopicId, setSelectedTopicId] = useState(null);
 
-  // Active Mini-Game Selector ('sql' | 'security' | 'puzzle' | 'logic' | 'sandbox' | 'regex')
+  // Active Mini-Game Selector ('sql' | 'security' | 'puzzle' | 'logic' | 'sandbox' | 'regex' | 'cli')
   const [activeGameId, setActiveGameId] = useState('sql');
 
   // Apply Theme & Accessibility Classes to <body>
@@ -221,25 +227,89 @@ export default function App() {
             {/* Skill Matrix Visualizer */}
             <SkillMatrixWidget userState={userState} />
 
-            {/* Feature Modules Quick Access */}
+            {/* Feature Modules Quick Access Grid */}
             <h2 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '20px', color: 'var(--text-main)' }}>
               Empfohlene Lernbereiche für dich
             </h2>
 
             <div className="grid-responsive" style={{ marginBottom: '40px' }}>
-              {/* Fachkunde Card */}
+              {/* Sprachen & Frameworks Card */}
               <div
                 className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('wissen')}
+                onClick={() => setActiveTab('languages')}
                 style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
               >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📚</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Fachkunde & Wissen</h3>
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🐍</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Sprachen & Frameworks</h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Standard-Texte, Praxis-Codebeispiele, Audio-Vorlesefunktion & Level-Filter.
+                  Python, Java, C#, React & Node.js interaktiv erlernen.
                 </p>
                 <span style={{ fontSize: '0.9rem', color: 'var(--accent-primary)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Themen Erkunden <ArrowRight size={16} />
+                  Sprachen Starten <ArrowRight size={16} />
+                </span>
+              </div>
+
+              {/* KI-Lab Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('ai')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🤖</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>KI-Lab & Prompting</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Sinnvolle & professionelle KI-Nutzung (ChatGPT, Copilot).
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  KI-Lab Erkunden <ArrowRight size={16} />
+                </span>
+              </div>
+
+              {/* CLI Terminal Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => { setActiveTab('games'); setActiveGameId('cli'); }}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>💻</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Terminal & CLI Lab</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Interaktiver Linux/Bash Simulator für Befehle & Scripts.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-purple)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Terminal Starten <ArrowRight size={16} />
+                </span>
+              </div>
+
+              {/* IDE & Tools Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('tooling')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🛠️</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>IDEs & Tools Setup</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  VS Code, Git & Docker Schritt für Schritt einrichten.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-amber)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Tools Entdecken <ArrowRight size={16} />
+                </span>
+              </div>
+
+              {/* App Workshop Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('app_workshop')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📱</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>App-Entwicklungs Workshop</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Baue deine eigene Task-Manager App Schritt für Schritt.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Workshop Starten <ArrowRight size={16} />
                 </span>
               </div>
 
@@ -252,46 +322,28 @@ export default function App() {
                 <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🎮</div>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Mini-Games Arcade</h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  SQL Dungeon, Cyber Defense Lab, RegEx Lab & Logik-Schaltungen.
-                </p>
-                <span style={{ fontSize: '0.9rem', color: 'var(--accent-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Spiele Starten <ArrowRight size={16} />
-                </span>
-              </div>
-
-              {/* IHK Prüfungssimulator Card */}
-              <div
-                className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('exam')}
-                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-              >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🎓</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>IHK Prüfungssimulator</h3>
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Reale Prüfungsfragen für Fachinformatiker mit Auswertung & XP.
+                  SQL Dungeon, Cyber Defense Lab & Logik-Schaltungen.
                 </p>
                 <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Prüfung Starten <ArrowRight size={16} />
-                </span>
-              </div>
-
-              {/* Lückentexte Card */}
-              <div
-                className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('lueckentext')}
-                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-              >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📜</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Interaktive Lückentexte</h3>
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Prüfungswissen & IHK-Fachbegriffe interaktiv ausfüllen.
-                </p>
-                <span style={{ fontSize: '0.9rem', color: 'var(--accent-purple)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Lückentext Wählen <ArrowRight size={16} />
+                  Spiele Starten <ArrowRight size={16} />
                 </span>
               </div>
             </div>
           </div>
+        )}
+
+        {/* SPRACHEN ACADEMY TAB */}
+        {activeTab === 'languages' && <LanguageAcademy />}
+
+        {/* KI-LAB TAB */}
+        {activeTab === 'ai' && <AiPromptLab />}
+
+        {/* IDE & TOOLS SETUP TAB */}
+        {activeTab === 'tooling' && <ToolingSetupGuide />}
+
+        {/* APP-WORKSHOP TAB */}
+        {activeTab === 'app_workshop' && (
+          <AppWorkshop onCompleteWorkshop={(xp) => awardXP(xp, 'app_builder')} />
         )}
 
         {/* WISSEN & FACHKUNDE TAB */}
@@ -313,7 +365,6 @@ export default function App() {
                   Gefiltert nach Vorwissen, Alter und Erfahrung.
                 </p>
 
-                {/* Difficulty Level Filter Bar */}
                 <DifficultyFilterBar
                   activeFilter={difficultyFilter}
                   onSelectFilter={(filterId) => setDifficultyFilter(filterId)}
@@ -354,11 +405,11 @@ export default function App() {
         {/* GAMES TAB */}
         {activeTab === 'games' && (
           <div>
-            {/* Game Category Selector */}
             <div style={{ display: 'flex', gap: '10px', marginBottom: '24px', overflowX: 'auto', paddingBottom: '6px' }}>
               {[
                 { id: 'sql', label: '🗄️ SQL Dungeon' },
                 { id: 'security', label: '🛡️ Cyber Defense Lab' },
+                { id: 'cli', label: '💻 Terminal CLI Lab' },
                 { id: 'regex', label: '🔍 RegEx Lab' },
                 { id: 'puzzle', label: '🧩 Code Bug Hunter' },
                 { id: 'logic', label: '⚡ Logikgatter Simulator' },
@@ -387,6 +438,7 @@ export default function App() {
 
             {activeGameId === 'sql' && <SqlDungeon onCompleteGame={(id, xp) => awardXP(xp, 'sql_master')} />}
             {activeGameId === 'security' && <SecurityLab onCompleteGame={(id, xp) => awardXP(xp, 'security_expert')} />}
+            {activeGameId === 'cli' && <CliTerminalLab onCompleteGame={(id, xp) => awardXP(xp, 'cli_master')} />}
             {activeGameId === 'regex' && <RegexLab onCompleteGame={(id, xp) => awardXP(xp, 'regex_master')} />}
             {activeGameId === 'puzzle' && <CodePuzzle onCompleteGame={(id, xp) => awardXP(xp)} />}
             {activeGameId === 'logic' && <LogicGatesGame onCompleteGame={(id, xp) => awardXP(xp, 'logic_genius')} />}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { USER_ROLES } from '../../data/userProfiles';
-import { Trophy, Flame, UserCheck, Code2, Sun, Moon, BookOpen, Award, Layers, ShieldCheck } from 'lucide-react';
+import { Trophy, Flame, UserCheck, Code2, Sun, Moon, BookOpen, Award, Layers, ShieldCheck, Terminal, Bot, Wrench, Smartphone } from 'lucide-react';
 import AccessibilityToolbar from './AccessibilityToolbar';
 
 export default function Navbar({
@@ -84,24 +84,26 @@ export default function Navbar({
         </div>
 
         {/* Desktop Navigation Tabs */}
-        <nav className="desktop-only" style={{ display: 'flex', gap: '6px' }}>
+        <nav className="desktop-only" style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
           {[
             { id: 'dashboard', label: 'Dashboard' },
-            { id: 'wissen', label: 'Fachkunde & Wissen' },
-            { id: 'games', label: 'Mini-Games' },
-            { id: 'lueckentext', label: 'Lückentexte' },
-            { id: 'exam', label: '🎓 IHK-Prüfung' },
-            { id: 'videos', label: 'Video-Tutorials' },
-            { id: 'projekte', label: 'Praxis-Projekte' }
+            { id: 'wissen', label: 'Wissen' },
+            { id: 'languages', label: '🐍 Sprachen' },
+            { id: 'games', label: 'Games' },
+            { id: 'exam', label: '🎓 IHK' },
+            { id: 'ai', label: '🤖 KI-Lab' },
+            { id: 'tooling', label: '🛠️ Tools' },
+            { id: 'app_workshop', label: '📱 App-Shop' },
+            { id: 'projekte', label: 'Projekte' }
           ].map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               style={{
-                minHeight: '44px',
-                padding: '8px 14px',
+                minHeight: '40px',
+                padding: '6px 12px',
                 borderRadius: 'var(--radius-md)',
-                fontSize: '0.88rem',
+                fontSize: '0.85rem',
                 fontWeight: '700',
                 background: activeTab === tab.id ? 'var(--bg-tertiary)' : 'transparent',
                 color: activeTab === tab.id ? 'var(--accent-primary)' : 'var(--text-muted)',
