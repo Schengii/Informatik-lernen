@@ -1,6 +1,6 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), W3Schools-Style Programmier-Masterclasses (Python Complete Guide, JS ES6+, TS, Java, C#), interaktiven Video-Tutorials, Schritt-für-Schritt Praxis-Projekten, IHK Berufsschul-Lernfeldern (FISI/FIAE LF 1 - 12b), Stefan Macke IT-Berufe Podcasts, Advanced Prompt Engineering (Chain-of-Thought, Few-Shot), Deep Learning, OAuth2 & OpenID Connect (OIDC), WebSockets Realtime Communication, Performance Profiling & Memory Leak Handling, Kubernetes Orchestrierung, Local RAG Vector AI Pipelines, WebAssembly & Rust Compilation, Apache Kafka Event-Driven Architecture, Docker & Containerisierung, Cloud Infrastructure (AWS/GitHub Actions CI/CD), Cybersecurity Red vs Blue Team, GraphQL & REST API Testing, Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), W3Schools-Style Programmier-Masterclasses (Python Complete Guide, JS ES6+, TS, Java, C#), Coursera Deep Learning (CNNs, RNNs, Transformers), IT-Berufe Podcast Specials (Datenschutz vs. Datensicherheit vs. Datensicherung, Encodings UTF-8/ASCII), interaktiven Video-Tutorials, Schritt-für-Schritt Praxis-Projekten, IHK Berufsschul-Lernfeldern (FISI/FIAE LF 1 - 12b), Advanced Prompt Engineering (Chain-of-Thought, Few-Shot), OAuth2 & OpenID Connect (OIDC), WebSockets Realtime Communication, Performance Profiling & Memory Leak Handling, Kubernetes Orchestrierung, Local RAG Vector AI Pipelines, WebAssembly & Rust Compilation, Apache Kafka Event-Driven Architecture, Docker & Containerisierung, Cloud Infrastructure (AWS/GitHub Actions CI/CD), Cybersecurity Red vs Blue Team, GraphQL & REST API Testing, Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
@@ -29,17 +29,18 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 3. **🚀 Junior Developer**:
    - Clean Code Prinzipien, REST & GraphQL APIs, Docker, CI/CD Pipelines, JavaScript, TypeScript, React, Angular, Node.js, Vite, RegEx, TDD Unit-Testing & Git-Workflows.
 4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
-   - Advanced Prompt Engineering (Chain-of-Thought, Few-Shot), OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments, RAG Vector AI Pipelines & Apache Kafka Events.
+   - Coursera Deep Learning (CNNs, RNNs, Transformers), Advanced Prompt Engineering (Chain-of-Thought, Few-Shot), OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v3.0.0 Ultimate W3Schools Content Upgrade)
+## 🔥 Hauptfunktionen & Neue Features (v3.1.0 Web Knowledge Integration)
 
-* **📚 W3Schools Python Complete Master Course (`topicsData.js`)**:
-  * Vollständiges Python-Kapitel: Syntax, Datentypen, Listen, Tuples, Dictionaries, Kontrollstrukturen (`if/elif/else`), Schleifen (`for/while`), Funktionen & OOP Klassen.
-* **📖 IT-Lexikon & Glossar Erweiterung (`glossaryData.js`)**:
-  * Neue verständliche & Experten-Erklärungen für SQL, Docker, Kubernetes & OWASP Top 10.
-* **🎥 Video Tutorials, 💻 Praxis Mini-Projekte & 🌱 Anfänger-Lernbereich**.
+* **📄 IT-Berufe Podcast Knowledge Module (`topicsData.js`)**:
+  * Unterscheidung zwischen Datenschutz (DSGVO), Datensicherheit (CIA-Triade) und Datensicherung (Backups).
+  * Zeichensätze: ASCII, Latin-1 & UTF-8 Encodings sowie Plain-Text Formate (Markdown vs. Asciidoc).
+* **🤖 Coursera AI Deep Learning Module (`topicsData.js`)**:
+  * Neural Network Layers, ReLU & Sigmoid Activations, Convolutional Neural Networks (CNNs), RNNs & Transformer-Architekturen.
+* **📚 W3Schools Python Complete Guide & IT-Lexikon Expansion**.
 
 ---
 
@@ -199,15 +200,12 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v3.1.0] - Web Knowledge Integration (IT-Berufe Podcast & Coursera AI)
+* **IT-Berufe Podcast Module (`topicsData.js`)**: Datenschutz vs. Datensicherheit vs. Datensicherung, Encodings UTF-8/ASCII & Markdown.
+* **Coursera AI Module (`topicsData.js`)**: CNNs, RNNs & Transformer-Architekturen.
+
 #### [v3.0.0] - Ultimate W3Schools Content & Knowledge Upgrade
-* **Python Complete Guide (`topicsData.js`)**: W3Schools Python Kurs mit Variablen, Datenstrukturen, Schleifen, Funktionen & OOP.
-* **Glossar & Lexikon Expansion (`glossaryData.js`)**: Neue Begriffe für SQL, Docker, Kubernetes & Security.
-
-#### [v2.9.0] - W3Schools-Style Language Masterclasses Expansion
-* W3Schools Tutorials für Python, JS ES6+, TypeScript & Java.
-
-#### [v2.8.0] - Video Tutorials & Mini-Projects Expansion
-* Video Tutorials Hub & Praxis Mini-Projekte.
+* Python Complete Guide & Lexikonerweiterung.
 
 #### [v1.0.0] - Initiales Release
 * Initiales Setup des IT-DevGame Repositories.

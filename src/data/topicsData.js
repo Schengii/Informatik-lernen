@@ -58,6 +58,84 @@ console.log(bin2dec("1111")); // Output: 15`,
     ]
   },
   {
+    id: 'text_markup_encodings',
+    title: 'Datenschutz, Datensicherheit, Zeichensätze & Plain-Text Formate',
+    category: 'Grundlagen & IHK',
+    difficultyLevel: 'Azubi / IHK',
+    targetRoles: ['azubi', 'junior', 'pro'],
+    icon: '📄',
+    readTime: '12 Min',
+    summary: 'Stefan Macke Podcast-Special: Unterscheidung Datenschutz vs. Datensicherheit vs. Datensicherung, ASCII vs. UTF-8 & Markdown/Asciidoc.',
+    content: `
+### 1. Datenschutz vs. Datensicherheit vs. Datensicherung (IHK-Klassiker)
+- **Datenschutz:** Schutz von **personenbezogenen Daten** vor Missbrauch (DSGVO, Schutz des Anwenders).
+- **Datensicherheit:** Schutz **jeglicher Daten** vor Verlust, Fälschung und unbefugtem Zugriff (CIA-Triade: Vertraulichkeit, Integrität, Verfügbarkeit).
+- **Datensicherung (Backup):** Technische Maße (z.B. Grandfather-Father-Son Strategie) zur physischen Wiederherstellung von Daten im Katastrophenfall.
+
+### 2. Zeichensätze & Encodings (ASCII vs. UTF-8)
+- **ASCII (7-Bit):** 128 Standardzeichen (englische Buchstaben, Zahlen, Steuerzeichen).
+- **ISO-8859-1 (Latin-1, 8-Bit):** 256 Zeichen inkl. deutscher Umlaute (ä, ö, ü, ß).
+- **UTF-8 (Variable 1-4 Bytes):** Abwärtskompatibel zu ASCII, unterstützt über 1,1 Millionen Zeichen (inkl. Emojis und chinesische Schriftzeichen).
+
+### 3. Plain-Text-Markup Formate (Markdown vs. Asciidoc)
+- **Markdown:** Schnelle Formatierung für Dokumentationen (\`# Ueberschrift\`, \`**fett**\`).
+- **Asciidoc:** Leistungsfähiges Markup-Format für technische Bücher, Handbücher und Spezifikationen.
+`,
+    codeSnippet: `<!-- UTF-8 Deklaration in HTML5 -->
+<meta charset="UTF-8">`,
+    quiz: [
+      {
+        question: 'Was beschreibt das Ziel des Datenschutzes (DSGVO)?',
+        options: [
+          'Schutz von Server-Festplatten vor Absturz',
+          'Schutz der Persönlichkeitsrechte von Personen bei der Verarbeitung personenbezogener Daten',
+          'Verschlüsselung der IP-Pakete im Router',
+          'Regelmäßiges Erstellen von Backups'
+        ],
+        correct: 1,
+        explanation: 'Datenschutz schützt die Rechte von betroffenen Personen bei der Verarbeitung ihrer personenbezogenen Daten.'
+      }
+    ]
+  },
+  {
+    id: 'deep_learning_coursera',
+    title: 'Coursera AI Masterclass: CNNs, RNNs & Transformers',
+    category: 'Artificial Intelligence',
+    difficultyLevel: 'Senior / Expert',
+    targetRoles: ['junior', 'pro'],
+    icon: '🤖',
+    readTime: '15 Min',
+    summary: 'Deep Learning Grundlagen inspiriert von Coursera: Convolutional Neural Networks (Bildverarbeitung), Recurrent Neural Networks & Transformer-Architekturen.',
+    content: `
+### 1. Neuronale Netzwerke & Layer
+- **Input Layer:** Nimmt Rohdaten auf (z. B. Pixelwerte 28x28 bei Bildern).
+- **Hidden Layers:** Führen mathematische Gewichtungen ($W \cdot x + b$) aus.
+- **Activation Functions:** ReLU ($max(0, x)$), Sigmoid, Softmax (Wahrscheinlichkeiten).
+
+### 2. Spezialisierte KI-Architekturen
+- **CNN (Convolutional Neural Networks):** Für Bild- & Videoerkennung (Convolution & Pooling Layers).
+- **RNN / LSTM:** Für sequenzielle Daten und Zeitreihen.
+- **Transformers (Self-Attention Mechanism):** Die Grundlage aller modernen Large Language Models (GPT-4, Gemini, Claude).
+`,
+    codeSnippet: `# PyTorch Multi-Layer Perceptron (MLP)
+import torch.nn as nn
+
+model = nn.Sequential(
+    nn.Linear(784, 128),
+    nn.ReLU(),
+    nn.Linear(128, 10),
+    nn.Softmax(dim=1)
+)`,
+    quiz: [
+      {
+        question: 'Welche Architektur bildet das Fundament moderner Large Language Models (LLMs)?',
+        options: ['CNN', 'RNN', 'Transformer (Self-Attention)', 'Decision Trees'],
+        correct: 2,
+        explanation: 'Transformers mit Self-Attention ermöglichen die parallele Verarbeitung großer Textmengen.'
+      }
+    ]
+  },
+  {
     id: 'python_master_course',
     title: 'Python Complete Guide (W3Schools-Style)',
     category: 'Programmierung',
