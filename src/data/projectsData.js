@@ -1,94 +1,92 @@
-// Step-by-step micro-projects dataset for hands-on experience
-
 export const MICRO_PROJECTS = [
   {
-    id: 'proj_portfolio',
-    title: 'Projekt 1: Erstelle deine Entwickler-Visitenkarte',
-    category: 'Webentwicklung',
-    difficulty: 'Anfänger',
-    targetRoles: ['anfaenger'],
-    estimatedTime: '20 Min',
-    icon: '🚀',
-    description: 'Baue deine eigene responsive Profilseite mit HTML & CSS. Zeige deine Skills, dein Bild und Social-Links.',
-    steps: [
-      {
-        title: 'Schritt 1: HTML-Gerüst aufbauen',
-        detail: 'Erstelle die semantische Struktur mit <header>, <main> und <footer>.',
-        codeSnippet: `<div class="profile-card">
-  <img src="https://via.placeholder.com/100" alt="Avatar">
-  <h1>Dein Name</h1>
-  <p>Angehender Informatiker & Code Explorer</p>
-</div>`
-      },
-      {
-        title: 'Schritt 2: CSS Styling hinzufügen',
-        detail: 'Nutze CSS Flexbox für ein elegantes Kartendesign mit abgerundeten Ecken und Schatten.',
-        codeSnippet: `.profile-card {
-  background: #1e293b;
-  border-radius: 16px;
-  padding: 24px;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}`
-      }
+    id: 'proj_react_todo',
+    title: '1. Interaktive ToDo-App mit React & LocalStorage',
+    category: 'Frontend Webdev',
+    difficulty: 'Einsteiger',
+    xpReward: 150,
+    description: 'Baue deine erste interaktive Webanwendung in React mit Zustandsverwaltung (useState) und dauerhafter Speicherung (localStorage).',
+    tasks: [
+      'Erstelle ein Input-Feld und einen Button zum Hinzufügen von Aufgaben',
+      'Verwende useState zum Speichern des Aufgaben-Arrays',
+      'Implementiere das Löschen und Abhaken von erledigten Aufgaben',
+      'Speichere die Daten in localStorage, damit sie beim Neuladen erhalten bleiben'
     ],
-    xpReward: 100
+    codeSnippet: `import React, { useState, useEffect } from 'react';
+
+export default function TodoApp() {
+  const [todos, setTodos] = useState(() => {
+    return JSON.parse(localStorage.getItem('my_todos')) || [];
+  });
+  const [text, setText] = useState('');
+
+  useEffect(() => {
+    localStorage.setItem('my_todos', JSON.stringify(todos));
+  }, [todos]);
+
+  const addTodo = () => {
+    if (!text.trim()) return;
+    setTodos([...todos, { id: Date.now(), text, done: false }]);
+    setText('');
+  };
+
+  return (
+    <div>
+      <input value={text} onChange={(e) => setText(e.target.value)} />
+      <button onClick={addTodo}>Hinzufügen</button>
+    </div>
+  );
+}`
   },
   {
-    id: 'proj_password_checker',
-    title: 'Projekt 2: Passwort-Stärke-Checker',
-    category: 'IT-Sicherheit & JS',
-    difficulty: 'Azubi / Mittel',
-    targetRoles: ['azubi', 'pro'],
-    estimatedTime: '30 Min',
-    icon: '🔐',
-    description: 'Schreibe ein JavaScript-Skript, das Passwörter auf Länge, Sonderzeichen, Zahlen und Entropie überprüft.',
-    steps: [
-      {
-        title: 'Schritt 1: Prüffunktion mit RegEx schreiben',
-        detail: 'Erstelle eine Funktion `checkPasswordScore(password)`, die Punkte vergibt.',
-        codeSnippet: `function checkPasswordScore(pass) {
-  let score = 0;
-  if (pass.length >= 8) score += 25;
-  if (pass.length >= 12) score += 25;
-  if (/[A-Z]/.test(pass)) score += 15;
-  if (/[0-9]/.test(pass)) score += 15;
-  if (/[^A-Za-z0-9]/.test(pass)) score += 20;
-  return score;
-}`
-      },
-      {
-        title: 'Schritt 2: Visuelle Feedback-Leiste aktualisieren',
-        detail: 'Färbe die Fortschrittsleiste je nach Score grün, gelb oder rot.',
-        codeSnippet: `const score = checkPasswordScore(userPass);
-if (score > 75) statusBadge.className = 'badge-green';`
-      }
+    id: 'proj_py_scraper',
+    title: '2. Python Web Scraper für IT-News',
+    category: 'Backend & Automation',
+    difficulty: 'Azubi / Junior',
+    xpReward: 200,
+    description: 'Automatisiere das Auslesen von Überschriften aus IT-Nachrichtenportalen mit Python, Requests & BeautifulSoup.',
+    tasks: [
+      'Installiere requests und beautifulsoup4',
+      'Sende eine HTTP GET Anfrage an das Nachrichtenportal',
+      'Parsee das HTML nach <h2> oder <h3> Tags',
+      'Gib die Top-10 IT-Schlagzeilen in der Konsole aus'
     ],
-    xpReward: 150
+    codeSnippet: `import requests
+from bs4 import BeautifulSoup
+
+url = "https://news.ycombinator.com/"
+response = requests.get(url)
+
+if response.status_code == 200:
+    soup = BeautifulSoup(response.text, 'html.parser')
+    titles = soup.find_all('span', class_='titleline')
+    for idx, t in enumerate(titles[:10], 1):
+        print(f"{idx}. {t.text}")`
   },
   {
-    id: 'proj_db_schema',
-    title: 'Projekt 3: Datenbank-Schema für ein Ticket-System',
-    category: 'Datenbanken',
-    difficulty: 'Azubi / Pro',
-    targetRoles: ['azubi', 'pro'],
-    estimatedTime: '35 Min',
-    icon: '🗄️',
-    description: 'Entwirf das relationale Datenbank-Schema für ein IT-Support-Ticket-System inklusive Fremdschlüsseln.',
-    steps: [
-      {
-        title: 'Schritt 1: Tabellen kunden & tickets anlegen',
-        detail: 'Definiere Primärschlüssel (PRIMARY KEY) und Fremdschlüssel (FOREIGN KEY).',
-        codeSnippet: `CREATE TABLE tickets (
-  ticket_id INT PRIMARY KEY AUTO_INCREMENT,
-  kunde_id INT NOT NULL,
-  titel VARCHAR(150) NOT NULL,
-  status ENUM('offen', 'in_bearbeitung', 'geloest') DEFAULT 'offen',
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (kunde_id) REFERENCES kunden(id)
-);`
-      }
+    id: 'proj_docker_api',
+    title: '3. Dockerisierte Node.js Express REST API',
+    category: 'DevOps & Backend',
+    difficulty: 'Senior / Expert',
+    xpReward: 250,
+    description: 'Erstelle eine RESTful API in Express.js und verpacke sie in ein optimiertes Docker Multi-Stage Image.',
+    tasks: [
+      'Erstelle eine app.js mit /api/v1/health Endpoint',
+      'Schreibe ein Multi-Stage Dockerfile',
+      'Baue das Docker Image (docker build -t my-api .)',
+      'Starte den Container auf Port 3000 (docker run -p 3000:3000 my-api)'
     ],
-    xpReward: 180
+    codeSnippet: `# Multi-Stage Dockerfile
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+
+FROM node:20-alpine
+WORKDIR /app
+COPY --from=builder /app ./
+EXPOSE 3000
+CMD ["node", "app.js"]`
   }
 ];

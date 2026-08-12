@@ -1,6 +1,6 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (FISI/FIAE LF 1 - 12b), Stefan Macke IT-Berufe Podcasts, Advanced Prompt Engineering (Chain-of-Thought, Few-Shot), Deep Learning, OAuth2 & OpenID Connect (OIDC), WebSockets Realtime Communication, Performance Profiling & Memory Leak Handling, Kubernetes Orchestrierung, Local RAG Vector AI Pipelines, WebAssembly & Rust Compilation, Apache Kafka Event-Driven Architecture, Docker & Containerisierung, Cloud Infrastructure (AWS/GitHub Actions CI/CD), Cybersecurity Red vs Blue Team, GraphQL & REST API Testing, Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), interaktiven Video-Tutorials, Schritt-für-Schritt Praxis-Projekten, IHK Berufsschul-Lernfeldern (FISI/FIAE LF 1 - 12b), Stefan Macke IT-Berufe Podcasts, Advanced Prompt Engineering (Chain-of-Thought, Few-Shot), Deep Learning, OAuth2 & OpenID Connect (OIDC), WebSockets Realtime Communication, Performance Profiling & Memory Leak Handling, Kubernetes Orchestrierung, Local RAG Vector AI Pipelines, WebAssembly & Rust Compilation, Apache Kafka Event-Driven Architecture, Docker & Containerisierung, Cloud Infrastructure (AWS/GitHub Actions CI/CD), Cybersecurity Red vs Blue Team, GraphQL & REST API Testing, Web Components (Lit.dev, Vaadin), 10+ Programmiersprachen (JS, TS, Java, C#, Angular, PHP, React, Vite, C++), TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Cloud Native, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Terminal-Commands, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln, Quizzes und App-Entwicklung – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
@@ -22,8 +22,8 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 **IT-DevGame** ist so konzipiert, dass **jeder Mensch – unabhängig von Alter oder Vorkenntnissen** – spielerisch in die Welt der Informatik einsteigen oder bestehendes Wissen gezielt vertiefen kann:
 
 1. **🌱 Einsteiger & Neugierige (Kinder, Senioren, Quereinsteiger)**:
-   - **Sehr umfassender Einsteiger-Kurs (`AnfaengerGuideHub.jsx`)**: Lernen ohne jegliche Vorkenntnisse.
-   - Grundlagen leicht verständlich erklärt: Das **EVA-Prinzip** (Eingabe, Verarbeitung, Ausgabe), wie das **CPU-Gehirn** rechnet (ALU, Steuerwerk, Register), **Binärsystem & Bytes** (Bits, 0/1-Schalter), **Internet & DNS** (Telefonbuch des Webs).
+   - **Einsteiger-Kurs (`AnfaengerGuideHub.jsx`)**: Lernen ohne jegliche Vorkenntnisse.
+   - Grundlagen leicht verständlich erklärt: **EVA-Prinzip**, **CPU-Gehirn** (ALU, Steuerwerk, Register), **Binärsystem & Bytes**, **Internet & DNS**.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI, IT-Systemelektroniker)**:
    - Detaillierte IHK-Berufsschul Lernfelder (LF 1 bis LF 12b), prüfungsrelevante Tipps für AP Teil 1 & AP Teil 2, Amortisationsrechnungen, Handelskalkulationen, RTO/RPO Definitionen & Stefan Macke Podcast-Tipps.
 3. **🚀 Junior Developer**:
@@ -33,15 +33,13 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v2.7.0 Anfänger-Upgrade)
+## 🔥 Hauptfunktionen & Neue Features (v2.8.0 Content & Projects Upgrade)
 
-* **🌱 Neuer Anfänger-Lernbereich ohne Vorkenntnisse (`AnfaengerGuideHub.jsx`)**:
-  * **EVA-Prinzip**: Eingabe -> Verarbeitung -> Ausgabe anschaulich erklärt.
-  * **CPU-Architektur**: ALU, Steuerwerk, Register & Taktfrequenz in GigaHertz.
-  * **Binärsystem & Speichergrößen**: Bits, Bytes, KB, MB, GB & TB Vergleiche.
-  * **Internet & DNS**: Paketweiterleitung und Domain Name System.
-* **🎓 IHK Lernfelder Deep-Dive & Advanced AI Masterclass**.
-* **🔐 OAuth2 OIDC, 📻 WebSockets & ☸️ Kubernetes**.
+* **🎥 Interaktive Video-Tutorials (`videosData.js`)**:
+  * Python Kurs für Anfänger, Docker & Container Crash-Kurs, Kubernetes Kompakt-Erklärung & SQL Datenbanken Masterclass.
+* **💻 Praxis-Mini-Projekte mit Code-Snippets (`projectsData.js`)**:
+  * React ToDo App mit useState & localStorage, Python Web Scraper für IT-News, Dockerisierte Node.js Express REST API mit Multi-Stage Dockerfile.
+* **🌱 Anfänger-Lernbereich & IHK Lernfelder Upgrade**.
 
 ---
 
@@ -201,6 +199,10 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v2.8.0] - Video Tutorials & Mini-Projects Expansion
+* **Video Tutorials Hub (`videosData.js`)**: Python, Docker, Kubernetes & SQL Video-Lerneinheiten.
+* **Praxis Mini-Projekte (`projectsData.js`)**: React ToDo App, Python Scraper & Dockerized Express API.
+
 #### [v2.7.0] - Dedicated Beginners Hub Upgrade
 * **Anfänger-Lernbereich (`AnfaengerGuideHub.jsx`)**: EVA-Prinzip, CPU-Architektur, Binärlogik & Netzwerke leicht erklärt.
 
@@ -218,27 +220,6 @@ npm run lint
 
 #### [v2.3.0] - Docker Lab, Cloud DevOps, Red/Blue Security & API Studio
 * Multi-Stage Dockerfiles, GitHub Actions Pipelines & Red/Blue Team Hardening.
-
-#### [v2.2.0] - AI Business Masterclass & IT Podcast Hub (Superprof/Golem/Coursera)
-* AI Business Prompts, Deep Learning & IHK Podcast Hub.
-
-#### [v2.1.0] - Offizieller IHK FISI / FIAE Lernfelder Hub (LF 1 bis 12b)
-* IHK Lernfelder Hub mit allen 12 Berufsschul-Lernfeldern.
-
-#### [v2.0.0] - Web Components (Lit.dev, Vaadin) & 10+ Sprachen W3Schools Hub
-* Web Components Hub & erweiterte Sprachen Academy.
-
-#### [v1.9.0] - i18n Mehrsprachigkeit (DE/EN), TDD Unit-Testing & Live Deployment Guide
-* i18n Mehrsprachigkeit, Jest TDD Unit Testing Lab & Deployment Guide.
-
-#### [v1.8.0] - Systemarchitektur, Design Patterns, Code Speedrun & PWA Support
-* Systemarchitektur Visualizer, Design Patterns Lab, Code Speedrun & PWA Offline-Support.
-
-#### [v1.7.0] - IT Roadmaps, Code Duel Boss Battle & Big-O Visualizer
-* IT Karriere Roadmaps, Boss Battle Mode & Big-O Notation Visualizer.
-
-#### [v1.1.0] - Helles High-Contrast Design, Barrierefreiheit & DSGVO
-* UI-Redesign, Barrierefreiheit & DSGVO-Modal.
 
 #### [v1.0.0] - Initiales Release
 * Initiales Setup des IT-DevGame Repositories.
