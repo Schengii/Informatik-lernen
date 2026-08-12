@@ -6,10 +6,11 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Barrierefreiheit](#-hauptfunktionen--barrierefreiheit)
+- [Hauptfunktionen & Neue Features](#-hauptfunktionen--neue-features)
+- [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
-- [Funktionsweise & Schwierigkeitsgrad-Filter](#-funktionsweise--schwierigkeitsgrad-filter)
+- [Funktionsweise](#-funktionsweise)
 - [DSGVO & Datenschutz](#-dsgvo--datenschutz)
 - [Anleitung (Installation & Ausführung)](#-anleitung-installation--ausführung)
 - [Änderungshistorie & Entwicklungsdokumentation](#-änderungshistorie--entwicklungsdokumentation)
@@ -32,22 +33,30 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## 🔥 Hauptfunktionen & Barrierefreiheit
+## 🔥 Hauptfunktionen & Neue Features
 
+* **📖 Interaktives IT-Lexikon & Fachbegriffe (`GlossaryModal.jsx`)**:
+  * Durchsuchbares Glossar mit einfachen Erklärungen für Einsteiger und technischen Details für Azubis & Devs inklusive Audio-Vorlesefunktion.
+* **🎓 IHK-Prüfungssimulator (`ExamSimulator.jsx`)**:
+  * Realistische Prüfungssimulation für Fachinformatiker (GAP 1 / GAP 2) mit automatischer Auswertung, Erklärungen & XP.
+* **📊 Skill-Matrix Visualizer (`SkillMatrixWidget.jsx`)**:
+  * Visueller Fortschrittsbalken für 6 Kernkompetenzen (Hardware, Web, Code, Datenbanken, Netzwerke, Security).
+* **⚡ Tages-Challenge & Streak-Bonus (`DailyChallengeWidget.jsx`)**:
+  * Tägliche Quests zur Wissensüberprüfung und Bonus-XP Belohnung.
+* **📜 Zertifikat-Generator (`CertificateModal.jsx`)**:
+  * Generierung und Export/Druck von Qualifikations-Zertifikaten für erreichte Lernfortschritte.
 * **🎚️ Interaktiver Schwierigkeitsgrad-Filter**:
-  * Dynamische Umschaltung zwischen `🟢 Einsteiger`, `🔵 Azubi / IHK`, `🟣 Senior / Expert` und `Alle Levels`.
-* **🎨 Modernes, helles & kontraststarkes UI-Design**:
-  * Optimierte Textkontraste nach **WCAG 2.1 Level AA / AAA**.
-  * Dynamischer Wechsel zwischen Hell- & Dunkelmodus.
-* **♿ Umfassende Barrierefreiheit & Inklusion**:
-  * **Lese-Rechtschreib-Hilfe (Dyslexie-Modus)**: Spezialschriftart (*Atkinson Hyperlegible*), erweiterter Zeichen- & Zeilenabstand.
-  * **Rot-Grün-Sehhilfe (Farbenblindheits-Modus)**: Zusätzliche Icon-Indikatoren (✓ / ✗) und barrierefreie Farbpaletten.
-  * **Vorlesefunktion (Text-to-Speech)**: Audio-Steuerung (Play/Pause/Stopp) zum Vorlesen aller Lerneinheiten.
-  * **Schriftgrößen-Skalierung**: Stufenlose Anpassung (A- / 100% / A+).
-* **🔒 DSGVO & Privacy First**:
-  * 100% DSGVO-konform: Keine Tracking-Cookies, alle Daten bleiben rein lokal im `localStorage`.
-* **🎮 Interaktive Mini-Games**:
-  * **Logic Gates Simulator**, **SQL Dungeon**, **Web Sandbox**, **Cyber Defense Lab**, **Code Bug Hunter**.
+  * Umschaltung zwischen `🟢 Einsteiger`, `🔵 Azubi / IHK`, `🟣 Senior / Expert` und `Alle Levels`.
+
+---
+
+## ♿ Barrierefreiheit & Inklusion
+
+* **Lese-Rechtschreib-Hilfe (Dyslexie-Modus)**: Spezialschriftart (*Atkinson Hyperlegible*), erweiterter Zeichen- & Zeilenabstand.
+* **Rot-Grün-Sehhilfe (Farbenblindheits-Modus)**: Zusätzliche Icon-Indikatoren (✓ / ✗) und barrierefreie Farbwelten.
+* **Vorlesefunktion (Text-to-Speech)**: Audio-Steuerung (Play/Pause/Stopp) zum Vorlesen aller Lerneinheiten.
+* **Schriftgrößen-Skalierung**: Stufenlose Anpassung (A- / 100% / A+).
+* **100% DSGVO-konform**: Keine Tracking-Cookies, alle Daten verbleiben rein lokal im `localStorage`.
 
 ---
 
@@ -73,6 +82,8 @@ Informatik-lernen/
     ├── components/
     │   ├── Content/
     │   │   ├── ClozeTester.jsx
+    │   │   ├── ExamSimulator.jsx
+    │   │   ├── GlossaryModal.jsx
     │   │   ├── TopicReader.jsx
     │   │   └── VideoHub.jsx
     │   ├── Footer/
@@ -84,7 +95,10 @@ Informatik-lernen/
     │   │   ├── SqlDungeon.jsx
     │   │   └── WebSandbox.jsx
     │   ├── Gamification/
-    │   │   └── BadgesModal.jsx
+    │   │   ├── BadgesModal.jsx
+    │   │   ├── CertificateModal.jsx
+    │   │   ├── DailyChallengeWidget.jsx
+    │   │   └── SkillMatrixWidget.jsx
     │   ├── Navigation/
     │   │   ├── AccessibilityToolbar.jsx
     │   │   ├── DifficultyFilterBar.jsx
@@ -96,7 +110,9 @@ Informatik-lernen/
     │       └── ProjectViewer.jsx
     ├── data/
     │   ├── clozeData.js
+    │   ├── examData.js
     │   ├── gamesData.js
+    │   ├── glossaryData.js
     │   ├── projectsData.js
     │   ├── topicsData.js
     │   ├── userProfiles.js
@@ -111,11 +127,12 @@ Informatik-lernen/
 
 ## 📄 Dateiinhalt & Komponentenübersicht
 
-### Navigation & Level-Steuerung
-* **`src/components/Navigation/DifficultyFilterBar.jsx`**: Dynamische Barrierefreiheits-Filterleiste zur Auswahl von Vorwissens-Stufen (`Einsteiger`, `Azubi / IHK`, `Senior / Expert`).
-* **`src/components/Onboarding/RoleSelectionModal.jsx`**: Personalisierter Einstiegs-Dialog zur Wahl der passenden Zielgruppe und Lern-Roadmap.
-* **`src/data/userProfiles.js`**: Definition der 4 Haupt-Zielgruppen (Einsteiger, Azubi, Junior, Senior).
-* **`src/data/topicsData.js`**: Fachkunde-Lektionen mit zugewiesenen Schwierigkeitsgraden.
+### Neue Module
+* **`src/components/Content/GlossaryModal.jsx`**: Interaktives IT-Lexikon mit Suchfunktion, Kategorien & Vorleser.
+* **`src/components/Content/ExamSimulator.jsx`**: IHK Prüfungssimulation mit auswertbaren Prüfungsfragen.
+* **`src/components/Gamification/SkillMatrixWidget.jsx`**: Visuelle Kompetenzverteilung.
+* **`src/components/Gamification/DailyChallengeWidget.jsx`**: Tägliche Aufgaben mit Bonus XP.
+* **`src/components/Gamification/CertificateModal.jsx`**: Qualifikations-Zertifikat mit Druck- / PDF-Funktion.
 
 ---
 
@@ -143,14 +160,18 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v1.3.0] - IT-Lexikon, IHK Prüfungssimulator, Skill-Matrix, Tages-Challenge & Zertifikate
+* **Interaktives IT-Lexikon (`GlossaryModal.jsx`)**: Suchbares Glossar mit einfachen Erklärungen für Einsteiger und Experten-Details.
+* **IHK Prüfungssimulator (`ExamSimulator.jsx`)**: Realistische Prüfungsfragen mit Auswertung, Erklärung und Fortschritt.
+* **Skill-Matrix (`SkillMatrixWidget.jsx`)**: Kompetenzübersicht in 6 IT-Bereichen.
+* **Tages-Challenge (`DailyChallengeWidget.jsx`)**: Tägliche Wechsel-Quests & Streak-Vorteile.
+* **Zertifikat-Generator (`CertificateModal.jsx`)**: Ausstellbare Zertifikate mit Druck- & PDF-Funktion.
+
 #### [v1.2.0] - Zielgruppen-Erweiterung für jedes Alter & Vorwissen (Einsteiger bis Senior Dev)
-* **Zielgruppen-Expansion**: Erweiterung des Nutzerprofil-Systems auf 4 Hauptgruppen (`🌱 Einsteiger ohne Vorwissen`, `⚡ Azubi / IHK`, `🚀 Junior Dev`, `🔥 Senior Dev / Architekt`).
-* **Schwierigkeitsgrad-Filter (`DifficultyFilterBar.jsx`)**: Ermöglicht das Filtern aller Wissens- und Praxismodule nach Vorkenntnissen und Alter.
-* **Didaktische Anpassungen**: Einfache Sprache in Einsteiger-Modulen, gezieltes Prüfungswissen für Azubis & OWASP/Performance-Themen für Profis.
+* Erweiterung des Nutzerprofil-Systems & Einführung von `DifficultyFilterBar.jsx`.
 
 #### [v1.1.0] - Helles High-Contrast Design, Barrierefreiheit (WCAG/Dyslexie/Sehhilfe), TTS & DSGVO
-* **UI Redesign**: Umstellung auf ein helles, modernes Design mit kontrastreichen Akzentfarben.
-* **Barrierefreiheit (WCAG 2.1 AA/AAA)**: Dyslexie-Modus, Rot-Grün-Sehhilfe, Text-to-Speech Vorlesefunktion & Accessibility-Toolbar.
+* UI-Redesign, Barrierefreiheit, Vorlesefunktion & DSGVO-Modal.
 
 #### [v1.0.0] - initiales Release & Git Repository Push
 * Initiales Setup des IT-DevGame Repositories.

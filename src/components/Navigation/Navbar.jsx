@@ -1,12 +1,14 @@
 import React from 'react';
 import { USER_ROLES } from '../../data/userProfiles';
-import { Trophy, Flame, UserCheck, Code2, Sun, Moon } from 'lucide-react';
+import { Trophy, Flame, UserCheck, Code2, Sun, Moon, BookOpen, GraduationCap, Award } from 'lucide-react';
 import AccessibilityToolbar from './AccessibilityToolbar';
 
 export default function Navbar({
   userState,
   onOpenProfileModal,
   onOpenBadgesModal,
+  onOpenGlossaryModal,
+  onOpenCertificateModal,
   activeTab,
   setActiveTab,
   fontSize,
@@ -86,6 +88,7 @@ export default function Navbar({
             { id: 'wissen', label: 'Fachkunde & Wissen' },
             { id: 'games', label: 'Mini-Games' },
             { id: 'lueckentext', label: 'Lückentexte' },
+            { id: 'exam', label: '🎓 IHK-Prüfung' },
             { id: 'videos', label: 'Video-Tutorials' },
             { id: 'projekte', label: 'Praxis-Projekte' }
           ].map((tab) => (
@@ -94,10 +97,10 @@ export default function Navbar({
               onClick={() => setActiveTab(tab.id)}
               style={{
                 minHeight: '44px',
-                padding: '8px 16px',
+                padding: '8px 14px',
                 borderRadius: 'var(--radius-md)',
-                fontSize: '0.9rem',
-                fontWeight: '600',
+                fontSize: '0.88rem',
+                fontWeight: '700',
                 background: activeTab === tab.id ? 'var(--bg-tertiary)' : 'transparent',
                 color: activeTab === tab.id ? 'var(--accent-primary)' : 'var(--text-muted)',
                 border: activeTab === tab.id ? '2px solid var(--accent-primary)' : '2px solid transparent',
@@ -110,8 +113,30 @@ export default function Navbar({
           ))}
         </nav>
 
-        {/* User Stats, Accessibility & Profile Controls */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+        {/* User Stats, Accessibility, Glossary & Certificate Controls */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+          {/* IT Lexikon Button */}
+          <button
+            className="btn btn-secondary btn-sm"
+            onClick={onOpenGlossaryModal}
+            style={{ gap: '6px', fontWeight: 700, borderColor: 'var(--accent-teal)', color: 'var(--accent-teal)' }}
+            title="IT-Lexikon & Fachbegriffe"
+          >
+            <BookOpen size={16} />
+            <span className="desktop-only">IT-Lexikon</span>
+          </button>
+
+          {/* Certificate Button */}
+          <button
+            className="btn btn-secondary btn-sm"
+            onClick={onOpenCertificateModal}
+            style={{ gap: '6px', fontWeight: 700, borderColor: 'var(--accent-amber)', color: 'var(--accent-amber)' }}
+            title="Zertifikat anzeigen"
+          >
+            <Award size={16} />
+            <span className="desktop-only">Zertifikat</span>
+          </button>
+
           {/* XP & Level Badge */}
           <div
             onClick={onOpenBadgesModal}
@@ -121,7 +146,7 @@ export default function Navbar({
               gap: '8px',
               background: 'var(--bg-tertiary)',
               border: '1px solid var(--border-color)',
-              padding: '6px 14px',
+              padding: '6px 12px',
               borderRadius: '9999px',
               cursor: 'pointer',
               minHeight: '40px'
@@ -130,24 +155,23 @@ export default function Navbar({
             tabIndex={0}
             aria-label="Level und Erfolge anzeigen"
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--accent-amber)', fontSize: '0.88rem', fontWeight: '700' }}>
-              <Flame size={18} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--accent-amber)', fontSize: '0.85rem', fontWeight: '700' }}>
+              <Flame size={16} />
               <span>{userState.xp} XP</span>
             </div>
             <div style={{ height: '14px', width: '1px', background: 'var(--border-color)' }}></div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--accent-teal)', fontSize: '0.88rem', fontWeight: '700' }}>
-              <Trophy size={18} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--accent-teal)', fontSize: '0.85rem', fontWeight: '700' }}>
+              <Trophy size={16} />
               <span>Lvl {userState.level}</span>
             </div>
           </div>
 
-          {/* Theme Switcher (Light / Dark) */}
+          {/* Theme Switcher */}
           <button
             className="btn btn-secondary btn-sm"
             onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
             style={{ minHeight: '40px', width: '40px', padding: 0, borderRadius: '50%' }}
             aria-label="Farbschema wechseln"
-            title={`Wechsle zu ${theme === 'light' ? 'Dunkelmodus' : 'Hellmodus'}`}
           >
             {theme === 'light' ? <Moon size={18} style={{ color: 'var(--accent-primary)' }} /> : <Sun size={18} style={{ color: 'var(--accent-amber)' }} />}
           </button>
@@ -175,13 +199,13 @@ export default function Navbar({
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
-              padding: '6px 14px',
+              padding: '6px 12px',
               borderRadius: '9999px',
               background: 'rgba(79, 70, 229, 0.1)',
               color: 'var(--accent-primary)',
               border: '1px solid var(--accent-primary)',
               fontWeight: '700',
-              fontSize: '0.85rem',
+              fontSize: '0.82rem',
               cursor: 'pointer',
               minHeight: '40px'
             }}

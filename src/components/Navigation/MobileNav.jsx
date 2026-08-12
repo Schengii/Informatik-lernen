@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, BookOpen, Gamepad2, FileText, Video, FolderGit2 } from 'lucide-react';
+import { Home, BookOpen, Gamepad2, FileText, GraduationCap, Video, FolderGit2 } from 'lucide-react';
 
 export default function MobileNav({ activeTab, setActiveTab }) {
   const tabs = [
@@ -7,6 +7,7 @@ export default function MobileNav({ activeTab, setActiveTab }) {
     { id: 'wissen', label: 'Wissen', icon: BookOpen },
     { id: 'games', label: 'Games', icon: Gamepad2 },
     { id: 'lueckentext', label: 'Lücken', icon: FileText },
+    { id: 'exam', label: 'IHK', icon: GraduationCap },
     { id: 'videos', label: 'Videos', icon: Video },
     { id: 'projekte', label: 'Projekte', icon: FolderGit2 }
   ];
@@ -22,7 +23,7 @@ export default function MobileNav({ activeTab, setActiveTab }) {
         borderTop: '2px solid var(--border-color)',
         display: 'flex',
         justifyContent: 'space-around',
-        padding: '6px 4px',
+        padding: '6px 2px',
         zIndex: 1000,
         boxShadow: '0 -4px 15px rgba(0, 0, 0, 0.1)'
       }}
@@ -43,7 +44,7 @@ export default function MobileNav({ activeTab, setActiveTab }) {
               background: 'transparent',
               border: 'none',
               color: isActive ? 'var(--accent-primary)' : 'var(--text-muted)',
-              fontSize: '0.72rem',
+              fontSize: '0.7rem',
               fontWeight: isActive ? '800' : '600',
               cursor: 'pointer',
               gap: '2px',
@@ -53,7 +54,7 @@ export default function MobileNav({ activeTab, setActiveTab }) {
             }}
             aria-label={tab.label}
           >
-            <Icon size={20} style={{ color: isActive ? 'var(--accent-primary)' : 'var(--text-muted)' }} />
+            <Icon size={18} style={{ color: isActive ? 'var(--accent-primary)' : 'var(--text-muted)' }} />
             <span>{tab.label}</span>
           </button>
         );

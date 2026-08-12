@@ -15,17 +15,25 @@ import ProjectViewer from './components/Projects/ProjectViewer';
 import BadgesModal from './components/Gamification/BadgesModal';
 import DsgvoFooterModal from './components/Footer/DsgvoFooterModal';
 import DifficultyFilterBar from './components/Navigation/DifficultyFilterBar';
+import GlossaryModal from './components/Content/GlossaryModal';
+import ExamSimulator from './components/Content/ExamSimulator';
+import SkillMatrixWidget from './components/Gamification/SkillMatrixWidget';
+import CertificateModal from './components/Gamification/CertificateModal';
+import DailyChallengeWidget from './components/Gamification/DailyChallengeWidget';
 
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
-import { BookOpen, Sparkles, ArrowRight, CheckCircle } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, CheckCircle, GraduationCap, Award } from 'lucide-react';
 
 export default function App() {
   const [userState, setUserState] = useState(loadUserState());
   const [isRoleModalOpen, setIsRoleModalOpen] = useState(!userState.role);
   const [isBadgesModalOpen, setIsBadgesModalOpen] = useState(false);
+  const [isGlossaryModalOpen, setIsGlossaryModalOpen] = useState(false);
+  const [isCertificateModalOpen, setIsCertificateModalOpen] = useState(false);
+
   const [activeTab, setActiveTab] = useState('dashboard');
 
   // Accessibility State & Theme (Light / Dark)
@@ -128,6 +136,8 @@ export default function App() {
         userState={userState}
         onOpenProfileModal={() => setIsRoleModalOpen(true)}
         onOpenBadgesModal={() => setIsBadgesModalOpen(true)}
+        onOpenGlossaryModal={() => setIsGlossaryModalOpen(true)}
+        onOpenCertificateModal={() => setIsCertificateModalOpen(true)}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         fontSize={fontSize}
@@ -174,15 +184,31 @@ export default function App() {
                   </p>
                 </div>
 
-                <button
-                  className="btn btn-primary"
-                  onClick={() => setIsRoleModalOpen(true)}
-                  style={{ minHeight: '48px', fontSize: '1rem' }}
-                >
-                  Profil / Level Anpassen
-                </button>
+                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => setIsRoleModalOpen(true)}
+                    style={{ minHeight: '48px', fontSize: '0.95rem' }}
+                  >
+                    Profil / Level Anpassen
+                  </button>
+
+                  <button
+                    className="btn btn-secondary"
+                    onClick={() => setIsGlossaryModalOpen(true)}
+                    style={{ minHeight: '48px', fontSize: '0.95rem', borderColor: 'var(--accent-teal)', color: 'var(--accent-teal)' }}
+                  >
+                    <BookOpen size={18} /> IT-Lexikon Öffnen
+                  </button>
+                </div>
               </div>
             </div>
+
+            {/* Daily Challenge Widget */}
+            <DailyChallengeWidget onCompleteChallenge={(xp) => awardXP(xp, 'daily_master')} />
+
+            {/* Skill Matrix Visualizer */}
+            <SkillMatrixWidget userState={userState} />
 
             {/* Feature Modules Quick Access */}
             <h2 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '20px', color: 'var(--text-main)' }}>
@@ -222,6 +248,22 @@ export default function App() {
                 </span>
               </div>
 
+              {/* IHK Prüfungssimulator Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('exam')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🎓</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>IHK Prüfungssimulator</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Reale Prüfungsfragen für Fachinformatiker mit Auswertung & XP.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Prüfung Starten <ArrowRight size={16} />
+                </span>
+              </div>
+
               {/* Lückentexte Card */}
               <div
                 className="glass-panel glass-panel-hover"
@@ -235,22 +277,6 @@ export default function App() {
                 </p>
                 <span style={{ fontSize: '0.9rem', color: 'var(--accent-purple)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
                   Lückentext Wählen <ArrowRight size={16} />
-                </span>
-              </div>
-
-              {/* Praxis Projekte Card */}
-              <div
-                className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('projekte')}
-                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-              >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🚀</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Praxis-Mikroprojekte</h3>
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Schritt-für-Schritt Anleitungen für echte Entwickler-Projekte.
-                </p>
-                <span style={{ fontSize: '0.9rem', color: 'var(--accent-amber)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Projekt Starten <ArrowRight size={16} />
                 </span>
               </div>
             </div>
@@ -355,6 +381,11 @@ export default function App() {
           </div>
         )}
 
+        {/* IHK EXAM TAB */}
+        {activeTab === 'exam' && (
+          <ExamSimulator onCompleteExam={(score, xp) => awardXP(xp, 'exam_passed')} />
+        )}
+
         {/* LÜCKENTEXT TAB */}
         {activeTab === 'lueckentext' && (
           <ClozeTester userState={userState} onCompleteCloze={(id, xp) => awardXP(xp, 'cloze_wizard')} />
@@ -389,6 +420,19 @@ export default function App() {
       <BadgesModal
         isOpen={isBadgesModalOpen}
         onClose={() => setIsBadgesModalOpen(false)}
+        userState={userState}
+      />
+
+      {/* IT Glossary Modal */}
+      <GlossaryModal
+        isOpen={isGlossaryModalOpen}
+        onClose={() => setIsGlossaryModalOpen(false)}
+      />
+
+      {/* Certificate Modal */}
+      <CertificateModal
+        isOpen={isCertificateModalOpen}
+        onClose={() => setIsCertificateModalOpen(false)}
         userState={userState}
       />
     </div>
