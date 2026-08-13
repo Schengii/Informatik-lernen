@@ -84,6 +84,7 @@ Informatik-lernen/
     │   │   ├── ApiMockStudioLab.jsx
     │   │   ├── AppWorkshop.jsx
     │   │   ├── ArchitectureVisualizer.jsx
+    │   │   ├── BigOBenchmarkLab.jsx
     │   │   ├── BigOVisualizer.jsx
     │   │   ├── CareerRoadmap.jsx
     │   │   ├── CiCdPipelineLab.jsx
@@ -107,6 +108,7 @@ Informatik-lernen/
     │   │   ├── LeitnerFlashcardLab.jsx
     │   │   ├── MonacoStudioLab.jsx
     │   │   ├── OauthOidcLab.jsx
+    │   │   ├── OauthPkceStudio.jsx
     │   │   ├── PacketTracerLab.jsx
     │   │   ├── PerformanceProfilingLab.jsx
     │   │   ├── PythonWasmLab.jsx
@@ -118,10 +120,13 @@ Informatik-lernen/
     │   │   ├── TddUnitTestLab.jsx
     │   │   ├── TopicReader.jsx
     │   │   ├── ToolingSetupGuide.jsx
+    │   │   ├── VectorSearchLab.jsx
     │   │   ├── VideoHub.jsx
     │   │   ├── VocabularyTrainerModal.jsx
     │   │   ├── WasmRustLab.jsx
+    │   │   ├── WasmRustStudio.jsx
     │   │   ├── WebComponentsHub.jsx
+    │   │   ├── WebSocketProtocolLab.jsx
     │   │   └── WebSocketsLab.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
@@ -212,6 +217,20 @@ npm run lint
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
 ### Versionsverlauf
+
+#### [v11.0.0] - WebSockets Protocol, RAG Vector Search, Big-O Arena, OAuth2 PKCE & WASM Rust Playground
+* **WebSockets & Real-Time Protocol Lab (`WebSocketProtocolLab.jsx`)**:
+  * Simulation des HTTP 101 Switching Protocols Handshakes (`Sec-WebSocket-Key` / `Sec-WebSocket-Accept`).
+  * Live-Frame-Inspektor für Text-, Binary- & Ping/Pong-Frames mit Latenz-Messung (ms).
+* **Local RAG Vector Database & Embedding Explorer (`VectorSearchLab.jsx`)**:
+  * Vektor-Einbettungen (Embeddings) & Berechnung von Kosinus-Ähnlichkeit ($\cos \theta$).
+  * Top-K Dokumenten-Retrieval-Ranking für KI-Systeme.
+* **Big-O Time & Space Complexity Benchmark Arena (`BigOBenchmarkLab.jsx`)**:
+  * Algorithmen-Laufzeit-Benchmark für $O(1)$, $O(\log N)$, $O(N)$, $O(N \log N)$ und $O(N^2)$ bei Skalierung von $N$.
+* **OAuth2 PKCE & OIDC Identity Flow Studio (`OauthPkceStudio.jsx`)**:
+  * Visueller 4-Schritte PKCE Wizard (`code_verifier`, `code_challenge`, Code Exchange & JWT Claims Decoding).
+* **WebAssembly (WASM) & Rust Compilation Playground (`WasmRustStudio.jsx`)**:
+  * Rust Quellcode-Editor (`lib.rs`), In-Browser WASM-Bytecode-Compiler (`module.wasm`) & Performance-Benchmark (WASM vs. JS).
 
 #### [v10.0.0] - System Design Load Balancer & Regex Master Quest Lab
 * **System Design & Load Balancer Simulator (`SystemDesignLab.jsx`)**:

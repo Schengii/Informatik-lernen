@@ -76,6 +76,11 @@ import CiCdPipelineLab from './components/Content/CiCdPipelineLab';
 import DockerComposeLab from './components/Content/DockerComposeLab';
 import SystemDesignLab from './components/Content/SystemDesignLab';
 import RegexMasterLab from './components/Content/RegexMasterLab';
+import WebSocketProtocolLab from './components/Content/WebSocketProtocolLab';
+import VectorSearchLab from './components/Content/VectorSearchLab';
+import BigOBenchmarkLab from './components/Content/BigOBenchmarkLab';
+import OauthPkceStudio from './components/Content/OauthPkceStudio';
+import WasmRustStudio from './components/Content/WasmRustStudio';
 
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
@@ -489,6 +494,86 @@ export default function App() {
                 </span>
               </div>
 
+              {/* WebSockets Protocol Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('websocket_protocol')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📡</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>WebSocket Protocol Lab</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  HTTP 101 Upgrade, Ping/Pong Frames & Socket Streams.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Protocol Lab <ArrowRight size={16} />
+                </span>
+              </div>
+
+              {/* RAG Vector Search Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('vector_search')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🧠</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Local RAG Vector DB</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Embeddings, Kosinus-Ähnlichkeit & Top-K Retrieval.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Vector DB Öffnen <ArrowRight size={16} />
+                </span>
+              </div>
+
+              {/* Big-O Benchmark Arena Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('bigo_benchmark')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📊</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Big-O Benchmark Arena</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Algorithmen-Laufzeiten O(1) bis O(N²) bei N Skalierung.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Benchmark Arena <ArrowRight size={16} />
+                </span>
+              </div>
+
+              {/* OAuth2 PKCE Studio Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('oauth_pkce_studio')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🔑</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>OAuth2 PKCE Flow Studio</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Code Verifier, Challenge, Token Exchange & JWT Claims.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  PKCE Studio <ArrowRight size={16} />
+                </span>
+              </div>
+
+              {/* WASM Rust Studio Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('wasm_rust_studio')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>⚡</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>WASM & Rust Playground</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Rust Code -> WASM Bytecode Kompilierung & Speed Tests.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  WASM Playground <ArrowRight size={16} />
+                </span>
+              </div>
+
               {/* OAuth2 Card */}
               <div
                 className="glass-panel glass-panel-hover"
@@ -552,6 +637,21 @@ export default function App() {
 
         {/* REGEX MASTER LAB TAB */}
         {activeTab === 'regex_master' && <RegexMasterLab onRewardXP={(xp) => awardXP(xp, 'regex_master')} />}
+
+        {/* WEBSOCKET PROTOCOL LAB TAB */}
+        {activeTab === 'websocket_protocol' && <WebSocketProtocolLab onRewardXP={(xp) => awardXP(xp, 'websocket_protocol_master')} />}
+
+        {/* VECTOR SEARCH RAG LAB TAB */}
+        {activeTab === 'vector_search' && <VectorSearchLab onRewardXP={(xp) => awardXP(xp, 'vector_search_master')} />}
+
+        {/* BIG-O BENCHMARK LAB TAB */}
+        {activeTab === 'bigo_benchmark' && <BigOBenchmarkLab onRewardXP={(xp) => awardXP(xp, 'bigo_benchmark_master')} />}
+
+        {/* OAUTH2 PKCE STUDIO TAB */}
+        {activeTab === 'oauth_pkce_studio' && <OauthPkceStudio onRewardXP={(xp) => awardXP(xp, 'oauth_pkce_master')} />}
+
+        {/* WASM RUST STUDIO TAB */}
+        {activeTab === 'wasm_rust_studio' && <WasmRustStudio onRewardXP={(xp) => awardXP(xp, 'wasm_rust_master')} />}
 
         {/* OAUTH2 & OIDC LAB TAB */}
         {activeTab === 'oauth_oidc' && <OauthOidcLab />}
