@@ -65,6 +65,9 @@ import AnfaengerGuideHub from './components/Content/AnfaengerGuideHub';
 import SubnettingLab from './components/Content/SubnettingLab';
 import GitLab from './components/Content/GitLab';
 import AlgoPlaygroundLab from './components/Content/AlgoPlaygroundLab';
+import PythonWasmLab from './components/Content/PythonWasmLab';
+import PacketTracerLab from './components/Content/PacketTracerLab';
+import LeitnerFlashcardLab from './components/Content/LeitnerFlashcardLab';
 
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
@@ -302,6 +305,54 @@ export default function App() {
                 </span>
               </div>
 
+              {/* Python WASM Sandbox Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('python_wasm')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🐍</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Python 3 WASM Sandbox</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Schreibe & führe echten Python Code im Browser aus.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Python Sandbox <ArrowRight size={16} />
+                </span>
+              </div>
+
+              {/* Network Packet Tracer Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('packet_tracer')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📡</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Packet Tracer & Routing</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  ICMP Pings, Gateway-Hops & Paketverläufe simulieren.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Tracer Öffnen <ArrowRight size={16} />
+                </span>
+              </div>
+
+              {/* Leitner Spaced Repetition Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('leitner')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🧠</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Leitner Spaced Repetition</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Effektives IHK Karteikasten-Lernen (Box 1 - 5).
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Karteikasten Öffnen <ArrowRight size={16} />
+                </span>
+              </div>
+
               {/* OAuth2 Card */}
               <div
                 className="glass-panel glass-panel-hover"
@@ -332,6 +383,15 @@ export default function App() {
 
         {/* ALGORITHMS PLAYGROUND LAB TAB */}
         {activeTab === 'algo_lab' && <AlgoPlaygroundLab onRewardXP={(xp) => awardXP(xp, 'algo_master')} />}
+
+        {/* PYTHON WASM LAB TAB */}
+        {activeTab === 'python_wasm' && <PythonWasmLab onRewardXP={(xp) => awardXP(xp, 'python_wasm_master')} />}
+
+        {/* PACKET TRACER LAB TAB */}
+        {activeTab === 'packet_tracer' && <PacketTracerLab onRewardXP={(xp) => awardXP(xp, 'packet_tracer_master')} />}
+
+        {/* LEITNER FLASHCARDS TAB */}
+        {activeTab === 'leitner' && <LeitnerFlashcardLab onRewardXP={(xp) => awardXP(xp, 'leitner_master')} />}
 
         {/* OAUTH2 & OIDC LAB TAB */}
         {activeTab === 'oauth_oidc' && <OauthOidcLab />}

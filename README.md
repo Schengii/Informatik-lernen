@@ -199,6 +199,14 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v6.0.0] - Python WASM Sandbox, Packet Tracer & Spaced Repetition Engine
+* **Python 3 WASM Execution Sandbox (`PythonWasmLab.jsx`)**:
+  * In-Browser Ausführung von Python 3 Skripten (Fibonacci, Algorithmen, Math & Console Logs).
+* **Network Packet Tracer & Route Visualizer (`PacketTracerLab.jsx`)**:
+  * Interaktive Simulation von ICMP Pings, Gateway Hops (PC ➔ Router ➔ Server) & Paketstatistiken.
+* **Leitner Spaced Repetition Flashcard Engine (`LeitnerFlashcardLab.jsx`)**:
+  * Karteikasten-Lernsystem mit dynamischer Box-Verschiebung (Box 1 - 5) für schwere IHK-Prüfungsfragen.
+
 #### [v5.0.0] - Enterprise In-Memory SQL Engine, PDF Export & Skill Tree
 * **AlaSQL Engine Integration (`SqlDungeon.jsx`)**:
   * Vollständige In-Memory SQL Execution Engine für echte `SELECT`, `JOIN`, `WHERE` und `GROUP BY` Abfragen.
