@@ -199,6 +199,12 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v7.0.0] - VS Code Monaco Studio & Cloud IaC Designer Integration
+* **Monaco VS Code Studio (`MonacoStudioLab.jsx`)**:
+  * Echter VS Code Editor (`@monaco-editor/react`) im Browser mit Syntax Highlighting & Auto-Completion (IntelliSense) für JS, Python, JSON & HTML.
+* **Cloud Infrastructure & Terraform Designer (`CloudDesignerLab.jsx`)**:
+  * Visueller Cloud-Architektur Designer (AWS VPC, EC2, RDS) mit automatischer Generierung von Terraform HCL-Code (`main.tf`).
+
 #### [v6.0.0] - Python WASM Sandbox, Packet Tracer & Spaced Repetition Engine
 * **Python 3 WASM Execution Sandbox (`PythonWasmLab.jsx`)**:
   * In-Browser Ausführung von Python 3 Skripten (Fibonacci, Algorithmen, Math & Console Logs).

@@ -68,6 +68,8 @@ import AlgoPlaygroundLab from './components/Content/AlgoPlaygroundLab';
 import PythonWasmLab from './components/Content/PythonWasmLab';
 import PacketTracerLab from './components/Content/PacketTracerLab';
 import LeitnerFlashcardLab from './components/Content/LeitnerFlashcardLab';
+import MonacoStudioLab from './components/Content/MonacoStudioLab';
+import CloudDesignerLab from './components/Content/CloudDesignerLab';
 
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
@@ -353,6 +355,38 @@ export default function App() {
                 </span>
               </div>
 
+              {/* Monaco VS Code Studio Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('monaco_studio')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>💻</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Monaco VS Code Studio</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Echter VS Code Editor im Browser mit IntelliSense.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Studio Öffnen <ArrowRight size={16} />
+                </span>
+              </div>
+
+              {/* Cloud IaC Designer Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('cloud_designer')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>☁️</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Cloud IaC & Terraform</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Designe AWS Architekturen & generiere Terraform Code.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Designer Öffnen <ArrowRight size={16} />
+                </span>
+              </div>
+
               {/* OAuth2 Card */}
               <div
                 className="glass-panel glass-panel-hover"
@@ -392,6 +426,12 @@ export default function App() {
 
         {/* LEITNER FLASHCARDS TAB */}
         {activeTab === 'leitner' && <LeitnerFlashcardLab onRewardXP={(xp) => awardXP(xp, 'leitner_master')} />}
+
+        {/* MONACO STUDIO TAB */}
+        {activeTab === 'monaco_studio' && <MonacoStudioLab onRewardXP={(xp) => awardXP(xp, 'monaco_master')} />}
+
+        {/* CLOUD DESIGNER TAB */}
+        {activeTab === 'cloud_designer' && <CloudDesignerLab onRewardXP={(xp) => awardXP(xp, 'cloud_designer_master')} />}
 
         {/* OAUTH2 & OIDC LAB TAB */}
         {activeTab === 'oauth_oidc' && <OauthOidcLab />}
