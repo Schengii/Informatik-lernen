@@ -72,6 +72,10 @@ import MonacoStudioLab from './components/Content/MonacoStudioLab';
 import CloudDesignerLab from './components/Content/CloudDesignerLab';
 import ApiMockStudioLab from './components/Content/ApiMockStudioLab';
 import CtfChallengeLab from './components/Content/CtfChallengeLab';
+import CiCdPipelineLab from './components/Content/CiCdPipelineLab';
+import DockerComposeLab from './components/Content/DockerComposeLab';
+import SystemDesignLab from './components/Content/SystemDesignLab';
+import RegexMasterLab from './components/Content/RegexMasterLab';
 
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
@@ -421,6 +425,70 @@ export default function App() {
                 </span>
               </div>
 
+              {/* CI/CD Pipeline Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('cicd_pipeline')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🚀</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>CI/CD GitHub Actions</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Pipelines konfigurieren, Runner simulieren & YAML generieren.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Pipeline Builder <ArrowRight size={16} />
+                </span>
+              </div>
+
+              {/* Docker Compose Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('docker_compose')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🐳</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Docker Compose Studio</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Multi-Container Stacks erstellen, Up/Down testen & docker-compose.yml.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Compose Studio <ArrowRight size={16} />
+                </span>
+              </div>
+
+              {/* System Design Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('system_design')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>⚡</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>System Design & Load Balancer</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Traffic Spikes, Round Robin, Redis Caching & DB Replikation.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Simulator Öffnen <ArrowRight size={16} />
+                </span>
+              </div>
+
+              {/* Regex Master Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('regex_master')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🔍</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Regex Master Quests</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Live Pattern Matcher, E-Mail/IP Validierung & Quests.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Regex Quests <ArrowRight size={16} />
+                </span>
+              </div>
+
               {/* OAuth2 Card */}
               <div
                 className="glass-panel glass-panel-hover"
@@ -472,6 +540,18 @@ export default function App() {
 
         {/* CYBERSECURITY CTF TAB */}
         {activeTab === 'ctf_lab' && <CtfChallengeLab onRewardXP={(xp) => awardXP(xp, 'ctf_master')} />}
+
+        {/* CI/CD PIPELINE TAB */}
+        {activeTab === 'cicd_pipeline' && <CiCdPipelineLab onRewardXP={(xp) => awardXP(xp, 'cicd_master')} />}
+
+        {/* DOCKER COMPOSE TAB */}
+        {activeTab === 'docker_compose' && <DockerComposeLab onRewardXP={(xp) => awardXP(xp, 'docker_compose_master')} />}
+
+        {/* SYSTEM DESIGN LAB TAB */}
+        {activeTab === 'system_design' && <SystemDesignLab onRewardXP={(xp) => awardXP(xp, 'system_design_master')} />}
+
+        {/* REGEX MASTER LAB TAB */}
+        {activeTab === 'regex_master' && <RegexMasterLab onRewardXP={(xp) => awardXP(xp, 'regex_master')} />}
 
         {/* OAUTH2 & OIDC LAB TAB */}
         {activeTab === 'oauth_oidc' && <OauthOidcLab />}

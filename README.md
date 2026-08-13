@@ -86,12 +86,14 @@ Informatik-lernen/
     │   │   ├── ArchitectureVisualizer.jsx
     │   │   ├── BigOVisualizer.jsx
     │   │   ├── CareerRoadmap.jsx
+    │   │   ├── CiCdPipelineLab.jsx
     │   │   ├── CloudDesignerLab.jsx
     │   │   ├── CloudDevOpsLab.jsx
     │   │   ├── ClozeTester.jsx
     │   │   ├── CtfChallengeLab.jsx
     │   │   ├── DeploymentGuideModal.jsx
     │   │   ├── DesignPatternsLab.jsx
+    │   │   ├── DockerComposeLab.jsx
     │   │   ├── DockerLab.jsx
     │   │   ├── ExamSimulator.jsx
     │   │   ├── FisiLernfelderHub.jsx
@@ -110,7 +112,9 @@ Informatik-lernen/
     │   │   ├── PythonWasmLab.jsx
     │   │   ├── RagAiSimulator.jsx
     │   │   ├── RedBlueTeamLab.jsx
+    │   │   ├── RegexMasterLab.jsx
     │   │   ├── SubnettingLab.jsx
+    │   │   ├── SystemDesignLab.jsx
     │   │   ├── TddUnitTestLab.jsx
     │   │   ├── TopicReader.jsx
     │   │   ├── ToolingSetupGuide.jsx
@@ -208,6 +212,22 @@ npm run lint
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
 ### Versionsverlauf
+
+#### [v10.0.0] - System Design Load Balancer & Regex Master Quest Lab
+* **System Design & Load Balancer Simulator (`SystemDesignLab.jsx`)**:
+  * Interaktiver Architecture Visualizer für Traffic Spikes (bis zu 8.000 RPS), NGINX Load Balancing Algorithmen (Round Robin, Least Connections, IP Hash), Redis Caching Layer und Primary/Replica DB-Replikation.
+  * Live Server Crash/Failover Tests & System Health Metrics (Latenz, Error Rate, Cache Hit Rate).
+* **Regex Master Quest & Live Match Visualizer (`RegexMasterLab.jsx`)**:
+  * In-Browser Live Pattern Matcher für Reguläre Ausdrücke (RegEx) mit dynamischem Syntax Highlighting.
+  * Gamifizierte Quests (E-Mail Validierung, IPv4 Erkennung, Telefonnummern & Hex-Farbcodes) mit Lösungs-Tipps & Punktebelohnungen.
+
+#### [v9.0.0] - CI/CD GitHub Actions Builder & Docker Compose Multi-Container Studio
+* **CI/CD Pipeline & GitHub Actions Builder (`CiCdPipelineLab.jsx`)**:
+  * Visueller Workflow-Designer für Linting, Unit Tests, Security Scan, Build, Docker Push & Kubernetes Deployments.
+  * Interaktiver Log-Runner und automatische Generierung von `.github/workflows/deploy.yml` Code.
+* **Docker Compose Multi-Container Studio (`DockerComposeLab.jsx`)**:
+  * Visueller Stack Builder für Frontend, Node API, PostgreSQL & Redis Cache.
+  * Simulation von `docker compose up / down` mit Container-Status-LEDs, Log-Streams und Generierung von `docker-compose.yml`.
 
 #### [v8.0.0] - REST API Tester Studio & Cybersecurity CTF Quest Lab
 * **REST API Mock Studio (`ApiMockStudioLab.jsx`)**:
