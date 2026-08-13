@@ -70,6 +70,8 @@ import PacketTracerLab from './components/Content/PacketTracerLab';
 import LeitnerFlashcardLab from './components/Content/LeitnerFlashcardLab';
 import MonacoStudioLab from './components/Content/MonacoStudioLab';
 import CloudDesignerLab from './components/Content/CloudDesignerLab';
+import ApiMockStudioLab from './components/Content/ApiMockStudioLab';
+import CtfChallengeLab from './components/Content/CtfChallengeLab';
 
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
@@ -387,6 +389,38 @@ export default function App() {
                 </span>
               </div>
 
+              {/* REST API Testing Studio Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('api_mock_studio')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🌐</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>API Tester Studio</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Postman Lite API-Testing mit JSON Headers & Body.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  API Studio Öffnen <ArrowRight size={16} />
+                </span>
+              </div>
+
+              {/* Cybersecurity CTF Lab Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('ctf_lab')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🚩</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Cybersecurity CTF Lab</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Ethical Hacking Quests (XSS, SQLi & Buffer Overflow).
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-rose)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  CTF Quests Starten <ArrowRight size={16} />
+                </span>
+              </div>
+
               {/* OAuth2 Card */}
               <div
                 className="glass-panel glass-panel-hover"
@@ -432,6 +466,12 @@ export default function App() {
 
         {/* CLOUD DESIGNER TAB */}
         {activeTab === 'cloud_designer' && <CloudDesignerLab onRewardXP={(xp) => awardXP(xp, 'cloud_designer_master')} />}
+
+        {/* API MOCK STUDIO TAB */}
+        {activeTab === 'api_mock_studio' && <ApiMockStudioLab onRewardXP={(xp) => awardXP(xp, 'api_mock_master')} />}
+
+        {/* CYBERSECURITY CTF TAB */}
+        {activeTab === 'ctf_lab' && <CtfChallengeLab onRewardXP={(xp) => awardXP(xp, 'ctf_master')} />}
 
         {/* OAUTH2 & OIDC LAB TAB */}
         {activeTab === 'oauth_oidc' && <OauthOidcLab />}

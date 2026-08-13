@@ -78,29 +78,39 @@ Informatik-lernen/
     │   ├── Content/
     │   │   ├── AiBusinessMasterclass.jsx
     │   │   ├── AiPromptLab.jsx
+    │   │   ├── AlgoPlaygroundLab.jsx
     │   │   ├── AnfaengerGuideHub.jsx
     │   │   ├── ApiBenchStudio.jsx
+    │   │   ├── ApiMockStudioLab.jsx
     │   │   ├── AppWorkshop.jsx
     │   │   ├── ArchitectureVisualizer.jsx
     │   │   ├── BigOVisualizer.jsx
     │   │   ├── CareerRoadmap.jsx
-    │   │   ├── ClozeTester.jsx
+    │   │   ├── CloudDesignerLab.jsx
     │   │   ├── CloudDevOpsLab.jsx
+    │   │   ├── ClozeTester.jsx
+    │   │   ├── CtfChallengeLab.jsx
     │   │   ├── DeploymentGuideModal.jsx
     │   │   ├── DesignPatternsLab.jsx
     │   │   ├── DockerLab.jsx
     │   │   ├── ExamSimulator.jsx
     │   │   ├── FisiLernfelderHub.jsx
+    │   │   ├── GitLab.jsx
     │   │   ├── GlossaryModal.jsx
     │   │   ├── ItPodcastHub.jsx
     │   │   ├── KafkaEventLab.jsx
     │   │   ├── KnowledgeQuizArena.jsx
     │   │   ├── KubernetesLab.jsx
     │   │   ├── LanguageAcademy.jsx
+    │   │   ├── LeitnerFlashcardLab.jsx
+    │   │   ├── MonacoStudioLab.jsx
     │   │   ├── OauthOidcLab.jsx
+    │   │   ├── PacketTracerLab.jsx
     │   │   ├── PerformanceProfilingLab.jsx
+    │   │   ├── PythonWasmLab.jsx
     │   │   ├── RagAiSimulator.jsx
     │   │   ├── RedBlueTeamLab.jsx
+    │   │   ├── SubnettingLab.jsx
     │   │   ├── TddUnitTestLab.jsx
     │   │   ├── TopicReader.jsx
     │   │   ├── ToolingSetupGuide.jsx
@@ -198,6 +208,12 @@ npm run lint
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
 ### Versionsverlauf
+
+#### [v8.0.0] - REST API Tester Studio & Cybersecurity CTF Quest Lab
+* **REST API Mock Studio (`ApiMockStudioLab.jsx`)**:
+  * Postman-Lite API-Testing für HTTP GET, POST, PUT & DELETE mit Headers & JSON-Response Formatting.
+* **Cybersecurity CTF Quest Lab (`CtfChallengeLab.jsx`)**:
+  * Gamifizierte Hacking-Challenges (Reflected XSS, SQL Injection) mit Flagge-Einreichung (`CTF{...}`) und Punktebelohnungen.
 
 #### [v7.0.0] - VS Code Monaco Studio & Cloud IaC Designer Integration
 * **Monaco VS Code Studio (`MonacoStudioLab.jsx`)**:
