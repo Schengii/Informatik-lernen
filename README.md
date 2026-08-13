@@ -199,6 +199,14 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v5.0.0] - Enterprise In-Memory SQL Engine, PDF Export & Skill Tree
+* **AlaSQL Engine Integration (`SqlDungeon.jsx`)**:
+  * Vollständige In-Memory SQL Execution Engine für echte `SELECT`, `JOIN`, `WHERE` und `GROUP BY` Abfragen.
+* **jsPDF Zertifikat-Export Engine (`CertificateModal.jsx`)**:
+  * Generierung und Download von hochauflösenden, druckfähigen PDF-Zertifikaten im Querformat.
+* **RPG Skill Tree Widget (`SkillTreeWidget.jsx`)**:
+  * Interaktiver Stufen-Fähigkeitenbaum von IT-Grundlagen bis Cloud Native & Vector AI.
+
 #### [v4.2.0] - Algorithms & Data Structures Visualizer Integration
 * **Interaktiver Algorithmen-Visualisierer (`AlgoPlaygroundLab.jsx` / `algorithmData.js`)**:
   * Step-by-Step Animationen für QuickSort, MergeSort & Binäre Suche.

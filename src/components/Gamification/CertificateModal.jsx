@@ -1,13 +1,73 @@
 import React from 'react';
 import { Award, ShieldCheck, Download, X, CheckCircle2, Sparkles } from 'lucide-react';
+import { jsPDF } from 'jspdf';
 
 export default function CertificateModal({ isOpen, onClose, userState }) {
   if (!isOpen) return null;
 
   const today = new Date().toLocaleDateString('de-DE', { year: 'numeric', month: 'long', day: 'numeric' });
 
-  const handlePrint = () => {
-    window.print();
+  const handleDownloadPDF = () => {
+    try {
+      const doc = new jsPDF({
+        orientation: 'landscape',
+        unit: 'mm',
+        format: 'a4'
+      });
+
+      // Background Border
+      doc.setDrawColor(79, 70, 229);
+      doc.setLineWidth(3);
+      doc.rect(10, 10, 277, 190);
+
+      doc.setDrawColor(13, 148, 136);
+      doc.setLineWidth(1);
+      doc.rect(14, 14, 269, 182);
+
+      // Title
+      doc.setFont('helvetica', 'bold');
+      doc.setTextColor(79, 70, 229);
+      doc.setFontSize(26);
+      doc.text('INFORMATIK-ZERTIFIKAT', 148, 45, { align: 'center' });
+
+      doc.setFontSize(14);
+      doc.setTextColor(100, 116, 139);
+      doc.text('IT-DevGame Gamified Learning Framework', 148, 55, { align: 'center' });
+
+      // Certify text
+      doc.setFontSize(12);
+      doc.setTextColor(51, 65, 85);
+      doc.text('Hiermit wird offiziell bescheinigt, dass', 148, 75, { align: 'center' });
+
+      // Name / ID
+      doc.setFontSize(22);
+      doc.setTextColor(15, 23, 42);
+      doc.text(`Developer (Nutzer ID #${userState.xp * 7})`, 148, 95, { align: 'center' });
+
+      // Description
+      doc.setFontSize(12);
+      doc.setTextColor(71, 85, 105);
+      doc.text('erfolgreich die praxisnahen Module, Mini-Games und IHK-Wissensprüfungen', 148, 115, { align: 'center' });
+      doc.text('im Rahmen des IT-DevGame Lern-Frameworks absolviert hat.', 148, 123, { align: 'center' });
+
+      // Stats Box
+      doc.setFillColor(241, 245, 249);
+      doc.roundedRect(48, 135, 200, 25, 4, 4, 'F');
+
+      doc.setFontSize(11);
+      doc.setTextColor(15, 23, 42);
+      doc.text(`Gesamte XP: ${userState.xp} XP   |   Erreichtes Level: Level ${userState.level}   |   Lektionen: ${userState.completedTopics.length}`, 148, 150, { align: 'center' });
+
+      // Footer Date & Verification
+      doc.setFontSize(10);
+      doc.setTextColor(100, 116, 139);
+      doc.text(`Ausstellungsdatum: ${today}`, 25, 180);
+      doc.text('Verifiziert durch IT-DevGame Certification Engine', 270, 180, { align: 'right' });
+
+      doc.save(`Informatik_Zertifikat_Level_${userState.level}.pdf`);
+    } catch (e) {
+      window.print();
+    }
   };
 
   return (
@@ -101,10 +161,10 @@ export default function CertificateModal({ isOpen, onClose, userState }) {
 
           <button
             className="btn btn-primary"
-            onClick={handlePrint}
+            onClick={handleDownloadPDF}
             style={{ gap: '8px' }}
           >
-            <Download size={18} /> Zertifikat Drucken / Als PDF Speichern
+            <Download size={18} /> Zertifikat als PDF Herunterladen
           </button>
         </div>
       </div>

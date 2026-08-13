@@ -29,6 +29,7 @@ import CertificateModal from './components/Gamification/CertificateModal';
 import DailyChallengeWidget from './components/Gamification/DailyChallengeWidget';
 import FlashcardsModal from './components/Gamification/FlashcardsModal';
 import BackupModal from './components/Gamification/BackupModal';
+import SkillTreeWidget from './components/Gamification/SkillTreeWidget';
 
 import LanguageAcademy from './components/Content/LanguageAcademy';
 import AiPromptLab from './components/Content/AiPromptLab';
@@ -224,6 +225,9 @@ export default function App() {
 
             {/* Daily Challenge Widget */}
             <DailyChallengeWidget onCompleteChallenge={(xp) => awardXP(xp, 'daily_master')} />
+
+            {/* RPG Skill Tree Widget */}
+            <SkillTreeWidget userState={userState} onRewardXP={(xp) => awardXP(xp)} />
 
             {/* Skill Matrix Visualizer */}
             <SkillMatrixWidget userState={userState} />

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { SQL_DUNGEON_LEVELS, MOCK_DATABASE_TABLES } from '../../data/gamesData';
 import { Database, Play, CheckCircle2, AlertCircle, HelpCircle, Table, RefreshCw } from 'lucide-react';
+import alasql from 'alasql';
 
 export default function SqlDungeon({ onCompleteGame }) {
   const [levelIdx, setLevelIdx] = useState(0);
@@ -12,60 +13,35 @@ export default function SqlDungeon({ onCompleteGame }) {
   const [isSuccess, setIsSuccess] = useState(false);
   const [showHint, setShowHint] = useState(false);
 
-  // In-Browser SQL Executor for Mock Tables
+  // Real In-Browser AlaSQL Engine Execution
   const executeQuery = () => {
     setErrorMessage(null);
     setIsSuccess(false);
 
     try {
-      const q = userQuery.trim().toUpperCase();
+      // Setup temporary tables in memory
+      alasql('CREATE TABLE IF NOT EXISTS mitarbeiter (id INT, name STRING, rolle STRING, gehalt INT, abteilung_id INT)');
+      alasql('CREATE TABLE IF NOT EXISTS abteilungen (id INT, abteilungs_name STRING)');
+      
+      alasql('DELETE FROM mitarbeiter');
+      alasql('DELETE FROM abteilungen');
 
-      if (!q.startsWith('SELECT')) {
-        throw new Error('In dieser Simulation werden vorerst nur SELECT Abfragen unterstützt.');
-      }
+      alasql.tables.mitarbeiter.data = [...MOCK_DATABASE_TABLES.mitarbeiter];
+      alasql.tables.abteilungen.data = [...MOCK_DATABASE_TABLES.abteilungen];
 
-      // Simple mock parser for SELECT queries
-      let rows = [...MOCK_DATABASE_TABLES.mitarbeiter];
-
-      // Handle JOIN simulation
-      if (q.includes('JOIN')) {
-        rows = MOCK_DATABASE_TABLES.mitarbeiter.map(m => {
-          const abt = MOCK_DATABASE_TABLES.abteilungen.find(a => a.id === m.abteilung_id);
-          return {
-            name: m.name,
-            rolle: m.rolle,
-            gehalt: m.gehalt,
-            abteilungs_name: abt ? abt.abteilungs_name : 'Unbekannt'
-          };
-        });
-      }
-      // Handle WHERE gehalt > 50000
-      else if (q.includes('WHERE GEHALT > 50000')) {
-        rows = rows.filter(r => r.gehalt > 50000);
-      }
-      // Handle GROUP BY simulation
-      else if (q.includes('GROUP BY')) {
-        const groups = {};
-        rows.forEach(r => {
-          if (!groups[r.abteilung_id]) groups[r.abteilung_id] = { abteilung_id: r.abteilung_id, sum: 0, count: 0 };
-          groups[r.abteilung_id].sum += r.gehalt;
-          groups[r.abteilung_id].count += 1;
-        });
-        rows = Object.values(groups).map(g => ({
-          abteilung_id: g.abteilung_id,
-          avg_gehalt: Math.round(g.sum / g.count)
-        }));
-      }
+      // Execute user query with real SQL Parser
+      const res = alasql(userQuery);
+      const rows = Array.isArray(res) ? res : [res];
 
       setQueryResult(rows);
 
       // Validate against current level win condition
       if (currentLevel.validate(rows)) {
         setIsSuccess(true);
-        onCompleteGame(`sql_level_${currentLevel.id}`, currentLevel.xpReward);
+        if (onCompleteGame) onCompleteGame(`sql_level_${currentLevel.id}`, currentLevel.xpReward);
       }
     } catch (err) {
-      setErrorMessage(err.message);
+      setErrorMessage(`SQL Syntax/Execution Error: ${err.message}`);
       setQueryResult(null);
     }
   };
@@ -77,10 +53,10 @@ export default function SqlDungeon({ onCompleteGame }) {
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', flexWrap: 'wrap', gap: '12px' }}>
         <div>
           <h2 style={{ fontSize: '1.8rem', fontWeight: '800', display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <Database size={28} color="var(--accent-cyan)" /> SQL Query Dungeon
+            <Database size={28} color="var(--accent-cyan)" /> SQL Query Dungeon (AlaSQL Engine)
           </h2>
           <p style={{ color: 'var(--text-muted)' }}>
-            Schreibe echte SQL-Befehle im Browser um die Aufgaben zu lösen.
+            Schreibe echte SQL-Befehle mit echten JOINs, WHERE & GROUP BY Abfragen.
           </p>
         </div>
 
@@ -150,7 +126,7 @@ export default function SqlDungeon({ onCompleteGame }) {
             <div className="code-window">
               <div className="code-header">
                 <span>SQL Terminal Query Editor</span>
-                <span>In-Memory SQLite</span>
+                <span>In-Memory AlaSQL Engine</span>
               </div>
               <textarea
                 value={userQuery}
@@ -205,10 +181,10 @@ export default function SqlDungeon({ onCompleteGame }) {
           <div className="glass-panel" style={{ padding: '24px' }}>
             
             <h4 style={{ fontSize: '1rem', fontWeight: '700', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Table size={18} color="var(--accent-cyan)" /> Abfrage-Ergebnis
+              <Table size={18} color="var(--accent-cyan)" /> Abfrage-Ergebnis (AlaSQL Output)
             </h4>
 
-            {queryResult ? (
+            {queryResult && queryResult.length > 0 ? (
               <div style={{ overflowX: 'auto' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
                   <thead>
@@ -237,7 +213,7 @@ export default function SqlDungeon({ onCompleteGame }) {
               </div>
             )}
 
-            {/* Mock Schema Preview */}
+            {/* Schema Preview */}
             <div style={{ marginTop: '24px', paddingTop: '16px', borderTop: '1px solid var(--border-color)' }}>
               <h5 style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-muted)', marginBottom: '8px' }}>
                 Schema der Tabelle "mitarbeiter":
