@@ -199,6 +199,14 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v4.1.0] - High-Level IT-Features & Subnetting / Git Lab Integration
+* **CIDR Subnetting & Network Calculator Lab (`SubnettingLab.jsx` / `subnettingData.js`)**:
+  * Interaktive Subnetz-Berechnung (Netz-ID, Broadcast, erste/letzte nutzbare IP, Binärmasken).
+  * IHK-prüfungsrelevantes Übungs-Quiz & Subnetz-Spickzettel.
+* **Visual Git Branching & Merging Lab (`GitLab.jsx`)**:
+  * Live Commit-Graph-Visualisierer für `git commit`, `branch`, `checkout` und `merge`.
+  * Interaktive Terminal-Konsole und geführte Aufgabenstellungen (Quests).
+
 #### [v4.0.0] - Architecture & Gamification Upgrade
 * **React Router Integration** für sauberere URL-Navigation.
 * **Zustand State Management** als Ersatz für lokale React-States (inklusive Persistenz und SFX-Sound Engine via Web Audio API).

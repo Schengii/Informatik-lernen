@@ -61,6 +61,8 @@ import OauthOidcLab from './components/Content/OauthOidcLab';
 import WebSocketsLab from './components/Content/WebSocketsLab';
 import PerformanceProfilingLab from './components/Content/PerformanceProfilingLab';
 import AnfaengerGuideHub from './components/Content/AnfaengerGuideHub';
+import SubnettingLab from './components/Content/SubnettingLab';
+import GitLab from './components/Content/GitLab';
 
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
@@ -247,6 +249,38 @@ export default function App() {
                 </span>
               </div>
 
+              {/* Subnetting Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('subnetting')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🌐</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>CIDR & Subnetting Lab</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  IP-Rechner, Host-Range Analyse & IHK-Prüfungsfragen.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Subnetting Öffnen <ArrowRight size={16} />
+                </span>
+              </div>
+
+              {/* Git Branching Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('git_lab')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🌿</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Visual Git Branching Lab</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Commits, Branching, Merging & Rebase interaktiv lernen.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Git Lab Öffnen <ArrowRight size={16} />
+                </span>
+              </div>
+
               {/* OAuth2 Card */}
               <div
                 className="glass-panel glass-panel-hover"
@@ -268,6 +302,12 @@ export default function App() {
 
         {/* ANFAENGER GUIDE TAB */}
         {activeTab === 'anfaenger_guide' && <AnfaengerGuideHub />}
+
+        {/* SUBNETTING LAB TAB */}
+        {activeTab === 'subnetting' && <SubnettingLab onRewardXP={(xp) => awardXP(xp, 'subnetting_master')} />}
+
+        {/* GIT BRANCHING LAB TAB */}
+        {activeTab === 'git_lab' && <GitLab onRewardXP={(xp) => awardXP(xp, 'git_master')} />}
 
         {/* OAUTH2 & OIDC LAB TAB */}
         {activeTab === 'oauth_oidc' && <OauthOidcLab />}
