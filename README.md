@@ -199,6 +199,11 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v4.2.0] - Algorithms & Data Structures Visualizer Integration
+* **Interaktiver Algorithmen-Visualisierer (`AlgoPlaygroundLab.jsx` / `algorithmData.js`)**:
+  * Step-by-Step Animationen für QuickSort, MergeSort & Binäre Suche.
+  * Dynamischer Geschwindigkeitsregler, Vergleiche & Zeit-/Speicherkomplexitäts-Übersichten.
+
 #### [v4.1.0] - High-Level IT-Features & Subnetting / Git Lab Integration
 * **CIDR Subnetting & Network Calculator Lab (`SubnettingLab.jsx` / `subnettingData.js`)**:
   * Interaktive Subnetz-Berechnung (Netz-ID, Broadcast, erste/letzte nutzbare IP, Binärmasken).

@@ -63,6 +63,7 @@ import PerformanceProfilingLab from './components/Content/PerformanceProfilingLa
 import AnfaengerGuideHub from './components/Content/AnfaengerGuideHub';
 import SubnettingLab from './components/Content/SubnettingLab';
 import GitLab from './components/Content/GitLab';
+import AlgoPlaygroundLab from './components/Content/AlgoPlaygroundLab';
 
 import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
 import { USER_ROLES } from './data/userProfiles';
@@ -281,6 +282,22 @@ export default function App() {
                 </span>
               </div>
 
+              {/* Algorithmen Playground Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('algo_lab')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>⚡</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Algorithmen & Sortier-Lab</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  QuickSort, MergeSort & Suchen Schritt-für-Schritt animieren.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Visualisierer Öffnen <ArrowRight size={16} />
+                </span>
+              </div>
+
               {/* OAuth2 Card */}
               <div
                 className="glass-panel glass-panel-hover"
@@ -308,6 +325,9 @@ export default function App() {
 
         {/* GIT BRANCHING LAB TAB */}
         {activeTab === 'git_lab' && <GitLab onRewardXP={(xp) => awardXP(xp, 'git_master')} />}
+
+        {/* ALGORITHMS PLAYGROUND LAB TAB */}
+        {activeTab === 'algo_lab' && <AlgoPlaygroundLab onRewardXP={(xp) => awardXP(xp, 'algo_master')} />}
 
         {/* OAUTH2 & OIDC LAB TAB */}
         {activeTab === 'oauth_oidc' && <OauthOidcLab />}
