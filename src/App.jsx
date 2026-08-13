@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useStore } from './store/useStore';
 import confetti from 'canvas-confetti';
 import Navbar from './components/Navigation/Navbar';
 import MobileNav from './components/Navigation/MobileNav';
@@ -66,7 +69,14 @@ import { TOPICS } from './data/topicsData';
 import { BookOpen, Sparkles, ArrowRight, CheckCircle, Sprout } from 'lucide-react';
 
 export default function App() {
-  const [userState, setUserState] = useState(loadUserState());
+  const { 
+    userState, setUserState, handleSelectRole, awardXP, handleCompleteTopic, refreshStateFromStorage,
+    lang, setLang, theme, setTheme, fontSize, setFontSize,
+    isDyslexic, setIsDyslexic, isColorblind, setIsColorblind,
+    isHighContrast, setIsHighContrast, isReducedMotion, setIsReducedMotion,
+    difficultyFilter, setDifficultyFilter
+  } = useStore();
+
   const [isRoleModalOpen, setIsRoleModalOpen] = useState(!userState.role);
   const [isBadgesModalOpen, setIsBadgesModalOpen] = useState(false);
   const [isGlossaryModalOpen, setIsGlossaryModalOpen] = useState(false);
@@ -76,24 +86,15 @@ export default function App() {
   const [isVocabularyModalOpen, setIsVocabularyModalOpen] = useState(false);
   const [isDeploymentModalOpen, setIsDeploymentModalOpen] = useState(false);
 
-  const [lang, setLang] = useState('de');
-  const [activeTab, setActiveTab] = useState('dashboard');
-
-  // Accessibility State & Theme (Light / Dark)
-  const [theme, setTheme] = useState('light');
-  const [fontSize, setFontSize] = useState(100);
-  const [isDyslexic, setIsDyslexic] = useState(false);
-  const [isColorblind, setIsColorblind] = useState(false);
-  const [isHighContrast, setIsHighContrast] = useState(false);
-  const [isReducedMotion, setIsReducedMotion] = useState(false);
-
-  // Difficulty Filter State ('all' | 'Einsteiger' | 'Azubi / IHK' | 'Senior / Expert')
-  const [difficultyFilter, setDifficultyFilter] = useState('all');
+  const navigate = useNavigate();
+  const location = useLocation();
+  const activeTab = location.pathname === '/' ? 'dashboard' : location.pathname.substring(1);
+  const setActiveTab = (tab) => navigate(`/${tab}`);
 
   // Topic Reader state
   const [selectedTopicId, setSelectedTopicId] = useState(null);
 
-  // Active Mini-Game Selector ('sql' | 'security' | 'boss' | 'typing_speedrun' | 'cli' | 'regex' | 'puzzle' | 'logic' | 'sandbox')
+  // Active Mini-Game Selector
   const [activeGameId, setActiveGameId] = useState('sql');
 
   // Apply Theme & Accessibility Classes to <body>
@@ -119,54 +120,6 @@ export default function App() {
       document.body.classList.remove('high-contrast-mode');
     }
   }, [theme, fontSize, isDyslexic, isColorblind, isHighContrast]);
-
-  // Save user state on change
-  useEffect(() => {
-    saveUserState(userState);
-  }, [userState]);
-
-  const refreshStateFromStorage = () => {
-    setUserState(loadUserState());
-  };
-
-  // Handle Role Select
-  const handleSelectRole = (roleId) => {
-    setUserState((prev) => ({
-      ...prev,
-      role: roleId
-    }));
-  };
-
-  // Award XP and trigger Confetti
-  const awardXP = (amount, achievementId = null) => {
-    if (!isReducedMotion) {
-      try {
-        confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 } });
-      } catch (_e) {}
-    }
-
-    setUserState((prev) => {
-      const newXP = prev.xp + amount;
-      const newLevel = calculateLevel(newXP);
-      const unlocked = [...prev.unlockedBadges];
-      if (achievementId && !unlocked.includes(achievementId)) {
-        unlocked.push(achievementId);
-      }
-      return {
-        ...prev,
-        xp: newXP,
-        level: newLevel,
-        unlockedBadges: unlocked
-      };
-    });
-  };
-
-  const handleCompleteTopic = (topicId, xp) => {
-    if (!userState.completedTopics.includes(topicId)) {
-      setUserState((prev) => ({ ...prev, completedTopics: [...prev.completedTopics, topicId] }));
-      awardXP(xp, 'first_steps');
-    }
-  };
 
   const currentRole = USER_ROLES[userState.role] || USER_ROLES.anfaenger;
 
@@ -208,7 +161,16 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main style={{ flex: 1, maxWidth: '1280px', width: '100%', margin: '0 auto', padding: '24px 20px 40px 20px' }}>
+      <main style={{ flex: 1, maxWidth: '1280px', width: '100%', margin: '0 auto', padding: '24px 20px 40px 20px', position: 'relative' }}>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            exit={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            style={{ width: '100%' }}
+          >
         {/* DASHBOARD TAB */}
         {activeTab === 'dashboard' && (
           <div>
@@ -509,6 +471,8 @@ export default function App() {
         {activeTab === 'projekte' && (
           <ProjectViewer onCompleteProject={(_id, xp) => awardXP(xp)} />
         )}
+                </motion.div>
+        </AnimatePresence>
       </main>
 
       {/* Footer with DSGVO Privacy & Impressum Modal */}

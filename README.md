@@ -199,6 +199,14 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v4.0.0] - Architecture & Gamification Upgrade
+* **React Router Integration** für sauberere URL-Navigation.
+* **Zustand State Management** als Ersatz für lokale React-States (inklusive Persistenz und SFX-Sound Engine via Web Audio API).
+* **Framer Motion** für animierte Page-Transitions und flüssigere UI-Übergänge.
+* **Recharts Skill-Matrix** als neues visuelles Radar-Dashboard.
+* **PWA (Progressive Web App)** Support mit `vite-plugin-pwa` für echte Offline-Nutzbarkeit.
+* **Vitest Testing Framework** Setup für grundlegende Logik-Tests.
+
 #### [v3.2.0] - Full Web Sources Integration (`ausbildung-in-der-it.de`, `it-berufe-podcast.de`, `w3schools.com`, `coursera.org`)
 * Complete Content Fetching & Integration von allen angegebenen Web-Quellen.
 
