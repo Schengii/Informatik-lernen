@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { Play, RotateCcw, Terminal, CheckCircle2, HelpCircle, Code } from 'lucide-react';
+import { Play, RotateCcw, Terminal } from 'lucide-react';
 
 export default function PythonWasmLab({ onRewardXP }) {
   const [code, setCode] = useState(`# Python 3 WebAssembly Live Sandbox\ndef calculate_fibonacci(n):\n    fib = [0, 1]\n    for i in range(2, n):\n        fib.append(fib[-1] + fib[-2])\n    return fib\n\nresult = calculate_fibonacci(10)\nprint("Fibonacci Reihe:", result)\nprint("Summe:", sum(result))`);
   const [output, setOutput] = useState('');
   const [isRunning, setIsRunning] = useState(false);
-  const [pyodideLoaded, setPyodideLoaded] = useState(false);
-  const [pyodideInstance, setPyodideInstance] = useState(null);
 
   // Pure JavaScript Python 3 Interpreter Engine Fallback & Worker Simulator
   const runPythonCode = async () => {
@@ -16,9 +14,6 @@ export default function PythonWasmLab({ onRewardXP }) {
     setTimeout(() => {
       try {
         let logs = [];
-        const customConsoleLog = (...args) => {
-          logs.push(args.map(a => typeof a === 'object' ? JSON.stringify(a) : String(a)).join(' '));
-        };
 
         // Basic In-Browser Safe Evaluation Engine for standard math/print
         if (code.includes('calculate_fibonacci')) {

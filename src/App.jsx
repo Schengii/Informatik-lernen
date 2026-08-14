@@ -90,6 +90,8 @@ const LabsDashboard = lazy(() => import('./components/Content/LabsDashboard'));
 const IhkOralExamSimulator = lazy(() => import('./components/Content/IhkOralExamSimulator'));
 const SqlJoinVisualizerLab = lazy(() => import('./components/Content/SqlJoinVisualizerLab'));
 const CampaignQuestHub = lazy(() => import('./components/Content/CampaignQuestHub'));
+const GitBranchGraphLab = lazy(() => import('./components/Content/GitBranchGraphLab'));
+import CommandPaletteModal from './components/Navigation/CommandPaletteModal';
 
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
@@ -120,11 +122,24 @@ export default function App() {
   const [isBackupModalOpen, setIsBackupModalOpen] = useState(false);
   const [isVocabularyModalOpen, setIsVocabularyModalOpen] = useState(false);
   const [isDeploymentModalOpen, setIsDeploymentModalOpen] = useState(false);
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
   const activeTab = location.pathname === '/' ? 'dashboard' : location.pathname.substring(1);
   const setActiveTab = (tab) => navigate(`/${tab}`);
+
+  // Global Ctrl + K / Cmd + K Keydown Shortcut Listener
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setIsCommandPaletteOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   // Topic Reader state
   const [selectedTopicId, setSelectedTopicId] = useState(null);
@@ -177,6 +192,7 @@ export default function App() {
         onOpenVocabularyModal={() => setIsVocabularyModalOpen(true)}
         onOpenBackupModal={() => setIsBackupModalOpen(true)}
         onOpenDeploymentModal={() => setIsDeploymentModalOpen(true)}
+        onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         lang={lang}
@@ -678,6 +694,13 @@ export default function App() {
         {activeTab === 'sql_joins' && (
           <Suspense fallback={<LabLoadingFallback />}>
             <SqlJoinVisualizerLab onRewardXP={(xp) => awardXP(xp, 'sql_join_master')} />
+          </Suspense>
+        )}
+
+        {/* GIT BRANCH GRAPH LAB TAB */}
+        {activeTab === 'git_graph_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <GitBranchGraphLab onRewardXP={(xp) => awardXP(xp, 'git_graph_master')} />
           </Suspense>
         )}
 
@@ -1200,6 +1223,26 @@ export default function App() {
         isOpen={isBackupModalOpen}
         onClose={() => setIsBackupModalOpen(false)}
         onStateRestored={refreshStateFromStorage}
+      />
+
+      {/* Global Command Palette (Ctrl+K) */}
+      <CommandPaletteModal
+        isOpen={isCommandPaletteOpen}
+        onClose={() => setIsCommandPaletteOpen(false)}
+        onNavigate={(tab, subData) => {
+          if (tab === 'topic-detail' && subData) {
+            setSelectedTopicId(subData.id);
+            setActiveTab('dashboard');
+          } else {
+            setActiveTab(tab);
+          }
+        }}
+        onOpenModal={(modalType) => {
+          if (modalType === 'badges') setIsBadgesModalOpen(true);
+          else if (modalType === 'glossary') setIsGlossaryModalOpen(true);
+          else if (modalType === 'flashcards') setIsFlashcardsModalOpen(true);
+          else if (modalType === 'role') setIsRoleModalOpen(true);
+        }}
       />
     </div>
   );

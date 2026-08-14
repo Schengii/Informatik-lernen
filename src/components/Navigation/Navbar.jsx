@@ -1,6 +1,6 @@
 import React from 'react';
 import { USER_ROLES } from '../../data/userProfiles';
-import { Trophy, Flame, UserCheck, Code2, Sun, Moon, BookOpen, Layers, ShieldCheck, BookMarked, Globe, Rocket, Lock, Radio, Activity, Sparkles } from 'lucide-react';
+import { Trophy, Flame, UserCheck, Code2, Sun, Moon, BookOpen, Layers, ShieldCheck, BookMarked, Globe, Rocket, Command, Search } from 'lucide-react';
 import AccessibilityToolbar from './AccessibilityToolbar';
 import { getTranslation } from '../../utils/i18n';
 
@@ -14,6 +14,7 @@ export default function Navbar({
   onOpenVocabularyModal,
   onOpenBackupModal,
   onOpenDeploymentModal,
+  onOpenCommandPalette,
   activeTab,
   setActiveTab,
   lang,
@@ -153,6 +154,24 @@ export default function Navbar({
 
         {/* User Controls Bar */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+          {/* Quick Search / Command Palette (Ctrl+K) */}
+          <button
+            className="btn btn-secondary btn-sm"
+            onClick={onOpenCommandPalette}
+            style={{ 
+              gap: '6px', 
+              fontWeight: 700, 
+              background: 'rgba(99, 102, 241, 0.12)', 
+              borderColor: 'var(--accent-primary)', 
+              color: 'var(--accent-primary)' 
+            }}
+            title="Schnellsuche öffnen (Ctrl + K)"
+          >
+            <Search size={15} />
+            <span className="desktop-only">Suche</span>
+            <kbd style={{ background: 'var(--bg-card)', padding: '2px 5px', borderRadius: '4px', fontSize: '0.7rem', border: '1px solid var(--border-color)', color: 'var(--text-muted)' }}>Ctrl+K</kbd>
+          </button>
+
           {/* Language Switcher DE / EN */}
           <button
             className="btn btn-secondary btn-sm"

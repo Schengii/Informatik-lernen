@@ -3,6 +3,17 @@ import { Search, Filter, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, C
 
 export const LAB_MODULES = [
   {
+    id: 'git_graph_lab',
+    title: 'Git Branching & Rebase Graph Visualizer',
+    category: 'devops',
+    tags: ['#Git', '#Branching', '#Rebase', '#VersionControl'],
+    difficulty: 'Beginner',
+    desc: 'Visueller interaktiver Commit-Graph mit Branch-Pointern, Merges & interaktivem Terminal.',
+    icon: Terminal,
+    badge: 'Neu',
+    color: '#ec4899'
+  },
+  {
     id: 'oral_exam',
     title: 'IHK AP2 Fachgesprächs-Simulator',
     category: 'ihk',

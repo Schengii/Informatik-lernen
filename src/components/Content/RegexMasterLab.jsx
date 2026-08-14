@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Code, CheckCircle2, XCircle, Sparkles, HelpCircle, BookOpen, Flag, RefreshCw } from 'lucide-react';
+import { Search, Code, CheckCircle2, XCircle, Sparkles, Flag } from 'lucide-react';
 
 const REGEX_QUESTS = [
   {
@@ -57,7 +57,7 @@ export default function RegexMasterLab({ onRewardXP }) {
       const regex = new RegExp(patternInput, flagsInput.includes('g') ? flagsInput : flagsInput + 'g');
       const matches = [...testText.matchAll(regex)];
       return matches.map(m => m[0]);
-    } catch (e) {
+    } catch {
       return [];
     }
   };

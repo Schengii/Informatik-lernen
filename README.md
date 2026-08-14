@@ -92,6 +92,7 @@ Informatik-lernen/
     │   │   ├── CloudDesignerLab.jsx
     │   │   ├── CloudDevOpsLab.jsx
     │   │   ├── ClozeTester.jsx
+    │   │   ├── CommandPaletteModal.jsx
     │   │   ├── CtfChallengeLab.jsx
     │   │   ├── DataStructuresLab.jsx
     │   │   ├── DeploymentGuideModal.jsx
@@ -100,6 +101,7 @@ Informatik-lernen/
     │   │   ├── DockerLab.jsx
     │   │   ├── ExamSimulator.jsx
     │   │   ├── FisiLernfelderHub.jsx
+    │   │   ├── GitBranchGraphLab.jsx
     │   │   ├── GitLab.jsx
     │   │   ├── GlossaryModal.jsx
     │   │   ├── IhkOralExamSimulator.jsx
@@ -222,6 +224,20 @@ npm run lint
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
 ### Versionsverlauf
+
+#### [v12.0.0] - Global Command Palette (Ctrl+K), IHK AP1 & AP2 Simulator & Git Graph Visualizer
+* **Global Command Palette & Schnellsuche (`CommandPaletteModal.jsx`)**:
+  * Schnelle Tastatur-Navigation mit `Ctrl + K` / `Cmd + K` über alle Lerneinheiten, Labs, Quests, Glossareinträge und Modale.
+  * Live-Filterung, Tastaturnavigation (`↑`, `↓`, `Enter`, `ESC`), Kategoriengruppierung und Icon-Integration.
+* **Erweiterter IHK Abschlussprüfungssimulator (`ExamSimulator.jsx` / `examData.js`)**:
+  * Offizielle IHK-Prüfungsmodi für **AP1 ("Einrichten eines IT-gestützten Arbeitsplatzes")** sowie **AP2 (FIAE & FISI)**.
+  * Realtime 90-Minuten-Prüfungsuhr mit Pause-/Fortsetzen-Funktion, IHK-Standard-Punkteschlüssel (100 Punkte -> Note 1 bis 6) und detaillierten Musterlösungs-Erklärungen.
+* **Interaktiver Git Branching & Rebase Graph Visualizer (`GitBranchGraphLab.jsx`)**:
+  * Visuelle Darstellung des Git Commit-Baums (SVG-Graph) mit dynamischen Branch-Pointern, HEAD-Indikator und animierten Knoten.
+  * Interaktive Git-CLI-Konsole (`git commit`, `git checkout/switch`, `git merge`, `git branch`, `git log`) sowie Schnellauswahl-Buttons und geführte Stufen-Tutorials.
+* **Code-Refactoring & Linter-Bereinigung**:
+  * Bereinigung unbenutzter Variablen und Imports in `RegexMasterLab.jsx`, `PacketTracerLab.jsx`, `PythonWasmLab.jsx` und `ExamSimulator.jsx`.
+  * Nahtlose Integration aller neuen Module in den zentralen `LabsDashboard`-Explorer.
 
 #### [v11.0.0] - WebSockets Protocol, RAG Vector Search, Big-O Arena, OAuth2 PKCE & WASM Rust Playground
 * **WebSockets & Real-Time Protocol Lab (`WebSocketProtocolLab.jsx`)**:
