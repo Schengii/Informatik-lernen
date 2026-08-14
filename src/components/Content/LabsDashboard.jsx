@@ -1,0 +1,247 @@
+import React, { useState, useMemo } from 'react';
+import { Search, Filter, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network } from 'lucide-react';
+
+export const LAB_MODULES = [
+  {
+    id: 'datastructures',
+    title: 'Data Structures Tree & Graph Lab',
+    category: 'algorithms',
+    tags: ['#Algorithmen', '#BST', '#Dijkstra', '#Graphen'],
+    difficulty: 'Intermediate',
+    desc: 'Binäre Suchbäume (Inorder, Preorder, Postorder) und Dijkstra-Wegfinder visualisieren.',
+    icon: Network,
+    badge: 'Neu',
+    color: '#10b981'
+  },
+  {
+    id: 'cicdworkflow',
+    title: 'CI/CD Workflow Pipeline Builder',
+    category: 'devops',
+    tags: ['#DevOps', '#GitHubActions', '#CI/CD', '#Pipelines'],
+    difficulty: 'Intermediate',
+    desc: 'Visueller Stufen- & Job-Builder für automatische Builds, Unit Tests & Kubernetes Deployment.',
+    icon: Layers,
+    badge: 'Neu',
+    color: '#6366f1'
+  },
+  {
+    id: 'k8s',
+    title: 'Kubernetes Pods & Ingress Studio',
+    category: 'cloud',
+    tags: ['#Cloud', '#Kubernetes', '#Cluster', '#DevOps'],
+    difficulty: 'Advanced',
+    desc: 'Verwalte Deployments, Pod-Replikationen, Services und Ingress Controller.',
+    icon: Cloud,
+    color: '#3b82f6'
+  },
+  {
+    id: 'ragai',
+    title: 'Local RAG Vector AI Simulator',
+    category: 'ai',
+    tags: ['#KI', '#RAG', '#Vektordatenbank', '#LLM'],
+    difficulty: 'Advanced',
+    desc: 'Retrieval Augmented Generation mit Cosine Similarity & Chunking interaktiv testen.',
+    icon: Cpu,
+    color: '#8b5cf6'
+  },
+  {
+    id: 'pkce',
+    title: 'OAuth2 PKCE & OIDC Identity Studio',
+    category: 'security',
+    tags: ['#Security', '#OAuth2', '#PKCE', '#JWT'],
+    difficulty: 'Advanced',
+    desc: 'Proof Key for Code Exchange Key-Generierung, Code-Austausch & JWT Decoding.',
+    icon: Shield,
+    color: '#ec4899'
+  },
+  {
+    id: 'sqldungeon',
+    title: 'SQL Dungeon Crawler',
+    category: 'databases',
+    tags: ['#Datenbanken', '#SQL', '#Queries', '#Gamified'],
+    difficulty: 'Beginner',
+    desc: 'Löse SQL-Rätsel mit echten Queries (SELECT, JOIN, WHERE) um Räume zu durchqueren.',
+    icon: Database,
+    color: '#f59e0b'
+  },
+  {
+    id: 'gitvisual',
+    title: 'Visual Git Branching & Merge Lab',
+    category: 'devops',
+    tags: ['#DevOps', '#Git', '#Branches', '#Merge'],
+    difficulty: 'Beginner',
+    desc: 'Echtzeit-Visualisierung von Commits, Branches, Checkouts und Merge-Konflikten.',
+    icon: Terminal,
+    color: '#10b981'
+  },
+  {
+    id: 'regexmaster',
+    title: 'RegEx Master Interactive Lab',
+    category: 'algorithms',
+    tags: ['#RegEx', '#Validierung', '#PatternMatching'],
+    difficulty: 'Intermediate',
+    desc: 'Reguläre Ausdrücke live testen, E-Mail- & IPv4-Regex-Quests meistern.',
+    icon: Search,
+    color: '#06b6d4'
+  },
+  {
+    id: 'pythonwasm',
+    title: 'Python WebAssembly (Pyodide) Lab',
+    category: 'code',
+    tags: ['#Python', '#WASM', '#BrowserExecution'],
+    difficulty: 'Beginner',
+    desc: 'Führe echten Python-Code ohne Server direkt im Browser über WebAssembly aus.',
+    icon: Terminal,
+    color: '#3b82f6'
+  },
+  {
+    id: 'bigo',
+    title: 'Big-O Algorithm Benchmark Lab',
+    category: 'algorithms',
+    tags: ['#Algorithmen', '#BigO', '#Laufzeit', '#Performance'],
+    difficulty: 'Intermediate',
+    desc: 'Vergleiche O(1), O(log n), O(n), O(n²) und O(2^n) mit dynamischen Diagrammen.',
+    icon: Cpu,
+    color: '#ef4444'
+  }
+];
+
+export default function LabsDashboard({ onSelectLab }) {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+
+  const categories = [
+    { id: 'all', name: 'Alle Labs' },
+    { id: 'algorithms', name: 'Algorithmen & Datenstrukturen' },
+    { id: 'devops', name: 'DevOps & Git' },
+    { id: 'cloud', name: 'Cloud & Container' },
+    { id: 'security', name: 'Security & Auth' },
+    { id: 'ai', name: 'Künstliche Intelligenz' },
+    { id: 'databases', name: 'Datenbanken & SQL' }
+  ];
+
+  const filteredLabs = useMemo(() => {
+    return LAB_MODULES.filter(lab => {
+      const matchesSearch = 
+        lab.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        lab.desc.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        lab.tags.some(t => t.toLowerCase().includes(searchTerm.toLowerCase()));
+      
+      const matchesCat = selectedCategory === 'all' || lab.category === selectedCategory;
+      return matchesSearch && matchesCat;
+    });
+  }, [searchTerm, selectedCategory]);
+
+  return (
+    <div style={{ background: 'var(--bg-card)', padding: '28px', borderRadius: 'var(--radius-xl)', border: '1px solid var(--border-color)' }}>
+      {/* Header */}
+      <div style={{ marginBottom: '24px' }}>
+        <span className="badge badge-indigo" style={{ marginBottom: '8px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+          <Sparkles size={14} /> Praxisorientiertes Lernen
+        </span>
+        <h2 style={{ fontSize: '1.8rem', fontWeight: '800', margin: '4px 0', color: 'var(--text-main)' }}>
+          🧪 Interaktive Laboratorien & Simulatoren Hub
+        </h2>
+        <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
+          Erkunde über 25 spezialisierte IT-Simulatoren – von Datenstrukturen und Kubernetes bis hin zu RAG Vector AI und Git-Branching.
+        </p>
+      </div>
+
+      {/* Search & Filter Toolbar */}
+      <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '24px', alignItems: 'center' }}>
+        <div style={{ position: 'relative', flex: 1, minWidth: '240px' }}>
+          <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Suche nach Tags (#DevOps, #KI), Themen oder Labs..."
+            style={{
+              width: '100%',
+              padding: '12px 12px 12px 38px',
+              borderRadius: 'var(--radius-md)',
+              background: 'var(--bg-primary)',
+              color: 'var(--text-main)',
+              border: '1px solid var(--border-color)',
+              fontSize: '0.92rem'
+            }}
+          />
+        </div>
+
+        {/* Category Filters */}
+        <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px', maxWidth: '100%' }}>
+          {categories.map(c => (
+            <button
+              key={c.id}
+              onClick={() => setSelectedCategory(c.id)}
+              className={`btn ${selectedCategory === c.id ? 'btn-primary' : 'btn-ghost'}`}
+              style={{ fontSize: '0.82rem', padding: '6px 14px', whiteSpace: 'nowrap' }}
+            >
+              {c.name}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Lab Cards Grid */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px' }}>
+        {filteredLabs.map((lab) => {
+          const Icon = lab.icon;
+          return (
+            <div
+              key={lab.id}
+              style={{
+                background: 'var(--bg-primary)',
+                borderRadius: 'var(--radius-lg)',
+                padding: '22px',
+                border: '1px solid var(--border-color)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                transition: 'all 0.2s',
+                boxShadow: 'var(--shadow-sm)'
+              }}
+            >
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '14px' }}>
+                  <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: `${lab.color}20`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Icon size={22} color={lab.color} />
+                  </div>
+                  {lab.badge && (
+                    <span className="badge badge-emerald" style={{ fontSize: '0.7rem' }}>
+                      {lab.badge}
+                    </span>
+                  )}
+                </div>
+
+                <h3 style={{ fontSize: '1.15rem', fontWeight: '800', margin: '0 0 8px 0', color: 'var(--text-main)' }}>
+                  {lab.title}
+                </h3>
+
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', margin: '0 0 16px 0', lineHeight: 1.5 }}>
+                  {lab.desc}
+                </p>
+
+                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '20px' }}>
+                  {lab.tags.map(t => (
+                    <span key={t} style={{ background: '#0f172a', color: '#94a3b8', fontSize: '0.72rem', padding: '3px 8px', borderRadius: '4px', fontFamily: 'monospace' }}>
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <button
+                className="btn btn-primary"
+                onClick={() => onSelectLab(lab.id)}
+                style={{ width: '100%', gap: '8px', justifyContent: 'center' }}
+              >
+                <Play size={16} /> Laboratorium Starten
+              </button>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}

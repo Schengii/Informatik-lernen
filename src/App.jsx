@@ -1,23 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useStore } from './store/useStore';
-import confetti from 'canvas-confetti';
 import Navbar from './components/Navigation/Navbar';
 import MobileNav from './components/Navigation/MobileNav';
 import RoleSelectionModal from './components/Onboarding/RoleSelectionModal';
 import TopicReader from './components/Content/TopicReader';
 import ClozeTester from './components/Content/ClozeTester';
 import VideoHub from './components/Content/VideoHub';
-import SqlDungeon from './components/Games/SqlDungeon';
-import SecurityLab from './components/Games/SecurityLab';
-import CodePuzzle from './components/Games/CodePuzzle';
-import LogicGatesGame from './components/Games/LogicGatesGame';
-import WebSandbox from './components/Games/WebSandbox';
-import RegexLab from './components/Games/RegexLab';
-import CliTerminalLab from './components/Games/CliTerminalLab';
-import BossBattleGame from './components/Games/BossBattleGame';
-import CodeTypingSpeedrun from './components/Games/CodeTypingSpeedrun';
 import ProjectViewer from './components/Projects/ProjectViewer';
 import BadgesModal from './components/Gamification/BadgesModal';
 import DsgvoFooterModal from './components/Footer/DsgvoFooterModal';
@@ -31,62 +21,84 @@ import FlashcardsModal from './components/Gamification/FlashcardsModal';
 import BackupModal from './components/Gamification/BackupModal';
 import SkillTreeWidget from './components/Gamification/SkillTreeWidget';
 
-import LanguageAcademy from './components/Content/LanguageAcademy';
-import AiPromptLab from './components/Content/AiPromptLab';
-import ToolingSetupGuide from './components/Content/ToolingSetupGuide';
-import AppWorkshop from './components/Content/AppWorkshop';
-import VocabularyTrainerModal from './components/Content/VocabularyTrainerModal';
-import KnowledgeQuizArena from './components/Content/KnowledgeQuizArena';
-import CareerRoadmap from './components/Content/CareerRoadmap';
-import BigOVisualizer from './components/Content/BigOVisualizer';
-import ArchitectureVisualizer from './components/Content/ArchitectureVisualizer';
-import DesignPatternsLab from './components/Content/DesignPatternsLab';
-import TddUnitTestLab from './components/Content/TddUnitTestLab';
-import DeploymentGuideModal from './components/Content/DeploymentGuideModal';
-import WebComponentsHub from './components/Content/WebComponentsHub';
-import FisiLernfelderHub from './components/Content/FisiLernfelderHub';
-import AiBusinessMasterclass from './components/Content/AiBusinessMasterclass';
-import ItPodcastHub from './components/Content/ItPodcastHub';
+// Lazy Loaded Games & Labs for Maximum Initial Load Speed & Low Bundle Size
+const SqlDungeon = lazy(() => import('./components/Games/SqlDungeon'));
+const SecurityLab = lazy(() => import('./components/Games/SecurityLab'));
+const CodePuzzle = lazy(() => import('./components/Games/CodePuzzle'));
+const LogicGatesGame = lazy(() => import('./components/Games/LogicGatesGame'));
+const WebSandbox = lazy(() => import('./components/Games/WebSandbox'));
+const RegexLab = lazy(() => import('./components/Games/RegexLab'));
+const CliTerminalLab = lazy(() => import('./components/Games/CliTerminalLab'));
+const BossBattleGame = lazy(() => import('./components/Games/BossBattleGame'));
+const CodeTypingSpeedrun = lazy(() => import('./components/Games/CodeTypingSpeedrun'));
 
-import DockerLab from './components/Content/DockerLab';
-import CloudDevOpsLab from './components/Content/CloudDevOpsLab';
-import RedBlueTeamLab from './components/Content/RedBlueTeamLab';
-import ApiBenchStudio from './components/Content/ApiBenchStudio';
+const LanguageAcademy = lazy(() => import('./components/Content/LanguageAcademy'));
+const AiPromptLab = lazy(() => import('./components/Content/AiPromptLab'));
+const ToolingSetupGuide = lazy(() => import('./components/Content/ToolingSetupGuide'));
+const AppWorkshop = lazy(() => import('./components/Content/AppWorkshop'));
+const VocabularyTrainerModal = lazy(() => import('./components/Content/VocabularyTrainerModal'));
+const KnowledgeQuizArena = lazy(() => import('./components/Content/KnowledgeQuizArena'));
+const CareerRoadmap = lazy(() => import('./components/Content/CareerRoadmap'));
+const BigOVisualizer = lazy(() => import('./components/Content/BigOVisualizer'));
+const ArchitectureVisualizer = lazy(() => import('./components/Content/ArchitectureVisualizer'));
+const DesignPatternsLab = lazy(() => import('./components/Content/DesignPatternsLab'));
+const TddUnitTestLab = lazy(() => import('./components/Content/TddUnitTestLab'));
+const DeploymentGuideModal = lazy(() => import('./components/Content/DeploymentGuideModal'));
+const WebComponentsHub = lazy(() => import('./components/Content/WebComponentsHub'));
+const FisiLernfelderHub = lazy(() => import('./components/Content/FisiLernfelderHub'));
+const AiBusinessMasterclass = lazy(() => import('./components/Content/AiBusinessMasterclass'));
+const ItPodcastHub = lazy(() => import('./components/Content/ItPodcastHub'));
 
-import KubernetesLab from './components/Content/KubernetesLab';
-import RagAiSimulator from './components/Content/RagAiSimulator';
-import WasmRustLab from './components/Content/WasmRustLab';
-import KafkaEventLab from './components/Content/KafkaEventLab';
+const DockerLab = lazy(() => import('./components/Content/DockerLab'));
+const CloudDevOpsLab = lazy(() => import('./components/Content/CloudDevOpsLab'));
+const RedBlueTeamLab = lazy(() => import('./components/Content/RedBlueTeamLab'));
+const ApiBenchStudio = lazy(() => import('./components/Content/ApiBenchStudio'));
 
-import OauthOidcLab from './components/Content/OauthOidcLab';
-import WebSocketsLab from './components/Content/WebSocketsLab';
-import PerformanceProfilingLab from './components/Content/PerformanceProfilingLab';
-import AnfaengerGuideHub from './components/Content/AnfaengerGuideHub';
-import SubnettingLab from './components/Content/SubnettingLab';
-import GitLab from './components/Content/GitLab';
-import AlgoPlaygroundLab from './components/Content/AlgoPlaygroundLab';
-import PythonWasmLab from './components/Content/PythonWasmLab';
-import PacketTracerLab from './components/Content/PacketTracerLab';
-import LeitnerFlashcardLab from './components/Content/LeitnerFlashcardLab';
-import MonacoStudioLab from './components/Content/MonacoStudioLab';
-import CloudDesignerLab from './components/Content/CloudDesignerLab';
-import ApiMockStudioLab from './components/Content/ApiMockStudioLab';
-import CtfChallengeLab from './components/Content/CtfChallengeLab';
-import CiCdPipelineLab from './components/Content/CiCdPipelineLab';
-import DockerComposeLab from './components/Content/DockerComposeLab';
-import SystemDesignLab from './components/Content/SystemDesignLab';
-import RegexMasterLab from './components/Content/RegexMasterLab';
-import WebSocketProtocolLab from './components/Content/WebSocketProtocolLab';
-import VectorSearchLab from './components/Content/VectorSearchLab';
-import BigOBenchmarkLab from './components/Content/BigOBenchmarkLab';
-import OauthPkceStudio from './components/Content/OauthPkceStudio';
-import WasmRustStudio from './components/Content/WasmRustStudio';
+const KubernetesLab = lazy(() => import('./components/Content/KubernetesLab'));
+const RagAiSimulator = lazy(() => import('./components/Content/RagAiSimulator'));
+const WasmRustLab = lazy(() => import('./components/Content/WasmRustLab'));
+const KafkaEventLab = lazy(() => import('./components/Content/KafkaEventLab'));
 
-import { loadUserState, saveUserState, calculateLevel } from './utils/storage';
+const OauthOidcLab = lazy(() => import('./components/Content/OauthOidcLab'));
+const WebSocketsLab = lazy(() => import('./components/Content/WebSocketsLab'));
+const PerformanceProfilingLab = lazy(() => import('./components/Content/PerformanceProfilingLab'));
+const AnfaengerGuideHub = lazy(() => import('./components/Content/AnfaengerGuideHub'));
+const SubnettingLab = lazy(() => import('./components/Content/SubnettingLab'));
+const GitLab = lazy(() => import('./components/Content/GitLab'));
+const AlgoPlaygroundLab = lazy(() => import('./components/Content/AlgoPlaygroundLab'));
+const PythonWasmLab = lazy(() => import('./components/Content/PythonWasmLab'));
+const PacketTracerLab = lazy(() => import('./components/Content/PacketTracerLab'));
+const LeitnerFlashcardLab = lazy(() => import('./components/Content/LeitnerFlashcardLab'));
+const MonacoStudioLab = lazy(() => import('./components/Content/MonacoStudioLab'));
+const CloudDesignerLab = lazy(() => import('./components/Content/CloudDesignerLab'));
+const ApiMockStudioLab = lazy(() => import('./components/Content/ApiMockStudioLab'));
+const CtfChallengeLab = lazy(() => import('./components/Content/CtfChallengeLab'));
+const CiCdPipelineLab = lazy(() => import('./components/Content/CiCdPipelineLab'));
+const DockerComposeLab = lazy(() => import('./components/Content/DockerComposeLab'));
+const SystemDesignLab = lazy(() => import('./components/Content/SystemDesignLab'));
+const RegexMasterLab = lazy(() => import('./components/Content/RegexMasterLab'));
+const WebSocketProtocolLab = lazy(() => import('./components/Content/WebSocketProtocolLab'));
+const VectorSearchLab = lazy(() => import('./components/Content/VectorSearchLab'));
+const BigOBenchmarkLab = lazy(() => import('./components/Content/BigOBenchmarkLab'));
+const OauthPkceStudio = lazy(() => import('./components/Content/OauthPkceStudio'));
+const WasmRustStudio = lazy(() => import('./components/Content/WasmRustStudio'));
+
+// Neue Labs & Dashboard
+const DataStructuresLab = lazy(() => import('./components/Content/DataStructuresLab'));
+const CiCdWorkflowLab = lazy(() => import('./components/Content/CiCdWorkflowLab'));
+const LabsDashboard = lazy(() => import('./components/Content/LabsDashboard'));
+
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
-import { BookOpen, Sparkles, ArrowRight, CheckCircle, Sprout } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, CheckCircle, Sprout, Network, Layers, Activity } from 'lucide-react';
+
+const LabLoadingFallback = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '300px', gap: '16px' }}>
+    <div style={{ width: '40px', height: '40px', border: '3px solid rgba(99, 102, 241, 0.2)', borderTop: '3px solid var(--accent-primary)', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
+    <span style={{ color: 'var(--text-muted)', fontSize: '0.92rem', fontWeight: '600' }}>Modul wird blitzschnell geladen...</span>
+  </div>
+);
 
 export default function App() {
   const { 
@@ -567,7 +579,7 @@ export default function App() {
                 <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>⚡</div>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>WASM & Rust Playground</h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  Rust Code -> WASM Bytecode Kompilierung & Speed Tests.
+                  Rust Code &rarr; WASM Bytecode Kompilierung & Speed Tests.
                 </p>
                 <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
                   WASM Playground <ArrowRight size={16} />
@@ -575,161 +587,391 @@ export default function App() {
               </div>
 
               {/* OAuth2 Card */}
+              {/* Data Structures & Graph Lab Card */}
               <div
                 className="glass-panel glass-panel-hover"
-                onClick={() => setActiveTab('oauth_oidc')}
+                onClick={() => setActiveTab('datastructures')}
                 style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
               >
-                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🔐</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>OAuth2 & JWT Security</h3>
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🌲</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Data Structures (Trees & Graphs)</h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                  PKCE Flow, Access Tokens & JWT Claims Decoding.
+                  Binäre Suchbäume (BST Traversierung) & Dijkstra Graph Solver.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Tree & Graph Lab <ArrowRight size={16} />
+                </span>
+              </div>
+
+              {/* CI/CD Pipeline Workflow Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('cicd_workflow')}
+                style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>⚙️</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>CI/CD Pipeline Builder</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Visueller Workflow-Builder für GitHub Actions & Live Runner.
                 </p>
                 <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  OAuth2 Öffnen <ArrowRight size={16} />
+                  Pipeline Builder <ArrowRight size={16} />
+                </span>
+              </div>
+
+              {/* All Labs Hub Card */}
+              <div
+                className="glass-panel glass-panel-hover"
+                onClick={() => setActiveTab('labs')}
+                style={{ padding: '24px', cursor: 'pointer', border: '2px solid var(--accent-primary)', background: 'rgba(99, 102, 241, 0.05)' }}
+              >
+                <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🧪</div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Interactive Labs Explorer</h3>
+                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                  Alle 25+ Simulatoren & Labs mit Such- und Tag-Filtern durchstöbern.
+                </p>
+                <span style={{ fontSize: '0.9rem', color: 'var(--accent-primary)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Labs Explorer <ArrowRight size={16} />
                 </span>
               </div>
             </div>
           </div>
         )}
 
+        {/* LABS DASHBOARD TAB */}
+        {activeTab === 'labs' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <LabsDashboard onSelectLab={(labId) => setActiveTab(labId)} />
+          </Suspense>
+        )}
+
+        {/* DATA STRUCTURES TAB */}
+        {activeTab === 'datastructures' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <DataStructuresLab onRewardXP={(xp) => awardXP(xp, 'trees_graphs_master')} />
+          </Suspense>
+        )}
+
+        {/* CI/CD WORKFLOW TAB */}
+        {activeTab === 'cicd_workflow' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <CiCdWorkflowLab onRewardXP={(xp) => awardXP(xp, 'cicd_workflow_master')} />
+          </Suspense>
+        )}
+
         {/* ANFAENGER GUIDE TAB */}
-        {activeTab === 'anfaenger_guide' && <AnfaengerGuideHub />}
+        {activeTab === 'anfaenger_guide' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <AnfaengerGuideHub />
+          </Suspense>
+        )}
 
         {/* SUBNETTING LAB TAB */}
-        {activeTab === 'subnetting' && <SubnettingLab onRewardXP={(xp) => awardXP(xp, 'subnetting_master')} />}
+        {activeTab === 'subnetting' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <SubnettingLab onRewardXP={(xp) => awardXP(xp, 'subnetting_master')} />
+          </Suspense>
+        )}
 
         {/* GIT BRANCHING LAB TAB */}
-        {activeTab === 'git_lab' && <GitLab onRewardXP={(xp) => awardXP(xp, 'git_master')} />}
+        {activeTab === 'git_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <GitLab onRewardXP={(xp) => awardXP(xp, 'git_master')} />
+          </Suspense>
+        )}
 
         {/* ALGORITHMS PLAYGROUND LAB TAB */}
-        {activeTab === 'algo_lab' && <AlgoPlaygroundLab onRewardXP={(xp) => awardXP(xp, 'algo_master')} />}
+        {activeTab === 'algo_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <AlgoPlaygroundLab onRewardXP={(xp) => awardXP(xp, 'algo_master')} />
+          </Suspense>
+        )}
 
         {/* PYTHON WASM LAB TAB */}
-        {activeTab === 'python_wasm' && <PythonWasmLab onRewardXP={(xp) => awardXP(xp, 'python_wasm_master')} />}
+        {activeTab === 'python_wasm' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <PythonWasmLab onRewardXP={(xp) => awardXP(xp, 'python_wasm_master')} />
+          </Suspense>
+        )}
 
         {/* PACKET TRACER LAB TAB */}
-        {activeTab === 'packet_tracer' && <PacketTracerLab onRewardXP={(xp) => awardXP(xp, 'packet_tracer_master')} />}
+        {activeTab === 'packet_tracer' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <PacketTracerLab onRewardXP={(xp) => awardXP(xp, 'packet_tracer_master')} />
+          </Suspense>
+        )}
 
         {/* LEITNER FLASHCARDS TAB */}
-        {activeTab === 'leitner' && <LeitnerFlashcardLab onRewardXP={(xp) => awardXP(xp, 'leitner_master')} />}
+        {activeTab === 'leitner' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <LeitnerFlashcardLab onRewardXP={(xp) => awardXP(xp, 'leitner_master')} />
+          </Suspense>
+        )}
 
         {/* MONACO STUDIO TAB */}
-        {activeTab === 'monaco_studio' && <MonacoStudioLab onRewardXP={(xp) => awardXP(xp, 'monaco_master')} />}
+        {activeTab === 'monaco_studio' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <MonacoStudioLab onRewardXP={(xp) => awardXP(xp, 'monaco_master')} />
+          </Suspense>
+        )}
 
         {/* CLOUD DESIGNER TAB */}
-        {activeTab === 'cloud_designer' && <CloudDesignerLab onRewardXP={(xp) => awardXP(xp, 'cloud_designer_master')} />}
+        {activeTab === 'cloud_designer' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <CloudDesignerLab onRewardXP={(xp) => awardXP(xp, 'cloud_designer_master')} />
+          </Suspense>
+        )}
 
         {/* API MOCK STUDIO TAB */}
-        {activeTab === 'api_mock_studio' && <ApiMockStudioLab onRewardXP={(xp) => awardXP(xp, 'api_mock_master')} />}
+        {activeTab === 'api_mock_studio' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <ApiMockStudioLab onRewardXP={(xp) => awardXP(xp, 'api_mock_master')} />
+          </Suspense>
+        )}
 
         {/* CYBERSECURITY CTF TAB */}
-        {activeTab === 'ctf_lab' && <CtfChallengeLab onRewardXP={(xp) => awardXP(xp, 'ctf_master')} />}
+        {activeTab === 'ctf_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <CtfChallengeLab onRewardXP={(xp) => awardXP(xp, 'ctf_master')} />
+          </Suspense>
+        )}
 
         {/* CI/CD PIPELINE TAB */}
-        {activeTab === 'cicd_pipeline' && <CiCdPipelineLab onRewardXP={(xp) => awardXP(xp, 'cicd_master')} />}
+        {activeTab === 'cicd_pipeline' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <CiCdPipelineLab onRewardXP={(xp) => awardXP(xp, 'cicd_master')} />
+          </Suspense>
+        )}
 
         {/* DOCKER COMPOSE TAB */}
-        {activeTab === 'docker_compose' && <DockerComposeLab onRewardXP={(xp) => awardXP(xp, 'docker_compose_master')} />}
+        {activeTab === 'docker_compose' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <DockerComposeLab onRewardXP={(xp) => awardXP(xp, 'docker_compose_master')} />
+          </Suspense>
+        )}
 
         {/* SYSTEM DESIGN LAB TAB */}
-        {activeTab === 'system_design' && <SystemDesignLab onRewardXP={(xp) => awardXP(xp, 'system_design_master')} />}
+        {activeTab === 'system_design' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <SystemDesignLab onRewardXP={(xp) => awardXP(xp, 'system_design_master')} />
+          </Suspense>
+        )}
 
         {/* REGEX MASTER LAB TAB */}
-        {activeTab === 'regex_master' && <RegexMasterLab onRewardXP={(xp) => awardXP(xp, 'regex_master')} />}
+        {activeTab === 'regex_master' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <RegexMasterLab onRewardXP={(xp) => awardXP(xp, 'regex_master')} />
+          </Suspense>
+        )}
 
         {/* WEBSOCKET PROTOCOL LAB TAB */}
-        {activeTab === 'websocket_protocol' && <WebSocketProtocolLab onRewardXP={(xp) => awardXP(xp, 'websocket_protocol_master')} />}
+        {activeTab === 'websocket_protocol' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <WebSocketProtocolLab onRewardXP={(xp) => awardXP(xp, 'websocket_protocol_master')} />
+          </Suspense>
+        )}
 
         {/* VECTOR SEARCH RAG LAB TAB */}
-        {activeTab === 'vector_search' && <VectorSearchLab onRewardXP={(xp) => awardXP(xp, 'vector_search_master')} />}
+        {activeTab === 'vector_search' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <VectorSearchLab onRewardXP={(xp) => awardXP(xp, 'vector_search_master')} />
+          </Suspense>
+        )}
 
         {/* BIG-O BENCHMARK LAB TAB */}
-        {activeTab === 'bigo_benchmark' && <BigOBenchmarkLab onRewardXP={(xp) => awardXP(xp, 'bigo_benchmark_master')} />}
+        {activeTab === 'bigo_benchmark' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <BigOBenchmarkLab onRewardXP={(xp) => awardXP(xp, 'bigo_benchmark_master')} />
+          </Suspense>
+        )}
 
         {/* OAUTH2 PKCE STUDIO TAB */}
-        {activeTab === 'oauth_pkce_studio' && <OauthPkceStudio onRewardXP={(xp) => awardXP(xp, 'oauth_pkce_master')} />}
+        {activeTab === 'oauth_pkce_studio' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <OauthPkceStudio onRewardXP={(xp) => awardXP(xp, 'oauth_pkce_master')} />
+          </Suspense>
+        )}
 
         {/* WASM RUST STUDIO TAB */}
-        {activeTab === 'wasm_rust_studio' && <WasmRustStudio onRewardXP={(xp) => awardXP(xp, 'wasm_rust_master')} />}
+        {activeTab === 'wasm_rust_studio' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <WasmRustStudio onRewardXP={(xp) => awardXP(xp, 'wasm_rust_master')} />
+          </Suspense>
+        )}
 
         {/* OAUTH2 & OIDC LAB TAB */}
-        {activeTab === 'oauth_oidc' && <OauthOidcLab />}
+        {activeTab === 'oauth_oidc' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <OauthOidcLab />
+          </Suspense>
+        )}
 
         {/* WEBSOCKETS REALTIME LAB TAB */}
-        {activeTab === 'websockets' && <WebSocketsLab />}
+        {activeTab === 'websockets' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <WebSocketsLab />
+          </Suspense>
+        )}
 
         {/* PERFORMANCE PROFILING LAB TAB */}
-        {activeTab === 'perf_lab' && <PerformanceProfilingLab />}
+        {activeTab === 'perf_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <PerformanceProfilingLab />
+          </Suspense>
+        )}
 
         {/* KUBERNETES LAB TAB */}
-        {activeTab === 'kubernetes' && <KubernetesLab />}
+        {activeTab === 'kubernetes' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <KubernetesLab />
+          </Suspense>
+        )}
 
         {/* RAG VECTOR AI SIMULATOR TAB */}
-        {activeTab === 'rag_ai' && <RagAiSimulator />}
+        {activeTab === 'rag_ai' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <RagAiSimulator />
+          </Suspense>
+        )}
 
         {/* WEBASSEMBLY RUST LAB TAB */}
-        {activeTab === 'wasm_rust' && <WasmRustLab />}
+        {activeTab === 'wasm_rust' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <WasmRustLab />
+          </Suspense>
+        )}
 
         {/* KAFKA EVENT-DRIVEN LAB TAB */}
-        {activeTab === 'kafka' && <KafkaEventLab />}
+        {activeTab === 'kafka' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <KafkaEventLab />
+          </Suspense>
+        )}
 
         {/* DOCKER LAB TAB */}
-        {activeTab === 'docker' && <DockerLab />}
+        {activeTab === 'docker' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <DockerLab />
+          </Suspense>
+        )}
 
         {/* CLOUD DEVOPS TAB */}
-        {activeTab === 'cloud_devops' && <CloudDevOpsLab />}
+        {activeTab === 'cloud_devops' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <CloudDevOpsLab />
+          </Suspense>
+        )}
 
         {/* RED / BLUE TEAM SECURITY TAB */}
-        {activeTab === 'security_lab_v2' && <RedBlueTeamLab />}
+        {activeTab === 'security_lab_v2' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <RedBlueTeamLab />
+          </Suspense>
+        )}
 
         {/* API BENCH STUDIO TAB */}
-        {activeTab === 'api_studio' && <ApiBenchStudio />}
+        {activeTab === 'api_studio' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <ApiBenchStudio />
+          </Suspense>
+        )}
 
         {/* AI BUSINESS MASTERCLASS TAB */}
-        {activeTab === 'ai_business' && <AiBusinessMasterclass />}
+        {activeTab === 'ai_business' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <AiBusinessMasterclass />
+          </Suspense>
+        )}
 
         {/* PODCAST HUB TAB */}
-        {activeTab === 'podcast' && <ItPodcastHub />}
+        {activeTab === 'podcast' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <ItPodcastHub />
+          </Suspense>
+        )}
 
         {/* IHK LERNFELDER TAB */}
-        {activeTab === 'lernfelder' && <FisiLernfelderHub />}
+        {activeTab === 'lernfelder' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <FisiLernfelderHub />
+          </Suspense>
+        )}
 
         {/* WEB COMPONENTS TAB */}
-        {activeTab === 'web_components' && <WebComponentsHub />}
+        {activeTab === 'web_components' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <WebComponentsHub />
+          </Suspense>
+        )}
 
         {/* TDD UNIT TESTING TAB */}
-        {activeTab === 'tdd' && <TddUnitTestLab onRewardXP={(xp) => awardXP(xp, 'tdd_master')} />}
+        {activeTab === 'tdd' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <TddUnitTestLab onRewardXP={(xp) => awardXP(xp, 'tdd_master')} />
+          </Suspense>
+        )}
 
         {/* SYSTEM ARCHITECTURE TAB */}
-        {activeTab === 'architecture' && <ArchitectureVisualizer />}
+        {activeTab === 'architecture' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <ArchitectureVisualizer />
+          </Suspense>
+        )}
 
         {/* DESIGN PATTERNS TAB */}
-        {activeTab === 'design_patterns' && <DesignPatternsLab />}
+        {activeTab === 'design_patterns' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <DesignPatternsLab />
+          </Suspense>
+        )}
 
         {/* CAREER ROADMAPS TAB */}
-        {activeTab === 'roadmaps' && <CareerRoadmap userState={userState} />}
+        {activeTab === 'roadmaps' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <CareerRoadmap userState={userState} />
+          </Suspense>
+        )}
 
         {/* BIG-O VISUALIZER TAB */}
-        {activeTab === 'big_o' && <BigOVisualizer />}
+        {activeTab === 'big_o' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <BigOVisualizer />
+          </Suspense>
+        )}
 
         {/* WISSENS QUIZ ARENA TAB */}
         {activeTab === 'quiz_arena' && (
-          <KnowledgeQuizArena onRewardXP={(xp) => awardXP(xp, 'quiz_master')} />
+          <Suspense fallback={<LabLoadingFallback />}>
+            <KnowledgeQuizArena onRewardXP={(xp) => awardXP(xp, 'quiz_master')} />
+          </Suspense>
         )}
 
         {/* SPRACHEN ACADEMY TAB */}
-        {activeTab === 'languages' && <LanguageAcademy />}
+        {activeTab === 'languages' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <LanguageAcademy />
+          </Suspense>
+        )}
 
         {/* KI-LAB TAB */}
-        {activeTab === 'ai' && <AiPromptLab />}
+        {activeTab === 'ai' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <AiPromptLab />
+          </Suspense>
+        )}
 
         {/* IDE & TOOLS SETUP TAB */}
-        {activeTab === 'tooling' && <ToolingSetupGuide />}
+        {activeTab === 'tooling' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <ToolingSetupGuide />
+          </Suspense>
+        )}
 
         {/* APP-WORKSHOP TAB */}
         {activeTab === 'app_workshop' && (
-          <AppWorkshop onCompleteWorkshop={(xp) => awardXP(xp, 'app_builder')} />
+          <Suspense fallback={<LabLoadingFallback />}>
+            <AppWorkshop onCompleteWorkshop={(xp) => awardXP(xp, 'app_builder')} />
+          </Suspense>
         )}
 
         {/* WISSEN & FACHKUNDE TAB */}
@@ -824,21 +1066,25 @@ export default function App() {
               ))}
             </div>
 
-            {activeGameId === 'sql' && <SqlDungeon onCompleteGame={(id, xp) => awardXP(xp, 'sql_master')} />}
-            {activeGameId === 'security' && <SecurityLab onCompleteGame={(id, xp) => awardXP(xp, 'security_expert')} />}
-            {activeGameId === 'boss' && <BossBattleGame onCompleteGame={(id, xp) => awardXP(xp, 'boss_slayer')} />}
-            {activeGameId === 'typing_speedrun' && <CodeTypingSpeedrun onCompleteGame={(id, xp) => awardXP(xp, 'typing_god')} />}
-            {activeGameId === 'cli' && <CliTerminalLab onCompleteGame={(id, xp) => awardXP(xp, 'cli_master')} />}
-            {activeGameId === 'regex' && <RegexLab onCompleteGame={(id, xp) => awardXP(xp, 'regex_master')} />}
-            {activeGameId === 'puzzle' && <CodePuzzle onCompleteGame={(id, xp) => awardXP(xp)} />}
-            {activeGameId === 'logic' && <LogicGatesGame onCompleteGame={(id, xp) => awardXP(xp, 'logic_genius')} />}
-            {activeGameId === 'sandbox' && <WebSandbox onCompleteGame={(id, xp) => awardXP(xp, 'web_builder')} />}
+            <Suspense fallback={<LabLoadingFallback />}>
+              {activeGameId === 'sql' && <SqlDungeon onCompleteGame={(id, xp) => awardXP(xp, 'sql_master')} />}
+              {activeGameId === 'security' && <SecurityLab onCompleteGame={(id, xp) => awardXP(xp, 'security_expert')} />}
+              {activeGameId === 'boss' && <BossBattleGame onCompleteGame={(id, xp) => awardXP(xp, 'boss_slayer')} />}
+              {activeGameId === 'typing_speedrun' && <CodeTypingSpeedrun onCompleteGame={(id, xp) => awardXP(xp, 'typing_god')} />}
+              {activeGameId === 'cli' && <CliTerminalLab onCompleteGame={(id, xp) => awardXP(xp, 'cli_master')} />}
+              {activeGameId === 'regex' && <RegexLab onCompleteGame={(id, xp) => awardXP(xp, 'regex_master')} />}
+              {activeGameId === 'puzzle' && <CodePuzzle onCompleteGame={(id, xp) => awardXP(xp)} />}
+              {activeGameId === 'logic' && <LogicGatesGame onCompleteGame={(id, xp) => awardXP(xp, 'logic_genius')} />}
+              {activeGameId === 'sandbox' && <WebSandbox onCompleteGame={(id, xp) => awardXP(xp, 'web_builder')} />}
+            </Suspense>
           </div>
         )}
 
         {/* IHK EXAM TAB */}
         {activeTab === 'exam' && (
-          <ExamSimulator onCompleteExam={(_score, xp) => awardXP(xp, 'exam_passed')} />
+          <Suspense fallback={<LabLoadingFallback />}>
+            <ExamSimulator onCompleteExam={(_score, xp) => awardXP(xp, 'exam_passed')} />
+          </Suspense>
         )}
 
         {/* LÜCKENTEXT TAB */}

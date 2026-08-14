@@ -93,20 +93,33 @@ export const useStore = create((set, get) => ({
   },
 
   handleCompleteTopic: (topicId, xp) => {
+    let triggeredConfetti = false;
+    playSFX('success');
     set((state) => {
       const prev = state.userState;
       if (!prev.completedTopics.includes(topicId)) {
         const completed = [...prev.completedTopics, topicId];
-        // Trigger awardXP logic directly inside to avoid nested set calls if possible,
-        // or just call get().awardXP which uses set.
-        setTimeout(() => get().awardXP(xp, 'first_steps'), 0);
-        
-        const updatedState = { ...prev, completedTopics: completed };
+        const newXP = prev.xp + xp;
+        const newLevel = calculateLevel(newXP);
+        const unlocked = [...prev.unlockedBadges];
+        if (!unlocked.includes('first_steps')) {
+          unlocked.push('first_steps');
+        }
+
+        const updatedState = {
+          ...prev,
+          xp: newXP,
+          level: newLevel,
+          completedTopics: completed,
+          unlockedBadges: unlocked
+        };
         saveUserState(updatedState);
+        triggeredConfetti = true;
         return { userState: updatedState };
       }
-      return {};
+      return { userState: prev };
     });
+    return triggeredConfetti;
   },
 
   refreshStateFromStorage: () => {

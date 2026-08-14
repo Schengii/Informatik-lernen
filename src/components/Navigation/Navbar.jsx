@@ -94,7 +94,10 @@ export default function Navbar({
         <nav className="desktop-only" style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
           {[
             { id: 'dashboard', label: t('dashboard') },
+            { id: 'labs', label: '🧪 Labs Hub' },
             { id: 'anfaenger_guide', label: '🌱 Einsteiger Kurs' },
+            { id: 'datastructures', label: '🌲 Trees & Graphen' },
+            { id: 'cicd_workflow', label: '⚙️ CI/CD Workflow' },
             { id: 'oauth_oidc', label: '🔐 OAuth2 & JWT' },
             { id: 'websockets', label: '📻 WebSockets' },
             { id: 'perf_lab', label: '📊 Perf Profiling' },

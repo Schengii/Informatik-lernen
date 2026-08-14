@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Key, Shield, Lock, ArrowRight, CheckCircle2, RefreshCw, Sparkles, FileCode } from 'lucide-react';
+import { Key, Shield, Lock, CheckCircle2, RefreshCw } from 'lucide-react';
 
 export default function OauthPkceStudio({ onRewardXP }) {
   const [step, setStep] = useState(1);
@@ -110,6 +110,15 @@ export default function OauthPkceStudio({ onRewardXP }) {
             <button className="btn btn-primary" onClick={handleGeneratePkce} style={{ gap: '8px' }}>
               <Key size={16} /> Key Pair Generieren
             </button>
+
+            <div style={{ marginTop: '16px', display: 'grid', gap: '8px' }}>
+              <div style={{ background: '#0f172a', padding: '10px 14px', borderRadius: 'var(--radius-md)', color: '#38bdf8', fontFamily: 'monospace', fontSize: '0.8rem' }}>
+                <span style={{ color: '#94a3b8' }}>code_verifier: </span>{codeVerifier}
+              </div>
+              <div style={{ background: '#0f172a', padding: '10px 14px', borderRadius: 'var(--radius-md)', color: '#34d399', fontFamily: 'monospace', fontSize: '0.8rem' }}>
+                <span style={{ color: '#94a3b8' }}>code_challenge (SHA256): </span>{codeChallenge}
+              </div>
+            </div>
           </div>
         )}
 
@@ -118,7 +127,7 @@ export default function OauthPkceStudio({ onRewardXP }) {
             <h4 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--text-main)', margin: '0 0 8px 0' }}>
               Schritt 2: Benutzer-Autorisierung auf dem Auth-Server
             </h4>
-            <div style={{ background: '#0f172a', padding: '12px', borderRadius: 'var(--radius-md)', color: '#38bdf8', fontFamily: 'monospace', fontSize: '0.82rem', marginBottom: '16px' }}>
+            <div style={{ background: '#0f172a', padding: '12px', borderRadius: 'var(--radius-md)', color: '#38bdf8', fontFamily: 'monospace', fontSize: '0.82rem', marginBottom: '16px', wordBreak: 'break-all' }}>
               https://auth.devgame.it/authorize?response_type=code&client_id=spa_app&code_challenge={codeChallenge}&code_challenge_method=S256
             </div>
 
@@ -136,6 +145,11 @@ export default function OauthPkceStudio({ onRewardXP }) {
             <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', marginBottom: '12px' }}>
               Sende den empfangenen Authorization Code zusammen mit dem geheimen `code_verifier` an den Token Endpoint.
             </p>
+            {authCode && (
+              <div style={{ background: '#0f172a', padding: '10px 14px', borderRadius: 'var(--radius-md)', color: '#fbbf24', fontFamily: 'monospace', fontSize: '0.82rem', marginBottom: '16px' }}>
+                <span style={{ color: '#94a3b8' }}>Empfangener Auth-Code: </span>{authCode}
+              </div>
+            )}
 
             <button className="btn btn-primary" onClick={handleExchangeToken} style={{ gap: '8px' }}>
               <Lock size={16} /> Access & ID Token Einlösen

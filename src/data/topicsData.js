@@ -21,9 +21,9 @@ Im normalen Dezimalsystem rechnen wir mit den Ziffern 0-9 (Basis 10). Im Binärs
 
 | Stelle | $2^3 = 8$ | $2^2 = 4$ | $2^1 = 2$ | $2^0 = 1$ | Dezimalwert |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **0101** | 0 | 1 | 0 | 1 | $4 + 1 = \mathbf{5}$ |
-| **1100** | 1 | 1 | 0 | 0 | $8 + 4 = \mathbf{12}$ |
-| **1111** | 1 | 1 | 0 | 1 | $8 + 4 + 2 + 1 = \mathbf{15}$ |
+| **0101** | 0 | 1 | 0 | 1 | 4 + 1 = 5 |
+| **1100** | 1 | 1 | 0 | 0 | 8 + 4 = 12 |
+| **1111** | 1 | 1 | 1 | 1 | 8 + 4 + 2 + 1 = 15 |
 
 ### 3. Hexadezimalsystem (Basis 16)
 Um lange Binärketten für Menschen lesbarer zu machen (z. B. Farb-Codes wie \`#FF0000\` oder MAC-Adressen), nutzt man Hexadezimal (0-9 und A-F):
@@ -109,7 +109,7 @@ console.log(bin2dec("1111")); // Output: 15`,
     content: `
 ### 1. Neuronale Netzwerke & Layer
 - **Input Layer:** Nimmt Rohdaten auf (z. B. Pixelwerte 28x28 bei Bildern).
-- **Hidden Layers:** Führen mathematische Gewichtungen ($W \cdot x + b$) aus.
+- **Hidden Layers:** Führen mathematische Gewichtungen (W * x + b) aus.
 - **Activation Functions:** ReLU ($max(0, x)$), Sigmoid, Softmax (Wahrscheinlichkeiten).
 
 ### 2. Spezialisierte KI-Architekturen

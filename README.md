@@ -87,11 +87,12 @@ Informatik-lernen/
     │   │   ├── BigOBenchmarkLab.jsx
     │   │   ├── BigOVisualizer.jsx
     │   │   ├── CareerRoadmap.jsx
-    │   │   ├── CiCdPipelineLab.jsx
+    │   │   ├── CiCdWorkflowLab.jsx
     │   │   ├── CloudDesignerLab.jsx
     │   │   ├── CloudDevOpsLab.jsx
     │   │   ├── ClozeTester.jsx
     │   │   ├── CtfChallengeLab.jsx
+    │   │   ├── DataStructuresLab.jsx
     │   │   ├── DeploymentGuideModal.jsx
     │   │   ├── DesignPatternsLab.jsx
     │   │   ├── DockerComposeLab.jsx
@@ -104,6 +105,7 @@ Informatik-lernen/
     │   │   ├── KafkaEventLab.jsx
     │   │   ├── KnowledgeQuizArena.jsx
     │   │   ├── KubernetesLab.jsx
+    │   │   ├── LabsDashboard.jsx
     │   │   ├── LanguageAcademy.jsx
     │   │   ├── LeitnerFlashcardLab.jsx
     │   │   ├── MonacoStudioLab.jsx
@@ -232,11 +234,22 @@ npm run lint
 * **WebAssembly (WASM) & Rust Compilation Playground (`WasmRustStudio.jsx`)**:
   * Rust Quellcode-Editor (`lib.rs`), In-Browser WASM-Bytecode-Compiler (`module.wasm`) & Performance-Benchmark (WASM vs. JS).
 
-#### [v10.0.0] - System Design Load Balancer & Regex Master Quest Lab
-* **System Design & Load Balancer Simulator (`SystemDesignLab.jsx`)**:
-  * Interaktiver Architecture Visualizer für Traffic Spikes (bis zu 8.000 RPS), NGINX Load Balancing Algorithmen (Round Robin, Least Connections, IP Hash), Redis Caching Layer und Primary/Replica DB-Replikation.
-  * Live Server Crash/Failover Tests & System Health Metrics (Latenz, Error Rate, Cache Hit Rate).
-* **Regex Master Quest & Live Match Visualizer (`RegexMasterLab.jsx`)**:
+#### [v10.0.0] - Code-Splitting, Trees & Graphs Lab, CI/CD Builder & Interactive Labs Hub
+* **Performance & Lazy Loading**:
+  * Vollständige Umstellung von über 40 Lab- und Spielekomponenten in `App.jsx` auf `React.lazy` und `Suspense` für extrem schnelle Ladezeiten.
+  * Bereinigung aller Linter-Fehler (Escape-Sequenzen, ungenutzte Imports) in `ApiMockStudioLab.jsx`, `OauthPkceStudio.jsx`, `GitLab.jsx`, `topicsData.js` und `CtfChallengeLab.jsx`.
+* **Data Structures Tree & Graph Lab (`DataStructuresLab.jsx`)**:
+  * Interaktive Simulation von Binären Suchbäumen (BST) mit Visualisierung von Inorder-, Preorder- und Postorder-Traversierungen.
+  * Dijkstra Kürzeste-Wege-Algorithmus Visualizer mit Adjazenzmatrix, Schritt-für-Schritt Trace und animiertem Pfad.
+* **CI/CD Workflow Pipeline Builder (`CiCdWorkflowLab.jsx`)**:
+  * Visueller Multi-Stage Pipeline Designer (Checkout, Lint, Unit Tests, Security Scan, Docker Build, Kubernetes Deploy) mit Terminal-Runner und GitHub Actions YAML Export.
+* **Interactive Labs & Simulatoren Explorer (`LabsDashboard.jsx`)**:
+  * Zentraler Such- und Filter-Hub für alle 25+ Simulatoren nach Kategorien, Tags (#DevOps, #KI, #Security) und Schwierigkeit mit Direktstart.
+* **Erweiterte Unit Tests (`useStore.test.js`)**:
+  * 100% Testabdeckung für Zustand Store Logik (XP Vergabe, Level Up, Theme & Barrierefreiheits-Toggles, Role Switching).
+
+#### [v9.1.0] - Visual Regex Master, Big-O Benchmark Arena & WebSockets Protocol Studio
+* **Visual RegEx Master Quests (`RegexMasterLab.jsx`)**:
   * In-Browser Live Pattern Matcher für Reguläre Ausdrücke (RegEx) mit dynamischem Syntax Highlighting.
   * Gamifizierte Quests (E-Mail Validierung, IPv4 Erkennung, Telefonnummern & Hex-Farbcodes) mit Lösungs-Tipps & Punktebelohnungen.
 

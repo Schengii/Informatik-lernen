@@ -13,10 +13,10 @@ export default function GitLab({ onRewardXP }) {
   const [taskIndex, setTaskIndex] = useState(0);
 
   const tasks = [
-    { title: 'Task 1: Erstelle einen neuen Branch', targetBranch: 'feature', desc: 'Führe den Befehl `git branch feature` aus oder nutze den Button.' },
-    { title: 'Task 2: Wechsle auf den Feature-Branch', targetActive: 'feature', desc: 'Führe `git checkout feature` aus.' },
-    { title: 'Task 3: Erstelle einen Commit auf dem Feature-Branch', targetCommitsOnFeature: 1, desc: 'Führe `git commit -m "Feature added"` aus.' },
-    { title: 'Task 4: Merge den Feature-Branch zurück in den Main-Branch', targetMerged: true, desc: 'Wechsle auf main (`git checkout main`) und führe `git merge feature` aus.' }
+    { title: 'Task 1: Erstelle einen neuen Branch', desc: 'Führe den Befehl `git branch feature` aus oder nutze den Button.' },
+    { title: 'Task 2: Wechsle auf den Feature-Branch', desc: 'Führe `git checkout feature` aus.' },
+    { title: 'Task 3: Erstelle einen Commit auf dem Feature-Branch', desc: 'Führe `git commit -m "Feature added"` aus.' },
+    { title: 'Task 4: Merge den Feature-Branch zurück in den Main-Branch', desc: 'Wechsle auf main (`git checkout main`) und führe `git merge feature` aus.' }
   ];
 
   const addLog = (msg) => setLogs(prev => [msg, ...prev]);
@@ -29,6 +29,10 @@ export default function GitLab({ onRewardXP }) {
     }
     setBranches([...branches, branchName]);
     addLog(`✅ Branch '${branchName}' erfolgreich erstellt.`);
+    if (taskIndex === 0 && branchName === 'feature') {
+      setTaskIndex(1);
+      if (onRewardXP) onRewardXP(15);
+    }
   };
 
   const handleCheckout = (branchName) => {
@@ -38,6 +42,10 @@ export default function GitLab({ onRewardXP }) {
     }
     setActiveBranch(branchName);
     addLog(`🔀 Switched to branch '${branchName}'.`);
+    if (taskIndex === 1 && branchName === 'feature') {
+      setTaskIndex(2);
+      if (onRewardXP) onRewardXP(15);
+    }
   };
 
   const handleCommit = (msg = 'New commit') => {
@@ -48,6 +56,10 @@ export default function GitLab({ onRewardXP }) {
     };
     setCommits([...commits, newCommit]);
     addLog(`📌 Commit [${newCommit.id}] '${msg}' auf Branch '${activeBranch}' erstellt.`);
+    if (taskIndex === 2 && activeBranch === 'feature') {
+      setTaskIndex(3);
+      if (onRewardXP) onRewardXP(20);
+    }
   };
 
   const handleMerge = (sourceBranch) => {
@@ -63,7 +75,10 @@ export default function GitLab({ onRewardXP }) {
     };
     setCommits([...commits, mergeCommit]);
     addLog(`🔀 Merge commit '${mergeCommit.message}' erstellt.`);
-    if (onRewardXP) onRewardXP(30);
+    if (taskIndex === 3 && activeBranch === 'main' && sourceBranch === 'feature') {
+      setTaskIndex(0);
+      if (onRewardXP) onRewardXP(40);
+    }
   };
 
   const handleRunCommand = (e) => {

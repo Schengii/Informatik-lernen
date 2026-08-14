@@ -277,7 +277,7 @@ export default function ApiMockStudioLab({ onRewardXP }) {
               rows={5}
               value={requestBody}
               onChange={(e) => setRequestBody(e.target.value)}
-              placeholder="{\n  \"key\": \"value\"\n}"
+              placeholder={'{\n  "key": "value"\n}'}
               style={{
                 width: '100%',
                 padding: '12px',
@@ -299,7 +299,7 @@ export default function ApiMockStudioLab({ onRewardXP }) {
               rows={4}
               value={headers}
               onChange={(e) => setHeaders(e.target.value)}
-              placeholder="{\n  \"Authorization\": \"Bearer token...\"\n}"
+              placeholder={'{\n  "Authorization": "Bearer token..."\n}'}
               style={{
                 width: '100%',
                 padding: '12px',

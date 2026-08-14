@@ -120,7 +120,7 @@ export default function CtfChallengeLab({ onRewardXP }) {
             🚩 Cybersecurity CTF Quest Lab (XSS, SQLi & Command Injection)
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-            Löse praxisnahe Hacking-Challenges, teste Sicherheitslücken und finde die versteckten `CTF{...}` Flaggen.
+            Löse praxisnahe Hacking-Challenges, teste Sicherheitslücken und finde die versteckten {'`CTF{...}`'} Flaggen.
           </p>
         </div>
 
