@@ -93,6 +93,7 @@ Informatik-lernen/
     │   │   ├── CloudDevOpsLab.jsx
     │   │   ├── ClozeTester.jsx
     │   │   ├── CommandPaletteModal.jsx
+    │   │   ├── CpuArchitectureLab.jsx
     │   │   ├── CtfChallengeLab.jsx
     │   │   ├── DataStructuresLab.jsx
     │   │   ├── DeploymentGuideModal.jsx
@@ -122,6 +123,7 @@ Informatik-lernen/
     │   │   ├── RedBlueTeamLab.jsx
     │   │   ├── RegexMasterLab.jsx
     │   │   ├── SqlJoinVisualizerLab.jsx
+    │   │   ├── SqlQueryOptimizerLab.jsx
     │   │   ├── SubnettingLab.jsx
     │   │   ├── SystemDesignLab.jsx
     │   │   ├── TddUnitTestLab.jsx
@@ -196,6 +198,7 @@ Informatik-lernen/
     │   └── global.css
     └── utils/
         ├── i18n.js
+        ├── srsAlgorithm.js
         └── storage.js
 ```
 
@@ -224,6 +227,19 @@ npm run lint
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
 ### Versionsverlauf
+
+#### [v13.0.0] - Von-Neumann CPU Simulator, SQL Query Optimizer, IHK Voice Recognition & SM-2 Spaced Repetition
+* **Von-Neumann CPU & Register-Simulator (`CpuArchitectureLab.jsx`)**:
+  * Visuelle Hardware-Simulation von Steuerwerk (Control Unit), ALU (Addition/Subtraktion), Registern (`PC`, `AC`, `IR`, `MAR`) und 8-Byte RAM-Matrix.
+  * Schrittweiser Taktzyklus (Fetch -> Decode -> Execute -> Writeback) mit Datenbus-Leuchtpfaden, Assembler-Interpreter (`LOAD`, `ADD`, `SUB`, `STORE`, `HLT`) und Auto-Run Modus.
+* **SQL Query Optimizer & EXPLAIN ANALYZE Lab (`SqlQueryOptimizerLab.jsx`)**:
+  * Didaktischer Vergleich von Abfrageplänen: **Full Table Scan (Seq Scan)** vs. **B-Tree Index Scan / Seek** bei großen Tabellen (500k bis 1.2M Rows).
+  * Interaktives Anlegen von Indizes (`CREATE INDEX`), Gegenüberstellung von geschätzten I/O-Kosten (Cost-Units) und realer Ausführungszeit (ms).
+* **IHK Fachgespräch mit Web Speech API Spracherkennung (`IhkOralExamSimulator.jsx`)**:
+  * Echtzeit-Spracheingabe per Mikrofon für Prüflinge mit Live-Audiotranskription und automatischer Keyword-Erkennung.
+* **SuperMemo-2 (SM-2) Spaced Repetition & Streak-Freeze Gamification (`srsAlgorithm.js` / `useStore.js` / `DailyChallengeWidget.jsx` / `FlashcardsModal.jsx`)**:
+  * Adaptiver SM-2 Spaced Repetition Algorithmus mit dynamischem Ease Factor, Qualitätsbewertung (0 - 5) und Intervallberechnung.
+  * Kaufbarer Streak-Freeze Schutzschild im Tages-Challenge-Widget zur Absicherung von Lern-Streaks mit verdienten XP.
 
 #### [v12.0.0] - Global Command Palette (Ctrl+K), IHK AP1 & AP2 Simulator & Git Graph Visualizer
 * **Global Command Palette & Schnellsuche (`CommandPaletteModal.jsx`)**:

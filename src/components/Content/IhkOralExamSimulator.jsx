@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ORAL_EXAM_DATA } from '../../data/oralExamData';
-import { GraduationCap, Timer, Award, CheckCircle2, XCircle, Users, BookOpen, ChevronRight, RotateCcw, Sparkles } from 'lucide-react';
+import { GraduationCap, Timer, Award, CheckCircle2, XCircle, Users, BookOpen, ChevronRight, RotateCcw, Sparkles, Mic, MicOff, Volume2 } from 'lucide-react';
 
 export default function IhkOralExamSimulator({ onRewardXP }) {
   const [selectedRole, setSelectedRole] = useState('ae'); // 'ae' | 'fisi'
   const [selectedProject, setSelectedProject] = useState(ORAL_EXAM_DATA.ae.projects[0]);
   const [examState, setExamState] = useState('intro'); // 'intro' | 'presentation' | 'colloquium' | 'result'
+  
+  // Voice Input Speech Recognition State
+  const [isListening, setIsListening] = useState(false);
+  const [transcript, setTranscript] = useState('');
+  const recognitionRef = useRef(null);
   
   // Timer State (in Seconds)
   const [timeLeft, setTimeLeft] = useState(900); // 15 Min
@@ -21,14 +26,59 @@ export default function IhkOralExamSimulator({ onRewardXP }) {
   const questions = roleData.questions;
   const currentQuestion = questions[currentQIdx];
 
-  // Presentation Checklist items
-  const [checklist, setChecklist] = useState([
-    { id: 'c1', text: 'Einleitung & Motivation (Problemstellung im Betrieb)', checked: false },
-    { id: 'c2', text: 'Projektziel & Soll-Konzept (inkl. Nutzwertanalyse)', checked: false },
-    { id: 'c3', text: 'Hauptteil: Technische Umsetzung & Live-Demonstration/Architektur', checked: false },
-    { id: 'c4', text: 'Wirtschaftlichkeitsbetrachtung & Amortisationsdauer (ROI)', checked: false },
-    { id: 'c5', text: 'Fazit, Lessons Learned & Ausblick', checked: false }
-  ]);
+  const toggleVoiceInput = () => {
+    if (isListening) {
+      if (recognitionRef.current) recognitionRef.current.stop();
+      setIsListening(false);
+      return;
+    }
+
+    const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRec) {
+      alert('Die Web Speech API wird von diesem Browser leider nicht unterstützt. Bitte nutze Google Chrome oder Edge.');
+      return;
+    }
+
+    const recognition = new SpeechRec();
+    recognition.lang = 'de-DE';
+    recognition.continuous = true;
+    recognition.interimResults = true;
+
+    recognition.onstart = () => {
+      setIsListening(true);
+      setTranscript('');
+    };
+
+    recognition.onresult = (event) => {
+      let currentText = '';
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        currentText += event.results[i][0].transcript;
+      }
+      setTranscript(currentText);
+
+      // Check if transcript matches any option text partially
+      if (currentQuestion && !showFeedback) {
+        currentQuestion.options.forEach((opt, idx) => {
+          const keywords = opt.text.toLowerCase().split(' ').filter(w => w.length > 4);
+          const matchCount = keywords.filter(k => currentText.toLowerCase().includes(k)).length;
+          if (matchCount >= 2 && currentText.length > 15) {
+            handleSelectOption(idx);
+          }
+        });
+      }
+    };
+
+    recognition.onerror = () => {
+      setIsListening(false);
+    };
+
+    recognition.onend = () => {
+      setIsListening(false);
+    };
+
+    recognitionRef.current = recognition;
+    recognition.start();
+  };
 
   useEffect(() => {
     let interval = null;
@@ -252,17 +302,43 @@ export default function IhkOralExamSimulator({ onRewardXP }) {
         <div>
           {/* Question Card */}
           <div style={{ background: 'var(--bg-primary)', padding: '24px', borderRadius: 'var(--radius-lg)', marginBottom: '24px', border: '1px solid var(--border-color)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
-              <span style={{ fontSize: '2rem' }}>{currentQuestion.avatar}</span>
-              <div>
-                <div style={{ fontWeight: '800', color: 'var(--text-main)', fontSize: '1.05rem' }}>
-                  {currentQuestion.examiner}
-                </div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--accent-primary)', fontWeight: '700' }}>
-                  Frage {currentQIdx + 1} von {questions.length}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px', flexWrap: 'wrap', gap: '10px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <span style={{ fontSize: '2rem' }}>{currentQuestion.avatar}</span>
+                <div>
+                  <div style={{ fontWeight: '800', color: 'var(--text-main)', fontSize: '1.05rem' }}>
+                    {currentQuestion.examiner}
+                  </div>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--accent-primary)', fontWeight: '700' }}>
+                    Frage {currentQIdx + 1} von {questions.length}
+                  </div>
                 </div>
               </div>
+
+              {/* Voice Speech Recognition Toggle Button */}
+              <button
+                onClick={toggleVoiceInput}
+                className="btn btn-sm"
+                style={{
+                  background: isListening ? 'rgba(239, 68, 68, 0.2)' : 'var(--bg-secondary)',
+                  border: `1px solid ${isListening ? 'var(--accent-rose)' : 'var(--border-color)'}`,
+                  color: isListening ? 'var(--accent-rose)' : 'var(--text-main)',
+                  gap: '6px',
+                  fontWeight: 700
+                }}
+                title="Sprich deine Antwort per Mikrofon ein"
+              >
+                {isListening ? <Mic size={15} className="animate-pulse" /> : <MicOff size={15} />}
+                <span>{isListening ? 'Aufnahme aktiv... (Sprich jetzt)' : 'Mikrofon Antwort'}</span>
+              </button>
             </div>
+
+            {/* Live Audio Transcript Display */}
+            {isListening && transcript && (
+              <div style={{ background: 'rgba(99, 102, 241, 0.1)', padding: '10px 14px', borderRadius: '8px', border: '1px solid var(--accent-primary)', marginBottom: '16px', fontSize: '0.88rem', color: 'var(--text-main)' }}>
+                🎙️ <strong>Erkannte Sprache:</strong> "{transcript}"
+              </div>
+            )}
 
             <h3 style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--text-main)', lineHeight: 1.5, margin: '0 0 20px 0' }}>
               "{currentQuestion.question}"

@@ -122,6 +122,38 @@ export const useStore = create((set, get) => ({
     return triggeredConfetti;
   },
 
+  updateSrsCard: (cardId, srsResult) => {
+    set((state) => {
+      const prev = state.userState;
+      const updatedSrs = {
+        ...(prev.srsFlashcards || {}),
+        [cardId]: srsResult
+      };
+      const updatedState = { ...prev, srsFlashcards: updatedSrs };
+      saveUserState(updatedState);
+      return { userState: updatedState };
+    });
+  },
+
+  buyStreakFreeze: (costXp = 100) => {
+    let success = false;
+    set((state) => {
+      const prev = state.userState;
+      if (prev.xp >= costXp) {
+        const updatedState = {
+          ...prev,
+          xp: prev.xp - costXp,
+          streakFreezes: (prev.streakFreezes || 0) + 1
+        };
+        saveUserState(updatedState);
+        success = true;
+        return { userState: updatedState };
+      }
+      return { userState: prev };
+    });
+    return success;
+  },
+
   refreshStateFromStorage: () => {
     set({ userState: loadUserState() });
   }

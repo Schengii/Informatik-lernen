@@ -3,6 +3,28 @@ import { Search, Filter, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, C
 
 export const LAB_MODULES = [
   {
+    id: 'cpu_architecture_lab',
+    title: 'Von-Neumann CPU & Register-Simulator',
+    category: 'hardware',
+    tags: ['#Hardware', '#CPU', '#Register', '#ALU', '#Assembler'],
+    difficulty: 'Beginner',
+    desc: 'Taktzyklen (Fetch, Decode, Execute), Register (PC, AC, IR, MAR) & RAM-Matrix live simulieren.',
+    icon: Cpu,
+    badge: 'Neu',
+    color: '#3b82f6'
+  },
+  {
+    id: 'sql_optimizer_lab',
+    title: 'SQL Query Optimizer & EXPLAIN ANALYZE',
+    category: 'databases',
+    tags: ['#SQL', '#Index', '#BTree', '#ExplainPlan', '#Performance'],
+    difficulty: 'Intermediate',
+    desc: 'Vergleiche Full Table Scans vs. B-Tree Index Scans und reduziere Abfrage-Kosten.',
+    icon: Database,
+    badge: 'Neu',
+    color: '#10b981'
+  },
+  {
     id: 'git_graph_lab',
     title: 'Git Branching & Rebase Graph Visualizer',
     category: 'devops',

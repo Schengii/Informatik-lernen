@@ -91,6 +91,8 @@ const IhkOralExamSimulator = lazy(() => import('./components/Content/IhkOralExam
 const SqlJoinVisualizerLab = lazy(() => import('./components/Content/SqlJoinVisualizerLab'));
 const CampaignQuestHub = lazy(() => import('./components/Content/CampaignQuestHub'));
 const GitBranchGraphLab = lazy(() => import('./components/Content/GitBranchGraphLab'));
+const CpuArchitectureLab = lazy(() => import('./components/Content/CpuArchitectureLab'));
+const SqlQueryOptimizerLab = lazy(() => import('./components/Content/SqlQueryOptimizerLab'));
 import CommandPaletteModal from './components/Navigation/CommandPaletteModal';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -701,6 +703,20 @@ export default function App() {
         {activeTab === 'git_graph_lab' && (
           <Suspense fallback={<LabLoadingFallback />}>
             <GitBranchGraphLab onRewardXP={(xp) => awardXP(xp, 'git_graph_master')} />
+          </Suspense>
+        )}
+
+        {/* VON-NEUMANN CPU ARCHITECTURE LAB TAB */}
+        {activeTab === 'cpu_architecture_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <CpuArchitectureLab onRewardXP={(xp) => awardXP(xp, 'cpu_master')} />
+          </Suspense>
+        )}
+
+        {/* SQL QUERY OPTIMIZER LAB TAB */}
+        {activeTab === 'sql_optimizer_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <SqlQueryOptimizerLab onRewardXP={(xp) => awardXP(xp, 'sql_optimizer_master')} />
           </Suspense>
         )}
 

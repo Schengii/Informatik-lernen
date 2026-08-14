@@ -8,6 +8,8 @@ export const initialProfileState = {
   xp: 0,
   level: 1,
   streak: 1,
+  streakFreezes: 0,
+  srsFlashcards: {}, // { [cardId]: { repetitions, interval, easeFactor, dueDate } }
   completedTopics: [],
   completedGames: [],
   completedCloze: [],

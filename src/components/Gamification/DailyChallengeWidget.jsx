@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Sparkles, CheckCircle2, Flame, Award } from 'lucide-react';
+import { Sparkles, CheckCircle2, Flame, Award, Shield, ShieldCheck } from 'lucide-react';
+import { useStore } from '../../store/useStore';
 
 export default function DailyChallengeWidget({ onCompleteChallenge }) {
+  const { userState, buyStreakFreeze } = useStore();
   const [answered, setAnswered] = useState(false);
   const [selectedOpt, setSelectedOpt] = useState(null);
 
@@ -23,15 +25,38 @@ export default function DailyChallengeWidget({ onCompleteChallenge }) {
     }
   };
 
+  const handleBuyFreeze = () => {
+    if (userState.xp < 100) {
+      alert('Du benötigst mindestens 100 XP für einen Streak-Freeze Schild.');
+      return;
+    }
+    const success = buyStreakFreeze(100);
+    if (success) {
+      alert('🛡️ Streak-Freeze Schutzschild erfolgreich gekauft! Dein Lern-Streak ist nun für einen verpassten Tag geschützt.');
+    }
+  };
+
   return (
     <div className="glass-panel" style={{ padding: '24px', marginBottom: '32px', border: '2px solid var(--accent-amber)' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px', flexWrap: 'wrap', gap: '8px' }}>
         <span className="badge badge-amber" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
           <Sparkles size={14} /> Tages-Challenge (+{quest.xpReward} XP)
         </span>
-        <span style={{ fontSize: '0.85rem', color: 'var(--accent-amber)', fontWeight: 700 }}>
-          🔥 Täglicher Streak Bonus
-        </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <span style={{ fontSize: '0.85rem', color: 'var(--accent-amber)', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <Flame size={16} /> Streak: {userState.streak || 1} Tage
+          </span>
+          <button
+            onClick={handleBuyFreeze}
+            className="btn btn-secondary btn-sm"
+            style={{ fontSize: '0.75rem', padding: '4px 10px', gap: '4px', borderColor: 'var(--accent-primary)', color: 'var(--text-main)' }}
+            title="Schütze deinen Streak für 100 XP"
+          >
+            <ShieldCheck size={14} color="var(--accent-primary)" />
+            <span>Streak-Freeze ({userState.streakFreezes || 0})</span>
+            <span style={{ color: 'var(--accent-amber)', fontWeight: 800 }}>100 XP</span>
+          </button>
+        </div>
       </div>
 
       <h3 style={{ fontSize: '1.25rem', fontWeight: '800', marginBottom: '8px', color: 'var(--text-main)' }}>

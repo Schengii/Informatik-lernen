@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { FLASHCARDS_DATA } from '../../data/flashcardsData';
-import { Layers, RotateCcw, CheckCircle2, XCircle, X, Award, Sparkles } from 'lucide-react';
+import { Layers, RotateCcw, CheckCircle2, XCircle, X, Award, Sparkles, Brain, Clock } from 'lucide-react';
+import { useStore } from '../../store/useStore';
+import { calculateSM2 } from '../../utils/srsAlgorithm';
 
 export default function FlashcardsModal({ isOpen, onClose, onRewardXP }) {
+  const { userState, updateSrsCard } = useStore();
   const [cardIdx, setCardIdx] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [completedCount, setCompletedCount] = useState(0);
@@ -10,14 +13,29 @@ export default function FlashcardsModal({ isOpen, onClose, onRewardXP }) {
   if (!isOpen) return null;
 
   const currentCard = FLASHCARDS_DATA[cardIdx];
+  const cardSrs = (userState.srsFlashcards && userState.srsFlashcards[currentCard.id]) || { repetitions: 0, interval: 1, easeFactor: 2.5 };
+
+  const handleQualityAnswer = (quality) => {
+    setIsFlipped(false);
+    const srsResult = calculateSM2({
+      quality,
+      repetitions: cardSrs.repetitions,
+      interval: cardSrs.interval,
+      easeFactor: cardSrs.easeFactor
+    });
+
+    updateSrsCard(currentCard.id, srsResult);
+
+    if (quality >= 3) {
+      setCompletedCount((prev) => prev + 1);
+      if (onRewardXP) onRewardXP(quality === 5 ? 20 : 15);
+    }
+
+    setCardIdx((prev) => (prev + 1) % FLASHCARDS_DATA.length);
+  };
 
   const handleNext = (known) => {
-    setIsFlipped(false);
-    if (known) {
-      setCompletedCount((prev) => prev + 1);
-      onRewardXP(15);
-    }
-    setCardIdx((prev) => (prev + 1) % FLASHCARDS_DATA.length);
+    handleQualityAnswer(known ? 4 : 1);
   };
 
   return (
@@ -112,30 +130,34 @@ export default function FlashcardsModal({ isOpen, onClose, onRewardXP }) {
 
         {/* Rating Buttons */}
         {isFlipped ? (
-          <div style={{ display: 'flex', gap: '16px', width: '100%' }}>
+          <div style={{ display: 'flex', gap: '10px', width: '100%', flexWrap: 'wrap' }}>
             <button
               className="btn btn-secondary"
-              onClick={() => handleNext(false)}
-              style={{ flex: 1, borderColor: 'var(--accent-rose)', color: 'var(--accent-rose)', minHeight: '48px' }}
+              onClick={() => handleQualityAnswer(1)}
+              style={{ flex: 1, borderColor: 'var(--accent-rose)', color: 'var(--accent-rose)', minHeight: '44px', fontSize: '0.85rem' }}
             >
-              <XCircle size={18} /> Nicht Gewusst
+              <XCircle size={16} /> Wiederholen (1 Tag)
+            </button>
+            <button
+              className="btn btn-secondary"
+              onClick={() => handleQualityAnswer(3)}
+              style={{ flex: 1, borderColor: 'var(--accent-amber)', color: 'var(--accent-amber)', minHeight: '44px', fontSize: '0.85rem' }}
+            >
+              <Brain size={16} /> Schwer
             </button>
             <button
               className="btn btn-success"
-              onClick={() => handleNext(true)}
-              style={{ flex: 1, minHeight: '48px' }}
+              onClick={() => handleQualityAnswer(5)}
+              style={{ flex: 1, minHeight: '44px', fontSize: '0.85rem' }}
             >
-              <CheckCircle2 size={18} /> Gewusst! (+15 XP)
+              <CheckCircle2 size={16} /> Perfekt Gewusst (+20 XP)
             </button>
           </div>
         ) : (
-          <button
-            className="btn btn-primary"
-            onClick={() => setIsFlipped(true)}
-            style={{ width: '100%', minHeight: '48px' }}
-          >
-            <RotateCcw size={18} /> Karte Umdrehen
-          </button>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-muted)', fontSize: '0.88rem' }}>
+            <Clock size={15} />
+            <span>Aktuelles Wiederholungs-Intervall: {cardSrs.interval || 1} Tage (Faktor {cardSrs.easeFactor || 2.5})</span>
+          </div>
         )}
       </div>
     </div>
