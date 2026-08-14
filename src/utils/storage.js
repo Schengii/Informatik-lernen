@@ -3,7 +3,7 @@
 const STORAGE_KEY = 'informatik_game_state_v1';
 
 export const initialProfileState = {
-  role: null, // 'anfaenger' | 'azubi' | 'junior' | 'pro'
+  role: 'anfaenger', // 'anfaenger' | 'azubi' | 'junior' | 'pro'
   userName: 'Dev Explorer',
   xp: 0,
   level: 1,

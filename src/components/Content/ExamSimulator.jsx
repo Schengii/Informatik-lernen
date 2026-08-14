@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { EXAM_QUESTIONS, IHK_EXAM_MODES, getIhkGrade } from '../../data/examData';
 import { Timer, CheckCircle2, XCircle, RefreshCw, Play, Pause, FileCheck2 } from 'lucide-react';
 

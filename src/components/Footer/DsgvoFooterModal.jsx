@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Shield, Lock, FileText, CheckCircle2, Heart, ExternalLink, X } from 'lucide-react';
+import { Shield, FileText, ExternalLink, X } from 'lucide-react';
 
 export default function DsgvoFooterModal() {
   const [activeModal, setActiveModal] = useState(null); // 'datenschutz' | 'impressum' | 'dsgvo' | null

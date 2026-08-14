@@ -81,48 +81,71 @@
 
 /* High Contrast Mode (WCAG AAA) */
 body.high-contrast-mode {
-  --bg-primary: #ffffff !important;
-  --bg-secondary: #ffffff !important;
-  --bg-card: #ffffff !important;
-  --text-main: #000000 !important;
-  --text-muted: #000000 !important;
-  --text-dim: #111111 !important;
-  --border-color: #000000 !important;
-  --border-highlight: #000000 !important;
-  --accent-primary: #000000 !important;
+  --bg-primary: #000000 !important;
+  --bg-secondary: #000000 !important;
+  --bg-tertiary: #111111 !important;
+  --bg-card: #000000 !important;
+  --bg-card-hover: #111111 !important;
+  --text-main: #ffffff !important;
+  --text-muted: #ffff00 !important; /* High Visibility Yellow */
+  --text-dim: #ffffff !important;
+  --border-color: #ffffff !important;
+  --border-highlight: #00ffff !important; /* Cyan highlight */
+  --accent-primary: #00ffff !important;
+  --accent-teal: #00ffff !important;
+  --accent-amber: #ffff00 !important;
+  --accent-purple: #ff00ff !important;
+  --accent-emerald: #00ff00 !important;
+  --accent-rose: #ff5555 !important;
 }
 
 /* Dyslexia Mode (Lese-Rechtschreib-Hilfe) */
 body.dyslexia-mode {
   font-family: var(--font-accessible) !important;
-  letter-spacing: 0.05em !important;
-  word-spacing: 0.1em !important;
-  line-height: 1.85 !important;
+  letter-spacing: 0.06em !important;
+  word-spacing: 0.15em !important;
+  line-height: 1.9 !important;
 }
 
 body.dyslexia-mode h1,
 body.dyslexia-mode h2,
 body.dyslexia-mode h3,
+body.dyslexia-mode h4,
 body.dyslexia-mode p,
+body.dyslexia-mode span,
 body.dyslexia-mode button,
-body.dyslexia-mode input {
+body.dyslexia-mode input,
+body.dyslexia-mode label {
   font-family: var(--font-accessible) !important;
-  letter-spacing: 0.05em !important;
+  letter-spacing: 0.06em !important;
+  word-spacing: 0.12em !important;
 }
 
-/* Colorblind Mode (Rot-Grün-Schwäche Hilfssystem) */
+/* Colorblind Mode (Rot-Grün-Schwäche Hilfssystem mit geometrischer Unterscheidung) */
 body.colorblind-mode .badge-green,
-body.colorblind-mode .btn-success {
-  background: #0284c7 !important; /* High contrast Blue instead of pure green */
+body.colorblind-mode .btn-success,
+body.colorblind-mode [class*="success"] {
+  background: #0284c7 !important; /* High contrast Sky Blue */
   color: #ffffff !important;
   border-color: #0369a1 !important;
 }
+body.colorblind-mode .badge-green::before {
+  content: "✓ ";
+  font-weight: 900;
+}
 
 body.colorblind-mode .badge-rose,
-body.colorblind-mode .badge-red {
-  background: #d97706 !important; /* Amber/Orange instead of pure red */
+body.colorblind-mode .badge-red,
+body.colorblind-mode [class*="danger"],
+body.colorblind-mode [class*="error"] {
+  background: #d97706 !important; /* Amber / Orange instead of ambiguous red */
   color: #ffffff !important;
   border-color: #b45309 !important;
+}
+body.colorblind-mode .badge-red::before,
+body.colorblind-mode .badge-rose::before {
+  content: "✗ ";
+  font-weight: 900;
 }
 
 /* Global Base */
@@ -130,6 +153,7 @@ body.colorblind-mode .badge-red {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  max-width: 100%;
 }
 
 *:focus-visible {
@@ -358,6 +382,15 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
   .desktop-only {
+    display: none !important;
+  }
+  body {
+    padding-bottom: 70px; /* Prevent fixed MobileNav from overlapping footer */
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-only {
     display: none !important;
   }
 }

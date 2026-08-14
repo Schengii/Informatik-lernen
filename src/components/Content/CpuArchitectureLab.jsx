@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Cpu, Play, Pause, RotateCcw, ArrowRight, Zap, Database, Activity, Sparkles, Layers, Terminal } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Cpu, Play, Pause, RotateCcw, Zap, Database, Terminal } from 'lucide-react';
 
 export default function CpuArchitectureLab({ onRewardXP }) {
   // RAM Memory: 8 addresses
@@ -21,7 +21,7 @@ export default function CpuArchitectureLab({ onRewardXP }) {
   const [mar, setMar] = useState('0x00'); // Memory Address Register
   const [phase, setPhase] = useState('FETCH'); // 'FETCH' | 'DECODE' | 'EXECUTE' | 'HALTED'
   const [activeBus, setActiveBus] = useState(null); // 'address' | 'data' | 'control' | null
-  const [clockSpeed, setClockSpeed] = useState(1000);
+  const clockSpeed = 1000;
   const [isRunning, setIsRunning] = useState(false);
   const [logs, setLogs] = useState(['Von-Neumann CPU initialisiert. Klicke auf "Takt-Schritt (Clock Step)" oder "Auto-Run".']);
   const [solved, setSolved] = useState(false);

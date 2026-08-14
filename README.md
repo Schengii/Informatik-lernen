@@ -72,7 +72,6 @@ Informatik-lernen/
 └── src/
     ├── App.css
     ├── App.jsx
-    ├── index.css
     ├── main.jsx
     ├── components/
     │   ├── Content/
@@ -227,6 +226,29 @@ npm run lint
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
 ### Versionsverlauf
+
+#### [v13.2.0] - Universal Quality Audit, WCAG AAA Accessibility, Colorblind & Dyslexia Perfection
+* **Barrierefreiheit & Inklusion (WCAG AAA / Rot-Grün / Dyslexie)**:
+  * Erweiterung des Rot-Grün-Schwäche-Modus (`.colorblind-mode`): Automatische geometrische Voransteller (`✓ ` bei Erfolg, `✗ ` bei Fehler/Gefahr) und Umstellung ambivalenter Farben auf blaue/orange Kontrasttöne.
+  * Dyslexie-Modus (`.dyslexia-mode`): Spezialschriftart *Atkinson Hyperlegible* mit optimiertem Zeichenabstand (`0.06em`), Wortabstand (`0.15em`) und Zeilenhöhe (`1.9`) für ermüdungsfreies Lesen.
+  * High-Contrast-Modus (`.high-contrast-mode`): Sattes Schwarz/Weiß mit Cyan- und Gelb-Akzenten für maximale Sehschärfe.
+* **Responsive Layout & Overflow-Schutz**:
+  * Vollständige Vermeidung horizontaler Scrollbalken (`max-width: 100%`, `overflow-x: hidden`, `word-break: break-word`).
+  * Automatisches `padding-bottom: 70px` auf Mobilgeräten zur Vermeidung von Überlappungen mit der festen `MobileNav`.
+* **Projektbereinigung & Dead-Code-Entfernung**:
+  * Entfernung der redundanten, ungenutzten Datei `src/index.css`.
+  * Bereinigung unbenutzter Imports & React-Hook-Warnungen in `CpuArchitectureLab.jsx`, `ExamSimulator.jsx`, `DsgvoFooterModal.jsx` und `MobileNav.jsx`.
+  * Alle 12 Unit-Tests und der Vite-Production-Build laufen 100% fehlerfrei durch.
+
+#### [v13.1.0] - Modern Header Redesign & Responsive Dropdown Navigation
+* **Strukturierte Dropdown-Menü-Navigation (`Navbar.jsx`)**:
+  * Vollständige Bereinigung der zuvor unübersichtlichen Button-Flut im Header.
+  * 4 sauber gruppierte Dropdown-Menüs:
+    * **🧪 Labs & Tools:** Schnellzugriff auf alle 25+ Simulatoren (Von-Neumann CPU, SQL Optimizer, Git Graph, Docker, K8s).
+    * **🎓 IHK Prüfung:** Abschlussprüfung (AP1/AP2), Mündliches Fachgespräch, Lernfelder 1-12b, Podcast & Quiz Arena.
+    * **📚 Kurse & Wissen:** Einsteiger-Kurs, Story-Kampagne, Sprachen-Academy, Web Components, AI Masterclass & Architektur.
+    * **🔧 Tools:** IT-Karteikarten (SM-2), IT-Lexikon, Vokabeltrainer, Live Deployment, Backup & Sprache.
+  * Perfekt abgestimmte Farbkontraste, Glassmorphism-Dropdown-Panels, Klick-Outside-Handling und flüssige Hover-Animationen.
 
 #### [v13.0.0] - Von-Neumann CPU Simulator, SQL Query Optimizer, IHK Voice Recognition & SM-2 Spaced Repetition
 * **Von-Neumann CPU & Register-Simulator (`CpuArchitectureLab.jsx`)**:

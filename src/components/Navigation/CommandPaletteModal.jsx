@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Search, Terminal, BookOpen, Sparkles, Trophy, Cpu, Code2, 
-  Layers, Award, FileText, ArrowRight, X, Command
+  Layers, Award, FileText, ArrowRight, X, Command, Database
 } from 'lucide-react';
 import { TOPICS } from '../../data/topicsData';
 import { GLOSSARY_TERMS } from '../../data/glossaryData';

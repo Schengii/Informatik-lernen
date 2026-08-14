@@ -14,6 +14,7 @@ export default function MobileNav({ activeTab, setActiveTab }) {
 
   return (
     <nav
+      className="mobile-only"
       style={{
         position: 'fixed',
         bottom: 0,
