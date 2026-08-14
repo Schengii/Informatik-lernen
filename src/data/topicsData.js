@@ -480,5 +480,136 @@ console.log(match); // true`,
         explanation: 'Prepared Statements trennen den SQL-Befehl von den Nutzereingaben und verhindern das Einschleusen von Schadcode.'
       }
     ]
+  },
+  {
+    id: 'rest_graphql_apis',
+    title: 'RESTful APIs vs. GraphQL vs. gRPC',
+    category: 'Web & APIs',
+    difficultyLevel: 'Junior / Professional',
+    targetRoles: ['azubi', 'junior', 'pro'],
+    icon: '⚡',
+    readTime: '12 Min',
+    summary: 'Architekturstile für moderne Webschnittstellen: HTTP Verben (GET, POST, PUT, DELETE), Statuscodes (200, 201, 400, 401, 404, 500), Over- & Underfetching sowie Protocol Buffers.',
+    content: `
+### 1. REST (Representational State Transfer)
+REST ist der bewährte De-facto-Standard für HTTP-Schnittstellen. Kernprinzipien sind Zustandslosigkeit (Statelessness) und einheitliche Ressourcen-URIs:
+
+| HTTP-Verb | SQL-Pendant | CRUD-Aktion | Typischer Statuscode |
+| :--- | :--- | :--- | :--- |
+| **GET** | SELECT | Read (Lesen) | 200 OK |
+| **POST** | INSERT | Create (Erstellen) | 201 Created |
+| **PUT / PATCH** | UPDATE | Update (Aktualisieren) | 200 OK / 204 No Content |
+| **DELETE** | DELETE | Delete (Löschen) | 200 OK / 204 No Content |
+
+### 2. HTTP-Statuscode-Gruppen
+- **1xx (Informational):** 101 Switching Protocols (WebSockets).
+- **2xx (Success):** 200 OK, 201 Created, 204 No Content.
+- **3xx (Redirection):** 301 Moved Permanently, 304 Not Modified.
+- **4xx (Client Errors):** 400 Bad Request, 401 Unauthorized (Auth fehlt), 403 Forbidden (Rechte fehlen), 404 Not Found, 429 Too Many Requests.
+- **5xx (Server Errors):** 500 Internal Server Error, 502 Bad Gateway, 503 Service Unavailable, 504 Gateway Timeout.
+
+### 3. GraphQL (Exakte Datenabfragen)
+Löst die Probleme von **Overfetching** (zu viele unnötige Daten) und **Underfetching** (mehrere Anfragen nötig):
+\`\`\`graphql
+query GetUserProfile {
+  user(id: "42") {
+    name
+    email
+    orders(limit: 3) {
+      id
+      totalPrice
+    }
+  }
+}
+\`\`\`
+`,
+    codeSnippet: `// Beispiel: Robuster REST-Client mit Fehlerbehandlung in JavaScript
+async function fetchUserOrders(userId) {
+  try {
+    const response = await fetch(\`https://api.example.com/v1/users/\${userId}/orders\`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer YOUR_JWT_TOKEN'
+      }
+    });
+
+    if (!response.ok) {
+      if (response.status === 404) throw new Error('Nutzer nicht gefunden');
+      if (response.status === 401) throw new Error('Nicht authentifiziert');
+      throw new Error(\`HTTP-Fehler: \${response.status}\`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('API-Abruf fehlgeschlagen:', error.message);
+    throw error;
+  }
+}`,
+    quiz: [
+      {
+        question: 'Welcher HTTP-Statuscode bedeutet, dass der Nutzer nicht authentifiziert ist?',
+        options: ['403 Forbidden', '401 Unauthorized', '404 Not Found', '502 Bad Gateway'],
+        correct: 1,
+        explanation: '401 Unauthorized bedeutet, dass gültige Authentifizierungs-Credentials (z.B. Bearer Token) fehlen oder abgelaufen sind. 403 bedeutet, dass die Identität bekannt ist, aber die Rechte nicht ausreichen.'
+      }
+    ]
+  },
+  {
+    id: 'git_workflows_mastery',
+    title: 'Git Branching & Rebase Strategien',
+    category: 'Tools & DevOps',
+    difficultyLevel: 'Junior / Professional',
+    targetRoles: ['azubi', 'junior', 'pro'],
+    icon: '🌿',
+    readTime: '10 Min',
+    summary: 'Git Merge vs. Git Rebase, Cherry-Pick, Stashing, Conventional Commits und GitFlow / Trunk-Based-Development.',
+    content: `
+### 1. Merge vs. Rebase
+- **\`git merge\`**: Erstellt einen expliziten Merge-Commit. Die Historie bleibt vollständig und verzweigt dokumentiert.
+- **\`git rebase\`**: Setzt die eigenen Commits linear auf die Spitze des Ziel-Branches auf. Ergibt eine saubere, lineare Historie.
+
+### 2. Wichtige Power-Befehle
+\`\`\`bash
+# Änderungen temporär zwischenspeichern
+git stash
+git stash pop
+
+# Einzelnen Commit gezielt in den aktuellen Branch übernehmen
+git cherry-pick <commit-hash>
+
+# Interaktiver Rebase (Commits zusammenfassen / squashen)
+git rebase -i HEAD~3
+\`\`\`
+
+### 3. Conventional Commits Standard
+- \`feat:\` Neues Feature (\`feat: add dark mode toggle\`)
+- \`fix:\` Bugfix (\`fix: resolve memory leak in websocket lab\`)
+- \`docs:\` Dokumentationsänderung (\`docs: update README with v13.0.0\`)
+- \`refactor:\` Code-Umstrukturierung ohne Funktionsänderung
+`,
+    codeSnippet: `// Git Hooks Automation: Beispiel pre-commit Hook
+#!/bin/sh
+echo "🔍 Führe Linter und Unit-Tests vor dem Commit aus..."
+npm run lint && npm test
+if [ $? -ne 0 ]; then
+  echo "❌ Fehler gefunden! Commit abgebrochen."
+  exit 1
+fi
+echo "✅ Alle Tests bestanden!"`,
+    quiz: [
+      {
+        question: 'Was bewirkt der Befehl "git cherry-pick <commit-hash>"?',
+        options: [
+          'Löscht den ausgewählten Commit unwiderruflich',
+          'Wendet die Änderungen eines spezifischen Commits auf den aktuellen Branch an',
+          'Erstellt einen neuen Branch mit dem Namen des Commits',
+          'Setzt das gesamte Repository auf den Anfang zurück'
+        ],
+        correct: 1,
+        explanation: 'git cherry-pick ermöglicht das selektive Übernehmen einzelner Commits aus anderen Branches.'
+      }
+    ]
   }
 ];

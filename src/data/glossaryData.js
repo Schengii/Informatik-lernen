@@ -124,5 +124,41 @@ export const GLOSSARY_TERMS = [
     simpleExplanation: 'Ein System zur automatischen Verwaltung von hunderten Docker-Containern (Orchestrierung).',
     expertExplanation: 'Open-Source Orchestrierungsplattform zur automatisierten Skalierung, Bereitstellung und Verwaltung von containerisierten Anwendungen.',
     example: 'kubectl apply -f deployment.yaml'
+  },
+  {
+    id: 'von_neumann',
+    term: 'Von-Neumann-Architektur',
+    category: 'Hardware & Rechnerarchitektur',
+    difficulty: 'Azubi / IHK',
+    simpleExplanation: 'Der Grundaufbau fast aller modernen Computer: Steuerwerk, Rechenwerk (ALU), Speicher (RAM) und Ein-/Ausgabe teilen sich denselben Bus.',
+    expertExplanation: 'Rechnerarchitektur-Referenzmodell von John von Neumann (1945), bei dem Programmcode und Nutzdaten im selben gemeinsamen Speicher adressiert werden (Von-Neumann-Flaschenhals).',
+    example: 'Taktzyklus: Fetch (Befehl holen), Decode (Befehl entschlüsseln), Execute (ALU-Berechnung).'
+  },
+  {
+    id: 'btree_index',
+    term: 'B-Tree Index (Datenbanken)',
+    category: 'Datenbanken',
+    difficulty: 'Senior / Expert',
+    simpleExplanation: 'Ein Inhaltsverzeichnis in einem dicken Buch, das der Datenbank hilft, Datensätze in Millisekunden statt Minuten zu finden.',
+    expertExplanation: 'Selbstbalancierender Suchbaum (Balanced Tree), der Such-, Einfüge- und Löschoperationen in logarithmischer Zeit O(log n) garantiert.',
+    example: 'CREATE INDEX idx_user_email ON users(email);'
+  },
+  {
+    id: 'sm2_spaced_repetition',
+    term: 'SuperMemo-2 (SM-2 Algorithmus)',
+    category: 'Gamification & Psychologie',
+    difficulty: 'Junior / Professional',
+    simpleExplanation: 'Ein wissenschaftlicher Lern-Algorithmus, der berechnet, wann du einen Begriff kurz vor dem Vergessen wiederholen musst.',
+    expertExplanation: 'Adaptiver Spaced-Repetition-Algorithmus von Piotr Wozniak basierend auf Wiederholungsintervallen und dynamischem Schwierigkeitsfaktor (Ease Factor EF >= 1.3).',
+    example: 'Karten mit hoher Bewertung (5) werden erst in Wochen wieder vorgelegt, schwere Karten (1) am nächsten Tag.'
+  },
+  {
+    id: 'zero_trust',
+    term: 'Zero Trust Security Model',
+    category: 'Security',
+    difficulty: 'Senior / Expert',
+    simpleExplanation: 'Sicherheits-Grundsatz: Traue niemandem blind – weder außerhalb noch innerhalb des Firmennetzwerks. Jede einzelne Anfrage muss sich ausweisen.',
+    expertExplanation: 'Sicherheitsarchitektur nach dem Paradigma "Never Trust, Always Verify" mit Prinzipien wie Least Privilege Access, kontinuierlicher Authentifizierung (MFA) und Mikrosegmentierung.',
+    example: 'Jeder API-Call erfordert ein gültiges, kurzlebiges JWT-Token mit rollenbasierten Scopes.'
   }
 ];

@@ -227,6 +227,16 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v13.3.0] - Modern Footer Redesign, Advanced Knowledge Base & Unified Header Polish
+* **Moderner 4-Spaltiger Footer & FAQ (`DsgvoFooterModal.jsx`)**:
+  * Vollständig neu gestalteter Footerbereich mit Markendarstellung, Schnellzugriff auf Kurse & Simulatoren, DSGVO-Konformitätshinweis, Quellverweisen (IHK, W3Schools, MDN), interaktivem FAQ-Modal und GitHub-Repository-Link.
+* **Erweiterung des Fachwissens & Lerninhalte**:
+  * **Neue Fachthemen (`topicsData.js`)**: Detaillierte Module zu *RESTful APIs vs. GraphQL vs. gRPC* (HTTP-Verben, Statuscodes 1xx-5xx, Over-/Underfetching) und *Git Workflows & Rebase Mastery* (Cherry-Pick, Stashing, Conventional Commits) inklusive Code-Beispielen und Quizzes.
+  * **Erweitertes IT-Glossar (`glossaryData.js`)**: Neue Definitionen für *Von-Neumann-Architektur*, *B-Tree Indizes*, *SuperMemo-2 (SM-2)* und *Zero Trust Security*.
+  * **Erweiterte Karteikarten (`flashcardsData.js`)**: Neue prüfungsrelevante IHK-Karten zu Taktzyklen, Index Scans, Auth vs. Authz, Docker Blueprints und RTO/RPO-Kennzahlen.
+* **Header Polish & Dropdown UX (`Navbar.jsx`)**:
+  * Sub-Labels, Kategorien-Badges (`Neu`, `Top`, `SQL`, `DevOps`), optimierte Menübreiten und ESC-Key-Schließlogik.
+
 #### [v13.2.0] - Universal Quality Audit, WCAG AAA Accessibility, Colorblind & Dyslexia Perfection
 * **Barrierefreiheit & Inklusion (WCAG AAA / Rot-Grün / Dyslexie)**:
   * Erweiterung des Rot-Grün-Schwäche-Modus (`.colorblind-mode`): Automatische geometrische Voransteller (`✓ ` bei Erfolg, `✗ ` bei Fehler/Gefahr) und Umstellung ambivalenter Farben auf blaue/orange Kontrasttöne.

@@ -33,5 +33,40 @@ export const FLASHCARDS_DATA = [
     difficulty: 'Junior / Professional',
     front: 'Was ist der Unterschied zwischen `==` und `===` in JavaScript?',
     back: '`==` vergleicht nur die Werte und führt eine implizite Typkonvertierung durch. `===` vergleicht sowohl Wert als auch Datentyp (strikt).'
+  },
+  {
+    id: 6,
+    category: 'Rechnerarchitektur',
+    difficulty: 'Azubi / IHK',
+    front: 'Welche vier Phasen durchläuft der Von-Neumann-Befehlszyklus (Taktzyklus)?',
+    back: '1. FETCH (Befehl aus dem RAM ins IR laden)\n2. DECODE (Steuerwerk decodiert den Opcode)\n3. EXECUTE (ALU führt die Rechenoperation aus)\n4. WRITEBACK (Ergebnis im Akkumulator oder RAM speichern).'
+  },
+  {
+    id: 7,
+    category: 'Datenbanken',
+    difficulty: 'Senior / Expert',
+    front: 'Wann wählt der SQL Query Optimizer einen Index Scan statt eines Full Table Scans?',
+    back: 'Wenn die Abfrage hochselektiv ist (nur ein kleiner Prozentsatz der Zeilen wird abgerufen, z. B. < 5-10%) und ein passender B-Tree Index auf den gefilterten Spalten (WHERE / JOIN) existiert.'
+  },
+  {
+    id: 8,
+    category: 'Security & Auth',
+    difficulty: 'Junior / Professional',
+    front: 'Was ist der Unterschied zwischen Authentifizierung und Autorisierung?',
+    back: 'Authentifizierung = "Wer bist du?" (Identitätsprüfung via Passwort, MFA, JWT).\nAutorisierung = "Was darfst du tun?" (Rechteprüfung via Rollen/Permissions/RBAC).'
+  },
+  {
+    id: 9,
+    category: 'DevOps & Cloud',
+    difficulty: 'Senior / Expert',
+    front: 'Was ist der Unterschied zwischen einem Docker Image und einem Docker Container?',
+    back: 'Ein Image ist die unveränderliche, schreibgeschützte Vorlage (Blueprint). Ein Container ist die laufende, isolierte Instanz dieses Images mit einer beschreibbaren obersten Ebene.'
+  },
+  {
+    id: 10,
+    category: 'IHK Prüfungswissen',
+    difficulty: 'Azubi / IHK',
+    front: 'Was bedeuten die Kennzahlen RTO (Recovery Time Objective) und RPO (Recovery Point Objective)?',
+    back: 'RTO = Maximale Ausfallzeit (Wie schnell muss das System nach einem Crash wieder laufen?).\nRPO = Maximal tolerierbarer Datenverlust gemessen in Zeit (Wie alt darf das letzte Backup sein?).'
   }
 ];
