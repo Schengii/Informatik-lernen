@@ -168,6 +168,51 @@ export const IHK_LERNFELDER = [
     examTip: 'Vergleich der VPN-Protokolle IPsec (Schicht 3) und OpenVPN/SSL (Schicht 7).'
   },
   {
+    id: 'lf10a',
+    number: 'Lernfeld 10a (FIAE)',
+    year: '3. Lehrjahr',
+    title: 'Benutzerschnittstellen gestalten und anpassen (UI/UX & Frontend)',
+    summary: 'Mensch-Maschine-Interaktion (HMI), Usability-Normen (ISO 9241-110, DIN EN 301 549 Barrierefreiheit / WCAG AAA), Web-Technologien, Responsive Grid Systeme & State Management.',
+    topics: [
+      'ISO 9241-110 Grundsätze der Dialoggestaltung: Aufgabenangemessenheit, Selbstbeschreibungsfähigkeit, Erwartungskonformität, Fehlertoleranz',
+      'Barrierefreiheit nach WCAG 2.1 (AAA) & BITV 2.0 (Kontrastverhältnisse, Screenreader-Kompatibilität, ARIA)',
+      'Frontend-Architekturen: SPA (Single Page Applications), SSR (Server-Side Rendering), Hydration & Micro-Frontends',
+      'Modernes CSS: CSS Grid, Flexbox, Custom Properties, Responsive Breakpoints & Container Queries',
+      'State Management: Unidirektionaler Datenfluss, Immutability & Reaktivität'
+    ],
+    examTip: 'Die 7 Dialoggrundsätze der ISO 9241-110 und Kontrastanforderungen der WCAG sind feste IHK-Prüfungsfragen.'
+  },
+  {
+    id: 'lf11a',
+    number: 'Lernfeld 11a (FIAE)',
+    year: '3. Lehrjahr',
+    title: 'Ganzheitliche Softwarearchitekturen & Sicherheitskonzepte entwickeln',
+    summary: 'Design Patterns (GoF: Singleton, Factory, Strategy, Observer), Clean Architecture, Domain-Driven Design (DDD), OWASP Top 10 Defense, TDD & CI/CD Pipelines.',
+    topics: [
+      'Entwurfsmuster (Design Patterns): Creational (Factory, Singleton), Structural (Adapter, Decorator), Behavioral (Observer, Strategy)',
+      'Architekturmuster: Clean Architecture (Onion Architecture), Ports & Adapters (Hexagonal Architecture), Event-Driven Architecture',
+      'Domain-Driven Design (DDD): Entities, Value Objects, Aggregates, Repositories, Bounded Contexts',
+      'Sichere Softwareentwicklung: OWASP Top 10 (XSS, SQLi, CSRF, Insecure Deserialization), Secure Coding Guidelines',
+      'Test-Driven Development (TDD): Red-Green-Refactor Zyklus, Unit-, Integrations- & End-to-End Tests (Cypress/Playwright)'
+    ],
+    examTip: 'Observer Pattern, Strategy Pattern und Clean Code Prinzipien (SOLID) kommen regelmäßig in AP2 Programmieraufgaben vor.'
+  },
+  {
+    id: 'lf12a',
+    number: 'Lernfeld 12a (FIAE)',
+    year: '3. Lehrjahr',
+    title: 'Kundenspezifische Anwendungsentwicklung & IHK-Abschlussprojekt',
+    summary: 'Vollständige Durchführung des 80-Stunden-Entwicklerprojekts (FIAE): Lasten-/Pflichtenheft, Datenmodellierung (ERD/UML), Implementierung, Testprotokoll, Code-Review & Wirtschaftlichkeitsanalyse.',
+    topics: [
+      'IHK Projektantrag (FIAE - 80 Stunden): Problemstellung, Zielformulierung, Meilenstein- & Ressourcenplanung',
+      'Wirtschaftlichkeitsanalyse: Amortisationsrechnung (statisch/dynamisch), Deckungsbeitrag, Nutzwertanalyse, TCO (Total Cost of Ownership)',
+      'Entwicklungsdokumentation: UML-Klassendiagramme, Sequenzdiagramme, Datenbank-ERD, API-Dokumentation (OpenAPI/Swagger)',
+      'Testdokumentation: Testfälle mit Eingabe-, Soll- & Ist-Werten, Code-Coverage Metriken',
+      'IHK Fachgespräch & Projektpräsentation: Storytelling, Live-Demo Vorbereitung & Verteidigung technischer Architekturentscheidungen'
+    ],
+    examTip: 'Wirtschaftlichkeitsberechnung (z. B. "Wann amortisiert sich die neue Software durch Zeiteinsparung?") und Nutzwertanalyse genauestens begründen.'
+  },
+  {
     id: 'lf12b',
     number: 'Lernfeld 12b (FISI)',
     year: '3. Lehrjahr',

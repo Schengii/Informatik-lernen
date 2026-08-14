@@ -43,5 +43,50 @@ export const VOCABULARY_LIST = [
     difficulty: 'Junior & Senior',
     definition: 'Automatisierte Pipelines zum Testen, Bauen und Veröffentlichen von Software-Updates.',
     example: 'GitHub Actions führt bei jedem Git Push automatisch Unit-Tests aus.'
+  },
+  {
+    id: 6,
+    term: 'Idempotency',
+    german: 'Idempotenz (Wiederholungsstabilität)',
+    category: 'Web & APIs',
+    difficulty: 'Senior / Expert',
+    definition: 'Eigenschaft einer Operation, bei mehrfacher Ausführung mit denselben Parametern stets denselben Systemzustand zu erzeugen (z. B. HTTP GET, PUT, DELETE).',
+    example: 'Wiederholte Bezahl-Requests mit demselben Idempotency-Key verhindern doppelte Kreditkarten-Abbuchungen.'
+  },
+  {
+    id: 7,
+    term: 'Infrastructure as Code (IaC)',
+    german: 'Infrastruktur als Code',
+    category: 'DevOps & Cloud',
+    difficulty: 'Azubi & Senior',
+    definition: 'Verwaltung und Bereitstellung von Rechenzentren, Netzwerken und VMs über maschinenlesbare Definitionsdateien (z. B. Terraform, Ansible) statt manueller Konfiguration.',
+    example: 'Terraform ermöglicht das versionierte Ausrollen von Cloud-Infrastruktur per git push.'
+  },
+  {
+    id: 8,
+    term: 'Event Sourcing & CQRS',
+    german: 'Ereignisbasierte Zustandsspeicherung & Befehls-/Abfrage-Trennung',
+    category: 'Cloud & Architecture',
+    difficulty: 'Senior / Expert',
+    definition: 'CQRS trennt Lese- (Query) und Schreibmodelle (Command). Event Sourcing speichert Zustandsänderungen als lückenlose Kette unveränderlicher Ereignisse.',
+    example: 'Bankkonten nutzen Event Sourcing: Der Kontostand ist die Summe aller historischen Überweisungs-Events.'
+  },
+  {
+    id: 9,
+    term: 'Race Condition & Deadlock',
+    german: 'Wettlaufsituation & Verklemmung',
+    category: 'Systemprogrammierung',
+    difficulty: 'Senior / Expert',
+    definition: 'Race Condition: Unerwartetes Verhalten durch unkontrollierten gleichzeitigen Datenzugriff. Deadlock: Zwei Threads blockieren sich gegenseitig beim Warten auf Ressourcen.',
+    example: 'Mutex-Locks und Semaphoren verhindern Race Conditions in Multithreading-Programmen.'
+  },
+  {
+    id: 10,
+    term: 'Model-View-Controller (MVC)',
+    german: 'Architekturmuster zur Trennung von Daten, Logik & Präsentation',
+    category: 'Software Engineering',
+    difficulty: 'Azubi / IHK',
+    definition: 'Klassisches Entwurfsmuster: Model verwaltet Daten, View rendert die Benutzeroberfläche, Controller vermittelt Eingaben.',
+    example: 'Spring Boot, ASP.NET MVC und Django setzen auf das MVC-Muster.'
   }
 ];

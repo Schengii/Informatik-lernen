@@ -227,6 +227,30 @@ npm run lint
 
 ### Versionsverlauf
 
+#### [v14.0.0] - Massive Educational Content & Technical Knowledge Expansion (W3Schools & IHK Standard)
+* **Masterclass Datenbank-Normalisierung & JavaScript Event Loop (`topicsData.js`)**:
+  * Vollständiger Leitfaden zur 1NF, 2NF, 3NF und BCNF mit relationalen Anomalien (Einfüge-, Änderungs-, Lösch-Anomalien), DDL-Schemata und IHK-Prüfungsquizzes.
+  * Deep Dive zur JavaScript Event Loop: Call Stack, Web APIs, Microtask Queue (Promises, `queueMicrotask`), Macrotask Queue (`setTimeout`) und Render-Zyklen mit Mermaid-Diagramm.
+* **Vollständiger IHK-Rahmenlehrplan FIAE & FISI (`lernfelderData.js`)**:
+  * Ergänzung der FIAE-Spezifischen Lernfelder **LF 10a** (UI/UX, ISO 9241-110, WCAG AAA Barrierefreiheit, SPA/SSR), **LF 11a** (Clean Architecture, GoF Design Patterns, DDD, OWASP Top 10, TDD) und **LF 12a** (80-Stunden IHK-Abschlussprojekt, Amortisation, Nutzwertanalyse, Testprotokolle).
+* **Programmiersprachen-Academy Ausbau (`languageData.js`)**:
+  * Erweiterung auf 6 Kernsprachen: Python (OOP & Dunder-Methods), JavaScript ES6+, TypeScript (Interfaces, Generics, Utility Types), Java 17+ (Records, Streams API), C# (.NET LINQ, Async/Await), Go (Goroutines, Channels) und Rust (Ownership & Borrowing).
+* **IHK Mündliches Fachgespräch Simulation (`oralExamData.js`)**:
+  * Neue technische Szenarien zu CORS/CSRF-Sicherheitsarchitektur mit JWT-Tokens sowie Standortvernetzung mit WireGuard (ChaCha20) vs. IPsec (IKEv2).
+* **Fachwortschatz- & Docker-Erweiterung (`vocabularyData.js`, `dockerData.js`)**:
+  * Neue Fachbegriffe zu Idempotency, Infrastructure as Code (IaC), Event Sourcing & CQRS, Race Conditions/Deadlocks und MVC.
+  * Docker User-Defined Bridge-Netzwerke, DNS Service Discovery und Non-Root Security Best Practices.
+
+#### [v13.4.0] - Unified Profile & Settings Header Dropdown, 480px Megamenu & Responsive Drawer
+* **Konsolidiertes All-in-One Profil- & Einstellungsmenü (`Navbar.jsx`)**:
+  * Alle Steuerungselemente rechts von "Tools" (XP/Level, Theme Switcher, WCAG-Barrierefreiheit, Rollenwechsler, Zertifikate und Badges) wurden in ein einziges, elegantes Dropdown-Panel integriert.
+  * Dadurch haben die Hauptnavigations-Buttons deutlich mehr Platz und wirken aufgeräumt und aufgeräumt.
+* **Großzügige Megamenu-Dropdowns (480px)**:
+  * Erweiterung aller Dropdowns auf 480px mit automatischer Anpassung an kleine Bildschirme (`width: min(480px, calc(100vw - 32px))`).
+  * Zweizeilige Beschreibungen und farbige Badges (`Hub`, `Neu`, `Top`, `SQL`, `Algo`, `DevOps`, `Cloud`, `Sec`, `Net`, `Voice`, `IHK`) sind nun maximal lesbar und übersichtlich.
+* **Responsiver Hamburger-Drawer für Mobilgeräte**:
+  * Automatisches Hamburger-Menü auf kleinen Bildschirmen mit vertikalem Drawer für bequeme Einhand-Bedienung.
+
 #### [v13.3.0] - Modern Footer Redesign, Advanced Knowledge Base & Unified Header Polish
 * **Moderner 4-Spaltiger Footer & FAQ (`DsgvoFooterModal.jsx`)**:
   * Vollständig neu gestalteter Footerbereich mit Markendarstellung, Schnellzugriff auf Kurse & Simulatoren, DSGVO-Konformitätshinweis, Quellverweisen (IHK, W3Schools, MDN), interaktivem FAQ-Modal und GitHub-Repository-Link.

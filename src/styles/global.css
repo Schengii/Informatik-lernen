@@ -149,11 +149,20 @@ body.colorblind-mode .badge-rose::before {
 }
 
 /* Global Base */
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+img, video, canvas, svg {
   max-width: 100%;
+  height: auto;
+}
+
+/* Allow absolute dropdown popovers to expand beyond parent wrapper button width */
+.nav-dropdown-popover {
+  max-width: none !important;
 }
 
 *:focus-visible {

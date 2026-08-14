@@ -100,6 +100,24 @@ export const ORAL_EXAM_DATA = {
             feedback: 'Mangelhaft. Manuelles Ad-hoc-Testen reicht für eine professionelle Abschlussprüfung nicht aus.'
           }
         ]
+      },
+      {
+        id: 'q4_fiae_sec',
+        examiner: 'Prof. Cyber (IT-Sicherheitsprüfer)',
+        avatar: '🛡️',
+        question: 'Wie schützen Sie Ihre REST-API vor Cross-Site Request Forgery (CSRF) und Cross-Origin Resource Sharing (CORS) Fehlkonfigurationen?',
+        options: [
+          {
+            text: 'Durch SameSite=Strict / Lax Cookies oder Zustandslosigkeit mit JWT im Authorization-Header (Bearer) sowie eine restriktive CORS-Whitelist für erlaubte Origins.',
+            isCorrect: true,
+            feedback: 'Brillant! Das Verstehen von CORS (Browser-Sicherheitsmechanismus) und JWT-Token-Headern zeigt fundierte Praxiskompetenz.'
+          },
+          {
+            text: 'Indem wir Access-Control-Allow-Origin: * für alle Endpunkte setzen, damit jede Web-App zugreifen darf.',
+            isCorrect: false,
+            feedback: 'Gefährliche Sicherheitslücke! Ein Wildcard-Origin (*) hebelt den CORS-Schutz für vertrauliche Endpunkte aus.'
+          }
+        ]
       }
     ]
   },
@@ -151,6 +169,24 @@ export const ORAL_EXAM_DATA = {
             text: 'Wir haben einen Virenscanner installiert, das reicht für die DSGVO völlig aus.',
             isCorrect: false,
             feedback: 'Ungenügend. Die DSGVO verlangt ein ganzheitliches Sicherheitskonzept.'
+          }
+        ]
+      },
+      {
+        id: 'q_fisi_3_vpn',
+        examiner: 'Herr SysAdmin (Protokolle & Routing)',
+        avatar: '⚙️',
+        question: 'Warum haben Sie sich für WireGuard oder IPsec zur Standortvernetzung entschieden und wo liegen die Vor- und Nachteile?',
+        options: [
+          {
+            text: 'IPsec bietet standardisierte Kompatibilität mit Enterprise-Routern, während WireGuard durch moderne Kryptographie (ChaCha20), schlanken Code (ca. 4.000 Zeilen) und höheren Durchsatz überzeugt.',
+            isCorrect: true,
+            feedback: 'Hervorragende Differenzierung! Code-Komplexität und Kryptographie-Effizienz sind starke Argumente im Fachgespräch.'
+          },
+          {
+            text: 'WireGuard ist unsicher, weil es keine Passwörter unterstützt.',
+            isCorrect: false,
+            feedback: 'Falsch. WireGuard nutzt moderne Public-Key-Kryptographie (Noise Protocol Framework).'
           }
         ]
       }

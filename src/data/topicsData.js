@@ -611,5 +611,188 @@ echo "✅ Alle Tests bestanden!"`,
         explanation: 'git cherry-pick ermöglicht das selektive Übernehmen einzelner Commits aus anderen Branches.'
       }
     ]
+  },
+  {
+    id: 'db_normalization_masterclass',
+    title: 'Datenbank-Normalisierung (1NF, 2NF, 3NF & BCNF)',
+    category: 'Datenbanken & IHK',
+    difficultyLevel: 'Azubi / IHK',
+    targetRoles: ['azubi', 'junior', 'pro'],
+    icon: '📊',
+    readTime: '15 Min',
+    summary: 'Vollständiger IHK-Prüfungsleitfaden: Beseitigung von Redundanzen, Einfüge-, Änderungs- und Lösch-Anomalien durch 1. bis 3. Normalform.',
+    content: `
+### 1. Warum Normalisierung?
+Ohne Normalisierung entstehen relationale Datenfehler (Anomalien):
+- **Einfüge-Anomalie (Insertion Anomaly):** Ein Kunde kann nicht angelegt werden, ohne dass er bereits einen Artikel kauft.
+- **Änderungs-Anomalie (Update Anomaly):** Ändert sich die Adresse eines Kunden, muss sie in 100 Rechnungszeilen manuell geändert werden (Gefahr inkonsistenter Daten).
+- **Lösch-Anomalie (Deletion Anomaly):** Wird der letzte Auftrag eines Kunden gelöscht, geht auch seine Kundenadresse unwiederbringlich verloren.
+
+---
+
+### 2. Die drei Normalformen im Detail
+
+#### 🌟 1. Normalform (1NF) – Atomarität
+> *Eine Relation ist in der 1. Normalform, wenn alle Attribute atomare (nicht weiter zerlegbare) Wertebereiche aufweisen und keine Wiederholgruppen existieren.*
+
+🔴 **Nicht 1NF (Zusammengesetzte Werte):**
+\`\`\`text
+KundenNr | Name         | Telefonnummern               | Adresse
+101      | Max Mustermann | 0171/123456, 089/987654      | Musterstr. 1, 80331 München
+\`\`\`
+
+🟢 **In 1NF (Atomar zerlegt):**
+\`\`\`text
+KundenNr | Vorname | Nachname   | Strasse     | PLZ   | Ort     | Telefon
+101      | Max     | Mustermann | Musterstr. 1 | 80331 | München | 0171/123456
+101      | Max     | Mustermann | Musterstr. 1 | 80331 | München | 089/987654
+\`\`\`
+
+---
+
+#### 🌟 2. Normalform (2NF) – Vollständige funktionale Abhängigkeit
+> *Eine Relation ist in der 2. Normalform, wenn sie in der 1NF ist und jedes Nicht-Schlüsselattribut vom GESAMTEN Primärschlüssel voll funktional abhängig ist (und nicht nur von einem Teil eines zusammengesetzten Schlüssels).*
+
+🔴 **Nicht 2NF (Schlüssel: {AuftragsNr, ArtikelNr}):**
+\`\`\`text
+AuftragsNr* | ArtikelNr* | Menge | ArtikelBezeichnung | ArtikelPreis
+A-1001      | P-42       | 5     | Tastatur RGB       | 79.99 €
+A-1001      | P-99       | 1     | Gaming Maus        | 49.99 €
+\`\`\`
+*Problem:* \`ArtikelBezeichnung\` und \`ArtikelPreis\` hängen nur von \`ArtikelNr\` ab, nicht von der \`AuftragsNr\`!
+
+🟢 **In 2NF (Aufteilung in 2 Tabellen):**
+1. **Auftragspositionen:** \`{AuftragsNr*, ArtikelNr*, Menge}\`
+2. **Artikel:** \`{ArtikelNr*, ArtikelBezeichnung, ArtikelPreis}\`
+
+---
+
+#### 🌟 3. Normalform (3NF) – Keine transitiven Abhängigkeiten
+> *Eine Relation ist in der 3. Normalform, wenn sie in der 2NF ist und kein Nicht-Schlüsselattribut transitiv (über ein anderes Nicht-Schlüsselattribut) vom Primärschlüssel abhängt.*
+
+🔴 **Nicht 3NF (Schlüssel: KundenNr):**
+\`\`\`text
+KundenNr* | Name  | PLZ   | Ort
+101       | Sarah | 80331 | München
+102       | Timo  | 80331 | München
+\`\`\`
+*Problem:* \`KundenNr\` $\rightarrow$ \`PLZ\` $\rightarrow$ \`Ort\`. Der Ort hängt von der PLZ ab, nicht direkt vom Kunden!
+
+🟢 **In 3NF (Eigene PLZ-Referenztabelle):**
+1. **Kunden:** \`{KundenNr*, Name, PLZ}\`
+2. **Orte:** \`{PLZ*, Ort}\`
+`,
+    codeSnippet: `-- DDL: Sauberes 3NF Datenbankschema in PostgreSQL / MySQL
+CREATE TABLE Orte (
+    plz VARCHAR(10) PRIMARY KEY,
+    ort VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Kunden (
+    kunden_id SERIAL PRIMARY KEY,
+    vorname VARCHAR(50) NOT NULL,
+    nachname VARCHAR(50) NOT NULL,
+    strasse VARCHAR(100) NOT NULL,
+    plz VARCHAR(10) REFERENCES Orte(plz)
+);
+
+CREATE TABLE Artikel (
+    artikel_id SERIAL PRIMARY KEY,
+    bezeichnung VARCHAR(100) NOT NULL,
+    preis NUMERIC(10, 2) NOT NULL CHECK (preis >= 0)
+);
+
+CREATE TABLE Auftraege (
+    auftrags_id SERIAL PRIMARY KEY,
+    kunden_id INT REFERENCES Kunden(kunden_id),
+    bestelldatum TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Auftragspositionen (
+    auftrags_id INT REFERENCES Auftraege(auftrags_id),
+    artikel_id INT REFERENCES Artikel(artikel_id),
+    menge INT NOT NULL CHECK (menge > 0),
+    PRIMARY KEY (auftrags_id, artikel_id)
+);`,
+    quiz: [
+      {
+        question: 'Wann befindet sich eine Relation in der 2. Normalform (2NF)?',
+        options: [
+          'Wenn alle Tabellenspalten in Großbuchstaben geschrieben sind',
+          'Wenn sie in der 1NF ist und jedes Nicht-Schlüsselattribut voll vom gesamten Primärschlüssel abhängt',
+          'Wenn keine Fremdschlüssel existieren',
+          'Wenn die Datenbank mindestens 10.000 Zeilen hat'
+        ],
+        correct: 1,
+        explanation: 'Die 2. Normalform verlangt 1NF sowie die vollständige funktionale Abhängigkeit aller Nicht-Schlüsselattribute vom Primärschlüssel (Vermeidung von Teil-Schlüssel-Abhängigkeiten).'
+      },
+      {
+        question: 'Welche Normalform verhindert transitive Abhängigkeiten (z. B. Kunde -> PLZ -> Ort)?',
+        options: ['1. Normalform', '2. Normalform', '3. Normalform', '0. Normalform'],
+        correct: 2,
+        explanation: 'Die 3. Normalform eliminiert transitive Abhängigkeiten zwischen Nicht-Schlüsselattributen.'
+      }
+    ]
+  },
+  {
+    id: 'javascript_event_loop_deep',
+    title: 'JavaScript Event Loop, Microtasks & Async Performance',
+    category: 'Programmierung & Web',
+    difficultyLevel: 'Junior / Professional',
+    targetRoles: ['azubi', 'junior', 'pro'],
+    icon: '⚡',
+    readTime: '14 Min',
+    summary: 'W3Schools & MDN Deep Dive: Call Stack, Web APIs, Microtask Queue (Promises) vs. Macrotask Queue (setTimeout) & Non-Blocking I/O.',
+    content: `
+### 1. Die Single-Threaded Natur von JavaScript
+JavaScript im Browser und in Node.js besitzt nur **einen einzigen Ausführungs-Thread** (Call Stack). Um trotzdem Web-Animationen, Klicks und API-Abrufe flüssig zu verarbeiten, nutzt der Browser die **Event-Loop-Architektur**:
+
+\`\`\`mermaid
+flowchart TD
+    CallStack["1. Call Stack (Synchroner Code)"] --> WebAPIs["2. Web APIs (fetch, DOM Events, Timers)"]
+    WebAPIs --> MicrotaskQueue["3. Microtask Queue (Promises, queueMicrotask)"]
+    WebAPIs --> MacrotaskQueue["4. Macrotask / Callback Queue (setTimeout, setInterval, I/O)"]
+    MicrotaskQueue --> EventLoop["Event Loop Priorisierung"]
+    MacrotaskQueue --> EventLoop
+    EventLoop --> CallStack
+\`\`\`
+
+### 2. Prioritäts-Regel der Event Loop
+1. Führe den gesamten synchronen Code im **Call Stack** aus.
+2. Wenn der Stack leer ist: Verarbeite **ALLE** Einträge in der **Microtask Queue** (Promises, \`async/await\`).
+3. Verarbeite **EINEN** Eintrag aus der **Macrotask Queue** (\`setTimeout\`, \`setInterval\`).
+4. Führe ggf. ein Render-Update (DOM Repaint) durch.
+5. Wiederhole ab Schritt 2.
+`,
+    codeSnippet: `console.log("1. Synchron Start");
+
+setTimeout(() => {
+  console.log("4. Macrotask (setTimeout)");
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log("3. Microtask (Promise)");
+});
+
+console.log("2. Synchron Ende");
+
+// Konsolenausgabe:
+// 1. Synchron Start
+// 2. Synchron Ende
+// 3. Microtask (Promise)
+// 4. Macrotask (setTimeout)`,
+    quiz: [
+      {
+        question: 'Welche Task Queue hat bei der JavaScript Event Loop die höhere Priorität?',
+        options: [
+          'Macrotask Queue (setTimeout, setInterval)',
+          'Microtask Queue (Promises, queueMicrotask)',
+          'DOM Click Events',
+          'Garbage Collector Queue'
+        ],
+        correct: 1,
+        explanation: 'Die Microtask Queue wird immer vollständig abgearbeitet, bevor der nächste Macrotask (wie setTimeout) ausgeführt wird.'
+      }
+    ]
   }
 ];

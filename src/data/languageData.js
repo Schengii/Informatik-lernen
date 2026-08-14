@@ -103,34 +103,169 @@ const sum = numbers.reduce((acc, curr) => acc + curr, 0);`
     summary: 'Erweitert JavaScript um statische Typisierung für skalierbare Großprojekte.',
     topics: [
       {
-        title: '1. Interfaces, Types & Generics',
-        desc: 'Definiere präzise Datenverträge für Objekte und erstelle wiederverwendbare generische Funktionen.',
-        code: `interface User {
+        title: '1. Interfaces, Type Aliases & Union Types',
+        desc: 'Definiere präzise Datenverträge für Objekte und kombiniere Typen mit Union (|) und Intersection (&).',
+        code: `type Status = 'pending' | 'active' | 'archived';
+
+interface User {
   id: number;
   username: string;
-  email?: string; // Optional
+  email?: string; // Optionales Feld
+  status: Status;
 }
 
-function getFirstElement<T>(arr: T[]): T {
-  return arr[0];
-}`
+const currentUser: User = {
+  id: 42,
+  username: "code_ninja",
+  status: "active"
+};`
+      },
+      {
+        title: '2. Generics & Type Constraints',
+        desc: 'Erstelle typsichere, wiederverwendbare Datenstrukturen und Funktionen.',
+        code: `// Generische API-Response Wrapper
+interface ApiResponse<T> {
+  data: T;
+  status: number;
+  timestamp: string;
+}
+
+function wrapData<T>(payload: T): ApiResponse<T> {
+  return {
+    data: payload,
+    status: 200,
+    timestamp: new Date().toISOString()
+  };
+}
+
+const userRes = wrapData<User>(currentUser);`
+      },
+      {
+        title: '3. Utility Types (Partial, Pick, Omit, Readonly)',
+        desc: 'Nutze TypeScript-Standard-Hilfstypen, um bestehende Schnittstellen flexibel zu transformieren.',
+        code: `// UpdateUserDto erlaubt nur ausgewählte Felder
+type UpdateUserDto = Partial<Omit<User, 'id'>>;
+
+const changes: UpdateUserDto = {
+  username: "new_ninja_name"
+};`
       }
     ]
   },
   {
     id: 'java',
-    name: 'Java (OOP Enterprise)',
+    name: 'Java & Spring Boot Masterclass',
     icon: '☕',
-    badge: 'Klassiker',
-    summary: 'Robuste, plattformunabhängige objektorientierte Sprache für Enterprise Backends & Android.',
+    badge: 'Enterprise Standard',
+    summary: 'Robuste, plattformunabhängige Sprache für hochperformante Enterprise-Backends, Microservices & Android.',
     topics: [
       {
-        title: '1. Klassen, Vererbung & Interfaces',
-        desc: 'Strenge Typisierung und objektorientierte Prinzipien.',
-        code: `public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hallo Java!");
+        title: '1. Klassen, Kapselung & Record Types',
+        desc: 'Strenge statische Typisierung mit modernen Java 17+ Records für unveränderliche Daten.',
+        code: `public record CustomerDto(Long id, String email, boolean active) {}
+
+public class BankAccount {
+    private double balance; // Kapselung (private)
+
+    public synchronized void deposit(double amount) {
+        if (amount > 0) {
+            this.balance += amount;
+        }
     }
+}`
+      },
+      {
+        title: '2. Streams API & Lambda-Ausdrücke',
+        desc: 'Deklarative Datenfilterung und -transformation mit Java Streams.',
+        code: `import java.util.List;
+
+List<String> names = List.of("Anna", "Bernd", "Clara", "Alex");
+
+List<String> aNames = names.stream()
+    .filter(n -> n.startsWith("A"))
+    .map(String::toUpperCase)
+    .sorted()
+    .toList(); // -> ["ALEX", "ANNA"]`
+      }
+    ]
+  },
+  {
+    id: 'csharp',
+    name: 'C# & .NET Core Ecosystem',
+    icon: '🎯',
+    badge: 'Enterprise & Gaming',
+    summary: 'Moderne, elegante Sprache von Microsoft für Cloud-Services, Web-APIs mit ASP.NET Core und Unity Game Development.',
+    topics: [
+      {
+        title: '1. LINQ (Language Integrated Query)',
+        desc: 'SQL-ähnliche relationale Datenabfragen direkt im C#-Code.',
+        code: `var developers = new List<Developer> {
+    new("Max", 5), new("Sarah", 8), new("Timo", 2)
+};
+
+// LINQ Abfrage
+var seniorDevs = developers
+    .Where(d => d.YearsOfExperience >= 5)
+    .OrderByDescending(d => d.YearsOfExperience)
+    .Select(d => d.Name);`
+      },
+      {
+        title: '2. Async / Await & Task Parallel Library',
+        desc: 'Hocheffiziente asynchrone I/O-Programmierung mit Tasks.',
+        code: `public async Task<string> DownloadReportAsync(string url)
+{
+    using var client = new HttpClient();
+    var response = await client.GetStringAsync(url);
+    return response;
+}`
+      }
+    ]
+  },
+  {
+    id: 'golang',
+    name: 'Go (Golang) Cloud Native',
+    icon: '🐹',
+    badge: 'DevOps & Microservices',
+    summary: 'Entwickelt von Google für extreme Nebenläufigkeit, Docker-, Kubernetes- und Microservice-Entwicklung.',
+    topics: [
+      {
+        title: '1. Goroutines & Channels (Concurrency)',
+        desc: 'Leichtgewichtige Threads (Goroutines) und typsichere Nachrichtenkanäle (Channels).',
+        code: `package main
+import ("fmt"; "time")
+
+func worker(id int, ch chan string) {
+    time.Sleep(time.Millisecond * 500)
+    ch <- fmt.Sprintf("Worker %d fertig!", id)
+}
+
+func main() {
+    ch := make(chan string)
+    go worker(1, ch)
+    msg := <-ch
+    fmt.Println(msg)
+}`
+      }
+    ]
+  },
+  {
+    id: 'rust',
+    name: 'Rust (Systems & WebAssembly)',
+    icon: '🦀',
+    badge: 'Maximale Performance',
+    summary: 'Garantierte Speichersicherheit ohne Garbage Collector durch das innovative Ownership- & Borrowing-System.',
+    topics: [
+      {
+        title: '1. Ownership, Borrowing & Lifetimes',
+        desc: 'Vermeidet Memory Leaks, NullPointerExceptions und Data Races zur Compile-Zeit.',
+        code: `fn main() {
+    let s1 = String::from("Hello Rust");
+    let len = calculate_length(&s1); // Unveränderliche Referenz (Borrowing)
+    println!("Länge von '{}' ist {}.", s1, len);
+}
+
+fn calculate_length(s: &String) -> usize {
+    s.len()
 }`
       }
     ]
