@@ -3,6 +3,28 @@ import { Search, Filter, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, C
 
 export const LAB_MODULES = [
   {
+    id: 'oral_exam',
+    title: 'IHK AP2 Fachgesprächs-Simulator',
+    category: 'ihk',
+    tags: ['#IHK', '#Prüfung', '#Fachgespräch', '#Projektarbeit'],
+    difficulty: 'Intermediate',
+    desc: 'Simuliere 15 Min. Projektpräsentation & 15 Min. Prüfer-Fachgespräch für FIAE & FISI.',
+    icon: Award,
+    badge: 'Neu',
+    color: '#8b5cf6'
+  },
+  {
+    id: 'sql_joins',
+    title: 'SQL JOINs & Venn-Diagramm Builder',
+    category: 'databases',
+    tags: ['#SQL', '#Datenbanken', '#Joins', '#VennDiagramm'],
+    difficulty: 'Beginner',
+    desc: 'Visuelle In-Memory Simulation von INNER, LEFT, RIGHT & FULL JOINs.',
+    icon: Database,
+    badge: 'Neu',
+    color: '#f59e0b'
+  },
+  {
     id: 'datastructures',
     title: 'Data Structures Tree & Graph Lab',
     category: 'algorithms',
@@ -14,7 +36,7 @@ export const LAB_MODULES = [
     color: '#10b981'
   },
   {
-    id: 'cicdworkflow',
+    id: 'cicd_workflow',
     title: 'CI/CD Workflow Pipeline Builder',
     category: 'devops',
     tags: ['#DevOps', '#GitHubActions', '#CI/CD', '#Pipelines'],
@@ -112,6 +134,7 @@ export default function LabsDashboard({ onSelectLab }) {
 
   const categories = [
     { id: 'all', name: 'Alle Labs' },
+    { id: 'ihk', name: '🎓 IHK Prüfung & Karriere' },
     { id: 'algorithms', name: 'Algorithmen & Datenstrukturen' },
     { id: 'devops', name: 'DevOps & Git' },
     { id: 'cloud', name: 'Cloud & Container' },

@@ -83,15 +83,18 @@ const BigOBenchmarkLab = lazy(() => import('./components/Content/BigOBenchmarkLa
 const OauthPkceStudio = lazy(() => import('./components/Content/OauthPkceStudio'));
 const WasmRustStudio = lazy(() => import('./components/Content/WasmRustStudio'));
 
-// Neue Labs & Dashboard
+// Neue Labs, Simulatoren & Kampagnen Hub
 const DataStructuresLab = lazy(() => import('./components/Content/DataStructuresLab'));
 const CiCdWorkflowLab = lazy(() => import('./components/Content/CiCdWorkflowLab'));
 const LabsDashboard = lazy(() => import('./components/Content/LabsDashboard'));
+const IhkOralExamSimulator = lazy(() => import('./components/Content/IhkOralExamSimulator'));
+const SqlJoinVisualizerLab = lazy(() => import('./components/Content/SqlJoinVisualizerLab'));
+const CampaignQuestHub = lazy(() => import('./components/Content/CampaignQuestHub'));
 
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
-import { BookOpen, Sparkles, ArrowRight, CheckCircle, Sprout, Network, Layers, Activity } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, CheckCircle, Sprout, Network, Layers, Activity, Compass, GraduationCap, Database } from 'lucide-react';
 
 const LabLoadingFallback = () => (
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '300px', gap: '16px' }}>
@@ -234,10 +237,18 @@ export default function App() {
                 <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                   <button
                     className="btn btn-primary"
+                    onClick={() => setActiveTab('campaign')}
+                    style={{ minHeight: '48px', fontSize: '0.95rem', background: 'var(--gradient-cyber)', gap: '8px' }}
+                  >
+                    <Compass size={18} /> Story Kampagne
+                  </button>
+
+                  <button
+                    className="btn btn-secondary"
                     onClick={() => setIsRoleModalOpen(true)}
                     style={{ minHeight: '48px', fontSize: '0.95rem' }}
                   >
-                    Profil / Level Anpassen
+                    Profil / Level
                   </button>
 
                   <button
@@ -642,6 +653,31 @@ export default function App() {
         {activeTab === 'labs' && (
           <Suspense fallback={<LabLoadingFallback />}>
             <LabsDashboard onSelectLab={(labId) => setActiveTab(labId)} />
+          </Suspense>
+        )}
+
+        {/* CAMPAIGN QUEST HUB TAB */}
+        {activeTab === 'campaign' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <CampaignQuestHub
+              userState={userState}
+              onNavigateTab={(tab) => setActiveTab(tab)}
+              onRewardXP={(xp) => awardXP(xp, 'campaign_step')}
+            />
+          </Suspense>
+        )}
+
+        {/* IHK ORAL EXAM TAB */}
+        {activeTab === 'oral_exam' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <IhkOralExamSimulator onRewardXP={(xp) => awardXP(xp, 'oral_exam_master')} />
+          </Suspense>
+        )}
+
+        {/* SQL JOINS VISUALIZER TAB */}
+        {activeTab === 'sql_joins' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <SqlJoinVisualizerLab onRewardXP={(xp) => awardXP(xp, 'sql_join_master')} />
           </Suspense>
         )}
 

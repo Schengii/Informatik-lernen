@@ -94,7 +94,10 @@ export default function Navbar({
         <nav className="desktop-only" style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
           {[
             { id: 'dashboard', label: t('dashboard') },
+            { id: 'campaign', label: '🗺️ Story Kampagne' },
             { id: 'labs', label: '🧪 Labs Hub' },
+            { id: 'oral_exam', label: '🎙️ IHK Fachgespräch' },
+            { id: 'sql_joins', label: '📊 SQL JOINs' },
             { id: 'anfaenger_guide', label: '🌱 Einsteiger Kurs' },
             { id: 'datastructures', label: '🌲 Trees & Graphen' },
             { id: 'cicd_workflow', label: '⚙️ CI/CD Workflow' },

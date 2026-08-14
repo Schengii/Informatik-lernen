@@ -86,6 +86,7 @@ Informatik-lernen/
     │   │   ├── ArchitectureVisualizer.jsx
     │   │   ├── BigOBenchmarkLab.jsx
     │   │   ├── BigOVisualizer.jsx
+    │   │   ├── CampaignQuestHub.jsx
     │   │   ├── CareerRoadmap.jsx
     │   │   ├── CiCdWorkflowLab.jsx
     │   │   ├── CloudDesignerLab.jsx
@@ -101,6 +102,7 @@ Informatik-lernen/
     │   │   ├── FisiLernfelderHub.jsx
     │   │   ├── GitLab.jsx
     │   │   ├── GlossaryModal.jsx
+    │   │   ├── IhkOralExamSimulator.jsx
     │   │   ├── ItPodcastHub.jsx
     │   │   ├── KafkaEventLab.jsx
     │   │   ├── KnowledgeQuizArena.jsx
@@ -117,6 +119,7 @@ Informatik-lernen/
     │   │   ├── RagAiSimulator.jsx
     │   │   ├── RedBlueTeamLab.jsx
     │   │   ├── RegexMasterLab.jsx
+    │   │   ├── SqlJoinVisualizerLab.jsx
     │   │   ├── SubnettingLab.jsx
     │   │   ├── SystemDesignLab.jsx
     │   │   ├── TddUnitTestLab.jsx
@@ -233,6 +236,18 @@ npm run lint
   * Visueller 4-Schritte PKCE Wizard (`code_verifier`, `code_challenge`, Code Exchange & JWT Claims Decoding).
 * **WebAssembly (WASM) & Rust Compilation Playground (`WasmRustStudio.jsx`)**:
   * Rust Quellcode-Editor (`lib.rs`), In-Browser WASM-Bytecode-Compiler (`module.wasm`) & Performance-Benchmark (WASM vs. JS).
+
+#### [v11.0.0] - IHK AP2 Fachgesprächs-Simulator, SQL JOIN Venn Visualizer & Story Kampagnen-Modus
+* **IHK AP2 Fachgesprächs- & Projektpräsentations-Simulator (`IhkOralExamSimulator.jsx` / `oralExamData.js`)**:
+  * Vollständige 30-Minuten Prüfungssimulation (15 Min. Präsentations-Checkliste mit Phasen-Tracking & 15 Min. Prüfer-Fachgespräch) für Anwendungsentwickler (FIAE) und Systemintegratoren (FISI).
+  * Prüfer-Persönlichkeiten (Dr. Architekt, Frau Wirtschaft, Herr Security), fundierte Multiple-Choice-Begründungen und IHK-Notenberechnung (1-6).
+* **Visueller SQL JOINs & Venn-Diagramm Builder (`SqlJoinVisualizerLab.jsx`)**:
+  * Didaktische Visualisierung von `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`, `FULL OUTER JOIN` und `LEFT EXCLUDING JOIN` mit interaktiven Venn-Kreisen.
+  * Live In-Memory AlaSQL Ausführung über verknüpfte Tabellen (`Users` & `Orders`), dynamische Ergebnistabelle und Quests.
+* **Globaler Story-Kampagnen-Modus ("Vom Noob zum Lead Architect") (`CampaignQuestHub.jsx` / `campaignData.js`)**:
+  * 5 aufeinander aufbauende Entwicklungsstufen (Grundlagen, Azubi, Junior Dev, DevOps Engineer, Lead Architect) mit geführten Praxis-Quests und XP-Belohnungen.
+* **Erweiterte Testabdeckung (`campaignAndExam.test.js`)**:
+  * 100% Validierung aller Prüfungsfragen-Strukturen, Antwortmöglichkeiten und Kampagnen-Kapitel.
 
 #### [v10.0.0] - Code-Splitting, Trees & Graphs Lab, CI/CD Builder & Interactive Labs Hub
 * **Performance & Lazy Loading**:
