@@ -76,10 +76,14 @@ export default function Navbar({
 
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
-    { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 25+ interaktiven Labs', badge: 'Hub' },
-    { id: 'cpu_architecture_lab', label: '🔬 Von-Neumann CPU & Register Lab', desc: 'Hardware, Taktzyklen & Assembler', badge: 'Neu' },
-    { id: 'sql_optimizer_lab', label: '⚡ SQL Query Optimizer Lab', desc: 'Index Scan vs. Full Table Scan', badge: 'Neu' },
-    { id: 'git_graph_lab', label: '🌿 Git Branch & Rebase Visualizer', desc: 'Interaktiver SVG Commit-Graph', badge: 'Top' },
+    { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 30+ interaktiven Labs', badge: 'Hub' },
+    { id: 'code_debugger_lab', label: '🔍 Code Execution & Memory Debugger', desc: 'V8 Engine Call Stack, Closures & Heap', badge: 'Neu' },
+    { id: 'clean_code_lab', label: '🛡️ Clean Code & Security Arena', desc: 'OWASP Top 10, Memory Leaks & Refactoring', badge: 'Neu' },
+    { id: 'dns_http_lab', label: '🌐 DNS & HTTP/TLS Request Inspector', desc: 'End-to-End Netzwerk-Visualisierung', badge: 'Neu' },
+    { id: 'sql_transaction_lab', label: '💾 SQL Transaktionen & ACID Simulator', desc: 'Dirty Reads, Phantom Reads & Deadlocks', badge: 'Neu' },
+    { id: 'cpu_architecture_lab', label: '🔬 Von-Neumann CPU & Register Lab', desc: 'Hardware, Taktzyklen & Assembler', badge: 'Top' },
+    { id: 'sql_optimizer_lab', label: '⚡ SQL Query Optimizer Lab', desc: 'Index Scan vs. Full Table Scan', badge: 'SQL' },
+    { id: 'git_graph_lab', label: '🌿 Git Branch & Rebase Visualizer', desc: 'Interaktiver SVG Commit-Graph', badge: 'Git' },
     { id: 'sql_joins', label: '📊 SQL JOINs & Venn-Diagramm', desc: 'INNER, LEFT, RIGHT & FULL Joins', badge: 'SQL' },
     { id: 'datastructures', label: '🌲 Trees, BST & Graphen Lab', desc: 'Binäre Suchbäume & Dijkstra Algorithmus', badge: 'Algo' },
     { id: 'cicd_workflow', label: '⚙️ CI/CD Pipeline Workflow Builder', desc: 'GitHub Actions & Automatisierung', badge: 'DevOps' },
@@ -91,6 +95,7 @@ export default function Navbar({
 
   const examMenuItems = [
     { id: 'exam', label: '🎓 IHK Abschlussprüfung (AP1 & AP2)', desc: '90-Min. Timer, Punkte & IHK Noten 1-6', badge: 'Prüfung' },
+    { id: 'ihk_doc_generator', label: '📝 IHK Projektantrag & Doku-Generator', desc: '80h/40h Zeitplan & Amortisations-ROI', badge: 'Neu' },
     { id: 'oral_exam', label: '🎙️ IHK Mündliches Fachgespräch', desc: 'Präsentation mit Audio-Spracherkennung', badge: 'Voice' },
     { id: 'lernfelder', label: '📚 IHK Lernfelder 1 - 12b', desc: 'Offizieller Rahmenlehrplan Berufsschule', badge: 'IHK' },
     { id: 'podcast', label: '🎧 IHK Fachinformatiker Podcast', desc: 'Datenschutz, Encodings & Stefan Macke Tipps', badge: 'Audio' },

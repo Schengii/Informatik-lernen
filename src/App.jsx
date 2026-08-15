@@ -93,12 +93,20 @@ const CampaignQuestHub = lazy(() => import('./components/Content/CampaignQuestHu
 const GitBranchGraphLab = lazy(() => import('./components/Content/GitBranchGraphLab'));
 const CpuArchitectureLab = lazy(() => import('./components/Content/CpuArchitectureLab'));
 const SqlQueryOptimizerLab = lazy(() => import('./components/Content/SqlQueryOptimizerLab'));
+
+// Next-Gen High-Value Labs & Generatoren
+const CodeExecutionDebuggerLab = lazy(() => import('./components/Content/CodeExecutionDebuggerLab'));
+const IhkProjectDocumentationGenerator = lazy(() => import('./components/Content/IhkProjectDocumentationGenerator'));
+const CleanCodeReviewLab = lazy(() => import('./components/Content/CleanCodeReviewLab'));
+const DnsHttpLifecycleLab = lazy(() => import('./components/Content/DnsHttpLifecycleLab'));
+const SqlTransactionLab = lazy(() => import('./components/Content/SqlTransactionLab'));
+
 import CommandPaletteModal from './components/Navigation/CommandPaletteModal';
 
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
-import { BookOpen, Sparkles, ArrowRight, CheckCircle, Sprout, Network, Layers, Activity, Compass, GraduationCap, Database } from 'lucide-react';
+import { BookOpen, Sparkles, ArrowRight, CheckCircle, Sprout } from 'lucide-react';
 
 const LabLoadingFallback = () => (
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '300px', gap: '16px' }}>
@@ -109,7 +117,7 @@ const LabLoadingFallback = () => (
 
 export default function App() {
   const { 
-    userState, setUserState, handleSelectRole, awardXP, handleCompleteTopic, refreshStateFromStorage,
+    userState, handleSelectRole, awardXP, handleCompleteTopic, refreshStateFromStorage,
     lang, setLang, theme, setTheme, fontSize, setFontSize,
     isDyslexic, setIsDyslexic, isColorblind, setIsColorblind,
     isHighContrast, setIsHighContrast, isReducedMotion, setIsReducedMotion,
@@ -871,6 +879,44 @@ export default function App() {
         {activeTab === 'wasm_rust_studio' && (
           <Suspense fallback={<LabLoadingFallback />}>
             <WasmRustStudio onRewardXP={(xp) => awardXP(xp, 'wasm_rust_master')} />
+          </Suspense>
+        )}
+
+        {/* NEXT-GEN LABS & GENERATORS */}
+        {activeTab === 'code_debugger_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <CodeExecutionDebuggerLab />
+          </Suspense>
+        )}
+
+        {activeTab === 'clean_code_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <CleanCodeReviewLab />
+          </Suspense>
+        )}
+
+        {activeTab === 'dns_http_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <DnsHttpLifecycleLab />
+          </Suspense>
+        )}
+
+        {activeTab === 'sql_transaction_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <SqlTransactionLab />
+          </Suspense>
+        )}
+
+        {activeTab === 'ihk_doc_generator' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <IhkProjectDocumentationGenerator />
+          </Suspense>
+        )}
+
+        {/* OAUTH & OIDC LAB TAB */}
+        {activeTab === 'oauth' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <OauthOidcLab />
           </Suspense>
         )}
 

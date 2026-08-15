@@ -3,6 +3,61 @@ import { Search, Filter, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, C
 
 export const LAB_MODULES = [
   {
+    id: 'code_debugger_lab',
+    title: 'Code Execution & Memory Debugger',
+    category: 'algorithms',
+    tags: ['#V8Engine', '#CallStack', '#Heap', '#Closures', '#Rekursion'],
+    difficulty: 'Intermediate',
+    desc: 'Schritt-für-Schritt Interpreter mit Call Stack, Scope Chains & Heap-Speicher.',
+    icon: Cpu,
+    badge: 'Neu',
+    color: '#6366f1'
+  },
+  {
+    id: 'clean_code_lab',
+    title: 'Clean Code & Security Review Arena',
+    category: 'security',
+    tags: ['#OWASP', '#CleanCode', '#MemoryLeaks', '#SQLi', '#Refactoring'],
+    difficulty: 'Intermediate',
+    desc: 'Finde kritische Sicherheitslücken, N+1 Queries & Memory Leaks im Code.',
+    icon: Shield,
+    badge: 'Neu',
+    color: '#ef4444'
+  },
+  {
+    id: 'dns_http_lab',
+    title: 'DNS & HTTP/TLS Lifecycle Inspector',
+    category: 'cloud',
+    tags: ['#DNS', '#HTTP2', '#TLS1.3', '#TCP', '#OSI-Modell'],
+    difficulty: 'Intermediate',
+    desc: 'Verfolge den Web-Request von Resolver & TLD bis zum TLS Handshake.',
+    icon: Network,
+    badge: 'Neu',
+    color: '#0284c7'
+  },
+  {
+    id: 'sql_transaction_lab',
+    title: 'SQL Transaktionen, ACID & Deadlocks',
+    category: 'databases',
+    tags: ['#SQL', '#ACID', '#Isolation', '#Deadlocks', '#Locking'],
+    difficulty: 'Advanced',
+    desc: '2-Session SQL Simulator für Dirty Reads, Phantom Reads & Sperrkonflikte.',
+    icon: Database,
+    badge: 'Neu',
+    color: '#a855f7'
+  },
+  {
+    id: 'ihk_doc_generator',
+    title: 'IHK Projektantrag- & Doku-Generator',
+    category: 'ihk',
+    tags: ['#IHK', '#AP2', '#Projektantrag', '#Amortisation', '#Gantt'],
+    difficulty: 'Intermediate',
+    desc: '80h/40h Zeitplanung, Amortisations-ROI Rechner & Markdown Export.',
+    icon: Award,
+    badge: 'Neu',
+    color: '#22c55e'
+  },
+  {
     id: 'cpu_architecture_lab',
     title: 'Von-Neumann CPU & Register-Simulator',
     category: 'hardware',
@@ -10,7 +65,7 @@ export const LAB_MODULES = [
     difficulty: 'Beginner',
     desc: 'Taktzyklen (Fetch, Decode, Execute), Register (PC, AC, IR, MAR) & RAM-Matrix live simulieren.',
     icon: Cpu,
-    badge: 'Neu',
+    badge: 'Top',
     color: '#3b82f6'
   },
   {

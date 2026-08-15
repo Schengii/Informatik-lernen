@@ -87,16 +87,20 @@ Informatik-lernen/
     │   │   ├── BigOVisualizer.jsx
     │   │   ├── CampaignQuestHub.jsx
     │   │   ├── CareerRoadmap.jsx
+    │   │   ├── CiCdPipelineLab.jsx
     │   │   ├── CiCdWorkflowLab.jsx
+    │   │   ├── CleanCodeReviewLab.jsx
     │   │   ├── CloudDesignerLab.jsx
     │   │   ├── CloudDevOpsLab.jsx
     │   │   ├── ClozeTester.jsx
+    │   │   ├── CodeExecutionDebuggerLab.jsx
     │   │   ├── CommandPaletteModal.jsx
     │   │   ├── CpuArchitectureLab.jsx
     │   │   ├── CtfChallengeLab.jsx
     │   │   ├── DataStructuresLab.jsx
     │   │   ├── DeploymentGuideModal.jsx
     │   │   ├── DesignPatternsLab.jsx
+    │   │   ├── DnsHttpLifecycleLab.jsx
     │   │   ├── DockerComposeLab.jsx
     │   │   ├── DockerLab.jsx
     │   │   ├── ExamSimulator.jsx
@@ -105,6 +109,7 @@ Informatik-lernen/
     │   │   ├── GitLab.jsx
     │   │   ├── GlossaryModal.jsx
     │   │   ├── IhkOralExamSimulator.jsx
+    │   │   ├── IhkProjectDocumentationGenerator.jsx
     │   │   ├── ItPodcastHub.jsx
     │   │   ├── KafkaEventLab.jsx
     │   │   ├── KnowledgeQuizArena.jsx
@@ -123,6 +128,7 @@ Informatik-lernen/
     │   │   ├── RegexMasterLab.jsx
     │   │   ├── SqlJoinVisualizerLab.jsx
     │   │   ├── SqlQueryOptimizerLab.jsx
+    │   │   ├── SqlTransactionLab.jsx
     │   │   ├── SubnettingLab.jsx
     │   │   ├── SystemDesignLab.jsx
     │   │   ├── TddUnitTestLab.jsx
@@ -178,6 +184,7 @@ Informatik-lernen/
     │   ├── kafkaData.js
     │   ├── languageData.js
     │   ├── lernfelderData.js
+    │   ├── nextGenLabsData.js
     │   ├── oauthData.js
     │   ├── perfData.js
     │   ├── podcastData.js
@@ -226,6 +233,21 @@ npm run lint
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
 ### Versionsverlauf
+
+#### [v15.0.0] - Next-Gen Educational Labs, Runtime Debugger, IHK Doku-Generator & Concurrency Engine
+* **Interaktiver Code Execution & Memory Debugger (`CodeExecutionDebuggerLab.jsx`)**:
+  * Step-by-Step V8 Engine Code-Interpreter: Call Stack (Pushes & Pops), lexikalischer Scope, Closures und dynamische Heap-Referenzen/Pointer-Visualisierung für Rekursion (Fibonacci) und Werte- vs. Referenztypen.
+* **IHK Projektantrags- & Projektdokumentations-Generator (`IhkProjectDocumentationGenerator.jsx`)**:
+  * Vollständig geführter Assistent für FIAE (80h) und FISI (40h) Abschlussprojekte mit Gantt-Phasen-Stundenbudget-Validierung, dynamischer Amortisations- und Wirtschaftlichkeitsberechnung (Break-Even in Monaten/Jahren) sowie direktem Markdown-Export (`.md`).
+* **Clean Code & Security Review Arena (`CleanCodeReviewLab.jsx`)**:
+  * Code-Auditing-Simulator für OWASP Top 10 (SQL Injection via Prepared Statements), Frontend Memory Leaks (React `useEffect` Event-Listener Cleanup) und Backend N+1 Query Antipatterns (SQL `JOIN` / `json_agg`).
+* **DNS & HTTP/TLS Request-Lifecycle Inspector (`DnsHttpLifecycleLab.jsx`)**:
+  * 8-Stufen End-to-End Netzwerk-Visualizer von Browser-Cache, rekursivem DNS-Resolver, Root/TLD Nameservern über TCP 3-Way Handshake bis hin zu TLS 1.3 ECDHE und HTTP/2 Stream Multiplexing.
+* **SQL Transaktions- & ACID Concurrency Simulator (`SqlTransactionLab.jsx`)**:
+  * 2 parallele interaktive SQL-Konsolen (Session A & Session B) zur Veranschaulichung von Transaktions-Isolationsstufen (`READ UNCOMMITTED`, `READ COMMITTED`, `REPEATABLE READ`, `SERIALIZABLE`), Dirty Reads, Phantom Reads und Deadlock-Erkennung.
+* **Navigation, Command Palette & Test Suite Expansion**:
+  * Vollständige Integration aller neuen Module in die Navbar-Megamenüs, das Labs-Dashboard und die globale Command Palette (`Ctrl+K`).
+  * 5 neue automatisierte Unit-Tests in Vitest zur Verifikation von Scenariodaten, Berechnungsformeln und ACID-Logik (17/17 Tests erfolgreich).
 
 #### [v14.0.0] - Massive Educational Content & Technical Knowledge Expansion (W3Schools & IHK Standard)
 * **Masterclass Datenbank-Normalisierung & JavaScript Event Loop (`topicsData.js`)**:
