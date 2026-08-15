@@ -3,6 +3,39 @@ import { Search, Filter, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, C
 
 export const LAB_MODULES = [
   {
+    id: 'graphql_resolver_lab',
+    title: 'GraphQL AST & DataLoader Lab',
+    category: 'code',
+    tags: ['#GraphQL', '#AST', '#DataLoader', '#NPlus1', '#API'],
+    difficulty: 'Advanced',
+    desc: 'Visualisiere AST-Parsing & eliminiere N+1 Queries mit DataLoader Batching.',
+    icon: Network,
+    badge: 'Neu',
+    color: '#ec4899'
+  },
+  {
+    id: 'linux_permissions_lab',
+    title: 'Linux Permissions & Inode Rechner',
+    category: 'devops',
+    tags: ['#Linux', '#chmod', '#Inodes', '#SUID', '#FileRights'],
+    difficulty: 'Intermediate',
+    desc: 'Oktal-/Symbolische Rechte, SUID Bits & Inode Blockbelegung live berechnen.',
+    icon: Terminal,
+    badge: 'Neu',
+    color: '#eab308'
+  },
+  {
+    id: 'crypto_keygen_lab',
+    title: 'RSA & Diffie-Hellman Crypto Lab',
+    category: 'security',
+    tags: ['#Kryptographie', '#RSA', '#PublicKey', '#Modulo', '#DiffieHellman'],
+    difficulty: 'Advanced',
+    desc: 'Mathematische RSA Primzahl-Schlüsselpaar-Generierung und Chiffrierung.',
+    icon: Shield,
+    badge: 'Neu',
+    color: '#6366f1'
+  },
+  {
     id: 'cicd_matrix_lab',
     title: 'CI/CD Matrix Linter & Runner Lab',
     category: 'devops',

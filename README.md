@@ -97,6 +97,7 @@ Informatik-lernen/
     │   │   ├── CodeExecutionDebuggerLab.jsx
     │   │   ├── CommandPaletteModal.jsx
     │   │   ├── CpuArchitectureLab.jsx
+    │   │   ├── CryptoKeygenLab.jsx
     │   │   ├── CtfChallengeLab.jsx
     │   │   ├── DataStructuresLab.jsx
     │   │   ├── DeploymentGuideModal.jsx
@@ -109,6 +110,7 @@ Informatik-lernen/
     │   │   ├── GitBranchGraphLab.jsx
     │   │   ├── GitLab.jsx
     │   │   ├── GlossaryModal.jsx
+    │   │   ├── GraphqlResolverLab.jsx
     │   │   ├── IhkOralExamSimulator.jsx
     │   │   ├── IhkProjectDocumentationGenerator.jsx
     │   │   ├── ItPodcastHub.jsx
@@ -118,6 +120,7 @@ Informatik-lernen/
     │   │   ├── LabsDashboard.jsx
     │   │   ├── LanguageAcademy.jsx
     │   │   ├── LeitnerFlashcardLab.jsx
+    │   │   ├── LinuxPermissionsLab.jsx
     │   │   ├── MonacoStudioLab.jsx
     │   │   ├── OauthOidcLab.jsx
     │   │   ├── OauthPkceStudio.jsx
@@ -181,6 +184,7 @@ Informatik-lernen/
     │   ├── cloudData.js
     │   ├── dockerData.js
     │   ├── examData.js
+    │   ├── expertLabsData.js
     │   ├── flashcardsData.js
     │   ├── gamesData.js
     │   ├── glossaryData.js
@@ -237,6 +241,17 @@ npm run lint
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
 ### Versionsverlauf
+
+#### [v17.0.0] - Masterclass GraphQL AST Resolver, Linux Inodes & RSA Cryptography Labs
+* **GraphQL AST & DataLoader Resolver Lab (`GraphqlResolverLab.jsx`)**:
+  * Visualisierung von Query Lexing & Abstract Syntax Tree (AST) Parsing sowie Vergleich von naiver N+1 Ausführung vs. DataLoader In-Memory Request Batching (`batchLoadFn`).
+* **Linux Permissions, Inodes & chmod Rechner (`LinuxPermissionsLab.jsx`)**:
+  * Interaktiver Rechner für Oktal- (`755`, `644`, `700`) und Symbolische Notation (`rwxr-xr-x`), Special Bits (SUID / 4000) und Inode-Blockbelegungsanalysen.
+* **RSA & Diffie-Hellman Cryptography Sandbox (`CryptoKeygenLab.jsx`)**:
+  * 5-stufige mathematische Public-Key Verschlüsselungs-Pipeline (Primzahlenwahl $p, q$, RSA Modulus $n$, Eulersche Totientenfunktion $\phi(n)$, modularer Inverser $d \equiv e^{-1} \pmod{\phi(n)}$ und Chiffrierung).
+* **Test Suite & Framework Erweiterung**:
+  * 3 neue Unit-Tests (`src/data/expertLabs.test.js`) zur Verifikation von AST-Bäumen, Oktal-Berechnungen und BigInt Modulo-Potenzierungs-Mathematik (**23/23 Vitest-Tests erfolgreich**).
+  * Vollständige Anbindung an alle Megamenüs, die Command Palette (`Ctrl+K`) und das responsive Labs-Dashboard.
 
 #### [v16.0.0] - Advanced CI/CD Matrix Linter, Postgres Execution Tree & WebRTC Signaling Lab
 * **GitHub Actions CI/CD Matrix Linter & Runner Lab (`CiCdMatrixLinterLab.jsx`)**:

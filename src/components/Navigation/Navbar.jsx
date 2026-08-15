@@ -76,7 +76,10 @@ export default function Navbar({
 
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
-    { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 30+ interaktiven Labs', badge: 'Hub' },
+    { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 35+ interaktiven Labs', badge: 'Hub' },
+    { id: 'graphql_resolver_lab', label: '🧬 GraphQL AST & DataLoader Lab', desc: 'Query Parsing & N+1 Batching', badge: 'Neu' },
+    { id: 'linux_permissions_lab', label: '🐧 Linux Permissions & Inode Rechner', desc: 'chmod, Inodes & SUID Bits', badge: 'Neu' },
+    { id: 'crypto_keygen_lab', label: '🔐 RSA & Diffie-Hellman Crypto Lab', desc: 'Public-Key Primzahl-Mathematik', badge: 'Neu' },
     { id: 'cicd_matrix_lab', label: '⚙️ CI/CD Matrix Linter & Runner', desc: 'GitHub Actions Multi-OS Matrix Testing', badge: 'Neu' },
     { id: 'postgres_explain_lab', label: '📊 PostgreSQL Query Tree Visualizer', desc: 'JSON EXPLAIN Plan & Cost Analyzer', badge: 'Neu' },
     { id: 'webrtc_signaling_lab', label: '📡 WebRTC P2P & Signaling Lab', desc: 'SDP Offer/Answer & RTCDataChannel', badge: 'Neu' },

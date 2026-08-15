@@ -103,6 +103,9 @@ const SqlTransactionLab = lazy(() => import('./components/Content/SqlTransaction
 const CiCdMatrixLinterLab = lazy(() => import('./components/Content/CiCdMatrixLinterLab'));
 const PostgresExplainVisualizerLab = lazy(() => import('./components/Content/PostgresExplainVisualizerLab'));
 const WebRtcSignalingLab = lazy(() => import('./components/Content/WebRtcSignalingLab'));
+const GraphqlResolverLab = lazy(() => import('./components/Content/GraphqlResolverLab'));
+const LinuxPermissionsLab = lazy(() => import('./components/Content/LinuxPermissionsLab'));
+const CryptoKeygenLab = lazy(() => import('./components/Content/CryptoKeygenLab'));
 
 import CommandPaletteModal from './components/Navigation/CommandPaletteModal';
 
@@ -886,6 +889,24 @@ export default function App() {
         )}
 
         {/* NEXT-GEN LABS & GENERATORS */}
+        {activeTab === 'graphql_resolver_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <GraphqlResolverLab />
+          </Suspense>
+        )}
+
+        {activeTab === 'linux_permissions_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <LinuxPermissionsLab />
+          </Suspense>
+        )}
+
+        {activeTab === 'crypto_keygen_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <CryptoKeygenLab />
+          </Suspense>
+        )}
+
         {activeTab === 'cicd_matrix_lab' && (
           <Suspense fallback={<LabLoadingFallback />}>
             <CiCdMatrixLinterLab />
