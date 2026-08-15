@@ -76,7 +76,10 @@ export default function Navbar({
 
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
-    { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 35+ interaktiven Labs', badge: 'Hub' },
+    { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 40+ interaktiven Labs', badge: 'Hub' },
+    { id: 'redis_caching_lab', label: '⚡ Redis Caching & Invalidation Lab', desc: 'Cache-Aside & Cache Stampede Defense', badge: 'Neu' },
+    { id: 'circuit_breaker_lab', label: '🛡️ Circuit Breaker & Mesh Resilience', desc: 'Fault Tolerance & OpenTelemetry Spans', badge: 'Neu' },
+    { id: 'k8s_cni_lab', label: '☸️ Kubernetes CNI & VXLAN Overlay', desc: 'Pod-to-Pod Cross-Node Networking', badge: 'Neu' },
     { id: 'graphql_resolver_lab', label: '🧬 GraphQL AST & DataLoader Lab', desc: 'Query Parsing & N+1 Batching', badge: 'Neu' },
     { id: 'linux_permissions_lab', label: '🐧 Linux Permissions & Inode Rechner', desc: 'chmod, Inodes & SUID Bits', badge: 'Neu' },
     { id: 'crypto_keygen_lab', label: '🔐 RSA & Diffie-Hellman Crypto Lab', desc: 'Public-Key Primzahl-Mathematik', badge: 'Neu' },

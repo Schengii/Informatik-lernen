@@ -90,6 +90,7 @@ Informatik-lernen/
     │   │   ├── CiCdMatrixLinterLab.jsx
     │   │   ├── CiCdPipelineLab.jsx
     │   │   ├── CiCdWorkflowLab.jsx
+    │   │   ├── CircuitBreakerLab.jsx
     │   │   ├── CleanCodeReviewLab.jsx
     │   │   ├── CloudDesignerLab.jsx
     │   │   ├── CloudDevOpsLab.jsx
@@ -114,6 +115,7 @@ Informatik-lernen/
     │   │   ├── IhkOralExamSimulator.jsx
     │   │   ├── IhkProjectDocumentationGenerator.jsx
     │   │   ├── ItPodcastHub.jsx
+    │   │   ├── K8sCniOverlayLab.jsx
     │   │   ├── KafkaEventLab.jsx
     │   │   ├── KnowledgeQuizArena.jsx
     │   │   ├── KubernetesLab.jsx
@@ -130,6 +132,7 @@ Informatik-lernen/
     │   │   ├── PythonWasmLab.jsx
     │   │   ├── RagAiSimulator.jsx
     │   │   ├── RedBlueTeamLab.jsx
+    │   │   ├── RedisCachingLab.jsx
     │   │   ├── RegexMasterLab.jsx
     │   │   ├── SqlJoinVisualizerLab.jsx
     │   │   ├── SqlQueryOptimizerLab.jsx
@@ -183,6 +186,7 @@ Informatik-lernen/
     │   ├── clozeData.js
     │   ├── cloudData.js
     │   ├── dockerData.js
+    │   ├── enterpriseLabsData.js
     │   ├── examData.js
     │   ├── expertLabsData.js
     │   ├── flashcardsData.js
@@ -241,6 +245,19 @@ npm run lint
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
 ### Versionsverlauf
+
+#### [v18.0.0] - Enterprise Architecture: Redis Caching, Circuit Breaker & Kubernetes CNI Overlay
+* **Redis Caching & Invalidation Strategies Lab (`RedisCachingLab.jsx`)**:
+  * Visualisierung von Caching-Mustern (**Cache-Aside / Lazy Loading**, **Write-Through**, **Write-Back**) und Schutzmechanismen gegen **Cache Stampede / Thundering Herd** mittels Mutex-Locks (`SETNX`).
+  * Live In-Memory Keyspace Tabelle mit Key-TTL und LRU/LFU Eviction Policy Simulation.
+* **Circuit Breaker & Service Mesh Resilience Lab (`CircuitBreakerLab.jsx`)**:
+  * Fehlertoleranz-Zustandsmaschine (**CLOSED**, **OPEN**, **HALF-OPEN**) mit dynamischen Fehlerraten-Schwellenwerten.
+  * OpenTelemetry Distributed Tracing Visualizer mit Waterfall-Spans (API Gateway -> Order Service -> Payment Service -> Kafka Event Bus).
+* **Kubernetes CNI & VXLAN Overlay Network Visualizer (`K8sCniOverlayLab.jsx`)**:
+  * 5-stufiger Cross-Node Paketfluss: Von Pod A über veth0, Host CNI Daemon, **VXLAN UDP Kapselung (UDP Port 4789, VNI 1)** über das physische Underlay bis zu Pod B.
+* **Test Suite & Integration**:
+  * 4 neue Vitest Unit-Tests (`src/data/enterpriseLabs.test.js`) zur Verifikation von Cache-Hit-Ratios, State-Transitions und VXLAN-Paketstrukturen (**27/27 Vitest-Tests erfolgreich**).
+  * Vollständige Anbindung an alle Megamenüs, die Command Palette (`Ctrl+K`) und das responsive Labs-Dashboard.
 
 #### [v17.0.0] - Masterclass GraphQL AST Resolver, Linux Inodes & RSA Cryptography Labs
 * **GraphQL AST & DataLoader Resolver Lab (`GraphqlResolverLab.jsx`)**:

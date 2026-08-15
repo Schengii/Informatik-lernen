@@ -106,6 +106,9 @@ const WebRtcSignalingLab = lazy(() => import('./components/Content/WebRtcSignali
 const GraphqlResolverLab = lazy(() => import('./components/Content/GraphqlResolverLab'));
 const LinuxPermissionsLab = lazy(() => import('./components/Content/LinuxPermissionsLab'));
 const CryptoKeygenLab = lazy(() => import('./components/Content/CryptoKeygenLab'));
+const RedisCachingLab = lazy(() => import('./components/Content/RedisCachingLab'));
+const CircuitBreakerLab = lazy(() => import('./components/Content/CircuitBreakerLab'));
+const K8sCniOverlayLab = lazy(() => import('./components/Content/K8sCniOverlayLab'));
 
 import CommandPaletteModal from './components/Navigation/CommandPaletteModal';
 
@@ -889,6 +892,24 @@ export default function App() {
         )}
 
         {/* NEXT-GEN LABS & GENERATORS */}
+        {activeTab === 'redis_caching_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <RedisCachingLab />
+          </Suspense>
+        )}
+
+        {activeTab === 'circuit_breaker_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <CircuitBreakerLab />
+          </Suspense>
+        )}
+
+        {activeTab === 'k8s_cni_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <K8sCniOverlayLab />
+          </Suspense>
+        )}
+
         {activeTab === 'graphql_resolver_lab' && (
           <Suspense fallback={<LabLoadingFallback />}>
             <GraphqlResolverLab />

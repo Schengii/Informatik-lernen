@@ -3,6 +3,39 @@ import { Search, Filter, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, C
 
 export const LAB_MODULES = [
   {
+    id: 'redis_caching_lab',
+    title: 'Redis Caching & Invalidation Lab',
+    category: 'databases',
+    tags: ['#Redis', '#Caching', '#CacheAside', '#TTL', '#CacheStampede'],
+    difficulty: 'Advanced',
+    desc: 'Cache-Aside, Write-Through & Schutz vor Cache Stampede mit Mutex.',
+    icon: Database,
+    badge: 'Neu',
+    color: '#ef4444'
+  },
+  {
+    id: 'circuit_breaker_lab',
+    title: 'Circuit Breaker & Resilience Lab',
+    category: 'cloud',
+    tags: ['#Microservices', '#CircuitBreaker', '#OpenTelemetry', '#Resilience'],
+    difficulty: 'Advanced',
+    desc: 'Closed/Open/Half-Open Zustandsmaschine & Distributed Tracing Spans.',
+    icon: Layers,
+    badge: 'Neu',
+    color: '#10b981'
+  },
+  {
+    id: 'k8s_cni_lab',
+    title: 'Kubernetes CNI & VXLAN Overlay Lab',
+    category: 'cloud',
+    tags: ['#Kubernetes', '#CNI', '#VXLAN', '#Calico', '#Networking'],
+    difficulty: 'Advanced',
+    desc: 'Cross-Node Pod-to-Pod Paketfluss mit VXLAN UDP Encapsulation (Port 4789).',
+    icon: Cloud,
+    badge: 'Neu',
+    color: '#0284c7'
+  },
+  {
     id: 'graphql_resolver_lab',
     title: 'GraphQL AST & DataLoader Lab',
     category: 'code',
