@@ -112,9 +112,11 @@ Informatik-lernen/
     │   │   ├── GitLab.jsx
     │   │   ├── GlossaryModal.jsx
     │   │   ├── GraphqlResolverLab.jsx
+    │   │   ├── Http3QuicLab.jsx
     │   │   ├── IhkOralExamSimulator.jsx
     │   │   ├── IhkProjectDocumentationGenerator.jsx
     │   │   ├── ItPodcastHub.jsx
+    │   │   ├── JwksRotationLab.jsx
     │   │   ├── K8sCniOverlayLab.jsx
     │   │   ├── KafkaEventLab.jsx
     │   │   ├── KnowledgeQuizArena.jsx
@@ -129,6 +131,7 @@ Informatik-lernen/
     │   │   ├── PacketTracerLab.jsx
     │   │   ├── PerformanceProfilingLab.jsx
     │   │   ├── PostgresExplainVisualizerLab.jsx
+    │   │   ├── PostgresMvccLab.jsx
     │   │   ├── PythonWasmLab.jsx
     │   │   ├── RagAiSimulator.jsx
     │   │   ├── RedBlueTeamLab.jsx
@@ -184,6 +187,7 @@ Informatik-lernen/
     │   ├── aiBusinessData.js
     │   ├── apiStudioData.js
     │   ├── clozeData.js
+    │   ├── cloudArchLabsData.js
     │   ├── cloudData.js
     │   ├── dockerData.js
     │   ├── enterpriseLabsData.js
@@ -245,6 +249,19 @@ npm run lint
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
 ### Versionsverlauf
+
+#### [v19.0.0] - Cloud Architecture: OAuth2 JWKS Key Rotation, Postgres MVCC & HTTP/3 QUIC Protocol
+* **OAuth2 JWKS Key Rotation & RS256 Studio (`JwksRotationLab.jsx`)**:
+  * OpenID Connect Discovery (`/.well-known/jwks.json`) mit dynamischem Key Matching über den `kid`-Header für Zero-Downtime Key Rotations.
+  * Vollständige Entschlüsselung und Signatur-Prüfung von RS256 Bearer JWTs gegen aktive und archivierte Public RSA-Schlüssel.
+* **PostgreSQL MVCC & VACUUM Storage Simulator (`PostgresMvccLab.jsx`)**:
+  * 4-stufiger interaktiver Lebenszyklus von 8 KB Disk Pages: `xmin`, `xmax`, Dead Tuples nach Updates und Rückgewinnung von freiem Speicherplatz durch `VACUUM`.
+* **HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx`)**:
+  * Direkter Performance- und Latenzvergleich zwischen HTTP/1.1 (TCP), HTTP/2 (Single TCP Stream) und HTTP/3 (QUIC over UDP).
+  * Simulation von 10% Packet Loss zur Veranschaulichung der Head-of-Line-Blocking Eliminierung unter QUIC.
+* **Test Suite & Framework Erweiterung**:
+  * 3 neue Unit-Tests (`src/data/cloudArchLabs.test.js`) zur Verifikation von JWKS Key-IDs, MVCC-Zuständen und QUIC-Protokolleigenschaften (**30/30 Vitest-Tests erfolgreich**).
+  * Vollständige Anbindung an alle Megamenüs, die Command Palette (`Ctrl+K`) und das responsive Labs-Dashboard.
 
 #### [v18.0.0] - Enterprise Architecture: Redis Caching, Circuit Breaker & Kubernetes CNI Overlay
 * **Redis Caching & Invalidation Strategies Lab (`RedisCachingLab.jsx`)**:

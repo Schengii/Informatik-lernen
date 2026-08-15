@@ -76,7 +76,10 @@ export default function Navbar({
 
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
-    { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 40+ interaktiven Labs', badge: 'Hub' },
+    { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 45+ interaktiven Labs', badge: 'Hub' },
+    { id: 'jwks_rotation_lab', label: '🔑 OAuth2 JWKS Key Rotation Lab', desc: 'Asymmetrische RS256 Validierung', badge: 'Neu' },
+    { id: 'postgres_mvcc_lab', label: '🗄️ PostgreSQL MVCC & VACUUM Lab', desc: 'xmin, xmax & Dead Tuples Bereinigung', badge: 'Neu' },
+    { id: 'http3_quic_lab', label: '⚡ HTTP/3 & QUIC Protocol Inspector', desc: 'UDP-Multiplexing & 0-RTT Latency', badge: 'Neu' },
     { id: 'redis_caching_lab', label: '⚡ Redis Caching & Invalidation Lab', desc: 'Cache-Aside & Cache Stampede Defense', badge: 'Neu' },
     { id: 'circuit_breaker_lab', label: '🛡️ Circuit Breaker & Mesh Resilience', desc: 'Fault Tolerance & OpenTelemetry Spans', badge: 'Neu' },
     { id: 'k8s_cni_lab', label: '☸️ Kubernetes CNI & VXLAN Overlay', desc: 'Pod-to-Pod Cross-Node Networking', badge: 'Neu' },

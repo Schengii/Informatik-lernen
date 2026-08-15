@@ -109,6 +109,9 @@ const CryptoKeygenLab = lazy(() => import('./components/Content/CryptoKeygenLab'
 const RedisCachingLab = lazy(() => import('./components/Content/RedisCachingLab'));
 const CircuitBreakerLab = lazy(() => import('./components/Content/CircuitBreakerLab'));
 const K8sCniOverlayLab = lazy(() => import('./components/Content/K8sCniOverlayLab'));
+const JwksRotationLab = lazy(() => import('./components/Content/JwksRotationLab'));
+const PostgresMvccLab = lazy(() => import('./components/Content/PostgresMvccLab'));
+const Http3QuicLab = lazy(() => import('./components/Content/Http3QuicLab'));
 
 import CommandPaletteModal from './components/Navigation/CommandPaletteModal';
 
@@ -892,6 +895,24 @@ export default function App() {
         )}
 
         {/* NEXT-GEN LABS & GENERATORS */}
+        {activeTab === 'jwks_rotation_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <JwksRotationLab />
+          </Suspense>
+        )}
+
+        {activeTab === 'postgres_mvcc_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <PostgresMvccLab />
+          </Suspense>
+        )}
+
+        {activeTab === 'http3_quic_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <Http3QuicLab />
+          </Suspense>
+        )}
+
         {activeTab === 'redis_caching_lab' && (
           <Suspense fallback={<LabLoadingFallback />}>
             <RedisCachingLab />

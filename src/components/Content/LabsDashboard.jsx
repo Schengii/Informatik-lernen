@@ -3,6 +3,39 @@ import { Search, Filter, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, C
 
 export const LAB_MODULES = [
   {
+    id: 'jwks_rotation_lab',
+    title: 'OAuth2 JWKS & Key Rotation Studio',
+    category: 'security',
+    tags: ['#OAuth2', '#JWKS', '#RS256', '#KeyRotation', '#Security'],
+    difficulty: 'Advanced',
+    desc: 'Asymmetrische Token-Signierung & Zero-Downtime Key Rotation.',
+    icon: Shield,
+    badge: 'Neu',
+    color: '#a855f7'
+  },
+  {
+    id: 'postgres_mvcc_lab',
+    title: 'PostgreSQL MVCC & VACUUM Simulator',
+    category: 'databases',
+    tags: ['#PostgreSQL', '#MVCC', '#xmin', '#xmax', '#VACUUM', '#Bloat'],
+    difficulty: 'Advanced',
+    desc: 'Verstehe Zeilenversionierung, Dead Tuples und Table Bloat Bereinigung.',
+    icon: Database,
+    badge: 'Neu',
+    color: '#10b981'
+  },
+  {
+    id: 'http3_quic_lab',
+    title: 'HTTP/3 & QUIC Protocol Inspector',
+    category: 'cloud',
+    tags: ['#HTTP3', '#QUIC', '#UDP', '#HeadOfLineBlocking', '#Networking'],
+    difficulty: 'Advanced',
+    desc: 'Vergleiche HTTP/1.1, HTTP/2 und HTTP/3 unter Paketverlust.',
+    icon: Network,
+    badge: 'Neu',
+    color: '#0284c7'
+  },
+  {
     id: 'redis_caching_lab',
     title: 'Redis Caching & Invalidation Lab',
     category: 'databases',
