@@ -100,6 +100,9 @@ const IhkProjectDocumentationGenerator = lazy(() => import('./components/Content
 const CleanCodeReviewLab = lazy(() => import('./components/Content/CleanCodeReviewLab'));
 const DnsHttpLifecycleLab = lazy(() => import('./components/Content/DnsHttpLifecycleLab'));
 const SqlTransactionLab = lazy(() => import('./components/Content/SqlTransactionLab'));
+const CiCdMatrixLinterLab = lazy(() => import('./components/Content/CiCdMatrixLinterLab'));
+const PostgresExplainVisualizerLab = lazy(() => import('./components/Content/PostgresExplainVisualizerLab'));
+const WebRtcSignalingLab = lazy(() => import('./components/Content/WebRtcSignalingLab'));
 
 import CommandPaletteModal from './components/Navigation/CommandPaletteModal';
 
@@ -883,6 +886,24 @@ export default function App() {
         )}
 
         {/* NEXT-GEN LABS & GENERATORS */}
+        {activeTab === 'cicd_matrix_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <CiCdMatrixLinterLab />
+          </Suspense>
+        )}
+
+        {activeTab === 'postgres_explain_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <PostgresExplainVisualizerLab />
+          </Suspense>
+        )}
+
+        {activeTab === 'webrtc_signaling_lab' && (
+          <Suspense fallback={<LabLoadingFallback />}>
+            <WebRtcSignalingLab />
+          </Suspense>
+        )}
+
         {activeTab === 'code_debugger_lab' && (
           <Suspense fallback={<LabLoadingFallback />}>
             <CodeExecutionDebuggerLab />

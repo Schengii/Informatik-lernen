@@ -87,6 +87,7 @@ Informatik-lernen/
     │   │   ├── BigOVisualizer.jsx
     │   │   ├── CampaignQuestHub.jsx
     │   │   ├── CareerRoadmap.jsx
+    │   │   ├── CiCdMatrixLinterLab.jsx
     │   │   ├── CiCdPipelineLab.jsx
     │   │   ├── CiCdWorkflowLab.jsx
     │   │   ├── CleanCodeReviewLab.jsx
@@ -122,6 +123,7 @@ Informatik-lernen/
     │   │   ├── OauthPkceStudio.jsx
     │   │   ├── PacketTracerLab.jsx
     │   │   ├── PerformanceProfilingLab.jsx
+    │   │   ├── PostgresExplainVisualizerLab.jsx
     │   │   ├── PythonWasmLab.jsx
     │   │   ├── RagAiSimulator.jsx
     │   │   ├── RedBlueTeamLab.jsx
@@ -140,6 +142,7 @@ Informatik-lernen/
     │   │   ├── WasmRustLab.jsx
     │   │   ├── WasmRustStudio.jsx
     │   │   ├── WebComponentsHub.jsx
+    │   │   ├── WebRtcSignalingLab.jsx
     │   │   ├── WebSocketProtocolLab.jsx
     │   │   └── WebSocketsLab.jsx
     │   ├── Footer/
@@ -171,6 +174,7 @@ Informatik-lernen/
     │   └── Projects/
     │       └── ProjectViewer.jsx
     ├── data/
+    │   ├── advancedLabsData.js
     │   ├── aiBusinessData.js
     │   ├── apiStudioData.js
     │   ├── clozeData.js
@@ -233,6 +237,17 @@ npm run lint
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
 ### Versionsverlauf
+
+#### [v16.0.0] - Advanced CI/CD Matrix Linter, Postgres Execution Tree & WebRTC Signaling Lab
+* **GitHub Actions CI/CD Matrix Linter & Runner Lab (`CiCdMatrixLinterLab.jsx`)**:
+  * Interaktiver Workflow-YAML Editor mit Linter für Trigger, Jobs, Steps und Multi-OS Matrix-Builds (`ubuntu-latest`, `windows-latest`, `macos-latest` mit Node 18, 20 & 22) inklusive paralleler Live-Job-Ausführungssimulation.
+* **PostgreSQL Query Execution Tree & Cost Visualizer (`PostgresExplainVisualizerLab.jsx`)**:
+  * Hierarchischer JSON EXPLAIN ANALYZE Baum mit interaktivem Node-Inspector (Startup & Total Cost, Actual Rows, Sort Methods und Bitmap Index/Heap Scan Detailanalysen).
+* **WebRTC P2P & SDP Signaling Lab (`WebRtcSignalingLab.jsx`)**:
+  * 7-Stufen Realtime-Signaling Simulator mit MediaStream Erfassung, SDP Offer/Answer Handshake, STUN NAT-Traversal (srflx Candidates), DTLS/SRTP Verschlüsselung und interaktivem RTCDataChannel Live-Chat.
+* **Test Suite & Navigation Expansion**:
+  * 3 neue Vitest Unit-Tests (`src/data/advancedLabs.test.js`) zur Absicherung der YAML-Parser, JSON Execution Trees und WebRTC Signaling-Sequenzen (**20/20 Tests erfolgreich**).
+  * Vollständige Verknüpfung aller neuen Module im Megamenü der Navbar, im Labs Dashboard und in der Command Palette (`Ctrl+K`).
 
 #### [v15.0.0] - Next-Gen Educational Labs, Runtime Debugger, IHK Doku-Generator & Concurrency Engine
 * **Interaktiver Code Execution & Memory Debugger (`CodeExecutionDebuggerLab.jsx`)**:

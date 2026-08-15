@@ -77,6 +77,9 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 30+ interaktiven Labs', badge: 'Hub' },
+    { id: 'cicd_matrix_lab', label: '⚙️ CI/CD Matrix Linter & Runner', desc: 'GitHub Actions Multi-OS Matrix Testing', badge: 'Neu' },
+    { id: 'postgres_explain_lab', label: '📊 PostgreSQL Query Tree Visualizer', desc: 'JSON EXPLAIN Plan & Cost Analyzer', badge: 'Neu' },
+    { id: 'webrtc_signaling_lab', label: '📡 WebRTC P2P & Signaling Lab', desc: 'SDP Offer/Answer & RTCDataChannel', badge: 'Neu' },
     { id: 'code_debugger_lab', label: '🔍 Code Execution & Memory Debugger', desc: 'V8 Engine Call Stack, Closures & Heap', badge: 'Neu' },
     { id: 'clean_code_lab', label: '🛡️ Clean Code & Security Arena', desc: 'OWASP Top 10, Memory Leaks & Refactoring', badge: 'Neu' },
     { id: 'dns_http_lab', label: '🌐 DNS & HTTP/TLS Request Inspector', desc: 'End-to-End Netzwerk-Visualisierung', badge: 'Neu' },

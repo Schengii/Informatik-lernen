@@ -3,6 +3,39 @@ import { Search, Filter, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, C
 
 export const LAB_MODULES = [
   {
+    id: 'cicd_matrix_lab',
+    title: 'CI/CD Matrix Linter & Runner Lab',
+    category: 'devops',
+    tags: ['#GitHubActions', '#YAML', '#Matrix', '#CrossPlatform', '#CI/CD'],
+    difficulty: 'Advanced',
+    desc: 'Validiere GitHub Actions YAML, Multi-OS Matrix & parallele Testläufe.',
+    icon: Layers,
+    badge: 'Neu',
+    color: '#6366f1'
+  },
+  {
+    id: 'postgres_explain_lab',
+    title: 'PostgreSQL Query Tree & Cost Visualizer',
+    category: 'databases',
+    tags: ['#Postgres', '#ExplainAnalyze', '#QueryPlan', '#IndexScan', '#Cost'],
+    difficulty: 'Advanced',
+    desc: 'Hierarchischer Ausführungsbaum mit Kosten, Startup Cost & Zeilenschätzungen.',
+    icon: Database,
+    badge: 'Neu',
+    color: '#10b981'
+  },
+  {
+    id: 'webrtc_signaling_lab',
+    title: 'WebRTC P2P & SDP Signaling Lab',
+    category: 'cloud',
+    tags: ['#WebRTC', '#P2P', '#SDP', '#STUN', '#TURN', '#DataChannel'],
+    difficulty: 'Advanced',
+    desc: 'SDP Offer/Answer Handshake, NAT Traversal & RTCDataChannel Chat.',
+    icon: Network,
+    badge: 'Neu',
+    color: '#ec4899'
+  },
+  {
     id: 'code_debugger_lab',
     title: 'Code Execution & Memory Debugger',
     category: 'algorithms',
