@@ -3,6 +3,72 @@ import { Search, Filter, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, C
 
 export const LAB_MODULES = [
   {
+    id: 'wiso_kalkulation',
+    title: 'WISO & Handelskalkulations-Studio',
+    category: 'ihk',
+    tags: ['#WISO', '#Handelskalkulation', '#BreakEven', '#Netzplantechnik', '#IHK'],
+    difficulty: 'Intermediate',
+    desc: 'Vorwärtskalkulation, Deckungsbeiträge, Kritischer Pfad (CPM) & Arbeitsrecht.',
+    icon: Layers,
+    badge: 'Neu',
+    color: '#3b82f6'
+  },
+  {
+    id: 'ieee754_lab',
+    title: 'IEEE-754 Gleitkomma & Zahlen-Studio',
+    category: 'code',
+    tags: ['#IEEE754', '#Float32', '#Zweierkomplement', '#KVMap', '#Hardware'],
+    difficulty: 'Advanced',
+    desc: '32-Bit Bit-Manipulation, Mantisse/Exponent & KV-Diagramm Minimierer.',
+    icon: Cpu,
+    badge: 'Neu',
+    color: '#06b6d4'
+  },
+  {
+    id: 'ipv6_routing_lab',
+    title: 'IPv6 & Routing-Table Simulator',
+    category: 'cloud',
+    tags: ['#IPv6', '#SLAAC', '#EUI64', '#LPM', '#Routing', '#CIDR'],
+    difficulty: 'Advanced',
+    desc: 'Adresskompression, automatische EUI-64 SLAAC & Longest Prefix Match Router.',
+    icon: Network,
+    badge: 'Neu',
+    color: '#10b981'
+  },
+  {
+    id: 'owasp_exploit_lab',
+    title: 'OWASP Top 10 Live-Exploit Sandbox',
+    category: 'security',
+    tags: ['#OWASP', '#XSS', '#SQLi', '#CSRF', '#IDOR', '#Security'],
+    difficulty: 'Advanced',
+    desc: 'Interaktive Sicherheitslücken-Analyse & wirksame Gegenmaßnahmen im Code.',
+    icon: Shield,
+    badge: 'Neu',
+    color: '#f43f5e'
+  },
+  {
+    id: 'neural_net_lab',
+    title: 'Neural Network & BPE Tokenizer Studio',
+    category: 'code',
+    tags: ['#DeepLearning', '#NeuralNet', '#ForwardPass', '#BPE', '#LLM', '#AI'],
+    difficulty: 'Advanced',
+    desc: 'Forward-Propagation, Gewichte/Biases & Byte-Pair Encoding für LLMs.',
+    icon: Cpu,
+    badge: 'Neu',
+    color: '#a855f7'
+  },
+  {
+    id: 'cheat_sheets',
+    title: 'IHK Spickzettel & PDF-Generator',
+    category: 'ihk',
+    tags: ['#IHK', '#CheatSheet', '#PDF', '#Prüfungsvorbereitung', '#Formeln'],
+    difficulty: 'Beginner',
+    desc: 'Druckfertige DIN A4 PDF-Zusammenfassungen für IHK-Klausuren & AP1/AP2.',
+    icon: Layers,
+    badge: 'Neu',
+    color: '#6366f1'
+  },
+  {
     id: 'jwks_rotation_lab',
     title: 'OAuth2 JWKS & Key Rotation Studio',
     category: 'security',

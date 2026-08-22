@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Search, Terminal, BookOpen, Sparkles, Trophy, Cpu, Code2, 
-  Layers, Award, FileText, ArrowRight, X, Command, Database
+  Layers, Award, FileText, ArrowRight, X, Command, Database, ShieldCheck,
+  Calculator, Globe, ShieldAlert, Brain
 } from 'lucide-react';
 import { TOPICS } from '../../data/topicsData';
 import { GLOSSARY_TERMS } from '../../data/glossaryData';
@@ -22,8 +23,14 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
 
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
-    { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('home') },
-    { id: 'view-topics', title: 'Alle Informatik-Themen', category: 'Themen & Content', icon: Layers, action: () => onNavigate('home', 'topics') },
+    { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-wiso-kalkulation', title: 'WISO & Handelskalkulations-Studio', category: 'Labs & Tools', icon: Calculator, action: () => onNavigate('wiso_kalkulation') },
+    { id: 'view-ieee754-lab', title: 'IEEE-754 Float & Zahlen-Studio', category: 'Labs & Tools', icon: Cpu, action: () => onNavigate('ieee754_lab') },
+    { id: 'view-ipv6-routing', title: 'IPv6 & Routing-Table Simulator', category: 'Labs & Tools', icon: Globe, action: () => onNavigate('ipv6_routing_lab') },
+    { id: 'view-owasp-exploit', title: 'OWASP Top 10 Live-Exploit Sandbox', category: 'Labs & Tools', icon: ShieldAlert, action: () => onNavigate('owasp_exploit_lab') },
+    { id: 'view-neural-net', title: 'Neural Network & BPE Tokenizer Studio', category: 'Labs & Tools', icon: Brain, action: () => onNavigate('neural_net_lab') },
+    { id: 'view-cheat-sheets', title: 'IHK Spickzettel & PDF-Generator', category: 'Prüfung', icon: FileText, action: () => onNavigate('cheat_sheets') },
+    { id: 'view-topics', title: 'Alle Informatik-Themen', category: 'Themen & Content', icon: Layers, action: () => onNavigate('wissen') },
     { id: 'view-labs', title: 'Interaktive Labs & Simulatoren', category: 'Labs & Tools', icon: Terminal, action: () => onNavigate('labs') },
     { id: 'view-jwks-rotation', title: 'OAuth2 JWKS Key Rotation Lab', category: 'Labs & Tools', icon: ShieldCheck, action: () => onNavigate('jwks_rotation_lab') },
     { id: 'view-postgres-mvcc', title: 'PostgreSQL MVCC & VACUUM Lab', category: 'Labs & Tools', icon: Database, action: () => onNavigate('postgres_mvcc_lab') },
