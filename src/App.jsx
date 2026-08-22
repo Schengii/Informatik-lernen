@@ -126,6 +126,9 @@ const TcoRoiCalculatorLab = lazy(() => import('./components/Content/TcoRoiCalcul
 const RegexRailroadVisualizerLab = lazy(() => import('./components/Content/RegexRailroadVisualizerLab'));
 const WebhookInspectorLab = lazy(() => import('./components/Content/WebhookInspectorLab'));
 const VoiceQuizStudioLab = lazy(() => import('./components/Content/VoiceQuizStudioLab'));
+const AgileScrumSimulatorLab = lazy(() => import('./components/Content/AgileScrumSimulatorLab'));
+const GraphqlExplorerStudioLab = lazy(() => import('./components/Content/GraphqlExplorerStudioLab'));
+const BleSensorSimulatorLab = lazy(() => import('./components/Content/BleSensorSimulatorLab'));
 
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
@@ -329,6 +332,54 @@ export default function App() {
                   </h2>
 
                   <div className="grid-responsive" style={{ marginBottom: '40px' }}>
+                    {/* Scrum Sprint Simulator Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('scrum_simulator')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📋</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Scrum Sprint Simulator</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        Story Points, Kanban-Board &amp; Recharts Burndown-Charts.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        Sprint Planen <ArrowRight size={16} />
+                      </span>
+                    </div>
+
+                    {/* GraphQL Explorer Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('graphql_explorer')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🧬</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>GraphQL Schema Explorer</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        In-Browser Query Engine mit AST-Visualisierung &amp; JSON-Output.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-purple)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        GraphQL Testen <ArrowRight size={16} />
+                      </span>
+                    </div>
+
+                    {/* BLE Sensor Lab Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('ble_sensor')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📡</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>BLE Sensor &amp; GATT Studio</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        Bluetooth Low Energy Telemetrie, GATT Services &amp; Byte-Decoder.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-cyan)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        Sensor Verbinden <ArrowRight size={16} />
+                      </span>
+                    </div>
+
                     {/* RegEx Railroad Studio Card */}
                     <div
                       className="glass-panel glass-panel-hover"
@@ -661,6 +712,24 @@ export default function App() {
             {activeTab === 'voice_quiz' && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <VoiceQuizStudioLab />
+              </Suspense>
+            )}
+
+            {activeTab === 'scrum_simulator' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <AgileScrumSimulatorLab />
+              </Suspense>
+            )}
+
+            {activeTab === 'graphql_explorer' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <GraphqlExplorerStudioLab />
+              </Suspense>
+            )}
+
+            {activeTab === 'ble_sensor' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <BleSensorSimulatorLab />
               </Suspense>
             )}
 

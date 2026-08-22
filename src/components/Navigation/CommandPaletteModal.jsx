@@ -24,6 +24,9 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-scrum-simulator', title: 'Scrum Sprint & Kanban Simulator', category: 'Prüfung', icon: Award, action: () => onNavigate('scrum_simulator') },
+    { id: 'view-graphql-explorer', title: 'GraphQL Schema & Query Explorer', category: 'Labs & Tools', icon: Layers, action: () => onNavigate('graphql_explorer') },
+    { id: 'view-ble-sensor', title: 'BLE & GATT Sensor Simulator', category: 'Hardware', icon: Cpu, action: () => onNavigate('ble_sensor') },
     { id: 'view-regex-railroad', title: 'RegEx Railroad & Diagramm Studio', category: 'Labs & Tools', icon: Code2, action: () => onNavigate('regex_railroad') },
     { id: 'view-webhook-inspector', title: 'REST API Webhook Inspector & Mock Server', category: 'Labs & Tools', icon: Terminal, action: () => onNavigate('webhook_inspector') },
     { id: 'view-voice-quiz', title: 'Podcast Voice Quiz Studio', category: 'Prüfung', icon: Award, action: () => onNavigate('voice_quiz') },

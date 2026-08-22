@@ -3,6 +3,39 @@ import { Search, Filter, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, C
 
 export const LAB_MODULES = [
   {
+    id: 'scrum_simulator',
+    title: 'Scrum Sprint & Kanban Simulator',
+    category: 'ihk',
+    tags: ['#Scrum', '#Kanban', '#Agile', '#StoryPoints', '#Burndown', '#IHK'],
+    difficulty: 'Intermediate',
+    desc: 'Plane Sprints, bewege Stories auf dem Kanban-Board und analysiere Burndown-Charts.',
+    icon: Award,
+    badge: 'Neu',
+    color: '#14b8a6'
+  },
+  {
+    id: 'graphql_explorer',
+    title: 'GraphQL Schema & Query Explorer',
+    category: 'code',
+    tags: ['#GraphQL', '#AST', '#Queries', '#Schema', '#API', '#JSON'],
+    difficulty: 'Intermediate',
+    desc: 'Führe GraphQL Queries live im Browser aus und inspiziere den Syntaxbaum (AST).',
+    icon: Layers,
+    badge: 'Neu',
+    color: '#8b5cf6'
+  },
+  {
+    id: 'ble_sensor',
+    title: 'BLE & GATT Sensor Simulator',
+    category: 'hardware',
+    tags: ['#BLE', '#GATT', '#Bluetooth', '#IoT', '#Telemetrie', '#Hardware'],
+    difficulty: 'Intermediate',
+    desc: 'Simuliere GATT Server, Bluetooth-Services und Sensor-Telemetriedaten.',
+    icon: Cpu,
+    badge: 'Neu',
+    color: '#06b6d4'
+  },
+  {
     id: 'regex_railroad',
     title: 'RegEx Railroad & Diagramm Studio',
     category: 'code',

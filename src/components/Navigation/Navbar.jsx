@@ -72,6 +72,9 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 50+ interaktiven Labs', badge: 'Hub' },
+    { id: 'scrum_simulator', label: '📋 Scrum Sprint & Kanban Simulator', desc: 'Story Points, Burndown-Chart & Velocity', badge: 'Neu' },
+    { id: 'graphql_explorer', label: '🧬 GraphQL Schema & Query Explorer', desc: 'In-Browser GraphQL Engine & AST Visualizer', badge: 'Neu' },
+    { id: 'ble_sensor', label: '📡 BLE & GATT Sensor Simulator', desc: 'IoT Bluetooth Low Energy Telemetrie & Bytes', badge: 'Neu' },
     { id: 'regex_railroad', label: '🚂 RegEx Railroad & Diagramm Studio', desc: 'Syntaxbäume & Eisenbahndiagramme für RegEx', badge: 'Neu' },
     { id: 'webhook_inspector', label: '📡 Webhook Inspector & Mock Server', desc: 'HTTP Webhooks empfangen, prüfen & signieren', badge: 'Neu' },
     { id: 'voice_quiz', label: '🎙️ Podcast Voice Quiz Studio', desc: 'Sprachgesteuertes Audio-Quiz zu IHK-Themen', badge: 'Neu' },
