@@ -24,6 +24,9 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-regex-railroad', title: 'RegEx Railroad & Diagramm Studio', category: 'Labs & Tools', icon: Code2, action: () => onNavigate('regex_railroad') },
+    { id: 'view-webhook-inspector', title: 'REST API Webhook Inspector & Mock Server', category: 'Labs & Tools', icon: Terminal, action: () => onNavigate('webhook_inspector') },
+    { id: 'view-voice-quiz', title: 'Podcast Voice Quiz Studio', category: 'Prüfung', icon: Award, action: () => onNavigate('voice_quiz') },
     { id: 'view-tco-roi', title: 'TCO & ROI Wirtschaftlichkeits-Simulator', category: 'Prüfung', icon: Calculator, action: () => onNavigate('tco_roi_lab') },
     { id: 'view-git-conflict', title: 'Git 3-Way Merge Conflict Resolver', category: 'Labs & Tools', icon: GitMerge, action: () => onNavigate('git_conflict_lab') },
     { id: 'view-custom-challenges', title: 'Custom Coding Challenge Creator', category: 'Labs & Tools', icon: Code2, action: () => onNavigate('custom_challenges') },

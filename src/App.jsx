@@ -123,6 +123,9 @@ const LiveCodingChallengeStudio = lazy(() => import('./components/Content/LiveCo
 const CustomChallengeCreatorLab = lazy(() => import('./components/Content/CustomChallengeCreatorLab'));
 const GitMergeConflictLab = lazy(() => import('./components/Content/GitMergeConflictLab'));
 const TcoRoiCalculatorLab = lazy(() => import('./components/Content/TcoRoiCalculatorLab'));
+const RegexRailroadVisualizerLab = lazy(() => import('./components/Content/RegexRailroadVisualizerLab'));
+const WebhookInspectorLab = lazy(() => import('./components/Content/WebhookInspectorLab'));
+const VoiceQuizStudioLab = lazy(() => import('./components/Content/VoiceQuizStudioLab'));
 
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
@@ -326,6 +329,54 @@ export default function App() {
                   </h2>
 
                   <div className="grid-responsive" style={{ marginBottom: '40px' }}>
+                    {/* RegEx Railroad Studio Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('regex_railroad')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🚂</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>RegEx Railroad Studio</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        Visuelle Eisenbahndiagramme &amp; Token-Syntaxbäume für RegEx.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-pink)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        Diagramme Öffnen <ArrowRight size={16} />
+                      </span>
+                    </div>
+
+                    {/* REST Webhook Inspector Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('webhook_inspector')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📡</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Webhook &amp; Mock Server</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        HTTP Webhooks live empfangen, verifizieren &amp; inspizieren.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        Inspector Starten <ArrowRight size={16} />
+                      </span>
+                    </div>
+
+                    {/* Podcast Voice Quiz Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('voice_quiz')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🎙️</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Podcast Voice Quiz</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        IHK-Fachfragen frei per Sprachaufnahme &amp; Mikrofon beantworten.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-purple)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        Voice Quiz Starten <ArrowRight size={16} />
+                      </span>
+                    </div>
+
                     {/* TCO & ROI Calculator Card */}
                     <div
                       className="glass-panel glass-panel-hover"
@@ -592,6 +643,24 @@ export default function App() {
             {activeTab === 'tco_roi_lab' && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <TcoRoiCalculatorLab />
+              </Suspense>
+            )}
+
+            {activeTab === 'regex_railroad' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <RegexRailroadVisualizerLab />
+              </Suspense>
+            )}
+
+            {activeTab === 'webhook_inspector' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <WebhookInspectorLab />
+              </Suspense>
+            )}
+
+            {activeTab === 'voice_quiz' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <VoiceQuizStudioLab />
               </Suspense>
             )}
 

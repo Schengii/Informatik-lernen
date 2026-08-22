@@ -72,6 +72,9 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 50+ interaktiven Labs', badge: 'Hub' },
+    { id: 'regex_railroad', label: '🚂 RegEx Railroad & Diagramm Studio', desc: 'Syntaxbäume & Eisenbahndiagramme für RegEx', badge: 'Neu' },
+    { id: 'webhook_inspector', label: '📡 Webhook Inspector & Mock Server', desc: 'HTTP Webhooks empfangen, prüfen & signieren', badge: 'Neu' },
+    { id: 'voice_quiz', label: '🎙️ Podcast Voice Quiz Studio', desc: 'Sprachgesteuertes Audio-Quiz zu IHK-Themen', badge: 'Neu' },
     { id: 'tco_roi_lab', label: '📊 TCO & ROI Wirtschaftlichkeits-Rechner', desc: 'On-Prem vs. Cloud Amortisation für IHK Projekte', badge: 'Neu' },
     { id: 'git_conflict_lab', label: '🌿 Git 3-Way Merge Conflict Resolver', desc: 'Interaktives Lösen von Git-Konflikten', badge: 'Neu' },
     { id: 'custom_challenges', label: '✍️ Custom Coding Challenge Creator', desc: 'Eigene Aufgaben erstellen, testen & exportieren', badge: 'Neu' },

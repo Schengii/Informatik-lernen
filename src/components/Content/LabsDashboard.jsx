@@ -3,6 +3,39 @@ import { Search, Filter, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, C
 
 export const LAB_MODULES = [
   {
+    id: 'regex_railroad',
+    title: 'RegEx Railroad & Diagramm Studio',
+    category: 'code',
+    tags: ['#RegEx', '#RailroadDiagram', '#SyntaxTree', '#Parsing', '#Matching'],
+    difficulty: 'Intermediate',
+    desc: 'Visuelle Eisenbahndiagramme & Syntax-Bäume für reguläre Ausdrücke.',
+    icon: Terminal,
+    badge: 'Neu',
+    color: '#ec4899'
+  },
+  {
+    id: 'webhook_inspector',
+    title: 'REST API Webhook Inspector & Mock Server',
+    category: 'cloud',
+    tags: ['#Webhooks', '#REST', '#HMAC', '#GitHub', '#Stripe', '#MockServer'],
+    difficulty: 'Intermediate',
+    desc: 'Empfange, inspiziere und validiere eingehende HTTP-Webhooks live im Browser.',
+    icon: Network,
+    badge: 'Neu',
+    color: '#3b82f6'
+  },
+  {
+    id: 'voice_quiz',
+    title: 'Podcast Voice Quiz Studio',
+    category: 'ihk',
+    tags: ['#VoiceQuiz', '#SpeechRecognition', '#Podcast', '#IHK', '#Datenschutz'],
+    difficulty: 'Intermediate',
+    desc: 'Sprachgesteuertes Audio-Quiz zu IT-Berufe-Podcast-Themen per Mikrofon.',
+    icon: Award,
+    badge: 'Neu',
+    color: '#a855f7'
+  },
+  {
     id: 'tco_roi_lab',
     title: 'TCO & ROI Wirtschaftlichkeits-Simulator',
     category: 'ihk',

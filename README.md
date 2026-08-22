@@ -1,12 +1,12 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator & JSON Manager, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio (LeetCode/Exercism Style), WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses (Python Complete Guide, JS ES6+, TS, Java, C#), Coursera Deep Learning (CNNs, RNNs, Transformers), IT-Berufe Podcast Specials, Schritt-für-Schritt Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes Orchestrierung, Local RAG Vector AI Pipelines, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, Cloud Infrastructure CI/CD, Cybersecurity Red vs Blue Team, GraphQL & REST API Testing, Web Components, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio (Spracherkennung), TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator & JSON Manager, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio (LeetCode/Exercism Style), WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses (Python Complete Guide, JS ES6+, TS, Java, C#), Coursera Deep Learning (CNNs, RNNs, Transformers), IT-Berufe Podcast Specials, Schritt-für-Schritt Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes Orchestrierung, Local RAG Vector AI Pipelines, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, Cloud Infrastructure CI/CD, Cybersecurity Red vs Blue Team, GraphQL & REST API Testing, Web Components, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.5.0)](#-hauptfunktionen--neue-features-v350-productivity--ihk-project-edition)
+- [Hauptfunktionen & Neue Features (v3.6.0)](#-hauptfunktionen--neue-features-v360-event-driven--speech-edition)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -25,10 +25,13 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Einsteiger-Kurs (`AnfaengerGuideHub.jsx`)**: Lernen ohne jegliche Vorkenntnisse.
    - Grundlagen leicht verständlich erklärt: **EVA-Prinzip**, **CPU-Gehirn** (ALU, Steuerwerk, Register), **Binärsystem & Bytes**, **Internet & DNS**.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI, IT-Systemelektroniker)**:
+   - **Podcast Voice Quiz Studio (`VoiceQuizStudioLab.jsx`)**: Sprachgesteuertes IHK-Quiz per Mikrofon zu Themen aus dem IT-Berufe Podcast (Datenschutz vs. Datensicherheit, UTF-8/ASCII Encodings, Stefan Macke Prüfungstipps).
    - **TCO & ROI Wirtschaftlichkeits-Simulator (`TcoRoiCalculatorLab.jsx`)**: On-Premises vs. Cloud-Migration Kostenvergleich mit Break-Even-Monat und Recharts-Amortisationsdiagramm für IHK-Projektanträge.
    - **1v1 IHK Quiz-Duell Arena (`P2pQuizDuellLab.jsx`)**: Multiplayer Duell gegen Kollegen oder KI-Bots mit Geschwindigkeitsbonus.
    - Detaillierte IHK-Berufsschul Lernfelder (LF 1 bis LF 12b), prüfungsrelevante Tipps für AP Teil 1 & AP Teil 2, **Handelskalkulationen** (Vorwärtsrechnung mit Rabatt, Skonto, Selbstkosten), **Deckungsbeitragsrechnung & Break-Even-Point**, **Netzplantechnik (CPM / Kritischer Pfad)**, **WISO-Arbeitsrecht** (§ 622 BGB, JAV/Betriebsrat) und druckfertige **A4 PDF-Spickzettel**.
 3. **🚀 Junior Developer & Systemintegratoren**:
+   - **RegEx Railroad & Diagramm Studio (`RegexRailroadVisualizerLab.jsx`)**: Visuelle Eisenbahndiagramme, Syntaxbäume und Live-Pattern Matching.
+   - **REST Webhook Inspector & Mock Server (`WebhookInspectorLab.jsx`)**: Eingehende Webhooks (GitHub, Stripe) simulieren, Header-Signaturen prüfen und Payloads inspizieren.
    - **Git 3-Way Merge Conflict Resolver (`GitMergeConflictLab.jsx`)**: Interaktives Lösen von Merge-Konflikten zwischen Branches mit Schnell-Aktionen (`Accept Current`, `Accept Incoming`, `Accept Both`) und Live-Code-Validierung.
    - **Custom Coding Challenge Creator (`CustomChallengeCreatorLab.jsx`)**: Eigene Programmieraufgaben mit Testfällen erstellen, gegen Musterlösung validieren und als JSON exportieren/importieren.
    - **SQLite In-Browser Database Sandbox (`SqliteWasmStudioLab.jsx`)**: Echte relationale SQL-Konsole mit Schema-Explorer, JOINs, Groupings, Inserts und CSV-Export.
@@ -39,36 +42,39 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v3.5.0 Productivity & IHK Project Edition)
+## 🔥 Hauptfunktionen & Neue Features (v3.6.0 Event-Driven & Speech Edition)
 
+* **🚂 RegEx Railroad & Diagramm Studio (`RegexRailroadVisualizerLab.jsx` & `regexParserEngine.js`)**:
+  * Zerlegt reguläre Ausdrücke in visuelle Token-Ketten und Eisenbahndiagramme (Anchors, Zeichenklassen, Quantifizierer, Gruppen, Escapes)
+  * Live-Tester gegen anpassbare Test-Strings mit Treffer-Auflistung und Gruppenextraktion.
+* **📡 REST API Webhook Inspector & Mock Server (`WebhookInspectorLab.jsx` & `webhookSimulator.js`)**:
+  * Simulierter HTTP Webhook Empfänger & Mock Server im Browser
+  * Presets für **GitHub Push Events** und **Stripe Payment Succeeded**
+  * Live-Inspektor für Request-Headers, JSON-Payloads, Statuscodes und Latenzen.
+* **🎙️ Podcast Voice Quiz Studio (`VoiceQuizStudioLab.jsx` & `voiceQuizEngine.js`)**:
+  * Sprachgesteuertes IHK-Quiz per Mikrofon (Web Speech API) mit automatischer semantischer Schlüsselwort-Prüfung
+  * Text-to-Speech Vorlesen der Fragen
+  * Fragen zu Datenschutz vs. Datensicherheit, UTF-8/ASCII Encodings und Stefan Macke Prüfungstipps.
 * **📊 TCO & ROI Wirtschaftlichkeits-Simulator (`TcoRoiCalculatorLab.jsx` & `tcoCalculations.js`)**:
-  * Vollständige Wirtschaftlichkeitsanalyse für IHK-Projektarbeiten (AP2)
-  * Vergleich von **On-Premises Infrastruktur (CAPEX + OPEX)** vs. **Cloud Migration (AWS/Azure)** über 3 bis 5 Jahre
-  * Automatische Ermittlung von **TCO-Summen**, **Gesamtersparnis**, **ROI (%)** und **Amortisationsmonat**
-  * Interaktives Recharts-Liniendiagramm und JSON-Export.
+  * Kumulierte TCO-Wirtschaftlichkeitsanalyse (On-Prem vs. Cloud) über 3–5 Jahre mit Recharts Amortisations-Chart.
 * **🌿 Git 3-Way Merge Conflict Resolver (`GitMergeConflictLab.jsx` & `gitConflictEngine.js`)**:
-  * Realistische Merge-Konflikt-Szenarien (Server-Konfiguration, Authentifizierungs-Middleware)
-  * Visueller Vergleich zwischen `HEAD (Current)`, `Incoming Branch` und Konflikt-Markern (`<<<<<<<`, `=======`, `>>>>>>>`)
-  * 1-Klick-Lösungsaktionen (*Accept Current*, *Accept Incoming*, *Accept Both*) sowie manueller Live-Editor mit Commit-Validierung.
+  * Visuelles Lösen von Git Merge-Konflikten mit Schnell-Aktionen und Commit-Validierung.
 * **✍️ Custom Coding Challenge Creator (`CustomChallengeCreatorLab.jsx` & `customChallengesManager.js`)**:
-  * Erstellung eigener Programmier-Rätsel mit Starter-Code, Musterlösung und flexiblen Testfällen (Input-Arrays und erwartete Rückgabewerte)
-  * Automatische Validierung der Musterlösung gegen die definierten Testfälle
-  * JSON-Export und -Import für Dozenten, Ausbilder und Lerngruppen.
+  * Eigene Aufgaben mit Testfällen erstellen, validieren und als JSON exportieren/importieren.
 * **⚔️ IHK Quiz-Duell Arena (`P2pQuizDuellLab.jsx` & `p2pQuizEngine.js`)**:
-  * 1-gegen-1 Echtzeit-Quizduell über Raum-Codes (LAN / WebRTC P2P) oder gegen simulierte KI-Bots (Junior, Azubi, Senior)
-  * 8 Runden mit 15-Sekunden-Timer, 100 Basispunkten und bis zu 50 Speed-Bonuspunkten.
+  * 1v1 Echtzeit-Quizduell über Raum-Codes oder gegen KI-Bots.
 * **🗄️ SQLite & Relational In-Browser Database Studio (`SqliteWasmStudioLab.jsx` & `sqlSandboxEngine.js`)**:
-  * Vollwertige In-Memory SQL-Engine (AlaSQL), Schema-Explorer und CSV-Export.
+  * In-Memory SQL-Engine (AlaSQL), Schema-Explorer und CSV-Export.
 * **💻 Live Coding Challenge Studio (`LiveCodingChallengeStudio.jsx` & `codingChallengesEngine.js`)**:
-  * Interaktive Programmieraufgaben (Valid Palindrome, Two Sum, FizzBuzz, Binary Search) mit Test-Runner.
+  * LeetCode/Exercism Style Code-Rätsel mit Test-Runner.
 * **📊 WISO- & Handelskalkulations-Studio (`WisoKalkulationLab.jsx` & `wisoCalculations.js`)**:
-  * Handelskalkulation, Deckungsbeitrag & Break-Even-Point, Netzplantechnik (CPM) und Arbeitsrecht-Quiz.
-* **🔬 IEEE-754 Gleitkomma- & Rechnerarchitektur-Lab (`Ieee754FloatingPointLab.jsx` & `ieee754.js`)**:
-  * 32-Bit Single Precision Bit-Manipulator, Zweierkomplement-Konverter und KV-Diagramm-Minimierer.
-* **🌐 IPv6 & Routing-Table Simulator (`Ipv6RoutingLab.jsx` & `ipv6Routing.js`)**:
-  * RFC 5952 IPv6-Adresskompression, SLAAC/EUI-64 und Longest Prefix Match Router.
+  * Handelskalkulation, Deckungsbeitrag & Break-Even, Netzplantechnik (CPM) und Arbeitsrecht.
+* **🔬 IEEE-754 Gleitkomma & Zahlen-Studio (`Ieee754FloatingPointLab.jsx` & `ieee754.js`)**:
+  * 32-Bit Float-Bitmanipulation, Zweierkomplement und KV-Diagramme.
+* **🌐 IPv6 & Routing Simulator (`Ipv6RoutingLab.jsx` & `ipv6Routing.js`)**:
+  * RFC 5952 IPv6-Kompression, SLAAC/EUI-64 und LPM Routing.
 * **🔒 OWASP Top 10 Live-Exploit Sandbox (`OwaspExploitLab.jsx`)**:
-  * Interaktive Testumgebung für XSS, SQLi, CSRF und IDOR.
+  * XSS, SQL Injection, CSRF und IDOR Exploit Defense.
 * **🧠 Neural Network & BPE Tokenizer Studio (`NeuralNetVisualizerLab.jsx`)**:
   * Forward-Pass Visualizer und Byte-Pair Encoding Tokenizer.
 * **📄 IHK Spickzettel & PDF-Generator (`IhkCheatSheetPdfGenerator.jsx`)**:
@@ -180,6 +186,7 @@ Informatik-lernen/
     │   │   ├── RedBlueTeamLab.jsx
     │   │   ├── RedisCachingLab.jsx
     │   │   ├── RegexMasterLab.jsx
+    │   │   ├── RegexRailroadVisualizerLab.jsx
     │   │   ├── SqliteWasmStudioLab.jsx
     │   │   ├── SqlJoinVisualizerLab.jsx
     │   │   ├── SqlQueryOptimizerLab.jsx
@@ -193,9 +200,11 @@ Informatik-lernen/
     │   │   ├── VectorSearchLab.jsx
     │   │   ├── VideoHub.jsx
     │   │   ├── VocabularyTrainerModal.jsx
+    │   │   ├── VoiceQuizStudioLab.jsx
     │   │   ├── WasmRustLab.jsx
     │   │   ├── WasmRustStudio.jsx
     │   │   ├── WebComponentsHub.jsx
+    │   │   ├── WebhookInspectorLab.jsx
     │   │   ├── WebRtcSignalingLab.jsx
     │   │   ├── WebSocketProtocolLab.jsx
     │   │   ├── WebSocketsLab.jsx
@@ -298,6 +307,8 @@ Informatik-lernen/
         ├── ipv6Routing.test.js
         ├── p2pQuizEngine.js
         ├── p2pQuizEngine.test.js
+        ├── regexParserEngine.js
+        ├── regexParserEngine.test.js
         ├── sqlSandboxEngine.js
         ├── sqlSandboxEngine.test.js
         ├── srsAlgorithm.js
@@ -306,6 +317,10 @@ Informatik-lernen/
         ├── storage.test.js
         ├── tcoCalculations.js
         ├── tcoCalculations.test.js
+        ├── voiceQuizEngine.js
+        ├── voiceQuizEngine.test.js
+        ├── webhookSimulator.js
+        ├── webhookSimulator.test.js
         ├── wisoCalculations.js
         └── wisoCalculations.test.js
 ```
@@ -319,7 +334,7 @@ Informatik-lernen/
 2. **Audio-Synthesizer (`audioSystem.js`)**:
    * Keine schweren Audio-Dateien: Alle Soundeffekte (Erfolg, LevelUp, Fehler, Timer-Glocke) werden in Echtzeit über die Web Audio API synthetisiert und lassen sich stufenlos regulieren oder stummschalten.
 3. **PWA & Offline-Fähigkeit (`vite-plugin-pwa`)**:
-   * Vollständiger Service-Worker-Precache aller 110 Anwendungs-Chunks für Offline-Nutzung.
+   * Vollständiger Service-Worker-Precache aller 113 Anwendungs-Chunks für Offline-Nutzung.
 4. **Vite 8 & Rolldown Bundle Splitting**:
    * Aufteilung in logische Chunks (`vendor-react`, `vendor-ui`, `vendor-charts-pdf`) für Ladezeiten unter 1 Sekunde.
 
@@ -356,14 +371,14 @@ npm run build
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
+### Version 3.6.0 (Event-Driven & Speech Edition)
+- **Neu**: `RegexRailroadVisualizerLab.jsx` & `regexParserEngine.js` mit visuellen Eisenbahndiagrammen, Syntax-Bäumen und Live-Matching.
+- **Neu**: `WebhookInspectorLab.jsx` & `webhookSimulator.js` mit simuliertem HTTP-Webhook-Server, Request-Logs und Header-Signaturen.
+- **Neu**: `VoiceQuizStudioLab.jsx` & `voiceQuizEngine.js` mit sprachgesteuertem Audio-Quiz zu Podcast-Themen via Web Speech API.
+- **Aktualisiert**: Navigation in `Navbar.jsx`, `LabsDashboard.jsx`, `CommandPaletteModal.jsx` und `App.jsx`.
+- **Test-Suite**: Auf **70 bestandene Unit-Tests** in **21 Test-Dateien** erweitert.
+
 ### Version 3.5.0 (Productivity & IHK Project Edition)
 - **Neu**: `TcoRoiCalculatorLab.jsx` & `tcoCalculations.js` mit kumulierter TCO-Wirtschaftlichkeitsanalyse (On-Premises vs. Cloud), ROI- und Break-Even-Berechnung sowie Amortisations-Liniendiagramm mit Recharts.
 - **Neu**: `GitMergeConflictLab.jsx` & `gitConflictEngine.js` mit visuellem 3-Wege Git Merge-Konflikt Resolver, Schnell-Lösungsaktionen und Commit-Validierung.
 - **Neu**: `CustomChallengeCreatorLab.jsx` & `customChallengesManager.js` zur Erstellung, Validierung und JSON Export/Import eigener Programmieraufgaben.
-- **Aktualisiert**: Navigation in `Navbar.jsx`, `LabsDashboard.jsx`, `CommandPaletteModal.jsx` und `App.jsx` für die neuen Studios.
-- **Test-Suite**: Auf **63 bestandene Unit-Tests** in **18 Test-Dateien** erweitert.
-
-### Version 3.4.0 (Multiplayer & Live Coding Edition)
-- **Neu**: `P2pQuizDuellLab.jsx` & `p2pQuizEngine.js` mit 1v1 Echtzeit-Quizduell (Multiplayer/LAN Room Code & Bot-Matches).
-- **Neu**: `SqliteWasmStudioLab.jsx` & `sqlSandboxEngine.js` mit relationaler SQL-Sandbox, Schema-Inspektion und CSV-Export.
-- **Neu**: `LiveCodingChallengeStudio.jsx` & `codingChallengesEngine.js` mit LeetCode/Exercism Aufgaben und automatischem Test-Runner.
