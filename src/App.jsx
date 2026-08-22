@@ -120,6 +120,9 @@ const IhkCheatSheetPdfGenerator = lazy(() => import('./components/Content/IhkChe
 const P2pQuizDuellLab = lazy(() => import('./components/Content/P2pQuizDuellLab'));
 const SqliteWasmStudioLab = lazy(() => import('./components/Content/SqliteWasmStudioLab'));
 const LiveCodingChallengeStudio = lazy(() => import('./components/Content/LiveCodingChallengeStudio'));
+const CustomChallengeCreatorLab = lazy(() => import('./components/Content/CustomChallengeCreatorLab'));
+const GitMergeConflictLab = lazy(() => import('./components/Content/GitMergeConflictLab'));
+const TcoRoiCalculatorLab = lazy(() => import('./components/Content/TcoRoiCalculatorLab'));
 
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
@@ -323,6 +326,54 @@ export default function App() {
                   </h2>
 
                   <div className="grid-responsive" style={{ marginBottom: '40px' }}>
+                    {/* TCO & ROI Calculator Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('tco_roi_lab')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📊</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>TCO &amp; ROI Simulator</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        Wirtschaftlichkeitsanalyse (On-Prem vs. Cloud) für IHK-Projekte.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        TCO Berechnen <ArrowRight size={16} />
+                      </span>
+                    </div>
+
+                    {/* Git 3-Way Merge Conflict Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('git_conflict_lab')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🌿</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Git Merge Conflict Resolver</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        Interaktives Lösen von 3-Way Git Merge-Konflikten im Code.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-orange)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        Konflikte Lösen <ArrowRight size={16} />
+                      </span>
+                    </div>
+
+                    {/* Custom Challenge Creator Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('custom_challenges')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>✍️</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Challenge Creator Studio</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        Eigene Code-Rätsel mit Testfällen erstellen, testen &amp; exportieren.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        Aufgaben Erstellen <ArrowRight size={16} />
+                      </span>
+                    </div>
+
                     {/* P2P Quiz Duell Card */}
                     <div
                       className="glass-panel glass-panel-hover"
@@ -523,6 +574,24 @@ export default function App() {
             {activeTab === 'coding_challenges' && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <LiveCodingChallengeStudio />
+              </Suspense>
+            )}
+
+            {activeTab === 'custom_challenges' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <CustomChallengeCreatorLab />
+              </Suspense>
+            )}
+
+            {activeTab === 'git_conflict_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <GitMergeConflictLab />
+              </Suspense>
+            )}
+
+            {activeTab === 'tco_roi_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <TcoRoiCalculatorLab />
               </Suspense>
             )}
 

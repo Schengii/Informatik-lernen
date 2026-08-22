@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Search, Terminal, BookOpen, Sparkles, Trophy, Cpu, Code2, 
   Layers, Award, FileText, ArrowRight, X, Command, Database, ShieldCheck,
-  Calculator, Globe, ShieldAlert, Brain
+  Calculator, Globe, ShieldAlert, Brain, GitMerge
 } from 'lucide-react';
 import { TOPICS } from '../../data/topicsData';
 import { GLOSSARY_TERMS } from '../../data/glossaryData';
@@ -24,6 +24,9 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-tco-roi', title: 'TCO & ROI Wirtschaftlichkeits-Simulator', category: 'Prüfung', icon: Calculator, action: () => onNavigate('tco_roi_lab') },
+    { id: 'view-git-conflict', title: 'Git 3-Way Merge Conflict Resolver', category: 'Labs & Tools', icon: GitMerge, action: () => onNavigate('git_conflict_lab') },
+    { id: 'view-custom-challenges', title: 'Custom Coding Challenge Creator', category: 'Labs & Tools', icon: Code2, action: () => onNavigate('custom_challenges') },
     { id: 'view-p2p-duell', title: 'IHK Quiz-Duell Arena (1v1 / P2P)', category: 'Prüfung', icon: Award, action: () => onNavigate('p2p_duell') },
     { id: 'view-sqlite-studio', title: 'SQLite & Relational DB Sandbox', category: 'Labs & Tools', icon: Database, action: () => onNavigate('sqlite_studio') },
     { id: 'view-coding-challenges', title: 'Live Coding Challenge Studio', category: 'Labs & Tools', icon: Code2, action: () => onNavigate('coding_challenges') },

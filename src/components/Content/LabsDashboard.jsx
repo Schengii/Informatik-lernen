@@ -3,6 +3,39 @@ import { Search, Filter, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, C
 
 export const LAB_MODULES = [
   {
+    id: 'tco_roi_lab',
+    title: 'TCO & ROI Wirtschaftlichkeits-Simulator',
+    category: 'ihk',
+    tags: ['#TCO', '#ROI', '#Wirtschaftlichkeit', '#CloudVsOnPrem', '#IHK', '#Amortisation'],
+    difficulty: 'Intermediate',
+    desc: 'Vergleiche Total Cost of Ownership und Amortisationsmonat für IHK-Projekte.',
+    icon: Award,
+    badge: 'Neu',
+    color: '#10b981'
+  },
+  {
+    id: 'git_conflict_lab',
+    title: 'Git 3-Way Merge Conflict Resolver',
+    category: 'code',
+    tags: ['#Git', '#MergeConflict', '#Rebase', '#VCS', '#Branching'],
+    difficulty: 'Intermediate',
+    desc: 'Löse reale Git Merge-Konflikte (HEAD vs. Incoming vs. Both) visuell auf.',
+    icon: Terminal,
+    badge: 'Neu',
+    color: '#f97316'
+  },
+  {
+    id: 'custom_challenges',
+    title: 'Custom Coding Challenge Creator',
+    category: 'code',
+    tags: ['#Coding', '#CustomChallenges', '#Creator', '#TestCases', '#JSON'],
+    difficulty: 'Intermediate',
+    desc: 'Erstelle eigene Programmier-Challenges mit Testfällen & JSON Export/Import.',
+    icon: Code2,
+    badge: 'Neu',
+    color: '#10b981'
+  },
+  {
     id: 'p2p_duell',
     title: 'IHK Quiz-Duell Arena (1v1 / P2P)',
     category: 'ihk',
