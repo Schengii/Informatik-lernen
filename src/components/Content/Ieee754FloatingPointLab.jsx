@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { 
-  Binary, Cpu, Sparkles, Award, CheckCircle2, RotateCcw, 
-  Layers, Sliders, HelpCircle, ArrowRight 
+  Binary, Cpu, Award, Layers, Sliders 
 } from 'lucide-react';
 import { 
   float32ToBits, 

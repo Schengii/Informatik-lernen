@@ -24,6 +24,9 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-p2p-duell', title: 'IHK Quiz-Duell Arena (1v1 / P2P)', category: 'Prüfung', icon: Award, action: () => onNavigate('p2p_duell') },
+    { id: 'view-sqlite-studio', title: 'SQLite & Relational DB Sandbox', category: 'Labs & Tools', icon: Database, action: () => onNavigate('sqlite_studio') },
+    { id: 'view-coding-challenges', title: 'Live Coding Challenge Studio', category: 'Labs & Tools', icon: Code2, action: () => onNavigate('coding_challenges') },
     { id: 'view-wiso-kalkulation', title: 'WISO & Handelskalkulations-Studio', category: 'Labs & Tools', icon: Calculator, action: () => onNavigate('wiso_kalkulation') },
     { id: 'view-ieee754-lab', title: 'IEEE-754 Float & Zahlen-Studio', category: 'Labs & Tools', icon: Cpu, action: () => onNavigate('ieee754_lab') },
     { id: 'view-ipv6-routing', title: 'IPv6 & Routing-Table Simulator', category: 'Labs & Tools', icon: Globe, action: () => onNavigate('ipv6_routing_lab') },

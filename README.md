@@ -1,12 +1,12 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses (Python Complete Guide, JS ES6+, TS, Java, C#), Coursera Deep Learning (CNNs, RNNs, Transformers), IT-Berufe Podcast Specials, Schritt-für-Schritt Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes Orchestrierung, Local RAG Vector AI Pipelines, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, Cloud Infrastructure CI/CD, Cybersecurity Red vs Blue Team, GraphQL & REST API Testing, Web Components, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio (LeetCode/Exercism Style), WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses (Python Complete Guide, JS ES6+, TS, Java, C#), Coursera Deep Learning (CNNs, RNNs, Transformers), IT-Berufe Podcast Specials, Schritt-für-Schritt Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes Orchestrierung, Local RAG Vector AI Pipelines, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, Cloud Infrastructure CI/CD, Cybersecurity Red vs Blue Team, GraphQL & REST API Testing, Web Components, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.3.0)](#-hauptfunktionen--neue-features-v330-enterprise--master-edition)
+- [Hauptfunktionen & Neue Features (v3.4.0)](#-hauptfunktionen--neue-features-v340-multiplayer--live-coding-edition)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -25,16 +25,32 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Einsteiger-Kurs (`AnfaengerGuideHub.jsx`)**: Lernen ohne jegliche Vorkenntnisse.
    - Grundlagen leicht verständlich erklärt: **EVA-Prinzip**, **CPU-Gehirn** (ALU, Steuerwerk, Register), **Binärsystem & Bytes**, **Internet & DNS**.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI, IT-Systemelektroniker)**:
+   - **1v1 IHK Quiz-Duell Arena (`P2pQuizDuellLab.jsx`)**: Multiplayer Duell gegen Kollegen oder KI-Bots mit Geschwindigkeitsbonus.
    - Detaillierte IHK-Berufsschul Lernfelder (LF 1 bis LF 12b), prüfungsrelevante Tipps für AP Teil 1 & AP Teil 2, **Handelskalkulationen** (Vorwärtsrechnung mit Rabatt, Skonto, Selbstkosten), **Deckungsbeitragsrechnung & Break-Even-Point**, **Netzplantechnik (CPM / Kritischer Pfad)**, **WISO-Arbeitsrecht** (§ 622 BGB, JAV/Betriebsrat) und druckfertige **A4 PDF-Spickzettel**.
 3. **🚀 Junior Developer & Systemintegratoren**:
+   - **SQLite In-Browser Database Sandbox (`SqliteWasmStudioLab.jsx`)**: Echte relationale SQL-Konsole mit Schema-Explorer, JOINs, Groupings, Inserts und CSV-Export.
+   - **Live Coding Challenge Studio (`LiveCodingChallengeStudio.jsx`)**: LeetCode & Exercism Aufgaben (TwoSum, Palindrom, BinarySearch, FizzBuzz) mit automatischer Testausführung.
    - Clean Code Prinzipien, **IEEE-754 Single Precision Floats**, **Zweierkomplement & KV-Diagramme**, **IPv6 Kompression & SLAAC/EUI-64**, **Longest Prefix Match (LPM) Routing**, REST & GraphQL APIs, Docker, CI/CD Pipelines, JavaScript, TypeScript, React, Vite, RegEx, TDD Unit-Testing & Git-Workflows.
 4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
    - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation** (ReLU, Sigmoid, Weights/Biases), **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v3.3.0 Enterprise & Master Edition)
+## 🔥 Hauptfunktionen & Neue Features (v3.4.0 Multiplayer & Live Coding Edition)
 
+* **⚔️ IHK Quiz-Duell Arena (`P2pQuizDuellLab.jsx` & `p2pQuizEngine.js`)**:
+  * 1-gegen-1 Echtzeit-Quizduell über Raum-Codes (LAN / WebRTC P2P) oder gegen simulierte KI-Bots (Junior, Azubi, Senior)
+  * 8 Runden mit 15-Sekunden-Timer, 100 Basispunkten und bis zu 50 Speed-Bonuspunkten
+  * Live-Balken der Kontrahenten, Konfetti-Siegerehrung und XP-Vergabe.
+* **🗄️ SQLite & Relational In-Browser Database Studio (`SqliteWasmStudioLab.jsx` & `sqlSandboxEngine.js`)**:
+  * Vollwertige In-Memory SQL-Engine (AlaSQL)
+  * Tabellen-Schema Explorer (Spalten, Typen, Zeilenzahlen)
+  * Vordefinierte Datenbanken (E-Commerce Store, IT Asset Management)
+  * Beliebige SQL-Queries (JOINs, GROUP BY, INSERT INTO, CREATE TABLE) mit Laufzeitmessung in Millisekunden und CSV-Export.
+* **💻 Live Coding Challenge Studio (`LiveCodingChallengeStudio.jsx` & `codingChallengesEngine.js`)**:
+  * Interaktive Programmieraufgaben (Valid Palindrome, Two Sum, FizzBuzz, Binary Search)
+  * Integrierter JavaScript Test-Runner mit sichtbaren & versteckten Testfällen (Input, Expected, Actual Output, Ausführungszeit in ms)
+  * Sofortiges Feedback und XP-Belohnungen.
 * **📊 WISO- & Handelskalkulations-Studio (`WisoKalkulationLab.jsx` & `wisoCalculations.js`)**:
   * Interaktive **Handelskalkulation** (LEP bis BKP über 12 Stufen)
   * **Deckungsbeitragsrechnung & Break-Even-Point** mit grafischem Fortschrittsbalken
@@ -50,24 +66,13 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
   * **SLAAC & EUI-64 Generator** (MAC-Adresse ➔ Invertierung 7. Bit + `FF:FE` Insertion ➔ Link-Local IPv6)
   * **Longest Prefix Match (LPM) Routing-Simulator** mit Subnetz-CIDR Präfix-Evaluierung.
 * **🔒 OWASP Top 10 Live-Exploit Sandbox (`OwaspExploitLab.jsx`)**:
-  * Interaktive Testumgebung für **XSS** (DOM/Reflected mit HTML-Escaping Vergleich)
-  * **SQL Injection** (Login-Bypass `' OR '1'='1` vs. Prepared Statements)
-  * **CSRF** (SameSite Cookies & Anti-CSRF Tokens)
-  * **IDOR** (Insecure Direct Object Reference mit Autorisierungs-Prüfungen).
+  * Interaktive Testumgebung für **XSS**, **SQL Injection**, **CSRF** und **IDOR**.
 * **🧠 Neural Network & BPE Tokenizer Studio (`NeuralNetVisualizerLab.jsx`)**:
-  * Interaktiver **Forward-Pass Visualizer** mit einstellbaren Gewichten, Biases und Aktivierungsfunktionen (ReLU, Sigmoid, Tanh)
-  * **Byte-Pair Encoding (BPE) Tokenizer** mit schrittweiser Paarverschmelzung für moderne LLMs (GPT/Claude).
+  * Interaktiver **Forward-Pass Visualizer** (ReLU, Sigmoid, Tanh, Weights/Biases) und **Byte-Pair Encoding (BPE) Tokenizer**.
 * **📄 IHK Spickzettel & PDF-Generator (`IhkCheatSheetPdfGenerator.jsx`)**:
-  * Generierung druckfertiger DIN A4 PDF-Zusammenfassungen via `jspdf` für WISO, SQL, Netzwerke und Prüfungsformeln.
-* **📅 365-Tage GitHub-Style Aktivitäts-Heatmap (`ActivityHeatmapWidget.jsx`)**:
-  * Jahresmatrix (52 Wochen x 7 Tage) zur Visualisierung des täglichen Lernfortschritts und Erfassung von Aktivitäts-Streaks.
-* **⏱️ Pomodoro-Fokus-Timer (`PomodoroTimerWidget.jsx`)**:
-  * 25m Fokus- / 5m Pausen-Intervall mit Tonsignal und automatischer XP-Belohnung.
-* **🔊 Globaler Web Audio Controller (`audioSystem.js` & `AudioSettingsModal.jsx`)**:
-  * Lautstärkeregelung (0–100%), Mute-Schalter und SFX-Profile.
-* **⚡ Architektur-Refactoring & Vite Bundle-Splitting (`ModalContainer.jsx` & `vite.config.js`)**:
-  * Kapselung aller Dialog-Modals in `ModalContainer.jsx`
-  * Vite 8 & Rolldown kompatibles Chunking (`vendor-react`, `vendor-ui`, `vendor-charts-pdf`).
+  * Druckfertige DIN A4 PDF-Zusammenfassungen via `jspdf` für WISO, SQL und Netzwerke.
+* **📅 365-Tage Aktivitäts-Heatmap & Pomodoro-Timer (`ActivityHeatmapWidget.jsx` & `PomodoroTimerWidget.jsx`)**:
+  * Jahresmatrix (52 Wochen x 7 Tage) und 25m/5m Fokus-Timer mit Web-Audio Tonsignal.
 
 ---
 
@@ -155,11 +160,13 @@ Informatik-lernen/
     │   │   ├── LanguageAcademy.jsx
     │   │   ├── LeitnerFlashcardLab.jsx
     │   │   ├── LinuxPermissionsLab.jsx
+    │   │   ├── LiveCodingChallengeStudio.jsx
     │   │   ├── MonacoStudioLab.jsx
     │   │   ├── NeuralNetVisualizerLab.jsx
     │   │   ├── OauthOidcLab.jsx
     │   │   ├── OauthPkceStudio.jsx
     │   │   ├── OwaspExploitLab.jsx
+    │   │   ├── P2pQuizDuellLab.jsx
     │   │   ├── PacketTracerLab.jsx
     │   │   ├── PerformanceProfilingLab.jsx
     │   │   ├── PostgresExplainVisualizerLab.jsx
@@ -169,6 +176,7 @@ Informatik-lernen/
     │   │   ├── RedBlueTeamLab.jsx
     │   │   ├── RedisCachingLab.jsx
     │   │   ├── RegexMasterLab.jsx
+    │   │   ├── SqliteWasmStudioLab.jsx
     │   │   ├── SqlJoinVisualizerLab.jsx
     │   │   ├── SqlQueryOptimizerLab.jsx
     │   │   ├── SqlTransactionLab.jsx
@@ -272,11 +280,17 @@ Informatik-lernen/
     └── utils/
         ├── audioSystem.js
         ├── campaignAndExam.test.js
+        ├── codingChallengesEngine.js
+        ├── codingChallengesEngine.test.js
         ├── i18n.js
         ├── ieee754.js
         ├── ieee754.test.js
         ├── ipv6Routing.js
         ├── ipv6Routing.test.js
+        ├── p2pQuizEngine.js
+        ├── p2pQuizEngine.test.js
+        ├── sqlSandboxEngine.js
+        ├── sqlSandboxEngine.test.js
         ├── srsAlgorithm.js
         ├── srsAlgorithm.test.js
         ├── storage.js
@@ -294,9 +308,9 @@ Informatik-lernen/
 2. **Audio-Synthesizer (`audioSystem.js`)**:
    * Keine schweren Audio-Dateien: Alle Soundeffekte (Erfolg, LevelUp, Fehler, Timer-Glocke) werden in Echtzeit über die Web Audio API synthetisiert und lassen sich stufenlos regulieren oder stummschalten.
 3. **PWA & Offline-Fähigkeit (`vite-plugin-pwa`)**:
-   * Vollständiger Service-Worker-Precache aller 100+ Anwendungs-Chunks für Offline-Nutzung.
+   * Vollständiger Service-Worker-Precache aller 107 Anwendungs-Chunks für Offline-Nutzung.
 4. **Vite 8 & Rolldown Bundle Splitting**:
-   * Aufteilung in logische Chunks (`vendor-react`, `vendor-ui`, `vendor-charts-pdf`) für sekundenschnelle Initialladezeiten.
+   * Aufteilung in logische Chunks (`vendor-react`, `vendor-ui`, `vendor-charts-pdf`) für Ladezeiten unter 1 Sekunde.
 
 ---
 
@@ -331,15 +345,21 @@ npm run build
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
-### Version 3.3.0 (Enterprise & Master Edition - Vollständige Funktionserweiterung)
-- **Neu**: `WisoKalkulationLab.jsx` & `wisoCalculations.js` mit Handelskalkulation (Vorwärtsrechnung), Deckungsbeitrags- & Break-Even-Rechner, Netzplantechnik (Critical Path Method) und WISO-Prüfungsquiz.
-- **Neu**: `Ieee754FloatingPointLab.jsx` & `ieee754.js` mit interaktiver 32-Bit Single Precision Float-Bitmanipulation, Zweierkomplement-Konverter und KV-Diagramm-Minimierer.
-- **Neu**: `Ipv6RoutingLab.jsx` & `ipv6Routing.js` mit RFC 5952 IPv6-Kompression, SLAAC / EUI-64 MAC-Konvertierung und Longest Prefix Match (LPM) Routing-Entscheidungs-Simulator.
-- **Neu**: `OwaspExploitLab.jsx` mit Live-Exploit-Sandboxes für XSS, SQL Injection, CSRF und IDOR.
-- **Neu**: `NeuralNetVisualizerLab.jsx` mit Forward-Propagation Visualisierung (ReLU/Sigmoid) und Byte-Pair Encoding (BPE) Tokenizer für moderne LLMs.
-- **Neu**: `IhkCheatSheetPdfGenerator.jsx` mit druckfertiger DIN A4 PDF-Generierung via `jspdf`.
-- **Neu**: `ActivityHeatmapWidget.jsx` mit 365-Tage Jahres-Aktivitätskalender (52 Wochen x 7 Tage) und automatischer Aktivitätsaufzeichnung.
-- **Neu**: `PomodoroTimerWidget.jsx` mit 25m/5m Intervallen, Glockenton und XP-Belohnungen.
-- **Neu**: `AudioSettingsModal.jsx` & `audioSystem.js` mit globalem Sound-Controller (Lautstärke, Mute, SFX).
-- **Neu**: `ModalContainer.jsx` zur Modularisierung und Entlastung von `App.jsx`.
-- **Refactoring & Optimierung**: Vite 8 Bundle-Splitting mit funktionalen `manualChunks`, Oxlint-Bereinigung, vollständige Vitest-Testabdeckung mit 40 Unit-Tests in 12 Test-Suiten.
+### Version 3.4.0 (Multiplayer & Live Coding Edition)
+- **Neu**: `P2pQuizDuellLab.jsx` & `p2pQuizEngine.js` mit 1v1 Echtzeit-Quizduell (Multiplayer/LAN Room Code & Bot-Matches).
+- **Neu**: `SqliteWasmStudioLab.jsx` & `sqlSandboxEngine.js` mit relationaler SQL-Sandbox, Schema-Inspektion und CSV-Export.
+- **Neu**: `LiveCodingChallengeStudio.jsx` & `codingChallengesEngine.js` mit LeetCode/Exercism Aufgaben und automatischem Test-Runner.
+- **Aktualisiert**: Navigation in `Navbar.jsx`, `LabsDashboard.jsx`, `CommandPaletteModal.jsx` und `App.jsx` für die 3 neuen Studios.
+- **Test-Suite**: Auf **53 bestandene Unit-Tests** in **15 Test-Dateien** erweitert.
+
+### Version 3.3.0 (Enterprise & Master Edition)
+- **Neu**: `WisoKalkulationLab.jsx` & `wisoCalculations.js` mit Handelskalkulation, Deckungsbeitrag, Netzplantechnik (CPM) und Arbeitsrecht.
+- **Neu**: `Ieee754FloatingPointLab.jsx` & `ieee754.js` mit 32-Bit Float-Bitmanipulation, Zweierkomplement und KV-Diagramm-Minimierer.
+- **Neu**: `Ipv6RoutingLab.jsx` & `ipv6Routing.js` mit RFC 5952 IPv6-Kompression, SLAAC / EUI-64 und LPM Routing.
+- **Neu**: `OwaspExploitLab.jsx` mit Live-Exploit-Sandboxes für XSS, SQLi, CSRF und IDOR.
+- **Neu**: `NeuralNetVisualizerLab.jsx` mit Forward-Propagation und Byte-Pair Encoding (BPE) Tokenizer.
+- **Neu**: `IhkCheatSheetPdfGenerator.jsx` mit DIN A4 PDF-Generierung via `jspdf`.
+- **Neu**: `ActivityHeatmapWidget.jsx` mit 365-Tage Jahres-Aktivitätskalender.
+- **Neu**: `PomodoroTimerWidget.jsx` mit 25m/5m Intervallen und Glockenton.
+- **Neu**: `AudioSettingsModal.jsx` & `audioSystem.js` mit globalem Sound-Controller.
+- **Neu**: `ModalContainer.jsx` zur Modularisierung von `App.jsx`.

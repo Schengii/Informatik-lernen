@@ -72,6 +72,9 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 50+ interaktiven Labs', badge: 'Hub' },
+    { id: 'p2p_duell', label: '⚔️ IHK Quiz-Duell Arena (1v1 / P2P)', desc: 'Realtime Multiplayer Duell gegen Azubis & Bots', badge: 'Neu' },
+    { id: 'sqlite_studio', label: '🗄️ SQLite & Relational DB Sandbox', desc: 'In-Browser SQL Console mit Schema & CSV Export', badge: 'Neu' },
+    { id: 'coding_challenges', label: '💻 Live Coding Challenge Studio', desc: 'LeetCode-Style Aufgaben mit automatischem Test-Runner', badge: 'Neu' },
     { id: 'wiso_kalkulation', label: '📊 WISO & Handelskalkulations-Studio', desc: 'Handelskalkulation, Break-Even & Netzplan (CPM)', badge: 'Neu' },
     { id: 'ieee754_lab', label: '🔬 IEEE-754 Float & Zahlen-Studio', desc: 'Single Precision, Zweierkomplement & KV-Map', badge: 'Neu' },
     { id: 'ipv6_routing_lab', label: '🌐 IPv6 & Routing-Table Simulator', desc: 'SLAAC/EUI-64 & Longest Prefix Match (LPM)', badge: 'Neu' },

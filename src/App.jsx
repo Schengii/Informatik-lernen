@@ -116,6 +116,11 @@ const OwaspExploitLab = lazy(() => import('./components/Content/OwaspExploitLab'
 const NeuralNetVisualizerLab = lazy(() => import('./components/Content/NeuralNetVisualizerLab'));
 const IhkCheatSheetPdfGenerator = lazy(() => import('./components/Content/IhkCheatSheetPdfGenerator'));
 
+// Next-Gen Multiplayer & Coding Studios
+const P2pQuizDuellLab = lazy(() => import('./components/Content/P2pQuizDuellLab'));
+const SqliteWasmStudioLab = lazy(() => import('./components/Content/SqliteWasmStudioLab'));
+const LiveCodingChallengeStudio = lazy(() => import('./components/Content/LiveCodingChallengeStudio'));
+
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
@@ -318,6 +323,54 @@ export default function App() {
                   </h2>
 
                   <div className="grid-responsive" style={{ marginBottom: '40px' }}>
+                    {/* P2P Quiz Duell Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('p2p_duell')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>⚔️</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>IHK Quiz-Duell Arena</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        1v1 Echtzeit-Multiplayer gegen Azubis oder smarte KI-Bots.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-amber)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        Duell Starten <ArrowRight size={16} />
+                      </span>
+                    </div>
+
+                    {/* SQLite Relational DB Studio Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('sqlite_studio')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🗄️</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>SQL Relational Database</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        In-Browser SQL Konsole mit Tabellen-Schema und CSV Export.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        SQL Sandbox Öffnen <ArrowRight size={16} />
+                      </span>
+                    </div>
+
+                    {/* Live Coding Challenge Studio Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('coding_challenges')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>💻</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Live Coding Challenge Studio</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        LeetCode &amp; Exercism Style Code-Rätsel mit Test-Runner.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-purple)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        Challenges Lösen <ArrowRight size={16} />
+                      </span>
+                    </div>
+
                     {/* WISO & Kalkulation Card */}
                     <div
                       className="glass-panel glass-panel-hover"
@@ -452,6 +505,24 @@ export default function App() {
             {activeTab === 'cheat_sheets' && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <IhkCheatSheetPdfGenerator />
+              </Suspense>
+            )}
+
+            {activeTab === 'p2p_duell' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <P2pQuizDuellLab />
+              </Suspense>
+            )}
+
+            {activeTab === 'sqlite_studio' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <SqliteWasmStudioLab />
+              </Suspense>
+            )}
+
+            {activeTab === 'coding_challenges' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <LiveCodingChallengeStudio />
               </Suspense>
             )}
 

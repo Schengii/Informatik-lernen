@@ -3,6 +3,39 @@ import { Search, Filter, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, C
 
 export const LAB_MODULES = [
   {
+    id: 'p2p_duell',
+    title: 'IHK Quiz-Duell Arena (1v1 / P2P)',
+    category: 'ihk',
+    tags: ['#Multiplayer', '#1v1', '#QuizDuell', '#WebRTC', '#BotMatch', '#IHK'],
+    difficulty: 'Intermediate',
+    desc: 'Echtzeit 1-gegen-1 Quiz-Match gegen Azubis oder smarte Bots mit Zeitbonus.',
+    icon: Award,
+    badge: 'Neu',
+    color: '#f59e0b'
+  },
+  {
+    id: 'sqlite_studio',
+    title: 'SQLite & Relational Database Studio',
+    category: 'databases',
+    tags: ['#SQL', '#SQLite', '#AlaSQL', '#TableSchema', '#CSVExport', '#Relational'],
+    difficulty: 'Intermediate',
+    desc: 'In-Browser relationale Datenbank-Konsole mit Schema-Explorer und CSV-Export.',
+    icon: Database,
+    badge: 'Neu',
+    color: '#06b6d4'
+  },
+  {
+    id: 'coding_challenges',
+    title: 'Live Coding Challenge Studio',
+    category: 'code',
+    tags: ['#Coding', '#Algorithm', '#LeetCode', '#JavaScript', '#TestRunner'],
+    difficulty: 'Intermediate',
+    desc: 'LeetCode-Style Programmieraufgaben mit automatischem Test-Runner im Browser.',
+    icon: Code2,
+    badge: 'Neu',
+    color: '#8b5cf6'
+  },
+  {
     id: 'wiso_kalkulation',
     title: 'WISO & Handelskalkulations-Studio',
     category: 'ihk',
