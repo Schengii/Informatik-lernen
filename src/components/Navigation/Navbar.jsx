@@ -71,7 +71,16 @@ export default function Navbar({
 
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
-    { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 50+ interaktiven Labs', badge: 'Hub' },
+    { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 60+ interaktiven Labs', badge: 'Hub' },
+    { id: 'os_scheduler', label: '⏱️ OS Process Scheduler & Deadlock', desc: 'FCFS, SJF, Round Robin & Bankier-Algorithmus', badge: 'Flagship' },
+    { id: 'packet_sniffer', label: '📡 Web-Wireshark Packet Sniffer', desc: 'Frame Dissection, Hex Dump & Display Filter', badge: 'Flagship' },
+    { id: 'erd_designer', label: '🗄️ Relational ERD & 3NF Normalform-Linter', desc: 'Entity Relationships, 1NF-3NF Audit & SQL DDL', badge: 'Flagship' },
+    { id: 'transformer_attention', label: '🧠 Transformer Attention & LLM Studio', desc: 'Self-Attention Heatmap, Softmax & ReAct Agent', badge: 'Flagship' },
+    { id: 'cloud_canvas', label: '☁️ Cloud SLA & SPOF Architecture Canvas', desc: 'Verfügbarkeit (99.99%), Downtime & SPOF Linter', badge: 'Flagship' },
+    { id: 'rack_configurator', label: '🗄️ 19" Rack- & USV/Klimarechner', desc: '42HE Schrank, USV-Laufzeit & BTU/h Kühlung', badge: 'Flagship' },
+    { id: 'itsm_simulator', label: '🎧 ITIL 4 ITSM & Service Desk Studio', desc: 'Incident Queue, SLA-Matrix & CAB Risk Score', badge: 'Flagship' },
+    { id: 'sm2_spaced_repetition', label: '💡 SuperMemo SM-2 Spaced Repetition', desc: 'Karteikarten & Ebbinghaus-Vergessenskurven', badge: 'Didaktik' },
+    { id: 'personal_notebook', label: '📓 Developer Notizbuch & Vault', desc: 'Markdown-Notizen, Code-Snippets & Export', badge: 'Tools' },
     { id: 'scrum_simulator', label: '📋 Scrum Sprint & Kanban Simulator', desc: 'Story Points, Burndown-Chart & Velocity', badge: 'Neu' },
     { id: 'graphql_explorer', label: '🧬 GraphQL Schema & Query Explorer', desc: 'In-Browser GraphQL Engine & AST Visualizer', badge: 'Neu' },
     { id: 'ble_sensor', label: '📡 BLE & GATT Sensor Simulator', desc: 'IoT Bluetooth Low Energy Telemetrie & Bytes', badge: 'Neu' },
@@ -115,6 +124,7 @@ export default function Navbar({
   ];
 
   const examMenuItems = [
+    { id: 'ihk_grade_calculator', label: '🎓 IHK Noten- & MEP-Rechner (AO 2020)', desc: 'Exakte Gewichtung AP1/AP2 & Ergänzungsprüfung', badge: 'Neu' },
     { id: 'exam', label: '🎓 IHK Abschlussprüfung (AP1 & AP2)', desc: '90-Min. Timer, Punkte & IHK Noten 1-6', badge: 'Prüfung' },
     { id: 'cheat_sheets', label: '📄 IHK Spickzettel & PDF Generator', desc: 'Druckfertige DIN A4 Zusammenfassungen & Formeln', badge: 'Neu' },
     { id: 'wiso_kalkulation', label: '📊 WISO- & Kalkulations-Rechner', desc: 'Handelskalkulation, Break-Even & Arbeitsrecht', badge: 'WISO' },
@@ -128,6 +138,8 @@ export default function Navbar({
 
   const learnMenuItems = [
     { id: 'anfaenger_guide', label: '🌱 Einsteiger Kurs ohne Vorwissen', desc: 'EVA-Prinzip, CPU, Binärlogik & Web', badge: 'Start' },
+    { id: 'sm2_spaced_repetition', label: '💡 SuperMemo SM-2 Karteikarten', desc: 'Spaced Repetition & Ebbinghaus-Gedächtniskurven', badge: 'Neu' },
+    { id: 'personal_notebook', label: '📓 Developer Notizen & Spickzettel', desc: 'Markdown Notebook mit Tag-Suche & Export', badge: 'Neu' },
     { id: 'campaign', label: '🗺️ Story Kampagne: Der IT-Aufstieg', desc: '5 aufeinander aufbauende Quest-Stufen', badge: 'Story' },
     { id: 'languages', label: '🐍 Programmiersprachen Academy', desc: 'Python, JavaScript, TypeScript, Java, C#', badge: 'Code' },
     { id: 'web_components', label: '🔥 Web Components Masterclass', desc: 'Custom Elements, Shadow DOM & Lit.dev', badge: 'Web' },

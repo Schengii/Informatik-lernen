@@ -1,12 +1,12 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), Scrum Sprint & Kanban Simulator (Agiles Projektmanagement), GraphQL Schema & Query Explorer (AST Visualizer), Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio (Spracherkennung), TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator & JSON Manager, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio (LeetCode/Exercism Style), WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses (Python Complete Guide, JS ES6+, TS, Java, C#), Coursera Deep Learning (CNNs, RNNs, Transformers), IT-Berufe Podcast Specials, Schritt-für-Schritt Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes Orchestrierung, Local RAG Vector AI Pipelines, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, Cloud Infrastructure CI/CD, Cybersecurity Red vs Blue Team, GraphQL & REST API Testing, Web Components, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, RegEx, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer & Frame Analyzer, Relationalem ERD Designer & 1NF–3NF Normalform-Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery mit Ebbinghaus-Kurven, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer (AST Visualizer), Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.7.0)](#-hauptfunktionen--neue-features-v370-agile-graphql--iot-edition)
+- [Hauptfunktionen & Neue Features (v3.8.0)](#-hauptfunktionen--neue-features-v380-next-gen-engineering-architecture--ihk-power-edition)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -24,74 +24,68 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 1. **🌱 Einsteiger & Neugierige (Kinder, Senioren, Quereinsteiger)**:
    - **Einsteiger-Kurs (`AnfaengerGuideHub.jsx`)**: Lernen ohne jegliche Vorkenntnisse.
    - Grundlagen leicht verständlich erklärt: **EVA-Prinzip**, **CPU-Gehirn** (ALU, Steuerwerk, Register), **Binärsystem & Bytes**, **Internet & DNS**.
-2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI, IT-Systemelektroniker)**:
-   - **Scrum Sprint & Kanban Simulator (`AgileScrumSimulatorLab.jsx`)**: Interaktives Board (Backlog bis Done), Story Point Estimation und Recharts-Burndown-Charts (Lernfeld 1 & 10).
-   - **BLE & GATT Sensor Simulator (`BleSensorSimulatorLab.jsx`)**: Bluetooth Low Energy Telemetrie, GATT Services (0x181A, 0x180D, 0x180F) und Byte-Dekodierung für IT-Systemelektroniker.
-   - **Podcast Voice Quiz Studio (`VoiceQuizStudioLab.jsx`)**: Sprachgesteuertes IHK-Quiz per Mikrofon zu Themen aus dem IT-Berufe Podcast.
-   - **TCO & ROI Wirtschaftlichkeits-Simulator (`TcoRoiCalculatorLab.jsx`)**: On-Premises vs. Cloud-Migration Kostenvergleich für IHK-Projektanträge.
-   - **1v1 IHK Quiz-Duell Arena (`P2pQuizDuellLab.jsx`)**: Multiplayer Duell gegen Kollegen oder KI-Bots mit Geschwindigkeitsbonus.
+2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI/DP/DVS, IT-Systemelektroniker, Kaufleute IT-Systemmanagement)**:
+   - **IHK Noten- & MEP-Rechner (`IhkGradeCalculatorLab.jsx` & `ihkGradeCalculations.js`)**: Offizielle AO 2020 Prüfungsordnung, Gewichtungen (AP1 20%, AP2 30%, Projekt 50%) und automatischer Rechner für die **Mündliche Ergänzungsprüfung (MEP)**.
+   - **19"-Rack Konfigurator & USV/Klimarechner (`RackConfiguratorLab.jsx` & `rackCalculations.js`)**: 42HE Serverschrank, Schein- & Wirkleistung ($VA, W$), USV-Akkulaufzeit und BTU/h Kühlungslast.
+   - **ITIL 4 ITSM & Service Desk Studio (`ItsmSimulatorLab.jsx` & `itsmEngine.js`)**: Incident Queue mit SLA-Timern, Impact $\times$ Urgency Priorisierung und Change Advisory Board (CAB) Risiko-Scoring.
+   - **OS Process Scheduler & Deadlock Studio (`OsProcessSchedulerLab.jsx` & `osSchedulerEngine.js`)**: CPU-Scheduling (FCFS, SJF, Round Robin mit Quantum, Priority), animierter Gantt-Chart und Bankier-Algorithmus (Banker's Algorithm) zur Deadlock-Vermeidung.
+   - **Web-Wireshark Packet Sniffer (`PacketSnifferLab.jsx` & `packetSnifferEngine.js`)**: Schichten 2–7 Paket-Dissektion (Ethernet, IP, TCP/UDP, DNS, HTTP), Hex-Dump Synchronisation und Display-Filter.
+   - **Relational ERD Designer & 3NF Linter (`ErdDesignerLab.jsx` & `erdDesignerEngine.js`)**: Visuelle Entity-Relationship Modelle, 1NF–3NF Normalisierungs-Audit und produktionsreifer SQL DDL Export.
+   - **SuperMemo SM-2 Spaced Repetition Mastery (`Sm2SpacedRepetitionLab.jsx` & `sm2Algorithm.js`)**: Wissenschaftliches Karteikarten-Lernen mit dynamischen Ease-Faktoren ($EF$) und Ebbinghaus-Vergessenskurven.
+   - **Developer Notizbuch & Vault (`PersonalNotebookLab.jsx`)**: Persönliches Markdown-Notizbuch mit Tag-Suche, LocalStorage Auto-Save und `.md`-Export.
    - Detaillierte IHK-Berufsschul Lernfelder (LF 1 bis LF 12b), **Handelskalkulationen**, **Deckungsbeitragsrechnung & Break-Even-Point**, **Netzplantechnik (CPM)**, **WISO-Arbeitsrecht** und druckfertige **A4 PDF-Spickzettel**.
 3. **🚀 Junior Developer & Systemintegratoren**:
-   - **GraphQL Schema & Query Explorer (`GraphqlExplorerStudioLab.jsx`)**: In-Browser GraphQL Query Runner mit AST-Inspektor und Live-JSON-Ausgabe.
-   - **RegEx Railroad & Diagramm Studio (`RegexRailroadVisualizerLab.jsx`)**: Visuelle Eisenbahndiagramme, Syntaxbäume und Live-Pattern Matching.
-   - **REST Webhook Inspector & Mock Server (`WebhookInspectorLab.jsx`)**: Eingehende Webhooks simulieren, Header-Signaturen prüfen und Payloads inspizieren.
-   - **Git 3-Way Merge Conflict Resolver (`GitMergeConflictLab.jsx`)**: Interaktives Lösen von Merge-Konflikten zwischen Branches.
-   - **Custom Coding Challenge Creator (`CustomChallengeCreatorLab.jsx`)**: Eigene Programmieraufgaben erstellen und als JSON exportieren/importieren.
-   - **SQLite In-Browser Database Sandbox (`SqliteWasmStudioLab.jsx`)**: Echte relationale SQL-Konsole mit Schema-Explorer und CSV-Export.
-   - **Live Coding Challenge Studio (`LiveCodingChallengeStudio.jsx`)**: LeetCode & Exercism Aufgaben mit automatischer Testausführung.
-   - Clean Code Prinzipien, **IEEE-754 Single Precision Floats**, **Zweierkomplement & KV-Diagramme**, **IPv6 Kompression & SLAAC/EUI-64**, **Longest Prefix Match (LPM) Routing**, REST & GraphQL APIs, Docker, CI/CD Pipelines, JavaScript, TypeScript, React, Vite, RegEx, TDD Unit-Testing & Git-Workflows.
+   - **Cloud Architecture SLA & SPOF Canvas (`CloudArchitectureCanvasLab.jsx` & `cloudArchitectureEngine.js`)**: Multi-Tier Topologie-Planung, Compound Availability ($A_{\text{ges}}$), Ausfallzeiten-Rechner und Single-Point-of-Failure Audit.
+   - **Transformer Attention & LLM Playground (`TransformerAttentionLab.jsx` & `transformerAttentionEngine.js`)**: Scaled Dot-Product Self-Attention Heatmap, Temperature / Top-P / Top-K Token Sampling und autonome AI-Agenten ReAct-Loops.
+   - **GraphQL Schema & Query Explorer (`GraphqlExplorerStudioLab.jsx`)**, **RegEx Railroad Visualizer**, **Webhook Inspector**, **Git 3-Way Merge Conflict Resolver**, **Custom Challenge Creator**, **SQLite WASM Studio** und **Live Coding Challenge Studio**.
 4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
-   - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation** (ReLU, Sigmoid, Weights/Biases), **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
+   - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation**, **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v3.7.0 Agile, GraphQL & IoT Edition)
+## 🔥 Hauptfunktionen & Neue Features (v3.8.0 Next-Gen Engineering, Architecture & IHK Power Edition)
 
-* **📋 Scrum Sprint & Kanban Simulator (`AgileScrumSimulatorLab.jsx` & `scrumEngine.js`)**:
-  * Vollwertiges agiles Projektmanagement-Studio für IHK-Fachinformatiker (LF 1 & LF 10)
-  * Kanban-Board mit 5 Phasen (*Product Backlog*, *Sprint To Do*, *In Progress*, *Code Review*, *Done*)
-  * Dynamische Story Point Berechnung (Planning Poker)
-  * Interaktives Recharts **Burndown-Chart** (Ideale vs. Tatsächliche Rest-Punkte).
-* **🧬 GraphQL Schema & Query Explorer (`GraphqlExplorerStudioLab.jsx` & `graphqlSandboxEngine.js`)**:
-  * In-Browser GraphQL Query Runner gegen E-Commerce Schema (Produkte, Kategorien, Team-Mitglieder)
-  * Automatische Generierung und Inspektion des **Abstract Syntax Tree (AST)**
-  * Formatierte JSON-Server-Antwort mit Laufzeitmessung in Millisekunden.
-* **📡 BLE & GATT Sensor Simulator (`BleSensorSimulatorLab.jsx` & `bleSensorEngine.js`)**:
-  * Simulation eines Bluetooth Low Energy GATT-Servers für IT-Systemelektroniker & IoT-Entwickler
-  * Standardisierte GATT Services (*Environmental Sensing 0x181A*, *Heart Rate 0x180D*, *Battery Service 0x180F*)
-  * Live-Telemetrie-Diagramm mit Recharts (Temperatur °C, Luftfeuchtigkeit % rH, Puls bpm, RSSI dBm) und Rohdaten-Byte-Dekodierung.
-* **🚂 RegEx Railroad & Diagramm Studio (`RegexRailroadVisualizerLab.jsx` & `regexParserEngine.js`)**:
-  * Zerlegt reguläre Ausdrücke in visuelle Token-Ketten und Eisenbahndiagramme.
-* **📡 REST API Webhook Inspector & Mock Server (`WebhookInspectorLab.jsx` & `webhookSimulator.js`)**:
-  * Simulierter HTTP Webhook Empfänger & Mock Server mit HMAC-Prüfung und Request-Logs.
-* **🎙️ Podcast Voice Quiz Studio (`VoiceQuizStudioLab.jsx` & `voiceQuizEngine.js`)**:
-  * Sprachgesteuertes IHK-Quiz per Mikrofon via Web Speech API.
-* **📊 TCO & ROI Wirtschaftlichkeits-Simulator (`TcoRoiCalculatorLab.jsx` & `tcoCalculations.js`)**:
-  * Kumulierte TCO-Wirtschaftlichkeitsanalyse (On-Prem vs. Cloud) über 3–5 Jahre.
-* **🌿 Git 3-Way Merge Conflict Resolver (`GitMergeConflictLab.jsx` & `gitConflictEngine.js`)**:
-  * Visuelles Lösen von Git Merge-Konflikten mit Schnell-Aktionen und Commit-Validierung.
-* **✍️ Custom Coding Challenge Creator (`CustomChallengeCreatorLab.jsx` & `customChallengesManager.js`)**:
-  * Eigene Aufgaben mit Testfällen erstellen, validieren und als JSON exportieren/importieren.
-* **⚔️ IHK Quiz-Duell Arena (`P2pQuizDuellLab.jsx` & `p2pQuizEngine.js`)**:
-  * 1v1 Echtzeit-Quizduell über Raum-Codes oder gegen KI-Bots.
-* **🗄️ SQLite & Relational In-Browser Database Studio (`SqliteWasmStudioLab.jsx` & `sqlSandboxEngine.js`)**:
-  * In-Memory SQL-Engine (AlaSQL), Schema-Explorer und CSV-Export.
-* **💻 Live Coding Challenge Studio (`LiveCodingChallengeStudio.jsx` & `codingChallengesEngine.js`)**:
-  * LeetCode/Exercism Style Code-Rätsel mit Test-Runner.
-* **📊 WISO- & Handelskalkulations-Studio (`WisoKalkulationLab.jsx` & `wisoCalculations.js`)**:
-  * Handelskalkulation, Deckungsbeitrag & Break-Even, Netzplantechnik (CPM) und Arbeitsrecht.
-* **🔬 IEEE-754 Gleitkomma & Zahlen-Studio (`Ieee754FloatingPointLab.jsx` & `ieee754.js`)**:
-  * 32-Bit Float-Bitmanipulation, Zweierkomplement und KV-Diagramme.
-* **🌐 IPv6 & Routing Simulator (`Ipv6RoutingLab.jsx` & `ipv6Routing.js`)**:
-  * RFC 5952 IPv6-Kompression, SLAAC/EUI-64 und LPM Routing.
-* **🔒 OWASP Top 10 Live-Exploit Sandbox (`OwaspExploitLab.jsx`)**:
-  * XSS, SQL Injection, CSRF und IDOR Exploit Defense.
-* **🧠 Neural Network & BPE Tokenizer Studio (`NeuralNetVisualizerLab.jsx`)**:
-  * Forward-Pass Visualizer und Byte-Pair Encoding Tokenizer.
-* **📄 IHK Spickzettel & PDF-Generator (`IhkCheatSheetPdfGenerator.jsx`)**:
-  * Druckfertige DIN A4 PDF-Zusammenfassungen via `jspdf`.
-* **📅 365-Tage Aktivitäts-Heatmap & Pomodoro-Timer (`ActivityHeatmapWidget.jsx` & `PomodoroTimerWidget.jsx`)**:
-  * Jahresmatrix (52 Wochen x 7 Tage) und 25m/5m Fokus-Timer mit Web-Audio Tonsignal.
+* **⏱️ OS Process Scheduler & Deadlock Studio (`OsProcessSchedulerLab.jsx` & `osSchedulerEngine.js`)**:
+  * Vollwertige Simulation von FCFS, Shortest Job First (SJF), Round Robin (mit dynamischem Time-Quantum-Slider) und Priority Scheduling.
+  * Animiertes Echtzeit-**Gantt-Diagramm** mit automatischer Berechnung von $T_{WT}$ (Wartezeit), $T_{TAT}$ (Turnaround) und CPU-Auslastung.
+  * **Bankier-Algorithmus (Banker's Algorithm)** zur Deadlock-Vermeidung mit Allokations-, Maximal- und Bedarfs-Matrizen sowie Safe-Sequence-Ermittlung.
+* **📡 Web-Wireshark Packet Sniffer & Frame Analyzer (`PacketSnifferLab.jsx` & `packetSnifferEngine.js`)**:
+  * Packet Dissection für Ethernet II, IPv4/IPv6, TCP/UDP, DNS und HTTP.
+  * Synchroner **Hex-Dump & ASCII-Viewer**: Klick auf ein Header-Feld hebt im Hex-Dump die exakte Byte-Range farblich hervor.
+  * Wireshark-Style Display-Filter (z. B. `tcp`, `http`, `ip.src == 192.168.1.45`, `tcp.port == 443`).
+* **🗄️ Relational ERD Designer & Normalform-Linter (`ErdDesignerLab.jsx` & `erdDesignerEngine.js`)**:
+  * Interaktiver Visualisierer für relationale Datenbank-Tabellen (PK, FK, Typen, Not Null) und Beziehungen (1:1, 1:N, N:M / Crow's Foot).
+  * **Normalisierungs-Linter (1NF, 2NF, 3NF)**: Erkennt fehlende Primärschlüssel, nicht-atomare Werte und transitive Abhängigkeiten.
+  * 1-Klick **SQL DDL Generator** für PostgreSQL, MySQL und SQLite.
+* **🧠 Transformer Self-Attention & LLM Playground (`TransformerAttentionLab.jsx` & `transformerAttentionEngine.js`)**:
+  * Interaktive **Self-Attention Heatmap** ($QK^T / \sqrt{d_k}$) zur Visualisierung semantischer Wort-Aufmerksamkeiten.
+  * **Next-Token Sampling Simulator** mit Schiebereglern für Temperature ($T$), Top-K und Top-P (Nucleus).
+  * Autonomer **AI-Agent ReAct-Loop** (Thought $\rightarrow$ Action $\rightarrow$ Observation $\rightarrow$ Final Answer).
+* **☁️ Cloud Architecture SLA & SPOF Canvas (`CloudArchitectureCanvasLab.jsx` & `cloudArchitectureEngine.js`)**:
+  * Multi-Tier Cloud-Topologie-Planung (WAF, CDN, ALB, ASG Clusters, Redis, RDS Multi-AZ, S3).
+  * Compound SLA-Berechnung (Seriell vs. Parallel) und exakte jährliche Ausfallzeit (Minuten / Stunden / Tage).
+  * Automatischer **Single Point of Failure (SPOF) Audit** und monatliche TCO-Kostenschätzung.
+* **🎓 IHK Noten- & MEP-Rechner (`IhkGradeCalculatorLab.jsx` & `ihkGradeCalculations.js`)**:
+  * Konform mit der aktuellen Prüfungsordnung **AO 2020** für alle IT-Berufe (FIAE, FISI, FIDP, FIDV, ITSE, Kaufleute).
+  * Gewichtung: AP1 (20%), AP2 Teil 1 (10%), AP2 Teil 2 (10%), AP2 WiSo (10%), Dokumentation & Fachgespräch (50%).
+  * Prüfung der Bestehensregeln und automatischer **Mündliche Ergänzungsprüfung (MEP) Rechner** zur Ermittlung der benötigten Mindestpunkte.
+* **🗄️ 19"-Server-Rack Konfigurator & USV/Klimarechner (`RackConfiguratorLab.jsx` & `rackCalculations.js`)**:
+  * Visueller 42HE Serverschrank mit Bestückung (Storage Server, GPU Server, Managed PoE Switches, Patchfelder, USV).
+  * Berechnung von Scheinleistung (VA), Wirkleistung (Watt), Leistungsfaktor ($\cos \phi$), USV-Akkulaufzeit und RZ-Klimatisierung (BTU/h & kW).
+* **🎧 ITIL 4 ITSM & Service Desk Management Studio (`ItsmSimulatorLab.jsx` & `itsmEngine.js`)**:
+  * Service Desk Ticket-Warteschlange (Incidents, Service Requests, Problems, Change Requests) mit SLA-Countdowns.
+  * Priorisierungs-Matrix (Impact $\times$ Urgency) und Change Advisory Board (CAB) Risiko-Scoring.
+* **💡 SuperMemo SM-2 Spaced Repetition Mastery (`Sm2SpacedRepetitionLab.jsx` & `sm2Algorithm.js`)**:
+  * Wissenschaftlicher SM-2 Algorithmus mit Repetitionen, Intervallen und Ease-Faktoren ($EF \ge 1.3$).
+  * Interaktive **Ebbinghaus-Vergessenskurven-Diagramme** mit Recharts.
+* **📓 Developer Notizbuch & Markdown Vault (`PersonalNotebookLab.jsx`)**:
+  * In-App Markdown-Editor mit Live-Vorschau, Tag-Organisation, Volltextsuche, LocalStorage Auto-Save und `.md`-Export.
+* **📋 Scrum Sprint & Kanban Simulator (`AgileScrumSimulatorLab.jsx`)**:
+  * Kanban-Board mit 5 Phasen, Story Point Estimation und Recharts Burndown-Charts.
+* **🧬 GraphQL Schema & Query Explorer (`GraphqlExplorerStudioLab.jsx`)**:
+  * In-Browser GraphQL Query Runner und AST-Inspektor.
+* **📡 BLE & GATT Sensor Simulator (`BleSensorSimulatorLab.jsx`)**:
+  * Bluetooth Low Energy Telemetrie, GATT Services und Byte-Dekodierung.
 
 ---
 
@@ -146,6 +140,7 @@ Informatik-lernen/
     │   │   ├── CiCdWorkflowLab.jsx
     │   │   ├── CircuitBreakerLab.jsx
     │   │   ├── CleanCodeReviewLab.jsx
+    │   │   ├── CloudArchitectureCanvasLab.jsx
     │   │   ├── CloudDesignerLab.jsx
     │   │   ├── CloudDevOpsLab.jsx
     │   │   ├── ClozeTester.jsx
@@ -160,6 +155,7 @@ Informatik-lernen/
     │   │   ├── DnsHttpLifecycleLab.jsx
     │   │   ├── DockerComposeLab.jsx
     │   │   ├── DockerLab.jsx
+    │   │   ├── ErdDesignerLab.jsx
     │   │   ├── ExamSimulator.jsx
     │   │   ├── FisiLernfelderHub.jsx
     │   │   ├── GitBranchGraphLab.jsx
@@ -171,10 +167,12 @@ Informatik-lernen/
     │   │   ├── Http3QuicLab.jsx
     │   │   ├── Ieee754FloatingPointLab.jsx
     │   │   ├── IhkCheatSheetPdfGenerator.jsx
+    │   │   ├── IhkGradeCalculatorLab.jsx
     │   │   ├── IhkOralExamSimulator.jsx
     │   │   ├── IhkProjectDocumentationGenerator.jsx
     │   │   ├── Ipv6RoutingLab.jsx
     │   │   ├── ItPodcastHub.jsx
+    │   │   ├── ItsmSimulatorLab.jsx
     │   │   ├── JwksRotationLab.jsx
     │   │   ├── K8sCniOverlayLab.jsx
     │   │   ├── KafkaEventLab.jsx
@@ -189,28 +187,34 @@ Informatik-lernen/
     │   │   ├── NeuralNetVisualizerLab.jsx
     │   │   ├── OauthOidcLab.jsx
     │   │   ├── OauthPkceStudio.jsx
+    │   │   ├── OsProcessSchedulerLab.jsx
     │   │   ├── OwaspExploitLab.jsx
     │   │   ├── P2pQuizDuellLab.jsx
+    │   │   ├── PacketSnifferLab.jsx
     │   │   ├── PacketTracerLab.jsx
     │   │   ├── PerformanceProfilingLab.jsx
+    │   │   ├── PersonalNotebookLab.jsx
     │   │   ├── PostgresExplainVisualizerLab.jsx
     │   │   ├── PostgresMvccLab.jsx
     │   │   ├── PythonWasmLab.jsx
+    │   │   ├── RackConfiguratorLab.jsx
     │   │   ├── RagAiSimulator.jsx
     │   │   ├── RedBlueTeamLab.jsx
     │   │   ├── RedisCachingLab.jsx
     │   │   ├── RegexMasterLab.jsx
     │   │   ├── RegexRailroadVisualizerLab.jsx
-    │   │   ├── SqliteWasmStudioLab.jsx
+    │   │   ├── Sm2SpacedRepetitionLab.jsx
     │   │   ├── SqlJoinVisualizerLab.jsx
     │   │   ├── SqlQueryOptimizerLab.jsx
     │   │   ├── SqlTransactionLab.jsx
+    │   │   ├── SqliteWasmStudioLab.jsx
     │   │   ├── SubnettingLab.jsx
     │   │   ├── SystemDesignLab.jsx
     │   │   ├── TcoRoiCalculatorLab.jsx
     │   │   ├── TddUnitTestLab.jsx
     │   │   ├── ToolingSetupGuide.jsx
     │   │   ├── TopicReader.jsx
+    │   │   ├── TransformerAttentionLab.jsx
     │   │   ├── VectorSearchLab.jsx
     │   │   ├── VideoHub.jsx
     │   │   ├── VocabularyTrainerModal.jsx
@@ -218,10 +222,10 @@ Informatik-lernen/
     │   │   ├── WasmRustLab.jsx
     │   │   ├── WasmRustStudio.jsx
     │   │   ├── WebComponentsHub.jsx
-    │   │   ├── WebhookInspectorLab.jsx
     │   │   ├── WebRtcSignalingLab.jsx
     │   │   ├── WebSocketProtocolLab.jsx
     │   │   ├── WebSocketsLab.jsx
+    │   │   ├── WebhookInspectorLab.jsx
     │   │   └── WisoKalkulationLab.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
@@ -310,10 +314,14 @@ Informatik-lernen/
         ├── bleSensorEngine.js
         ├── bleSensorEngine.test.js
         ├── campaignAndExam.test.js
+        ├── cloudArchitectureEngine.js
+        ├── cloudArchitectureEngine.test.js
         ├── codingChallengesEngine.js
         ├── codingChallengesEngine.test.js
         ├── customChallengesManager.js
         ├── customChallengesManager.test.js
+        ├── erdDesignerEngine.js
+        ├── erdDesignerEngine.test.js
         ├── gitConflictEngine.js
         ├── gitConflictEngine.test.js
         ├── graphqlSandboxEngine.js
@@ -321,14 +329,26 @@ Informatik-lernen/
         ├── i18n.js
         ├── ieee754.js
         ├── ieee754.test.js
+        ├── ihkGradeCalculations.js
+        ├── ihkGradeCalculations.test.js
         ├── ipv6Routing.js
         ├── ipv6Routing.test.js
+        ├── itsmEngine.js
+        ├── itsmEngine.test.js
+        ├── osSchedulerEngine.js
+        ├── osSchedulerEngine.test.js
         ├── p2pQuizEngine.js
         ├── p2pQuizEngine.test.js
+        ├── packetSnifferEngine.js
+        ├── packetSnifferEngine.test.js
+        ├── rackCalculations.js
+        ├── rackCalculations.test.js
         ├── regexParserEngine.js
         ├── regexParserEngine.test.js
         ├── scrumEngine.js
         ├── scrumEngine.test.js
+        ├── sm2Algorithm.js
+        ├── sm2Algorithm.test.js
         ├── sqlSandboxEngine.js
         ├── sqlSandboxEngine.test.js
         ├── srsAlgorithm.js
@@ -337,6 +357,8 @@ Informatik-lernen/
         ├── storage.test.js
         ├── tcoCalculations.js
         ├── tcoCalculations.test.js
+        ├── transformerAttentionEngine.js
+        ├── transformerAttentionEngine.test.js
         ├── voiceQuizEngine.js
         ├── voiceQuizEngine.test.js
         ├── webhookSimulator.js
@@ -350,11 +372,11 @@ Informatik-lernen/
 ## ⚙️ Funktionsweise
 
 1. **State-Management (`zustand` & `localStorage`)**:
-   * Sämtliche Fortschritte (XP, Level, Badges, erledigte Module, Spaced-Repetition-Karten, 365-Tage-Aktivitätshistorie, Custom Challenges) werden rein lokal im Browser gespeichert.
+   * Sämtliche Fortschritte (XP, Level, Badges, erledigte Module, Spaced-Repetition-Karten, 365-Tage-Aktivitätshistorie, Custom Challenges, persönliche Notizen) werden rein lokal im Browser gespeichert.
 2. **Audio-Synthesizer (`audioSystem.js`)**:
    * Keine schweren Audio-Dateien: Alle Soundeffekte (Erfolg, LevelUp, Fehler, Timer-Glocke) werden in Echtzeit über die Web Audio API synthetisiert und lassen sich stufenlos regulieren oder stummschalten.
 3. **PWA & Offline-Fähigkeit (`vite-plugin-pwa`)**:
-   * Vollständiger Service-Worker-Precache aller 116 Anwendungs-Chunks für Offline-Nutzung.
+   * Vollständiger Service-Worker-Precache aller 126 Anwendungs-Chunks für 100% Offline-Nutzung.
 4. **Vite 8 & Rolldown Bundle Splitting**:
    * Aufteilung in logische Chunks (`vendor-react`, `vendor-ui`, `vendor-charts-pdf`) für Ladezeiten unter 1 Sekunde.
 
@@ -391,12 +413,25 @@ npm run build
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
+### Version 3.8.0 (Next-Gen Engineering, Architecture & IHK Power Edition)
+- **Neu**: `OsProcessSchedulerLab.jsx` & `osSchedulerEngine.js` mit CPU-Scheduling (FCFS, SJF, Round Robin, Priority), animiertem Gantt-Chart und Bankier-Algorithmus zur Deadlock-Vermeidung.
+- **Neu**: `PacketSnifferLab.jsx` & `packetSnifferEngine.js` mit Schichten 2–7 Paket-Dissektion, synchronem Hex-Dump/ASCII-Viewer und Wireshark-Display-Filtern.
+- **Neu**: `ErdDesignerLab.jsx` & `erdDesignerEngine.js` mit relationalem ERD-Designer, 1NF–3NF Normalform-Audit und Multi-Dialekt SQL DDL Generator.
+- **Neu**: `TransformerAttentionLab.jsx` & `transformerAttentionEngine.js` mit Scaled Dot-Product Self-Attention Heatmap ($QK^T / \sqrt{d_k}$), Temperature / Top-P Sampling und autonomem ReAct AI Agenten-Trace.
+- **Neu**: `CloudArchitectureCanvasLab.jsx` & `cloudArchitectureEngine.js` mit Cloud-Topologie-Planung, Compound SLA-Berechnung ($A_{\text{ges}}$), Ausfallzeit-Kalkulation und SPOF-Linter.
+- **Neu**: `IhkGradeCalculatorLab.jsx` & `ihkGradeCalculations.js` mit offizieller AO 2020 IHK-Gewichtung (AP1/AP2/Projekt) und Mündliche Ergänzungsprüfung (MEP) Rechner.
+- **Neu**: `RackConfiguratorLab.jsx` & `rackCalculations.js` mit 42HE Serverschrank, Schein-/Wirkleistungsberechnung ($VA, W$), USV-Akkulaufzeit und BTU/h Klimakühlung.
+- **Neu**: `ItsmSimulatorLab.jsx` & `itsmEngine.js` mit ITIL 4 Incident/Problem/Change Warteschlange, SLA-Countdowns und Change Advisory Board (CAB) Risikobewertung.
+- **Neu**: `Sm2SpacedRepetitionLab.jsx` & `sm2Algorithm.js` mit wissenschaftlichem SuperMemo SM-2 Algorithmus und interaktiver Ebbinghaus-Vergessenskurve.
+- **Neu**: `PersonalNotebookLab.jsx` mit Markdown-Editor, Tag-Suche, LocalStorage Auto-Save und `.md`-Export.
+- **Aktualisiert**: `Navbar.jsx`, `CommandPaletteModal.jsx` und `App.jsx` mit vollständiger Integration aller neuen Flaggschiff-Module und Dashboard-Schnellzugriffen.
+- **Test-Suite**: Erfolgreich erweitert auf **102 bestandene Unit-Tests** in **33 Test-Dateien** mit 100% Erfolgsquote.
+
 ### Version 3.7.0 (Agile, GraphQL & IoT Edition)
 - **Neu**: `AgileScrumSimulatorLab.jsx` & `scrumEngine.js` mit Kanban-Board, Story Point Estimation und Recharts Burndown-Charts.
 - **Neu**: `GraphqlExplorerStudioLab.jsx` & `graphqlSandboxEngine.js` mit In-Browser GraphQL Query-Engine und Abstract Syntax Tree (AST) Visualizer.
 - **Neu**: `BleSensorSimulatorLab.jsx` & `bleSensorEngine.js` mit Bluetooth Low Energy GATT-Server Simulation, Sensor-Telemetrie und Byte-Dekodierung.
 - **Aktualisiert**: Navigation in `Navbar.jsx`, `LabsDashboard.jsx`, `CommandPaletteModal.jsx` und `App.jsx`.
-- **Test-Suite**: Auf **77 bestandene Unit-Tests** in **24 Test-Dateien** erweitert.
 
 ### Version 3.6.0 (Event-Driven & Speech Edition)
 - **Neu**: `RegexRailroadVisualizerLab.jsx` & `regexParserEngine.js` mit visuellen Eisenbahndiagrammen, Syntax-Bäumen und Live-Matching.

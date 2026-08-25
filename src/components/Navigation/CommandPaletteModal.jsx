@@ -24,6 +24,16 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-os-scheduler', title: 'OS Process Scheduler & Deadlock Studio (Gantt & Bankier)', category: 'Labs & Tools', icon: Cpu, action: () => onNavigate('os_scheduler') },
+    { id: 'view-packet-sniffer', title: 'Web-Wireshark Packet Sniffer & Hex Analyzer', category: 'Labs & Tools', icon: Terminal, action: () => onNavigate('packet_sniffer') },
+    { id: 'view-erd-designer', title: 'Relational ERD Designer & 3NF Normalform-Linter', category: 'Labs & Tools', icon: Database, action: () => onNavigate('erd_designer') },
+    { id: 'view-transformer-attention', title: 'Transformer Self-Attention & LLM Sampling Studio', category: 'Labs & Tools', icon: Brain, action: () => onNavigate('transformer_attention') },
+    { id: 'view-cloud-canvas', title: 'Cloud Architecture SLA & SPOF Canvas', category: 'Labs & Tools', icon: Globe, action: () => onNavigate('cloud_canvas') },
+    { id: 'view-ihk-grade-calc', title: 'IHK Notenrechner & Mündliche Ergänzungsprüfung (AO 2020)', category: 'Prüfung', icon: Award, action: () => onNavigate('ihk_grade_calculator') },
+    { id: 'view-rack-configurator', title: '19"-Server-Rack Konfigurator & USV/Klimarechner', category: 'Hardware', icon: Cpu, action: () => onNavigate('rack_configurator') },
+    { id: 'view-itsm-simulator', title: 'ITIL 4 ITSM & Service Desk Management Studio', category: 'Prüfung', icon: Award, action: () => onNavigate('itsm_simulator') },
+    { id: 'view-sm2-repetition', title: 'SuperMemo SM-2 Spaced Repetition Mastery & Ebbinghaus', category: 'Lernen', icon: Brain, action: () => onNavigate('sm2_spaced_repetition') },
+    { id: 'view-personal-notebook', title: 'Developer Notizen- & Wissens-Archiv (Markdown Vault)', category: 'Tools', icon: FileText, action: () => onNavigate('personal_notebook') },
     { id: 'view-scrum-simulator', title: 'Scrum Sprint & Kanban Simulator', category: 'Prüfung', icon: Award, action: () => onNavigate('scrum_simulator') },
     { id: 'view-graphql-explorer', title: 'GraphQL Schema & Query Explorer', category: 'Labs & Tools', icon: Layers, action: () => onNavigate('graphql_explorer') },
     { id: 'view-ble-sensor', title: 'BLE & GATT Sensor Simulator', category: 'Hardware', icon: Cpu, action: () => onNavigate('ble_sensor') },

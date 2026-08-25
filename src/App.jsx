@@ -130,6 +130,18 @@ const AgileScrumSimulatorLab = lazy(() => import('./components/Content/AgileScru
 const GraphqlExplorerStudioLab = lazy(() => import('./components/Content/GraphqlExplorerStudioLab'));
 const BleSensorSimulatorLab = lazy(() => import('./components/Content/BleSensorSimulatorLab'));
 
+// v3.8.0 Flagship Simulatoren, Architecture & IHK Power Studios
+const OsProcessSchedulerLab = lazy(() => import('./components/Content/OsProcessSchedulerLab'));
+const PacketSnifferLab = lazy(() => import('./components/Content/PacketSnifferLab'));
+const ErdDesignerLab = lazy(() => import('./components/Content/ErdDesignerLab'));
+const TransformerAttentionLab = lazy(() => import('./components/Content/TransformerAttentionLab'));
+const CloudArchitectureCanvasLab = lazy(() => import('./components/Content/CloudArchitectureCanvasLab'));
+const IhkGradeCalculatorLab = lazy(() => import('./components/Content/IhkGradeCalculatorLab'));
+const RackConfiguratorLab = lazy(() => import('./components/Content/RackConfiguratorLab'));
+const ItsmSimulatorLab = lazy(() => import('./components/Content/ItsmSimulatorLab'));
+const Sm2SpacedRepetitionLab = lazy(() => import('./components/Content/Sm2SpacedRepetitionLab'));
+const PersonalNotebookLab = lazy(() => import('./components/Content/PersonalNotebookLab'));
+
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
@@ -619,6 +631,166 @@ export default function App() {
                         PDFs Generieren <ArrowRight size={16} />
                       </span>
                     </div>
+
+                    {/* OS Process Scheduler Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('os_scheduler')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>⏱️</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>OS Scheduler &amp; Deadlock</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        FCFS, SJF, Round Robin Gantt &amp; Bankier-Algorithmus.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        Scheduler Öffnen <ArrowRight size={16} />
+                      </span>
+                    </div>
+
+                    {/* Packet Sniffer Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('packet_sniffer')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📡</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Web-Wireshark Sniffer</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        Frame Dissection, Hex Dump Sync &amp; Display Filter.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        Sniffer Starten <ArrowRight size={16} />
+                      </span>
+                    </div>
+
+                    {/* Relational ERD Designer Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('erd_designer')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🗄️</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Relational ERD &amp; 3NF Linter</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        Visuelle ER-Modelle, 1NF–3NF Audit &amp; SQL DDL Export.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-purple)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        ERD Gestalten <ArrowRight size={16} />
+                      </span>
+                    </div>
+
+                    {/* Transformer Attention Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('transformer_attention')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🧠</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Transformer Attention Studio</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        Self-Attention Heatmap, Softmax, Temperature &amp; ReAct.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-pink)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        LLM Lab Öffnen <ArrowRight size={16} />
+                      </span>
+                    </div>
+
+                    {/* Cloud Canvas Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('cloud_canvas')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>☁️</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Cloud SLA &amp; SPOF Canvas</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        Topologie-Designer, Ausfallzeiten &amp; Kostenrechner.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-cyan)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        Topologie Planen <ArrowRight size={16} />
+                      </span>
+                    </div>
+
+                    {/* IHK Grade Calculator Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('ihk_grade_calculator')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🎓</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>IHK Noten- &amp; MEP-Rechner</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        AO 2020 Gewichtung, AP1/AP2 &amp; Ergänzungsprüfung.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        Noten Berechnen <ArrowRight size={16} />
+                      </span>
+                    </div>
+
+                    {/* 19" Rack Configurator Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('rack_configurator')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🗄️</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>19" Rack- &amp; USV-Planer</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        42HE Schrank, USV-Laufzeit &amp; RZ-Klimatisierung (BTU).
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        Rack Bestücken <ArrowRight size={16} />
+                      </span>
+                    </div>
+
+                    {/* ITIL ITSM Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('itsm_simulator')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🎧</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>ITIL 4 ITSM &amp; CAB Studio</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        Service Desk, SLA-Matrix &amp; Change Advisory Board.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-amber)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        Tickets Bearbeiten <ArrowRight size={16} />
+                      </span>
+                    </div>
+
+                    {/* SM-2 Spaced Repetition Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('sm2_spaced_repetition')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>💡</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>SuperMemo SM-2 Mastery</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        Spaced Repetition &amp; Ebbinghaus-Vergessenskurven.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        Karteikarten Lernen <ArrowRight size={16} />
+                      </span>
+                    </div>
+
+                    {/* Personal Notebook Card */}
+                    <div
+                      className="glass-panel glass-panel-hover"
+                      onClick={() => setActiveTab('personal_notebook')}
+                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
+                    >
+                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📓</div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Developer Notizbuch</h3>
+                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        Persönliche Markdown-Notizen, Code-Vault &amp; Export.
+                      </p>
+                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-primary)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        Notizen Öffnen <ArrowRight size={16} />
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -730,6 +902,67 @@ export default function App() {
             {activeTab === 'ble_sensor' && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <BleSensorSimulatorLab />
+              </Suspense>
+            )}
+
+            {/* v3.8.0 FLAGSHIP LABS */}
+            {activeTab === 'os_scheduler' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <OsProcessSchedulerLab />
+              </Suspense>
+            )}
+
+            {activeTab === 'packet_sniffer' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <PacketSnifferLab />
+              </Suspense>
+            )}
+
+            {activeTab === 'erd_designer' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <ErdDesignerLab />
+              </Suspense>
+            )}
+
+            {activeTab === 'transformer_attention' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <TransformerAttentionLab />
+              </Suspense>
+            )}
+
+            {activeTab === 'cloud_canvas' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <CloudArchitectureCanvasLab />
+              </Suspense>
+            )}
+
+            {activeTab === 'ihk_grade_calculator' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <IhkGradeCalculatorLab />
+              </Suspense>
+            )}
+
+            {activeTab === 'rack_configurator' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <RackConfiguratorLab />
+              </Suspense>
+            )}
+
+            {activeTab === 'itsm_simulator' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <ItsmSimulatorLab />
+              </Suspense>
+            )}
+
+            {activeTab === 'sm2_spaced_repetition' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <Sm2SpacedRepetitionLab />
+              </Suspense>
+            )}
+
+            {activeTab === 'personal_notebook' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <PersonalNotebookLab />
               </Suspense>
             )}
 
