@@ -413,6 +413,13 @@ npm run build
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
+### Version 3.9.0 (WASM, Crypto & PWA Push Edition)
+- **Neu**: `WasmCompilerPlaygroundLab.jsx` & `wasmParserEngine.js` mit direktem In-Browser C/Rust Kompiler-Playground und WebAssembly Hex-Sektionsinspektor.
+- **Neu**: `ZkpCryptoVisualizerLab.jsx` & `zkpCryptoEngine.js` mit interaktivem Elliptische-Kurven Visualisierer und Zero-Knowledge Proof (Schnorr) Simulation für Prover (Alice) & Verifier (Bob).
+- **Neu**: `pushNotificationManager.js` zur lokalen PWA Push-Notification Planung, direkt integriert in `Sm2SpacedRepetitionLab.jsx` für tägliche Lern-Erinnerungen.
+- **Aktualisiert**: `Navbar.jsx`, `CommandPaletteModal.jsx` und `App.jsx` für vollständiges Routing.
+- **Test-Suite**: Weitere Erhöhung der Test-Abdeckung (**114 bestandene Unit-Tests** in **35 Test-Dateien**).
+
 ### Version 3.8.0 (Next-Gen Engineering, Architecture & IHK Power Edition)
 - **Neu**: `OsProcessSchedulerLab.jsx` & `osSchedulerEngine.js` mit CPU-Scheduling (FCFS, SJF, Round Robin, Priority), animiertem Gantt-Chart und Bankier-Algorithmus zur Deadlock-Vermeidung.
 - **Neu**: `PacketSnifferLab.jsx` & `packetSnifferEngine.js` mit Schichten 2–7 Paket-Dissektion, synchronem Hex-Dump/ASCII-Viewer und Wireshark-Display-Filtern.

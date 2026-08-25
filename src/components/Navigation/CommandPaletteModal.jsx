@@ -34,6 +34,8 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
     { id: 'view-itsm-simulator', title: 'ITIL 4 ITSM & Service Desk Management Studio', category: 'Prüfung', icon: Award, action: () => onNavigate('itsm_simulator') },
     { id: 'view-sm2-repetition', title: 'SuperMemo SM-2 Spaced Repetition Mastery & Ebbinghaus', category: 'Lernen', icon: Brain, action: () => onNavigate('sm2_spaced_repetition') },
     { id: 'view-personal-notebook', title: 'Developer Notizen- & Wissens-Archiv (Markdown Vault)', category: 'Tools', icon: FileText, action: () => onNavigate('personal_notebook') },
+    { id: 'view-wasm-compiler', title: 'WebAssembly Compiler Playground & Hex-Inspector', category: 'Labs & Tools', icon: Terminal, action: () => onNavigate('wasm_compiler') },
+    { id: 'view-zkp-crypto', title: 'ZKP & Kryptographie Visualizer (Elliptische Kurven)', category: 'Labs & Tools', icon: ShieldCheck, action: () => onNavigate('zkp_crypto') },
     { id: 'view-scrum-simulator', title: 'Scrum Sprint & Kanban Simulator', category: 'Prüfung', icon: Award, action: () => onNavigate('scrum_simulator') },
     { id: 'view-graphql-explorer', title: 'GraphQL Schema & Query Explorer', category: 'Labs & Tools', icon: Layers, action: () => onNavigate('graphql_explorer') },
     { id: 'view-ble-sensor', title: 'BLE & GATT Sensor Simulator', category: 'Hardware', icon: Cpu, action: () => onNavigate('ble_sensor') },

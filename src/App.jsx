@@ -76,7 +76,7 @@ const WebSocketProtocolLab = lazy(() => import('./components/Content/WebSocketPr
 const VectorSearchLab = lazy(() => import('./components/Content/VectorSearchLab'));
 const BigOBenchmarkLab = lazy(() => import('./components/Content/BigOBenchmarkLab'));
 const OauthPkceStudio = lazy(() => import('./components/Content/OauthPkceStudio'));
-const WasmRustStudio = lazy(() => import('./components/Content/WasmRustStudio'));
+const WasmCompilerPlaygroundLab = lazy(() => import('./components/Content/WasmCompilerPlaygroundLab'));
 
 // Neue Labs, Simulatoren & Kampagnen Hub
 const DataStructuresLab = lazy(() => import('./components/Content/DataStructuresLab'));
@@ -141,6 +141,9 @@ const RackConfiguratorLab = lazy(() => import('./components/Content/RackConfigur
 const ItsmSimulatorLab = lazy(() => import('./components/Content/ItsmSimulatorLab'));
 const Sm2SpacedRepetitionLab = lazy(() => import('./components/Content/Sm2SpacedRepetitionLab'));
 const PersonalNotebookLab = lazy(() => import('./components/Content/PersonalNotebookLab'));
+
+// v3.9.0 Cryptography & WebAssembly
+const ZkpCryptoVisualizerLab = lazy(() => import('./components/Content/ZkpCryptoVisualizerLab'));
 
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
@@ -1314,10 +1317,17 @@ export default function App() {
               </Suspense>
             )}
 
-            {/* WASM RUST */}
-            {activeTab === 'wasm_rust' && (
+            {/* WASM COMPILER */}
+            {activeTab === 'wasm_compiler' && (
               <Suspense fallback={<LabLoadingFallback />}>
-                <WasmRustLab />
+                <WasmCompilerPlaygroundLab />
+              </Suspense>
+            )}
+
+            {/* ZKP CRYPTO */}
+            {activeTab === 'zkp_crypto' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <ZkpCryptoVisualizerLab />
               </Suspense>
             )}
 

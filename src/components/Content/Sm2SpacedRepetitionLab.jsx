@@ -2,11 +2,12 @@ import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Brain, RotateCw, CheckCircle2, AlertCircle, Sparkles, 
-  TrendingUp, Layers, HelpCircle, ArrowRight
+  TrendingUp, Layers, HelpCircle, ArrowRight, Bell
 } from 'lucide-react';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 import { useStore } from '../../store/useStore';
 import { calculateSm2NextReview, calculateEbbinghausCurve } from '../../utils/sm2Algorithm';
+import { scheduleDailyReminder } from '../../utils/pushNotificationManager';
 
 export const SM2_SAMPLE_CARDS = [
   {
@@ -66,6 +67,20 @@ export default function Sm2SpacedRepetitionLab() {
     awardXP(20, 'sm2_reviewed');
   };
 
+  const [pushEnabled, setPushEnabled] = useState(false);
+
+  const handleTogglePush = async () => {
+    if (!pushEnabled) {
+      const success = await scheduleDailyReminder('🧠 Zeit für deine SM-2 Repetition!', { body: 'Wiederhole deine IT-Karteikarten, um die Ebbinghaus-Vergessenskurve zu besiegen.' });
+      if (success) {
+        setPushEnabled(true);
+        awardXP(10, 'Push Notifications Aktiviert');
+      }
+    } else {
+      setPushEnabled(false);
+    }
+  };
+
   return (
     <div className="space-y-6">
       {/* Header Banner */}
@@ -83,6 +98,14 @@ export default function Sm2SpacedRepetitionLab() {
               Lerne mit dem wissenschaftlichen SM-2 Spaced-Repetition-Algorithmus. Berechne dynamische Ease-Faktoren ($EF \ge 1.3$) und visualisiere die Ebbinghaus-Vergessenskurve für jedes Thema.
             </p>
           </div>
+          <button 
+            onClick={handleTogglePush}
+            className={`action-button ${pushEnabled ? 'primary' : 'secondary'}`}
+            style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 16px' }}
+          >
+            <Bell size={18} />
+            {pushEnabled ? 'Tägliche Push-Erinnerungen: An' : 'Push-Erinnerungen aktivieren'}
+          </button>
         </div>
       </div>
 

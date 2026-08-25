@@ -81,6 +81,8 @@ export default function Navbar({
     { id: 'itsm_simulator', label: '🎧 ITIL 4 ITSM & Service Desk Studio', desc: 'Incident Queue, SLA-Matrix & CAB Risk Score', badge: 'Flagship' },
     { id: 'sm2_spaced_repetition', label: '💡 SuperMemo SM-2 Spaced Repetition', desc: 'Karteikarten & Ebbinghaus-Vergessenskurven', badge: 'Didaktik' },
     { id: 'personal_notebook', label: '📓 Developer Notizbuch & Vault', desc: 'Markdown-Notizen, Code-Snippets & Export', badge: 'Tools' },
+    { id: 'wasm_compiler', label: '⚙️ WebAssembly Compiler Playground', desc: 'C/Rust In-Browser Kompilierung & Hex-Inspektor', badge: 'Neu' },
+    { id: 'zkp_crypto', label: '🔐 ZKP & Kryptographie Visualizer', desc: 'Elliptische Kurven & Zero-Knowledge Proofs', badge: 'Neu' },
     { id: 'scrum_simulator', label: '📋 Scrum Sprint & Kanban Simulator', desc: 'Story Points, Burndown-Chart & Velocity', badge: 'Neu' },
     { id: 'graphql_explorer', label: '🧬 GraphQL Schema & Query Explorer', desc: 'In-Browser GraphQL Engine & AST Visualizer', badge: 'Neu' },
     { id: 'ble_sensor', label: '📡 BLE & GATT Sensor Simulator', desc: 'IoT Bluetooth Low Energy Telemetrie & Bytes', badge: 'Neu' },
