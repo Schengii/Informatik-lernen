@@ -145,6 +145,11 @@ const PersonalNotebookLab = lazy(() => import('./components/Content/PersonalNote
 // v3.9.0 Cryptography & WebAssembly
 const ZkpCryptoVisualizerLab = lazy(() => import('./components/Content/ZkpCryptoVisualizerLab'));
 
+// v3.10.0 Next-Gen OAuth PKCE, K8s Topology & WebRTC Mesh Studios
+const OauthPkceStudioLab = lazy(() => import('./components/Content/OauthPkceStudioLab'));
+const KubernetesClusterStudioLab = lazy(() => import('./components/Content/KubernetesClusterStudioLab'));
+const WebRtcPeerStudioLab = lazy(() => import('./components/Content/WebRtcPeerStudioLab'));
+
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
@@ -1328,6 +1333,27 @@ export default function App() {
             {activeTab === 'zkp_crypto' && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <ZkpCryptoVisualizerLab />
+              </Suspense>
+            )}
+
+            {/* OAUTH PKCE & OIDC STUDIO */}
+            {(activeTab === 'oauth_pkce_studio' || activeTab === 'oauth_pkce') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <OauthPkceStudioLab />
+              </Suspense>
+            )}
+
+            {/* KUBERNETES CLUSTER STUDIO */}
+            {(activeTab === 'k8s_cluster_studio' || activeTab === 'k8s_cluster') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <KubernetesClusterStudioLab />
+              </Suspense>
+            )}
+
+            {/* WEBRTC PEER STUDIO */}
+            {(activeTab === 'webrtc_peer_studio' || activeTab === 'webrtc_peer') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <WebRtcPeerStudioLab />
               </Suspense>
             )}
 

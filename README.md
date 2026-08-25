@@ -80,6 +80,15 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
   * Interaktive **Ebbinghaus-Vergessenskurven-Diagramme** mit Recharts.
 * **📓 Developer Notizbuch & Markdown Vault (`PersonalNotebookLab.jsx`)**:
   * In-App Markdown-Editor mit Live-Vorschau, Tag-Organisation, Volltextsuche, LocalStorage Auto-Save und `.md`-Export.
+* **🔐 OAuth 2.0 PKCE & OIDC Flow Studio (`OauthPkceStudioLab.jsx` & `oauthPkceEngine.js`)**:
+  * Vollständige RFC 7636 Authorization Code Flow mit PKCE Simulation ($S256$ SHA-256 Code Challenge).
+  * JWT Payload Dekodierung (Header, Claims, Signature) und geschützter API-Aufruf (`GET /userinfo` mit Bearer Token).
+* **☸️ Kubernetes Cluster & Topology Studio (`KubernetesClusterStudioLab.jsx` & `k8sClusterEngine.js`)**:
+  * Interaktive Cluster-Architektur (Control Plane: API-Server, etcd, Scheduler, Controller Manager & Worker Nodes).
+  * Dynamic Pod Scheduling, Self-Healing Pod-Eviction bei Node-Crashes, Replicas-Skalierung und Ingress-to-Service Load Balancing.
+* **📡 WebRTC P2P DataChannel & Signaling Studio (`WebRtcPeerStudioLab.jsx` & `webrtcPeerEngine.js`)**:
+  * RFC 8829 JSEP SDP Offer/Answer Handshake über Signaling-Server & STUN/TURN ICE-Candidate Discovery.
+  * Live P2P DataChannel Chat mit einstellbaren Netzwerk-Impairments (Latenz & Paketverlust-Simulation).
 * **📋 Scrum Sprint & Kanban Simulator (`AgileScrumSimulatorLab.jsx`)**:
   * Kanban-Board mit 5 Phasen, Story Point Estimation und Recharts Burndown-Charts.
 * **🧬 GraphQL Schema & Query Explorer (`GraphqlExplorerStudioLab.jsx`)**:
@@ -412,6 +421,13 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.10.0 (OAuth PKCE, K8s Topology & WebRTC Mesh Edition)
+- **Neu**: `OauthPkceStudioLab.jsx` & `oauthPkceEngine.js` mit RFC 7636 PKCE ($S256$ SHA-256 Code Challenge), Consent Screen, Token Exchange, JWT Decoder und Bearer Token API Access.
+- **Neu**: `KubernetesClusterStudioLab.jsx` & `k8sClusterEngine.js` mit visueller Control Plane, Worker Node Kapazitäten, automatischer Pod-Eviction / Self-Healing bei Node-Ausfällen und Ingress-to-Service Round-Robin Load Balancing.
+- **Neu**: `WebRtcPeerStudioLab.jsx` & `webrtcPeerEngine.js` mit Dual-Peer Visualisierung (Caller & Callee), SDP Offer/Answer Handshake über Signaling Server, STUN/TURN ICE Candidates und Live DataChannel Chat mit Latenz- & Paketverlust-Simulation.
+- **Aktualisiert**: `Navbar.jsx`, `CommandPaletteModal.jsx` und `App.jsx` für nahtloses Routing und Schnellzugriff.
+- **Test-Suite**: Erweiterung auf **129 bestandene Unit-Tests** in **38 Test-Dateien** mit 100% Erfolgsquote.
 
 ### Version 3.9.0 (WASM, Crypto & PWA Push Edition)
 - **Neu**: `WasmCompilerPlaygroundLab.jsx` & `wasmParserEngine.js` mit direktem In-Browser C/Rust Kompiler-Playground und WebAssembly Hex-Sektionsinspektor.
