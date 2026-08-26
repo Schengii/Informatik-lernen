@@ -4,12 +4,24 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
+  test: {
+    setupFiles: ['./vitest.setup.js'],
+    // Ohne dies versucht Vitest, die Playwright-Specs in e2e/ (eigenes test/expect aus
+    // '@playwright/test', kein Vitest-Import) ebenfalls als Vitest-Tests zu laden, was mit
+    // einem Parse-/Import-Fehler fehlschlägt.
+    exclude: ['**/node_modules/**', '**/e2e/**']
+  },
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
       devOptions: {
-        enabled: true
+        // Deaktiviert unter Playwright (siehe playwright.config.js `webServer.env`): auf
+        // Umgebungen mit dem bekannten @rollup/rollup-*-Optional-Dependency-Bug (siehe
+        // Fehlermeldung bei `npm run build`) schlägt die Dev-SW-Generierung mit einem 500
+        // fehl, was Vites Error-Overlay als klickblockierendes Overlay über der ganzen Seite
+        // anzeigt - für den normalen `npm run dev`-Workflow bleibt das Verhalten unverändert.
+        enabled: !process.env.PLAYWRIGHT_TEST
       },
       manifest: {
         name: 'IT-DevGame',

@@ -155,6 +155,7 @@ export default function SubnettingLab({ onRewardXP }) {
                 max="30"
                 value={cidr}
                 onChange={(e) => setCidr(e.target.value)}
+                aria-label={`Subnetzmaske Prefix: /${cidr}`}
                 style={{ width: '100%', accentColor: 'var(--accent-indigo)' }}
               />
             </div>

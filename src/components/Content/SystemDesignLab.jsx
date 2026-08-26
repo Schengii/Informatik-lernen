@@ -125,6 +125,7 @@ export default function SystemDesignLab({ onRewardXP }) {
               step="100"
               value={rps}
               onChange={(e) => setRps(Number(e.target.value))}
+              aria-label={`Traffic Load (RPS): ${rps} Req/sec`}
               style={{ width: '100%', cursor: 'pointer' }}
             />
           </div>

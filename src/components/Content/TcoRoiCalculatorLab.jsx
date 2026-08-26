@@ -203,6 +203,7 @@ export default function TcoRoiCalculatorLab() {
                 step={1000}
                 value={onPremHardwareCapex}
                 onChange={(e) => setOnPremHardwareCapex(Number(e.target.value))}
+                aria-label={`Hardware Anschaffung (CAPEX): ${onPremHardwareCapex.toLocaleString('de-DE')} Euro`}
                 className="w-full accent-rose-500"
               />
             </div>

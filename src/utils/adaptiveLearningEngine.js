@@ -60,3 +60,39 @@ export function getOverallAccuracy(categoryStats = {}) {
   );
   return totals.total > 0 ? Math.round((totals.correct / totals.total) * 100) : null;
 }
+
+/**
+ * Handkuratierte Zuordnung Kategorie-Schlüssel -> passendes Lab aus LAB_REGISTRY
+ * (siehe data/labRegistry.js). Die Schlüssel stammen aus zwei Quellen:
+ * - `category`-Feld der Prüfungsfragen in data/examData.js (ExamSimulator)
+ * - `id` der Kategorien in data/quizArenaData.js (KnowledgeQuizArena)
+ *
+ * Vorher verlinkte RecommendationsWidget bei einer Schwäche immer nur pauschal zurück zum
+ * Prüfungssimulator bzw. zur Quiz Arena ("übe einfach nochmal"), obwohl die App für fast
+ * jedes Thema ein spezialisiertes interaktives Lab hat. Diese Zuordnung macht die
+ * Empfehlung konkret: "schwach in Netzwerke & Subnetting" -> direkter Link ins Subnetting-Lab.
+ */
+export const CATEGORY_TO_LAB_ID = {
+  // ExamSimulator-Kategorien (data/examData.js)
+  'Computer-Grundlagen': 'ieee754_lab',
+  'Datenbanken & SQL': 'sql_joins',
+  'Hardware & Ergonomie': 'cpu_architecture_lab',
+  'IT-Security & DSGVO': 'owasp_exploit_lab',
+  'Netzwerke & Routing': 'packet_sniffer',
+  'Netzwerke & Subnetting': 'subnetting',
+  'Programmierung & Algorithmen': 'algo_lab',
+  'Serverdienste & IT-Betrieb': 'itsm_simulator',
+  'Software-Design & Clean Code': 'design_patterns',
+
+  // KnowledgeQuizArena-Kategorien (data/quizArenaData.js)
+  ai_trends: 'transformer_attention',
+  cloud_devops: 'k8s_cluster_studio',
+  ihk_basics: 'anfaenger_guide'
+};
+
+/**
+ * Liefert die LAB_REGISTRY-ID des zu einer Kategorie passenden Labs, falls vorhanden.
+ */
+export function getRecommendedLabId(categoryKey) {
+  return CATEGORY_TO_LAB_ID[categoryKey] || null;
+}

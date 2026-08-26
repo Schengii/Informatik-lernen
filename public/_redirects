@@ -1,0 +1,3 @@
+# Netlify SPA-Fallback: jede unbekannte Route (z. B. /subnetting nach einem Reload) wird an
+# index.html ausgeliefert, statt einen 404 zu werfen - react-router übernimmt danach clientseitig.
+/*  /index.html  200

@@ -3,8 +3,11 @@ import {
   recordCategoryAttempt,
   getWeakestCategories,
   getOverallAccuracy,
-  MIN_ATTEMPTS_FOR_RECOMMENDATION
+  MIN_ATTEMPTS_FOR_RECOMMENDATION,
+  CATEGORY_TO_LAB_ID,
+  getRecommendedLabId
 } from './adaptiveLearningEngine';
+import { LAB_REGISTRY } from '../data/labRegistry';
 
 describe('adaptiveLearningEngine', () => {
   it('kumuliert mehrere Versuche derselben Kategorie statt sie zu überschreiben', () => {
@@ -53,5 +56,23 @@ describe('adaptiveLearningEngine', () => {
     };
     expect(getOverallAccuracy(stats)).toBe(50);
     expect(getOverallAccuracy({})).toBeNull();
+  });
+
+  describe('CATEGORY_TO_LAB_ID (geführte Lernpfade)', () => {
+    const validLabIds = new Set(LAB_REGISTRY.flatMap((lab) => [lab.id, ...(lab.aliases || [])]));
+
+    it('jede Kategorie-Zuordnung zeigt auf ein tatsächlich existierendes Lab', () => {
+      const broken = Object.entries(CATEGORY_TO_LAB_ID).filter(([, labId]) => !validLabIds.has(labId));
+      expect(broken).toEqual([]);
+    });
+
+    it('getRecommendedLabId liefert null für unbekannte Kategorien statt zu werfen', () => {
+      expect(getRecommendedLabId('nicht_existierende_kategorie')).toBeNull();
+    });
+
+    it('getRecommendedLabId löst eine bekannte Kategorie korrekt auf', () => {
+      expect(getRecommendedLabId('Netzwerke & Subnetting')).toBe('subnetting');
+      expect(getRecommendedLabId('ihk_basics')).toBe('anfaenger_guide');
+    });
   });
 });

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>IT-DevGame</title>
+    <!--
+      GitHub Pages hat keine SPA-Fallback-Konfiguration: ein direkter Aufruf oder Reload
+      einer Lab-URL (z. B. /subnetting) landet ohne diesen Trick auf einem echten 404.
+      Dieses Script kodiert den aufgerufenen Pfad in einen Query-String und leitet zur
+      index.html um; das Gegenstück in index.html (siehe dort) stellt die ursprüngliche URL
+      wieder her, bevor React mountet. Standard-Pattern, unverändert übernommen von
+      https://github.com/rafgraph/spa-github-pages (MIT-lizenziert).
+
+      pathSegmentsToKeep:
+      - 0, wenn die App unter einer eigenen Domain oder als GitHub "user/org page"
+        (username.github.io) im Root läuft (aktuelle Annahme, passt zu Netlify/Vercel).
+      - 1, falls stattdessen als GitHub "project page" unter
+        username.github.io/repo-name/ deployt wird — dann muss zusätzlich in
+        vite.config.js `base: '/repo-name/'` gesetzt werden, sonst laden die Assets falsch.
+    -->
+    <script>
+      var pathSegmentsToKeep = 0;
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

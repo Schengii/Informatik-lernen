@@ -201,6 +201,7 @@ export default function TransformerAttentionLab() {
                   step="0.05"
                   value={temperature}
                   onChange={(e) => setTemperature(parseFloat(e.target.value))}
+                  aria-label={`Temperature (T): ${temperature.toFixed(2)}`}
                   style={{ width: '100%' }}
                 />
                 <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'block', marginTop: '6px' }}>
@@ -221,6 +222,7 @@ export default function TransformerAttentionLab() {
                   step="1"
                   value={topK}
                   onChange={(e) => setTopK(parseInt(e.target.value))}
+                  aria-label={`Top-K Filter: ${topK} Tokens`}
                   style={{ width: '100%' }}
                 />
                 <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'block', marginTop: '6px' }}>
@@ -241,6 +243,7 @@ export default function TransformerAttentionLab() {
                   step="0.05"
                   value={topP}
                   onChange={(e) => setTopP(parseFloat(e.target.value))}
+                  aria-label={`Top-P (Nucleus): ${(topP * 100).toFixed(0)}%`}
                   style={{ width: '100%' }}
                 />
                 <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'block', marginTop: '6px' }}>

@@ -137,6 +137,7 @@ export default function AlgoPlaygroundLab({ onRewardXP }) {
             step="50"
             value={650 - speed}
             onChange={(e) => setSpeed(650 - Number(e.target.value))}
+            aria-label={`Animationsgeschwindigkeit: ${650 - speed}`}
             style={{ accentColor: 'var(--accent-indigo)' }}
           />
         </div>

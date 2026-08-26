@@ -83,7 +83,9 @@ export default function ItsmSimulatorLab() {
                     background: isSelected ? 'rgba(99, 102, 241, 0.15)' : 'var(--bg-secondary)',
                     border: isSelected ? '2px solid var(--accent-primary)' : '1px solid var(--border-color)',
                     cursor: 'pointer',
-                    opacity: isResolved ? 0.6 : 1.0,
+                    // Gleiches Kontrast-Problem wie in SkillTreeWidget.jsx behoben: 0.6
+                    // verwässerte den enthaltenen Text unter WCAG-AA-Kontrast.
+                    opacity: isResolved ? 0.85 : 1.0,
                     transition: 'all 0.2s ease'
                   }}
                 >
@@ -173,6 +175,7 @@ export default function ItsmSimulatorLab() {
                     max="5"
                     value={cabComplexity}
                     onChange={(e) => setCabComplexity(parseInt(e.target.value))}
+                    aria-label={`Technische Komplexität: ${cabComplexity} von 5`}
                     style={{ width: '100%' }}
                   />
                 </div>
@@ -188,6 +191,7 @@ export default function ItsmSimulatorLab() {
                     max="5"
                     value={cabRollback}
                     onChange={(e) => setCabRollback(parseInt(e.target.value))}
+                    aria-label={`Rollback-Machbarkeit: ${cabRollback} von 5`}
                     style={{ width: '100%' }}
                   />
                 </div>

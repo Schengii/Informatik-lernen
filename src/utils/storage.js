@@ -18,7 +18,8 @@ export const initialProfileState = {
   savedCodeSnippets: {},
   activityHistory: {}, // { '2026-08-22': { count: 3, xp: 150 } }
   categoryStats: {}, // { [categoryKey]: { label, source, correct, total } } — Basis für adaptive Lernempfehlungen
-  soundSettings: { volume: 0.5, isMuted: false }
+  soundSettings: { volume: 0.5, isMuted: false },
+  hasSeenTour: false // steuert die einmalige FirstVisitTourOverlay nach der Rollenauswahl
 };
 
 export const getTodayDateKey = () => {

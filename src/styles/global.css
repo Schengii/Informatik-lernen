@@ -8,13 +8,26 @@
   --bg-card: #ffffff;
   --bg-card-hover: #f8fafc;
   
-  /* Primary Vibrant & High-Contrast Accents */
+  /* Primary Vibrant & High-Contrast Accents
+     - accent-teal/amber/emerald wurden gegenüber der ursprünglichen Palette leicht
+       abgedunkelt (jeweils <1 Lightness-Stufe): die vorherigen Werte erreichten als Text
+       auf hellem Grund (u. a. die .badge-*-Klassen unten) nur 2.85–3.76:1 Kontrast statt
+       der WCAG-AA-Mindestanforderung von 4.5:1 - gefunden vom automatisierten axe-core
+       E2E-Test (e2e/accessibility.spec.js). Geprüft gegen jeden tatsächlich verwendeten
+       Hintergrund (Weiß, bg-tertiary, die jeweilige 10%-Badge-Tönung), nicht nur Weiß, mit
+       Sicherheitsmarge (Ziel 4.6:1 statt der nackten 4.5:1-Mindestanforderung).
+       accent-primary/-purple/-rose waren bereits konform und blieben unverändert. */
   --accent-primary: #4f46e5; /* Indigo */
-  --accent-teal: #0d9488;    /* Deep Teal */
-  --accent-amber: #d97706;   /* Dark Amber */
+  --accent-teal: #0b7a70;    /* Deep Teal (WCAG AA: 4.62:1 im schlechtesten Fall) */
+  --accent-amber: #a45a05;   /* Dark Amber (WCAG AA: 4.66:1 im schlechtesten Fall) */
   --accent-purple: #7c3aed;  /* Purple */
-  --accent-emerald: #059669; /* Emerald Green */
+  --accent-emerald: #047e58; /* Emerald Green (WCAG AA: 4.64:1 im schlechtesten Fall) */
   --accent-rose: #e11d48;    /* Rose/Coral */
+
+  /* Textfarbe für Elemente mit vollflächigem accent-primary-Hintergrund (z. B. der aktive
+     Hell/Dunkel-Umschalter in Navbar.jsx). Normalerweise Weiß, siehe high-contrast-mode
+     unten für die notwendige Ausnahme. */
+  --on-accent-text: #ffffff;
 
   /* Text Colors - High WCAG Contrast (7:1+) */
   --text-main: #0f172a;      /* Dark Slate */
@@ -97,6 +110,13 @@ body.high-contrast-mode {
   --accent-purple: #ff00ff !important;
   --accent-emerald: #00ff00 !important;
   --accent-rose: #ff5555 !important;
+
+  /* Alle High-Contrast-Akzentfarben oben sind sehr helle/leuchtende Töne (Cyan, Gelb,
+     Magenta, Grün) - als Text auf Schwarz genau richtig, aber als Hintergrund mit weißem
+     Text (z. B. der aktive Hell/Dunkel-Button in Navbar.jsx: background: var(--accent-primary),
+     color: var(--on-accent-text)) unlesbar (axe-core maß 1.25:1 statt 4.5:1 für Weiß auf
+     Cyan). Hier auf Schwarz umgestellt, das gegen jede der obigen Leuchtfarben sicher besteht. */
+  --on-accent-text: #000000 !important;
 }
 
 /* Dyslexia Mode (Lese-Rechtschreib-Hilfe) */

@@ -119,9 +119,20 @@ Informatik-lernen/
 ├── index.html
 ├── package.json
 ├── package-lock.json
+├── playwright.config.js
 ├── README.md
+├── vercel.json
 ├── vite.config.js
+├── vitest.setup.js
+├── e2e/
+│   ├── accessibility.spec.js
+│   ├── command-palette.spec.js
+│   ├── helpers.js
+│   ├── lab-smoke.spec.js
+│   └── onboarding.spec.js
 ├── public/
+│   ├── 404.html
+│   ├── _redirects
 │   ├── manifest.json
 │   └── sw.js
 └── src/
@@ -265,8 +276,10 @@ Informatik-lernen/
     │   │   ├── MobileNav.jsx
     │   │   ├── ModalContainer.jsx
     │   │   ├── Navbar.jsx
+    │   │   ├── navLinks.test.js
     │   │   └── PomodoroTimerWidget.jsx
     │   ├── Onboarding/
+    │   │   ├── FirstVisitTourOverlay.jsx
     │   │   └── RoleSelectionModal.jsx
     │   └── Projects/
     │       └── ProjectViewer.jsx
@@ -276,6 +289,8 @@ Informatik-lernen/
     │   ├── aiBusinessData.js
     │   ├── algorithmData.js
     │   ├── apiStudioData.js
+    │   ├── labRegistry.js
+    │   ├── labRegistry.smoke.test.jsx
     │   ├── campaignData.js
     │   ├── cloudArchLabs.test.js
     │   ├── cloudArchLabsData.js
@@ -421,6 +436,75 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.13.0 (Hosting-Fallback, Volltextsuche, i18n-Pilot, Lernpfade, Onboarding-Tour & E2E/A11y-Tests)
+
+- **Neu**: SPA-Fallback-Konfiguration für alle drei gängigen Hosting-Ziele (`public/404.html`
+  + Gegenstück-Script in `index.html` für GitHub Pages, `public/_redirects` für Netlify,
+  `vercel.json` für Vercel) — vorher hätte ein direkter Aufruf/Reload einer Lab-URL (z. B.
+  `/subnetting`) auf einem echten Static-Host einen 404 geworfen, da react-router zwar schon
+  clientseitig sauber routet, es aber keine serverseitige Fallback-Regel gab.
+- **`favicon.svg` korrekt verlinkt**: `index.html` verwies auf ein nie existierendes
+  `/vite.svg` (Standard-Vite-Template-Überbleibsel) statt auf das tatsächlich vorhandene
+  `public/favicon.svg`.
+- **Command Palette durchsucht jetzt alle 102 Labs**: vorher matchte die Suche nur Titel
+  einer handverlesenen `staticActions`-Liste. Neu werden zusätzlich Beschreibung und Tags
+  jedes `LAB_REGISTRY`-Eintrags durchsucht — z. B. findet "Bankier" jetzt den OS-Scheduler,
+  auch wenn er nicht in der kuratierten Liste steht.
+- **i18n-Content-Pilot (Einsteiger-Bereich)**: `AnfaengerGuideHub` (alle 4 Guides) und die
+  `ihk_basics`-Kategorie der Quiz Arena sind jetzt vollständig zweisprachig (DE/EN), nach
+  demselben Muster wie die bereits zweisprachigen Rollen-Profile in `userProfiles.js`.
+- **Geführte Lernpfade**: `RecommendationsWidget` verlinkt bei einer Wissenslücke jetzt
+  gezielt auf ein passendes Lab (z. B. "Netzwerke & Subnetting" → Subnetting-Rechner) statt
+  pauschal nur zurück zum Prüfungssimulator. `CareerRoadmap`-Schritte können jetzt ebenfalls
+  auf ein passendes Lab verlinken ("Lab öffnen"-Button), wo ein sinnvolles existiert.
+- **6 komplett unerreichbare Labs jetzt zusätzlich verlinkt**: dank der neuen Kategorie- und
+  Lernpfad-Verlinkung sind `subnetting`, `ai` und weitere zuvor nur über den Hub erreichbare
+  Labs jetzt auch direkt aus den adaptiven Empfehlungen und Roadmaps ansteuerbar.
+- **Neu**: Einmalige Erste-Schritte-Tour (`FirstVisitTourOverlay`) nach dem ersten Besuch
+  (3 Schritte: Schnellsuche, Labs-Hub, adaptive Empfehlungen), persistiert über
+  `userState.hasSeenTour`.
+- **Neu**: Playwright-E2E-Tests (`e2e/`) für Onboarding, Command Palette und einen
+  Lab-Smoke-Test in echten Browsern (ergänzt den bestehenden jsdom-basierten
+  `labRegistry.smoke.test.jsx`, der z. B. keine echten Layout-/Canvas-Eigenheiten prüft) —
+  neues Skript `npm run test:e2e`, neue CI-Pipeline-Stufe.
+- **Neu**: Automatisierte Barrierefreiheitsprüfung (`@axe-core/playwright`) auf Dashboard,
+  einem Lab und im Hochkontrast-Modus. Fand echte, app-weite Probleme, die jetzt behoben sind:
+  - **~21 Range-Slider ohne zugängliches Label** (kritisch, WCAG 4.1.2) app-weit ergänzt um
+    `aria-label` (rein additiv, keine optische Änderung).
+  - **Akzentfarben-Kontrast**: `--accent-teal`, `--accent-amber` und `--accent-emerald`
+    erreichten als Badge-/Label-Text auf hellem Grund nur 2.85–3.76:1 Kontrast statt der
+    WCAG-AA-Mindestanforderung von 4.5:1 — leicht abgedunkelt (siehe `global.css`).
+  - **Hochkontrast-Modus unlesbar**: der aktive Hell/Dunkel-Umschalter in der Navbar nutzte
+    hartkodiertes weißes Text auf `var(--accent-primary)`-Hintergrund, der im
+    Hochkontrast-Modus zu leuchtendem Cyan wird (1.25:1 statt 4.5:1) — neues
+    `--on-accent-text`-Token behebt das themenübergreifend korrekt.
+  - **Gesperrte Skill-Tree-Knoten unlesbar**: `opacity: 0.6` auf einem bereits dunkel
+    getönten Hintergrund verwässerte den Text auf 1.69:1 — Hintergrund auf `--bg-tertiary`
+    umgestellt, Opacity-Trick entfernt (gestrichelter Rahmen + Schloss-Icon reichen als
+    visuelles Signal für "gesperrt").
+- **Bekannter, bewusst nicht behobener Folgefund**: dasselbe Muster aus hartkodiertem
+  weißem Text auf einem accent-farbenen Volltonhintergrund (wie beim Hell/Dunkel-Umschalter)
+  kommt noch an vielen weiteren Stellen vor (u. a. `WebSandbox.jsx`, `SqlDungeon.jsx`,
+  `CodePuzzle.jsx`, `SecurityLab.jsx` und vermutlich weitere Games/Labs) — dort aber nur
+  im Hochkontrast-Modus ein Problem, der aktuelle E2E-Test deckt nur Dashboard + ein Lab ab.
+  Eine vollständige Bereinigung wäre ein eigener, größerer Durchgang.
+- **Zurückgestellt** (siehe vorherige Analyse): optionaler Cloud-Sync (braucht einen externen
+  Anbieter-Account) und ein P2P-Quiz-Leaderboard (vergleichbarer Infra-Aufwand).
+- **Test-Suite**: **271 bestandene Unit-Tests** in **47 Test-Dateien** (vorher 247/44) plus
+  **12 neue E2E-/A11y-Tests** (Playwright) in einer separaten Pipeline-Stufe.
+
+### Version 3.12.0 (Zentrale Lab-Registry & Struktureller Bugfix)
+
+- **Neu**: `src/data/labRegistry.js` — die Zuordnung ID ↔ Komponente für alle 102 interaktiven Labs war bisher an vier unabhängigen Stellen gepflegt (`App.jsx`-Tab-Switch, `LabsDashboard`-Kartenraster, Navbar-Dropdowns, Command Palette). Genau das war laut dieser Änderungshistorie die Ursache für tote Links, nie verlinkte Labs und Abstürze durch fehlende Icon-Imports in fast jeder vorherigen Version. `App.jsx` rendert Labs jetzt generisch aus dieser einen Registry (`findLabEntry(activeTab)`), `LabsDashboard` bezieht sein Kartenraster ebenfalls von dort — Navbar und Command Palette behalten bewusst ihre eigenen, kontextspezifischen Texte, werden aber jetzt per Test gegen die Registry validiert.
+- **`App.jsx` um ca. 45 % verkleinert** (1668 → 891 Zeilen): ~90 einzelne `{activeTab === 'x' && <Suspense>…}`-Blöcke und die zugehörigen `lazy()`-Deklarationen wurden durch einen einzigen generischen Render-Block ersetzt. Verhalten ist für jede bisherige Tab-ID identisch.
+- **6 komplett unerreichbare Labs entdeckt & angebunden**: `subnetting` (CIDR-Rechner), `api_mock_studio`, `docker_compose`, `vector_search`, `tdd` und `ai` (Prompt-Engineering-Lab) waren über keine einzige Navigationsfläche (Navbar, Command Palette, Labs-Hub) erreichbar — komplett tote Features trotz vollständiger Implementierung. Alle sechs sind jetzt Teil der Registry und damit im "Alle Labs"-Hub sichtbar.
+- **`ExamSimulator` jetzt lazy-geladen** statt fest ins Hauptbundle eingebunden — ein Nebeneffekt der Registry-Migration, der die initiale Bundle-Größe reduziert.
+- **Neuer kritischer Fund**: `Sm2SpacedRepetitionLab.jsx` enthielt eine LaTeX-Formel (`$R(t) = e^{-t / S}$`) direkt im JSX-Text statt als String — JSX interpretierte `{-t / S}` als Ausdruck und stürzte mit `ReferenceError: t is not defined` ab, sobald das Lab geöffnet wurde. Gefunden vom neuen Smoke-Test, nicht von einem Nutzer.
+- **Neu**: `src/data/labRegistry.smoke.test.jsx` — mountet jeden der 102 Registry-Einträge einmal isoliert. Das ist der erste Test in diesem Projekt, der jedes Lab tatsächlich rendert statt nur seine Erreichbarkeit zu prüfen; er hätte jeden bisherigen "App/Lab stürzt beim Öffnen ab"-Vorfall vor dem Release gefangen (siehe Fund oben).
+- **Neu**: `src/components/Navigation/navLinks.test.js` — prüft, dass jede von Navbar-Dropdowns und Command Palette referenzierte ID entweder in der Registry oder in den bewusst separat gerenderten App-Bereichen (Dashboard, Themen-Browser, Minispiele-Hub, Labs-Hub, Kampagne, Lückentext, Videos, Projekte) existiert.
+- **`LabsDashboard.jsx` um ca. 84 % verkleinert** (913 → 150 Zeilen) durch Wegfall der jetzt redundanten lokalen Lab-Liste; zwei neue Kategorie-Filter (`Programmierung & Tools`, `Hardware & Elektrotechnik`) ergänzt, da nach der Konsolidierung 21 bzw. 3 Labs sonst durch keinen Filter-Button erreichbar gewesen wären.
+- **Test-Suite**: **247 bestandene Unit-Tests** in **46 Test-Dateien** (vorher 141 in 42 Dateien).
 
 ### Version 3.11.1 (CI Pipeline & Codebase-Weite Lint-Bereinigung)
 

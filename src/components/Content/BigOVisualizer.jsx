@@ -34,6 +34,7 @@ export default function BigOVisualizer() {
           max="50"
           value={elementCount}
           onChange={(e) => setElementCount(Number(e.target.value))}
+          aria-label={`Eingabegröße (Anzahl Elemente n): ${elementCount}`}
           style={{ width: '100%', height: '8px', cursor: 'pointer', accentColor: 'var(--accent-primary)' }}
         />
       </div>

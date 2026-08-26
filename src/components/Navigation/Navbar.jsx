@@ -734,13 +734,13 @@ export default function Navbar({
                   <div style={{ display: 'flex', gap: '4px' }}>
                     <button
                       onClick={() => setTheme('light')}
-                      style={{ padding: '4px 8px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 700, border: '1px solid var(--border-color)', background: theme === 'light' ? 'var(--accent-primary)' : 'var(--bg-tertiary)', color: theme === 'light' ? '#fff' : 'var(--text-muted)', cursor: 'pointer' }}
+                      style={{ padding: '4px 8px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 700, border: '1px solid var(--border-color)', background: theme === 'light' ? 'var(--accent-primary)' : 'var(--bg-tertiary)', color: theme === 'light' ? 'var(--on-accent-text)' : 'var(--text-muted)', cursor: 'pointer' }}
                     >
                       {t('nav_light')}
                     </button>
                     <button
                       onClick={() => setTheme('dark')}
-                      style={{ padding: '4px 8px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 700, border: '1px solid var(--border-color)', background: theme === 'dark' ? 'var(--accent-primary)' : 'var(--bg-tertiary)', color: theme === 'dark' ? '#fff' : 'var(--text-muted)', cursor: 'pointer' }}
+                      style={{ padding: '4px 8px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 700, border: '1px solid var(--border-color)', background: theme === 'dark' ? 'var(--accent-primary)' : 'var(--bg-tertiary)', color: theme === 'dark' ? 'var(--on-accent-text)' : 'var(--text-muted)', cursor: 'pointer' }}
                     >
                       {t('nav_dark')}
                     </button>

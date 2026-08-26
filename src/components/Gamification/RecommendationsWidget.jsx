@@ -1,7 +1,10 @@
 import React from 'react';
 import { Target, TrendingUp, ArrowRight, Trophy } from 'lucide-react';
 import { useStore } from '../../store/useStore';
-import { getWeakestCategories, getOverallAccuracy } from '../../utils/adaptiveLearningEngine';
+import { getWeakestCategories, getOverallAccuracy, getRecommendedLabId } from '../../utils/adaptiveLearningEngine';
+import { LAB_REGISTRY } from '../../data/labRegistry';
+
+const labTitleById = Object.fromEntries(LAB_REGISTRY.map((lab) => [lab.id, lab.title]));
 
 const SOURCE_TAB = {
   exam: 'exam',
@@ -59,7 +62,9 @@ export default function RecommendationsWidget({ onNavigate }) {
       </p>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '12px' }}>
-        {weakestCategories.map((cat) => (
+        {weakestCategories.map((cat) => {
+          const recommendedLabId = getRecommendedLabId(cat.key);
+          return (
           <div
             key={cat.key}
             style={{
@@ -88,7 +93,17 @@ export default function RecommendationsWidget({ onNavigate }) {
             <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '4px' }}>
               <TrendingUp size={13} /> {cat.correct}/{cat.total} richtig · {SOURCE_LABEL[cat.source] || 'Quiz'}
             </span>
-            {onNavigate && SOURCE_TAB[cat.source] && (
+            {onNavigate && recommendedLabId && (
+              <button
+                onClick={() => onNavigate(recommendedLabId)}
+                className="btn btn-secondary btn-sm"
+                style={{ alignSelf: 'flex-start', fontSize: '0.78rem', padding: '5px 10px', gap: '4px' }}
+                title={labTitleById[recommendedLabId]}
+              >
+                Passendes Lab üben <ArrowRight size={13} />
+              </button>
+            )}
+            {onNavigate && !recommendedLabId && SOURCE_TAB[cat.source] && (
               <button
                 onClick={() => onNavigate(SOURCE_TAB[cat.source])}
                 className="btn btn-secondary btn-sm"
@@ -98,7 +113,8 @@ export default function RecommendationsWidget({ onNavigate }) {
               </button>
             )}
           </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

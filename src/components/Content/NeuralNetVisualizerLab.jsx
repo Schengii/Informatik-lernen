@@ -182,6 +182,7 @@ export default function NeuralNetVisualizerLab() {
                     step="0.1"
                     value={inputX1}
                     onChange={(e) => setInputX1(Number(e.target.value))}
+                    aria-label={`Input x1: ${inputX1}`}
                     className="w-full"
                   />
                 </div>
@@ -194,6 +195,7 @@ export default function NeuralNetVisualizerLab() {
                     step="0.1"
                     value={inputX2}
                     onChange={(e) => setInputX2(Number(e.target.value))}
+                    aria-label={`Input x2: ${inputX2}`}
                     className="w-full"
                   />
                 </div>
@@ -211,6 +213,7 @@ export default function NeuralNetVisualizerLab() {
                       step="0.1"
                       value={weights.w11}
                       onChange={(e) => setWeights({ ...weights, w11: Number(e.target.value) })}
+                      aria-label={`Gewicht w11: ${weights.w11}`}
                       className="w-full"
                     />
                   </div>
@@ -223,6 +226,7 @@ export default function NeuralNetVisualizerLab() {
                       step="0.1"
                       value={weights.w12}
                       onChange={(e) => setWeights({ ...weights, w12: Number(e.target.value) })}
+                      aria-label={`Gewicht w12: ${weights.w12}`}
                       className="w-full"
                     />
                   </div>
@@ -235,6 +239,7 @@ export default function NeuralNetVisualizerLab() {
                       step="0.1"
                       value={weights.b1}
                       onChange={(e) => setWeights({ ...weights, b1: Number(e.target.value) })}
+                      aria-label={`Bias b1: ${weights.b1}`}
                       className="w-full"
                     />
                   </div>
@@ -332,6 +337,7 @@ export default function NeuralNetVisualizerLab() {
                     max="6"
                     value={bpeSteps}
                     onChange={(e) => setBpeSteps(Number(e.target.value))}
+                    aria-label={`Byte-Pair-Encoding Schritte: ${bpeSteps}`}
                     className="flex-1"
                   />
                   <button

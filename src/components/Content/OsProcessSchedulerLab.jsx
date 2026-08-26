@@ -160,6 +160,7 @@ export default function OsProcessSchedulerLab() {
                       max="6"
                       value={quantum}
                       onChange={(e) => setQuantum(Number(e.target.value))}
+                      aria-label={`Time Quantum: ${quantum} Ticks`}
                       style={{ width: '130px' }}
                     />
                   </div>

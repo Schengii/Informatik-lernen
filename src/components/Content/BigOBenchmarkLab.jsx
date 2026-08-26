@@ -76,6 +76,7 @@ export default function BigOBenchmarkLab({ onRewardXP }) {
               step="10"
               value={nSize}
               onChange={(e) => setNSize(Number(e.target.value))}
+              aria-label={`Datenmenge N Elemente: ${nSize.toLocaleString()}`}
               style={{ width: '100%', cursor: 'pointer' }}
             />
           </div>

@@ -182,6 +182,14 @@ export const useStore = create((set) => {
       set({ userState: loadUserState() });
     },
 
+    completeTour: () => {
+      set((state) => {
+        const updatedState = { ...state.userState, hasSeenTour: true };
+        saveUserState(updatedState);
+        return { userState: updatedState };
+      });
+    },
+
     // Erfasst ein kategorisiertes Quiz-/Prüfungs-Ergebnis für die adaptiven Lernempfehlungen
     // (siehe utils/adaptiveLearningEngine.js & Gamification/RecommendationsWidget.jsx).
     recordCategoryAttempt: (categoryKey, { label, source, correctCount, totalCount }) => {

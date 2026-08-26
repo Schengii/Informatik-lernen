@@ -2,11 +2,33 @@
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="theme-color" content="#0a0d14" />
     <meta name="description" content="Informatik-Spiel & Interaktive Lernplattform für Anfänger, IT-Azubis und erfahrene Entwickler. Lerne Programmieren, SQL, IT-Security & Webentwicklung." />
     <title>IT-DevGame | Interaktives Informatik-Spiel & Lernplattform</title>
+    <!--
+      Gegenstück zum Redirect-Trick in public/404.html (siehe dort für den Kontext/die
+      Quelle): stellt die ursprünglich aufgerufene URL (z. B. /subnetting) aus dem von
+      404.html gesetzten Query-String wieder her, bevor React mountet - ohne dieses Script
+      würde react-router die Anwendung immer auf "/" statt der eigentlichen Ziel-URL starten.
+      Auf Hosts mit echtem Server-seitigem SPA-Fallback (Netlify, Vercel, `vite preview`)
+      greift dieses Script einfach nie, weil `location.search` dann nie mit "?/" beginnt.
+    -->
+    <script>
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          });
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded.shift() + (decoded.length ? '?' + decoded.join('&') : '') + l.hash
+          );
+        }
+      })(window.location);
+    </script>
   </head>
   <body>
     <div id="root"></div>

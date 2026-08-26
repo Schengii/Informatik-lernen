@@ -3,8 +3,11 @@
 // Deckt den App-"Rahmen" ab (Navigation, Barrierefreiheits-Panel, Footer/Rechtliches,
 // Onboarding, Dashboard-Begrüßung) — also alles, was jede:r Nutzer:in sofort sieht.
 // Die eigentlichen Lerninhalte der 100+ einzelnen Labs (Fragen, Erklärtexte, Code-Beispiele)
-// bleiben bewusst vorerst auf Deutsch: das wäre ein eigenes, deutlich größeres
-// Lokalisierungs-Projekt und ist hier nicht enthalten.
+// bleiben größtenteils bewusst vorerst auf Deutsch: das wäre ein eigenes, deutlich größeres
+// Lokalisierungs-Projekt. Als ersten Piloten (Einsteiger-Bereich zuerst, da erster
+// Berührungspunkt für nicht-deutschsprachige Nutzer:innen) sind AnfaengerGuideHub.jsx und
+// die "ihk_basics"-Kategorie der Quiz Arena (data/quizArenaData.js) bereits vollständig
+// zweisprachig, nach demselben `en`-Unterobjekt-Muster wie hier und in userProfiles.js.
 import { useStore } from '../store/useStore';
 
 export const TRANSLATIONS = {
@@ -157,7 +160,35 @@ export const TRANSLATIONS = {
     dash_story_campaign: 'Story Kampagne',
     dash_profile_level: 'Profil / Level',
     dash_beginner_course: 'Einsteiger Kurs',
-    dash_current_role: 'Aktuelles Level & Zielgruppe:'
+    dash_current_role: 'Aktuelles Level & Zielgruppe:',
+
+    // Einsteiger-Guide (AnfaengerGuideHub) - erster i18n-Content-Pilot
+    beginner_guide_badge: 'Für absolute Einsteiger & jedes Alter',
+    beginner_guide_heading: 'Informatik-Grundlagen anschaulich erklärt',
+    beginner_guide_subheading: 'Keine Vorkenntnisse erforderlich! Lerne Schritt für Schritt, wie Computer, Netzwerke & Code funktionieren.',
+    beginner_guide_example_label: 'Anschauliches Praxis-Beispiel:',
+
+    // Quiz Arena (KnowledgeQuizArena) - Teil des ersten i18n-Content-Piloten
+    quiz_arena_heading: 'Interaktive IT Wissens-Quiz Arena',
+    quiz_arena_subheading: 'Teste dein Wissen über KI-Trends, Cloud, Kubernetes, IT-Basics und IHK-Themen.',
+    quiz_arena_explanation_label: 'Erklärung:',
+    quiz_arena_evaluate_button: 'Quiz Auswerten (+50 XP)',
+    quiz_arena_result_label: 'Ergebnis:',
+    quiz_arena_passed: 'Bestanden! (+50 XP)',
+    quiz_arena_retry_hint: 'Versuche es erneut',
+    quiz_arena_retry_button: 'Erneut versuchen',
+
+    // Erste-Schritte-Tour (FirstVisitTourOverlay), einmalig nach der Rollenauswahl
+    tour_progress: 'Schritt {current} von {total}',
+    tour_step1_title: 'Schnellsuche mit Strg + K',
+    tour_step1_desc: 'Öffne jederzeit die Schnellsuche mit Strg+K (Mac: Cmd+K) und finde sofort jedes Lab, Thema oder Werkzeug per Stichwort.',
+    tour_step2_title: 'Über 100 Labs & Simulatoren',
+    tour_step2_desc: 'Im "Alle Labs & Simulatoren Hub" findest du jedes interaktive Lab an einem Ort — durchsuchbar nach Tags und Kategorie.',
+    tour_step3_title: 'Adaptive Lernempfehlungen',
+    tour_step3_desc: 'Sobald du ein paar Quiz-Runden absolviert hast, zeigt dir das Dashboard automatisch, welche Themen sich am meisten zu wiederholen lohnen.',
+    tour_skip: 'Überspringen',
+    tour_next: 'Weiter',
+    tour_finish: "Los geht's"
   },
   en: {
     nav_to_dashboard: 'Go to dashboard',
@@ -301,7 +332,32 @@ export const TRANSLATIONS = {
     dash_story_campaign: 'Story Campaign',
     dash_profile_level: 'Profile / Level',
     dash_beginner_course: 'Beginner Course',
-    dash_current_role: 'Current level & audience:'
+    dash_current_role: 'Current level & audience:',
+
+    beginner_guide_badge: 'For absolute beginners & any age',
+    beginner_guide_heading: 'Computer science fundamentals, explained simply',
+    beginner_guide_subheading: 'No prior knowledge required! Learn step by step how computers, networks & code work.',
+    beginner_guide_example_label: 'Illustrative real-world example:',
+
+    quiz_arena_heading: 'Interactive IT Knowledge Quiz Arena',
+    quiz_arena_subheading: 'Test your knowledge of AI trends, cloud, Kubernetes, IT basics and IHK topics.',
+    quiz_arena_explanation_label: 'Explanation:',
+    quiz_arena_evaluate_button: 'Evaluate Quiz (+50 XP)',
+    quiz_arena_result_label: 'Result:',
+    quiz_arena_passed: 'Passed! (+50 XP)',
+    quiz_arena_retry_hint: 'Try again',
+    quiz_arena_retry_button: 'Try again',
+
+    tour_progress: 'Step {current} of {total}',
+    tour_step1_title: 'Quick search with Ctrl + K',
+    tour_step1_desc: 'Open the quick search anytime with Ctrl+K (Mac: Cmd+K) and instantly find any lab, topic or tool by keyword.',
+    tour_step2_title: '100+ labs & simulators',
+    tour_step2_desc: 'The "All Labs & Simulators Hub" has every interactive lab in one place — searchable by tag and category.',
+    tour_step3_title: 'Adaptive learning recommendations',
+    tour_step3_desc: 'Once you\'ve completed a few quiz rounds, the dashboard automatically shows you which topics are most worth reviewing.',
+    tour_skip: 'Skip',
+    tour_next: 'Next',
+    tour_finish: 'Get started'
   }
 };
 

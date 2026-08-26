@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { CAREER_ROADMAPS } from '../../data/roadmapData';
-import { Compass, CheckCircle2 } from 'lucide-react';
+import { LAB_REGISTRY } from '../../data/labRegistry';
+import { Compass, CheckCircle2, ArrowRight } from 'lucide-react';
 
-export default function CareerRoadmap({ userState }) {
+const labTitleById = Object.fromEntries(LAB_REGISTRY.map((lab) => [lab.id, lab.title]));
+
+export default function CareerRoadmap({ userState, onNavigateTab }) {
   const [selectedRoadmapId, setSelectedRoadmapId] = useState(CAREER_ROADMAPS[0].id);
 
   const roadmap = CAREER_ROADMAPS.find(r => r.id === selectedRoadmapId) || CAREER_ROADMAPS[0];
@@ -76,7 +79,7 @@ export default function CareerRoadmap({ userState }) {
                   </h3>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                   {isCompleted ? (
                     <span style={{ color: 'var(--accent-emerald)', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.9rem' }}>
                       <CheckCircle2 size={20} /> Abgeschlossen
@@ -85,6 +88,16 @@ export default function CareerRoadmap({ userState }) {
                     <span style={{ color: 'var(--text-muted)', fontWeight: 600, fontSize: '0.88rem' }}>
                       In Bearbeitung
                     </span>
+                  )}
+                  {onNavigateTab && step.labId && (
+                    <button
+                      className="btn btn-secondary btn-sm"
+                      onClick={() => onNavigateTab(step.labId)}
+                      style={{ fontSize: '0.8rem', padding: '6px 12px', gap: '4px', whiteSpace: 'nowrap' }}
+                      title={labTitleById[step.labId]}
+                    >
+                      Lab öffnen <ArrowRight size={14} />
+                    </button>
                   )}
                 </div>
               </div>
