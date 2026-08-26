@@ -422,6 +422,16 @@ npm run build
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
+### Version 3.11.1 (CI Pipeline & Codebase-Weite Lint-Bereinigung)
+
+- **Neu**: `.github/workflows/ci.yml` — GitHub Actions Pipeline, die bei jedem Push/PR auf `main` automatisch Lint, Unit-Tests und den Produktions-Build ausführt. Bisher gab es trotz 141 Tests keine CI-Absicherung.
+- **Lint-Bereinigung**: Ungenutzte Imports/Variablen von **502 auf 0** reduziert (verifiziert mit `oxlint --fix-dangerously` + manueller Diff-Review jeder nicht-trivialen Änderung, um versteckte Fehler auszuschließen).
+- **Weiterer kritischer Fund**: `WasmCompilerPlaygroundLab.jsx` referenzierte `RefreshCw` als JSX-Icon ohne Import — ein Klick auf "Kompilieren" ließ das Lab abstürzen. Neuer Regressionstest `WasmCompilerPlaygroundLab.test.jsx` deckt das jetzt ab.
+- **Zwei weitere unvollständige Features entdeckt & vervollständigt** (Muster: `useStore`-Import wurde beim Lint-Cleanup als "ungenutzt" entfernt, weil nie ein XP-Button verdrahtet war): `IhkGradeCalculatorLab` und `TransformerAttentionLab` hatten trotz Award-Icon im Header **keine Möglichkeit, XP zu verdienen**. Beide haben jetzt einen "XP sichern"-Button wie alle vergleichbaren Rechner-Labs.
+- **`ProjectViewer.jsx`**: abgeschlossene Praxisprojekte wurden in der Projekt-Liste nicht als erledigt markiert (die Variable dafür war berechnet, aber nie gerendert) — jetzt mit ✓-Badge sichtbar.
+- **`ActivityHeatmapWidget.jsx`**: die gesamt protokollierte XP-Summe wurde berechnet, aber nirgends angezeigt — jetzt als dritte Stat-Kachel neben Streak & Einheiten sichtbar.
+- **Test-Suite**: **141 bestandene Unit-Tests** in **42 Test-Dateien**.
+
 ### Version 3.11.0 (Bilingual Shell, Adaptive Learning & Critical Stability Fixes)
 
 **🚨 Kritische Stabilitätsfixes** (App war teilweise nicht nutzbar):

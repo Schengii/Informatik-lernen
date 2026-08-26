@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Key, EyeOff, CheckCircle2, ShieldAlert, Cpu, ArrowRight } from 'lucide-react';
+import { Shield, Key, EyeOff, CheckCircle2, ShieldAlert, ArrowRight } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { EllipticCurve, simulateSchnorrZkp } from '../../utils/zkpCryptoEngine';
 
@@ -22,7 +22,15 @@ export default function ZkpCryptoVisualizerLab() {
     if (step === 4) {
       awardXP(45, 'Zero-Knowledge Proof Verifier');
     }
-  }, [step, zkpData, curve, G, orderN, privateKeyX, awardXP]);
+  }, [
+    step,
+    zkpData,
+    orderN,
+    privateKeyX,
+    awardXP,
+    curve,
+    G
+  ]);
 
   const nextStep = () => {
     if (step < 4) setStep(step + 1);

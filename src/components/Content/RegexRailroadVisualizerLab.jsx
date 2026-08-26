@@ -1,8 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
+
 import { 
-  Regex, Play, CheckCircle2, AlertCircle, 
-  Sparkles, Layers, Award, ArrowRight, Eye, Code2 
+  Regex, Layers, Award, Eye, Code2 
 } from 'lucide-react';
 import { parseRegexTokens, testRegexMatch } from '../../utils/regexParserEngine';
 import { soundManager } from '../../utils/audioSystem';

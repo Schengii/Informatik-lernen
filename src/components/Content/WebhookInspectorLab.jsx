@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+
 import { 
-  Radio, Send, CheckCircle2, RotateCcw, 
-  Server, Shield, Activity, Award, Sparkles, Clock, Globe, ArrowRight
+  Radio, Send, Activity, Award, Globe
 } from 'lucide-react';
 import { WEBHOOK_PRESETS, simulateWebhookDispatch } from '../../utils/webhookSimulator';
 import { soundManager } from '../../utils/audioSystem';

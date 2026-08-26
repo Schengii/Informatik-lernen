@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { CODE_PUZZLE_LEVELS } from '../../data/gamesData';
-import { Puzzle, ArrowUp, ArrowDown, CheckCircle2, Play, RefreshCw } from 'lucide-react';
+import { Puzzle, ArrowUp, ArrowDown, CheckCircle2, Play } from 'lucide-react';
 
 export default function CodePuzzle({ onCompleteGame }) {
-  const [levelIdx, setLevelIdx] = useState(0);
+  const [levelIdx] = useState(0);
   const currentPuzzle = CODE_PUZZLE_LEVELS[levelIdx];
 
   // For Puzzle 1 (Line Reordering)

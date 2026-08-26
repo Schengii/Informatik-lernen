@@ -1,7 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
-  runChallengeCode,
-  CODING_CHALLENGES
+  runChallengeCode
 } from './codingChallengesEngine';
 
 describe('codingChallengesEngine', () => {

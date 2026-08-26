@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Volume2, VolumeX, Sparkles, X, Play, Music } from 'lucide-react';
+import { Volume2, VolumeX, X, Play } from 'lucide-react';
 import { soundManager } from '../../utils/audioSystem';
 import { useStore } from '../../store/useStore';
 

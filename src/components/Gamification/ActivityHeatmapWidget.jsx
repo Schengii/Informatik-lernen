@@ -1,6 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Flame, Calendar, Sparkles, Trophy } from 'lucide-react';
+
+import { Flame, Calendar, Trophy, Zap } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 
 export default function ActivityHeatmapWidget() {
@@ -27,6 +27,7 @@ export default function ActivityHeatmapWidget() {
   // Gesamt-Aktivitäten & Max Streak berechnen
   const totalActions = Object.values(activityHistory).reduce((sum, item) => sum + (item.count || 0), 0);
   const totalXpLogged = Object.values(activityHistory).reduce((sum, item) => sum + (item.xp || 0), 0);
+
 
   const getHeatmapColor = (count) => {
     if (!count || count === 0) return 'bg-slate-800/80 border-slate-700/50';
@@ -61,6 +62,10 @@ export default function ActivityHeatmapWidget() {
           <div className="flex items-center gap-1.5 text-emerald-400 bg-emerald-950/40 px-3 py-1.5 rounded-xl border border-emerald-800/50">
             <Trophy className="w-4 h-4 text-emerald-400" />
             <span className="font-bold">{totalActions} Einheiten</span>
+          </div>
+          <div className="flex items-center gap-1.5 text-indigo-400 bg-indigo-950/40 px-3 py-1.5 rounded-xl border border-indigo-800/50">
+            <Zap className="w-4 h-4 text-indigo-400" />
+            <span className="font-bold">{totalXpLogged} XP protokolliert</span>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HelpCircle, RefreshCw, CheckCircle2, XCircle, Award, Sparkles, BookOpen } from 'lucide-react';
+import { BookOpen } from 'lucide-react';
 
 export const LEITNER_FLASHCARDS = [
   { id: 'l1', q: 'Was bedeutet die Abkürzung EVA im Grundprinzip der DV?', a: 'Eingabe, Verarbeitung, Ausgabe', box: 1 },
@@ -9,7 +9,7 @@ export const LEITNER_FLASHCARDS = [
 ];
 
 export default function LeitnerFlashcardLab({ onRewardXP }) {
-  const [cards, setCards] = useState(LEITNER_FLASHCARDS);
+  const [cards] = useState(LEITNER_FLASHCARDS);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
   const [stats, setStats] = useState({ remembered: 0, failed: 0 });

@@ -1,16 +1,18 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Award, Calculator, CheckCircle2, ShieldAlert, Sparkles, 
-  HelpCircle, TrendingUp, AlertTriangle, ArrowRight
+
+import {
+  Award, Calculator, CheckCircle2, Sparkles,
+  TrendingUp, AlertTriangle
 } from 'lucide-react';
-import { useStore } from '../../store/useStore';
-import { 
-  IHK_OCCUPATIONS, calculateIhkFinalScore, calculateMepPossibilities 
+
+import {
+  IHK_OCCUPATIONS, calculateIhkFinalScore, calculateMepPossibilities
 } from '../../utils/ihkGradeCalculations';
+import { useStore } from '../../store/useStore';
 
 export default function IhkGradeCalculatorLab() {
   const { awardXP } = useStore();
+
   const [selectedOccupation, setSelectedOccupation] = useState('fiae');
 
   // Scores State (0 - 100 points)
@@ -57,6 +59,14 @@ export default function IhkGradeCalculatorLab() {
               Berechne deine IHK-Gesamtnote nach der neuen Prüfungsordnung (AO 2020) mit AP1 (20%), AP2 (30%), Projektarbeit &amp; Fachgespräch (50%) sowie automatischem MEP-Rettungsplan.
             </p>
           </div>
+
+          <button
+            onClick={() => awardXP(30, 'ihk_grade_master')}
+            className="btn btn-primary"
+            style={{ gap: '8px', alignSelf: 'flex-start' }}
+          >
+            <Award size={16} /> Noten-Rechner XP sichern
+          </button>
 
           <div>
             <label style={{ fontSize: '0.82rem', fontWeight: '700', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>

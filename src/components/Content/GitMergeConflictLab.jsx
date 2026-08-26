@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+
 import { 
   GitMerge, GitBranch, GitCommit, CheckCircle2, 
-  AlertTriangle, RotateCcw, Play, Code2, Sparkles, Award, ArrowRight
+  RotateCcw, Code2
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { 

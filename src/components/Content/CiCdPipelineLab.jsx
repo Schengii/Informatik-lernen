@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, CheckCircle2, XCircle, FileCode, Sparkles, Layers, ShieldCheck, Cpu, UploadCloud, Terminal, RefreshCw } from 'lucide-react';
+import { Play, CheckCircle2, FileCode, Layers, Terminal, RefreshCw } from 'lucide-react';
 
 const INITIAL_STAGES = [
   { id: 'lint', name: 'Code Quality & Lint', icon: 'Code', enabled: true, command: 'npm run lint', status: 'idle', duration: '2s' },
@@ -13,10 +13,10 @@ const INITIAL_STAGES = [
 export default function CiCdPipelineLab({ onRewardXP }) {
   const [stages, setStages] = useState(INITIAL_STAGES);
   const [isRunning, setIsRunning] = useState(false);
-  const [activeStageIndex, setActiveStageIndex] = useState(-1);
+  const [,setActiveStageIndex] = useState(-1);
   const [logs, setLogs] = useState([]);
-  const [pipelineFinished, setPipelineFinished] = useState(false);
-  const [pipelineSuccess, setPipelineSuccess] = useState(false);
+  const [,setPipelineFinished] = useState(false);
+  const [,setPipelineSuccess] = useState(false);
 
   const toggleStage = (stageId) => {
     if (isRunning) return;

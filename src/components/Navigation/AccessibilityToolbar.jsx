@@ -13,7 +13,6 @@ export default function AccessibilityToolbar({
   setIsHighContrast,
   isReducedMotion,
   setIsReducedMotion,
-  theme,
   setTheme
 }) {
   const { t } = useTranslation();

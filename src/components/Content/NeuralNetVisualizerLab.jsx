@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+
 import { 
-  Brain, Cpu, Sparkles, Award, Play, RotateCcw, 
-  Layers, Sliders, ArrowRight, Hash, Database 
+  Brain, Award, Layers, Sliders, Hash 
 } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 

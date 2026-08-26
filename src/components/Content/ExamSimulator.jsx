@@ -27,7 +27,7 @@ export default function ExamSimulator({ onCompleteExam }) {
     setSelectedAnswers({});
     setIsSubmitted(false);
     setScoreData(null);
-  }, [activeModeId]);
+  }, [activeModeId, currentMode.durationMinutes]);
 
   useEffect(() => {
     let interval = null;
@@ -43,7 +43,11 @@ export default function ExamSimulator({ onCompleteExam }) {
       }, 1000);
     }
     return () => clearInterval(interval);
-  }, [isTimerRunning, isSubmitted, timeLeft]);
+  }, [
+    isTimerRunning,
+    isSubmitted,
+    timeLeft
+  ]);
 
   const formatTimer = (seconds) => {
     const m = Math.floor(seconds / 60);

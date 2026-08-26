@@ -1,12 +1,11 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
+
 import { 
-  Headphones, AlertCircle, Clock, ShieldCheck, CheckCircle2, 
-  Sparkles, Check, ArrowRight, Layers, Sliders, RefreshCw
+  Headphones, AlertCircle, ShieldCheck, Sparkles, Check
 } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { 
-  ITSM_INITIAL_TICKETS, calculatePriorityMatrix, evaluateCabRiskScore 
+  ITSM_INITIAL_TICKETS, evaluateCabRiskScore 
 } from '../../utils/itsmEngine';
 
 export default function ItsmSimulatorLab() {
@@ -17,7 +16,7 @@ export default function ItsmSimulatorLab() {
   // CAB Risk Calculator State
   const [cabComplexity, setCabComplexity] = useState(4); // 1 - 5
   const [cabRollback, setCabRollback] = useState(4); // 1 - 5 (5 = easy rollback)
-  const [cabBusinessImpact, setCabBusinessImpact] = useState(4); // 1 - 5
+  const [cabBusinessImpact] = useState(4); // 1 - 5
 
   const selectedTicket = useMemo(() => {
     return tickets.find(t => t.id === selectedTicketId) || tickets[0];

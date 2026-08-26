@@ -6,8 +6,7 @@ import {
   importChallengesFromJson,
   saveCustomChallenge,
   getStoredCustomChallenges,
-  deleteCustomChallenge,
-  CUSTOM_CHALLENGES_STORAGE_KEY
+  deleteCustomChallenge
 } from './customChallengesManager';
 
 describe('customChallengesManager', () => {

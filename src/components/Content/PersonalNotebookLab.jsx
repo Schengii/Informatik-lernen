@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+
 import { 
   BookOpen, Plus, Trash2, Tag, Search, Download, 
-  Sparkles, CheckCircle2, FileText, Code, Edit3, Eye
+  Sparkles, Edit3, Eye
 } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 

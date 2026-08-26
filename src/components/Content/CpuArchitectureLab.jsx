@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Cpu, Play, Pause, RotateCcw, Zap, Database, Terminal } from 'lucide-react';
 
 export default function CpuArchitectureLab({ onRewardXP }) {
@@ -104,7 +104,15 @@ export default function CpuArchitectureLab({ onRewardXP }) {
       }, clockSpeed);
     }
     return () => clearTimeout(timer);
-  }, [isRunning, phase, pc, ac, ir, ram, clockSpeed]);
+  }, [
+    isRunning,
+    phase,
+    pc,
+    ac,
+    ir,
+    ram,
+    clockSpeed
+  ]);
 
   const resetCpu = () => {
     setRam(initialRam);

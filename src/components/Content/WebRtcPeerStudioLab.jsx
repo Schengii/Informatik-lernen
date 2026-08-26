@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
-  Radio, Video, ShieldCheck, ArrowRight, ArrowLeft, RefreshCw, 
-  Send, MessageSquare, Sliders, CheckCircle2, Globe, Wifi, Server, Lock
+  Radio, ArrowRight, ArrowLeft, RefreshCw, 
+  Send, MessageSquare, CheckCircle2, Globe, Wifi, Server, Lock
 } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import {

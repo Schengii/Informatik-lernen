@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+
 import { 
-  Database, Play, RotateCcw, Download, Sparkles, 
-  Table, HardDrive, Award, CheckCircle2, AlertTriangle, Code2 
+  Database, Play, Download, Table, HardDrive, Award, AlertTriangle, Code2 
 } from 'lucide-react';
 import { SqlSandboxInstance } from '../../utils/sqlSandboxEngine';
 import { soundManager } from '../../utils/audioSystem';

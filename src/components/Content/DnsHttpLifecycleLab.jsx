@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Globe, ArrowRight, Server, ShieldCheck, Play, RotateCcw, CheckCircle2, Cpu, Network, Layers, Laptop } from 'lucide-react';
+
+import { Globe, ArrowRight, Play, CheckCircle2, Network } from 'lucide-react';
 import { DNS_LIFECYCLE_STEPS } from '../../data/nextGenLabsData';
 import { useStore } from '../../store/useStore';
 
@@ -42,11 +42,7 @@ export default function DnsHttpLifecycleLab() {
     }, 1200);
   };
 
-  const handleReset = () => {
-    setCurrentStepIdx(0);
-    setIsComplete(false);
-    setIsSimulating(false);
-  };
+  
 
   return (
     <div className="lab-container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '24px 16px' }}>

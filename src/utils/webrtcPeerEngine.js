@@ -24,7 +24,7 @@ export function createPeerInstance(peerId, name) {
 /**
  * Generate Mock SDP Offer (RFC 8866)
  */
-export function generateSdpOffer(peerId) {
+export function generateSdpOffer(_peerId) {
   const sessionId = Math.floor(Math.random() * 1000000000);
   const ufrag = Math.random().toString(36).substring(2, 6);
   const pwd = Math.random().toString(36).substring(2, 18);
@@ -41,7 +41,7 @@ export function generateSdpOffer(peerId) {
 /**
  * Generate Mock SDP Answer
  */
-export function generateSdpAnswer(peerId, offerSdp) {
+export function generateSdpAnswer(_peerId, _offerSdp) {
   const sessionId = Math.floor(Math.random() * 1000000000);
   const ufrag = Math.random().toString(36).substring(2, 6);
   const pwd = Math.random().toString(36).substring(2, 18);
@@ -58,7 +58,7 @@ export function generateSdpAnswer(peerId, offerSdp) {
 /**
  * Generate ICE Candidates (Host, STUN Server Reflexive, TURN Relay)
  */
-export function generateIceCandidates(peerName) {
+export function generateIceCandidates(_peerName) {
   const port = Math.floor(Math.random() * 20000 + 40000);
   return [
     {

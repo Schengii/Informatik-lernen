@@ -18,7 +18,7 @@ export default function P2pQuizDuellLab() {
 
   // Match States: 'lobby' | 'countdown' | 'in_game' | 'round_result' | 'game_over'
   const [gameState, setGameState] = useState('lobby');
-  const [roomCode, setRoomCode] = useState(() => generateRoomCode());
+  const [roomCode] = useState(() => generateRoomCode());
   const [joinCodeInput, setJoinCodeInput] = useState('');
   const [opponentType, setOpponentType] = useState('bot_medium'); // 'bot_easy' | 'bot_medium' | 'bot_hard' | 'webrtc'
   
@@ -29,7 +29,7 @@ export default function P2pQuizDuellLab() {
 
   const [playerScore, setPlayerScore] = useState(0);
   const [opponentScore, setOpponentScore] = useState(0);
-  const [roundHistory, setRoundHistory] = useState([]);
+  const [,setRoundHistory] = useState([]);
 
   const timerRef = useRef(null);
 
@@ -69,7 +69,11 @@ export default function P2pQuizDuellLab() {
     }
 
     return () => clearInterval(timerRef.current);
-  }, [gameState, currentQuestionIdx]);
+  }, [
+    gameState,
+    currentQuestionIdx,
+    opponentType
+  ]);
 
   const handlePlayerAnswer = (optionIdx) => {
     if (playerSelected !== null || gameState !== 'in_game') return;

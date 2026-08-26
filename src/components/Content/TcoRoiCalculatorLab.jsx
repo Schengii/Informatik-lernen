@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
+
 import { 
   Calculator, TrendingUp, DollarSign, Cloud, Server, 
-  Award, Sparkles, Download, CheckCircle2, Clock, BarChart3
+  Award, Download, CheckCircle2, BarChart3
 } from 'lucide-react';
 import { 
   ResponsiveContainer, 
