@@ -1,8 +1,10 @@
 import React from 'react';
-import { USER_ROLES } from '../../data/userProfiles';
-import { Check, Sparkles, X, HeartHandshake } from 'lucide-react';
+import { USER_ROLES, getLocalizedRole } from '../../data/userProfiles';
+import { Check, X, HeartHandshake } from 'lucide-react';
+import { useTranslation } from '../../utils/i18n';
 
 export default function RoleSelectionModal({ isOpen, onClose, currentRole, onSelectRole }) {
+  const { t, lang } = useTranslation();
   if (!isOpen) return null;
 
   return (
@@ -56,7 +58,7 @@ export default function RoleSelectionModal({ isOpen, onClose, currentRole, onSel
               color: 'var(--text-muted)',
               cursor: 'pointer'
             }}
-            aria-label="Schließen"
+            aria-label={t('a11y_close')}
           >
             <X size={22} />
           </button>
@@ -77,19 +79,20 @@ export default function RoleSelectionModal({ isOpen, onClose, currentRole, onSel
               marginBottom: '12px'
             }}
           >
-            <HeartHandshake size={18} /> Für jedes Alter & jedes Vorwissen geeignet
+            <HeartHandshake size={18} /> {t('role_pretitle')}
           </div>
           <h2 style={{ fontSize: '2rem', fontWeight: '800', margin: '4px 0', color: 'var(--text-main)' }}>
-            Wähle dein Lern-Level & Profil
+            {t('role_heading')}
           </h2>
           <p style={{ color: 'var(--text-muted)', marginTop: '6px', fontSize: '1rem', maxWidth: '650px', margin: '0 auto' }}>
-            Egal ob absoluter Einsteiger (ohne Vorkenntnisse), Azubi, Junior oder erfahrener Developer – finde genau dein Tempo.
+            {t('role_subheading')}
           </p>
         </div>
 
         {/* Roles Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '18px' }}>
-          {Object.values(USER_ROLES).map((role) => {
+          {Object.values(USER_ROLES).map((rawRole) => {
+            const role = getLocalizedRole(rawRole, lang);
             const isSelected = currentRole === role.id;
             return (
               <div
@@ -143,7 +146,7 @@ export default function RoleSelectionModal({ isOpen, onClose, currentRole, onSel
 
                 <div>
                   <div style={{ fontSize: '0.8rem', fontWeight: '700', color: role.color, marginBottom: '8px', textTransform: 'uppercase' }}>
-                    Fokus & Skills:
+                    {t('role_focus_skills')}
                   </div>
                   <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.82rem', color: 'var(--text-main)' }}>
                     {role.skills.map((skill, idx) => (
@@ -165,7 +168,7 @@ export default function RoleSelectionModal({ isOpen, onClose, currentRole, onSel
                       border: isSelected ? 'none' : '1px solid var(--border-color)'
                     }}
                   >
-                    {isSelected ? 'Aktiv Ausgewählt' : 'Dieses Profil wählen'}
+                    {isSelected ? t('role_selected') : t('role_select_this')}
                   </button>
                 </div>
               </div>

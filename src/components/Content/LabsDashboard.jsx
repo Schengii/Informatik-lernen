@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Filter, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network } from 'lucide-react';
+import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2 } from 'lucide-react';
 
 export const LAB_MODULES = [
   {
@@ -465,7 +465,7 @@ export const LAB_MODULES = [
     color: '#6366f1'
   },
   {
-    id: 'k8s',
+    id: 'kubernetes',
     title: 'Kubernetes Pods & Ingress Studio',
     category: 'cloud',
     tags: ['#Cloud', '#Kubernetes', '#Cluster', '#DevOps'],
@@ -475,7 +475,7 @@ export const LAB_MODULES = [
     color: '#3b82f6'
   },
   {
-    id: 'ragai',
+    id: 'rag_ai',
     title: 'Local RAG Vector AI Simulator',
     category: 'ai',
     tags: ['#KI', '#RAG', '#Vektordatenbank', '#LLM'],
@@ -485,7 +485,7 @@ export const LAB_MODULES = [
     color: '#8b5cf6'
   },
   {
-    id: 'pkce',
+    id: 'oauth_pkce_studio',
     title: 'OAuth2 PKCE & OIDC Identity Studio',
     category: 'security',
     tags: ['#Security', '#OAuth2', '#PKCE', '#JWT'],
@@ -495,7 +495,7 @@ export const LAB_MODULES = [
     color: '#ec4899'
   },
   {
-    id: 'sqldungeon',
+    id: 'games',
     title: 'SQL Dungeon Crawler',
     category: 'databases',
     tags: ['#Datenbanken', '#SQL', '#Queries', '#Gamified'],
@@ -505,7 +505,7 @@ export const LAB_MODULES = [
     color: '#f59e0b'
   },
   {
-    id: 'gitvisual',
+    id: 'git_lab',
     title: 'Visual Git Branching & Merge Lab',
     category: 'devops',
     tags: ['#DevOps', '#Git', '#Branches', '#Merge'],
@@ -515,7 +515,7 @@ export const LAB_MODULES = [
     color: '#10b981'
   },
   {
-    id: 'regexmaster',
+    id: 'regex_master',
     title: 'RegEx Master Interactive Lab',
     category: 'algorithms',
     tags: ['#RegEx', '#Validierung', '#PatternMatching'],
@@ -525,7 +525,7 @@ export const LAB_MODULES = [
     color: '#06b6d4'
   },
   {
-    id: 'pythonwasm',
+    id: 'python_wasm',
     title: 'Python WebAssembly (Pyodide) Lab',
     category: 'code',
     tags: ['#Python', '#WASM', '#BrowserExecution'],
@@ -535,7 +535,7 @@ export const LAB_MODULES = [
     color: '#3b82f6'
   },
   {
-    id: 'bigo',
+    id: 'bigo_benchmark',
     title: 'Big-O Algorithm Benchmark Lab',
     category: 'algorithms',
     tags: ['#Algorithmen', '#BigO', '#Laufzeit', '#Performance'],
@@ -543,6 +543,230 @@ export const LAB_MODULES = [
     desc: 'Vergleiche O(1), O(log n), O(n), O(n²) und O(2^n) mit dynamischen Diagrammen.',
     icon: Cpu,
     color: '#ef4444'
+  },
+
+  // Diese Labs waren vollständig implementiert und über App.jsx erreichbar,
+  // tauchten aber in keinem einzigen Navigationsmenü auf (weder Navbar noch
+  // Command Palette noch hier) — reine Sackgassen. Jetzt im Hub auffindbar.
+  {
+    id: 'algo_lab',
+    title: 'Interaktiver Algorithmen- & Step-Visualisierer',
+    category: 'algorithms',
+    tags: ['#Algorithmen', '#Sortieren', '#Suchen', '#Visualisierung'],
+    difficulty: 'Beginner',
+    desc: 'Beobachte Sortier- & Suchalgorithmen Schritt-für-Schritt in Echtzeit.',
+    icon: Cpu,
+    color: '#f97316'
+  },
+  {
+    id: 'api_studio',
+    title: 'GraphQL & REST API Benchmark Studio',
+    category: 'code',
+    tags: ['#API', '#REST', '#GraphQL', '#Benchmark', '#HTTP'],
+    difficulty: 'Intermediate',
+    desc: 'Teste REST Endpunkte vs GraphQL Queries & analysiere HTTP Status Codes in Echtzeit.',
+    icon: Network,
+    color: '#8b5cf6'
+  },
+  {
+    id: 'app_workshop',
+    title: 'Fullstack App-Entwicklungs Workshop',
+    category: 'devops',
+    tags: ['#Fullstack', '#Workshop', '#WebApp', '#StepByStep'],
+    difficulty: 'Intermediate',
+    desc: 'Entwickle deine eigene interaktive Task-Manager Web & Mobile App Schritt für Schritt von A bis Z.',
+    icon: Layers,
+    color: '#6366f1'
+  },
+  {
+    id: 'big_o',
+    title: 'Big-O Notation & Algorithmen Komplexität',
+    category: 'algorithms',
+    tags: ['#BigO', '#Komplexität', '#Algorithmen'],
+    difficulty: 'Beginner',
+    desc: 'Visualisiere wie sich Laufzeit und Rechenschritte von Algorithmen bei wachsender Eingabegröße n verändern.',
+    icon: Cpu,
+    color: '#ef4444'
+  },
+  {
+    id: 'cicd_pipeline',
+    title: 'CI/CD Pipeline & GitHub Actions Builder',
+    category: 'devops',
+    tags: ['#CI/CD', '#GitHubActions', '#DevOps', '#Deployment'],
+    difficulty: 'Intermediate',
+    desc: 'Designe automatisierte Build-, Test- & Deployment-Pipelines und generiere echten .github/workflows/deploy.yml Code.',
+    icon: Terminal,
+    color: '#14b8a6'
+  },
+  {
+    id: 'cloud_designer',
+    title: 'Cloud Infrastructure & Terraform IaC Designer',
+    category: 'cloud',
+    tags: ['#Terraform', '#IaC', '#AWS', '#CloudDesign'],
+    difficulty: 'Advanced',
+    desc: 'Designe Cloud-Architekturen aus AWS-Bausteinen und generiere echten Terraform Code (Infrastructure as Code).',
+    icon: Cloud,
+    color: '#0ea5e9'
+  },
+  {
+    id: 'cloud_devops',
+    title: 'Cloud Infrastructure & DevOps Playground',
+    category: 'cloud',
+    tags: ['#CI/CD', '#Serverless', '#Lambda', '#AWS'],
+    difficulty: 'Intermediate',
+    desc: 'Erstelle CI/CD Pipelines (GitHub Actions) & AWS Lambda Serverless Funktionen.',
+    icon: Cloud,
+    color: '#3b82f6'
+  },
+  {
+    id: 'ctf_lab',
+    title: 'Cybersecurity CTF Quest Lab',
+    category: 'security',
+    tags: ['#CTF', '#XSS', '#SQLi', '#Hacking'],
+    difficulty: 'Advanced',
+    desc: 'Löse praxisnahe Hacking-Challenges, teste Sicherheitslücken und finde die versteckten CTF{...} Flaggen.',
+    icon: Shield,
+    color: '#dc2626'
+  },
+  {
+    id: 'design_patterns',
+    title: 'Software Design Patterns & Refactoring Lab',
+    category: 'code',
+    tags: ['#DesignPatterns', '#CleanCode', '#Refactoring'],
+    difficulty: 'Intermediate',
+    desc: 'Lerne bewährte Entwurfsmuster (Singleton, Observer, Factory, Strategy) für sauberen & skalierbaren Code.',
+    icon: Layers,
+    color: '#a855f7'
+  },
+  {
+    id: 'kafka',
+    title: 'Event-Driven Microservices (Apache Kafka)',
+    category: 'cloud',
+    tags: ['#Kafka', '#EventDriven', '#Microservices', '#Queues'],
+    difficulty: 'Advanced',
+    desc: 'Asynchrone Event-Driven Architektur mit Producers, Topics, Consumer Groups & Message Queues.',
+    icon: Network,
+    color: '#06b6d4'
+  },
+  {
+    id: 'leitner',
+    title: 'Leitner Spaced Repetition Flashcard Engine',
+    category: 'ihk',
+    tags: ['#Leitner', '#SpacedRepetition', '#IHK', '#Flashcards'],
+    difficulty: 'Beginner',
+    desc: 'Wiederhole schwere IHK-Fragen in optimierten Zeitabständen (Box 1 - 5).',
+    icon: Award,
+    color: '#f59e0b'
+  },
+  {
+    id: 'monaco_studio',
+    title: 'Monaco Code Studio (VS Code im Browser)',
+    category: 'code',
+    tags: ['#Monaco', '#VSCode', '#IntelliSense', '#CodeEditor'],
+    difficulty: 'Intermediate',
+    desc: 'Nutze echte Auto-Completion, Syntax Highlighting & IntelliSense direkt im Browser.',
+    icon: Terminal,
+    color: '#3b82f6'
+  },
+  {
+    id: 'oauth_oidc',
+    title: 'OAuth2 & OpenID Connect (OIDC) Security Playground',
+    category: 'security',
+    tags: ['#OAuth2', '#OIDC', '#JWT', '#Security'],
+    difficulty: 'Advanced',
+    desc: 'Verstehe den Authorization Code Flow mit PKCE, JWT Tokens (Header, Payload, Signature) & Access Tokens.',
+    icon: Shield,
+    color: '#ec4899'
+  },
+  {
+    id: 'packet_tracer',
+    title: 'Network Packet Tracer & Route Visualizer',
+    category: 'devops',
+    tags: ['#Networking', '#Ping', '#Routing', '#Subnetting'],
+    difficulty: 'Intermediate',
+    desc: 'Simuliere ICMP Ping-Paketläufe, Gateway-Hop-Zeiten und Subnetz-Routing.',
+    icon: Network,
+    color: '#10b981'
+  },
+  {
+    id: 'perf_lab',
+    title: 'Performance Profiling & Memory Leak Lab',
+    category: 'code',
+    tags: ['#Performance', '#V8', '#MemoryLeak', '#Profiling'],
+    difficulty: 'Advanced',
+    desc: 'Analysiere V8 Garbage Collection (Mark-and-Sweep) & verhindere Memory Leaks in JavaScript.',
+    icon: Cpu,
+    color: '#f43f5e'
+  },
+  {
+    id: 'roadmaps',
+    title: 'Interaktive IT-Karriere Roadmaps',
+    category: 'ihk',
+    tags: ['#Karriere', '#Roadmap', '#Lernpfad'],
+    difficulty: 'Beginner',
+    desc: 'Strukturierte Lernpfade für Fullstack-Entwicklung, Cybersecurity und AI Engineering.',
+    icon: Award,
+    color: '#0d9488'
+  },
+  {
+    id: 'security_lab_v2',
+    title: 'Cybersecurity Red Team vs. Blue Team Challenge',
+    category: 'security',
+    tags: ['#RedTeam', '#BlueTeam', '#CyberSecurity'],
+    difficulty: 'Advanced',
+    desc: 'Verstehe Hacker-Angriffe (Red Team) und implementiere unknackbare Verteidigungslinien (Blue Team).',
+    icon: Shield,
+    color: '#e11d48'
+  },
+  {
+    id: 'system_design',
+    title: 'System Design & Load Balancer Simulator',
+    category: 'devops',
+    tags: ['#SystemDesign', '#LoadBalancing', '#Caching', '#Scalability'],
+    difficulty: 'Advanced',
+    desc: 'Simuliere Traffic-Spikes, Load Balancing Algorithmen (Round Robin, Least Conn), Redis Caching & DB-Replikation.',
+    icon: Network,
+    color: '#4f46e5'
+  },
+  {
+    id: 'tooling',
+    title: 'IDEs, Tools & Setup Anleitungen',
+    category: 'devops',
+    tags: ['#Tooling', '#VSCode', '#Git', '#Setup'],
+    difficulty: 'Beginner',
+    desc: 'Schritt-für-Schritt Anleitungen zum Einrichten deiner Entwickler-Umgebung (VS Code, Git, Docker).',
+    icon: Terminal,
+    color: '#64748b'
+  },
+  {
+    id: 'wasm_rust_studio',
+    title: 'WebAssembly (Wasm) & Rust Compiler Lab',
+    category: 'code',
+    tags: ['#WASM', '#Rust', '#Compiler'],
+    difficulty: 'Advanced',
+    desc: 'Verstehe Hochleistungs-Code im Webbrowser: Rust zu Wasm kompilieren und direkt ausführen.',
+    icon: Cpu,
+    color: '#d97706'
+  },
+  {
+    id: 'websocket_protocol',
+    title: 'WebSockets & Real-Time Protocol Lab',
+    category: 'devops',
+    tags: ['#WebSockets', '#Realtime', '#HTTP101'],
+    difficulty: 'Intermediate',
+    desc: 'Erforsche den HTTP 101 Upgrade Handshake, bi-direktionale WebSocket Frames & Ping/Pong Heartbeats.',
+    icon: Network,
+    color: '#0891b2'
+  },
+  {
+    id: 'websockets',
+    title: 'WebSockets & Realtime Live Collaboration Lab',
+    category: 'devops',
+    tags: ['#WebSockets', '#Realtime', '#Collaboration'],
+    difficulty: 'Intermediate',
+    desc: 'Lerne den HTTP 101 Handshake, TCP Duplex-Verbindungen & Event-Broadcasts für Live-Collaboration-Apps.',
+    icon: Network,
+    color: '#14b8a6'
   }
 ];
 

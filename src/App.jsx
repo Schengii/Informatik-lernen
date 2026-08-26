@@ -15,6 +15,7 @@ import SkillMatrixWidget from './components/Gamification/SkillMatrixWidget';
 import DailyChallengeWidget from './components/Gamification/DailyChallengeWidget';
 import SkillTreeWidget from './components/Gamification/SkillTreeWidget';
 import ActivityHeatmapWidget from './components/Gamification/ActivityHeatmapWidget';
+import RecommendationsWidget from './components/Gamification/RecommendationsWidget';
 import PomodoroTimerWidget from './components/Navigation/PomodoroTimerWidget';
 import ModalContainer from './components/Navigation/ModalContainer';
 
@@ -75,7 +76,6 @@ const RegexMasterLab = lazy(() => import('./components/Content/RegexMasterLab'))
 const WebSocketProtocolLab = lazy(() => import('./components/Content/WebSocketProtocolLab'));
 const VectorSearchLab = lazy(() => import('./components/Content/VectorSearchLab'));
 const BigOBenchmarkLab = lazy(() => import('./components/Content/BigOBenchmarkLab'));
-const OauthPkceStudio = lazy(() => import('./components/Content/OauthPkceStudio'));
 const WasmCompilerPlaygroundLab = lazy(() => import('./components/Content/WasmCompilerPlaygroundLab'));
 
 // Neue Labs, Simulatoren & Kampagnen Hub
@@ -150,7 +150,8 @@ const OauthPkceStudioLab = lazy(() => import('./components/Content/OauthPkceStud
 const KubernetesClusterStudioLab = lazy(() => import('./components/Content/KubernetesClusterStudioLab'));
 const WebRtcPeerStudioLab = lazy(() => import('./components/Content/WebRtcPeerStudioLab'));
 
-import { USER_ROLES } from './data/userProfiles';
+import { USER_ROLES, getLocalizedRole } from './data/userProfiles';
+import { useTranslation } from './utils/i18n';
 import { TOPICS } from './data/topicsData';
 
 import { BookOpen, Sparkles, ArrowRight, CheckCircle, Sprout, Compass } from 'lucide-react';
@@ -229,7 +230,14 @@ export default function App() {
     }
   }, [theme, fontSize, isDyslexic, isColorblind, isHighContrast]);
 
-  const currentRole = USER_ROLES[userState.role] || USER_ROLES.anfaenger;
+  // Hält das <html lang="..."> Attribut (wichtig für Screenreader/Barrierefreiheit)
+  // synchron mit der im Store gewählten Sprache.
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
+
+  const { t } = useTranslation();
+  const currentRole = getLocalizedRole(USER_ROLES[userState.role] || USER_ROLES.anfaenger, lang);
 
   // Filter Topics by Difficulty
   const filteredTopics = TOPICS.filter((t) => {
@@ -295,10 +303,10 @@ export default function App() {
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '20px' }}>
                     <div>
                       <span className="badge badge-indigo" style={{ marginBottom: '12px' }}>
-                        <Sparkles size={14} /> Aktuelles Level &amp; Zielgruppe: {currentRole.title}
+                        <Sparkles size={14} /> {t('dash_current_role')} {currentRole.title}
                       </span>
                       <h1 style={{ fontSize: '2.4rem', fontWeight: '800', margin: '8px 0', color: 'var(--text-main)' }}>
-                        Willkommen zurück, <span className="text-gradient">Developer</span>!
+                        {t('dash_welcome')} <span className="text-gradient">{t('dash_welcome_name')}</span>!
                       </h1>
                       <p style={{ color: 'var(--text-muted)', maxWidth: '680px', fontSize: '1.05rem', lineHeight: '1.6' }}>
                         {currentRole.description}
@@ -311,7 +319,7 @@ export default function App() {
                         onClick={() => setActiveTab('campaign')}
                         style={{ minHeight: '48px', fontSize: '0.95rem', background: 'var(--gradient-cyber)', gap: '8px' }}
                       >
-                        <Compass size={18} /> Story Kampagne
+                        <Compass size={18} /> {t('dash_story_campaign')}
                       </button>
 
                       <button
@@ -319,7 +327,7 @@ export default function App() {
                         onClick={() => setIsRoleModalOpen(true)}
                         style={{ minHeight: '48px', fontSize: '0.95rem' }}
                       >
-                        Profil / Level
+                        {t('dash_profile_level')}
                       </button>
 
                       <button
@@ -327,11 +335,14 @@ export default function App() {
                         onClick={() => setActiveTab('anfaenger_guide')}
                         style={{ minHeight: '48px', fontSize: '0.95rem', borderColor: 'var(--accent-emerald)', color: 'var(--accent-emerald)' }}
                       >
-                        <Sprout size={18} /> Einsteiger Kurs
+                        <Sprout size={18} /> {t('dash_beginner_course')}
                       </button>
                     </div>
                   </div>
                 </div>
+
+                {/* Adaptive Lernempfehlungen basierend auf Prüfungssimulator & Quiz Arena */}
+                <RecommendationsWidget onNavigate={setActiveTab} />
 
                 {/* 365-Tage GitHub-Style Aktivitäts-Heatmap */}
                 <ActivityHeatmapWidget />
@@ -1171,16 +1182,10 @@ export default function App() {
             )}
 
             {/* OAUTH PKCE */}
-            {activeTab === 'oauth_pkce_studio' && (
-              <Suspense fallback={<LabLoadingFallback />}>
-                <OauthPkceStudio onRewardXP={(xp) => awardXP(xp, 'oauth_pkce_master')} />
-              </Suspense>
-            )}
-
             {/* WASM RUST */}
             {activeTab === 'wasm_rust_studio' && (
               <Suspense fallback={<LabLoadingFallback />}>
-                <WasmRustStudio onRewardXP={(xp) => awardXP(xp, 'wasm_rust_master')} />
+                <WasmRustLab />
               </Suspense>
             )}
 

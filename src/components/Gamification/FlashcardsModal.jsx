@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FLASHCARDS_DATA } from '../../data/flashcardsData';
-import { Layers, RotateCcw, CheckCircle2, XCircle, X, Award, Sparkles, Brain, Clock } from 'lucide-react';
+import { Layers, CheckCircle2, XCircle, X, Brain, Clock } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { calculateSM2 } from '../../utils/srsAlgorithm';
 
@@ -32,10 +32,6 @@ export default function FlashcardsModal({ isOpen, onClose, onRewardXP }) {
     }
 
     setCardIdx((prev) => (prev + 1) % FLASHCARDS_DATA.length);
-  };
-
-  const handleNext = (known) => {
-    handleQualityAnswer(known ? 4 : 1);
   };
 
   return (
@@ -92,6 +88,12 @@ export default function FlashcardsModal({ isOpen, onClose, onRewardXP }) {
           <span style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
             Klicke auf die Karte zum Umdrehen
           </span>
+          {completedCount > 0 && (
+            <div style={{ marginTop: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.85rem', color: 'var(--accent-teal)', fontWeight: 700 }}>
+              <CheckCircle2 size={15} />
+              {completedCount} {completedCount === 1 ? 'Karte' : 'Karten'} in dieser Sitzung gemeistert
+            </div>
+          )}
         </div>
 
         {/* Flip Card Area */}

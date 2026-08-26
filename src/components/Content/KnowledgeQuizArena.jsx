@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { QUIZ_ARENA_CATEGORIES } from '../../data/quizArenaData';
-import { Trophy, CheckCircle2, XCircle, Award, Sparkles, RefreshCw } from 'lucide-react';
+import { Trophy, Award, RefreshCw } from 'lucide-react';
+import { useStore } from '../../store/useStore';
 
 export default function KnowledgeQuizArena({ onRewardXP }) {
+  const { recordCategoryAttempt } = useStore();
   const [selectedCatId, setSelectedCatId] = useState(QUIZ_ARENA_CATEGORIES[0].id);
   const [userAnswers, setUserAnswers] = useState({});
   const [isEvaluated, setIsEvaluated] = useState(false);
@@ -27,6 +29,13 @@ export default function KnowledgeQuizArena({ onRewardXP }) {
     const finalScore = Math.round((correct / category.questions.length) * 100);
     setScore(finalScore);
     setIsEvaluated(true);
+
+    recordCategoryAttempt(category.id, {
+      label: category.title,
+      source: 'quiz_arena',
+      correctCount: correct,
+      totalCount: category.questions.length
+    });
 
     if (finalScore >= 50) {
       onRewardXP(50);

@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Search, Terminal, BookOpen, Sparkles, Trophy, Cpu, Code2, 
+import {
+  Search, Terminal, BookOpen, Sparkles, Trophy, Cpu, Code2,
   Layers, Award, FileText, ArrowRight, X, Command, Database, ShieldCheck,
-  Calculator, Globe, ShieldAlert, Brain, GitMerge
+  Calculator, Globe, ShieldAlert, Brain, GitMerge, Lock, Radio
 } from 'lucide-react';
+import { useTranslation } from '../../utils/i18n';
 import { TOPICS } from '../../data/topicsData';
 import { GLOSSARY_TERMS } from '../../data/glossaryData';
 
 export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpenModal }) {
+  const { t } = useTranslation();
   const [search, setSearch] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef(null);
@@ -78,7 +80,7 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
     { id: 'view-ihk-doku', title: 'IHK Projektantrags- & Doku-Generator', category: 'Prüfung', icon: FileText, action: () => onNavigate('ihk_doc_generator') },
     { id: 'view-games', title: 'Coding Games & SQL Dungeon', category: 'Spiele', icon: Trophy, action: () => onNavigate('games') },
     { id: 'view-exam', title: 'IHK Prüfungssimulator (AP1 & AP2)', category: 'Prüfung', icon: FileText, action: () => onNavigate('exam') },
-    { id: 'view-oral-exam', title: 'IHK Mündliches Fachgespräch Simulation', category: 'Prüfung', icon: Award, action: () => onNavigate('oral-exam') },
+    { id: 'view-oral-exam', title: 'IHK Mündliches Fachgespräch Simulation', category: 'Prüfung', icon: Award, action: () => onNavigate('oral_exam') },
     { id: 'view-campaign', title: 'Story-Kampagne: Der IT-Aufstieg', category: 'Quests', icon: Sparkles, action: () => onNavigate('campaign') },
     { id: 'view-cpu-arch', title: 'Von-Neumann CPU & Register-Simulator', category: 'Labs & Tools', icon: Cpu, action: () => onNavigate('cpu_architecture_lab') },
     { id: 'view-sql-optimizer', title: 'SQL Query Optimizer & EXPLAIN Lab', category: 'Labs & Tools', icon: Database, action: () => onNavigate('sql_optimizer_lab') },
@@ -182,7 +184,7 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
             <input
               ref={inputRef}
               type="text"
-              placeholder="Suche Themen, Labs, IHK-Prüfungen, Glossar... (↑↓ navigieren, Enter wählen)"
+              placeholder={t('cmdk_placeholder')}
               value={search}
               onChange={e => {
                 setSearch(e.target.value);
@@ -212,8 +214,8 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
             {filteredItems.length === 0 ? (
               <div style={{ padding: '32px 16px', textAlign: 'center', color: 'var(--text-muted)' }}>
                 <Search size={32} style={{ margin: '0 auto 12px', opacity: 0.5 }} />
-                <p style={{ margin: 0, fontWeight: '600' }}>Keine passenden Ergebnisse für "{search}"</p>
-                <span style={{ fontSize: '0.85rem' }}>Versuche es mit Begriffen wie 'SQL', 'Git', 'IHK', 'Docker' oder 'Netzwerk'</span>
+                <p style={{ margin: 0, fontWeight: '600' }}>{t('cmdk_no_results')} "{search}"</p>
+                <span style={{ fontSize: '0.85rem' }}>{t('cmdk_no_results_hint')}</span>
               </div>
             ) : (
               filteredItems.map((item, index) => {
@@ -284,12 +286,12 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
             color: 'var(--text-muted)'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <span><kbd style={{ background: 'var(--bg-card)', padding: '2px 5px', borderRadius: '4px', border: '1px solid var(--border-color)' }}>↑↓</kbd> Navigieren</span>
-              <span><kbd style={{ background: 'var(--bg-card)', padding: '2px 5px', borderRadius: '4px', border: '1px solid var(--border-color)' }}>↵</kbd> Auswählen</span>
+              <span><kbd style={{ background: 'var(--bg-card)', padding: '2px 5px', borderRadius: '4px', border: '1px solid var(--border-color)' }}>↑↓</kbd> {t('cmdk_navigate')}</span>
+              <span><kbd style={{ background: 'var(--bg-card)', padding: '2px 5px', borderRadius: '4px', border: '1px solid var(--border-color)' }}>↵</kbd> {t('cmdk_select')}</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <Command size={12} />
-              <span>Informatik Power Search</span>
+              <span>{t('cmdk_power_search')}</span>
             </div>
           </div>
         </motion.div>

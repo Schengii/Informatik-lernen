@@ -422,6 +422,44 @@ npm run build
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
+### Version 3.11.0 (Bilingual Shell, Adaptive Learning & Critical Stability Fixes)
+
+**🚨 Kritische Stabilitätsfixes** (App war teilweise nicht nutzbar):
+- **`CommandPaletteModal.jsx`**: Die Schnellsuche (Ctrl+K) referenzierte die Icons `Lock` und `Radio`, ohne sie zu importieren. Da die Liste bei jedem Render aufgebaut wird — unabhängig davon, ob die Palette geöffnet ist — stürzte die **gesamte App** ab, sobald `ModalContainer` gerendert wurde (also praktisch immer). Zusätzlich zeigte der Eintrag "Mündliches Fachgespräch" auf `'oral-exam'` statt `'oral_exam'` und lief damit ins Leere.
+- **`LabsDashboard.jsx`**: Dieselbe Fehlerklasse — `icon: Code2` ohne Import ließ die "Alle Labs Hub"-Seite bei jedem Aufruf abstürzen.
+- **8 tote Links im Labs-Hub**: Karten wie `'bigo'`, `'pkce'`, `'k8s'`, `'ragai'`, `'regexmaster'`, `'pythonwasm'`, `'gitvisual'` und `'sqldungeon'` verwendeten IDs, die zu keinem existierenden Tab passten (z. B. `'bigo'` statt `'bigo_benchmark'`) — ein Klick landete auf einer leeren Seite. Alle auf die korrekten Tab-IDs korrigiert.
+- **`App.jsx`**: `wasm_rust_studio` renderte `<WasmRustStudio>`, eine Komponente, die im ganzen Projekt nicht existiert (Datei heißt `WasmRustLab.jsx`) — ebenfalls ein sofortiger Absturz beim Öffnen dieses Labs.
+- **24 komplett unverlinkte Labs entdeckt & angebunden**: Komponenten wie `AlgoPlaygroundLab`, `CloudDesignerLab`, `CloudDevOpsLab`, `OauthOidcLab`, `SystemDesignLab`, `CiCdPipelineLab`, `KafkaEventLab` u.v.m. waren vollständig implementiert und über `App.jsx` erreichbar, tauchten aber in keinem einzigen Navigationsmenü auf (weder Navbar noch Dashboard noch Command Palette noch Labs-Hub). Alle 24 sind jetzt als Karten im "🧪 Alle Labs & Simulatoren Hub" auffindbar.
+- **Neuer Regressionstest** `LabsDashboard.test.js`: prüft automatisch, dass jede Hub-Karte auf einen tatsächlich existierenden Tab in `App.jsx` zeigt. `CommandPaletteModal.test.jsx` stellt sicher, dass die Schnellsuche beim Mounten nicht mehr abstürzt.
+- **Duplikat entfernt**: `OauthPkceStudio.jsx` (ältere Version mit simulierter/nicht echter SHA-256-Berechnung) wurde durch `OauthPkceStudioLab.jsx` (echte RFC-7636-Implementierung) ersetzt — beide wurden zuvor gleichzeitig auf derselben Tab-ID gerendert.
+
+**🌍 Zweisprachige App-Oberfläche (Deutsch/English)**:
+- Der bereits vorhandene "Sprache: DE/EN"-Schalter in der Navbar änderte bisher nichts sichtbares. Jetzt gibt es eine echte `useTranslation()`-Hook (`utils/i18n.js`) mit einem deutlich erweiterten Wörterbuch, verdrahtet in Navbar, Barrierefreiheits-Panel, Footer (inkl. DSGVO/Impressum/FAQ), Rollenauswahl-Onboarding, Dashboard-Begrüßung und Schnellsuche.
+- `userProfiles.js` liefert jetzt englische Übersetzungen für alle 4 Nutzerrollen (Titel, Beschreibung, Skills) über `getLocalizedRole()`.
+- **Bewusst nicht übersetzt**: die eigentlichen Lerninhalte der 100+ einzelnen Labs (Fragen, Erklärtexte, Code-Beispiele) — das bleibt vorerst Deutsch, da es ein eigenes, deutlich größeres Lokalisierungsprojekt wäre.
+
+**🎯 Adaptive Lernempfehlungen**:
+- Neu: `utils/adaptiveLearningEngine.js` sammelt kategorisierte Ergebnisse aus dem IHK-Prüfungssimulator und der Quiz Arena (`userState.categoryStats`) und ermittelt die Themen mit der niedrigsten Trefferquote.
+- Neu: `RecommendationsWidget.jsx` auf dem Dashboard zeigt die 3 schwächsten Themen mit direktem Sprung zurück ins passende Lab.
+
+**🛠️ Feature-Vervollständigungen** (Bugfixes bestehender Labs):
+- `AgileScrumSimulatorLab`: Sprintlänge war im UI nicht änderbar, obwohl der State existierte; das Burndown-Chart brach zudem bei jeder Sprintlänge ≠ 10 Tage ab. Jetzt per Slider einstellbar (5–20 Tage), Berechnung generalisiert.
+- `Ipv6RoutingLab`: eigene Routen können jetzt zur LPM-Tabelle hinzugefügt/entfernt werden.
+- `CloudDesignerLab`: Komponenten-Bibliothek zum Hinzufügen/Entfernen; generierter Terraform-Code spiegelt jetzt die tatsächliche Architektur wider.
+- `RedisCachingLab`: TTLs zählen jetzt live herunter, abgelaufene Keys werden automatisch evictet.
+- `FlashcardsModal`: Sitzungsfortschritt wird jetzt angezeigt statt nur berechnet.
+- **Test-Suite**: **140 bestandene Unit-Tests** in **41 Test-Dateien** (100% Erfolgsquote).
+
+### Version 3.10.1 (Interactive Fixes & Quality Pass)
+- **Fix**: `scrumEngine.js` — die Sprintlänge (`sprintDays`) war zwar als Zustand vorhanden, aber im UI nirgends änderbar, und das Burndown-Chart brach bei jeder Sprintlänge ≠ 10 Tage ab (Mitte & Endpunkt der "Ist"-Kurve waren hartkodiert auf Tag 5 / Tag 10). Jetzt skaliert die Berechnung auf jede beliebige Sprintlänge; neuer Unit-Test deckt einen 14-Tage-Sprint ab.
+- **Neu**: `AgileScrumSimulatorLab.jsx` — Slider zur Live-Anpassung der Sprintlänge (5–20 Tage) direkt über dem Burndown-Chart.
+- **Neu**: `Ipv6RoutingLab.jsx` — die LPM-Routing-Tabelle war rein statisch (kein Weg, Routen hinzuzufügen, obwohl der State dafür bereits existierte). Jetzt können eigene Routen per Formular ergänzt und per Klick wieder entfernt werden, inklusive sofortiger Neubewertung des Longest-Prefix-Match.
+- **Neu**: `CloudDesignerLab.jsx` — aus dem rein statischen 3-Komponenten-Demo wurde ein echter Mini-Designer: eine Komponenten-Bibliothek (VPC, EC2, RDS, S3, Lambda, ALB) kann per Klick auf die Canvas gebracht oder wieder entfernt werden, und der generierte Terraform-Code (`main.tf`) spiegelt jetzt exakt die aktuell platzierten Komponenten wider statt eines fest verdrahteten Textblocks.
+- **Verbessert**: `RedisCachingLab.jsx` — die "Live Redis In-Memory Table" tickte vorher nie herunter. TTLs zählen jetzt sekündlich echt herunter, abgelaufene Keys werden automatisch aus dem Keyspace entfernt (mit visueller Warnung bei TTL ≤ 5s) und lassen sich per Klick neu befüllen.
+- **Verbessert**: `FlashcardsModal.jsx` — der Sitzungsfortschritt (`completedCount`) wurde berechnet, aber nirgends angezeigt; er erscheint nun als Live-Zähler ("X Karten in dieser Sitzung gemeistert"). Ungenutzter Dead Code (`handleNext`) entfernt.
+- **Qualität**: Zahlreiche ungenutzte Imports/Variablen in den oben genannten Dateien bereinigt (Oxlint-Warnungen reduziert).
+- **Test-Suite**: **130 bestandene Unit-Tests** in **38 Test-Dateien** (100% Erfolgsquote).
+
 ### Version 3.10.0 (OAuth PKCE, K8s Topology & WebRTC Mesh Edition)
 - **Neu**: `OauthPkceStudioLab.jsx` & `oauthPkceEngine.js` mit RFC 7636 PKCE ($S256$ SHA-256 Code Challenge), Consent Screen, Token Exchange, JWT Decoder und Bearer Token API Access.
 - **Neu**: `KubernetesClusterStudioLab.jsx` & `k8sClusterEngine.js` mit visueller Control Plane, Worker Node Kapazitäten, automatischer Pod-Eviction / Self-Healing bei Node-Ausfällen und Ingress-to-Service Round-Robin Load Balancing.
