@@ -6,7 +6,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.21.0)](#-hauptfunktionen--neue-features-v3210)
+- [Hauptfunktionen & Neue Features (v3.22.0)](#-hauptfunktionen--neue-features-v3220)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -257,6 +257,7 @@ Informatik-lernen/
     │   │   ├── OauthOidcLab.jsx
     │   │   ├── OauthPkceStudio.jsx
     │   │   ├── OsProcessSchedulerLab.jsx
+    │   │   ├── OtelTracingLab.jsx
     │   │   ├── OwaspExploitLab.jsx
     │   │   ├── P2pCodeDuelLab.jsx
     │   │   ├── P2pQuizDuellLab.jsx
@@ -267,6 +268,7 @@ Informatik-lernen/
     │   │   ├── PostgresExplainVisualizerLab.jsx
     │   │   ├── PostgresFlamegraphLab.jsx
     │   │   ├── PostgresMvccLab.jsx
+    │   │   ├── PostgresWalLab.jsx
     │   │   ├── PromqlAlertLab.jsx
     │   │   ├── PythonWasmLab.jsx
     │   │   ├── RackConfiguratorLab.jsx
@@ -286,6 +288,7 @@ Informatik-lernen/
     │   │   ├── SubnettingLab.jsx
     │   │   ├── SystemDesignLab.jsx
     │   │   ├── TcoRoiCalculatorLab.jsx
+    │   │   ├── TcpCongestionLab.jsx
     │   │   ├── TddUnitTestLab.jsx
     │   │   ├── ToolingSetupGuide.jsx
     │   │   ├── TopicReader.jsx
@@ -307,6 +310,7 @@ Informatik-lernen/
     │   │   ├── WisoAbcXyzLab.jsx
     │   │   ├── WisoContributionMarginLab.jsx
     │   │   ├── WisoKalkulationLab.jsx
+    │   │   ├── WisoLeverageLab.jsx
     │   │   ├── WisoLoanCollateralLab.jsx
     │   │   └── WisoSalaryCalculatorLab.jsx
     │   ├── Footer/
@@ -467,6 +471,8 @@ Informatik-lernen/
         ├── oauthPkceEngine.test.js
         ├── osSchedulerEngine.js
         ├── osSchedulerEngine.test.js
+        ├── otelTracingEngine.js
+        ├── otelTracingEngine.test.js
         ├── p2pCodeDuelEngine.js
         ├── p2pCodeDuelEngine.test.js
         ├── p2pQuizEngine.js
@@ -479,6 +485,8 @@ Informatik-lernen/
         ├── pcapParserEngine.test.js
         ├── postgresFlamegraphEngine.js
         ├── postgresFlamegraphEngine.test.js
+        ├── postgresWalEngine.js
+        ├── postgresWalEngine.test.js
         ├── promqlAlertEngine.js
         ├── promqlAlertEngine.test.js
         ├── rackCalculations.js
@@ -503,6 +511,8 @@ Informatik-lernen/
         ├── storage.test.js
         ├── tcoCalculations.js
         ├── tcoCalculations.test.js
+        ├── tcpCongestionEngine.js
+        ├── tcpCongestionEngine.test.js
         ├── transformerAttentionEngine.js
         ├── transformerAttentionEngine.test.js
         ├── voiceQuizEngine.js
@@ -521,6 +531,8 @@ Informatik-lernen/
         ├── wisoCalculations.test.js
         ├── wisoContributionMarginEngine.js
         ├── wisoContributionMarginEngine.test.js
+        ├── wisoLeverageEngine.js
+        ├── wisoLeverageEngine.test.js
         ├── wisoLoanCollateralEngine.js
         ├── wisoLoanCollateralEngine.test.js
         ├── wisoSalaryCalcEngine.js
@@ -572,6 +584,17 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.22.0 (OpenTelemetry Tracing, PostgreSQL WAL/LSN, IHK Leverage-Effekt & TCP Congestion Control Edition)
+
+- **Neu**: `OtelTracingLab.jsx` & `src/utils/otelTracingEngine.js` — OpenTelemetry (OTel) Distributed Tracing Studio: W3C `traceparent`-Header-Propagation, verteilte Microservice-Spans (API-Gateway, Auth, Order, Postgres DB, Stripe) und Gantt-Waterfall-Latenzanalyse.
+- **Neu**: `PostgresWalLab.jsx` & `src/utils/postgresWalEngine.js` — PostgreSQL WAL & LSN Streaming Replication Studio: Write-Ahead Logging (WAL) Byte-Offsets, LSN-Tracking (`0/16B3740`), synchrone vs. asynchrone Standby-Replikation mit Replikations-Lag sowie manuelle Checkpoint-Flushes (REDO-Punkt).
+- **Neu**: `WisoLeverageLab.jsx` & `src/utils/wisoLeverageEngine.js` — IHK Rentabilitäts- & Leverage-Effekt Studio: Berechnung von Eigenkapital- ($EKR$), Gesamtkapital- ($GKR$) und Umsatzrentabilität ($UR$) sowie mathematische Hebelwirkung ($EKR = GKR + (GKR - i) \times \frac{FK}{EK}$) und Zinsfallen-Erkennung.
+- **Neu**: `TcpCongestionLab.jsx` & `src/utils/tcpCongestionEngine.js` — TCP Congestion Control Studio (Reno vs. CUBIC vs. BBR): Simulation des Überlastfensters ($CWND$), Slow Start, AIMD-Fensterhalbierung bei Paketverlust, kubische Wiederherstellungskurven (CUBIC) und Googles modellbasierte BBR-Bandbreitenmessung gegen Bufferbloat.
+- **Codebase-Weite Bereinigung & Stabilität**:
+  - Oxlint auf 0 Warnungen und 0 Fehler über alle 370 Quellcodedateien gehalten.
+  - Alle 135 interaktiven Labs im Smoke-Test validiert (`labRegistry.smoke.test.jsx`).
+- **Test-Suite**: **412 bestandene Unit- & Smoke-Tests** in **84 Test-Dateien** mit 100% Erfolgsquote (vorher 397/80).
 
 ### Version 3.21.0 (K8s Operator Controller, WebRTC SFU/MCU Studio, IHK Darlehen & DB B+ Tree Index Edition)
 

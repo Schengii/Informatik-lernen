@@ -11,10 +11,58 @@
 // labRegistry.test.js) gegen die IDs hier validiert.
 import { lazy } from 'react';
 import {
-  Award, Bell, Boxes, Brain, Cloud, Code2, Cpu, Database, FileText, Flame, GitBranch, GitMerge, Globe, HardDrive, History, Key, Landmark, Layers, Network, Radio, Search, Shield, ShieldCheck, Sparkles, Swords, Terminal, TrendingUp, Users, Video, Zap
+  Activity, Award, Bell, Boxes, Brain, Cloud, Code2, Cpu, Database, FileText, Flame, GitBranch, GitMerge, Globe, HardDrive, History, Key, Landmark, Layers, Network, Radio, Scale, Search, Shield, ShieldCheck, Sparkles, Swords, Terminal, TrendingUp, Users, Video, Zap
 } from 'lucide-react';
 
 export const LAB_REGISTRY = [
+  {
+    id: 'otel_tracing_lab',
+    component: lazy(() => import('../components/Content/OtelTracingLab')),
+    title: 'OpenTelemetry (OTel) Tracing & W3C Traceparent Studio',
+    desc: 'W3C Traceparent Header, Distributed Microservice Spans und Gantt-Waterfall Latenzen.',
+    category: 'cloud',
+    tags: ['#OpenTelemetry', '#OTel', '#Tracing', '#Microservices', '#W3C', '#Observability', '#APM'],
+    difficulty: 'Intermediate',
+    icon: Activity,
+    color: '#3b82f6',
+    badge: 'Neu'
+  },
+  {
+    id: 'postgres_wal_lab',
+    component: lazy(() => import('../components/Content/PostgresWalLab')),
+    title: 'PostgreSQL WAL & LSN Streaming Replication Studio',
+    desc: 'Write-Ahead Log Segmente, LSN-Offsets, synchrone/asynchrone Standby-Replikation und Checkpoints.',
+    category: 'databases',
+    tags: ['#PostgreSQL', '#WAL', '#LSN', '#Replication', '#HighAvailability', '#DatabaseStorage'],
+    difficulty: 'Advanced',
+    icon: Database,
+    color: '#10b981',
+    badge: 'Neu'
+  },
+  {
+    id: 'wiso_leverage_lab',
+    component: lazy(() => import('../components/Content/WisoLeverageLab')),
+    title: 'IHK Rentabilitäts- & Leverage-Effekt Studio',
+    desc: 'Eigenkapital- (EKR), Gesamtkapital- (GKR) und Umsatzrentabilität sowie Fremdkapital-Hebelwirkung.',
+    category: 'wiso',
+    tags: ['#WISO', '#Leverage', '#EKR', '#GKR', '#Finanzierung', '#Rentabilität', '#IHK'],
+    difficulty: 'Beginner',
+    icon: Scale,
+    color: '#f59e0b',
+    badge: 'Neu'
+  },
+  {
+    id: 'tcp_congestion_lab',
+    component: lazy(() => import('../components/Content/TcpCongestionLab')),
+    title: 'TCP Congestion Control Studio (Reno vs. CUBIC vs. BBR)',
+    desc: 'Slow Start, AIMD Fenster-Halbierung, kubische Kurven und modellbasiertes BBR gegen Bufferbloat.',
+    category: 'networks',
+    tags: ['#TCP', '#CongestionControl', '#CWND', '#Reno', '#CUBIC', '#BBR', '#Networking'],
+    difficulty: 'Intermediate',
+    icon: Network,
+    color: '#8b5cf6',
+    badge: 'Neu'
+  },
   {
     id: 'k8s_operator_lab',
     component: lazy(() => import('../components/Content/K8sOperatorLab')),

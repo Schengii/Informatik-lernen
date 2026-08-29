@@ -87,6 +87,10 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 60+ interaktiven Labs', badge: 'Hub' },
+    { id: 'otel_tracing_lab', label: '📡 OTel Tracing & W3C Header Studio', desc: 'Distributed Spans, Waterfall & Traceparent', badge: 'Neu' },
+    { id: 'postgres_wal_lab', label: '💾 PostgreSQL WAL & LSN Replication', desc: 'Write-Ahead Log, LSN Offsets & Checkpoints', badge: 'Neu' },
+    { id: 'wiso_leverage_lab', label: '📈 Rentabilität & Leverage-Effekt', desc: 'EKR, GKR & Fremdkapital-Zinshebel', badge: 'Neu' },
+    { id: 'tcp_congestion_lab', label: '🌐 TCP Congestion Control Studio', desc: 'Reno AIMD, CUBIC Kurve & Google BBR CWND', badge: 'Neu' },
     { id: 'k8s_operator_lab', label: '☸️ K8s Operator & CRD Studio', desc: 'Reconcile Loop, State Drift & Custom Resources', badge: 'Neu' },
     { id: 'webrtc_sfu_lab', label: '📹 WebRTC SFU vs. MCU Media Studio', desc: 'Simulcast Layer-Routing & Bandbreiten-Vergleich', badge: 'Neu' },
     { id: 'wiso_loan_collateral', label: '🏦 Darlehensarten & Kreditsicherheiten', desc: 'Annuitätentilgung & Personal-/Realsicherheiten', badge: 'Neu' },

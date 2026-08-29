@@ -4,7 +4,7 @@ import {
   Search, Terminal, BookOpen, Sparkles, Trophy, Cpu, Code2,
   Layers, Award, FileText, ArrowRight, X, Command, Database, ShieldCheck,
   Calculator, Globe, ShieldAlert, Brain, GitMerge, Lock, Radio, Flame, Swords,
-  GitBranch, HardDrive, Users, Cloud, Network, Zap, Key, TrendingUp, Bell, History, Boxes, Landmark, Video
+  GitBranch, HardDrive, Users, Cloud, Network, Zap, Key, TrendingUp, Bell, History, Boxes, Landmark, Video, Activity, Scale
 } from 'lucide-react';
 import { useTranslation } from '../../utils/i18n';
 import { TOPICS } from '../../data/topicsData';
@@ -28,6 +28,10 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, labId: 'dashboard', action: () => onNavigate('dashboard') },
+    { id: 'view-otel-tracing', title: 'OpenTelemetry (OTel) Tracing Studio (W3C traceparent & Spans)', category: 'Labs & Tools', icon: Activity, labId: 'otel_tracing_lab', action: () => onNavigate('otel_tracing_lab') },
+    { id: 'view-postgres-wal', title: 'PostgreSQL WAL & LSN Replication Studio (Checkpoints & Sync/Async)', category: 'Labs & Tools', icon: Database, labId: 'postgres_wal_lab', action: () => onNavigate('postgres_wal_lab') },
+    { id: 'view-wiso-leverage', title: 'IHK Rentabilitäts- & Leverage-Effekt Studio (EKR, GKR & FK-Hebel)', category: 'Prüfung', icon: Scale, labId: 'wiso_leverage_lab', action: () => onNavigate('wiso_leverage_lab') },
+    { id: 'view-tcp-congestion', title: 'TCP Congestion Control Studio (Reno vs. CUBIC vs. BBR CWND)', category: 'Labs & Tools', icon: Network, labId: 'tcp_congestion_lab', action: () => onNavigate('tcp_congestion_lab') },
     { id: 'view-k8s-operator', title: 'Kubernetes Operator & CRD Controller Studio (Reconcile Loop & YAML)', category: 'Labs & Tools', icon: Cloud, labId: 'k8s_operator_lab', action: () => onNavigate('k8s_operator_lab') },
     { id: 'view-webrtc-sfu', title: 'WebRTC Media Server Studio (Mesh vs. MCU vs. SFU Simulcast)', category: 'Labs & Tools', icon: Video, labId: 'webrtc_sfu_lab', action: () => onNavigate('webrtc_sfu_lab') },
     { id: 'view-wiso-loan', title: 'IHK Darlehensarten- & Kreditsicherheiten-Studio (Annuität & Bürgschaft)', category: 'Prüfung', icon: Landmark, labId: 'wiso_loan_collateral', action: () => onNavigate('wiso_loan_collateral') },
