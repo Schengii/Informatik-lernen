@@ -6,7 +6,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.15.0)](#-hauptfunktionen--neue-features-v3150)
+- [Hauptfunktionen & Neue Features (v3.17.0)](#-hauptfunktionen--neue-features-v3170)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -200,6 +200,7 @@ Informatik-lernen/
     │   │   ├── CloudDevOpsLab.jsx
     │   │   ├── ClozeTester.jsx
     │   │   ├── CodeExecutionDebuggerLab.jsx
+    │   │   ├── CollaborativeWhiteboardLab.jsx
     │   │   ├── CpuArchitectureLab.jsx
     │   │   ├── CryptoKeygenLab.jsx
     │   │   ├── CtfChallengeLab.jsx
@@ -210,10 +211,12 @@ Informatik-lernen/
     │   │   ├── DnsHttpLifecycleLab.jsx
     │   │   ├── DockerComposeLab.jsx
     │   │   ├── DockerLab.jsx
+    │   │   ├── DockerfileOptimizerLab.jsx
     │   │   ├── ErdDesignerLab.jsx
     │   │   ├── ExamSimulator.jsx
     │   │   ├── FisiLernfelderHub.jsx
     │   │   ├── GitBranchGraphLab.jsx
+    │   │   ├── GitInteractiveRebaseLab.jsx
     │   │   ├── GitLab.jsx
     │   │   ├── GitMergeConflictLab.jsx
     │   │   ├── GlossaryModal.jsx
@@ -231,6 +234,7 @@ Informatik-lernen/
     │   │   ├── ItsmSimulatorLab.jsx
     │   │   ├── JwksRotationLab.jsx
     │   │   ├── K8sCniOverlayLab.jsx
+    │   │   ├── K8sHelmKustomizeLab.jsx
     │   │   ├── KafkaEventLab.jsx
     │   │   ├── KnowledgeQuizArena.jsx
     │   │   ├── KubernetesLab.jsx
@@ -253,6 +257,7 @@ Informatik-lernen/
     │   │   ├── PerformanceProfilingLab.jsx
     │   │   ├── PersonalNotebookLab.jsx
     │   │   ├── PostgresExplainVisualizerLab.jsx
+    │   │   ├── PostgresFlamegraphLab.jsx
     │   │   ├── PostgresMvccLab.jsx
     │   │   ├── PythonWasmLab.jsx
     │   │   ├── RackConfiguratorLab.jsx
@@ -266,6 +271,7 @@ Informatik-lernen/
     │   │   ├── SqlQueryExecutionPlanLab.jsx
     │   │   ├── SqlQueryOptimizerLab.jsx
     │   │   ├── SqlTransactionLab.jsx
+    │   │   ├── SqliteCliReplLab.jsx
     │   │   ├── SqliteWasmStudioLab.jsx
     │   │   ├── SubnettingLab.jsx
     │   │   ├── SystemDesignLab.jsx
@@ -285,7 +291,8 @@ Informatik-lernen/
     │   │   ├── WebSocketProtocolLab.jsx
     │   │   ├── WebSocketsLab.jsx
     │   │   ├── WebhookInspectorLab.jsx
-    │   │   └── WisoKalkulationLab.jsx
+    │   │   ├── WisoKalkulationLab.jsx
+    │   │   └── WisoSalaryCalculatorLab.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
     │   ├── Games/
@@ -388,12 +395,18 @@ Informatik-lernen/
         ├── cloudArchitectureEngine.test.js
         ├── codingChallengesEngine.js
         ├── codingChallengesEngine.test.js
+        ├── collaborativeWhiteboardEngine.js
+        ├── collaborativeWhiteboardEngine.test.js
         ├── customChallengesManager.js
         ├── customChallengesManager.test.js
+        ├── dockerfileOptimizerEngine.js
+        ├── dockerfileOptimizerEngine.test.js
         ├── erdDesignerEngine.js
         ├── erdDesignerEngine.test.js
         ├── gitConflictEngine.js
         ├── gitConflictEngine.test.js
+        ├── gitInteractiveRebaseEngine.js
+        ├── gitInteractiveRebaseEngine.test.js
         ├── graphqlSandboxEngine.js
         ├── graphqlSandboxEngine.test.js
         ├── haptics.js
@@ -414,6 +427,8 @@ Informatik-lernen/
         ├── itsmEngine.test.js
         ├── k8sClusterEngine.js
         ├── k8sClusterEngine.test.js
+        ├── k8sHelmKustomizeEngine.js
+        ├── k8sHelmKustomizeEngine.test.js
         ├── linuxVfsEngine.js
         ├── linuxVfsEngine.test.js
         ├── oauthPkceEngine.js
@@ -424,10 +439,14 @@ Informatik-lernen/
         ├── p2pCodeDuelEngine.test.js
         ├── p2pQuizEngine.js
         ├── p2pQuizEngine.test.js
+        ├── p2pWhiteboardSyncEngine.js
+        ├── p2pWhiteboardSyncEngine.test.js
         ├── packetSnifferEngine.js
         ├── packetSnifferEngine.test.js
         ├── pcapParserEngine.js
         ├── pcapParserEngine.test.js
+        ├── postgresFlamegraphEngine.js
+        ├── postgresFlamegraphEngine.test.js
         ├── rackCalculations.js
         ├── rackCalculations.test.js
         ├── regexParserEngine.js
@@ -440,6 +459,8 @@ Informatik-lernen/
         ├── sqlQueryExecutionEngine.test.js
         ├── sqlSandboxEngine.js
         ├── sqlSandboxEngine.test.js
+        ├── sqliteCliEngine.js
+        ├── sqliteCliEngine.test.js
         ├── srsAlgorithm.js
         ├── srsAlgorithm.test.js
         ├── storage.js
@@ -453,7 +474,9 @@ Informatik-lernen/
         ├── webhookSimulator.js
         ├── webhookSimulator.test.js
         ├── wisoCalculations.js
-        └── wisoCalculations.test.js
+        ├── wisoCalculations.test.js
+        ├── wisoSalaryCalcEngine.js
+        └── wisoSalaryCalcEngine.test.js
 ```
 
 ---
@@ -501,6 +524,28 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.17.0 (SQLite CLI Terminal REPL, Kubernetes Helm/Kustomize GitOps Studio, P2P CRDT Whiteboard Sync & WISO 2026 Salary Engine Edition)
+
+- **Neu**: `SqliteCliReplLab.jsx` & `src/utils/sqliteCliEngine.js` — In-Browser SQLite CLI Terminal & REPL: Vollwertige SQL-Konsole mit interaktiven Meta-Befehlen (`.tables`, `.schema`, `.dump`, `.help`, `.clear`), Tabellenausgabe mit Millisekunden-Timing und DDL/DML-Ausführung.
+- **Neu**: `K8sHelmKustomizeLab.jsx` & `src/utils/k8sHelmKustomizeEngine.js` — Kubernetes Helm Chart & Kustomize Overlay Studio: Automatische Generierung von produktionsreifen Helm-Charts (`Chart.yaml`, `values.yaml`, `templates/deployment.yaml`, `_helpers.tpl`) und Kustomize Overlays (`base/` vs `overlays/prod/` mit Image-Tag- und Replica-Patches).
+- **Neu**: `src/utils/p2pWhiteboardSyncEngine.js` & CRDT Live-Sync Integration — Last-Write-Wins (LWW) State Map mit Vektor-Zeitstempeln für verteiltes Arbeiten auf dem Architektur-Canvas im `CollaborativeWhiteboardLab.jsx` inklusive Knoten-Löschung (`Trash2`).
+- **Neu**: `WisoSalaryCalculatorLab.jsx` & `src/utils/wisoSalaryCalcEngine.js` — IHK Brutto-Netto & Sozialversicherungs-Studio (Stand 2026): Vollständige Berechnung nach aktuellem Recht inkl. Lohnsteuerklassen I–VI, KV (14.6% + Zusatzbeitrag), RV (18.6%), AV (2.6%), PV (mit Kinderlosenzuschlag 0.6%), Beitragsbemessungsgrenzen (BBG KV/PV 5.175 € vs RV/AV 7.550 €) und Arbeitgeber-Gesamtaufwand.
+- **Codebase-Weite Bereinigung & Stabilität**:
+  - Oxlint auf 0 Warnungen und 0 Fehler über alle 310 Quellcodedateien gehalten.
+  - Alle 115 interaktiven Labs im Smoke-Test validiert (`labRegistry.smoke.test.jsx`).
+- **Test-Suite**: **341 bestandene Unit- & Smoke-Tests** in **64 Test-Dateien** mit 100% Erfolgsquote (vorher 327/60).
+
+### Version 3.16.0 (Dockerfile Multi-Stage Optimizer, Postgres FlameGraphs, Git Interactive Rebase & Architecture Whiteboard Edition)
+
+- **Neu**: `DockerfileOptimizerLab.jsx` & `src/utils/dockerfileOptimizerEngine.js` — Dockerfile Multi-Stage Optimizer & Security Linter: Erkennt Root-User, ungenutzte Apt-Caches, fehlerhaftes Layer-Caching (`COPY . .` vor `npm/pip install`) und transformiert Monolithen (1.3 GB) per Knopfdruck in gehärtete Multi-Stage-Builds (z. B. 18 MB Distroless / Alpine mit nonroot User).
+- **Neu**: `PostgresFlamegraphLab.jsx` & `src/utils/postgresFlamegraphEngine.js` — PostgreSQL EXPLAIN FlameGraph & Window Functions Studio: Hierarchische Zeitverteilung komplexer Abfragen, Shared Buffer Cache Hit Ratios und Analyse von Window Functions (`ROW_NUMBER() OVER (PARTITION BY)`).
+- **Neu**: `GitInteractiveRebaseLab.jsx` & `src/utils/gitInteractiveRebaseEngine.js` — Git Interactive Rebase Studio (`git rebase -i`): Commits visuell umordnen, `squash`en, `fixup`en, `reword`en, `drop`pen und saubere Git-Historien mit Validierung und CLI-Vorschau erzeugen.
+- **Neu**: `CollaborativeWhiteboardLab.jsx` & `src/utils/collaborativeWhiteboardEngine.js` — Architecture Whiteboard & Canvas: Interaktive Modellierung verteilter Cloud- und Microservice-Architekturen, Erkennung isolierter Knoten (SPOF-Analyse) und Export in Mermaid.js Diagramm-Code.
+- **Codebase-Weite Bereinigung & Stabilität**:
+  - Oxlint auf 0 Warnungen und 0 Fehler über alle 299 Quellcodedateien gehalten.
+  - Alle 112 interaktiven Labs im Smoke-Test validiert (`labRegistry.smoke.test.jsx`).
+- **Test-Suite**: **327 bestandene Unit- & Smoke-Tests** in **60 Test-Dateien** mit 100% Erfolgsquote (vorher 313/56).
 
 ### Version 3.15.0 (SQL Query Plan Optimization, Wireshark PCAP Stream Engine, Adaptive IHK Examiners & P2P Code Duel Edition)
 

@@ -1,6 +1,6 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import {
-  Layers, Users, Share2, Plus, Check
+  Layers, Users, Share2, Plus, Check, Trash2
 } from 'lucide-react';
 import {
   INITIAL_CANVAS_NODES,
@@ -8,11 +8,13 @@ import {
   exportCanvasToMermaid,
   validateTopology
 } from '../../utils/collaborativeWhiteboardEngine';
+import { WhiteboardCrdtDoc } from '../../utils/p2pWhiteboardSyncEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';
 
 export default function CollaborativeWhiteboardLab({ onRewardXP }) {
   const { awardXP } = useStore();
+  const crdtRef = useRef(new WhiteboardCrdtDoc('peer_local'));
   const [nodes, setNodes] = useState(INITIAL_CANVAS_NODES);
   const [edges] = useState(INITIAL_CANVAS_EDGES);
   const [selectedNodeId, setSelectedNodeId] = useState(null);
@@ -37,8 +39,17 @@ export default function CollaborativeWhiteboardLab({ onRewardXP }) {
       y: 100 + (nodes.length * 40) % 200,
       color: '#10b981'
     };
+    crdtRef.current.setNode(newNode);
     setNodes([...nodes, newNode]);
     triggerHaptic('SELECTION');
+  };
+
+  const handleDeleteNode = (nodeId, e) => {
+    e?.stopPropagation();
+    crdtRef.current.deleteNode(nodeId);
+    setNodes(prev => prev.filter(n => n.id !== nodeId));
+    if (selectedNodeId === nodeId) setSelectedNodeId(null);
+    triggerHaptic('WARNING');
   };
 
   const handleCopyMermaid = () => {
@@ -153,7 +164,18 @@ export default function CollaborativeWhiteboardLab({ onRewardXP }) {
                   <div style={{ fontWeight: 'bold', fontSize: '0.95rem' }}>{n.label}</div>
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: 'monospace' }}>ID: {n.id}</div>
                 </div>
-                <span className="badge badge-indigo" style={{ fontSize: '0.72rem' }}>{n.type}</span>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <span className="badge badge-indigo" style={{ fontSize: '0.72rem' }}>{n.type}</span>
+                  <button
+                    onClick={(e) => handleDeleteNode(n.id, e)}
+                    className="btn btn-ghost"
+                    style={{ padding: '4px', color: '#ef4444' }}
+                    title="Knoten löschen"
+                  >
+                    <Trash2 size={14} />
+                  </button>
+                </div>
               </div>
             ))}
           </div>

@@ -4,7 +4,7 @@ import {
   Search, Terminal, BookOpen, Sparkles, Trophy, Cpu, Code2,
   Layers, Award, FileText, ArrowRight, X, Command, Database, ShieldCheck,
   Calculator, Globe, ShieldAlert, Brain, GitMerge, Lock, Radio, Flame, Swords,
-  GitBranch, HardDrive, Users
+  GitBranch, HardDrive, Users, Cloud
 } from 'lucide-react';
 import { useTranslation } from '../../utils/i18n';
 import { TOPICS } from '../../data/topicsData';
@@ -28,6 +28,9 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, labId: 'dashboard', action: () => onNavigate('dashboard') },
+    { id: 'view-sqlite-cli', title: 'SQLite CLI Terminal & Virtual Tables REPL (Dot-Commands & SQL)', category: 'Labs & Tools', icon: Terminal, labId: 'sqlite_cli_repl', action: () => onNavigate('sqlite_cli_repl') },
+    { id: 'view-k8s-helm', title: 'Kubernetes Helm Chart & Kustomize Overlay Studio (GitOps)', category: 'Labs & Tools', icon: Cloud, labId: 'k8s_helm_kustomize', action: () => onNavigate('k8s_helm_kustomize') },
+    { id: 'view-wiso-salary', title: 'IHK Brutto-Netto & Sozialversicherungs-Rechner 2026 (WISO)', category: 'Prüfung', icon: Award, labId: 'wiso_salary_calculator', action: () => onNavigate('wiso_salary_calculator') },
     { id: 'view-dockerfile-opt', title: 'Dockerfile Multi-Stage Optimizer & Security Linter (Distroless)', category: 'Labs & Tools', icon: HardDrive, labId: 'dockerfile_optimizer', action: () => onNavigate('dockerfile_optimizer') },
     { id: 'view-postgres-flamegraph', title: 'PostgreSQL EXPLAIN FlameGraph & Window Functions Studio', category: 'Labs & Tools', icon: Flame, labId: 'postgres_flamegraph', action: () => onNavigate('postgres_flamegraph') },
     { id: 'view-git-rebase', title: 'Git Interactive Rebase Studio (git rebase -i / Squash & Fixup)', category: 'Labs & Tools', icon: GitBranch, labId: 'git_interactive_rebase', action: () => onNavigate('git_interactive_rebase') },

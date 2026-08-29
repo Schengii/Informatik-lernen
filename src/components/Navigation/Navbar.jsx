@@ -87,6 +87,9 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 60+ interaktiven Labs', badge: 'Hub' },
+    { id: 'sqlite_cli_repl', label: '💻 SQLite CLI Terminal & REPL', desc: 'In-Browser SQL-Konsole mit Dot-Commands & DDL', badge: 'Neu' },
+    { id: 'k8s_helm_kustomize', label: '☸️ Helm Chart & Kustomize Studio', desc: 'GitOps Vorlagen (values.yaml, deployment, overlays)', badge: 'Neu' },
+    { id: 'wiso_salary_calculator', label: '💶 IHK Brutto-Netto & Sozialversicherung', desc: 'Lohnsteuer, KV/RV/AV/PV & BBG-Berechnung 2026', badge: 'Neu' },
     { id: 'dockerfile_optimizer', label: '🐳 Dockerfile Multi-Stage Optimizer', desc: 'Distroless, Root-Detection & Caching-Linter', badge: 'Neu' },
     { id: 'postgres_flamegraph', label: '🔥 PostgreSQL EXPLAIN FlameGraph', desc: 'Hierarchischer Zeitbalken & Window Functions', badge: 'Neu' },
     { id: 'git_interactive_rebase', label: '🌿 Git Interactive Rebase Studio', desc: 'Commits umordnen, squashen & History bereinigen', badge: 'Neu' },

@@ -16,6 +16,42 @@ import {
 
 export const LAB_REGISTRY = [
   {
+    id: 'sqlite_cli_repl',
+    component: lazy(() => import('../components/Content/SqliteCliReplLab')),
+    title: 'SQLite CLI Terminal & Virtual Tables REPL',
+    desc: 'Interaktive SQLite-Konsole mit Dot-Commands (.schema, .tables, .dump) und SQL-Abfrageausführung.',
+    category: 'databases',
+    tags: ['#SQLite', '#CLI', '#REPL', '#VirtualTables', '#SQL', '#InBrowser'],
+    difficulty: 'Intermediate',
+    icon: Terminal,
+    color: '#06b6d4',
+    badge: 'Neu'
+  },
+  {
+    id: 'k8s_helm_kustomize',
+    component: lazy(() => import('../components/Content/K8sHelmKustomizeLab')),
+    title: 'Kubernetes Helm Chart & Kustomize Overlay Studio',
+    desc: 'Helm Chart Vorlagen (values.yaml, deployment) und Kustomize Overlays für GitOps und CI/CD.',
+    category: 'cloud',
+    tags: ['#Kubernetes', '#Helm', '#Kustomize', '#GitOps', '#CloudNative', '#YAML'],
+    difficulty: 'Advanced',
+    icon: Cloud,
+    color: '#3b82f6',
+    badge: 'Neu'
+  },
+  {
+    id: 'wiso_salary_calculator',
+    component: lazy(() => import('../components/Content/WisoSalaryCalculatorLab')),
+    title: 'IHK Brutto-Netto & Sozialversicherungs-Studio (2026)',
+    desc: 'Gesetzliche Abzüge (Lohnsteuer, KV, RV, AV, PV), Beitragsbemessungsgrenzen und AG-Gesamtkosten.',
+    category: 'wiso',
+    tags: ['#WISO', '#Gehalt', '#Steuern', '#Sozialversicherung', '#BBG', '#IHK'],
+    difficulty: 'Beginner',
+    icon: Award,
+    color: '#10b981',
+    badge: 'Neu'
+  },
+  {
     id: 'dockerfile_optimizer',
     component: lazy(() => import('../components/Content/DockerfileOptimizerLab')),
     title: 'Dockerfile Multi-Stage Optimizer & Security Linter',
