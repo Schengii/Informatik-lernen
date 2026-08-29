@@ -87,6 +87,10 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 60+ interaktiven Labs', badge: 'Hub' },
+    { id: 'promql_alert_lab', label: '📊 Prometheus PromQL & Alert Studio', desc: 'p95 Histogramme, Alerting-Schwellwerte & YAML', badge: 'Neu' },
+    { id: 'event_sourcing_lab', label: '📜 Event-Sourcing & CQRS Studio', desc: 'Append-Only Event Store, Replay & Snapshots', badge: 'Neu' },
+    { id: 'wiso_abc_xyz_lab', label: '📦 IHK ABC- / XYZ-Materialanalyse', desc: 'Lorenz-Kurve, Verbrauchsschwankung & JIT Matrix', badge: 'Neu' },
+    { id: 'wireguard_ztna_lab', label: '🔒 WireGuard VPN & ZTNA Studio', desc: 'NoiseIK Handshake & Zero-Trust Cryptokey Routing', badge: 'Neu' },
     { id: 'kafka_rebalance_lab', label: '📨 Kafka Partition Rebalance Studio', desc: 'Consumer Groups, Failover & Sticky Rebalance', badge: 'Neu' },
     { id: 'ebpf_xdp_lab', label: '🛡️ Linux eBPF & XDP Sandbox', desc: 'NIC Driver Packet Filtering (XDP_DROP/PASS)', badge: 'Neu' },
     { id: 'webauthn_passkey_lab', label: '🔑 WebAuthn & Passkeys (FIDO2)', desc: 'Biometrie, Asymmetrische Keys & Zero-Password', badge: 'Neu' },

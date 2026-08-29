@@ -11,10 +11,58 @@
 // labRegistry.test.js) gegen die IDs hier validiert.
 import { lazy } from 'react';
 import {
-  Award, Brain, Cloud, Code2, Cpu, Database, FileText, Flame, GitBranch, GitMerge, Globe, HardDrive, Key, Layers, Network, Radio, Search, Shield, ShieldCheck, Sparkles, Swords, Terminal, TrendingUp, Users, Zap
+  Award, Bell, Boxes, Brain, Cloud, Code2, Cpu, Database, FileText, Flame, GitBranch, GitMerge, Globe, HardDrive, History, Key, Layers, Network, Radio, Search, Shield, ShieldCheck, Sparkles, Swords, Terminal, TrendingUp, Users, Zap
 } from 'lucide-react';
 
 export const LAB_REGISTRY = [
+  {
+    id: 'promql_alert_lab',
+    component: lazy(() => import('../components/Content/PromqlAlertLab')),
+    title: 'Prometheus PromQL & Alerting Rule Studio',
+    desc: 'PromQL Zeitreihen-Abfragen (rate, p95), Alert-Schwellwerte und YAML Alerting Rules.',
+    category: 'cloud',
+    tags: ['#Prometheus', '#PromQL', '#Grafana', '#Alerting', '#Observability', '#DevOps', '#SLO'],
+    difficulty: 'Intermediate',
+    icon: Bell,
+    color: '#ef4444',
+    badge: 'Neu'
+  },
+  {
+    id: 'event_sourcing_lab',
+    component: lazy(() => import('../components/Content/EventSourcingLab')),
+    title: 'Event-Sourcing & CQRS Event Store Simulator',
+    desc: 'Unveränderlicher Append-Only Event Log, Event Replay und State Snapshots.',
+    category: 'code',
+    tags: ['#EventSourcing', '#CQRS', '#Architecture', '#EventStore', '#DomainDrivenDesign', '#Microservices'],
+    difficulty: 'Advanced',
+    icon: History,
+    color: '#8b5cf6',
+    badge: 'Neu'
+  },
+  {
+    id: 'wiso_abc_xyz_lab',
+    component: lazy(() => import('../components/Content/WisoAbcXyzLab')),
+    title: 'ABC- / XYZ-Materialanalyse & Beschaffungsmatrix',
+    desc: 'Lorenz-Kurven Wertanalyse (A/B/C) und Bedarfsschwankungen (X/Y/Z) für Just-in-Time Beschaffung.',
+    category: 'wiso',
+    tags: ['#WISO', '#Materialwirtschaft', '#ABCAnalyse', '#XYZAnalyse', '#JustInTime', '#IHK'],
+    difficulty: 'Beginner',
+    icon: Boxes,
+    color: '#10b981',
+    badge: 'Neu'
+  },
+  {
+    id: 'wireguard_ztna_lab',
+    component: lazy(() => import('../components/Content/WireguardZtnaLab')),
+    title: 'WireGuard VPN & Zero-Trust Network Access (ZTNA) Studio',
+    desc: '1-RTT NoiseIK Handshake, AllowedIPs Cryptokey Routing und ZTNA Trust-Score Policies.',
+    category: 'networks',
+    tags: ['#WireGuard', '#VPN', '#ZeroTrust', '#ZTNA', '#CryptokeyRouting', '#Security', '#Microsegmentation'],
+    difficulty: 'Advanced',
+    icon: ShieldCheck,
+    color: '#06b6d4',
+    badge: 'Neu'
+  },
   {
     id: 'kafka_rebalance_lab',
     component: lazy(() => import('../components/Content/KafkaRebalanceLab')),

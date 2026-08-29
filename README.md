@@ -6,7 +6,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.19.0)](#-hauptfunktionen--neue-features-v3190)
+- [Hauptfunktionen & Neue Features (v3.20.0)](#-hauptfunktionen--neue-features-v3200)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -217,6 +217,7 @@ Informatik-lernen/
     │   │   ├── DsgvoDsfaTomLab.jsx
     │   │   ├── EbpfXdpLab.jsx
     │   │   ├── ErdDesignerLab.jsx
+    │   │   ├── EventSourcingLab.jsx
     │   │   ├── ExamSimulator.jsx
     │   │   ├── FisiLernfelderHub.jsx
     │   │   ├── GitBranchGraphLab.jsx
@@ -264,6 +265,7 @@ Informatik-lernen/
     │   │   ├── PostgresExplainVisualizerLab.jsx
     │   │   ├── PostgresFlamegraphLab.jsx
     │   │   ├── PostgresMvccLab.jsx
+    │   │   ├── PromqlAlertLab.jsx
     │   │   ├── PythonWasmLab.jsx
     │   │   ├── RackConfiguratorLab.jsx
     │   │   ├── RagAiSimulator.jsx
@@ -298,6 +300,8 @@ Informatik-lernen/
     │   │   ├── WebSocketsLab.jsx
     │   │   ├── WebauthnPasskeyLab.jsx
     │   │   ├── WebhookInspectorLab.jsx
+    │   │   ├── WireguardZtnaLab.jsx
+    │   │   ├── WisoAbcXyzLab.jsx
     │   │   ├── WisoContributionMarginLab.jsx
     │   │   ├── WisoKalkulationLab.jsx
     │   │   └── WisoSalaryCalculatorLab.jsx
@@ -419,6 +423,8 @@ Informatik-lernen/
         ├── ebpfXdpEngine.test.js
         ├── erdDesignerEngine.js
         ├── erdDesignerEngine.test.js
+        ├── eventSourcingEngine.js
+        ├── eventSourcingEngine.test.js
         ├── gitConflictEngine.js
         ├── gitConflictEngine.test.js
         ├── gitInteractiveRebaseEngine.js
@@ -465,6 +471,8 @@ Informatik-lernen/
         ├── pcapParserEngine.test.js
         ├── postgresFlamegraphEngine.js
         ├── postgresFlamegraphEngine.test.js
+        ├── promqlAlertEngine.js
+        ├── promqlAlertEngine.test.js
         ├── rackCalculations.js
         ├── rackCalculations.test.js
         ├── redisEvictionEngine.js
@@ -495,6 +503,10 @@ Informatik-lernen/
         ├── webhookSimulator.test.js
         ├── webauthnPasskeyEngine.js
         ├── webauthnPasskeyEngine.test.js
+        ├── wireguardZtnaEngine.js
+        ├── wireguardZtnaEngine.test.js
+        ├── wisoAbcXyzEngine.js
+        ├── wisoAbcXyzEngine.test.js
         ├── wisoCalculations.js
         ├── wisoCalculations.test.js
         ├── wisoContributionMarginEngine.js
@@ -548,6 +560,17 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.20.0 (Prometheus PromQL Alert Studio, Event-Sourcing & CQRS, IHK ABC/XYZ Matrix & WireGuard ZTNA Edition)
+
+- **Neu**: `PromqlAlertLab.jsx` & `src/utils/promqlAlertEngine.js` — Prometheus PromQL & Alerting Rule Studio: Auswertung komplexer Histogramm-Quantile (`histogram_quantile(0.95, ...)`), Schwellwertprüfungen (`FIRING` vs `INACTIVE`) und Generierung validierter Alerting Rule YAMLs.
+- **Neu**: `EventSourcingLab.jsx` & `src/utils/eventSourcingEngine.js` — Event-Sourcing & CQRS Event Store Simulator: Unveränderliches Append-Only Event-Log, deterministischer Event-Replay zur Materialisierung von Read-Modell-Zuständen und Snapshot-Erstellung.
+- **Neu**: `WisoAbcXyzLab.jsx` & `src/utils/wisoAbcXyzEngine.js` — IHK WISO ABC- und XYZ-Materialanalyse Studio: Kumulative Wertanteils-Klassifizierung (Lorenz-Kurve: A &le; 80%, B &le; 95%, C &gt; 95%) und Bedarfsvorhersagbarkeits-Analyse (X/Y/Z) mit 3x3-Beschaffungsmatrix (Just-in-Time, Vorrat, Kanban).
+- **Neu**: `WireguardZtnaLab.jsx` & `src/utils/wireguardZtnaEngine.js` — WireGuard VPN & Zero-Trust Network Access (ZTNA) Studio: 1-RTT NoiseIK Handshakes, AllowedIPs Cryptokey Routing und dynamische Policy-Validierung anhand von Device Trust Scores und Microsegmentierung.
+- **Codebase-Weite Bereinigung & Stabilität**:
+  - Oxlint auf 0 Warnungen und 0 Fehler über alle 346 Quellcodedateien gehalten.
+  - Alle 127 interaktiven Labs im Smoke-Test validiert (`labRegistry.smoke.test.jsx`).
+- **Test-Suite**: **382 bestandene Unit- & Smoke-Tests** in **76 Test-Dateien** mit 100% Erfolgsquote (vorher 367/72).
 
 ### Version 3.19.0 (Kafka Partition Rebalance Studio, Linux eBPF/XDP Sandbox, WebAuthn Passkeys & Multi-Stage Deckungsbeitrag Edition)
 

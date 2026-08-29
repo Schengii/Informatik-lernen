@@ -4,7 +4,7 @@ import {
   Search, Terminal, BookOpen, Sparkles, Trophy, Cpu, Code2,
   Layers, Award, FileText, ArrowRight, X, Command, Database, ShieldCheck,
   Calculator, Globe, ShieldAlert, Brain, GitMerge, Lock, Radio, Flame, Swords,
-  GitBranch, HardDrive, Users, Cloud, Network, Zap, Key, TrendingUp
+  GitBranch, HardDrive, Users, Cloud, Network, Zap, Key, TrendingUp, Bell, History, Boxes
 } from 'lucide-react';
 import { useTranslation } from '../../utils/i18n';
 import { TOPICS } from '../../data/topicsData';
@@ -28,6 +28,10 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, labId: 'dashboard', action: () => onNavigate('dashboard') },
+    { id: 'view-promql-alert', title: 'Prometheus PromQL & Alerting Rule Studio (Histogram Quantile & SLOs)', category: 'Labs & Tools', icon: Bell, labId: 'promql_alert_lab', action: () => onNavigate('promql_alert_lab') },
+    { id: 'view-event-sourcing', title: 'Event-Sourcing & CQRS Event Store Simulator (Append-Only & Replay)', category: 'Labs & Tools', icon: History, labId: 'event_sourcing_lab', action: () => onNavigate('event_sourcing_lab') },
+    { id: 'view-wiso-abc-xyz', title: 'IHK ABC- / XYZ-Materialanalyse Studio (Lorenz-Kurve & Beschaffung)', category: 'Prüfung', icon: Boxes, labId: 'wiso_abc_xyz_lab', action: () => onNavigate('wiso_abc_xyz_lab') },
+    { id: 'view-wireguard-ztna', title: 'WireGuard VPN & Zero-Trust Network Access (ZTNA Cryptokey Routing)', category: 'Labs & Tools', icon: ShieldCheck, labId: 'wireguard_ztna_lab', action: () => onNavigate('wireguard_ztna_lab') },
     { id: 'view-kafka-rebalance', title: 'Apache Kafka Partition Rebalance & Consumer Groups (Sticky Protocol)', category: 'Labs & Tools', icon: Layers, labId: 'kafka_rebalance_lab', action: () => onNavigate('kafka_rebalance_lab') },
     { id: 'view-ebpf-xdp', title: 'Linux eBPF & XDP Packet Filter Sandbox (Kernel Verifier & XDP_DROP)', category: 'Labs & Tools', icon: Terminal, labId: 'ebpf_xdp_lab', action: () => onNavigate('ebpf_xdp_lab') },
     { id: 'view-webauthn-passkeys', title: 'WebAuthn / Passkeys & FIDO2 Flow Visualizer (ES256 & Biometrics)', category: 'Labs & Tools', icon: Key, labId: 'webauthn_passkey_lab', action: () => onNavigate('webauthn_passkey_lab') },
