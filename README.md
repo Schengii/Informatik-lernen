@@ -188,6 +188,7 @@ Informatik-lernen/
     │   │   ├── JwksRotationLab.jsx
     │   │   ├── K8sCniOverlayLab.jsx
     │   │   ├── KafkaEventLab.jsx
+    │   │   ├── KafkaRebalanceLab.jsx
     │   │   ├── KnowledgeQuizArena.jsx
     │   │   ├── KubernetesClusterStudioLab.jsx
     │   │   ├── KubernetesLab.jsx
@@ -195,6 +196,7 @@ Informatik-lernen/
     │   │   ├── LanguageAcademy.jsx
     │   │   ├── LeitnerFlashcardLab.jsx
     │   │   ├── LinuxPermissionsLab.jsx
+    │   │   ├── LinuxBridgeVxlanLab.jsx
     │   │   ├── LinuxContainerLab.jsx
     │   │   ├── LinuxMemoryLab.jsx
     │   │   ├── LiveCodingChallengeStudio.jsx
@@ -214,6 +216,7 @@ Informatik-lernen/
     │   │   ├── PostgresExplainVisualizerLab.jsx
     │   │   ├── PostgresFlamegraphLab.jsx
     │   │   ├── PostgresMvccLab.jsx
+    │   │   ├── PostgresPartitioningLab.jsx
     │   │   ├── PostgresPoolLab.jsx
     │   │   ├── PostgresWalLab.jsx
     │   │   ├── PromqlAlertLab.jsx
@@ -256,6 +259,7 @@ Informatik-lernen/
     │   │   ├── WisoAndlerLab.jsx
     │   │   ├── WisoContributionMarginLab.jsx
     │   │   ├── WisoDunningLab.jsx
+    │   │   ├── WisoInterestCalculationsLab.jsx
     │   │   ├── WisoLoanCollateralLab.jsx
     │   │   └── WisoKalkulationLab.jsx
     │   ├── Footer/
@@ -374,6 +378,10 @@ Informatik-lernen/
         ├── ipv6Routing.test.js
         ├── itsmEngine.js
         ├── itsmEngine.test.js
+        ├── kafkaRebalanceEngine.js
+        ├── kafkaRebalanceEngine.test.js
+        ├── linuxBridgeVxlanEngine.js
+        ├── linuxBridgeVxlanEngine.test.js
         ├── linuxContainerEngine.js
         ├── linuxContainerEngine.test.js
         ├── linuxMemoryEngine.js
@@ -392,6 +400,8 @@ Informatik-lernen/
         ├── postgresFlamegraphEngine.test.js
         ├── postgresMvccEngine.js
         ├── postgresMvccEngine.test.js
+        ├── postgresPartitioningEngine.js
+        ├── postgresPartitioningEngine.test.js
         ├── postgresPoolEngine.js
         ├── postgresPoolEngine.test.js
         ├── postgresWalEngine.js
@@ -436,6 +446,8 @@ Informatik-lernen/
         ├── wisoContributionMarginEngine.test.js
         ├── wisoDunningEngine.js
         ├── wisoDunningEngine.test.js
+        ├── wisoInterestCalculationsEngine.js
+        ├── wisoInterestCalculationsEngine.test.js
         ├── wisoLoanCollateralEngine.js
         └── wisoLoanCollateralEngine.test.js
 ```
@@ -485,6 +497,15 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.28.0 (Linux Bridge/VXLAN, Postgres Partitioning, IHK Zinsrechnung & Kafka Rebalance Edition)
+
+- **Neu**: `LinuxBridgeVxlanLab.jsx` & `src/utils/linuxBridgeVxlanEngine.js` — Linux Bridge & VXLAN Overlay Studio: `veth`-Paare, Bridge Forwarding Database (`br0` FDB) und L2-over-L3 VXLAN-Kapselung (UDP Port 4789, 24-Bit VNI & MTU-Overhead).
+- **Neu**: `PostgresPartitioningLab.jsx` & `src/utils/postgresPartitioningEngine.js` — PostgreSQL Declarative Partitioning & Pruning Studio: Tabellen-Partitionierung (`PARTITION BY RANGE / LIST / HASH`), DDL-Generierung und Partition Pruning im EXPLAIN Query Plan zur Eliminierung unnötiger Scans.
+- **Neu**: `WisoInterestCalculationsLab.jsx` & `src/utils/wisoInterestCalculationsEngine.js` — IHK WISO Zins- & Zinseszinsrechnung Studio: Deutsche Zinsmethode (30/360 Tage: $Z = \frac{K \times p \times t}{100 \times 360}$), Zinseszins-Aufzinsung ($K_n = K_0 \times (1+i)^n$) und Abzinsung (Diskontierung / Barwert).
+- **Neu**: `KafkaRebalanceLab.jsx` & `src/utils/kafkaRebalanceEngine.js` — Apache Kafka Partition Rebalance & Consumer Group Protocol Studio: Gegenüberstellung von klassischem Eager Rebalancing (Stop-the-World mit 3.5s Downtime) und modernem Cooperative Sticky Rebalancing (inkrementelle Übergabe mit 45ms Latenz).
+- **Routing & Navigation**: Vollständige Verknüpfung in `Navbar.jsx`, `CommandPaletteModal.jsx` und `App.jsx`.
+- **Test-Suite**: **177 bestandene Unit-Tests** in **63 Test-Dateien** mit 100% Erfolgsquote (vorher 171/59).
 
 ### Version 3.27.0 (Linux BPFtrace, Postgres WAL Replication, IHK Andler & OpenTelemetry Edition)
 

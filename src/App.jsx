@@ -179,6 +179,12 @@ const PostgresWalLab = lazy(() => import('./components/Content/PostgresWalLab'))
 const WisoAndlerLab = lazy(() => import('./components/Content/WisoAndlerLab'));
 const OpentelemetryTracingLab = lazy(() => import('./components/Content/OpentelemetryTracingLab'));
 
+// v3.16.0 Next-Gen VXLAN, Partitioning, Interest & Kafka Rebalance
+const LinuxBridgeVxlanLab = lazy(() => import('./components/Content/LinuxBridgeVxlanLab'));
+const PostgresPartitioningLab = lazy(() => import('./components/Content/PostgresPartitioningLab'));
+const WisoInterestCalculationsLab = lazy(() => import('./components/Content/WisoInterestCalculationsLab'));
+const KafkaRebalanceLab = lazy(() => import('./components/Content/KafkaRebalanceLab'));
+
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
@@ -1516,6 +1522,34 @@ export default function App() {
             {activeTab === 'opentelemetry_tracing_lab' && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <OpentelemetryTracingLab onRewardXP={(xp) => awardXP(xp, 'opentelemetry_tracing_master')} />
+              </Suspense>
+            )}
+
+            {/* LINUX BRIDGE & VXLAN */}
+            {activeTab === 'linux_bridge_vxlan_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <LinuxBridgeVxlanLab onRewardXP={(xp) => awardXP(xp, 'linux_bridge_vxlan_master')} />
+              </Suspense>
+            )}
+
+            {/* POSTGRES PARTITIONING */}
+            {activeTab === 'postgres_partitioning_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <PostgresPartitioningLab onRewardXP={(xp) => awardXP(xp, 'postgres_partitioning_master')} />
+              </Suspense>
+            )}
+
+            {/* IHK WISO ZINS- & ZINSESZINS */}
+            {activeTab === 'wiso_interest' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <WisoInterestCalculationsLab onRewardXP={(xp) => awardXP(xp, 'wiso_interest_master')} />
+              </Suspense>
+            )}
+
+            {/* KAFKA REBALANCE PROTOCOL */}
+            {activeTab === 'kafka_rebalance_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <KafkaRebalanceLab onRewardXP={(xp) => awardXP(xp, 'kafka_rebalance_master')} />
               </Suspense>
             )}
 
