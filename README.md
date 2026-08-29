@@ -6,7 +6,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.20.0)](#-hauptfunktionen--neue-features-v3200)
+- [Hauptfunktionen & Neue Features (v3.21.0)](#-hauptfunktionen--neue-features-v3210)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -208,6 +208,7 @@ Informatik-lernen/
     │   │   ├── CtfChallengeLab.jsx
     │   │   ├── CustomChallengeCreatorLab.jsx
     │   │   ├── DataStructuresLab.jsx
+    │   │   ├── DbIndexLab.jsx
     │   │   ├── DeploymentGuideModal.jsx
     │   │   ├── DesignPatternsLab.jsx
     │   │   ├── DnsHttpLifecycleLab.jsx
@@ -240,6 +241,7 @@ Informatik-lernen/
     │   │   ├── JwksRotationLab.jsx
     │   │   ├── K8sCniOverlayLab.jsx
     │   │   ├── K8sHelmKustomizeLab.jsx
+    │   │   ├── K8sOperatorLab.jsx
     │   │   ├── KafkaEventLab.jsx
     │   │   ├── KafkaRebalanceLab.jsx
     │   │   ├── KnowledgeQuizArena.jsx
@@ -300,10 +302,12 @@ Informatik-lernen/
     │   │   ├── WebSocketsLab.jsx
     │   │   ├── WebauthnPasskeyLab.jsx
     │   │   ├── WebhookInspectorLab.jsx
+    │   │   ├── WebrtcSfuLab.jsx
     │   │   ├── WireguardZtnaLab.jsx
     │   │   ├── WisoAbcXyzLab.jsx
     │   │   ├── WisoContributionMarginLab.jsx
     │   │   ├── WisoKalkulationLab.jsx
+    │   │   ├── WisoLoanCollateralLab.jsx
     │   │   └── WisoSalaryCalculatorLab.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
@@ -415,6 +419,8 @@ Informatik-lernen/
         ├── collaborativeWhiteboardEngine.test.js
         ├── customChallengesManager.js
         ├── customChallengesManager.test.js
+        ├── dbIndexEngine.js
+        ├── dbIndexEngine.test.js
         ├── dockerfileOptimizerEngine.js
         ├── dockerfileOptimizerEngine.test.js
         ├── dsgvoDsfaTomEngine.js
@@ -451,6 +457,8 @@ Informatik-lernen/
         ├── k8sClusterEngine.test.js
         ├── k8sHelmKustomizeEngine.js
         ├── k8sHelmKustomizeEngine.test.js
+        ├── k8sOperatorEngine.js
+        ├── k8sOperatorEngine.test.js
         ├── kafkaRebalanceEngine.js
         ├── kafkaRebalanceEngine.test.js
         ├── linuxVfsEngine.js
@@ -503,6 +511,8 @@ Informatik-lernen/
         ├── webhookSimulator.test.js
         ├── webauthnPasskeyEngine.js
         ├── webauthnPasskeyEngine.test.js
+        ├── webrtcSfuEngine.js
+        ├── webrtcSfuEngine.test.js
         ├── wireguardZtnaEngine.js
         ├── wireguardZtnaEngine.test.js
         ├── wisoAbcXyzEngine.js
@@ -511,6 +521,8 @@ Informatik-lernen/
         ├── wisoCalculations.test.js
         ├── wisoContributionMarginEngine.js
         ├── wisoContributionMarginEngine.test.js
+        ├── wisoLoanCollateralEngine.js
+        ├── wisoLoanCollateralEngine.test.js
         ├── wisoSalaryCalcEngine.js
         └── wisoSalaryCalcEngine.test.js
 ```
@@ -560,6 +572,17 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.21.0 (K8s Operator Controller, WebRTC SFU/MCU Studio, IHK Darlehen & DB B+ Tree Index Edition)
+
+- **Neu**: `K8sOperatorLab.jsx` & `src/utils/k8sOperatorEngine.js` — Kubernetes Operator & CRD Controller Studio: Simulation des Reconcile-Loops (`Reconcile(ctx, req)`), State-Drift-Erkennung, Self-Healing bei Node/Pod-Crashes und CRD YAML Schema-Generierung.
+- **Neu**: `WebrtcSfuLab.jsx` & `src/utils/webrtcSfuEngine.js` — WebRTC Media Server Studio (Mesh vs. MCU vs. SFU): Bandbreiten-, CPU- und Stream-Matrix-Vergleich von P2P-Mesh ($N \times (N-1)$), MCU Transcoding und modernem SFU Simulcast Dynamic Layer-Routing.
+- **Neu**: `WisoLoanCollateralLab.jsx` & `src/utils/wisoLoanCollateralEngine.js` — IHK Darlehensarten- & Kreditsicherheiten-Studio: Interaktive Tilgungspläne für Annuitäten-, Raten- und Fälligkeitsdarlehen sowie IHK-Systematik von Personal- (Bürgschaft, Zession) und Realsicherheiten (Grundschuld, Sicherungsübereignung).
+- **Neu**: `DbIndexLab.jsx` & `src/utils/dbIndexEngine.js` — Database Index Studio (B+ Tree vs. Hash Index): Visuelle B+ Tree Root-Routing- und sequentielle Leaf-Pointer-Ketten für Range Queries (`BETWEEN`) im Vergleich zu $O(1)$ Hash-Index Punktabfragen.
+- **Codebase-Weite Bereinigung & Stabilität**:
+  - Oxlint auf 0 Warnungen und 0 Fehler über alle 358 Quellcodedateien gehalten.
+  - Alle 131 interaktiven Labs im Smoke-Test validiert (`labRegistry.smoke.test.jsx`).
+- **Test-Suite**: **397 bestandene Unit- & Smoke-Tests** in **80 Test-Dateien** mit 100% Erfolgsquote (vorher 382/76).
 
 ### Version 3.20.0 (Prometheus PromQL Alert Studio, Event-Sourcing & CQRS, IHK ABC/XYZ Matrix & WireGuard ZTNA Edition)
 

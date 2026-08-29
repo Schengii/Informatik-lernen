@@ -11,10 +11,58 @@
 // labRegistry.test.js) gegen die IDs hier validiert.
 import { lazy } from 'react';
 import {
-  Award, Bell, Boxes, Brain, Cloud, Code2, Cpu, Database, FileText, Flame, GitBranch, GitMerge, Globe, HardDrive, History, Key, Layers, Network, Radio, Search, Shield, ShieldCheck, Sparkles, Swords, Terminal, TrendingUp, Users, Zap
+  Award, Bell, Boxes, Brain, Cloud, Code2, Cpu, Database, FileText, Flame, GitBranch, GitMerge, Globe, HardDrive, History, Key, Landmark, Layers, Network, Radio, Search, Shield, ShieldCheck, Sparkles, Swords, Terminal, TrendingUp, Users, Video, Zap
 } from 'lucide-react';
 
 export const LAB_REGISTRY = [
+  {
+    id: 'k8s_operator_lab',
+    component: lazy(() => import('../components/Content/K8sOperatorLab')),
+    title: 'Kubernetes Operator & CRD Controller Studio',
+    desc: 'Reconcile-Loop, State-Drift-Erkennung, Self-Healing und Custom Resource Manifeste.',
+    category: 'cloud',
+    tags: ['#Kubernetes', '#Operator', '#CRD', '#Controller', '#GitOps', '#CloudNative', '#Go'],
+    difficulty: 'Advanced',
+    icon: Cloud,
+    color: '#3b82f6',
+    badge: 'Neu'
+  },
+  {
+    id: 'webrtc_sfu_lab',
+    component: lazy(() => import('../components/Content/WebrtcSfuLab')),
+    title: 'WebRTC Media Server Studio (Mesh vs. MCU vs. SFU)',
+    desc: 'Bandbreiten- und CPU-Simulation von Full-Mesh, MCU-Transcoding und SFU-Simulcast.',
+    category: 'networks',
+    tags: ['#WebRTC', '#SFU', '#MCU', '#Mesh', '#Simulcast', '#VideoStreaming', '#RealTime'],
+    difficulty: 'Intermediate',
+    icon: Video,
+    color: '#8b5cf6',
+    badge: 'Neu'
+  },
+  {
+    id: 'wiso_loan_collateral',
+    component: lazy(() => import('../components/Content/WisoLoanCollateralLab')),
+    title: 'IHK Darlehensarten- & Kreditsicherheiten-Studio',
+    desc: 'Tilgungspläne für Annuitäten-/Ratendarlehen und Personal- vs. Realsicherheiten.',
+    category: 'wiso',
+    tags: ['#WISO', '#Finanzierung', '#Darlehen', '#Annuität', '#Kreditsicherheiten', '#IHK'],
+    difficulty: 'Beginner',
+    icon: Landmark,
+    color: '#10b981',
+    badge: 'Neu'
+  },
+  {
+    id: 'db_index_lab',
+    component: lazy(() => import('../components/Content/DbIndexLab')),
+    title: 'Database Index Studio (B+ Tree vs. Hash Index)',
+    desc: 'B+ Tree Node Splitting, Leaf-Pointer Range Scans vs. Hash Index O(1) Lookups.',
+    category: 'databases',
+    tags: ['#Databases', '#BPlusTree', '#HashIndex', '#SQL', '#Performance', '#Indexing'],
+    difficulty: 'Intermediate',
+    icon: Database,
+    color: '#f59e0b',
+    badge: 'Neu'
+  },
   {
     id: 'promql_alert_lab',
     component: lazy(() => import('../components/Content/PromqlAlertLab')),

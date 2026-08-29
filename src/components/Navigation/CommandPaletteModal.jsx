@@ -4,7 +4,7 @@ import {
   Search, Terminal, BookOpen, Sparkles, Trophy, Cpu, Code2,
   Layers, Award, FileText, ArrowRight, X, Command, Database, ShieldCheck,
   Calculator, Globe, ShieldAlert, Brain, GitMerge, Lock, Radio, Flame, Swords,
-  GitBranch, HardDrive, Users, Cloud, Network, Zap, Key, TrendingUp, Bell, History, Boxes
+  GitBranch, HardDrive, Users, Cloud, Network, Zap, Key, TrendingUp, Bell, History, Boxes, Landmark, Video
 } from 'lucide-react';
 import { useTranslation } from '../../utils/i18n';
 import { TOPICS } from '../../data/topicsData';
@@ -28,6 +28,10 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, labId: 'dashboard', action: () => onNavigate('dashboard') },
+    { id: 'view-k8s-operator', title: 'Kubernetes Operator & CRD Controller Studio (Reconcile Loop & YAML)', category: 'Labs & Tools', icon: Cloud, labId: 'k8s_operator_lab', action: () => onNavigate('k8s_operator_lab') },
+    { id: 'view-webrtc-sfu', title: 'WebRTC Media Server Studio (Mesh vs. MCU vs. SFU Simulcast)', category: 'Labs & Tools', icon: Video, labId: 'webrtc_sfu_lab', action: () => onNavigate('webrtc_sfu_lab') },
+    { id: 'view-wiso-loan', title: 'IHK Darlehensarten- & Kreditsicherheiten-Studio (Annuität & Bürgschaft)', category: 'Prüfung', icon: Landmark, labId: 'wiso_loan_collateral', action: () => onNavigate('wiso_loan_collateral') },
+    { id: 'view-db-index', title: 'Database Index Studio (B+ Tree Leaf Scans vs. Hash Index O(1))', category: 'Labs & Tools', icon: Database, labId: 'db_index_lab', action: () => onNavigate('db_index_lab') },
     { id: 'view-promql-alert', title: 'Prometheus PromQL & Alerting Rule Studio (Histogram Quantile & SLOs)', category: 'Labs & Tools', icon: Bell, labId: 'promql_alert_lab', action: () => onNavigate('promql_alert_lab') },
     { id: 'view-event-sourcing', title: 'Event-Sourcing & CQRS Event Store Simulator (Append-Only & Replay)', category: 'Labs & Tools', icon: History, labId: 'event_sourcing_lab', action: () => onNavigate('event_sourcing_lab') },
     { id: 'view-wiso-abc-xyz', title: 'IHK ABC- / XYZ-Materialanalyse Studio (Lorenz-Kurve & Beschaffung)', category: 'Prüfung', icon: Boxes, labId: 'wiso_abc_xyz_lab', action: () => onNavigate('wiso_abc_xyz_lab') },
