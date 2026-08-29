@@ -191,6 +191,7 @@ Informatik-lernen/
     │   │   ├── LanguageAcademy.jsx
     │   │   ├── LeitnerFlashcardLab.jsx
     │   │   ├── LinuxPermissionsLab.jsx
+    │   │   ├── LinuxMemoryLab.jsx
     │   │   ├── LiveCodingChallengeStudio.jsx
     │   │   ├── MonacoStudioLab.jsx
     │   │   ├── NeuralNetVisualizerLab.jsx
@@ -205,6 +206,7 @@ Informatik-lernen/
     │   │   ├── PersonalNotebookLab.jsx
     │   │   ├── PostgresExplainVisualizerLab.jsx
     │   │   ├── PostgresMvccLab.jsx
+    │   │   ├── PostgresPoolLab.jsx
     │   │   ├── PythonWasmLab.jsx
     │   │   ├── RackConfiguratorLab.jsx
     │   │   ├── RagAiSimulator.jsx
@@ -212,6 +214,7 @@ Informatik-lernen/
     │   │   ├── RedisCachingLab.jsx
     │   │   ├── RegexMasterLab.jsx
     │   │   ├── RegexRailroadVisualizerLab.jsx
+    │   │   ├── ServiceMeshLab.jsx
     │   │   ├── Sm2SpacedRepetitionLab.jsx
     │   │   ├── SqlJoinVisualizerLab.jsx
     │   │   ├── SqlQueryOptimizerLab.jsx
@@ -235,6 +238,7 @@ Informatik-lernen/
     │   │   ├── WebSocketProtocolLab.jsx
     │   │   ├── WebSocketsLab.jsx
     │   │   ├── WebhookInspectorLab.jsx
+    │   │   ├── WisoDunningLab.jsx
     │   │   └── WisoKalkulationLab.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
@@ -335,6 +339,8 @@ Informatik-lernen/
         ├── gitConflictEngine.test.js
         ├── graphqlSandboxEngine.js
         ├── graphqlSandboxEngine.test.js
+        ├── haptics.js
+        ├── haptics.test.js
         ├── i18n.js
         ├── ieee754.js
         ├── ieee754.test.js
@@ -344,18 +350,24 @@ Informatik-lernen/
         ├── ipv6Routing.test.js
         ├── itsmEngine.js
         ├── itsmEngine.test.js
+        ├── linuxMemoryEngine.js
+        ├── linuxMemoryEngine.test.js
         ├── osSchedulerEngine.js
         ├── osSchedulerEngine.test.js
         ├── p2pQuizEngine.js
         ├── p2pQuizEngine.test.js
         ├── packetSnifferEngine.js
         ├── packetSnifferEngine.test.js
+        ├── postgresPoolEngine.js
+        ├── postgresPoolEngine.test.js
         ├── rackCalculations.js
         ├── rackCalculations.test.js
         ├── regexParserEngine.js
         ├── regexParserEngine.test.js
         ├── scrumEngine.js
         ├── scrumEngine.test.js
+        ├── serviceMeshEngine.js
+        ├── serviceMeshEngine.test.js
         ├── sm2Algorithm.js
         ├── sm2Algorithm.test.js
         ├── sqlSandboxEngine.js
@@ -373,7 +385,9 @@ Informatik-lernen/
         ├── webhookSimulator.js
         ├── webhookSimulator.test.js
         ├── wisoCalculations.js
-        └── wisoCalculations.test.js
+        ├── wisoCalculations.test.js
+        ├── wisoDunningEngine.js
+        └── wisoDunningEngine.test.js
 ```
 
 ---
@@ -421,6 +435,16 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.23.0 (Linux Virtual Memory, Postgres Connection Pool, IHK Skonto/Mahnwesen & Service Mesh mTLS Edition)
+
+- **Neu**: `LinuxMemoryLab.jsx` & `src/utils/linuxMemoryEngine.js` — Linux Virtual Memory & Page Fault Studio: MMU Adressübersetzung via TLB (L1/L2 Cache), Minor Page Faults (OS Page Cache) vs. Major Page Faults (Disk Swap I/O) und dynamischer Linux OOM-Score-Rechner (`/proc/[pid]/oom_score`).
+- **Neu**: `PostgresPoolLab.jsx` & `src/utils/postgresPoolEngine.js` — PostgreSQL Connection Pooling & SQL Isolation Studio: Vergleich von Session-, Transaction- und Statement-Pooling mit PgBouncer zur Reduzierung des RAM-Footprints um über 90% sowie interaktive SQL Isolation Anomaly Matrix (Dirty Reads, Non-Repeatable Reads, Phantoms, Serialization Anomalies).
+- **Neu**: `WisoDunningLab.jsx` & `src/utils/wisoDunningEngine.js` — IHK WISO Skonto-Effektivzins, Verzugszinsen & Mahnwesen Studio: Berechnung des effektiven Jahreszinses bei Skontonutzung ($p_{\text{eff}} = \frac{\text{Skonto\%} \times 360}{\text{Zahlungsziel} - \text{Skontofrist}}$), BGB § 288 Verzugszinsen (B2B vs. B2C) und 3-stufiges gerichtliches Mahnverfahren.
+- **Neu**: `ServiceMeshLab.jsx` & `src/utils/serviceMeshEngine.js` — Service Mesh mTLS & Envoy Sidecar Studio: Envoy Proxy Traffic Interception (iptables `15001`), SPIFFE/SPIRE X.509 mTLS Identitäten, dynamisches Canary Traffic Shifting (z. B. 90/10 Split) und Validierung von Istio `VirtualService` / `PeerAuthentication` YAML Manifesten.
+- **Neu**: `src/utils/haptics.js` — Web Vibration API Integration mit haptischem Feedback (`SUCCESS`, `WARNING`, `LEVEL_UP`).
+- **Routing & Navigation**: Nahtlose Integration aller neuen Labs in `Navbar.jsx`, `CommandPaletteModal.jsx` und `App.jsx`.
+- **Test-Suite**: **142 bestandene Unit-Tests** in **43 Test-Dateien** mit 100% Erfolgsquote (vorher 129/38).
 
 ### Version 3.10.0 (OAuth PKCE, K8s Topology & WebRTC Mesh Edition)
 - **Neu**: `OauthPkceStudioLab.jsx` & `oauthPkceEngine.js` mit RFC 7636 PKCE ($S256$ SHA-256 Code Challenge), Consent Screen, Token Exchange, JWT Decoder und Bearer Token API Access.

@@ -150,6 +150,12 @@ const OauthPkceStudioLab = lazy(() => import('./components/Content/OauthPkceStud
 const KubernetesClusterStudioLab = lazy(() => import('./components/Content/KubernetesClusterStudioLab'));
 const WebRtcPeerStudioLab = lazy(() => import('./components/Content/WebRtcPeerStudioLab'));
 
+// v3.11.0 Next-Gen Memory, Pool, Dunning & Service Mesh
+const LinuxMemoryLab = lazy(() => import('./components/Content/LinuxMemoryLab'));
+const PostgresPoolLab = lazy(() => import('./components/Content/PostgresPoolLab'));
+const WisoDunningLab = lazy(() => import('./components/Content/WisoDunningLab'));
+const ServiceMeshLab = lazy(() => import('./components/Content/ServiceMeshLab'));
+
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
@@ -1354,6 +1360,34 @@ export default function App() {
             {(activeTab === 'webrtc_peer_studio' || activeTab === 'webrtc_peer') && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <WebRtcPeerStudioLab />
+              </Suspense>
+            )}
+
+            {/* LINUX MEMORY & PAGE FAULT */}
+            {activeTab === 'linux_memory_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <LinuxMemoryLab onRewardXP={(xp) => awardXP(xp, 'linux_memory_master')} />
+              </Suspense>
+            )}
+
+            {/* POSTGRES CONNECTION POOL & ISOLATION */}
+            {activeTab === 'postgres_pool_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <PostgresPoolLab onRewardXP={(xp) => awardXP(xp, 'postgres_pool_master')} />
+              </Suspense>
+            )}
+
+            {/* IHK WISO DUNNING & SKONTO */}
+            {activeTab === 'wiso_dunning_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <WisoDunningLab onRewardXP={(xp) => awardXP(xp, 'wiso_dunning_master')} />
+              </Suspense>
+            )}
+
+            {/* SERVICE MESH MTLS & ENVOY */}
+            {activeTab === 'service_mesh_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <ServiceMeshLab onRewardXP={(xp) => awardXP(xp, 'service_mesh_master')} />
               </Suspense>
             )}
 

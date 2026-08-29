@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { FileCode, Play, Hexagon, Layers, ArrowRight, Zap, CheckCircle2 } from 'lucide-react';
+import { FileCode, Play, Hexagon, Layers, ArrowRight, Zap, CheckCircle2, RefreshCw } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { parseWasm, generateHexDump } from '../../utils/wasmParserEngine';
 

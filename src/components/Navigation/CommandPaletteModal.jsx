@@ -24,6 +24,10 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-linux-memory', title: 'Linux Virtual Memory & Page Fault Studio (TLB & OOM Score)', category: 'Labs & Tools', icon: Cpu, action: () => onNavigate('linux_memory_lab') },
+    { id: 'view-postgres-pool', title: 'PostgreSQL Connection Pooling & SQL Isolation Studio (PgBouncer)', category: 'Labs & Tools', icon: Database, action: () => onNavigate('postgres_pool_lab') },
+    { id: 'view-wiso-dunning', title: 'IHK Skonto-Effektivzins & Mahnwesen Studio (BGB § 288)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('wiso_dunning_lab') },
+    { id: 'view-service-mesh', title: 'Service Mesh mTLS & Envoy Sidecar Studio (SPIFFE & Canary)', category: 'Labs & Tools', icon: ShieldCheck, action: () => onNavigate('service_mesh_lab') },
     { id: 'view-os-scheduler', title: 'OS Process Scheduler & Deadlock Studio (Gantt & Bankier)', category: 'Labs & Tools', icon: Cpu, action: () => onNavigate('os_scheduler') },
     { id: 'view-packet-sniffer', title: 'Web-Wireshark Packet Sniffer & Hex Analyzer', category: 'Labs & Tools', icon: Terminal, action: () => onNavigate('packet_sniffer') },
     { id: 'view-erd-designer', title: 'Relational ERD Designer & 3NF Normalform-Linter', category: 'Labs & Tools', icon: Database, action: () => onNavigate('erd_designer') },
