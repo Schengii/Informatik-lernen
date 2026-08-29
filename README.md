@@ -191,12 +191,14 @@ Informatik-lernen/
     │   │   ├── LanguageAcademy.jsx
     │   │   ├── LeitnerFlashcardLab.jsx
     │   │   ├── LinuxPermissionsLab.jsx
+    │   │   ├── LinuxContainerLab.jsx
     │   │   ├── LinuxMemoryLab.jsx
     │   │   ├── LiveCodingChallengeStudio.jsx
     │   │   ├── MonacoStudioLab.jsx
     │   │   ├── NeuralNetVisualizerLab.jsx
     │   │   ├── OauthOidcLab.jsx
     │   │   ├── OauthPkceStudio.jsx
+    │   │   ├── OauthTokenExchangeLab.jsx
     │   │   ├── OsProcessSchedulerLab.jsx
     │   │   ├── OwaspExploitLab.jsx
     │   │   ├── P2pQuizDuellLab.jsx
@@ -238,6 +240,7 @@ Informatik-lernen/
     │   │   ├── WebSocketProtocolLab.jsx
     │   │   ├── WebSocketsLab.jsx
     │   │   ├── WebhookInspectorLab.jsx
+    │   │   ├── WisoContributionMarginLab.jsx
     │   │   ├── WisoDunningLab.jsx
     │   │   └── WisoKalkulationLab.jsx
     │   ├── Footer/
@@ -350,14 +353,20 @@ Informatik-lernen/
         ├── ipv6Routing.test.js
         ├── itsmEngine.js
         ├── itsmEngine.test.js
+        ├── linuxContainerEngine.js
+        ├── linuxContainerEngine.test.js
         ├── linuxMemoryEngine.js
         ├── linuxMemoryEngine.test.js
+        ├── oauthTokenExchangeEngine.js
+        ├── oauthTokenExchangeEngine.test.js
         ├── osSchedulerEngine.js
         ├── osSchedulerEngine.test.js
         ├── p2pQuizEngine.js
         ├── p2pQuizEngine.test.js
         ├── packetSnifferEngine.js
         ├── packetSnifferEngine.test.js
+        ├── postgresMvccEngine.js
+        ├── postgresMvccEngine.test.js
         ├── postgresPoolEngine.js
         ├── postgresPoolEngine.test.js
         ├── rackCalculations.js
@@ -386,6 +395,8 @@ Informatik-lernen/
         ├── webhookSimulator.test.js
         ├── wisoCalculations.js
         ├── wisoCalculations.test.js
+        ├── wisoContributionMarginEngine.js
+        ├── wisoContributionMarginEngine.test.js
         ├── wisoDunningEngine.js
         └── wisoDunningEngine.test.js
 ```
@@ -435,6 +446,15 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.24.0 (Linux Container Isolation, Postgres MVCC/Autovacuum, IHK Deckungsbeitrag & OAuth Token Exchange Edition)
+
+- **Neu**: `LinuxContainerLab.jsx` & `src/utils/linuxContainerEngine.js` — Linux Container Isolation & Cgroups v2 Studio: 6 Kern-Namespaces (PID, NET, MNT, UTS, IPC, USER), Cgroups v2 Bandbreiten-Drosselung (`cpu.max`) und OOM-Killer Auslösung bei Überschreitung von `memory.max`.
+- **Neu**: `PostgresMvccLab.jsx` & `src/utils/postgresMvccEngine.js` — PostgreSQL MVCC Tuple Headers & Autovacuum Engine: Simulation von `xmin`, `xmax`, `t_ctid`, Dead Tuple Anhäufung bei DML-Operationen, Schwellwertberechnung für Autovacuum ($\text{Threshold} = 50 + 0.2 \times \text{reltuples}$) und Vergleich von `VACUUM` (FSM) vs. `VACUUM FULL` (`AccessExclusiveLock`).
+- **Neu**: `WisoContributionMarginLab.jsx` & `src/utils/wisoContributionMarginEngine.js` — IHK WISO Deckungsbeitrags- & Break-Even-Point Studio: Stückdeckungsbeitrag ($db = p - k_v$), Gewinnschwelle ($x_{\text{BEP}} = \frac{K_f}{db}$) und mehrstufige Fixkostenspaltung (Erzeugnis-, Gruppen-, Bereichs- und Unternehmensfixkosten).
+- **Neu**: `OauthTokenExchangeLab.jsx` & `src/utils/oauthTokenExchangeEngine.js` — OAuth 2.0 Token Exchange Studio (RFC 8693): Token Delegation mit Actor-Claim (`act: { sub: "gateway" }`) vs. Impersonation und Live RFC 8693 POST-Request / JWT-Payload Inspector.
+- **Routing & Navigation**: Vollständige Integration in `Navbar.jsx`, `CommandPaletteModal.jsx` und `App.jsx`.
+- **Test-Suite**: **152 bestandene Unit-Tests** in **47 Test-Dateien** mit 100% Erfolgsquote (vorher 142/43).
 
 ### Version 3.23.0 (Linux Virtual Memory, Postgres Connection Pool, IHK Skonto/Mahnwesen & Service Mesh mTLS Edition)
 

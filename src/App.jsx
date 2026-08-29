@@ -156,6 +156,11 @@ const PostgresPoolLab = lazy(() => import('./components/Content/PostgresPoolLab'
 const WisoDunningLab = lazy(() => import('./components/Content/WisoDunningLab'));
 const ServiceMeshLab = lazy(() => import('./components/Content/ServiceMeshLab'));
 
+// v3.12.0 Next-Gen Container, Contribution Margin & Token Exchange
+const LinuxContainerLab = lazy(() => import('./components/Content/LinuxContainerLab'));
+const WisoContributionMarginLab = lazy(() => import('./components/Content/WisoContributionMarginLab'));
+const OauthTokenExchangeLab = lazy(() => import('./components/Content/OauthTokenExchangeLab'));
+
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
@@ -1388,6 +1393,27 @@ export default function App() {
             {activeTab === 'service_mesh_lab' && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <ServiceMeshLab onRewardXP={(xp) => awardXP(xp, 'service_mesh_master')} />
+              </Suspense>
+            )}
+
+            {/* LINUX CONTAINERS & CGROUPS */}
+            {activeTab === 'linux_container_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <LinuxContainerLab onRewardXP={(xp) => awardXP(xp, 'linux_container_master')} />
+              </Suspense>
+            )}
+
+            {/* IHK WISO DECKUNGSBEITRAG & BEP */}
+            {activeTab === 'wiso_contribution_margin' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <WisoContributionMarginLab onRewardXP={(xp) => awardXP(xp, 'wiso_contribution_margin_master')} />
+              </Suspense>
+            )}
+
+            {/* OAUTH TOKEN EXCHANGE RFC 8693 */}
+            {activeTab === 'oauth_token_exchange_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <OauthTokenExchangeLab onRewardXP={(xp) => awardXP(xp, 'oauth_token_exchange_master')} />
               </Suspense>
             )}
 
