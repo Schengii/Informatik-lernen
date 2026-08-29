@@ -164,6 +164,7 @@ Informatik-lernen/
     │   │   ├── DnsHttpLifecycleLab.jsx
     │   │   ├── DockerComposeLab.jsx
     │   │   ├── DockerLab.jsx
+    │   │   ├── EbpfXdpLab.jsx
     │   │   ├── ErdDesignerLab.jsx
     │   │   ├── ExamSimulator.jsx
     │   │   ├── FisiLernfelderHub.jsx
@@ -186,6 +187,7 @@ Informatik-lernen/
     │   │   ├── K8sCniOverlayLab.jsx
     │   │   ├── KafkaEventLab.jsx
     │   │   ├── KnowledgeQuizArena.jsx
+    │   │   ├── KubernetesClusterStudioLab.jsx
     │   │   ├── KubernetesLab.jsx
     │   │   ├── LabsDashboard.jsx
     │   │   ├── LanguageAcademy.jsx
@@ -207,6 +209,7 @@ Informatik-lernen/
     │   │   ├── PerformanceProfilingLab.jsx
     │   │   ├── PersonalNotebookLab.jsx
     │   │   ├── PostgresExplainVisualizerLab.jsx
+    │   │   ├── PostgresFlamegraphLab.jsx
     │   │   ├── PostgresMvccLab.jsx
     │   │   ├── PostgresPoolLab.jsx
     │   │   ├── PythonWasmLab.jsx
@@ -233,13 +236,17 @@ Informatik-lernen/
     │   │   ├── VideoHub.jsx
     │   │   ├── VocabularyTrainerModal.jsx
     │   │   ├── VoiceQuizStudioLab.jsx
+    │   │   ├── WasmCompilerPlaygroundLab.jsx
     │   │   ├── WasmRustLab.jsx
     │   │   ├── WasmRustStudio.jsx
     │   │   ├── WebComponentsHub.jsx
+    │   │   ├── WebRtcPeerStudioLab.jsx
     │   │   ├── WebRtcSignalingLab.jsx
     │   │   ├── WebSocketProtocolLab.jsx
     │   │   ├── WebSocketsLab.jsx
     │   │   ├── WebhookInspectorLab.jsx
+    │   │   ├── WireguardZtnaLab.jsx
+    │   │   ├── WisoAbcXyzLab.jsx
     │   │   ├── WisoContributionMarginLab.jsx
     │   │   ├── WisoDunningLab.jsx
     │   │   └── WisoKalkulationLab.jsx
@@ -336,6 +343,8 @@ Informatik-lernen/
         ├── codingChallengesEngine.test.js
         ├── customChallengesManager.js
         ├── customChallengesManager.test.js
+        ├── ebpfXdpEngine.js
+        ├── ebpfXdpEngine.test.js
         ├── erdDesignerEngine.js
         ├── erdDesignerEngine.test.js
         ├── gitConflictEngine.js
@@ -365,6 +374,8 @@ Informatik-lernen/
         ├── p2pQuizEngine.test.js
         ├── packetSnifferEngine.js
         ├── packetSnifferEngine.test.js
+        ├── postgresFlamegraphEngine.js
+        ├── postgresFlamegraphEngine.test.js
         ├── postgresMvccEngine.js
         ├── postgresMvccEngine.test.js
         ├── postgresPoolEngine.js
@@ -393,6 +404,10 @@ Informatik-lernen/
         ├── voiceQuizEngine.test.js
         ├── webhookSimulator.js
         ├── webhookSimulator.test.js
+        ├── wireguardZtnaEngine.js
+        ├── wireguardZtnaEngine.test.js
+        ├── wisoAbcXyzEngine.js
+        ├── wisoAbcXyzEngine.test.js
         ├── wisoCalculations.js
         ├── wisoCalculations.test.js
         ├── wisoContributionMarginEngine.js
@@ -446,6 +461,15 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.25.0 (Linux eBPF/XDP, Postgres FlameGraph, IHK ABC/XYZ & WireGuard ZTNA Edition)
+
+- **Neu**: `EbpfXdpLab.jsx` & `src/utils/ebpfXdpEngine.js` — Linux eBPF & XDP (eXpress Data Path) Sandbox: High-Speed Paketfilterung auf NIC-Treiberebene (`XDP_DROP`, `XDP_PASS`, `XDP_TX`) und C-Code-Verifikation im virtuellen eBPF Kernel-Verifier (Bounds-Checking, Loop-Safety) in unter 50 Nanosekunden.
+- **Neu**: `PostgresFlamegraphLab.jsx` & `src/utils/postgresFlamegraphEngine.js` — PostgreSQL EXPLAIN FlameGraph & Buffer Cache Studio: Hierarchische Zeitverteilung komplexer Abfragen, Shared Buffer Cache Hit Ratios und Erkennung von Seq-Scan-Bottlenecks.
+- **Neu**: `WisoAbcXyzLab.jsx` & `src/utils/wisoAbcXyzEngine.js` — IHK WISO ABC- und XYZ-Materialanalyse Studio: Kumulative Wertanteils-Klassifizierung (Lorenz-Kurve: A $\le$ 80%, B $\le$ 95%, C $>$ 95%) und Bedarfsverbrauchs-Vorhersagbarkeit (X/Y/Z Matrix) mit 3x3-Beschaffungsstrategien (Just-in-Time, Vorrat, Einzelbeschaffung).
+- **Neu**: `WireguardZtnaLab.jsx` & `src/utils/wireguardZtnaEngine.js` — WireGuard VPN & Zero-Trust Architecture Studio: 1-RTT NoiseIK Handshakes (Curve25519), AllowedIPs Cryptokey Routing und dynamische Zero-Trust Policy Validierung anhand von Device Health Scores.
+- **Routing & Navigation**: Vollständige Verknüpfung in `Navbar.jsx`, `CommandPaletteModal.jsx` und `App.jsx`.
+- **Test-Suite**: **158 bestandene Unit-Tests** in **51 Test-Dateien** mit 100% Erfolgsquote (vorher 152/47).
 
 ### Version 3.24.0 (Linux Container Isolation, Postgres MVCC/Autovacuum, IHK Deckungsbeitrag & OAuth Token Exchange Edition)
 

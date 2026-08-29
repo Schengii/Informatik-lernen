@@ -161,6 +161,12 @@ const LinuxContainerLab = lazy(() => import('./components/Content/LinuxContainer
 const WisoContributionMarginLab = lazy(() => import('./components/Content/WisoContributionMarginLab'));
 const OauthTokenExchangeLab = lazy(() => import('./components/Content/OauthTokenExchangeLab'));
 
+// v3.13.0 Next-Gen eBPF, Postgres Flamegraph, ABC/XYZ & WireGuard ZTNA
+const EbpfXdpLab = lazy(() => import('./components/Content/EbpfXdpLab'));
+const PostgresFlamegraphLab = lazy(() => import('./components/Content/PostgresFlamegraphLab'));
+const WisoAbcXyzLab = lazy(() => import('./components/Content/WisoAbcXyzLab'));
+const WireguardZtnaLab = lazy(() => import('./components/Content/WireguardZtnaLab'));
+
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
@@ -1414,6 +1420,34 @@ export default function App() {
             {activeTab === 'oauth_token_exchange_lab' && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <OauthTokenExchangeLab onRewardXP={(xp) => awardXP(xp, 'oauth_token_exchange_master')} />
+              </Suspense>
+            )}
+
+            {/* LINUX EBPF & XDP */}
+            {activeTab === 'ebpf_xdp_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <EbpfXdpLab onRewardXP={(xp) => awardXP(xp, 'ebpf_xdp_master')} />
+              </Suspense>
+            )}
+
+            {/* POSTGRES FLAMEGRAPH & BUFFER CACHE */}
+            {activeTab === 'postgres_flamegraph_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <PostgresFlamegraphLab onRewardXP={(xp) => awardXP(xp, 'postgres_flamegraph_master')} />
+              </Suspense>
+            )}
+
+            {/* IHK WISO ABC & XYZ ANALYSIS */}
+            {activeTab === 'wiso_abc_xyz' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <WisoAbcXyzLab onRewardXP={(xp) => awardXP(xp, 'wiso_abc_xyz_master')} />
+              </Suspense>
+            )}
+
+            {/* WIREGUARD VPN & ZERO-TRUST */}
+            {activeTab === 'wireguard_ztna_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <WireguardZtnaLab onRewardXP={(xp) => awardXP(xp, 'wireguard_ztna_master')} />
               </Suspense>
             )}
 
