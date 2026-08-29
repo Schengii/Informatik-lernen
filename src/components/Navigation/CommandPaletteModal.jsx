@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Search, Terminal, BookOpen, Sparkles, Trophy, Cpu, Code2,
   Layers, Award, FileText, ArrowRight, X, Command, Database, ShieldCheck,
-  Calculator, Globe, ShieldAlert, Brain, GitMerge, Lock, Radio, Flame, Swords
+  Calculator, Globe, ShieldAlert, Brain, GitMerge, Lock, Radio, Flame, Swords,
+  GitBranch, HardDrive, Users
 } from 'lucide-react';
 import { useTranslation } from '../../utils/i18n';
 import { TOPICS } from '../../data/topicsData';
@@ -27,6 +28,10 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, labId: 'dashboard', action: () => onNavigate('dashboard') },
+    { id: 'view-dockerfile-opt', title: 'Dockerfile Multi-Stage Optimizer & Security Linter (Distroless)', category: 'Labs & Tools', icon: HardDrive, labId: 'dockerfile_optimizer', action: () => onNavigate('dockerfile_optimizer') },
+    { id: 'view-postgres-flamegraph', title: 'PostgreSQL EXPLAIN FlameGraph & Window Functions Studio', category: 'Labs & Tools', icon: Flame, labId: 'postgres_flamegraph', action: () => onNavigate('postgres_flamegraph') },
+    { id: 'view-git-rebase', title: 'Git Interactive Rebase Studio (git rebase -i / Squash & Fixup)', category: 'Labs & Tools', icon: GitBranch, labId: 'git_interactive_rebase', action: () => onNavigate('git_interactive_rebase') },
+    { id: 'view-collab-whiteboard', title: 'Collaborative Architecture Whiteboard & Mermaid Diagrammer', category: 'Labs & Tools', icon: Users, labId: 'collaborative_whiteboard', action: () => onNavigate('collaborative_whiteboard') },
     { id: 'view-sql-query-plan', title: 'SQL Query Execution Plan & Cost Optimizer (Plan Tree & Indexes)', category: 'Labs & Tools', icon: Database, labId: 'sql_query_plan', action: () => onNavigate('sql_query_plan') },
     { id: 'view-p2p-code-duel', title: 'Live Coding-Duell & Speedrun Arena (Realtime Multiplayer & Bot)', category: 'Labs & Tools', icon: Swords, labId: 'p2p_code_duel', action: () => onNavigate('p2p_code_duel') },
     { id: 'view-linux-vfs', title: 'Linux POSIX Terminal & VFS Sandbox (Pipes, Chmod, Systemd)', category: 'Labs & Tools', icon: Terminal, labId: 'linux_vfs_lab', action: () => onNavigate('linux_vfs_lab') },

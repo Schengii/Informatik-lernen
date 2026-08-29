@@ -6,7 +6,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.12.0)](#-hauptfunktionen--neue-features-v3120-high-resilience-engineering-posix-ecosystem--ihk-documentation-power-edition)
+- [Hauptfunktionen & Neue Features (v3.15.0)](#-hauptfunktionen--neue-features-v3150)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -246,6 +246,7 @@ Informatik-lernen/
     │   │   ├── OauthPkceStudio.jsx
     │   │   ├── OsProcessSchedulerLab.jsx
     │   │   ├── OwaspExploitLab.jsx
+    │   │   ├── P2pCodeDuelLab.jsx
     │   │   ├── P2pQuizDuellLab.jsx
     │   │   ├── PacketSnifferLab.jsx
     │   │   ├── PacketTracerLab.jsx
@@ -262,6 +263,7 @@ Informatik-lernen/
     │   │   ├── RegexRailroadVisualizerLab.jsx
     │   │   ├── Sm2SpacedRepetitionLab.jsx
     │   │   ├── SqlJoinVisualizerLab.jsx
+    │   │   ├── SqlQueryExecutionPlanLab.jsx
     │   │   ├── SqlQueryOptimizerLab.jsx
     │   │   ├── SqlTransactionLab.jsx
     │   │   ├── SqliteWasmStudioLab.jsx
@@ -402,6 +404,8 @@ Informatik-lernen/
         ├── ieee754.test.js
         ├── ihkGradeCalculations.js
         ├── ihkGradeCalculations.test.js
+        ├── ihkOralExamEngine.js
+        ├── ihkOralExamEngine.test.js
         ├── ihkProjectPlannerEngine.js
         ├── ihkProjectPlannerEngine.test.js
         ├── ipv6Routing.js
@@ -416,10 +420,14 @@ Informatik-lernen/
         ├── oauthPkceEngine.test.js
         ├── osSchedulerEngine.js
         ├── osSchedulerEngine.test.js
+        ├── p2pCodeDuelEngine.js
+        ├── p2pCodeDuelEngine.test.js
         ├── p2pQuizEngine.js
         ├── p2pQuizEngine.test.js
         ├── packetSnifferEngine.js
         ├── packetSnifferEngine.test.js
+        ├── pcapParserEngine.js
+        ├── pcapParserEngine.test.js
         ├── rackCalculations.js
         ├── rackCalculations.test.js
         ├── regexParserEngine.js
@@ -428,6 +436,8 @@ Informatik-lernen/
         ├── scrumEngine.test.js
         ├── sm2Algorithm.js
         ├── sm2Algorithm.test.js
+        ├── sqlQueryExecutionEngine.js
+        ├── sqlQueryExecutionEngine.test.js
         ├── sqlSandboxEngine.js
         ├── sqlSandboxEngine.test.js
         ├── srsAlgorithm.js
@@ -491,6 +501,17 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.15.0 (SQL Query Plan Optimization, Wireshark PCAP Stream Engine, Adaptive IHK Examiners & P2P Code Duel Edition)
+
+- **Neu**: `SqlQueryExecutionPlanLab.jsx` & `src/utils/sqlQueryExecutionEngine.js` — SQL Query Execution Plan & Cost Optimizer Studio: AST-Zerlegung, physischer Ausführungsbaum (Plan Tree), I/O-Kostenberechnung (Cost Units), B-Tree Index Scans vs Full Table Scans, Hash Joins, HashAggregate, Memory-Sorts und automatische Empfehlungs-Engine für fehlende Indizes.
+- **Neu**: `src/utils/pcapParserEngine.js` & Wireshark Stream Integration — Echter Libpcap Binär-Parser und Exporter (`.pcap` 24-Byte Global Header + 16-Byte Packet Header): Ermöglicht das Herunterladen und Hochladen von echten Packet-Captures direkt im Web-Wireshark `PacketSnifferLab.jsx`.
+- **Neu**: `src/utils/ihkOralExamEngine.js` & Multi-Prüfer-Simulation — IHK-Prüfer-Personas (Dr. Jansen / Sabine Meier / Klaus Weber), adaptive Folgefragen mit Keyword-Erkennung und offizielle IHK-Bewertungsmatrix nach AO 2020 im `IhkOralExamSimulator.jsx`.
+- **Neu**: `P2pCodeDuelLab.jsx` & `src/utils/p2pCodeDuelEngine.js` — Live Coding-Duell & Speedrun Arena: Echtzeit-Programmierwettkampf mit automatischem In-Browser Test-Runner, synchronisiertem Fortschritts-Race gegen KI-Bot "Azubi-Bot Max" und 3 LeetCode/IHK-Herausforderungen.
+- **Codebase-Weite Bereinigung & Stabilität**:
+  - Oxlint auf 0 Warnungen und 0 Fehler über alle 287 Quellcodedateien gehalten.
+  - Alle 108 interaktiven Labs im Smoke-Test validiert (`labRegistry.smoke.test.jsx`).
+- **Test-Suite**: **313 bestandene Unit- & Smoke-Tests** in **56 Test-Dateien** mit 100% Erfolgsquote (vorher 296/52).
 
 ### Version 3.14.0 (High-Resilience Engineering, POSIX Ecosystem & IHK Documentation Power Edition)
 

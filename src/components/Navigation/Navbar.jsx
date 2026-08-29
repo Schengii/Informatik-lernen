@@ -87,6 +87,10 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 60+ interaktiven Labs', badge: 'Hub' },
+    { id: 'dockerfile_optimizer', label: '🐳 Dockerfile Multi-Stage Optimizer', desc: 'Distroless, Root-Detection & Caching-Linter', badge: 'Neu' },
+    { id: 'postgres_flamegraph', label: '🔥 PostgreSQL EXPLAIN FlameGraph', desc: 'Hierarchischer Zeitbalken & Window Functions', badge: 'Neu' },
+    { id: 'git_interactive_rebase', label: '🌿 Git Interactive Rebase Studio', desc: 'Commits umordnen, squashen & History bereinigen', badge: 'Neu' },
+    { id: 'collaborative_whiteboard', label: '🎨 Architecture Whiteboard & Canvas', desc: 'Verteilte Microservices planen & Mermaid Export', badge: 'Neu' },
     { id: 'sql_query_plan', label: '🗄️ SQL Execution Plan & Cost Optimizer', desc: 'Plan Tree, Index Scans, I/O-Kosten & B-Trees', badge: 'Neu' },
     { id: 'p2p_code_duel', label: '⚔️ Live Coding-Duell & Speedrun Arena', desc: 'Multiplayer Coding-Race gegen Azubis oder Bot', badge: 'Neu' },
     { id: 'linux_vfs_lab', label: '🐧 Linux POSIX Terminal & VFS Sandbox', desc: 'In-Memory VFS mit Pipes, Chmod & SysAdmin Notfällen', badge: 'Neu' },

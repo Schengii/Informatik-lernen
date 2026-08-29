@@ -11,10 +11,58 @@
 // labRegistry.test.js) gegen die IDs hier validiert.
 import { lazy } from 'react';
 import {
-  Award, Brain, Cloud, Code2, Cpu, Database, FileText, Flame, GitMerge, Globe, Layers, Network, Radio, Search, Shield, ShieldCheck, Sparkles, Swords, Terminal
+  Award, Brain, Cloud, Code2, Cpu, Database, FileText, Flame, GitBranch, GitMerge, Globe, HardDrive, Layers, Network, Radio, Search, Shield, ShieldCheck, Sparkles, Swords, Terminal, Users
 } from 'lucide-react';
 
 export const LAB_REGISTRY = [
+  {
+    id: 'dockerfile_optimizer',
+    component: lazy(() => import('../components/Content/DockerfileOptimizerLab')),
+    title: 'Dockerfile Multi-Stage Optimizer & Security Linter',
+    desc: 'Layer-Caching-Analyse, Root-User-Detection und automatische Umwandlung in gehärtete Multi-Stage Builds.',
+    category: 'cloud',
+    tags: ['#Docker', '#MultiStage', '#DevOps', '#Security', '#Distroless', '#Containers', '#IHK'],
+    difficulty: 'Intermediate',
+    icon: HardDrive,
+    color: '#3b82f6',
+    badge: 'Neu'
+  },
+  {
+    id: 'postgres_flamegraph',
+    component: lazy(() => import('../components/Content/PostgresFlamegraphLab')),
+    title: 'PostgreSQL EXPLAIN FlameGraph & Window Functions Studio',
+    desc: 'Hierarchischer Zeitbalken, Window Functions (PARTITION BY) und Shared Buffer Cache Hit Ratios.',
+    category: 'databases',
+    tags: ['#PostgreSQL', '#FlameGraph', '#ExplainAnalyze', '#WindowFunctions', '#Buffers', '#Performance'],
+    difficulty: 'Advanced',
+    icon: Flame,
+    color: '#f59e0b',
+    badge: 'Neu'
+  },
+  {
+    id: 'git_interactive_rebase',
+    component: lazy(() => import('../components/Content/GitInteractiveRebaseLab')),
+    title: 'Git Interactive Rebase Studio (git rebase -i)',
+    desc: 'Commits interaktiv umordnen, squashen, fixupen, reworden und saubere Git-Historien erzeugen.',
+    category: 'code',
+    tags: ['#Git', '#Rebase', '#Squash', '#VersionControl', '#CleanHistory', '#DevOps'],
+    difficulty: 'Intermediate',
+    icon: GitBranch,
+    color: '#10b981',
+    badge: 'Neu'
+  },
+  {
+    id: 'collaborative_whiteboard',
+    component: lazy(() => import('../components/Content/CollaborativeWhiteboardLab')),
+    title: 'Collaborative Architecture Whiteboard & Diagrammer',
+    desc: 'Verteilte Microservice- und Cloud-Architekturen planen, SPOF-Analyse und Mermaid.js Export.',
+    category: 'cloud',
+    tags: ['#Architecture', '#Whiteboard', '#Mermaid', '#Microservices', '#SystemDesign', '#Diagrams'],
+    difficulty: 'Intermediate',
+    icon: Users,
+    color: '#06b6d4',
+    badge: 'Neu'
+  },
   {
     id: 'sql_query_plan',
     component: lazy(() => import('../components/Content/SqlQueryExecutionPlanLab')),
