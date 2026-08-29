@@ -87,6 +87,10 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 60+ interaktiven Labs', badge: 'Hub' },
+    { id: 'redis_eviction_lab', label: '⚡ Redis Eviction & Bloom Filter Studio', desc: 'LRU, LFU, TTL & Cache Penetration Defense', badge: 'Neu' },
+    { id: 'api_protocol_benchmark', label: '⚡ REST vs. gRPC vs. GraphQL Benchmark', desc: 'Protobuf Binary vs JSON Latenz & Durchsatz', badge: 'Neu' },
+    { id: 'dsgvo_dsfa_tom', label: '⚖️ IHK DSGVO DSFA & TOM-Studio', desc: 'Art. 35 Schwellwertanalyse & Art. 32 TOM-Katalog', badge: 'Neu' },
+    { id: 'bgp_routing_lab', label: '🌐 BGP Routing & AS Path Studio', desc: 'Autonomous Systems, Best Path & AS Prepending', badge: 'Neu' },
     { id: 'sqlite_cli_repl', label: '💻 SQLite CLI Terminal & REPL', desc: 'In-Browser SQL-Konsole mit Dot-Commands & DDL', badge: 'Neu' },
     { id: 'k8s_helm_kustomize', label: '☸️ Helm Chart & Kustomize Studio', desc: 'GitOps Vorlagen (values.yaml, deployment, overlays)', badge: 'Neu' },
     { id: 'wiso_salary_calculator', label: '💶 IHK Brutto-Netto & Sozialversicherung', desc: 'Lohnsteuer, KV/RV/AV/PV & BBG-Berechnung 2026', badge: 'Neu' },

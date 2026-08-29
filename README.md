@@ -6,7 +6,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.17.0)](#-hauptfunktionen--neue-features-v3170)
+- [Hauptfunktionen & Neue Features (v3.18.0)](#-hauptfunktionen--neue-features-v3180)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -181,6 +181,8 @@ Informatik-lernen/
     │   │   ├── AnfaengerGuideHub.jsx
     │   │   ├── ApiBenchStudio.jsx
     │   │   ├── ApiMockStudioLab.jsx
+    │   │   ├── ApiProtocolBenchmarkLab.jsx
+    │   │   ├── BgpRoutingLab.jsx
     │   │   ├── AppWorkshop.jsx
     │   │   ├── ArchitectureVisualizer.jsx
     │   │   ├── BigOBenchmarkLab.jsx
@@ -212,6 +214,7 @@ Informatik-lernen/
     │   │   ├── DockerComposeLab.jsx
     │   │   ├── DockerLab.jsx
     │   │   ├── DockerfileOptimizerLab.jsx
+    │   │   ├── DsgvoDsfaTomLab.jsx
     │   │   ├── ErdDesignerLab.jsx
     │   │   ├── ExamSimulator.jsx
     │   │   ├── FisiLernfelderHub.jsx
@@ -264,6 +267,7 @@ Informatik-lernen/
     │   │   ├── RagAiSimulator.jsx
     │   │   ├── RedBlueTeamLab.jsx
     │   │   ├── RedisCachingLab.jsx
+    │   │   ├── RedisEvictionLab.jsx
     │   │   ├── RegexMasterLab.jsx
     │   │   ├── RegexRailroadVisualizerLab.jsx
     │   │   ├── Sm2SpacedRepetitionLab.jsx
@@ -383,7 +387,11 @@ Informatik-lernen/
     └── utils/
         ├── adaptiveLearningEngine.js
         ├── adaptiveLearningEngine.test.js
+        ├── apiProtocolBenchmarkEngine.js
+        ├── apiProtocolBenchmarkEngine.test.js
         ├── audioSystem.js
+        ├── bgpRoutingEngine.js
+        ├── bgpRoutingEngine.test.js
         ├── bleSensorEngine.js
         ├── bleSensorEngine.test.js
         ├── campaignAndExam.test.js
@@ -401,6 +409,8 @@ Informatik-lernen/
         ├── customChallengesManager.test.js
         ├── dockerfileOptimizerEngine.js
         ├── dockerfileOptimizerEngine.test.js
+        ├── dsgvoDsfaTomEngine.js
+        ├── dsgvoDsfaTomEngine.test.js
         ├── erdDesignerEngine.js
         ├── erdDesignerEngine.test.js
         ├── gitConflictEngine.js
@@ -449,6 +459,8 @@ Informatik-lernen/
         ├── postgresFlamegraphEngine.test.js
         ├── rackCalculations.js
         ├── rackCalculations.test.js
+        ├── redisEvictionEngine.js
+        ├── redisEvictionEngine.test.js
         ├── regexParserEngine.js
         ├── regexParserEngine.test.js
         ├── scrumEngine.js
@@ -524,6 +536,17 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.18.0 (Redis Cache Eviction & Bloom Filter, API Protocol Benchmark, DSGVO DSFA Studio & BGP Routing Edition)
+
+- **Neu**: `RedisEvictionLab.jsx` & `src/utils/redisEvictionEngine.js` — Redis Cache Eviction & Penetration Studio: Simulation von `allkeys-lru`, `allkeys-lfu`, `volatile-ttl` Verdrängungsstrategien, Memory Slots, Hit Ratios und integrierter 32-Bit Bloom Filter zur Abwehr von Cache-Penetration Attacken.
+- **Neu**: `ApiProtocolBenchmarkLab.jsx` & `src/utils/apiProtocolBenchmarkEngine.js` — REST vs. gRPC vs. GraphQL Benchmark Studio: Live-Vergleich von Latenzen, Durchsatz (Req/s) und Payload-Größen (JSON vs. Protocol Buffers Binary) bei bis zu 10.000 simulierten Anfragen.
+- **Neu**: `DsgvoDsfaTomLab.jsx` & `src/utils/dsgvoDsfaTomEngine.js` — IHK DSGVO Datenschutz-Folgenabschätzung (DSFA) & TOM-Studio: Art. 35 EDPB-Schwellwertkriterien-Prüfung und normgerechter Export von Technisch-Organisatorischen Maßnahmen (TOMs nach Art. 32 DSGVO).
+- **Neu**: `BgpRoutingLab.jsx` & `src/utils/bgpRoutingEngine.js` — BGP Routing & Autonomous System (AS) Path Studio: BGP Best Path Entscheidungsbaum (Local Preference, AS-Path Länge, MED) und AS-Path Prepending Traffic-Engineering.
+- **Codebase-Weite Bereinigung & Stabilität**:
+  - Oxlint auf 0 Warnungen und 0 Fehler über alle 322 Quellcodedateien gehalten.
+  - Alle 119 interaktiven Labs im Smoke-Test validiert (`labRegistry.smoke.test.jsx`).
+- **Test-Suite**: **353 bestandene Unit- & Smoke-Tests** in **68 Test-Dateien** mit 100% Erfolgsquote (vorher 341/64).
 
 ### Version 3.17.0 (SQLite CLI Terminal REPL, Kubernetes Helm/Kustomize GitOps Studio, P2P CRDT Whiteboard Sync & WISO 2026 Salary Engine Edition)
 

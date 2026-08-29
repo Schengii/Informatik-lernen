@@ -11,10 +11,58 @@
 // labRegistry.test.js) gegen die IDs hier validiert.
 import { lazy } from 'react';
 import {
-  Award, Brain, Cloud, Code2, Cpu, Database, FileText, Flame, GitBranch, GitMerge, Globe, HardDrive, Layers, Network, Radio, Search, Shield, ShieldCheck, Sparkles, Swords, Terminal, Users
+  Award, Brain, Cloud, Code2, Cpu, Database, FileText, Flame, GitBranch, GitMerge, Globe, HardDrive, Layers, Network, Radio, Search, Shield, ShieldCheck, Sparkles, Swords, Terminal, Users, Zap
 } from 'lucide-react';
 
 export const LAB_REGISTRY = [
+  {
+    id: 'redis_eviction_lab',
+    component: lazy(() => import('../components/Content/RedisEvictionLab')),
+    title: 'Redis Cache Eviction & Penetration Studio',
+    desc: 'LRU, LFU, TTL Verdrängungsstrategien und Bloom Filter gegen Cache-Penetration.',
+    category: 'databases',
+    tags: ['#Redis', '#Cache', '#LRU', '#LFU', '#BloomFilter', '#Performance'],
+    difficulty: 'Intermediate',
+    icon: Database,
+    color: '#ef4444',
+    badge: 'Neu'
+  },
+  {
+    id: 'api_protocol_benchmark',
+    component: lazy(() => import('../components/Content/ApiProtocolBenchmarkLab')),
+    title: 'REST vs. gRPC vs. GraphQL Benchmark Studio',
+    desc: 'Live-Vergleich von Latenz, Binär-Serialisierung (Protobuf) und Durchsatz bei 1.000 Requests.',
+    category: 'code',
+    tags: ['#Protocols', '#REST', '#gRPC', '#GraphQL', '#Protobuf', '#Benchmark', '#Performance'],
+    difficulty: 'Intermediate',
+    icon: Zap,
+    color: '#10b981',
+    badge: 'Neu'
+  },
+  {
+    id: 'dsgvo_dsfa_tom',
+    component: lazy(() => import('../components/Content/DsgvoDsfaTomLab')),
+    title: 'IHK DSGVO DSFA & TOM-Studio',
+    desc: 'Art. 35 Schwellwertanalyse und Generierung von Technisch-Organisatorischen Maßnahmen (TOMs).',
+    category: 'wiso',
+    tags: ['#DSGVO', '#DSFA', '#TOMs', '#Datenschutz', '#Security', '#IHK'],
+    difficulty: 'Intermediate',
+    icon: ShieldCheck,
+    color: '#3b82f6',
+    badge: 'Neu'
+  },
+  {
+    id: 'bgp_routing_lab',
+    component: lazy(() => import('../components/Content/BgpRoutingLab')),
+    title: 'BGP Routing & Autonomous System (AS) Path Studio',
+    desc: 'BGP Best Path Algorithmus, AS-Path Längen, Local Preference und AS-Path Prepending.',
+    category: 'networks',
+    tags: ['#BGP', '#Routing', '#AutonomousSystems', '#Networking', '#Internet', '#CCNA', '#IHK'],
+    difficulty: 'Advanced',
+    icon: Network,
+    color: '#06b6d4',
+    badge: 'Neu'
+  },
   {
     id: 'sqlite_cli_repl',
     component: lazy(() => import('../components/Content/SqliteCliReplLab')),
