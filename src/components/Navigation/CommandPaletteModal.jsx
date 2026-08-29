@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Search, Terminal, BookOpen, Sparkles, Trophy, Cpu, Code2,
   Layers, Award, FileText, ArrowRight, X, Command, Database, ShieldCheck,
-  Calculator, Globe, ShieldAlert, Brain, GitMerge, Lock, Radio, Flame
+  Calculator, Globe, ShieldAlert, Brain, GitMerge, Lock, Radio, Flame, Swords
 } from 'lucide-react';
 import { useTranslation } from '../../utils/i18n';
 import { TOPICS } from '../../data/topicsData';
@@ -27,6 +27,8 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, labId: 'dashboard', action: () => onNavigate('dashboard') },
+    { id: 'view-sql-query-plan', title: 'SQL Query Execution Plan & Cost Optimizer (Plan Tree & Indexes)', category: 'Labs & Tools', icon: Database, labId: 'sql_query_plan', action: () => onNavigate('sql_query_plan') },
+    { id: 'view-p2p-code-duel', title: 'Live Coding-Duell & Speedrun Arena (Realtime Multiplayer & Bot)', category: 'Labs & Tools', icon: Swords, labId: 'p2p_code_duel', action: () => onNavigate('p2p_code_duel') },
     { id: 'view-linux-vfs', title: 'Linux POSIX Terminal & VFS Sandbox (Pipes, Chmod, Systemd)', category: 'Labs & Tools', icon: Terminal, labId: 'linux_vfs_lab', action: () => onNavigate('linux_vfs_lab') },
     { id: 'view-ihk-project-planner', title: 'IHK Projektdokumentation & Nutzwertanalyse-Studio (AO 2020)', category: 'Prüfung', icon: FileText, labId: 'ihk_project_planner', action: () => onNavigate('ihk_project_planner') },
     { id: 'view-chaos-engineering', title: 'Chaos Engineering & Microservice Failure Studio', category: 'Labs & Tools', icon: Flame, labId: 'chaos_engineering', action: () => onNavigate('chaos_engineering') },

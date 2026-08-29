@@ -1,12 +1,12 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer & Frame Analyzer, Relationalem ERD Designer & 1NF–3NF Normalform-Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery mit Ebbinghaus-Kurven, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer (AST Visualizer), Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), Linux POSIX VFS Terminal Sandbox mit Pipes & Systemd, IHK Projektdokumentation & Nutzwertanalyse-Assistent (AO 2020), Chaos Engineering & Microservice Resilience Studio, CI/CD Pipeline DAG Studio & Runner, OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer & Frame Analyzer, Relationalem ERD Designer & 1NF–3NF Normalform-Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery mit Ebbinghaus-Kurven, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer (AST Visualizer), Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.8.0)](#-hauptfunktionen--neue-features-v380-next-gen-engineering-architecture--ihk-power-edition)
+- [Hauptfunktionen & Neue Features (v3.12.0)](#-hauptfunktionen--neue-features-v3120-high-resilience-engineering-posix-ecosystem--ihk-documentation-power-edition)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -25,6 +25,8 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Einsteiger-Kurs (`AnfaengerGuideHub.jsx`)**: Lernen ohne jegliche Vorkenntnisse.
    - Grundlagen leicht verständlich erklärt: **EVA-Prinzip**, **CPU-Gehirn** (ALU, Steuerwerk, Register), **Binärsystem & Bytes**, **Internet & DNS**.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI/DP/DVS, IT-Systemelektroniker, Kaufleute IT-Systemmanagement)**:
+   - **Linux POSIX Terminal & VFS Sandbox (`LinuxVfsTerminalLab.jsx` & `linuxVfsEngine.js`)**: Vollwertiges hierarchisches In-Memory Dateisystem, Pipes (`|`), Redirections (`>`, `>>`), POSIX-Befehle (`ls`, `cat`, `grep`, `wc`, `find`, `chmod`, `chown`, `systemctl`) und interaktive SysAdmin-Notfall-Challenges.
+   - **IHK Projektdokumentation & Nutzwertanalyse-Studio (`IhkProjectPlannerLab.jsx` & `ihkProjectPlannerEngine.js`)**: Phasen- und Stundenplanung (80h FIAE / 40h FISI nach AO 2020), K.O.-Kriterien gewichtete Nutzwertanalyse (NWA), 3-Jahres-Amortisation (ROI) und druckfertiger Markdown-Export.
    - **IHK Noten- & MEP-Rechner (`IhkGradeCalculatorLab.jsx` & `ihkGradeCalculations.js`)**: Offizielle AO 2020 Prüfungsordnung, Gewichtungen (AP1 20%, AP2 30%, Projekt 50%) und automatischer Rechner für die **Mündliche Ergänzungsprüfung (MEP)**.
    - **19"-Rack Konfigurator & USV/Klimarechner (`RackConfiguratorLab.jsx` & `rackCalculations.js`)**: 42HE Serverschrank, Schein- & Wirkleistung ($VA, W$), USV-Akkulaufzeit und BTU/h Kühlungslast.
    - **ITIL 4 ITSM & Service Desk Studio (`ItsmSimulatorLab.jsx` & `itsmEngine.js`)**: Incident Queue mit SLA-Timern, Impact $\times$ Urgency Priorisierung und Change Advisory Board (CAB) Risiko-Scoring.
@@ -35,6 +37,8 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Developer Notizbuch & Vault (`PersonalNotebookLab.jsx`)**: Persönliches Markdown-Notizbuch mit Tag-Suche, LocalStorage Auto-Save und `.md`-Export.
    - Detaillierte IHK-Berufsschul Lernfelder (LF 1 bis LF 12b), **Handelskalkulationen**, **Deckungsbeitragsrechnung & Break-Even-Point**, **Netzplantechnik (CPM)**, **WISO-Arbeitsrecht** und druckfertige **A4 PDF-Spickzettel**.
 3. **🚀 Junior Developer & Systemintegratoren**:
+   - **Chaos Engineering & Resilience Studio (`ChaosEngineeringLab.jsx` & `chaosEngineeringEngine.js`)**: Microservices Fault Injection, Cascading Failures, Circuit Breaker, Rate Limiter, Retry mit Exponential Backoff & Fallback Cache Simulation.
+   - **CI/CD Pipeline DAG Studio & Runner (`CiCdPipelineBuilderLab.jsx` & `cicdPipelineBuilderEngine.js`)**: Directed Acyclic Graph Pipeline-Editor, Zyklen-Erkennung, topologische Stage-Sortierung, Live Streaming Logs & GitHub Actions YAML Export.
    - **Cloud Architecture SLA & SPOF Canvas (`CloudArchitectureCanvasLab.jsx` & `cloudArchitectureEngine.js`)**: Multi-Tier Topologie-Planung, Compound Availability ($A_{\text{ges}}$), Ausfallzeiten-Rechner und Single-Point-of-Failure Audit.
    - **Transformer Attention & LLM Playground (`TransformerAttentionLab.jsx` & `transformerAttentionEngine.js`)**: Scaled Dot-Product Self-Attention Heatmap, Temperature / Top-P / Top-K Token Sampling und autonome AI-Agenten ReAct-Loops.
    - **GraphQL Schema & Query Explorer (`GraphqlExplorerStudioLab.jsx`)**, **RegEx Railroad Visualizer**, **Webhook Inspector**, **Git 3-Way Merge Conflict Resolver**, **Custom Challenge Creator**, **SQLite WASM Studio** und **Live Coding Challenge Studio**.
@@ -43,8 +47,39 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v3.8.0 Next-Gen Engineering, Architecture & IHK Power Edition)
+## 🔥 Hauptfunktionen & Neue Features (v3.12.0 High-Resilience Engineering, POSIX Ecosystem & IHK Documentation Power Edition)
 
+* **🐧 Linux POSIX Terminal & VFS Sandbox (`LinuxVfsTerminalLab.jsx` & `linuxVfsEngine.js`)**:
+  * Vollständig in-memory simuliertes, hierarchisches Unix/Linux-Dateisystem (`/`, `/etc`, `/var/log`, `/home/dev`, `/bin`).
+  * Echter Unix Command-Parser mit Unterstützung für **Pipes (`|`)**, Output-Redirection (`>`, `>>`) und Standard-Tools (`ls -la`, `cd`, `pwd`, `cat`, `grep`, `wc -l`, `find`, `chmod`, `chown`, `systemctl`, `df -h`, `free -m`, `ps aux`, `echo`, `head`, `tail`, `touch`, `mkdir`, `rm`).
+  * Systemd Service-Manager zur Verwaltung von Dämonen (`nginx.service`, `postgresql.service`, `redis.service`).
+  * 4 praxisnahe **SysAdmin-Notfall-Szenarien** mit automatischem Zustand-Audit & XP-Belohnung (Webserver 502 Bad Gateway beheben, Security Audit & Berechtigungen härten, Disk Space Cleanup & Log-Rotation, User Onboarding).
+* **📝 IHK Projektdokumentation & Nutzwertanalyse-Studio (`IhkProjectPlannerLab.jsx` & `ihkProjectPlannerEngine.js`)**:
+  * Phasen- und Stundenrechner konform mit der Prüfungsordnung **AO 2020** (80h FIAE / 40h FISI).
+  * Validierung der IHK-Phasenverteilung (Analyse, Entwurf, Implementierung, Qualitätssicherung, Dokumentation) mit Warnungen bei Über-/Unterschreitungen.
+  * Interaktive **Nutzwertanalyse (NWA)** mit Gewichtungsprozenten ($\sum = 100\%$), K.O.-Kriterien und Recharts-Balkendiagrammen.
+  * Wirtschaftlichkeitsrechnung (Entwicklungskosten, Einsparungen, Amortisation & 3-Jahres-ROI).
+  * 1-Klick **Druckfertiger Markdown-Export** für den IHK-Abschlussbericht.
+* **🔥 Chaos Engineering & Resilience Studio (`ChaosEngineeringLab.jsx` & `chaosEngineeringEngine.js`)**:
+  * Topologie-Graph mit 5 Microservices (`api_gateway`, `auth_service`, `order_service`, `payment_service`, `inventory_db`).
+  * Fault-Injections: Latenz-Spitzen ($+2200\,\text{ms}$), 500er Crashes, Connection-Pool-Erschöpfung und Cascading Failures.
+  * Interaktives Zuschalten von Resilienz-Patterns: **Circuit Breaker** (Open/Half-Open/Closed), **Token Bucket Rate Limiter**, **Exponential Backoff Retries**, **Fallback Cache** und **Bulkhead-Isolation**.
+* **⚙️ CI/CD Pipeline DAG Studio & Runner (`CiCdPipelineBuilderLab.jsx` & `cicdPipelineBuilderEngine.js`)**:
+  * Directed Acyclic Graph (DAG) Editor zur Definition abhängiger Build-, Test-, Lint-, Security- und Deploy-Jobs.
+  * Automatische **Zyklen-Erkennung** (DFS-Algorithmus) und Berechnung paralleler Ausführungs-Stages (Topologische Sortierung).
+  * Live Streaming-Runner mit ANSI-Farben und realistischen Build-Logs.
+  * Export in produktionsfertiges **GitHub Actions Workflow YAML** (`.github/workflows/pipeline.yml`).
+* **📱 Mobile Swipe-Gesten & Web Vibration Haptics (`src/utils/haptics.js`)**:
+  * Native Web Vibration API Integration mit haptischem Feedback bei richtigen/falschen Antworten (`SUCCESS`, `WARNING`, `LEVEL_UP`).
+  * Tinder-Style Swipe-Gesten mit Framer-Motion für schnelles Lernen im Leitner- und SM-2 Karteikarten-Studio.
+* **⭐ Bookmark & Favoriten-System (`LabsDashboard.jsx`, `storage.js`, `useStore.js`)**:
+  * 1-Klick Stern-Favoriten auf allen Lab-Karten.
+  * Schneller Filter-Tab `"⭐ Favoriten (N)"` im Labs-Hub für gezielten Direktzugriff.
+* **⚡ Command Palette Quick Calculators (`CommandPaletteModal.jsx`)**:
+  * Direkte Schnellrechner im Strg+K-Suchfeld:
+    * **CIDR Subnetting**: Eingabe `/24` $\rightarrow$ berechnet sofort nutzbare Hosts & Subnetzmaske.
+    * **Zahlenbasis-Konverter**: Eingabe `hex 255` oder `bin 42` $\rightarrow$ sofortige Hex/Binär-Umrechnung.
+    * **Arithmetik-Eval**: Direkte mathematische Berechnungen.
 * **⏱️ OS Process Scheduler & Deadlock Studio (`OsProcessSchedulerLab.jsx` & `osSchedulerEngine.js`)**:
   * Vollwertige Simulation von FCFS, Shortest Job First (SJF), Round Robin (mit dynamischem Time-Quantum-Slider) und Priority Scheduling.
   * Animiertes Echtzeit-**Gantt-Diagramm** mit automatischer Berechnung von $T_{WT}$ (Wartezeit), $T_{TAT}$ (Turnaround) und CPU-Auslastung.
@@ -103,8 +138,6 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 * **Lese-Rechtschreib-Hilfe (Dyslexie-Modus)**: Spezialschriftart (*Atkinson Hyperlegible*), erweiterter Zeichen- & Zeilenabstand.
 * **Rot-Grün-Sehhilfe (Farbenblindheits-Modus)**: Zusätzliche Icon-Indikatoren (✓ / ✗) und barrierefreie Farbwelten.
 * **Vorlesefunktion (Text-to-Speech)**: Audio-Steuerung zum Vorlesen aller Lerneinheiten.
-* **Schriftgrößen-Skalierung**: Stufenlose Anpassung (A- / 100% / A+).
-* **100% DSGVO-konform**: Keine Tracking-Cookies, alle Daten verbleiben rein lokal im `localStorage`.
 
 ---
 
@@ -155,7 +188,9 @@ Informatik-lernen/
     │   │   ├── BleSensorSimulatorLab.jsx
     │   │   ├── CampaignQuestHub.jsx
     │   │   ├── CareerRoadmap.jsx
+    │   │   ├── ChaosEngineeringLab.jsx
     │   │   ├── CiCdMatrixLinterLab.jsx
+    │   │   ├── CiCdPipelineBuilderLab.jsx
     │   │   ├── CiCdPipelineLab.jsx
     │   │   ├── CiCdWorkflowLab.jsx
     │   │   ├── CircuitBreakerLab.jsx
@@ -190,6 +225,7 @@ Informatik-lernen/
     │   │   ├── IhkGradeCalculatorLab.jsx
     │   │   ├── IhkOralExamSimulator.jsx
     │   │   ├── IhkProjectDocumentationGenerator.jsx
+    │   │   ├── IhkProjectPlannerLab.jsx
     │   │   ├── Ipv6RoutingLab.jsx
     │   │   ├── ItPodcastHub.jsx
     │   │   ├── ItsmSimulatorLab.jsx
@@ -202,6 +238,7 @@ Informatik-lernen/
     │   │   ├── LanguageAcademy.jsx
     │   │   ├── LeitnerFlashcardLab.jsx
     │   │   ├── LinuxPermissionsLab.jsx
+    │   │   ├── LinuxVfsTerminalLab.jsx
     │   │   ├── LiveCodingChallengeStudio.jsx
     │   │   ├── MonacoStudioLab.jsx
     │   │   ├── NeuralNetVisualizerLab.jsx
@@ -288,6 +325,7 @@ Informatik-lernen/
     │   ├── advancedLabsData.js
     │   ├── aiBusinessData.js
     │   ├── algorithmData.js
+    │   ├── anfaengerGuideData.js
     │   ├── apiStudioData.js
     │   ├── labRegistry.js
     │   ├── labRegistry.smoke.test.jsx
@@ -334,10 +372,16 @@ Informatik-lernen/
     ├── styles/
     │   └── global.css
     └── utils/
+        ├── adaptiveLearningEngine.js
+        ├── adaptiveLearningEngine.test.js
         ├── audioSystem.js
         ├── bleSensorEngine.js
         ├── bleSensorEngine.test.js
         ├── campaignAndExam.test.js
+        ├── chaosEngineeringEngine.js
+        ├── chaosEngineeringEngine.test.js
+        ├── cicdPipelineBuilderEngine.js
+        ├── cicdPipelineBuilderEngine.test.js
         ├── cloudArchitectureEngine.js
         ├── cloudArchitectureEngine.test.js
         ├── codingChallengesEngine.js
@@ -350,15 +394,26 @@ Informatik-lernen/
         ├── gitConflictEngine.test.js
         ├── graphqlSandboxEngine.js
         ├── graphqlSandboxEngine.test.js
+        ├── haptics.js
+        ├── haptics.test.js
         ├── i18n.js
+        ├── i18nContentPilot.test.js
         ├── ieee754.js
         ├── ieee754.test.js
         ├── ihkGradeCalculations.js
         ├── ihkGradeCalculations.test.js
+        ├── ihkProjectPlannerEngine.js
+        ├── ihkProjectPlannerEngine.test.js
         ├── ipv6Routing.js
         ├── ipv6Routing.test.js
         ├── itsmEngine.js
         ├── itsmEngine.test.js
+        ├── k8sClusterEngine.js
+        ├── k8sClusterEngine.test.js
+        ├── linuxVfsEngine.js
+        ├── linuxVfsEngine.test.js
+        ├── oauthPkceEngine.js
+        ├── oauthPkceEngine.test.js
         ├── osSchedulerEngine.js
         ├── osSchedulerEngine.test.js
         ├── p2pQuizEngine.js
@@ -436,6 +491,21 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.14.0 (High-Resilience Engineering, POSIX Ecosystem & IHK Documentation Power Edition)
+
+- **Neu**: `LinuxVfsTerminalLab.jsx` & `src/utils/linuxVfsEngine.js` — Vollwertige In-Memory Linux POSIX Terminal & VFS Sandbox mit Pipes (`|`), Redirections (`>`, `>>`), POSIX-Befehlen (`ls -la`, `cd`, `pwd`, `cat`, `grep`, `wc -l`, `find`, `chmod`, `chown`, `systemctl`, `df -h`, `free -m`, `ps aux`, `echo`, `head`, `tail`, `touch`, `mkdir`, `rm`) und 4 praxisnahen SysAdmin-Notfall-Challenges mit automatischer Zustands-Validierung und XP-Vergabe.
+- **Neu**: `IhkProjectPlannerLab.jsx` & `src/utils/ihkProjectPlannerEngine.js` — IHK Projektdokumentations- und Nutzwertanalyse-Studio nach AO 2020: Phasen- und Stundenrechner (80h FIAE / 40h FISI), automatischer Phasen-Check, interaktive Nutzwertanalyse (NWA) mit K.O.-Kriterien und Recharts-Balkendiagrammen, 3-Jahres-Amortisationsrechner (ROI) und druckfertiger Markdown-Export für den IHK-Abschlussbericht.
+- **Neu**: `ChaosEngineeringLab.jsx` & `src/utils/chaosEngineeringEngine.js` — Microservices Chaos Engineering & Resilience Studio: Fault Injections (Latenz-Spitzen, 500er Crashes, DB-Pool-Erschöpfung, kaskadierende Ausfälle) mit interaktiv zuschaltbaren Schutzmustern (Circuit Breaker, Rate Limiter, Retry mit Exponential Backoff, Fallback Cache, Bulkhead-Isolation).
+- **Neu**: `CiCdPipelineBuilderLab.jsx` & `src/utils/cicdPipelineBuilderEngine.js` — CI/CD Pipeline DAG Studio & Runner: Directed Acyclic Graph Editor, automatische Zyklen-Erkennung, topologische Sortierung paralleler Ausführungsstufen, Live-Streaming-Runner-Simulation und Export in GitHub Actions Workflow YAML.
+- **Neu**: `src/utils/haptics.js` & Mobile Swipe-Gesten — Web Vibration API Integration mit haptischem Feedback (`SUCCESS`, `WARNING`, `LEVEL_UP`) und flüssigen Tinder-Style Swipe-Gesten via Framer-Motion im Leitner- und SM-2 Karteikarten-Studio.
+- **Neu**: Bookmark- & Favoriten-System — 1-Klick Stern-Favoriten auf allen Lab-Karten (`LabsDashboard.jsx`), gespeichert in `userState.bookmarkedLabs` (`storage.js` & `useStore.js`) mit direktem Filter-Tab `"⭐ Favoriten (N)"` im Labs-Hub.
+- **Neu**: Command Palette Quick Calculators — Strg+K Schnellrechner für CIDR Subnetting (`/24` $\rightarrow$ Hosts & Maske), Zahlenbasis-Konvertierung (`hex 255`, `bin 42`) und Inline-Arithmetik.
+- **Codebase-Weite Bereinigung & Stabilität**:
+  - Oxlint auf 0 Warnungen und 0 Fehler gebracht.
+  - Konstanten und Datensätze sauber in `src/data/flashcardsData.js`, `src/data/anfaengerGuideData.js`, `src/data/roadmapData.js` und `src/utils/regexParserEngine.js` ausgelagert.
+  - Alle 106 registrierten Labs im Smoke-Test validiert (`labRegistry.smoke.test.jsx`).
+- **Test-Suite**: **296 bestandene Unit- & Smoke-Tests** in **52 Test-Dateien** mit 100% Erfolgsquote (vorher 271/47).
 
 ### Version 3.13.0 (Hosting-Fallback, Volltextsuche, i18n-Pilot, Lernpfade, Onboarding-Tour & E2E/A11y-Tests)
 

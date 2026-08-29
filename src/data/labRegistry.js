@@ -11,10 +11,34 @@
 // labRegistry.test.js) gegen die IDs hier validiert.
 import { lazy } from 'react';
 import {
-  Award, Brain, Cloud, Code2, Cpu, Database, FileText, Flame, GitMerge, Globe, Layers, Network, Radio, Search, Shield, ShieldCheck, Sparkles, Terminal
+  Award, Brain, Cloud, Code2, Cpu, Database, FileText, Flame, GitMerge, Globe, Layers, Network, Radio, Search, Shield, ShieldCheck, Sparkles, Swords, Terminal
 } from 'lucide-react';
 
 export const LAB_REGISTRY = [
+  {
+    id: 'sql_query_plan',
+    component: lazy(() => import('../components/Content/SqlQueryExecutionPlanLab')),
+    title: 'SQL Query Execution Plan & Cost Optimizer',
+    desc: 'Physischer Ausführungsbaum (Plan Tree), Index Scans vs Full Table Scans, I/O-Kosten & B-Tree Empfehlungen.',
+    category: 'databases',
+    tags: ['#SQL', '#ExecutionPlan', '#CostOptimizer', '#Indexes', '#BTree', '#Performance', '#IHK'],
+    difficulty: 'Advanced',
+    icon: Database,
+    color: '#06b6d4',
+    badge: 'Neu'
+  },
+  {
+    id: 'p2p_code_duel',
+    component: lazy(() => import('../components/Content/P2pCodeDuelLab')),
+    title: 'Live Coding-Duell & Speedrun Arena',
+    desc: 'Echtzeit-Programmierwettkampf gegen Azubis oder KI-Bot mit Live-Testrunner und Fortschritts-Race.',
+    category: 'code',
+    tags: ['#CodingDuel', '#Multiplayer', '#Speedrun', '#Algorithms', '#LeetCode', '#JavaScript'],
+    difficulty: 'Intermediate',
+    icon: Swords,
+    color: '#e11d48',
+    badge: 'Neu'
+  },
   {
     id: 'linux_vfs_lab',
     component: lazy(() => import('../components/Content/LinuxVfsTerminalLab')),

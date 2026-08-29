@@ -87,6 +87,8 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 60+ interaktiven Labs', badge: 'Hub' },
+    { id: 'sql_query_plan', label: '🗄️ SQL Execution Plan & Cost Optimizer', desc: 'Plan Tree, Index Scans, I/O-Kosten & B-Trees', badge: 'Neu' },
+    { id: 'p2p_code_duel', label: '⚔️ Live Coding-Duell & Speedrun Arena', desc: 'Multiplayer Coding-Race gegen Azubis oder Bot', badge: 'Neu' },
     { id: 'linux_vfs_lab', label: '🐧 Linux POSIX Terminal & VFS Sandbox', desc: 'In-Memory VFS mit Pipes, Chmod & SysAdmin Notfällen', badge: 'Neu' },
     { id: 'ihk_project_planner', label: '📝 IHK Projektdokumentation & NWA-Studio', desc: 'Phasen-Rechner, Nutzwertanalyse & Amortisation', badge: 'Neu' },
     { id: 'chaos_engineering', label: '🔥 Chaos Engineering & Resilience Studio', desc: 'Fault Injection, Circuit Breaker & Fallback Cache', badge: 'Neu' },

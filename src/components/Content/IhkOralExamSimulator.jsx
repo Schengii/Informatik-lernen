@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ORAL_EXAM_DATA } from '../../data/oralExamData';
 import { GraduationCap, Timer, CheckCircle2, ChevronRight, RotateCcw, Sparkles, Mic, MicOff } from 'lucide-react';
+import { EXAMINER_PERSONAS, evaluateOralExam } from '../../utils/ihkOralExamEngine';
+import { triggerHaptic } from '../../utils/haptics';
 
 export default function IhkOralExamSimulator({ onRewardXP }) {
   const [selectedRole, setSelectedRole] = useState('ae'); // 'ae' | 'fisi'
@@ -120,6 +122,7 @@ export default function IhkOralExamSimulator({ onRewardXP }) {
     setSelectedOption(idx);
     setShowFeedback(true);
     const isCorrect = currentQuestion.options[idx].isCorrect;
+    triggerHaptic(isCorrect ? 'SUCCESS' : 'WARNING');
     setAnswers(prev => ({ ...prev, [currentQuestion.id]: isCorrect }));
   };
 
@@ -133,7 +136,9 @@ export default function IhkOralExamSimulator({ onRewardXP }) {
       setExamState('result');
       const correctCount = Object.values({ ...answers, [currentQuestion.id]: currentQuestion.options[selectedOption]?.isCorrect }).filter(Boolean).length;
       const score = Math.round((correctCount / questions.length) * 100);
-      if (score >= 50 && onRewardXP) {
+      const evalResult = evaluateOralExam({ techScore: score, methodScore: score, businessScore: score, presentationScore: score });
+      triggerHaptic(evalResult.passed ? 'LEVEL_UP' : 'WARNING');
+      if (evalResult.passed && onRewardXP) {
         onRewardXP(score >= 80 ? 60 : 35);
       }
     }
@@ -240,6 +245,21 @@ export default function IhkOralExamSimulator({ onRewardXP }) {
                   <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', margin: 0 }}>
                     {p.context}
                   </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div style={{ marginBottom: '24px' }}>
+            <h4 style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>
+              3. Dein 3-köpfiger IHK-Prüfungsausschuss:
+            </h4>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '14px' }}>
+              {Object.values(EXAMINER_PERSONAS).map(ex => (
+                <div key={ex.id} style={{ background: 'var(--bg-primary)', padding: '14px', borderRadius: '10px', borderLeft: `4px solid ${ex.avatarColor}`, border: '1px solid var(--border-color)' }}>
+                  <div style={{ fontWeight: 'bold', fontSize: '0.95rem' }}>{ex.name}</div>
+                  <div style={{ fontSize: '0.78rem', color: ex.avatarColor, fontWeight: '600' }}>{ex.role}</div>
+                  <div style={{ fontSize: '0.76rem', color: 'var(--text-muted)', marginTop: '4px' }}>{ex.focus}</div>
                 </div>
               ))}
             </div>
