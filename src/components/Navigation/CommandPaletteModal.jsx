@@ -4,7 +4,7 @@ import {
   Search, Terminal, BookOpen, Sparkles, Trophy, Cpu, Code2,
   Layers, Award, FileText, ArrowRight, X, Command, Database, ShieldCheck,
   Calculator, Globe, ShieldAlert, Brain, GitMerge, Lock, Radio, Flame, Swords,
-  GitBranch, HardDrive, Users, Cloud, Network, Zap
+  GitBranch, HardDrive, Users, Cloud, Network, Zap, Key, TrendingUp
 } from 'lucide-react';
 import { useTranslation } from '../../utils/i18n';
 import { TOPICS } from '../../data/topicsData';
@@ -28,6 +28,10 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, labId: 'dashboard', action: () => onNavigate('dashboard') },
+    { id: 'view-kafka-rebalance', title: 'Apache Kafka Partition Rebalance & Consumer Groups (Sticky Protocol)', category: 'Labs & Tools', icon: Layers, labId: 'kafka_rebalance_lab', action: () => onNavigate('kafka_rebalance_lab') },
+    { id: 'view-ebpf-xdp', title: 'Linux eBPF & XDP Packet Filter Sandbox (Kernel Verifier & XDP_DROP)', category: 'Labs & Tools', icon: Terminal, labId: 'ebpf_xdp_lab', action: () => onNavigate('ebpf_xdp_lab') },
+    { id: 'view-webauthn-passkeys', title: 'WebAuthn / Passkeys & FIDO2 Flow Visualizer (ES256 & Biometrics)', category: 'Labs & Tools', icon: Key, labId: 'webauthn_passkey_lab', action: () => onNavigate('webauthn_passkey_lab') },
+    { id: 'view-wiso-deckungsbeitrag', title: 'Deckungsbeitrags- & Break-Even-Point Studio (DB I, II, III / Fixkosten)', category: 'Prüfung', icon: TrendingUp, labId: 'wiso_contribution_margin', action: () => onNavigate('wiso_contribution_margin') },
     { id: 'view-redis-eviction', title: 'Redis Cache Eviction & Penetration Studio (LRU, LFU, Bloom Filter)', category: 'Labs & Tools', icon: Database, labId: 'redis_eviction_lab', action: () => onNavigate('redis_eviction_lab') },
     { id: 'view-api-benchmark', title: 'REST vs. gRPC vs. GraphQL Benchmark Studio (Protobuf vs JSON)', category: 'Labs & Tools', icon: Zap, labId: 'api_protocol_benchmark', action: () => onNavigate('api_protocol_benchmark') },
     { id: 'view-dsgvo-dsfa', title: 'IHK DSGVO DSFA & TOM-Studio (Art. 35 & 32 Datenschutz-Audit)', category: 'Prüfung', icon: ShieldCheck, labId: 'dsgvo_dsfa_tom', action: () => onNavigate('dsgvo_dsfa_tom') },

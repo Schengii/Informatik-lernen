@@ -11,10 +11,58 @@
 // labRegistry.test.js) gegen die IDs hier validiert.
 import { lazy } from 'react';
 import {
-  Award, Brain, Cloud, Code2, Cpu, Database, FileText, Flame, GitBranch, GitMerge, Globe, HardDrive, Layers, Network, Radio, Search, Shield, ShieldCheck, Sparkles, Swords, Terminal, Users, Zap
+  Award, Brain, Cloud, Code2, Cpu, Database, FileText, Flame, GitBranch, GitMerge, Globe, HardDrive, Key, Layers, Network, Radio, Search, Shield, ShieldCheck, Sparkles, Swords, Terminal, TrendingUp, Users, Zap
 } from 'lucide-react';
 
 export const LAB_REGISTRY = [
+  {
+    id: 'kafka_rebalance_lab',
+    component: lazy(() => import('../components/Content/KafkaRebalanceLab')),
+    title: 'Apache Kafka Partition Rebalance & Consumer Group Studio',
+    desc: 'Consumer Failover, Partition Round-Robin und Cooperative Sticky Rebalancing.',
+    category: 'cloud',
+    tags: ['#Kafka', '#EventStreaming', '#Partitions', '#Rebalance', '#ConsumerGroup', '#DistributedSystems'],
+    difficulty: 'Advanced',
+    icon: Layers,
+    color: '#f59e0b',
+    badge: 'Neu'
+  },
+  {
+    id: 'ebpf_xdp_lab',
+    component: lazy(() => import('../components/Content/EbpfXdpLab')),
+    title: 'Linux eBPF & XDP (eXpress Data Path) Sandbox',
+    desc: 'Paketverarbeitung auf NIC-Treiber-Ebene (XDP_DROP/PASS) und Kernel-Verifier.',
+    category: 'networks',
+    tags: ['#Linux', '#eBPF', '#XDP', '#Kernel', '#Firewall', '#Networking', '#Security'],
+    difficulty: 'Advanced',
+    icon: Terminal,
+    color: '#06b6d4',
+    badge: 'Neu'
+  },
+  {
+    id: 'webauthn_passkey_lab',
+    component: lazy(() => import('../components/Content/WebauthnPasskeyLab')),
+    title: 'WebAuthn / Passkeys & FIDO2 Flow Visualizer',
+    desc: 'Passwortlose Authentifizierung, ES256 Key-Pairs, Authenticator Flags und Assertion-Signaturen.',
+    category: 'code',
+    tags: ['#WebAuthn', '#Passkeys', '#FIDO2', '#Security', '#Cryptography', '#Biometrics'],
+    difficulty: 'Intermediate',
+    icon: Key,
+    color: '#10b981',
+    badge: 'Neu'
+  },
+  {
+    id: 'wiso_contribution_margin',
+    component: lazy(() => import('../components/Content/WisoContributionMarginLab')),
+    title: 'Deckungsbeitrags- & Break-Even-Point Studio (DB I, II, III)',
+    desc: 'Mehrstufige Deckungsbeitragsrechnung, Stückdeckungsbeitrag und Gewinnschwellen-Analyse.',
+    category: 'wiso',
+    tags: ['#WISO', '#Deckungsbeitrag', '#BreakEven', '#Kostenrechnung', '#Fixkosten', '#IHK'],
+    difficulty: 'Beginner',
+    icon: TrendingUp,
+    color: '#3b82f6',
+    badge: 'Neu'
+  },
   {
     id: 'redis_eviction_lab',
     component: lazy(() => import('../components/Content/RedisEvictionLab')),

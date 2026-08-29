@@ -6,7 +6,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.18.0)](#-hauptfunktionen--neue-features-v3180)
+- [Hauptfunktionen & Neue Features (v3.19.0)](#-hauptfunktionen--neue-features-v3190)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -215,6 +215,7 @@ Informatik-lernen/
     │   │   ├── DockerLab.jsx
     │   │   ├── DockerfileOptimizerLab.jsx
     │   │   ├── DsgvoDsfaTomLab.jsx
+    │   │   ├── EbpfXdpLab.jsx
     │   │   ├── ErdDesignerLab.jsx
     │   │   ├── ExamSimulator.jsx
     │   │   ├── FisiLernfelderHub.jsx
@@ -239,6 +240,7 @@ Informatik-lernen/
     │   │   ├── K8sCniOverlayLab.jsx
     │   │   ├── K8sHelmKustomizeLab.jsx
     │   │   ├── KafkaEventLab.jsx
+    │   │   ├── KafkaRebalanceLab.jsx
     │   │   ├── KnowledgeQuizArena.jsx
     │   │   ├── KubernetesLab.jsx
     │   │   ├── LabsDashboard.jsx
@@ -294,7 +296,9 @@ Informatik-lernen/
     │   │   ├── WebRtcSignalingLab.jsx
     │   │   ├── WebSocketProtocolLab.jsx
     │   │   ├── WebSocketsLab.jsx
+    │   │   ├── WebauthnPasskeyLab.jsx
     │   │   ├── WebhookInspectorLab.jsx
+    │   │   ├── WisoContributionMarginLab.jsx
     │   │   ├── WisoKalkulationLab.jsx
     │   │   └── WisoSalaryCalculatorLab.jsx
     │   ├── Footer/
@@ -411,6 +415,8 @@ Informatik-lernen/
         ├── dockerfileOptimizerEngine.test.js
         ├── dsgvoDsfaTomEngine.js
         ├── dsgvoDsfaTomEngine.test.js
+        ├── ebpfXdpEngine.js
+        ├── ebpfXdpEngine.test.js
         ├── erdDesignerEngine.js
         ├── erdDesignerEngine.test.js
         ├── gitConflictEngine.js
@@ -439,6 +445,8 @@ Informatik-lernen/
         ├── k8sClusterEngine.test.js
         ├── k8sHelmKustomizeEngine.js
         ├── k8sHelmKustomizeEngine.test.js
+        ├── kafkaRebalanceEngine.js
+        ├── kafkaRebalanceEngine.test.js
         ├── linuxVfsEngine.js
         ├── linuxVfsEngine.test.js
         ├── oauthPkceEngine.js
@@ -485,8 +493,12 @@ Informatik-lernen/
         ├── voiceQuizEngine.test.js
         ├── webhookSimulator.js
         ├── webhookSimulator.test.js
+        ├── webauthnPasskeyEngine.js
+        ├── webauthnPasskeyEngine.test.js
         ├── wisoCalculations.js
         ├── wisoCalculations.test.js
+        ├── wisoContributionMarginEngine.js
+        ├── wisoContributionMarginEngine.test.js
         ├── wisoSalaryCalcEngine.js
         └── wisoSalaryCalcEngine.test.js
 ```
@@ -536,6 +548,17 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.19.0 (Kafka Partition Rebalance Studio, Linux eBPF/XDP Sandbox, WebAuthn Passkeys & Multi-Stage Deckungsbeitrag Edition)
+
+- **Neu**: `KafkaRebalanceLab.jsx` & `src/utils/kafkaRebalanceEngine.js` — Apache Kafka Partition Rebalance & Consumer Group Studio: Live-Simulation von Consumer Joins/Leaves, Dynamic Partition Assignment (Round-Robin) und Vergleich von Eager vs. Cooperative Sticky Rebalancing.
+- **Neu**: `EbpfXdpLab.jsx` & `src/utils/ebpfXdpEngine.js` — Linux eBPF & XDP (eXpress Data Path) Sandbox: High-Speed Paketfilterung auf NIC-Treiberebene (`XDP_DROP`, `XDP_PASS`, `XDP_TX`) und C-Code-Verifikation im virtuellen eBPF Kernel-Verifier (Bounds-Checking, Loop-Safety).
+- **Neu**: `WebauthnPasskeyLab.jsx` & `src/utils/webauthnPasskeyEngine.js` — WebAuthn / Passkeys & FIDO2 Flow Visualizer: Visualisierung passwortloser Authentifizierung, asymmetrischer Schlüsselpaare (ES256 ECDSA), Authenticator Flags (`UP`, `UV`, `BE`, `BS`) und kryptografischer Signaturverifikation.
+- **Neu**: `WisoContributionMarginLab.jsx` & `src/utils/wisoContributionMarginEngine.js` — IHK WISO Deckungsbeitrags- & Break-Even-Point Studio: Berechnung von Stückdeckungsbeitrag ($db = p - k_v$), mehrstufiger Fixkostendeckung (Erzeugnis-, Bereichs- & Unternehmensfixkosten) bis zum Betriebsergebnis sowie Gewinnschwellen- und Sicherheitskoeffizienten-Analyse.
+- **Codebase-Weite Bereinigung & Stabilität**:
+  - Oxlint auf 0 Warnungen und 0 Fehler über alle 334 Quellcodedateien gehalten.
+  - Alle 123 interaktiven Labs im Smoke-Test validiert (`labRegistry.smoke.test.jsx`).
+- **Test-Suite**: **367 bestandene Unit- & Smoke-Tests** in **72 Test-Dateien** mit 100% Erfolgsquote (vorher 353/68).
 
 ### Version 3.18.0 (Redis Cache Eviction & Bloom Filter, API Protocol Benchmark, DSGVO DSFA Studio & BGP Routing Edition)
 

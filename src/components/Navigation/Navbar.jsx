@@ -87,6 +87,10 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 60+ interaktiven Labs', badge: 'Hub' },
+    { id: 'kafka_rebalance_lab', label: '📨 Kafka Partition Rebalance Studio', desc: 'Consumer Groups, Failover & Sticky Rebalance', badge: 'Neu' },
+    { id: 'ebpf_xdp_lab', label: '🛡️ Linux eBPF & XDP Sandbox', desc: 'NIC Driver Packet Filtering (XDP_DROP/PASS)', badge: 'Neu' },
+    { id: 'webauthn_passkey_lab', label: '🔑 WebAuthn & Passkeys (FIDO2)', desc: 'Biometrie, Asymmetrische Keys & Zero-Password', badge: 'Neu' },
+    { id: 'wiso_contribution_margin', label: '📊 Mehrstufige Deckungsbeitragsrechnung', desc: 'DB I, II, III & Break-Even-Point Gewinnschwelle', badge: 'Neu' },
     { id: 'redis_eviction_lab', label: '⚡ Redis Eviction & Bloom Filter Studio', desc: 'LRU, LFU, TTL & Cache Penetration Defense', badge: 'Neu' },
     { id: 'api_protocol_benchmark', label: '⚡ REST vs. gRPC vs. GraphQL Benchmark', desc: 'Protobuf Binary vs JSON Latenz & Durchsatz', badge: 'Neu' },
     { id: 'dsgvo_dsfa_tom', label: '⚖️ IHK DSGVO DSFA & TOM-Studio', desc: 'Art. 35 Schwellwertanalyse & Art. 32 TOM-Katalog', badge: 'Neu' },
