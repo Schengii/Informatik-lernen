@@ -173,6 +173,12 @@ const EventSourcingLab = lazy(() => import('./components/Content/EventSourcingLa
 const WisoLoanCollateralLab = lazy(() => import('./components/Content/WisoLoanCollateralLab'));
 const WebrtcSfuLab = lazy(() => import('./components/Content/WebrtcSfuLab'));
 
+// v3.15.0 Next-Gen BPFtrace, Postgres WAL, Andler & OpenTelemetry
+const BpftraceLab = lazy(() => import('./components/Content/BpftraceLab'));
+const PostgresWalLab = lazy(() => import('./components/Content/PostgresWalLab'));
+const WisoAndlerLab = lazy(() => import('./components/Content/WisoAndlerLab'));
+const OpentelemetryTracingLab = lazy(() => import('./components/Content/OpentelemetryTracingLab'));
+
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
@@ -1482,6 +1488,34 @@ export default function App() {
             {activeTab === 'webrtc_sfu_lab' && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <WebrtcSfuLab onRewardXP={(xp) => awardXP(xp, 'webrtc_sfu_master')} />
+              </Suspense>
+            )}
+
+            {/* LINUX BPFTRACE DYNAMIC TRACING */}
+            {activeTab === 'bpftrace_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <BpftraceLab onRewardXP={(xp) => awardXP(xp, 'bpftrace_master')} />
+              </Suspense>
+            )}
+
+            {/* POSTGRES WAL & REPLICATION LAG */}
+            {activeTab === 'postgres_wal_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <PostgresWalLab onRewardXP={(xp) => awardXP(xp, 'postgres_wal_master')} />
+              </Suspense>
+            )}
+
+            {/* IHK WISO ANDLER OPTIMALE BESTELLMENGE */}
+            {activeTab === 'wiso_andler' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <WisoAndlerLab onRewardXP={(xp) => awardXP(xp, 'wiso_andler_master')} />
+              </Suspense>
+            )}
+
+            {/* OPENTELEMETRY DISTRIBUTED TRACING */}
+            {activeTab === 'opentelemetry_tracing_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <OpentelemetryTracingLab onRewardXP={(xp) => awardXP(xp, 'opentelemetry_tracing_master')} />
               </Suspense>
             )}
 

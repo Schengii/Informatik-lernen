@@ -142,6 +142,7 @@ Informatik-lernen/
     │   │   ├── BigOBenchmarkLab.jsx
     │   │   ├── BigOVisualizer.jsx
     │   │   ├── BleSensorSimulatorLab.jsx
+    │   │   ├── BpftraceLab.jsx
     │   │   ├── CampaignQuestHub.jsx
     │   │   ├── CareerRoadmap.jsx
     │   │   ├── CiCdMatrixLinterLab.jsx
@@ -202,6 +203,7 @@ Informatik-lernen/
     │   │   ├── OauthOidcLab.jsx
     │   │   ├── OauthPkceStudio.jsx
     │   │   ├── OauthTokenExchangeLab.jsx
+    │   │   ├── OpentelemetryTracingLab.jsx
     │   │   ├── OsProcessSchedulerLab.jsx
     │   │   ├── OwaspExploitLab.jsx
     │   │   ├── P2pQuizDuellLab.jsx
@@ -213,6 +215,7 @@ Informatik-lernen/
     │   │   ├── PostgresFlamegraphLab.jsx
     │   │   ├── PostgresMvccLab.jsx
     │   │   ├── PostgresPoolLab.jsx
+    │   │   ├── PostgresWalLab.jsx
     │   │   ├── PromqlAlertLab.jsx
     │   │   ├── PythonWasmLab.jsx
     │   │   ├── RackConfiguratorLab.jsx
@@ -250,6 +253,7 @@ Informatik-lernen/
     │   │   ├── WebhookInspectorLab.jsx
     │   │   ├── WireguardZtnaLab.jsx
     │   │   ├── WisoAbcXyzLab.jsx
+    │   │   ├── WisoAndlerLab.jsx
     │   │   ├── WisoContributionMarginLab.jsx
     │   │   ├── WisoDunningLab.jsx
     │   │   ├── WisoLoanCollateralLab.jsx
@@ -340,6 +344,8 @@ Informatik-lernen/
         ├── audioSystem.js
         ├── bleSensorEngine.js
         ├── bleSensorEngine.test.js
+        ├── bpftraceEngine.js
+        ├── bpftraceEngine.test.js
         ├── campaignAndExam.test.js
         ├── cloudArchitectureEngine.js
         ├── cloudArchitectureEngine.test.js
@@ -374,6 +380,8 @@ Informatik-lernen/
         ├── linuxMemoryEngine.test.js
         ├── oauthTokenExchangeEngine.js
         ├── oauthTokenExchangeEngine.test.js
+        ├── opentelemetryTracingEngine.js
+        ├── opentelemetryTracingEngine.test.js
         ├── osSchedulerEngine.js
         ├── osSchedulerEngine.test.js
         ├── p2pQuizEngine.js
@@ -386,6 +394,8 @@ Informatik-lernen/
         ├── postgresMvccEngine.test.js
         ├── postgresPoolEngine.js
         ├── postgresPoolEngine.test.js
+        ├── postgresWalEngine.js
+        ├── postgresWalEngine.test.js
         ├── promqlAlertEngine.js
         ├── promqlAlertEngine.test.js
         ├── rackCalculations.js
@@ -418,6 +428,8 @@ Informatik-lernen/
         ├── wireguardZtnaEngine.test.js
         ├── wisoAbcXyzEngine.js
         ├── wisoAbcXyzEngine.test.js
+        ├── wisoAndlerEngine.js
+        ├── wisoAndlerEngine.test.js
         ├── wisoCalculations.js
         ├── wisoCalculations.test.js
         ├── wisoContributionMarginEngine.js
@@ -473,6 +485,15 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.27.0 (Linux BPFtrace, Postgres WAL Replication, IHK Andler & OpenTelemetry Edition)
+
+- **Neu**: `BpftraceLab.jsx` & `src/utils/bpftraceEngine.js` — Linux BPFtrace Dynamic Tracing Studio: Kernel Kprobes (`kprobe:vfs_read`), Tracepoints (`sys_enter_openat`) und Uprobes (`uprobe:/bin/bash:readline`) mit Auswertung von Latenz-Histogrammen (`hist()`).
+- **Neu**: `PostgresWalLab.jsx` & `src/utils/postgresWalEngine.js` — PostgreSQL WAL & Streaming Replication Studio: Berechnung von Log Sequence Number (LSN) Byte-Offsets (`0/16B3748`), Replikations-Verzögerungen (`replay_lag`) und Point-In-Time-Recovery (PITR).
+- **Neu**: `WisoAndlerLab.jsx` & `src/utils/wisoAndlerEngine.js` — IHK WISO Optimale Bestellmenge (Andler) Studio: Klassische Losgrößenformel ($x_{\text{opt}} = \sqrt{\frac{200 \times J \times k_f}{p \times l_s}}$), Bestellintervall $t_{\text{opt}}$, Bestellhäufigkeit $n_{\text{opt}}$ und Kostenoptimum (Schnittpunkt von Bestellfixkosten und Lagerhaltungskosten).
+- **Neu**: `OpentelemetryTracingLab.jsx` & `src/utils/opentelemetryTracingEngine.js` — OpenTelemetry Distributed Tracing Studio: W3C `traceparent` Header-Generierung (`00-traceId-spanId-01`), Baggage-Propagation und interaktive Waterfall Trace Spans (Jaeger/Zipkin-Stil).
+- **Routing & Navigation**: Vollständige Verknüpfung in `Navbar.jsx`, `CommandPaletteModal.jsx` und `App.jsx`.
+- **Test-Suite**: **171 bestandene Unit-Tests** in **59 Test-Dateien** mit 100% Erfolgsquote (vorher 164/55).
 
 ### Version 3.26.0 (Prometheus PromQL, Event-Sourcing CQRS, IHK Darlehen/Tilgung & WebRTC SFU Edition)
 
