@@ -167,6 +167,12 @@ const PostgresFlamegraphLab = lazy(() => import('./components/Content/PostgresFl
 const WisoAbcXyzLab = lazy(() => import('./components/Content/WisoAbcXyzLab'));
 const WireguardZtnaLab = lazy(() => import('./components/Content/WireguardZtnaLab'));
 
+// v3.14.0 Next-Gen PromQL, Event-Sourcing, Loan & SFU
+const PromqlAlertLab = lazy(() => import('./components/Content/PromqlAlertLab'));
+const EventSourcingLab = lazy(() => import('./components/Content/EventSourcingLab'));
+const WisoLoanCollateralLab = lazy(() => import('./components/Content/WisoLoanCollateralLab'));
+const WebrtcSfuLab = lazy(() => import('./components/Content/WebrtcSfuLab'));
+
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
@@ -1448,6 +1454,34 @@ export default function App() {
             {activeTab === 'wireguard_ztna_lab' && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <WireguardZtnaLab onRewardXP={(xp) => awardXP(xp, 'wireguard_ztna_master')} />
+              </Suspense>
+            )}
+
+            {/* PROMETHEUS PROMQL & ALERTING */}
+            {activeTab === 'promql_alert_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <PromqlAlertLab onRewardXP={(xp) => awardXP(xp, 'promql_alert_master')} />
+              </Suspense>
+            )}
+
+            {/* EVENT SOURCING & CQRS */}
+            {activeTab === 'event_sourcing_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <EventSourcingLab onRewardXP={(xp) => awardXP(xp, 'event_sourcing_master')} />
+              </Suspense>
+            )}
+
+            {/* IHK WISO DARLEHENSARTEN & TILGUNG */}
+            {activeTab === 'wiso_loan_collateral' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <WisoLoanCollateralLab onRewardXP={(xp) => awardXP(xp, 'wiso_loan_collateral_master')} />
+              </Suspense>
+            )}
+
+            {/* WEBRTC MEDIA ARCHITECTURE (SFU/MCU/MESH) */}
+            {activeTab === 'webrtc_sfu_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <WebrtcSfuLab onRewardXP={(xp) => awardXP(xp, 'webrtc_sfu_master')} />
               </Suspense>
             )}
 

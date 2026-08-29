@@ -166,6 +166,7 @@ Informatik-lernen/
     │   │   ├── DockerLab.jsx
     │   │   ├── EbpfXdpLab.jsx
     │   │   ├── ErdDesignerLab.jsx
+    │   │   ├── EventSourcingLab.jsx
     │   │   ├── ExamSimulator.jsx
     │   │   ├── FisiLernfelderHub.jsx
     │   │   ├── GitBranchGraphLab.jsx
@@ -212,6 +213,7 @@ Informatik-lernen/
     │   │   ├── PostgresFlamegraphLab.jsx
     │   │   ├── PostgresMvccLab.jsx
     │   │   ├── PostgresPoolLab.jsx
+    │   │   ├── PromqlAlertLab.jsx
     │   │   ├── PythonWasmLab.jsx
     │   │   ├── RackConfiguratorLab.jsx
     │   │   ├── RagAiSimulator.jsx
@@ -241,6 +243,7 @@ Informatik-lernen/
     │   │   ├── WasmRustStudio.jsx
     │   │   ├── WebComponentsHub.jsx
     │   │   ├── WebRtcPeerStudioLab.jsx
+    │   │   ├── WebRtcSfuLab.jsx
     │   │   ├── WebRtcSignalingLab.jsx
     │   │   ├── WebSocketProtocolLab.jsx
     │   │   ├── WebSocketsLab.jsx
@@ -249,6 +252,7 @@ Informatik-lernen/
     │   │   ├── WisoAbcXyzLab.jsx
     │   │   ├── WisoContributionMarginLab.jsx
     │   │   ├── WisoDunningLab.jsx
+    │   │   ├── WisoLoanCollateralLab.jsx
     │   │   └── WisoKalkulationLab.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
@@ -347,6 +351,8 @@ Informatik-lernen/
         ├── ebpfXdpEngine.test.js
         ├── erdDesignerEngine.js
         ├── erdDesignerEngine.test.js
+        ├── eventSourcingEngine.js
+        ├── eventSourcingEngine.test.js
         ├── gitConflictEngine.js
         ├── gitConflictEngine.test.js
         ├── graphqlSandboxEngine.js
@@ -380,6 +386,8 @@ Informatik-lernen/
         ├── postgresMvccEngine.test.js
         ├── postgresPoolEngine.js
         ├── postgresPoolEngine.test.js
+        ├── promqlAlertEngine.js
+        ├── promqlAlertEngine.test.js
         ├── rackCalculations.js
         ├── rackCalculations.test.js
         ├── regexParserEngine.js
@@ -404,6 +412,8 @@ Informatik-lernen/
         ├── voiceQuizEngine.test.js
         ├── webhookSimulator.js
         ├── webhookSimulator.test.js
+        ├── webrtcSfuEngine.js
+        ├── webrtcSfuEngine.test.js
         ├── wireguardZtnaEngine.js
         ├── wireguardZtnaEngine.test.js
         ├── wisoAbcXyzEngine.js
@@ -413,7 +423,9 @@ Informatik-lernen/
         ├── wisoContributionMarginEngine.js
         ├── wisoContributionMarginEngine.test.js
         ├── wisoDunningEngine.js
-        └── wisoDunningEngine.test.js
+        ├── wisoDunningEngine.test.js
+        ├── wisoLoanCollateralEngine.js
+        └── wisoLoanCollateralEngine.test.js
 ```
 
 ---
@@ -461,6 +473,15 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.26.0 (Prometheus PromQL, Event-Sourcing CQRS, IHK Darlehen/Tilgung & WebRTC SFU Edition)
+
+- **Neu**: `PromqlAlertLab.jsx` & `src/utils/promqlAlertEngine.js` — Prometheus PromQL & Alerting Studio: Histogramm-Quantile (`histogram_quantile(0.95, ...)`), Fehlerraten-Berechnungen und automatische Generierung von Prometheus Alerting Rule YAML Manifesten.
+- **Neu**: `EventSourcingLab.jsx` & `src/utils/eventSourcingEngine.js` — Event-Sourcing & CQRS Read-Model Studio: Unveränderliche Append-Only Event Logs, deterministischer Event-Replay zur Zustandswiederherstellung und Snapshotting.
+- **Neu**: `WisoLoanCollateralLab.jsx` & `src/utils/wisoLoanCollateralEngine.js` — IHK WISO Darlehensarten & Kreditsicherheiten Studio: Jährliche Tilgungspläne für Annuitäten-, Raten- und Fälligkeitsdarlehen sowie IHK-Klassifizierung von Personal- (Bürgschaft, Zession) und Realsicherheiten (Grundschuld, Sicherungsübereignung).
+- **Neu**: `WebrtcSfuLab.jsx` & `src/utils/webrtcSfuEngine.js` — WebRTC Media Server Architecture Studio: Vergleich von $O(N^2)$ Full Mesh P2P, MCU Transcoding und modernem SFU Simulcast Dynamic Layer-Routing.
+- **Routing & Navigation**: Nahtlose Integration in `Navbar.jsx`, `CommandPaletteModal.jsx` und `App.jsx`.
+- **Test-Suite**: **164 bestandene Unit-Tests** in **55 Test-Dateien** mit 100% Erfolgsquote (vorher 158/51).
 
 ### Version 3.25.0 (Linux eBPF/XDP, Postgres FlameGraph, IHK ABC/XYZ & WireGuard ZTNA Edition)
 
