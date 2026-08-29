@@ -48,6 +48,42 @@ export default function P2pQuizDuellLab() {
     soundManager.playSFX('click');
   };
 
+  const evaluateRoundRef = useRef(null);
+
+  const evaluateRound = (pChoice, bData, remainingTime) => {
+    const isPlayerCorrect = pChoice !== null && pChoice === currentQ.correct;
+    const playerGain = calculateRoundScore(isPlayerCorrect, remainingTime, currentQ.timeLimit);
+    const botGain = bData ? bData.score : 0;
+
+    const newPScore = playerScore + playerGain;
+    const newBScore = opponentScore + botGain;
+
+    setPlayerScore(newPScore);
+    setOpponentScore(newBScore);
+
+    if (isPlayerCorrect) {
+      soundManager.playSFX('success');
+    } else {
+      soundManager.playSFX('error');
+    }
+
+    setRoundHistory((prev) => [
+      ...prev,
+      {
+        question: currentQ.question,
+        correct: currentQ.correct,
+        playerChoice: pChoice,
+        isPlayerCorrect,
+        playerGain,
+        botChoice: bData ? bData.chosenOption : null,
+        botGain
+      }
+    ]);
+
+    setGameState('round_result');
+  };
+  evaluateRoundRef.current = evaluateRound;
+
   // Timer Effect
   useEffect(() => {
     if (gameState === 'in_game') {
@@ -60,7 +96,7 @@ export default function P2pQuizDuellLab() {
         setTimeLeft((prev) => {
           if (prev <= 1) {
             clearInterval(timerRef.current);
-            evaluateRound(null, botResponse, 0);
+            evaluateRoundRef.current?.(null, botResponse, 0);
             return 0;
           }
           return prev - 1;
@@ -80,39 +116,6 @@ export default function P2pQuizDuellLab() {
     clearInterval(timerRef.current);
     setPlayerSelected(optionIdx);
     evaluateRound(optionIdx, botSelectedData, timeLeft);
-  };
-
-  const evaluateRound = (pChoice, bData, remainingTime) => {
-    const isPlayerCorrect = pChoice !== null && pChoice === currentQ.correct;
-    const playerGain = calculateRoundScore(isPlayerCorrect, remainingTime, currentQ.timeLimit);
-    const botGain = bData ? bData.score : 0;
-
-    const newPScore = playerScore + playerGain;
-    const newBScore = opponentScore + botGain;
-
-    setPlayerScore(newPScore);
-    setOpponentScore(newBScore);
-
-    if (isPlayerCorrect) {
-      soundManager.playSFX('success');
-    } else {
-      soundManager.playSFX('error');
-    }
-
-    setRoundHistory(prev => [
-      ...prev,
-      {
-        question: currentQ.question,
-        correct: currentQ.correct,
-        playerChoice: pChoice,
-        isPlayerCorrect,
-        playerGain,
-        botChoice: bData ? bData.chosenOption : null,
-        botGain
-      }
-    ]);
-
-    setGameState('round_result');
   };
 
   const handleNextRound = () => {

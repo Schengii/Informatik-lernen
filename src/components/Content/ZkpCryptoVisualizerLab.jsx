@@ -3,34 +3,26 @@ import { Shield, Key, EyeOff, CheckCircle2, ShieldAlert, ArrowRight } from 'luci
 import { useStore } from '../../store/useStore';
 import { EllipticCurve, simulateSchnorrZkp } from '../../utils/zkpCryptoEngine';
 
+// Setup static curve parameters outside component
+const CURVE = new EllipticCurve(2n, 2n, 17n);
+const G_POINT = [5n, 1n];
+const ORDER_N = 19n;
+const PRIVATE_KEY_X = 7n; // Secret
+
 export default function ZkpCryptoVisualizerLab() {
   const { awardXP } = useStore();
   const [step, setStep] = useState(0);
   const [zkpData, setZkpData] = useState(null);
 
-  // Setup our simple curve
-  const curve = new EllipticCurve(2n, 2n, 17n);
-  const G = [5n, 1n];
-  const orderN = 19n;
-  const privateKeyX = 7n; // Secret
-
   useEffect(() => {
     if (step === 1 && !zkpData) {
-      const data = simulateSchnorrZkp(curve, G, orderN, privateKeyX);
+      const data = simulateSchnorrZkp(CURVE, G_POINT, ORDER_N, PRIVATE_KEY_X);
       setZkpData(data);
     }
     if (step === 4) {
       awardXP(45, 'Zero-Knowledge Proof Verifier');
     }
-  }, [
-    step,
-    zkpData,
-    orderN,
-    privateKeyX,
-    awardXP,
-    curve,
-    G
-  ]);
+  }, [step, zkpData, awardXP]);
 
   const nextStep = () => {
     if (step < 4) setStep(step + 1);

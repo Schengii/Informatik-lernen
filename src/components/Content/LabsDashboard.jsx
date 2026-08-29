@@ -1,18 +1,23 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Sparkles, Play } from 'lucide-react';
+import { Search, Sparkles, Play, Star } from 'lucide-react';
 import { LAB_REGISTRY } from '../../data/labRegistry';
+import { useStore } from '../../store/useStore';
 
 // LAB_MODULES ist jetzt ein Alias für die zentrale Registry (siehe src/data/labRegistry.js).
-// Vorher pflegte diese Datei ihre eigene, unabhängige Kopie der Lab-Liste - eine von vier
-// Stellen, die laut Changelog wiederholt auseinanderliefen (tote Links, nie verlinkte Labs).
 export const LAB_MODULES = LAB_REGISTRY;
 
 export default function LabsDashboard({ onSelectLab }) {
+  const { userState, toggleBookmarkLab } = useStore();
+  const bookmarkedLabs = useMemo(() => {
+    return Array.isArray(userState?.bookmarkedLabs) ? userState.bookmarkedLabs : [];
+  }, [userState?.bookmarkedLabs]);
+
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const categories = [
     { id: 'all', name: 'Alle Labs' },
+    { id: 'bookmarks', name: `⭐ Favoriten (${bookmarkedLabs.length})` },
     { id: 'ihk', name: '🎓 IHK Prüfung & Karriere' },
     { id: 'algorithms', name: 'Algorithmen & Datenstrukturen' },
     { id: 'devops', name: 'DevOps & Git' },
@@ -31,10 +36,16 @@ export default function LabsDashboard({ onSelectLab }) {
         lab.desc.toLowerCase().includes(searchTerm.toLowerCase()) ||
         lab.tags.some(t => t.toLowerCase().includes(searchTerm.toLowerCase()));
       
-      const matchesCat = selectedCategory === 'all' || lab.category === selectedCategory;
+      let matchesCat = true;
+      if (selectedCategory === 'bookmarks') {
+        matchesCat = bookmarkedLabs.includes(lab.id);
+      } else if (selectedCategory !== 'all') {
+        matchesCat = lab.category === selectedCategory;
+      }
+
       return matchesSearch && matchesCat;
     });
-  }, [searchTerm, selectedCategory]);
+  }, [searchTerm, selectedCategory, bookmarkedLabs]);
 
   return (
     <div style={{ background: 'var(--bg-card)', padding: '28px', borderRadius: 'var(--radius-xl)', border: '1px solid var(--border-color)' }}>
@@ -111,11 +122,32 @@ export default function LabsDashboard({ onSelectLab }) {
                   <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: `${lab.color}20`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Icon size={22} color={lab.color} />
                   </div>
-                  {lab.badge && (
-                    <span className="badge badge-emerald" style={{ fontSize: '0.7rem' }}>
-                      {lab.badge}
-                    </span>
-                  )}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    {lab.badge && (
+                      <span className="badge badge-emerald" style={{ fontSize: '0.7rem' }}>
+                        {lab.badge}
+                      </span>
+                    )}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleBookmarkLab(lab.id);
+                      }}
+                      title={bookmarkedLabs.includes(lab.id) ? 'Favorit entfernen' : 'Als Favorit merken'}
+                      style={{
+                        background: 'transparent',
+                        border: 'none',
+                        cursor: 'pointer',
+                        padding: '4px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: bookmarkedLabs.includes(lab.id) ? '#f59e0b' : 'var(--text-muted)'
+                      }}
+                    >
+                      <Star size={18} fill={bookmarkedLabs.includes(lab.id) ? '#f59e0b' : 'none'} />
+                    </button>
+                  </div>
                 </div>
 
                 <h3 style={{ fontSize: '1.15rem', fontWeight: '800', margin: '0 0 8px 0', color: 'var(--text-main)' }}>

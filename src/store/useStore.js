@@ -204,6 +204,28 @@ export const useStore = create((set) => {
         saveUserState(updatedState);
         return { userState: updatedState };
       });
+    },
+
+    toggleBookmarkLab: (labId) => {
+      let isBookmarked = false;
+      set((state) => {
+        const prev = state.userState;
+        const currentBookmarks = Array.isArray(prev.bookmarkedLabs) ? prev.bookmarkedLabs : [];
+        let updatedBookmarks;
+        if (currentBookmarks.includes(labId)) {
+          updatedBookmarks = currentBookmarks.filter((id) => id !== labId);
+          soundManager.playSFX('click');
+          isBookmarked = false;
+        } else {
+          updatedBookmarks = [...currentBookmarks, labId];
+          soundManager.playSFX('success');
+          isBookmarked = true;
+        }
+        const updatedState = { ...prev, bookmarkedLabs: updatedBookmarks };
+        saveUserState(updatedState);
+        return { userState: updatedState };
+      });
+      return isBookmarked;
     }
   };
 });

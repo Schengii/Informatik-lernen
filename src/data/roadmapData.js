@@ -42,3 +42,38 @@ export const CAREER_ROADMAPS = [
     ]
   }
 ];
+
+export const SKILL_TREE_DATA = [
+  {
+    category: 'Tier 1: IT-Grundlagen',
+    nodes: [
+      { id: 'eva', title: 'EVA-Prinzip & Hardware', desc: 'Eingabe, Verarbeitung, Ausgabe & CPU Aufbau', xp: 50, req: null },
+      { id: 'binary', title: 'Binärsystem & Zahlensysteme', desc: 'Dezimal, Binär, Hexadezimal & Bitshift', xp: 50, req: null },
+      { id: 'networks', title: 'Netzwerk Grundlagen', desc: 'OSI-Modell, TCP/IP, DNS & IP-Adressen', xp: 75, req: null }
+    ]
+  },
+  {
+    category: 'Tier 2: Programmierung & Datenbanken',
+    nodes: [
+      { id: 'js_es6', title: 'JavaScript ES6+ & Async', desc: 'Promises, Async/Await, Array Methods', xp: 100, req: 'eva' },
+      { id: 'sql_master', title: 'SQL & Relationale DBs', desc: 'JOINs, Subqueries, Normalisierung (1NF-3NF)', xp: 120, req: 'binary' },
+      { id: 'python_core', title: 'Python Programming', desc: 'OOP, Datenstrukturen & Data Cleaning', xp: 100, req: 'binary' }
+    ]
+  },
+  {
+    category: 'Tier 3: Systemintegration & Cloud Native',
+    nodes: [
+      { id: 'subnetting', title: 'CIDR Subnetting & Routing', desc: 'Subnetzmasken, Netz-ID & Broadcast', xp: 150, req: 'networks' },
+      { id: 'git_branching', title: 'Git Workflows & Merging', desc: 'Commits, Rebase, Branching & Conflict Resolution', xp: 150, req: 'js_es6' },
+      { id: 'docker_k8s', title: 'Docker & Kubernetes', desc: 'Container, Pods, Deployments & Services', xp: 200, req: 'sql_master' }
+    ]
+  },
+  {
+    category: 'Tier 4: Enterprise Architecture & AI',
+    nodes: [
+      { id: 'microservices', title: 'Microservices & Event-Driven', desc: 'Apache Kafka, Circuit Breakers & REST/gRPC', xp: 250, req: 'docker_k8s' },
+      { id: 'rag_ai', title: 'RAG & Vector AI Pipelines', desc: 'Embeddings, Vector DBs (Pinecone/Chroma)', xp: 300, req: 'python_core' }
+    ]
+  }
+];
+

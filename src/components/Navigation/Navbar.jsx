@@ -87,6 +87,10 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 60+ interaktiven Labs', badge: 'Hub' },
+    { id: 'linux_vfs_lab', label: '🐧 Linux POSIX Terminal & VFS Sandbox', desc: 'In-Memory VFS mit Pipes, Chmod & SysAdmin Notfällen', badge: 'Neu' },
+    { id: 'ihk_project_planner', label: '📝 IHK Projektdokumentation & NWA-Studio', desc: 'Phasen-Rechner, Nutzwertanalyse & Amortisation', badge: 'Neu' },
+    { id: 'chaos_engineering', label: '🔥 Chaos Engineering & Resilience Studio', desc: 'Fault Injection, Circuit Breaker & Fallback Cache', badge: 'Neu' },
+    { id: 'cicd_dag_builder', label: '⚙️ CI/CD Pipeline DAG Studio & Runner', desc: 'Directed Acyclic Graph & GitHub Actions YAML', badge: 'Neu' },
     { id: 'os_scheduler', label: '⏱️ OS Process Scheduler & Deadlock', desc: 'FCFS, SJF, Round Robin & Bankier-Algorithmus', badge: 'Flagship' },
     { id: 'packet_sniffer', label: '📡 Web-Wireshark Packet Sniffer', desc: 'Frame Dissection, Hex Dump & Display Filter', badge: 'Flagship' },
     { id: 'erd_designer', label: '🗄️ Relational ERD & 3NF Normalform-Linter', desc: 'Entity Relationships, 1NF-3NF Audit & SQL DDL', badge: 'Flagship' },

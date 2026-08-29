@@ -29,13 +29,15 @@ export default function ExamSimulator({ onCompleteExam }) {
     setScoreData(null);
   }, [activeModeId, currentMode.durationMinutes]);
 
+  const handleSubmitRef = useRef(null);
+
   useEffect(() => {
     let interval = null;
     if (isTimerRunning && !isSubmitted && timeLeft > 0) {
       interval = setInterval(() => {
-        setTimeLeft(prev => {
+        setTimeLeft((prev) => {
           if (prev <= 1) {
-            handleSubmit();
+            handleSubmitRef.current?.();
             return 0;
           }
           return prev - 1;
@@ -111,6 +113,7 @@ export default function ExamSimulator({ onCompleteExam }) {
       onCompleteExam(percent, percent >= 80 ? 150 : 80);
     }
   };
+  handleSubmitRef.current = handleSubmit;
 
   const handleReset = () => {
     setSelectedAnswers({});

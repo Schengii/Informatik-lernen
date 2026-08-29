@@ -11,10 +11,58 @@
 // labRegistry.test.js) gegen die IDs hier validiert.
 import { lazy } from 'react';
 import {
-  Award, Brain, Cloud, Code2, Cpu, Database, FileText, Globe, Layers, Network, Radio, Search, Shield, ShieldCheck, Sparkles, Terminal
+  Award, Brain, Cloud, Code2, Cpu, Database, FileText, Flame, GitMerge, Globe, Layers, Network, Radio, Search, Shield, ShieldCheck, Sparkles, Terminal
 } from 'lucide-react';
 
 export const LAB_REGISTRY = [
+  {
+    id: 'linux_vfs_lab',
+    component: lazy(() => import('../components/Content/LinuxVfsTerminalLab')),
+    title: 'Linux POSIX Terminal & VFS Sandbox',
+    desc: 'In-Memory hierarchisches Dateisystem mit Pipes, Redirection, Chmod, Systemctl & SysAdmin-Notfall-Challenges.',
+    category: 'cloud',
+    tags: ['#Linux', '#Bash', '#VFS', '#SysAdmin', '#Pipes', '#Systemd', '#IHK'],
+    difficulty: 'Advanced',
+    icon: Terminal,
+    color: '#10b981',
+    badge: 'Neu'
+  },
+  {
+    id: 'ihk_project_planner',
+    component: lazy(() => import('../components/Content/IhkProjectPlannerLab')),
+    title: 'IHK Projektdokumentation & Nutzwertanalyse-Studio',
+    desc: 'Phasen- & Stundenrechner (AO 2020), interaktive Nutzwertanalyse (NWA), Amortisation & druckfertiger Markdown-Export.',
+    category: 'ihk',
+    tags: ['#IHK', '#Projektdokumentation', '#Nutzwertanalyse', '#NWA', '#Amortisation', '#AO2020'],
+    difficulty: 'Intermediate',
+    icon: FileText,
+    color: '#6366f1',
+    badge: 'Neu'
+  },
+  {
+    id: 'chaos_engineering',
+    component: lazy(() => import('../components/Content/ChaosEngineeringLab')),
+    title: 'Chaos Engineering & Resilience Studio',
+    desc: 'Microservices Fault Injection, Cascading Failures, Circuit Breaker, Rate Limiter & Fallback Cache Simulation.',
+    category: 'cloud',
+    tags: ['#ChaosEngineering', '#Microservices', '#CircuitBreaker', '#Resilience', '#FaultInjection'],
+    difficulty: 'Advanced',
+    icon: Flame,
+    color: '#ef4444',
+    badge: 'Neu'
+  },
+  {
+    id: 'cicd_dag_builder',
+    component: lazy(() => import('../components/Content/CiCdPipelineBuilderLab')),
+    title: 'CI/CD Pipeline DAG Studio & Runner',
+    desc: 'Directed Acyclic Graph Pipeline-Editor, parallele Stages, Live Runner Logs & GitHub Actions YAML Export.',
+    category: 'cloud',
+    tags: ['#CICD', '#DAG', '#DevOps', '#GitHubActions', '#Pipeline', '#Automation'],
+    difficulty: 'Advanced',
+    icon: GitMerge,
+    color: '#3b82f6',
+    badge: 'Neu'
+  },
   {
     id: 'wiso_kalkulation',
     component: lazy(() => import('../components/Content/WisoKalkulationLab')),
@@ -457,6 +505,7 @@ export const LAB_REGISTRY = [
   },
   {
     id: 'subnetting',
+    aliases: ['subnetting_lab'],
     component: lazy(() => import('../components/Content/SubnettingLab')),
     title: 'CIDR Subnetting & Network Calculator Lab',
     desc: 'Interaktive Subnetz-Berechnung, Host-Range Analyse & IHK-Prüfungstraining.',

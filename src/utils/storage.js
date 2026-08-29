@@ -19,7 +19,8 @@ export const initialProfileState = {
   activityHistory: {}, // { '2026-08-22': { count: 3, xp: 150 } }
   categoryStats: {}, // { [categoryKey]: { label, source, correct, total } } — Basis für adaptive Lernempfehlungen
   soundSettings: { volume: 0.5, isMuted: false },
-  hasSeenTour: false // steuert die einmalige FirstVisitTourOverlay nach der Rollenauswahl
+  hasSeenTour: false, // steuert die einmalige FirstVisitTourOverlay nach der Rollenauswahl
+  bookmarkedLabs: [] // gemerkte / favorisierte Labs des Nutzers
 };
 
 export const getTodayDateKey = () => {

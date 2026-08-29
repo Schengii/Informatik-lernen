@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Search, Terminal, BookOpen, Sparkles, Trophy, Cpu, Code2,
   Layers, Award, FileText, ArrowRight, X, Command, Database, ShieldCheck,
-  Calculator, Globe, ShieldAlert, Brain, GitMerge, Lock, Radio
+  Calculator, Globe, ShieldAlert, Brain, GitMerge, Lock, Radio, Flame
 } from 'lucide-react';
 import { useTranslation } from '../../utils/i18n';
 import { TOPICS } from '../../data/topicsData';
@@ -27,6 +27,10 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, labId: 'dashboard', action: () => onNavigate('dashboard') },
+    { id: 'view-linux-vfs', title: 'Linux POSIX Terminal & VFS Sandbox (Pipes, Chmod, Systemd)', category: 'Labs & Tools', icon: Terminal, labId: 'linux_vfs_lab', action: () => onNavigate('linux_vfs_lab') },
+    { id: 'view-ihk-project-planner', title: 'IHK Projektdokumentation & Nutzwertanalyse-Studio (AO 2020)', category: 'Prüfung', icon: FileText, labId: 'ihk_project_planner', action: () => onNavigate('ihk_project_planner') },
+    { id: 'view-chaos-engineering', title: 'Chaos Engineering & Microservice Failure Studio', category: 'Labs & Tools', icon: Flame, labId: 'chaos_engineering', action: () => onNavigate('chaos_engineering') },
+    { id: 'view-cicd-dag', title: 'CI/CD Pipeline DAG Studio & Runner (GitHub Actions)', category: 'Labs & Tools', icon: GitMerge, labId: 'cicd_dag_builder', action: () => onNavigate('cicd_dag_builder') },
     { id: 'view-os-scheduler', title: 'OS Process Scheduler & Deadlock Studio (Gantt & Bankier)', category: 'Labs & Tools', icon: Cpu, labId: 'os_scheduler', action: () => onNavigate('os_scheduler') },
     { id: 'view-packet-sniffer', title: 'Web-Wireshark Packet Sniffer & Hex Analyzer', category: 'Labs & Tools', icon: Terminal, labId: 'packet_sniffer', action: () => onNavigate('packet_sniffer') },
     { id: 'view-erd-designer', title: 'Relational ERD Designer & 3NF Normalform-Linter', category: 'Labs & Tools', icon: Database, labId: 'erd_designer', action: () => onNavigate('erd_designer') },
@@ -129,15 +133,88 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
       action: () => onNavigate(lab.id)
     }));
 
-  const allItems = [...staticActions, ...topicItems, ...glossaryMatches, ...labItems];
+  // Quick Calculator detection
+  const quickCalcItems = [];
+  const query = search.trim();
+  if (query) {
+    // 1. Math calculation (e.g. "80 * 65 + 1500")
+    if (/^[0-9+\-*/().\s^%]+$/.test(query) && /[+\-*/^%]/.test(query)) {
+      try {
+        const sanitized = query.replace(/\^/g, '**');
+        const mathRes = Function(`'use strict'; return (${sanitized})`)();
+        if (typeof mathRes === 'number' && !isNaN(mathRes) && isFinite(mathRes)) {
+          quickCalcItems.push({
+            id: 'quick-calc-math',
+            title: `Ergebnis: ${query} = ${mathRes.toLocaleString('de-DE')}`,
+            category: 'Schnellrechner',
+            icon: Calculator,
+            action: () => {
+              navigator.clipboard?.writeText(String(mathRes));
+            }
+          });
+        }
+      } catch {
+        // ignore
+      }
+    }
+
+    // 2. Base Conversion (e.g. "hex 255", "bin 42")
+    const hexMatch = query.match(/^hex\s+(\d+)$/i);
+    if (hexMatch) {
+      const num = parseInt(hexMatch[1], 10);
+      quickCalcItems.push({
+        id: 'quick-calc-hex',
+        title: `Konvertierung: ${num} = 0x${num.toString(16).toUpperCase()} (Binär: ${num.toString(2)})`,
+        category: 'Schnellrechner',
+        icon: Cpu,
+        action: () => onNavigate('ieee754_lab')
+      });
+    }
+
+    const binMatch = query.match(/^bin\s+(\d+)$/i);
+    if (binMatch) {
+      const num = parseInt(binMatch[1], 10);
+      quickCalcItems.push({
+        id: 'quick-calc-bin',
+        title: `Konvertierung: ${num} = 0b${num.toString(2)} (Hex: 0x${num.toString(16).toUpperCase()})`,
+        category: 'Schnellrechner',
+        icon: Cpu,
+        action: () => onNavigate('ieee754_lab')
+      });
+    }
+
+    // 3. Subnet CIDR match (e.g. "/24", "subnet /24")
+    const cidrMatch = query.match(/(?:subnet\s+|cidr\s+)?\/([0-9]{1,2})$/i);
+    if (cidrMatch) {
+      const prefix = parseInt(cidrMatch[1], 10);
+      if (prefix >= 0 && prefix <= 32) {
+        const totalIps = Math.pow(2, 32 - prefix);
+        const usableHosts = prefix >= 31 ? (prefix === 31 ? 2 : 1) : totalIps - 2;
+        quickCalcItems.push({
+          id: 'quick-calc-subnet',
+          title: `Subnetz /${prefix}: ${usableHosts.toLocaleString('de-DE')} nutzbare Hosts (${totalIps.toLocaleString('de-DE')} IPs)`,
+          category: 'Schnellrechner',
+          icon: Globe,
+          action: () => onNavigate('subnetting')
+        });
+      }
+    }
+  }
+
+  const allItems = [...quickCalcItems, ...staticActions, ...topicItems, ...glossaryMatches, ...labItems];
 
   const filteredItems = search.trim() === '' 
     ? staticActions 
-    : allItems.filter(item => 
-        item.title.toLowerCase().includes(search.toLowerCase()) ||
-        item.category.toLowerCase().includes(search.toLowerCase()) ||
-        (item.description && item.description.toLowerCase().includes(search.toLowerCase()))
-      ).slice(0, 10);
+    : [
+        ...quickCalcItems,
+        ...allItems.filter(item => 
+          item.id.startsWith('quick-calc') ? false : (
+            item.title.toLowerCase().includes(search.toLowerCase()) ||
+            item.category.toLowerCase().includes(search.toLowerCase()) ||
+            (item.description && item.description.toLowerCase().includes(search.toLowerCase()))
+          )
+        )
+      ].slice(0, 10);
 
   const handleKeyDown = (e) => {
     if (e.key === 'ArrowDown') {

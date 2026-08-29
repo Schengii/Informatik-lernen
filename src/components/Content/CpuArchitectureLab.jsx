@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Cpu, Play, Pause, RotateCcw, Zap, Database, Terminal } from 'lucide-react';
 
 export default function CpuArchitectureLab({ onRewardXP }) {
@@ -96,11 +96,14 @@ export default function CpuArchitectureLab({ onRewardXP }) {
     }
   };
 
+  const stepClockRef = useRef(null);
+  stepClockRef.current = stepClock;
+
   useEffect(() => {
     let timer = null;
     if (isRunning && phase !== 'HALTED') {
       timer = setTimeout(() => {
-        stepClock();
+        stepClockRef.current?.();
       }, clockSpeed);
     }
     return () => clearTimeout(timer);

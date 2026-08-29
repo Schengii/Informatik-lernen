@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { ANFAENGER_GUIDES } from '../components/Content/AnfaengerGuideHub';
+import { ANFAENGER_GUIDES } from '../data/anfaengerGuideData';
 import { QUIZ_ARENA_CATEGORIES, getLocalizedQuizCategory } from '../data/quizArenaData';
 import { TRANSLATIONS } from './i18n';
 
