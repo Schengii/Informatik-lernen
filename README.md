@@ -142,6 +142,7 @@ Informatik-lernen/
     │   │   ├── BigOBenchmarkLab.jsx
     │   │   ├── BigOVisualizer.jsx
     │   │   ├── BleSensorSimulatorLab.jsx
+    │   │   ├── BgpAnycastLab.jsx
     │   │   ├── BpftraceLab.jsx
     │   │   ├── CampaignQuestHub.jsx
     │   │   ├── CareerRoadmap.jsx
@@ -176,6 +177,7 @@ Informatik-lernen/
     │   │   ├── GlossaryModal.jsx
     │   │   ├── GraphqlExplorerStudioLab.jsx
     │   │   ├── GraphqlResolverLab.jsx
+    │   │   ├── GrpcProtobufLab.jsx
     │   │   ├── Http3QuicLab.jsx
     │   │   ├── Ieee754FloatingPointLab.jsx
     │   │   ├── IhkCheatSheetPdfGenerator.jsx
@@ -215,6 +217,7 @@ Informatik-lernen/
     │   │   ├── PersonalNotebookLab.jsx
     │   │   ├── PostgresExplainVisualizerLab.jsx
     │   │   ├── PostgresFlamegraphLab.jsx
+    │   │   ├── PostgresFulltextLab.jsx
     │   │   ├── PostgresMvccLab.jsx
     │   │   ├── PostgresPartitioningLab.jsx
     │   │   ├── PostgresPoolLab.jsx
@@ -257,6 +260,7 @@ Informatik-lernen/
     │   │   ├── WireguardZtnaLab.jsx
     │   │   ├── WisoAbcXyzLab.jsx
     │   │   ├── WisoAndlerLab.jsx
+    │   │   ├── WisoCapitalValueLab.jsx
     │   │   ├── WisoContributionMarginLab.jsx
     │   │   ├── WisoDunningLab.jsx
     │   │   ├── WisoInterestCalculationsLab.jsx

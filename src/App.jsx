@@ -185,6 +185,12 @@ const PostgresPartitioningLab = lazy(() => import('./components/Content/Postgres
 const WisoInterestCalculationsLab = lazy(() => import('./components/Content/WisoInterestCalculationsLab'));
 const KafkaRebalanceLab = lazy(() => import('./components/Content/KafkaRebalanceLab'));
 
+// v3.17.0 Next-Gen BGP Anycast, Postgres Fulltext, NPV & gRPC Protobuf
+const BgpAnycastLab = lazy(() => import('./components/Content/BgpAnycastLab'));
+const PostgresFulltextLab = lazy(() => import('./components/Content/PostgresFulltextLab'));
+const WisoCapitalValueLab = lazy(() => import('./components/Content/WisoCapitalValueLab'));
+const GrpcProtobufLab = lazy(() => import('./components/Content/GrpcProtobufLab'));
+
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
@@ -1550,6 +1556,34 @@ export default function App() {
             {activeTab === 'kafka_rebalance_lab' && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <KafkaRebalanceLab onRewardXP={(xp) => awardXP(xp, 'kafka_rebalance_master')} />
+              </Suspense>
+            )}
+
+            {/* LINUX BGP & ANYCAST */}
+            {activeTab === 'bgp_anycast_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <BgpAnycastLab onRewardXP={(xp) => awardXP(xp, 'bgp_anycast_master')} />
+              </Suspense>
+            )}
+
+            {/* POSTGRES FULLTEXT SEARCH */}
+            {activeTab === 'postgres_fulltext_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <PostgresFulltextLab onRewardXP={(xp) => awardXP(xp, 'postgres_fulltext_master')} />
+              </Suspense>
+            )}
+
+            {/* IHK WISO KAPITALWERTMETHODE (NPV) */}
+            {activeTab === 'wiso_capital_value' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <WisoCapitalValueLab onRewardXP={(xp) => awardXP(xp, 'wiso_capital_value_master')} />
+              </Suspense>
+            )}
+
+            {/* GRPC PROTOBUF WIRE FORMAT */}
+            {activeTab === 'grpc_protobuf_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <GrpcProtobufLab onRewardXP={(xp) => awardXP(xp, 'grpc_protobuf_master')} />
               </Suspense>
             )}
 
