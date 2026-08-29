@@ -1,9 +1,9 @@
 import React from 'react';
 import { CAMPAIGN_CHAPTERS } from '../../data/campaignData';
-import { Compass, CheckCircle2, Circle, ArrowRight, Award, Sparkles, Flame } from 'lucide-react';
+import { Compass, Circle, ArrowRight } from 'lucide-react';
 
-export default function CampaignQuestHub({ userState, onNavigateTab, onRewardXP }) {
-  const completedTopics = userState.completedTopics || [];
+export default function CampaignQuestHub({ onNavigateTab, onRewardXP }) {
+  
 
   return (
     <div style={{ background: 'var(--bg-card)', padding: '28px', borderRadius: 'var(--radius-xl)', border: '1px solid var(--border-color)' }}>
@@ -22,8 +22,8 @@ export default function CampaignQuestHub({ userState, onNavigateTab, onRewardXP 
 
       {/* Chapters Timeline */}
       <div style={{ display: 'grid', gap: '24px' }}>
-        {CAMPAIGN_CHAPTERS.map((ch, idx) => {
-          const totalQuests = ch.quests.length;
+        {CAMPAIGN_CHAPTERS.map((ch, _idx) => {
+          
           // Calculate arbitrary progress based on completed status or let user trigger
           return (
             <div

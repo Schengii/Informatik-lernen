@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+
 import { 
-  Cpu, Play, RotateCcw, ShieldAlert, CheckCircle2, 
-  Layers, Clock, Zap, Award, Sparkles, Plus, Trash2, ArrowRight
+  Cpu, Play, ShieldAlert, CheckCircle2, 
+  Layers, Clock, Sparkles, Plus, Trash2, ArrowRight
 } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { simulateScheduler, checkBankersSafety, requestBankersResources } from '../../utils/osSchedulerEngine';
@@ -23,7 +23,7 @@ export default function OsProcessSchedulerLab() {
 
   // Banker's Algorithm State
   const [bankerAvailable, setBankerAvailable] = useState([3, 3, 2]); // R1, R2, R3
-  const [bankerMax, setBankerMax] = useState([
+  const [bankerMax] = useState([
     [7, 5, 3], // P0
     [3, 2, 2], // P1
     [9, 0, 2], // P2
@@ -160,6 +160,7 @@ export default function OsProcessSchedulerLab() {
                       max="6"
                       value={quantum}
                       onChange={(e) => setQuantum(Number(e.target.value))}
+                      aria-label={`Time Quantum: ${quantum} Ticks`}
                       style={{ width: '130px' }}
                     />
                   </div>

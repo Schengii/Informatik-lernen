@@ -1,12 +1,11 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
+
 import { 
-  Headphones, AlertCircle, Clock, ShieldCheck, CheckCircle2, 
-  Sparkles, Check, ArrowRight, Layers, Sliders, RefreshCw
+  Headphones, AlertCircle, ShieldCheck, Sparkles, Check
 } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { 
-  ITSM_INITIAL_TICKETS, calculatePriorityMatrix, evaluateCabRiskScore 
+  ITSM_INITIAL_TICKETS, evaluateCabRiskScore 
 } from '../../utils/itsmEngine';
 
 export default function ItsmSimulatorLab() {
@@ -17,7 +16,7 @@ export default function ItsmSimulatorLab() {
   // CAB Risk Calculator State
   const [cabComplexity, setCabComplexity] = useState(4); // 1 - 5
   const [cabRollback, setCabRollback] = useState(4); // 1 - 5 (5 = easy rollback)
-  const [cabBusinessImpact, setCabBusinessImpact] = useState(4); // 1 - 5
+  const [cabBusinessImpact] = useState(4); // 1 - 5
 
   const selectedTicket = useMemo(() => {
     return tickets.find(t => t.id === selectedTicketId) || tickets[0];
@@ -84,7 +83,9 @@ export default function ItsmSimulatorLab() {
                     background: isSelected ? 'rgba(99, 102, 241, 0.15)' : 'var(--bg-secondary)',
                     border: isSelected ? '2px solid var(--accent-primary)' : '1px solid var(--border-color)',
                     cursor: 'pointer',
-                    opacity: isResolved ? 0.6 : 1.0,
+                    // Gleiches Kontrast-Problem wie in SkillTreeWidget.jsx behoben: 0.6
+                    // verwässerte den enthaltenen Text unter WCAG-AA-Kontrast.
+                    opacity: isResolved ? 0.85 : 1.0,
                     transition: 'all 0.2s ease'
                   }}
                 >
@@ -174,6 +175,7 @@ export default function ItsmSimulatorLab() {
                     max="5"
                     value={cabComplexity}
                     onChange={(e) => setCabComplexity(parseInt(e.target.value))}
+                    aria-label={`Technische Komplexität: ${cabComplexity} von 5`}
                     style={{ width: '100%' }}
                   />
                 </div>
@@ -189,6 +191,7 @@ export default function ItsmSimulatorLab() {
                     max="5"
                     value={cabRollback}
                     onChange={(e) => setCabRollback(parseInt(e.target.value))}
+                    aria-label={`Rollback-Machbarkeit: ${cabRollback} von 5`}
                     style={{ width: '100%' }}
                   />
                 </div>

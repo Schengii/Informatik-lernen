@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { evaluateSpokenAnswer, VOICE_QUIZ_QUESTIONS } from './voiceQuizEngine';
+import { evaluateSpokenAnswer } from './voiceQuizEngine';
 
 describe('voiceQuizEngine', () => {
   it('bewertet richtige Sprach-Antworten anhand von Schlüsselbegriffen als bestanden', () => {

@@ -1,12 +1,12 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer & Frame Analyzer, Relationalem ERD Designer & 1NF–3NF Normalform-Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery mit Ebbinghaus-Kurven, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer (AST Visualizer), Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), Linux POSIX VFS Terminal Sandbox mit Pipes & Systemd, IHK Projektdokumentation & Nutzwertanalyse-Assistent (AO 2020), Chaos Engineering & Microservice Resilience Studio, CI/CD Pipeline DAG Studio & Runner, OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer & Frame Analyzer, Relationalem ERD Designer & 1NF–3NF Normalform-Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery mit Ebbinghaus-Kurven, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer (AST Visualizer), Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.8.0)](#-hauptfunktionen--neue-features-v380-next-gen-engineering-architecture--ihk-power-edition)
+- [Hauptfunktionen & Neue Features (v3.22.0)](#-hauptfunktionen--neue-features-v3220)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -25,6 +25,8 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Einsteiger-Kurs (`AnfaengerGuideHub.jsx`)**: Lernen ohne jegliche Vorkenntnisse.
    - Grundlagen leicht verständlich erklärt: **EVA-Prinzip**, **CPU-Gehirn** (ALU, Steuerwerk, Register), **Binärsystem & Bytes**, **Internet & DNS**.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI/DP/DVS, IT-Systemelektroniker, Kaufleute IT-Systemmanagement)**:
+   - **Linux POSIX Terminal & VFS Sandbox (`LinuxVfsTerminalLab.jsx` & `linuxVfsEngine.js`)**: Vollwertiges hierarchisches In-Memory Dateisystem, Pipes (`|`), Redirections (`>`, `>>`), POSIX-Befehle (`ls`, `cat`, `grep`, `wc`, `find`, `chmod`, `chown`, `systemctl`) und interaktive SysAdmin-Notfall-Challenges.
+   - **IHK Projektdokumentation & Nutzwertanalyse-Studio (`IhkProjectPlannerLab.jsx` & `ihkProjectPlannerEngine.js`)**: Phasen- und Stundenplanung (80h FIAE / 40h FISI nach AO 2020), K.O.-Kriterien gewichtete Nutzwertanalyse (NWA), 3-Jahres-Amortisation (ROI) und druckfertiger Markdown-Export.
    - **IHK Noten- & MEP-Rechner (`IhkGradeCalculatorLab.jsx` & `ihkGradeCalculations.js`)**: Offizielle AO 2020 Prüfungsordnung, Gewichtungen (AP1 20%, AP2 30%, Projekt 50%) und automatischer Rechner für die **Mündliche Ergänzungsprüfung (MEP)**.
    - **19"-Rack Konfigurator & USV/Klimarechner (`RackConfiguratorLab.jsx` & `rackCalculations.js`)**: 42HE Serverschrank, Schein- & Wirkleistung ($VA, W$), USV-Akkulaufzeit und BTU/h Kühlungslast.
    - **ITIL 4 ITSM & Service Desk Studio (`ItsmSimulatorLab.jsx` & `itsmEngine.js`)**: Incident Queue mit SLA-Timern, Impact $\times$ Urgency Priorisierung und Change Advisory Board (CAB) Risiko-Scoring.
@@ -35,6 +37,8 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Developer Notizbuch & Vault (`PersonalNotebookLab.jsx`)**: Persönliches Markdown-Notizbuch mit Tag-Suche, LocalStorage Auto-Save und `.md`-Export.
    - Detaillierte IHK-Berufsschul Lernfelder (LF 1 bis LF 12b), **Handelskalkulationen**, **Deckungsbeitragsrechnung & Break-Even-Point**, **Netzplantechnik (CPM)**, **WISO-Arbeitsrecht** und druckfertige **A4 PDF-Spickzettel**.
 3. **🚀 Junior Developer & Systemintegratoren**:
+   - **Chaos Engineering & Resilience Studio (`ChaosEngineeringLab.jsx` & `chaosEngineeringEngine.js`)**: Microservices Fault Injection, Cascading Failures, Circuit Breaker, Rate Limiter, Retry mit Exponential Backoff & Fallback Cache Simulation.
+   - **CI/CD Pipeline DAG Studio & Runner (`CiCdPipelineBuilderLab.jsx` & `cicdPipelineBuilderEngine.js`)**: Directed Acyclic Graph Pipeline-Editor, Zyklen-Erkennung, topologische Stage-Sortierung, Live Streaming Logs & GitHub Actions YAML Export.
    - **Cloud Architecture SLA & SPOF Canvas (`CloudArchitectureCanvasLab.jsx` & `cloudArchitectureEngine.js`)**: Multi-Tier Topologie-Planung, Compound Availability ($A_{\text{ges}}$), Ausfallzeiten-Rechner und Single-Point-of-Failure Audit.
    - **Transformer Attention & LLM Playground (`TransformerAttentionLab.jsx` & `transformerAttentionEngine.js`)**: Scaled Dot-Product Self-Attention Heatmap, Temperature / Top-P / Top-K Token Sampling und autonome AI-Agenten ReAct-Loops.
    - **GraphQL Schema & Query Explorer (`GraphqlExplorerStudioLab.jsx`)**, **RegEx Railroad Visualizer**, **Webhook Inspector**, **Git 3-Way Merge Conflict Resolver**, **Custom Challenge Creator**, **SQLite WASM Studio** und **Live Coding Challenge Studio**.
@@ -43,8 +47,39 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v3.8.0 Next-Gen Engineering, Architecture & IHK Power Edition)
+## 🔥 Hauptfunktionen & Neue Features (v3.12.0 High-Resilience Engineering, POSIX Ecosystem & IHK Documentation Power Edition)
 
+* **🐧 Linux POSIX Terminal & VFS Sandbox (`LinuxVfsTerminalLab.jsx` & `linuxVfsEngine.js`)**:
+  * Vollständig in-memory simuliertes, hierarchisches Unix/Linux-Dateisystem (`/`, `/etc`, `/var/log`, `/home/dev`, `/bin`).
+  * Echter Unix Command-Parser mit Unterstützung für **Pipes (`|`)**, Output-Redirection (`>`, `>>`) und Standard-Tools (`ls -la`, `cd`, `pwd`, `cat`, `grep`, `wc -l`, `find`, `chmod`, `chown`, `systemctl`, `df -h`, `free -m`, `ps aux`, `echo`, `head`, `tail`, `touch`, `mkdir`, `rm`).
+  * Systemd Service-Manager zur Verwaltung von Dämonen (`nginx.service`, `postgresql.service`, `redis.service`).
+  * 4 praxisnahe **SysAdmin-Notfall-Szenarien** mit automatischem Zustand-Audit & XP-Belohnung (Webserver 502 Bad Gateway beheben, Security Audit & Berechtigungen härten, Disk Space Cleanup & Log-Rotation, User Onboarding).
+* **📝 IHK Projektdokumentation & Nutzwertanalyse-Studio (`IhkProjectPlannerLab.jsx` & `ihkProjectPlannerEngine.js`)**:
+  * Phasen- und Stundenrechner konform mit der Prüfungsordnung **AO 2020** (80h FIAE / 40h FISI).
+  * Validierung der IHK-Phasenverteilung (Analyse, Entwurf, Implementierung, Qualitätssicherung, Dokumentation) mit Warnungen bei Über-/Unterschreitungen.
+  * Interaktive **Nutzwertanalyse (NWA)** mit Gewichtungsprozenten ($\sum = 100\%$), K.O.-Kriterien und Recharts-Balkendiagrammen.
+  * Wirtschaftlichkeitsrechnung (Entwicklungskosten, Einsparungen, Amortisation & 3-Jahres-ROI).
+  * 1-Klick **Druckfertiger Markdown-Export** für den IHK-Abschlussbericht.
+* **🔥 Chaos Engineering & Resilience Studio (`ChaosEngineeringLab.jsx` & `chaosEngineeringEngine.js`)**:
+  * Topologie-Graph mit 5 Microservices (`api_gateway`, `auth_service`, `order_service`, `payment_service`, `inventory_db`).
+  * Fault-Injections: Latenz-Spitzen ($+2200\,\text{ms}$), 500er Crashes, Connection-Pool-Erschöpfung und Cascading Failures.
+  * Interaktives Zuschalten von Resilienz-Patterns: **Circuit Breaker** (Open/Half-Open/Closed), **Token Bucket Rate Limiter**, **Exponential Backoff Retries**, **Fallback Cache** und **Bulkhead-Isolation**.
+* **⚙️ CI/CD Pipeline DAG Studio & Runner (`CiCdPipelineBuilderLab.jsx` & `cicdPipelineBuilderEngine.js`)**:
+  * Directed Acyclic Graph (DAG) Editor zur Definition abhängiger Build-, Test-, Lint-, Security- und Deploy-Jobs.
+  * Automatische **Zyklen-Erkennung** (DFS-Algorithmus) und Berechnung paralleler Ausführungs-Stages (Topologische Sortierung).
+  * Live Streaming-Runner mit ANSI-Farben und realistischen Build-Logs.
+  * Export in produktionsfertiges **GitHub Actions Workflow YAML** (`.github/workflows/pipeline.yml`).
+* **📱 Mobile Swipe-Gesten & Web Vibration Haptics (`src/utils/haptics.js`)**:
+  * Native Web Vibration API Integration mit haptischem Feedback bei richtigen/falschen Antworten (`SUCCESS`, `WARNING`, `LEVEL_UP`).
+  * Tinder-Style Swipe-Gesten mit Framer-Motion für schnelles Lernen im Leitner- und SM-2 Karteikarten-Studio.
+* **⭐ Bookmark & Favoriten-System (`LabsDashboard.jsx`, `storage.js`, `useStore.js`)**:
+  * 1-Klick Stern-Favoriten auf allen Lab-Karten.
+  * Schneller Filter-Tab `"⭐ Favoriten (N)"` im Labs-Hub für gezielten Direktzugriff.
+* **⚡ Command Palette Quick Calculators (`CommandPaletteModal.jsx`)**:
+  * Direkte Schnellrechner im Strg+K-Suchfeld:
+    * **CIDR Subnetting**: Eingabe `/24` $\rightarrow$ berechnet sofort nutzbare Hosts & Subnetzmaske.
+    * **Zahlenbasis-Konverter**: Eingabe `hex 255` oder `bin 42` $\rightarrow$ sofortige Hex/Binär-Umrechnung.
+    * **Arithmetik-Eval**: Direkte mathematische Berechnungen.
 * **⏱️ OS Process Scheduler & Deadlock Studio (`OsProcessSchedulerLab.jsx` & `osSchedulerEngine.js`)**:
   * Vollwertige Simulation von FCFS, Shortest Job First (SJF), Round Robin (mit dynamischem Time-Quantum-Slider) und Priority Scheduling.
   * Animiertes Echtzeit-**Gantt-Diagramm** mit automatischer Berechnung von $T_{WT}$ (Wartezeit), $T_{TAT}$ (Turnaround) und CPU-Auslastung.
@@ -103,8 +138,6 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 * **Lese-Rechtschreib-Hilfe (Dyslexie-Modus)**: Spezialschriftart (*Atkinson Hyperlegible*), erweiterter Zeichen- & Zeilenabstand.
 * **Rot-Grün-Sehhilfe (Farbenblindheits-Modus)**: Zusätzliche Icon-Indikatoren (✓ / ✗) und barrierefreie Farbwelten.
 * **Vorlesefunktion (Text-to-Speech)**: Audio-Steuerung zum Vorlesen aller Lerneinheiten.
-* **Schriftgrößen-Skalierung**: Stufenlose Anpassung (A- / 100% / A+).
-* **100% DSGVO-konform**: Keine Tracking-Cookies, alle Daten verbleiben rein lokal im `localStorage`.
 
 ---
 
@@ -119,9 +152,20 @@ Informatik-lernen/
 ├── index.html
 ├── package.json
 ├── package-lock.json
+├── playwright.config.js
 ├── README.md
+├── vercel.json
 ├── vite.config.js
+├── vitest.setup.js
+├── e2e/
+│   ├── accessibility.spec.js
+│   ├── command-palette.spec.js
+│   ├── helpers.js
+│   ├── lab-smoke.spec.js
+│   └── onboarding.spec.js
 ├── public/
+│   ├── 404.html
+│   ├── _redirects
 │   ├── manifest.json
 │   └── sw.js
 └── src/
@@ -137,6 +181,8 @@ Informatik-lernen/
     │   │   ├── AnfaengerGuideHub.jsx
     │   │   ├── ApiBenchStudio.jsx
     │   │   ├── ApiMockStudioLab.jsx
+    │   │   ├── ApiProtocolBenchmarkLab.jsx
+    │   │   ├── BgpRoutingLab.jsx
     │   │   ├── AppWorkshop.jsx
     │   │   ├── ArchitectureVisualizer.jsx
     │   │   ├── BigOBenchmarkLab.jsx
@@ -144,7 +190,9 @@ Informatik-lernen/
     │   │   ├── BleSensorSimulatorLab.jsx
     │   │   ├── CampaignQuestHub.jsx
     │   │   ├── CareerRoadmap.jsx
+    │   │   ├── ChaosEngineeringLab.jsx
     │   │   ├── CiCdMatrixLinterLab.jsx
+    │   │   ├── CiCdPipelineBuilderLab.jsx
     │   │   ├── CiCdPipelineLab.jsx
     │   │   ├── CiCdWorkflowLab.jsx
     │   │   ├── CircuitBreakerLab.jsx
@@ -154,20 +202,27 @@ Informatik-lernen/
     │   │   ├── CloudDevOpsLab.jsx
     │   │   ├── ClozeTester.jsx
     │   │   ├── CodeExecutionDebuggerLab.jsx
+    │   │   ├── CollaborativeWhiteboardLab.jsx
     │   │   ├── CpuArchitectureLab.jsx
     │   │   ├── CryptoKeygenLab.jsx
     │   │   ├── CtfChallengeLab.jsx
     │   │   ├── CustomChallengeCreatorLab.jsx
     │   │   ├── DataStructuresLab.jsx
+    │   │   ├── DbIndexLab.jsx
     │   │   ├── DeploymentGuideModal.jsx
     │   │   ├── DesignPatternsLab.jsx
     │   │   ├── DnsHttpLifecycleLab.jsx
     │   │   ├── DockerComposeLab.jsx
     │   │   ├── DockerLab.jsx
+    │   │   ├── DockerfileOptimizerLab.jsx
+    │   │   ├── DsgvoDsfaTomLab.jsx
+    │   │   ├── EbpfXdpLab.jsx
     │   │   ├── ErdDesignerLab.jsx
+    │   │   ├── EventSourcingLab.jsx
     │   │   ├── ExamSimulator.jsx
     │   │   ├── FisiLernfelderHub.jsx
     │   │   ├── GitBranchGraphLab.jsx
+    │   │   ├── GitInteractiveRebaseLab.jsx
     │   │   ├── GitLab.jsx
     │   │   ├── GitMergeConflictLab.jsx
     │   │   ├── GlossaryModal.jsx
@@ -179,47 +234,61 @@ Informatik-lernen/
     │   │   ├── IhkGradeCalculatorLab.jsx
     │   │   ├── IhkOralExamSimulator.jsx
     │   │   ├── IhkProjectDocumentationGenerator.jsx
+    │   │   ├── IhkProjectPlannerLab.jsx
     │   │   ├── Ipv6RoutingLab.jsx
     │   │   ├── ItPodcastHub.jsx
     │   │   ├── ItsmSimulatorLab.jsx
     │   │   ├── JwksRotationLab.jsx
     │   │   ├── K8sCniOverlayLab.jsx
+    │   │   ├── K8sHelmKustomizeLab.jsx
+    │   │   ├── K8sOperatorLab.jsx
     │   │   ├── KafkaEventLab.jsx
+    │   │   ├── KafkaRebalanceLab.jsx
     │   │   ├── KnowledgeQuizArena.jsx
     │   │   ├── KubernetesLab.jsx
     │   │   ├── LabsDashboard.jsx
     │   │   ├── LanguageAcademy.jsx
     │   │   ├── LeitnerFlashcardLab.jsx
     │   │   ├── LinuxPermissionsLab.jsx
+    │   │   ├── LinuxVfsTerminalLab.jsx
     │   │   ├── LiveCodingChallengeStudio.jsx
     │   │   ├── MonacoStudioLab.jsx
     │   │   ├── NeuralNetVisualizerLab.jsx
     │   │   ├── OauthOidcLab.jsx
     │   │   ├── OauthPkceStudio.jsx
     │   │   ├── OsProcessSchedulerLab.jsx
+    │   │   ├── OtelTracingLab.jsx
     │   │   ├── OwaspExploitLab.jsx
+    │   │   ├── P2pCodeDuelLab.jsx
     │   │   ├── P2pQuizDuellLab.jsx
     │   │   ├── PacketSnifferLab.jsx
     │   │   ├── PacketTracerLab.jsx
     │   │   ├── PerformanceProfilingLab.jsx
     │   │   ├── PersonalNotebookLab.jsx
     │   │   ├── PostgresExplainVisualizerLab.jsx
+    │   │   ├── PostgresFlamegraphLab.jsx
     │   │   ├── PostgresMvccLab.jsx
+    │   │   ├── PostgresWalLab.jsx
+    │   │   ├── PromqlAlertLab.jsx
     │   │   ├── PythonWasmLab.jsx
     │   │   ├── RackConfiguratorLab.jsx
     │   │   ├── RagAiSimulator.jsx
     │   │   ├── RedBlueTeamLab.jsx
     │   │   ├── RedisCachingLab.jsx
+    │   │   ├── RedisEvictionLab.jsx
     │   │   ├── RegexMasterLab.jsx
     │   │   ├── RegexRailroadVisualizerLab.jsx
     │   │   ├── Sm2SpacedRepetitionLab.jsx
     │   │   ├── SqlJoinVisualizerLab.jsx
+    │   │   ├── SqlQueryExecutionPlanLab.jsx
     │   │   ├── SqlQueryOptimizerLab.jsx
     │   │   ├── SqlTransactionLab.jsx
+    │   │   ├── SqliteCliReplLab.jsx
     │   │   ├── SqliteWasmStudioLab.jsx
     │   │   ├── SubnettingLab.jsx
     │   │   ├── SystemDesignLab.jsx
     │   │   ├── TcoRoiCalculatorLab.jsx
+    │   │   ├── TcpCongestionLab.jsx
     │   │   ├── TddUnitTestLab.jsx
     │   │   ├── ToolingSetupGuide.jsx
     │   │   ├── TopicReader.jsx
@@ -234,8 +303,16 @@ Informatik-lernen/
     │   │   ├── WebRtcSignalingLab.jsx
     │   │   ├── WebSocketProtocolLab.jsx
     │   │   ├── WebSocketsLab.jsx
+    │   │   ├── WebauthnPasskeyLab.jsx
     │   │   ├── WebhookInspectorLab.jsx
-    │   │   └── WisoKalkulationLab.jsx
+    │   │   ├── WebrtcSfuLab.jsx
+    │   │   ├── WireguardZtnaLab.jsx
+    │   │   ├── WisoAbcXyzLab.jsx
+    │   │   ├── WisoContributionMarginLab.jsx
+    │   │   ├── WisoKalkulationLab.jsx
+    │   │   ├── WisoLeverageLab.jsx
+    │   │   ├── WisoLoanCollateralLab.jsx
+    │   │   └── WisoSalaryCalculatorLab.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
     │   ├── Games/
@@ -265,8 +342,10 @@ Informatik-lernen/
     │   │   ├── MobileNav.jsx
     │   │   ├── ModalContainer.jsx
     │   │   ├── Navbar.jsx
+    │   │   ├── navLinks.test.js
     │   │   └── PomodoroTimerWidget.jsx
     │   ├── Onboarding/
+    │   │   ├── FirstVisitTourOverlay.jsx
     │   │   └── RoleSelectionModal.jsx
     │   └── Projects/
     │       └── ProjectViewer.jsx
@@ -275,7 +354,10 @@ Informatik-lernen/
     │   ├── advancedLabsData.js
     │   ├── aiBusinessData.js
     │   ├── algorithmData.js
+    │   ├── anfaengerGuideData.js
     │   ├── apiStudioData.js
+    │   ├── labRegistry.js
+    │   ├── labRegistry.smoke.test.jsx
     │   ├── campaignData.js
     │   ├── cloudArchLabs.test.js
     │   ├── cloudArchLabsData.js
@@ -319,61 +401,142 @@ Informatik-lernen/
     ├── styles/
     │   └── global.css
     └── utils/
+        ├── adaptiveLearningEngine.js
+        ├── adaptiveLearningEngine.test.js
+        ├── apiProtocolBenchmarkEngine.js
+        ├── apiProtocolBenchmarkEngine.test.js
         ├── audioSystem.js
+        ├── bgpRoutingEngine.js
+        ├── bgpRoutingEngine.test.js
         ├── bleSensorEngine.js
         ├── bleSensorEngine.test.js
         ├── campaignAndExam.test.js
+        ├── chaosEngineeringEngine.js
+        ├── chaosEngineeringEngine.test.js
+        ├── cicdPipelineBuilderEngine.js
+        ├── cicdPipelineBuilderEngine.test.js
         ├── cloudArchitectureEngine.js
         ├── cloudArchitectureEngine.test.js
         ├── codingChallengesEngine.js
         ├── codingChallengesEngine.test.js
+        ├── collaborativeWhiteboardEngine.js
+        ├── collaborativeWhiteboardEngine.test.js
         ├── customChallengesManager.js
         ├── customChallengesManager.test.js
+        ├── dbIndexEngine.js
+        ├── dbIndexEngine.test.js
+        ├── dockerfileOptimizerEngine.js
+        ├── dockerfileOptimizerEngine.test.js
+        ├── dsgvoDsfaTomEngine.js
+        ├── dsgvoDsfaTomEngine.test.js
+        ├── ebpfXdpEngine.js
+        ├── ebpfXdpEngine.test.js
         ├── erdDesignerEngine.js
         ├── erdDesignerEngine.test.js
+        ├── eventSourcingEngine.js
+        ├── eventSourcingEngine.test.js
         ├── gitConflictEngine.js
         ├── gitConflictEngine.test.js
+        ├── gitInteractiveRebaseEngine.js
+        ├── gitInteractiveRebaseEngine.test.js
         ├── graphqlSandboxEngine.js
         ├── graphqlSandboxEngine.test.js
+        ├── haptics.js
+        ├── haptics.test.js
         ├── i18n.js
+        ├── i18nContentPilot.test.js
         ├── ieee754.js
         ├── ieee754.test.js
         ├── ihkGradeCalculations.js
         ├── ihkGradeCalculations.test.js
+        ├── ihkOralExamEngine.js
+        ├── ihkOralExamEngine.test.js
+        ├── ihkProjectPlannerEngine.js
+        ├── ihkProjectPlannerEngine.test.js
         ├── ipv6Routing.js
         ├── ipv6Routing.test.js
         ├── itsmEngine.js
         ├── itsmEngine.test.js
+        ├── k8sClusterEngine.js
+        ├── k8sClusterEngine.test.js
+        ├── k8sHelmKustomizeEngine.js
+        ├── k8sHelmKustomizeEngine.test.js
+        ├── k8sOperatorEngine.js
+        ├── k8sOperatorEngine.test.js
+        ├── kafkaRebalanceEngine.js
+        ├── kafkaRebalanceEngine.test.js
+        ├── linuxVfsEngine.js
+        ├── linuxVfsEngine.test.js
+        ├── oauthPkceEngine.js
+        ├── oauthPkceEngine.test.js
         ├── osSchedulerEngine.js
         ├── osSchedulerEngine.test.js
+        ├── otelTracingEngine.js
+        ├── otelTracingEngine.test.js
+        ├── p2pCodeDuelEngine.js
+        ├── p2pCodeDuelEngine.test.js
         ├── p2pQuizEngine.js
         ├── p2pQuizEngine.test.js
+        ├── p2pWhiteboardSyncEngine.js
+        ├── p2pWhiteboardSyncEngine.test.js
         ├── packetSnifferEngine.js
         ├── packetSnifferEngine.test.js
+        ├── pcapParserEngine.js
+        ├── pcapParserEngine.test.js
+        ├── postgresFlamegraphEngine.js
+        ├── postgresFlamegraphEngine.test.js
+        ├── postgresWalEngine.js
+        ├── postgresWalEngine.test.js
+        ├── promqlAlertEngine.js
+        ├── promqlAlertEngine.test.js
         ├── rackCalculations.js
         ├── rackCalculations.test.js
+        ├── redisEvictionEngine.js
+        ├── redisEvictionEngine.test.js
         ├── regexParserEngine.js
         ├── regexParserEngine.test.js
         ├── scrumEngine.js
         ├── scrumEngine.test.js
         ├── sm2Algorithm.js
         ├── sm2Algorithm.test.js
+        ├── sqlQueryExecutionEngine.js
+        ├── sqlQueryExecutionEngine.test.js
         ├── sqlSandboxEngine.js
         ├── sqlSandboxEngine.test.js
+        ├── sqliteCliEngine.js
+        ├── sqliteCliEngine.test.js
         ├── srsAlgorithm.js
         ├── srsAlgorithm.test.js
         ├── storage.js
         ├── storage.test.js
         ├── tcoCalculations.js
         ├── tcoCalculations.test.js
+        ├── tcpCongestionEngine.js
+        ├── tcpCongestionEngine.test.js
         ├── transformerAttentionEngine.js
         ├── transformerAttentionEngine.test.js
         ├── voiceQuizEngine.js
         ├── voiceQuizEngine.test.js
         ├── webhookSimulator.js
         ├── webhookSimulator.test.js
+        ├── webauthnPasskeyEngine.js
+        ├── webauthnPasskeyEngine.test.js
+        ├── webrtcSfuEngine.js
+        ├── webrtcSfuEngine.test.js
+        ├── wireguardZtnaEngine.js
+        ├── wireguardZtnaEngine.test.js
+        ├── wisoAbcXyzEngine.js
+        ├── wisoAbcXyzEngine.test.js
         ├── wisoCalculations.js
-        └── wisoCalculations.test.js
+        ├── wisoCalculations.test.js
+        ├── wisoContributionMarginEngine.js
+        ├── wisoContributionMarginEngine.test.js
+        ├── wisoLeverageEngine.js
+        ├── wisoLeverageEngine.test.js
+        ├── wisoLoanCollateralEngine.js
+        ├── wisoLoanCollateralEngine.test.js
+        ├── wisoSalaryCalcEngine.js
+        └── wisoSalaryCalcEngine.test.js
 ```
 
 ---
@@ -421,6 +584,226 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.22.0 (OpenTelemetry Tracing, PostgreSQL WAL/LSN, IHK Leverage-Effekt & TCP Congestion Control Edition)
+
+- **Neu**: `OtelTracingLab.jsx` & `src/utils/otelTracingEngine.js` — OpenTelemetry (OTel) Distributed Tracing Studio: W3C `traceparent`-Header-Propagation, verteilte Microservice-Spans (API-Gateway, Auth, Order, Postgres DB, Stripe) und Gantt-Waterfall-Latenzanalyse.
+- **Neu**: `PostgresWalLab.jsx` & `src/utils/postgresWalEngine.js` — PostgreSQL WAL & LSN Streaming Replication Studio: Write-Ahead Logging (WAL) Byte-Offsets, LSN-Tracking (`0/16B3740`), synchrone vs. asynchrone Standby-Replikation mit Replikations-Lag sowie manuelle Checkpoint-Flushes (REDO-Punkt).
+- **Neu**: `WisoLeverageLab.jsx` & `src/utils/wisoLeverageEngine.js` — IHK Rentabilitäts- & Leverage-Effekt Studio: Berechnung von Eigenkapital- ($EKR$), Gesamtkapital- ($GKR$) und Umsatzrentabilität ($UR$) sowie mathematische Hebelwirkung ($EKR = GKR + (GKR - i) \times \frac{FK}{EK}$) und Zinsfallen-Erkennung.
+- **Neu**: `TcpCongestionLab.jsx` & `src/utils/tcpCongestionEngine.js` — TCP Congestion Control Studio (Reno vs. CUBIC vs. BBR): Simulation des Überlastfensters ($CWND$), Slow Start, AIMD-Fensterhalbierung bei Paketverlust, kubische Wiederherstellungskurven (CUBIC) und Googles modellbasierte BBR-Bandbreitenmessung gegen Bufferbloat.
+- **Codebase-Weite Bereinigung & Stabilität**:
+  - Oxlint auf 0 Warnungen und 0 Fehler über alle 370 Quellcodedateien gehalten.
+  - Alle 135 interaktiven Labs im Smoke-Test validiert (`labRegistry.smoke.test.jsx`).
+- **Test-Suite**: **412 bestandene Unit- & Smoke-Tests** in **84 Test-Dateien** mit 100% Erfolgsquote (vorher 397/80).
+
+### Version 3.21.0 (K8s Operator Controller, WebRTC SFU/MCU Studio, IHK Darlehen & DB B+ Tree Index Edition)
+
+- **Neu**: `K8sOperatorLab.jsx` & `src/utils/k8sOperatorEngine.js` — Kubernetes Operator & CRD Controller Studio: Simulation des Reconcile-Loops (`Reconcile(ctx, req)`), State-Drift-Erkennung, Self-Healing bei Node/Pod-Crashes und CRD YAML Schema-Generierung.
+- **Neu**: `WebrtcSfuLab.jsx` & `src/utils/webrtcSfuEngine.js` — WebRTC Media Server Studio (Mesh vs. MCU vs. SFU): Bandbreiten-, CPU- und Stream-Matrix-Vergleich von P2P-Mesh ($N \times (N-1)$), MCU Transcoding und modernem SFU Simulcast Dynamic Layer-Routing.
+- **Neu**: `WisoLoanCollateralLab.jsx` & `src/utils/wisoLoanCollateralEngine.js` — IHK Darlehensarten- & Kreditsicherheiten-Studio: Interaktive Tilgungspläne für Annuitäten-, Raten- und Fälligkeitsdarlehen sowie IHK-Systematik von Personal- (Bürgschaft, Zession) und Realsicherheiten (Grundschuld, Sicherungsübereignung).
+- **Neu**: `DbIndexLab.jsx` & `src/utils/dbIndexEngine.js` — Database Index Studio (B+ Tree vs. Hash Index): Visuelle B+ Tree Root-Routing- und sequentielle Leaf-Pointer-Ketten für Range Queries (`BETWEEN`) im Vergleich zu $O(1)$ Hash-Index Punktabfragen.
+- **Codebase-Weite Bereinigung & Stabilität**:
+  - Oxlint auf 0 Warnungen und 0 Fehler über alle 358 Quellcodedateien gehalten.
+  - Alle 131 interaktiven Labs im Smoke-Test validiert (`labRegistry.smoke.test.jsx`).
+- **Test-Suite**: **397 bestandene Unit- & Smoke-Tests** in **80 Test-Dateien** mit 100% Erfolgsquote (vorher 382/76).
+
+### Version 3.20.0 (Prometheus PromQL Alert Studio, Event-Sourcing & CQRS, IHK ABC/XYZ Matrix & WireGuard ZTNA Edition)
+
+- **Neu**: `PromqlAlertLab.jsx` & `src/utils/promqlAlertEngine.js` — Prometheus PromQL & Alerting Rule Studio: Auswertung komplexer Histogramm-Quantile (`histogram_quantile(0.95, ...)`), Schwellwertprüfungen (`FIRING` vs `INACTIVE`) und Generierung validierter Alerting Rule YAMLs.
+- **Neu**: `EventSourcingLab.jsx` & `src/utils/eventSourcingEngine.js` — Event-Sourcing & CQRS Event Store Simulator: Unveränderliches Append-Only Event-Log, deterministischer Event-Replay zur Materialisierung von Read-Modell-Zuständen und Snapshot-Erstellung.
+- **Neu**: `WisoAbcXyzLab.jsx` & `src/utils/wisoAbcXyzEngine.js` — IHK WISO ABC- und XYZ-Materialanalyse Studio: Kumulative Wertanteils-Klassifizierung (Lorenz-Kurve: A &le; 80%, B &le; 95%, C &gt; 95%) und Bedarfsvorhersagbarkeits-Analyse (X/Y/Z) mit 3x3-Beschaffungsmatrix (Just-in-Time, Vorrat, Kanban).
+- **Neu**: `WireguardZtnaLab.jsx` & `src/utils/wireguardZtnaEngine.js` — WireGuard VPN & Zero-Trust Network Access (ZTNA) Studio: 1-RTT NoiseIK Handshakes, AllowedIPs Cryptokey Routing und dynamische Policy-Validierung anhand von Device Trust Scores und Microsegmentierung.
+- **Codebase-Weite Bereinigung & Stabilität**:
+  - Oxlint auf 0 Warnungen und 0 Fehler über alle 346 Quellcodedateien gehalten.
+  - Alle 127 interaktiven Labs im Smoke-Test validiert (`labRegistry.smoke.test.jsx`).
+- **Test-Suite**: **382 bestandene Unit- & Smoke-Tests** in **76 Test-Dateien** mit 100% Erfolgsquote (vorher 367/72).
+
+### Version 3.19.0 (Kafka Partition Rebalance Studio, Linux eBPF/XDP Sandbox, WebAuthn Passkeys & Multi-Stage Deckungsbeitrag Edition)
+
+- **Neu**: `KafkaRebalanceLab.jsx` & `src/utils/kafkaRebalanceEngine.js` — Apache Kafka Partition Rebalance & Consumer Group Studio: Live-Simulation von Consumer Joins/Leaves, Dynamic Partition Assignment (Round-Robin) und Vergleich von Eager vs. Cooperative Sticky Rebalancing.
+- **Neu**: `EbpfXdpLab.jsx` & `src/utils/ebpfXdpEngine.js` — Linux eBPF & XDP (eXpress Data Path) Sandbox: High-Speed Paketfilterung auf NIC-Treiberebene (`XDP_DROP`, `XDP_PASS`, `XDP_TX`) und C-Code-Verifikation im virtuellen eBPF Kernel-Verifier (Bounds-Checking, Loop-Safety).
+- **Neu**: `WebauthnPasskeyLab.jsx` & `src/utils/webauthnPasskeyEngine.js` — WebAuthn / Passkeys & FIDO2 Flow Visualizer: Visualisierung passwortloser Authentifizierung, asymmetrischer Schlüsselpaare (ES256 ECDSA), Authenticator Flags (`UP`, `UV`, `BE`, `BS`) und kryptografischer Signaturverifikation.
+- **Neu**: `WisoContributionMarginLab.jsx` & `src/utils/wisoContributionMarginEngine.js` — IHK WISO Deckungsbeitrags- & Break-Even-Point Studio: Berechnung von Stückdeckungsbeitrag ($db = p - k_v$), mehrstufiger Fixkostendeckung (Erzeugnis-, Bereichs- & Unternehmensfixkosten) bis zum Betriebsergebnis sowie Gewinnschwellen- und Sicherheitskoeffizienten-Analyse.
+- **Codebase-Weite Bereinigung & Stabilität**:
+  - Oxlint auf 0 Warnungen und 0 Fehler über alle 334 Quellcodedateien gehalten.
+  - Alle 123 interaktiven Labs im Smoke-Test validiert (`labRegistry.smoke.test.jsx`).
+- **Test-Suite**: **367 bestandene Unit- & Smoke-Tests** in **72 Test-Dateien** mit 100% Erfolgsquote (vorher 353/68).
+
+### Version 3.18.0 (Redis Cache Eviction & Bloom Filter, API Protocol Benchmark, DSGVO DSFA Studio & BGP Routing Edition)
+
+- **Neu**: `RedisEvictionLab.jsx` & `src/utils/redisEvictionEngine.js` — Redis Cache Eviction & Penetration Studio: Simulation von `allkeys-lru`, `allkeys-lfu`, `volatile-ttl` Verdrängungsstrategien, Memory Slots, Hit Ratios und integrierter 32-Bit Bloom Filter zur Abwehr von Cache-Penetration Attacken.
+- **Neu**: `ApiProtocolBenchmarkLab.jsx` & `src/utils/apiProtocolBenchmarkEngine.js` — REST vs. gRPC vs. GraphQL Benchmark Studio: Live-Vergleich von Latenzen, Durchsatz (Req/s) und Payload-Größen (JSON vs. Protocol Buffers Binary) bei bis zu 10.000 simulierten Anfragen.
+- **Neu**: `DsgvoDsfaTomLab.jsx` & `src/utils/dsgvoDsfaTomEngine.js` — IHK DSGVO Datenschutz-Folgenabschätzung (DSFA) & TOM-Studio: Art. 35 EDPB-Schwellwertkriterien-Prüfung und normgerechter Export von Technisch-Organisatorischen Maßnahmen (TOMs nach Art. 32 DSGVO).
+- **Neu**: `BgpRoutingLab.jsx` & `src/utils/bgpRoutingEngine.js` — BGP Routing & Autonomous System (AS) Path Studio: BGP Best Path Entscheidungsbaum (Local Preference, AS-Path Länge, MED) und AS-Path Prepending Traffic-Engineering.
+- **Codebase-Weite Bereinigung & Stabilität**:
+  - Oxlint auf 0 Warnungen und 0 Fehler über alle 322 Quellcodedateien gehalten.
+  - Alle 119 interaktiven Labs im Smoke-Test validiert (`labRegistry.smoke.test.jsx`).
+- **Test-Suite**: **353 bestandene Unit- & Smoke-Tests** in **68 Test-Dateien** mit 100% Erfolgsquote (vorher 341/64).
+
+### Version 3.17.0 (SQLite CLI Terminal REPL, Kubernetes Helm/Kustomize GitOps Studio, P2P CRDT Whiteboard Sync & WISO 2026 Salary Engine Edition)
+
+- **Neu**: `SqliteCliReplLab.jsx` & `src/utils/sqliteCliEngine.js` — In-Browser SQLite CLI Terminal & REPL: Vollwertige SQL-Konsole mit interaktiven Meta-Befehlen (`.tables`, `.schema`, `.dump`, `.help`, `.clear`), Tabellenausgabe mit Millisekunden-Timing und DDL/DML-Ausführung.
+- **Neu**: `K8sHelmKustomizeLab.jsx` & `src/utils/k8sHelmKustomizeEngine.js` — Kubernetes Helm Chart & Kustomize Overlay Studio: Automatische Generierung von produktionsreifen Helm-Charts (`Chart.yaml`, `values.yaml`, `templates/deployment.yaml`, `_helpers.tpl`) und Kustomize Overlays (`base/` vs `overlays/prod/` mit Image-Tag- und Replica-Patches).
+- **Neu**: `src/utils/p2pWhiteboardSyncEngine.js` & CRDT Live-Sync Integration — Last-Write-Wins (LWW) State Map mit Vektor-Zeitstempeln für verteiltes Arbeiten auf dem Architektur-Canvas im `CollaborativeWhiteboardLab.jsx` inklusive Knoten-Löschung (`Trash2`).
+- **Neu**: `WisoSalaryCalculatorLab.jsx` & `src/utils/wisoSalaryCalcEngine.js` — IHK Brutto-Netto & Sozialversicherungs-Studio (Stand 2026): Vollständige Berechnung nach aktuellem Recht inkl. Lohnsteuerklassen I–VI, KV (14.6% + Zusatzbeitrag), RV (18.6%), AV (2.6%), PV (mit Kinderlosenzuschlag 0.6%), Beitragsbemessungsgrenzen (BBG KV/PV 5.175 € vs RV/AV 7.550 €) und Arbeitgeber-Gesamtaufwand.
+- **Codebase-Weite Bereinigung & Stabilität**:
+  - Oxlint auf 0 Warnungen und 0 Fehler über alle 310 Quellcodedateien gehalten.
+  - Alle 115 interaktiven Labs im Smoke-Test validiert (`labRegistry.smoke.test.jsx`).
+- **Test-Suite**: **341 bestandene Unit- & Smoke-Tests** in **64 Test-Dateien** mit 100% Erfolgsquote (vorher 327/60).
+
+### Version 3.16.0 (Dockerfile Multi-Stage Optimizer, Postgres FlameGraphs, Git Interactive Rebase & Architecture Whiteboard Edition)
+
+- **Neu**: `DockerfileOptimizerLab.jsx` & `src/utils/dockerfileOptimizerEngine.js` — Dockerfile Multi-Stage Optimizer & Security Linter: Erkennt Root-User, ungenutzte Apt-Caches, fehlerhaftes Layer-Caching (`COPY . .` vor `npm/pip install`) und transformiert Monolithen (1.3 GB) per Knopfdruck in gehärtete Multi-Stage-Builds (z. B. 18 MB Distroless / Alpine mit nonroot User).
+- **Neu**: `PostgresFlamegraphLab.jsx` & `src/utils/postgresFlamegraphEngine.js` — PostgreSQL EXPLAIN FlameGraph & Window Functions Studio: Hierarchische Zeitverteilung komplexer Abfragen, Shared Buffer Cache Hit Ratios und Analyse von Window Functions (`ROW_NUMBER() OVER (PARTITION BY)`).
+- **Neu**: `GitInteractiveRebaseLab.jsx` & `src/utils/gitInteractiveRebaseEngine.js` — Git Interactive Rebase Studio (`git rebase -i`): Commits visuell umordnen, `squash`en, `fixup`en, `reword`en, `drop`pen und saubere Git-Historien mit Validierung und CLI-Vorschau erzeugen.
+- **Neu**: `CollaborativeWhiteboardLab.jsx` & `src/utils/collaborativeWhiteboardEngine.js` — Architecture Whiteboard & Canvas: Interaktive Modellierung verteilter Cloud- und Microservice-Architekturen, Erkennung isolierter Knoten (SPOF-Analyse) und Export in Mermaid.js Diagramm-Code.
+- **Codebase-Weite Bereinigung & Stabilität**:
+  - Oxlint auf 0 Warnungen und 0 Fehler über alle 299 Quellcodedateien gehalten.
+  - Alle 112 interaktiven Labs im Smoke-Test validiert (`labRegistry.smoke.test.jsx`).
+- **Test-Suite**: **327 bestandene Unit- & Smoke-Tests** in **60 Test-Dateien** mit 100% Erfolgsquote (vorher 313/56).
+
+### Version 3.15.0 (SQL Query Plan Optimization, Wireshark PCAP Stream Engine, Adaptive IHK Examiners & P2P Code Duel Edition)
+
+- **Neu**: `SqlQueryExecutionPlanLab.jsx` & `src/utils/sqlQueryExecutionEngine.js` — SQL Query Execution Plan & Cost Optimizer Studio: AST-Zerlegung, physischer Ausführungsbaum (Plan Tree), I/O-Kostenberechnung (Cost Units), B-Tree Index Scans vs Full Table Scans, Hash Joins, HashAggregate, Memory-Sorts und automatische Empfehlungs-Engine für fehlende Indizes.
+- **Neu**: `src/utils/pcapParserEngine.js` & Wireshark Stream Integration — Echter Libpcap Binär-Parser und Exporter (`.pcap` 24-Byte Global Header + 16-Byte Packet Header): Ermöglicht das Herunterladen und Hochladen von echten Packet-Captures direkt im Web-Wireshark `PacketSnifferLab.jsx`.
+- **Neu**: `src/utils/ihkOralExamEngine.js` & Multi-Prüfer-Simulation — IHK-Prüfer-Personas (Dr. Jansen / Sabine Meier / Klaus Weber), adaptive Folgefragen mit Keyword-Erkennung und offizielle IHK-Bewertungsmatrix nach AO 2020 im `IhkOralExamSimulator.jsx`.
+- **Neu**: `P2pCodeDuelLab.jsx` & `src/utils/p2pCodeDuelEngine.js` — Live Coding-Duell & Speedrun Arena: Echtzeit-Programmierwettkampf mit automatischem In-Browser Test-Runner, synchronisiertem Fortschritts-Race gegen KI-Bot "Azubi-Bot Max" und 3 LeetCode/IHK-Herausforderungen.
+- **Codebase-Weite Bereinigung & Stabilität**:
+  - Oxlint auf 0 Warnungen und 0 Fehler über alle 287 Quellcodedateien gehalten.
+  - Alle 108 interaktiven Labs im Smoke-Test validiert (`labRegistry.smoke.test.jsx`).
+- **Test-Suite**: **313 bestandene Unit- & Smoke-Tests** in **56 Test-Dateien** mit 100% Erfolgsquote (vorher 296/52).
+
+### Version 3.14.0 (High-Resilience Engineering, POSIX Ecosystem & IHK Documentation Power Edition)
+
+- **Neu**: `LinuxVfsTerminalLab.jsx` & `src/utils/linuxVfsEngine.js` — Vollwertige In-Memory Linux POSIX Terminal & VFS Sandbox mit Pipes (`|`), Redirections (`>`, `>>`), POSIX-Befehlen (`ls -la`, `cd`, `pwd`, `cat`, `grep`, `wc -l`, `find`, `chmod`, `chown`, `systemctl`, `df -h`, `free -m`, `ps aux`, `echo`, `head`, `tail`, `touch`, `mkdir`, `rm`) und 4 praxisnahen SysAdmin-Notfall-Challenges mit automatischer Zustands-Validierung und XP-Vergabe.
+- **Neu**: `IhkProjectPlannerLab.jsx` & `src/utils/ihkProjectPlannerEngine.js` — IHK Projektdokumentations- und Nutzwertanalyse-Studio nach AO 2020: Phasen- und Stundenrechner (80h FIAE / 40h FISI), automatischer Phasen-Check, interaktive Nutzwertanalyse (NWA) mit K.O.-Kriterien und Recharts-Balkendiagrammen, 3-Jahres-Amortisationsrechner (ROI) und druckfertiger Markdown-Export für den IHK-Abschlussbericht.
+- **Neu**: `ChaosEngineeringLab.jsx` & `src/utils/chaosEngineeringEngine.js` — Microservices Chaos Engineering & Resilience Studio: Fault Injections (Latenz-Spitzen, 500er Crashes, DB-Pool-Erschöpfung, kaskadierende Ausfälle) mit interaktiv zuschaltbaren Schutzmustern (Circuit Breaker, Rate Limiter, Retry mit Exponential Backoff, Fallback Cache, Bulkhead-Isolation).
+- **Neu**: `CiCdPipelineBuilderLab.jsx` & `src/utils/cicdPipelineBuilderEngine.js` — CI/CD Pipeline DAG Studio & Runner: Directed Acyclic Graph Editor, automatische Zyklen-Erkennung, topologische Sortierung paralleler Ausführungsstufen, Live-Streaming-Runner-Simulation und Export in GitHub Actions Workflow YAML.
+- **Neu**: `src/utils/haptics.js` & Mobile Swipe-Gesten — Web Vibration API Integration mit haptischem Feedback (`SUCCESS`, `WARNING`, `LEVEL_UP`) und flüssigen Tinder-Style Swipe-Gesten via Framer-Motion im Leitner- und SM-2 Karteikarten-Studio.
+- **Neu**: Bookmark- & Favoriten-System — 1-Klick Stern-Favoriten auf allen Lab-Karten (`LabsDashboard.jsx`), gespeichert in `userState.bookmarkedLabs` (`storage.js` & `useStore.js`) mit direktem Filter-Tab `"⭐ Favoriten (N)"` im Labs-Hub.
+- **Neu**: Command Palette Quick Calculators — Strg+K Schnellrechner für CIDR Subnetting (`/24` $\rightarrow$ Hosts & Maske), Zahlenbasis-Konvertierung (`hex 255`, `bin 42`) und Inline-Arithmetik.
+- **Codebase-Weite Bereinigung & Stabilität**:
+  - Oxlint auf 0 Warnungen und 0 Fehler gebracht.
+  - Konstanten und Datensätze sauber in `src/data/flashcardsData.js`, `src/data/anfaengerGuideData.js`, `src/data/roadmapData.js` und `src/utils/regexParserEngine.js` ausgelagert.
+  - Alle 106 registrierten Labs im Smoke-Test validiert (`labRegistry.smoke.test.jsx`).
+- **Test-Suite**: **296 bestandene Unit- & Smoke-Tests** in **52 Test-Dateien** mit 100% Erfolgsquote (vorher 271/47).
+
+### Version 3.13.0 (Hosting-Fallback, Volltextsuche, i18n-Pilot, Lernpfade, Onboarding-Tour & E2E/A11y-Tests)
+
+- **Neu**: SPA-Fallback-Konfiguration für alle drei gängigen Hosting-Ziele (`public/404.html`
+  + Gegenstück-Script in `index.html` für GitHub Pages, `public/_redirects` für Netlify,
+  `vercel.json` für Vercel) — vorher hätte ein direkter Aufruf/Reload einer Lab-URL (z. B.
+  `/subnetting`) auf einem echten Static-Host einen 404 geworfen, da react-router zwar schon
+  clientseitig sauber routet, es aber keine serverseitige Fallback-Regel gab.
+- **`favicon.svg` korrekt verlinkt**: `index.html` verwies auf ein nie existierendes
+  `/vite.svg` (Standard-Vite-Template-Überbleibsel) statt auf das tatsächlich vorhandene
+  `public/favicon.svg`.
+- **Command Palette durchsucht jetzt alle 102 Labs**: vorher matchte die Suche nur Titel
+  einer handverlesenen `staticActions`-Liste. Neu werden zusätzlich Beschreibung und Tags
+  jedes `LAB_REGISTRY`-Eintrags durchsucht — z. B. findet "Bankier" jetzt den OS-Scheduler,
+  auch wenn er nicht in der kuratierten Liste steht.
+- **i18n-Content-Pilot (Einsteiger-Bereich)**: `AnfaengerGuideHub` (alle 4 Guides) und die
+  `ihk_basics`-Kategorie der Quiz Arena sind jetzt vollständig zweisprachig (DE/EN), nach
+  demselben Muster wie die bereits zweisprachigen Rollen-Profile in `userProfiles.js`.
+- **Geführte Lernpfade**: `RecommendationsWidget` verlinkt bei einer Wissenslücke jetzt
+  gezielt auf ein passendes Lab (z. B. "Netzwerke & Subnetting" → Subnetting-Rechner) statt
+  pauschal nur zurück zum Prüfungssimulator. `CareerRoadmap`-Schritte können jetzt ebenfalls
+  auf ein passendes Lab verlinken ("Lab öffnen"-Button), wo ein sinnvolles existiert.
+- **6 komplett unerreichbare Labs jetzt zusätzlich verlinkt**: dank der neuen Kategorie- und
+  Lernpfad-Verlinkung sind `subnetting`, `ai` und weitere zuvor nur über den Hub erreichbare
+  Labs jetzt auch direkt aus den adaptiven Empfehlungen und Roadmaps ansteuerbar.
+- **Neu**: Einmalige Erste-Schritte-Tour (`FirstVisitTourOverlay`) nach dem ersten Besuch
+  (3 Schritte: Schnellsuche, Labs-Hub, adaptive Empfehlungen), persistiert über
+  `userState.hasSeenTour`.
+- **Neu**: Playwright-E2E-Tests (`e2e/`) für Onboarding, Command Palette und einen
+  Lab-Smoke-Test in echten Browsern (ergänzt den bestehenden jsdom-basierten
+  `labRegistry.smoke.test.jsx`, der z. B. keine echten Layout-/Canvas-Eigenheiten prüft) —
+  neues Skript `npm run test:e2e`, neue CI-Pipeline-Stufe.
+- **Neu**: Automatisierte Barrierefreiheitsprüfung (`@axe-core/playwright`) auf Dashboard,
+  einem Lab und im Hochkontrast-Modus. Fand echte, app-weite Probleme, die jetzt behoben sind:
+  - **~21 Range-Slider ohne zugängliches Label** (kritisch, WCAG 4.1.2) app-weit ergänzt um
+    `aria-label` (rein additiv, keine optische Änderung).
+  - **Akzentfarben-Kontrast**: `--accent-teal`, `--accent-amber` und `--accent-emerald`
+    erreichten als Badge-/Label-Text auf hellem Grund nur 2.85–3.76:1 Kontrast statt der
+    WCAG-AA-Mindestanforderung von 4.5:1 — leicht abgedunkelt (siehe `global.css`).
+  - **Hochkontrast-Modus unlesbar**: der aktive Hell/Dunkel-Umschalter in der Navbar nutzte
+    hartkodiertes weißes Text auf `var(--accent-primary)`-Hintergrund, der im
+    Hochkontrast-Modus zu leuchtendem Cyan wird (1.25:1 statt 4.5:1) — neues
+    `--on-accent-text`-Token behebt das themenübergreifend korrekt.
+  - **Gesperrte Skill-Tree-Knoten unlesbar**: `opacity: 0.6` auf einem bereits dunkel
+    getönten Hintergrund verwässerte den Text auf 1.69:1 — Hintergrund auf `--bg-tertiary`
+    umgestellt, Opacity-Trick entfernt (gestrichelter Rahmen + Schloss-Icon reichen als
+    visuelles Signal für "gesperrt").
+- **Bekannter, bewusst nicht behobener Folgefund**: dasselbe Muster aus hartkodiertem
+  weißem Text auf einem accent-farbenen Volltonhintergrund (wie beim Hell/Dunkel-Umschalter)
+  kommt noch an vielen weiteren Stellen vor (u. a. `WebSandbox.jsx`, `SqlDungeon.jsx`,
+  `CodePuzzle.jsx`, `SecurityLab.jsx` und vermutlich weitere Games/Labs) — dort aber nur
+  im Hochkontrast-Modus ein Problem, der aktuelle E2E-Test deckt nur Dashboard + ein Lab ab.
+  Eine vollständige Bereinigung wäre ein eigener, größerer Durchgang.
+- **Zurückgestellt** (siehe vorherige Analyse): optionaler Cloud-Sync (braucht einen externen
+  Anbieter-Account) und ein P2P-Quiz-Leaderboard (vergleichbarer Infra-Aufwand).
+- **Test-Suite**: **271 bestandene Unit-Tests** in **47 Test-Dateien** (vorher 247/44) plus
+  **12 neue E2E-/A11y-Tests** (Playwright) in einer separaten Pipeline-Stufe.
+
+### Version 3.12.0 (Zentrale Lab-Registry & Struktureller Bugfix)
+
+- **Neu**: `src/data/labRegistry.js` — die Zuordnung ID ↔ Komponente für alle 102 interaktiven Labs war bisher an vier unabhängigen Stellen gepflegt (`App.jsx`-Tab-Switch, `LabsDashboard`-Kartenraster, Navbar-Dropdowns, Command Palette). Genau das war laut dieser Änderungshistorie die Ursache für tote Links, nie verlinkte Labs und Abstürze durch fehlende Icon-Imports in fast jeder vorherigen Version. `App.jsx` rendert Labs jetzt generisch aus dieser einen Registry (`findLabEntry(activeTab)`), `LabsDashboard` bezieht sein Kartenraster ebenfalls von dort — Navbar und Command Palette behalten bewusst ihre eigenen, kontextspezifischen Texte, werden aber jetzt per Test gegen die Registry validiert.
+- **`App.jsx` um ca. 45 % verkleinert** (1668 → 891 Zeilen): ~90 einzelne `{activeTab === 'x' && <Suspense>…}`-Blöcke und die zugehörigen `lazy()`-Deklarationen wurden durch einen einzigen generischen Render-Block ersetzt. Verhalten ist für jede bisherige Tab-ID identisch.
+- **6 komplett unerreichbare Labs entdeckt & angebunden**: `subnetting` (CIDR-Rechner), `api_mock_studio`, `docker_compose`, `vector_search`, `tdd` und `ai` (Prompt-Engineering-Lab) waren über keine einzige Navigationsfläche (Navbar, Command Palette, Labs-Hub) erreichbar — komplett tote Features trotz vollständiger Implementierung. Alle sechs sind jetzt Teil der Registry und damit im "Alle Labs"-Hub sichtbar.
+- **`ExamSimulator` jetzt lazy-geladen** statt fest ins Hauptbundle eingebunden — ein Nebeneffekt der Registry-Migration, der die initiale Bundle-Größe reduziert.
+- **Neuer kritischer Fund**: `Sm2SpacedRepetitionLab.jsx` enthielt eine LaTeX-Formel (`$R(t) = e^{-t / S}$`) direkt im JSX-Text statt als String — JSX interpretierte `{-t / S}` als Ausdruck und stürzte mit `ReferenceError: t is not defined` ab, sobald das Lab geöffnet wurde. Gefunden vom neuen Smoke-Test, nicht von einem Nutzer.
+- **Neu**: `src/data/labRegistry.smoke.test.jsx` — mountet jeden der 102 Registry-Einträge einmal isoliert. Das ist der erste Test in diesem Projekt, der jedes Lab tatsächlich rendert statt nur seine Erreichbarkeit zu prüfen; er hätte jeden bisherigen "App/Lab stürzt beim Öffnen ab"-Vorfall vor dem Release gefangen (siehe Fund oben).
+- **Neu**: `src/components/Navigation/navLinks.test.js` — prüft, dass jede von Navbar-Dropdowns und Command Palette referenzierte ID entweder in der Registry oder in den bewusst separat gerenderten App-Bereichen (Dashboard, Themen-Browser, Minispiele-Hub, Labs-Hub, Kampagne, Lückentext, Videos, Projekte) existiert.
+- **`LabsDashboard.jsx` um ca. 84 % verkleinert** (913 → 150 Zeilen) durch Wegfall der jetzt redundanten lokalen Lab-Liste; zwei neue Kategorie-Filter (`Programmierung & Tools`, `Hardware & Elektrotechnik`) ergänzt, da nach der Konsolidierung 21 bzw. 3 Labs sonst durch keinen Filter-Button erreichbar gewesen wären.
+- **Test-Suite**: **247 bestandene Unit-Tests** in **46 Test-Dateien** (vorher 141 in 42 Dateien).
+
+### Version 3.11.1 (CI Pipeline & Codebase-Weite Lint-Bereinigung)
+
+- **Neu**: `.github/workflows/ci.yml` — GitHub Actions Pipeline, die bei jedem Push/PR auf `main` automatisch Lint, Unit-Tests und den Produktions-Build ausführt. Bisher gab es trotz 141 Tests keine CI-Absicherung.
+- **Lint-Bereinigung**: Ungenutzte Imports/Variablen von **502 auf 0** reduziert (verifiziert mit `oxlint --fix-dangerously` + manueller Diff-Review jeder nicht-trivialen Änderung, um versteckte Fehler auszuschließen).
+- **Weiterer kritischer Fund**: `WasmCompilerPlaygroundLab.jsx` referenzierte `RefreshCw` als JSX-Icon ohne Import — ein Klick auf "Kompilieren" ließ das Lab abstürzen. Neuer Regressionstest `WasmCompilerPlaygroundLab.test.jsx` deckt das jetzt ab.
+- **Zwei weitere unvollständige Features entdeckt & vervollständigt** (Muster: `useStore`-Import wurde beim Lint-Cleanup als "ungenutzt" entfernt, weil nie ein XP-Button verdrahtet war): `IhkGradeCalculatorLab` und `TransformerAttentionLab` hatten trotz Award-Icon im Header **keine Möglichkeit, XP zu verdienen**. Beide haben jetzt einen "XP sichern"-Button wie alle vergleichbaren Rechner-Labs.
+- **`ProjectViewer.jsx`**: abgeschlossene Praxisprojekte wurden in der Projekt-Liste nicht als erledigt markiert (die Variable dafür war berechnet, aber nie gerendert) — jetzt mit ✓-Badge sichtbar.
+- **`ActivityHeatmapWidget.jsx`**: die gesamt protokollierte XP-Summe wurde berechnet, aber nirgends angezeigt — jetzt als dritte Stat-Kachel neben Streak & Einheiten sichtbar.
+- **Test-Suite**: **141 bestandene Unit-Tests** in **42 Test-Dateien**.
+
+### Version 3.11.0 (Bilingual Shell, Adaptive Learning & Critical Stability Fixes)
+
+**🚨 Kritische Stabilitätsfixes** (App war teilweise nicht nutzbar):
+- **`CommandPaletteModal.jsx`**: Die Schnellsuche (Ctrl+K) referenzierte die Icons `Lock` und `Radio`, ohne sie zu importieren. Da die Liste bei jedem Render aufgebaut wird — unabhängig davon, ob die Palette geöffnet ist — stürzte die **gesamte App** ab, sobald `ModalContainer` gerendert wurde (also praktisch immer). Zusätzlich zeigte der Eintrag "Mündliches Fachgespräch" auf `'oral-exam'` statt `'oral_exam'` und lief damit ins Leere.
+- **`LabsDashboard.jsx`**: Dieselbe Fehlerklasse — `icon: Code2` ohne Import ließ die "Alle Labs Hub"-Seite bei jedem Aufruf abstürzen.
+- **8 tote Links im Labs-Hub**: Karten wie `'bigo'`, `'pkce'`, `'k8s'`, `'ragai'`, `'regexmaster'`, `'pythonwasm'`, `'gitvisual'` und `'sqldungeon'` verwendeten IDs, die zu keinem existierenden Tab passten (z. B. `'bigo'` statt `'bigo_benchmark'`) — ein Klick landete auf einer leeren Seite. Alle auf die korrekten Tab-IDs korrigiert.
+- **`App.jsx`**: `wasm_rust_studio` renderte `<WasmRustStudio>`, eine Komponente, die im ganzen Projekt nicht existiert (Datei heißt `WasmRustLab.jsx`) — ebenfalls ein sofortiger Absturz beim Öffnen dieses Labs.
+- **24 komplett unverlinkte Labs entdeckt & angebunden**: Komponenten wie `AlgoPlaygroundLab`, `CloudDesignerLab`, `CloudDevOpsLab`, `OauthOidcLab`, `SystemDesignLab`, `CiCdPipelineLab`, `KafkaEventLab` u.v.m. waren vollständig implementiert und über `App.jsx` erreichbar, tauchten aber in keinem einzigen Navigationsmenü auf (weder Navbar noch Dashboard noch Command Palette noch Labs-Hub). Alle 24 sind jetzt als Karten im "🧪 Alle Labs & Simulatoren Hub" auffindbar.
+- **Neuer Regressionstest** `LabsDashboard.test.js`: prüft automatisch, dass jede Hub-Karte auf einen tatsächlich existierenden Tab in `App.jsx` zeigt. `CommandPaletteModal.test.jsx` stellt sicher, dass die Schnellsuche beim Mounten nicht mehr abstürzt.
+- **Duplikat entfernt**: `OauthPkceStudio.jsx` (ältere Version mit simulierter/nicht echter SHA-256-Berechnung) wurde durch `OauthPkceStudioLab.jsx` (echte RFC-7636-Implementierung) ersetzt — beide wurden zuvor gleichzeitig auf derselben Tab-ID gerendert.
+
+**🌍 Zweisprachige App-Oberfläche (Deutsch/English)**:
+- Der bereits vorhandene "Sprache: DE/EN"-Schalter in der Navbar änderte bisher nichts sichtbares. Jetzt gibt es eine echte `useTranslation()`-Hook (`utils/i18n.js`) mit einem deutlich erweiterten Wörterbuch, verdrahtet in Navbar, Barrierefreiheits-Panel, Footer (inkl. DSGVO/Impressum/FAQ), Rollenauswahl-Onboarding, Dashboard-Begrüßung und Schnellsuche.
+- `userProfiles.js` liefert jetzt englische Übersetzungen für alle 4 Nutzerrollen (Titel, Beschreibung, Skills) über `getLocalizedRole()`.
+- **Bewusst nicht übersetzt**: die eigentlichen Lerninhalte der 100+ einzelnen Labs (Fragen, Erklärtexte, Code-Beispiele) — das bleibt vorerst Deutsch, da es ein eigenes, deutlich größeres Lokalisierungsprojekt wäre.
+
+**🎯 Adaptive Lernempfehlungen**:
+- Neu: `utils/adaptiveLearningEngine.js` sammelt kategorisierte Ergebnisse aus dem IHK-Prüfungssimulator und der Quiz Arena (`userState.categoryStats`) und ermittelt die Themen mit der niedrigsten Trefferquote.
+- Neu: `RecommendationsWidget.jsx` auf dem Dashboard zeigt die 3 schwächsten Themen mit direktem Sprung zurück ins passende Lab.
+
+**🛠️ Feature-Vervollständigungen** (Bugfixes bestehender Labs):
+- `AgileScrumSimulatorLab`: Sprintlänge war im UI nicht änderbar, obwohl der State existierte; das Burndown-Chart brach zudem bei jeder Sprintlänge ≠ 10 Tage ab. Jetzt per Slider einstellbar (5–20 Tage), Berechnung generalisiert.
+- `Ipv6RoutingLab`: eigene Routen können jetzt zur LPM-Tabelle hinzugefügt/entfernt werden.
+- `CloudDesignerLab`: Komponenten-Bibliothek zum Hinzufügen/Entfernen; generierter Terraform-Code spiegelt jetzt die tatsächliche Architektur wider.
+- `RedisCachingLab`: TTLs zählen jetzt live herunter, abgelaufene Keys werden automatisch evictet.
+- `FlashcardsModal`: Sitzungsfortschritt wird jetzt angezeigt statt nur berechnet.
+- **Test-Suite**: **140 bestandene Unit-Tests** in **41 Test-Dateien** (100% Erfolgsquote).
+
+### Version 3.10.1 (Interactive Fixes & Quality Pass)
+- **Fix**: `scrumEngine.js` — die Sprintlänge (`sprintDays`) war zwar als Zustand vorhanden, aber im UI nirgends änderbar, und das Burndown-Chart brach bei jeder Sprintlänge ≠ 10 Tage ab (Mitte & Endpunkt der "Ist"-Kurve waren hartkodiert auf Tag 5 / Tag 10). Jetzt skaliert die Berechnung auf jede beliebige Sprintlänge; neuer Unit-Test deckt einen 14-Tage-Sprint ab.
+- **Neu**: `AgileScrumSimulatorLab.jsx` — Slider zur Live-Anpassung der Sprintlänge (5–20 Tage) direkt über dem Burndown-Chart.
+- **Neu**: `Ipv6RoutingLab.jsx` — die LPM-Routing-Tabelle war rein statisch (kein Weg, Routen hinzuzufügen, obwohl der State dafür bereits existierte). Jetzt können eigene Routen per Formular ergänzt und per Klick wieder entfernt werden, inklusive sofortiger Neubewertung des Longest-Prefix-Match.
+- **Neu**: `CloudDesignerLab.jsx` — aus dem rein statischen 3-Komponenten-Demo wurde ein echter Mini-Designer: eine Komponenten-Bibliothek (VPC, EC2, RDS, S3, Lambda, ALB) kann per Klick auf die Canvas gebracht oder wieder entfernt werden, und der generierte Terraform-Code (`main.tf`) spiegelt jetzt exakt die aktuell platzierten Komponenten wider statt eines fest verdrahteten Textblocks.
+- **Verbessert**: `RedisCachingLab.jsx` — die "Live Redis In-Memory Table" tickte vorher nie herunter. TTLs zählen jetzt sekündlich echt herunter, abgelaufene Keys werden automatisch aus dem Keyspace entfernt (mit visueller Warnung bei TTL ≤ 5s) und lassen sich per Klick neu befüllen.
+- **Verbessert**: `FlashcardsModal.jsx` — der Sitzungsfortschritt (`completedCount`) wurde berechnet, aber nirgends angezeigt; er erscheint nun als Live-Zähler ("X Karten in dieser Sitzung gemeistert"). Ungenutzter Dead Code (`handleNext`) entfernt.
+- **Qualität**: Zahlreiche ungenutzte Imports/Variablen in den oben genannten Dateien bereinigt (Oxlint-Warnungen reduziert).
+- **Test-Suite**: **130 bestandene Unit-Tests** in **38 Test-Dateien** (100% Erfolgsquote).
 
 ### Version 3.10.0 (OAuth PKCE, K8s Topology & WebRTC Mesh Edition)
 - **Neu**: `OauthPkceStudioLab.jsx` & `oauthPkceEngine.js` mit RFC 7636 PKCE ($S256$ SHA-256 Code Challenge), Consent Screen, Token Exchange, JWT Decoder und Bearer Token API Access.

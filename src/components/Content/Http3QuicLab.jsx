@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Globe, Zap, ArrowRight, ShieldCheck, CheckCircle2, RotateCcw, AlertTriangle, Layers, Activity } from 'lucide-react';
+
+import { Globe, Zap, CheckCircle2, AlertTriangle } from 'lucide-react';
 import { HTTP3_QUIC_BENCHMARKS } from '../../data/cloudArchLabsData';
 import { useStore } from '../../store/useStore';
 

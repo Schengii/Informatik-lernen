@@ -1,19 +1,33 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Database, Zap, Clock, ShieldCheck, CheckCircle2, RotateCcw, Play, Server, Layers } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Database, CheckCircle2, RotateCcw, Play, Server } from 'lucide-react';
 import { REDIS_CACHING_STRATEGIES } from '../../data/enterpriseLabsData';
 import { useStore } from '../../store/useStore';
+
+const INITIAL_CACHE_MEMORY = [
+  { key: 'user:42', val: '{"name":"Alice","role":"Admin"}', ttl: 18 },
+  { key: 'product:108', val: '{"title":"Laptop Pro","price":1299}', ttl: 32 },
+  { key: 'stats:daily', val: '{"pageviews":48920}', ttl: 9 }
+];
 
 export default function RedisCachingLab() {
   const { awardXP } = useStore();
   const [selectedStrategyId, setSelectedStrategyId] = useState(REDIS_CACHING_STRATEGIES[0].id);
   const [activeStepIdx, setActiveStepIdx] = useState(0);
-  const [cacheMemory, setCacheMemory] = useState([
-    { key: 'user:42', val: '{"name":"Alice","role":"Admin"}', ttl: 3540 },
-    { key: 'product:108', val: '{"title":"Laptop Pro","price":1299}', ttl: 1820 },
-    { key: 'stats:daily', val: '{"pageviews":48920}', ttl: 450 }
-  ]);
+  const [cacheMemory, setCacheMemory] = useState(INITIAL_CACHE_MEMORY);
   const [isCompleted, setIsCompleted] = useState(false);
+
+  // Live TTL-Countdown: jede Sekunde tickt jeder Key um 1s herunter.
+  // Erreicht ein Key TTL 0, wird er durch Redis' Ablaufmechanismus aus dem Keyspace entfernt.
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCacheMemory(prev =>
+        prev
+          .map(item => ({ ...item, ttl: item.ttl - 1 }))
+          .filter(item => item.ttl > 0)
+      );
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const strategy = REDIS_CACHING_STRATEGIES.find(s => s.id === selectedStrategyId) || REDIS_CACHING_STRATEGIES[0];
 
@@ -29,6 +43,10 @@ export default function RedisCachingLab() {
   const handleReset = () => {
     setActiveStepIdx(0);
     setIsCompleted(false);
+  };
+
+  const handleRefillCache = () => {
+    setCacheMemory(INITIAL_CACHE_MEMORY);
   };
 
   return (
@@ -162,12 +180,26 @@ export default function RedisCachingLab() {
             </span>
           </div>
 
+          {cacheMemory.length === 0 && (
+            <div style={{ padding: '20px', textAlign: 'center', color: '#64748b', fontSize: '0.85rem' }}>
+              Alle Keys sind abgelaufen (TTL erreicht 0) und wurden aus dem Keyspace entfernt.
+              <div style={{ marginTop: '10px' }}>
+                <button
+                  onClick={handleRefillCache}
+                  style={{ padding: '8px 14px', borderRadius: '8px', background: '#ef4444', color: '#fff', border: 'none', cursor: 'pointer', fontWeight: 'bold', fontSize: '0.8rem' }}
+                >
+                  Keyspace neu befüllen
+                </button>
+              </div>
+            </div>
+          )}
+
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {cacheMemory.map(item => (
-              <div key={item.key} style={{ background: 'rgba(0,0,0,0.3)', padding: '12px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.06)' }}>
+              <div key={item.key} style={{ background: 'rgba(0,0,0,0.3)', padding: '12px', borderRadius: '8px', border: `1px solid ${item.ttl <= 5 ? 'rgba(239,68,68,0.5)' : 'rgba(255,255,255,0.06)'}` }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
                   <strong style={{ color: '#fca5a5', fontFamily: 'monospace', fontSize: '0.88rem' }}>{item.key}</strong>
-                  <span style={{ color: '#fbbf24', fontSize: '0.78rem', fontFamily: 'monospace' }}>TTL: {item.ttl}s</span>
+                  <span style={{ color: item.ttl <= 5 ? '#f87171' : '#fbbf24', fontSize: '0.78rem', fontFamily: 'monospace', fontWeight: item.ttl <= 5 ? 'bold' : 'normal' }}>TTL: {item.ttl}s</span>
                 </div>
                 <div style={{ color: '#94a3b8', fontSize: '0.8rem', fontFamily: 'monospace', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                   {item.val}

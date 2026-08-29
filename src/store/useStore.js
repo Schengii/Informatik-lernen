@@ -1,8 +1,9 @@
 import { create } from 'zustand';
-import { initialProfileState, loadUserState, saveUserState, calculateLevel, recordDailyActivity } from '../utils/storage';
+import { loadUserState, saveUserState, calculateLevel, recordDailyActivity } from '../utils/storage';
 import { soundManager } from '../utils/audioSystem';
+import { recordCategoryAttempt } from '../utils/adaptiveLearningEngine';
 
-export const useStore = create((set, get) => {
+export const useStore = create((set) => {
   const initialUser = loadUserState();
   if (initialUser.soundSettings) {
     soundManager.setVolume(initialUser.soundSettings.volume ?? 0.5);
@@ -179,6 +180,52 @@ export const useStore = create((set, get) => {
 
     refreshStateFromStorage: () => {
       set({ userState: loadUserState() });
+    },
+
+    completeTour: () => {
+      set((state) => {
+        const updatedState = { ...state.userState, hasSeenTour: true };
+        saveUserState(updatedState);
+        return { userState: updatedState };
+      });
+    },
+
+    // Erfasst ein kategorisiertes Quiz-/Prüfungs-Ergebnis für die adaptiven Lernempfehlungen
+    // (siehe utils/adaptiveLearningEngine.js & Gamification/RecommendationsWidget.jsx).
+    recordCategoryAttempt: (categoryKey, { label, source, correctCount, totalCount }) => {
+      set((state) => {
+        const prev = state.userState;
+        const updatedState = {
+          ...prev,
+          categoryStats: recordCategoryAttempt(prev.categoryStats, categoryKey, {
+            label, source, correctCount, totalCount
+          })
+        };
+        saveUserState(updatedState);
+        return { userState: updatedState };
+      });
+    },
+
+    toggleBookmarkLab: (labId) => {
+      let isBookmarked = false;
+      set((state) => {
+        const prev = state.userState;
+        const currentBookmarks = Array.isArray(prev.bookmarkedLabs) ? prev.bookmarkedLabs : [];
+        let updatedBookmarks;
+        if (currentBookmarks.includes(labId)) {
+          updatedBookmarks = currentBookmarks.filter((id) => id !== labId);
+          soundManager.playSFX('click');
+          isBookmarked = false;
+        } else {
+          updatedBookmarks = [...currentBookmarks, labId];
+          soundManager.playSFX('success');
+          isBookmarked = true;
+        }
+        const updatedState = { ...prev, bookmarkedLabs: updatedBookmarks };
+        saveUserState(updatedState);
+        return { userState: updatedState };
+      });
+      return isBookmarked;
     }
   };
 });

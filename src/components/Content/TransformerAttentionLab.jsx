@@ -1,17 +1,19 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Sparkles, Brain, Cpu, Sliders, Activity, Play, 
-  ArrowRight, Layers, CheckCircle2, MessageSquare
+
+import {
+  Sparkles, Brain, Sliders, Activity, Play,
+  Layers, Award
 } from 'lucide-react';
-import { useStore } from '../../store/useStore';
-import { 
-  SAMPLE_SENTENCES, calculateAttentionMatrix, 
-  sampleNextTokenDistribution, REACT_AGENT_SAMPLE_RUN 
+
+import {
+  SAMPLE_SENTENCES, calculateAttentionMatrix,
+  sampleNextTokenDistribution, REACT_AGENT_SAMPLE_RUN
 } from '../../utils/transformerAttentionEngine';
+import { useStore } from '../../store/useStore';
 
 export default function TransformerAttentionLab() {
   const { awardXP } = useStore();
+
   const [activeTab, setActiveTab] = useState('attention'); // 'attention' | 'sampling' | 'react_agent'
 
   // Attention State
@@ -60,6 +62,13 @@ export default function TransformerAttentionLab() {
             <p style={{ color: 'var(--text-muted)', marginTop: '6px', maxWidth: '750px', fontSize: '0.95rem' }}>
               Erforsche die Funktionsweise moderner Large Language Models: Scaled Dot-Product Self-Attention Heatmaps, Temperature &amp; Top-P Sampling sowie autonome AI-Agenten ReAct-Loops.
             </p>
+            <button
+              onClick={() => awardXP(35, 'transformer_attention_master')}
+              className="btn btn-primary"
+              style={{ gap: '8px', marginTop: '12px' }}
+            >
+              <Award size={16} /> LLM-Studio XP sichern
+            </button>
           </div>
 
           {/* Sub Navigation */}
@@ -192,6 +201,7 @@ export default function TransformerAttentionLab() {
                   step="0.05"
                   value={temperature}
                   onChange={(e) => setTemperature(parseFloat(e.target.value))}
+                  aria-label={`Temperature (T): ${temperature.toFixed(2)}`}
                   style={{ width: '100%' }}
                 />
                 <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'block', marginTop: '6px' }}>
@@ -212,6 +222,7 @@ export default function TransformerAttentionLab() {
                   step="1"
                   value={topK}
                   onChange={(e) => setTopK(parseInt(e.target.value))}
+                  aria-label={`Top-K Filter: ${topK} Tokens`}
                   style={{ width: '100%' }}
                 />
                 <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'block', marginTop: '6px' }}>
@@ -232,6 +243,7 @@ export default function TransformerAttentionLab() {
                   step="0.05"
                   value={topP}
                   onChange={(e) => setTopP(parseFloat(e.target.value))}
+                  aria-label={`Top-P (Nucleus): ${(topP * 100).toFixed(0)}%`}
                   style={{ width: '100%' }}
                 />
                 <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'block', marginTop: '6px' }}>

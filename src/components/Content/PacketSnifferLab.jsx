@@ -1,26 +1,29 @@
-import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useMemo, useRef } from 'react';
+
 import { 
-  Network, Search, Filter, Layers, ArrowRight, ShieldCheck, 
-  Terminal, Sparkles, CheckCircle2, Play, RefreshCw, Cpu
+  Network, Filter, Layers, Terminal, Sparkles, Download, Upload, Cpu
 } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { SAMPLE_PACKETS, formatHexDump, evaluatePacketFilter } from '../../utils/packetSnifferEngine';
+import { exportToPcapBlob, parsePcapBuffer } from '../../utils/pcapParserEngine';
+import { triggerHaptic } from '../../utils/haptics';
 
 export default function PacketSnifferLab() {
   const { awardXP } = useStore();
+  const [packets, setPackets] = useState(SAMPLE_PACKETS);
   const [filterQuery, setFilterQuery] = useState('');
   const [selectedPacketId, setSelectedPacketId] = useState(1);
   const [highlightedByteRange, setHighlightedByteRange] = useState(null); // [start, end]
+  const fileInputRef = useRef(null);
 
   // Filtered Packets
   const filteredPackets = useMemo(() => {
-    return SAMPLE_PACKETS.filter(p => evaluatePacketFilter(p, filterQuery));
-  }, [filterQuery]);
+    return packets.filter(p => evaluatePacketFilter(p, filterQuery));
+  }, [packets, filterQuery]);
 
   const selectedPacket = useMemo(() => {
-    return SAMPLE_PACKETS.find(p => p.id === selectedPacketId) || SAMPLE_PACKETS[0];
-  }, [selectedPacketId]);
+    return packets.find(p => p.id === selectedPacketId) || packets[0];
+  }, [packets, selectedPacketId]);
 
   // Hex Dump rows
   const hexDumpRows = useMemo(() => {
@@ -32,6 +35,46 @@ export default function PacketSnifferLab() {
     awardXP(10, 'packet_inspected');
   };
 
+  const handleExportPcap = () => {
+    try {
+      const blob = exportToPcapBlob(filteredPackets);
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `wireshark_capture_${Date.now()}.pcap`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      triggerHaptic('SUCCESS');
+      awardXP(25, 'pcap_exported');
+    } catch {
+      triggerHaptic('WARNING');
+    }
+  };
+
+  const handleImportPcap = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      try {
+        const arrayBuffer = event.target.result;
+        const result = parsePcapBuffer(arrayBuffer);
+        if (result.packets && result.packets.length > 0) {
+          setPackets(result.packets);
+          setSelectedPacketId(result.packets[0].id);
+          triggerHaptic('SUCCESS');
+          awardXP(35, 'pcap_imported');
+        }
+      } catch {
+        triggerHaptic('WARNING');
+      }
+    };
+    reader.readAsArrayBuffer(file);
+  };
+
   const isByteHighlighted = (byteIndex) => {
     if (!highlightedByteRange || highlightedByteRange.length !== 2) return false;
     return byteIndex >= highlightedByteRange[0] && byteIndex <= highlightedByteRange[1];
@@ -39,6 +82,15 @@ export default function PacketSnifferLab() {
 
   return (
     <div className="space-y-6">
+      {/* Hidden File Input */}
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept=".pcap,.cap"
+        onChange={handleImportPcap}
+        style={{ display: 'none' }}
+      />
+
       {/* Header Banner */}
       <div className="glass-panel" style={{ padding: '28px', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-xl)' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
@@ -51,8 +103,25 @@ export default function PacketSnifferLab() {
               Web-Wireshark Packet Sniffer &amp; Frame Analyzer
             </h1>
             <p style={{ color: 'var(--text-muted)', marginTop: '6px', maxWidth: '750px', fontSize: '0.95rem' }}>
-              Analysiere echte Netzwerk-Frames (Ethernet II, IPv4/IPv6, TCP/UDP, DNS, HTTP) mit Schichten-Dekodierung, Hex-Dump Byte-Synchronisation und Wireshark-Display-Filtern.
+              Analysiere echte Netzwerk-Frames (Ethernet II, IPv4/IPv6, TCP/UDP, DNS, HTTP) mit Schichten-Dekodierung, Hex-Dump Byte-Synchronisation, PCAP-Export &amp; Import und Wireshark-Display-Filtern.
             </p>
+          </div>
+
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <button
+              onClick={() => fileInputRef.current?.click()}
+              className="btn btn-secondary"
+              style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.85rem' }}
+            >
+              <Upload size={16} /> .PCAP Importieren
+            </button>
+            <button
+              onClick={handleExportPcap}
+              className="btn btn-primary"
+              style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.85rem' }}
+            >
+              <Download size={16} /> .PCAP Exportieren
+            </button>
           </div>
         </div>
       </div>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
-  Radio, Video, ShieldCheck, ArrowRight, ArrowLeft, RefreshCw, 
-  Send, MessageSquare, Sliders, CheckCircle2, Globe, Wifi, Server, Lock
+  Radio, ArrowRight, ArrowLeft, RefreshCw, 
+  Send, MessageSquare, CheckCircle2, Globe, Wifi, Server, Lock
 } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import {
@@ -277,10 +277,11 @@ export default function WebRtcPeerStudioLab() {
                 </label>
                 <input 
                   type="range" 
-                  min="5" 
-                  max="400" 
-                  value={latency} 
+                  min="5"
+                  max="400"
+                  value={latency}
                   onChange={(e) => setLatency(Number(e.target.value))}
+                  aria-label={`Latenz (RTT): ${latency} ms`}
                   style={{ width: '120px' }}
                 />
               </div>
@@ -291,10 +292,11 @@ export default function WebRtcPeerStudioLab() {
                 </label>
                 <input 
                   type="range" 
-                  min="0" 
-                  max="50" 
-                  value={dropRate} 
+                  min="0"
+                  max="50"
+                  value={dropRate}
                   onChange={(e) => setDropRate(Number(e.target.value))}
+                  aria-label={`Packet Drop: ${dropRate} %`}
                   style={{ width: '100px' }}
                 />
               </div>

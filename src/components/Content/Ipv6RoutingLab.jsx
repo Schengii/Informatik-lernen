@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Globe, Network, Shield, Sparkles, Award, ArrowRight, 
-  CheckCircle2, RefreshCw, Send, HelpCircle 
+import {
+  Globe, Network, Award,
+  RefreshCw, Send, Plus, Trash2
 } from 'lucide-react';
 import { 
   compressIpv6, 
@@ -36,6 +35,25 @@ export default function Ipv6RoutingLab() {
   ]);
   const [targetIp, setTargetIp] = useState('10.1.5.42');
   const routingMatch = matchRoutingTable(targetIp, routes);
+
+  const [newRoute, setNewRoute] = useState({ destination: '', nextHop: '', iface: '' });
+
+  const handleAddRoute = () => {
+    if (!newRoute.destination.trim() || !newRoute.nextHop.trim()) return;
+    setRoutes(prev => [
+      ...prev,
+      {
+        destination: newRoute.destination.trim(),
+        nextHop: newRoute.nextHop.trim(),
+        iface: newRoute.iface.trim() || 'eth-custom (Manuell)'
+      }
+    ]);
+    setNewRoute({ destination: '', nextHop: '', iface: '' });
+  };
+
+  const handleRemoveRoute = (destination) => {
+    setRoutes(prev => prev.filter(r => r.destination !== destination));
+  };
 
   return (
     <div className="space-y-6 max-w-6xl mx-auto p-4 md:p-6 pb-20">
@@ -285,6 +303,7 @@ export default function Ipv6RoutingLab() {
                     <th className="p-3 border-b border-slate-700">Ausgangs-Interface</th>
                     <th className="p-3 border-b border-slate-700">Präfix-Match</th>
                     <th className="p-3 border-b border-slate-700">Entscheidung</th>
+                    <th className="p-3 border-b border-slate-700"></th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-800">
@@ -314,11 +333,59 @@ export default function Ipv6RoutingLab() {
                             <span className="text-xs text-slate-500">Verworfen</span>
                           )}
                         </td>
+                        <td className="p-3">
+                          <button
+                            onClick={() => handleRemoveRoute(r.destination)}
+                            className="p-1.5 rounded-lg bg-slate-800 hover:bg-rose-900/60 text-slate-400 hover:text-rose-300 transition"
+                            title="Route entfernen"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
+                        </td>
                       </tr>
                     );
                   })}
                 </tbody>
               </table>
+            </div>
+
+            {/* Eigene Route hinzufügen */}
+            <div className="bg-slate-800/60 p-4 rounded-xl border border-slate-700 space-y-3">
+              <h3 className="font-bold text-white text-sm flex items-center gap-2">
+                <Plus className="w-4 h-4 text-emerald-400" />
+                Eigene Route zur Tabelle hinzufügen
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <input
+                  type="text"
+                  value={newRoute.destination}
+                  onChange={(e) => setNewRoute(prev => ({ ...prev, destination: e.target.value }))}
+                  placeholder="Zielnetzwerk, z. B. 10.2.0.0/16"
+                  className="bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white font-mono"
+                />
+                <input
+                  type="text"
+                  value={newRoute.nextHop}
+                  onChange={(e) => setNewRoute(prev => ({ ...prev, nextHop: e.target.value }))}
+                  placeholder="Next-Hop, z. B. 10.2.254.1"
+                  className="bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white font-mono"
+                />
+                <input
+                  type="text"
+                  value={newRoute.iface}
+                  onChange={(e) => setNewRoute(prev => ({ ...prev, iface: e.target.value }))}
+                  placeholder="Interface (optional)"
+                  className="bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white font-mono"
+                />
+              </div>
+              <button
+                onClick={handleAddRoute}
+                disabled={!newRoute.destination.trim() || !newRoute.nextHop.trim()}
+                className="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-xl text-xs font-bold transition"
+              >
+                <Plus className="w-3.5 h-3.5" />
+                Route hinzufügen & LPM neu auswerten
+              </button>
             </div>
           </div>
         </div>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
-  Key, Shield, Lock, CheckCircle2, RefreshCw, ArrowRight, 
-  ExternalLink, UserCheck, Code2, AlertTriangle, ShieldCheck, Terminal
+  Key, Lock, CheckCircle2, RefreshCw, ArrowRight, 
+  ExternalLink, UserCheck, ShieldCheck, Terminal
 } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import {
@@ -17,7 +17,7 @@ export default function OauthPkceStudioLab() {
   const [step, setStep] = useState(1);
   const [clientId] = useState('spa-devgame-client-app');
   const [redirectUri] = useState('https://app.devgame.it/oauth/callback');
-  const [scope, setScope] = useState('openid profile email api:read');
+  const [scope] = useState('openid profile email api:read');
   const [codeVerifier, setCodeVerifier] = useState('dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk');
   const [codeChallenge, setCodeChallenge] = useState(() => computeCodeChallengeS256('dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk'));
   const [state] = useState('xyz_secure_state_8912');

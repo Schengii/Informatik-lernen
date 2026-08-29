@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Globe, Play, RefreshCw, Code, CheckCircle2 } from 'lucide-react';
+import { Globe, CheckCircle2 } from 'lucide-react';
 
 export default function WebSandbox({ onCompleteGame }) {
   const initialHtml = `<div class="card">
@@ -41,7 +41,7 @@ button {
   const [htmlCode, setHtmlCode] = useState(initialHtml);
   const [cssCode, setCssCode] = useState(initialCss);
   const [activeTab, setActiveTab] = useState('html');
-  const [isSaved, setIsSaved] = useState(false);
+  const [,setIsSaved] = useState(false);
 
   const srcDoc = `
     <!DOCTYPE html>

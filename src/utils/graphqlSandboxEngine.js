@@ -65,7 +65,7 @@ export function executeGraphQLQuery(queryString) {
   }
 
   const clean = queryString.trim();
-  const isQuery = clean.startsWith('query') || clean.startsWith('{');
+  
 
   // Simple tokenized AST parser
   const lines = clean.split('\n').map(l => l.trim()).filter(Boolean);

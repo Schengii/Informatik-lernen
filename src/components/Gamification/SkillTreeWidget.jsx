@@ -1,41 +1,8 @@
 import React from 'react';
-import { GitBranch, Award, Sparkles, CheckCircle2, Lock, ArrowRight } from 'lucide-react';
+import { Award, Sparkles, CheckCircle2, Lock } from 'lucide-react';
+import { SKILL_TREE_DATA } from '../../data/roadmapData';
 
-export const SKILL_TREE_DATA = [
-  {
-    category: 'Tier 1: IT-Grundlagen',
-    nodes: [
-      { id: 'eva', title: 'EVA-Prinzip & Hardware', desc: 'Eingabe, Verarbeitung, Ausgabe & CPU Aufbau', xp: 50, req: null },
-      { id: 'binary', title: 'Binärsystem & Zahlensysteme', desc: 'Dezimal, Binär, Hexadezimal & Bitshift', xp: 50, req: null },
-      { id: 'networks', title: 'Netzwerk Grundlagen', desc: 'OSI-Modell, TCP/IP, DNS & IP-Adressen', xp: 75, req: null }
-    ]
-  },
-  {
-    category: 'Tier 2: Programmierung & Datenbanken',
-    nodes: [
-      { id: 'js_es6', title: 'JavaScript ES6+ & Async', desc: 'Promises, Async/Await, Array Methods', xp: 100, req: 'eva' },
-      { id: 'sql_master', title: 'SQL & Relationale DBs', desc: 'JOINs, Subqueries, Normalisierung (1NF-3NF)', xp: 120, req: 'binary' },
-      { id: 'python_core', title: 'Python Programming', desc: 'OOP, Datenstrukturen & Data Cleaning', xp: 100, req: 'binary' }
-    ]
-  },
-  {
-    category: 'Tier 3: Systemintegration & Cloud Native',
-    nodes: [
-      { id: 'subnetting', title: 'CIDR Subnetting & Routing', desc: 'Subnetzmasken, Netz-ID & Broadcast', xp: 150, req: 'networks' },
-      { id: 'git_branching', title: 'Git Workflows & Merging', desc: 'Commits, Rebase, Branching & Conflict Resolution', xp: 150, req: 'js_es6' },
-      { id: 'docker_k8s', title: 'Docker & Kubernetes', desc: 'Container, Pods, Deployments & Services', xp: 200, req: 'sql_master' }
-    ]
-  },
-  {
-    category: 'Tier 4: Enterprise Architecture & AI',
-    nodes: [
-      { id: 'microservices', title: 'Microservices & Event-Driven', desc: 'Apache Kafka, Circuit Breakers & REST/gRPC', xp: 250, req: 'docker_k8s' },
-      { id: 'rag_ai', title: 'RAG & Vector AI Pipelines', desc: 'Embeddings, Vector DBs (Pinecone/Chroma)', xp: 300, req: 'python_core' }
-    ]
-  }
-];
-
-export default function SkillTreeWidget({ userState, onRewardXP }) {
+export default function SkillTreeWidget({ userState }) {
   const unlockedTopics = userState.completedTopics || [];
 
   return (
@@ -70,11 +37,18 @@ export default function SkillTreeWidget({ userState, onRewardXP }) {
                   <div
                     key={node.id}
                     style={{
-                      background: isCompleted ? 'rgba(16, 185, 129, 0.08)' : isUnlocked ? 'var(--bg-primary)' : 'rgba(15, 23, 42, 0.4)',
+                      // Der gesperrte Zustand nutzte vorher `rgba(15, 23, 42, 0.4)` (ein
+                      // dunkler Slate-Ton mit niedriger Deckkraft) kombiniert mit
+                      // `opacity: 0.6` auf der ganzen Karte - beides zusammen verwässerte
+                      // den enthaltenen --text-muted-Text auf 1.69:1 Kontrast statt der
+                      // WCAG-AA-Mindestanforderung von 4.5:1 (gefunden von
+                      // e2e/accessibility.spec.js). --bg-tertiary ist hell genug, dass
+                      // --text-muted darauf komfortabel besteht, ganz ohne Opacity-Trick;
+                      // gestrichelter Rahmen + Schloss-Icon signalisieren "gesperrt" bereits eindeutig.
+                      background: isCompleted ? 'rgba(16, 185, 129, 0.08)' : isUnlocked ? 'var(--bg-primary)' : 'var(--bg-tertiary)',
                       border: isCompleted ? '2px solid var(--accent-emerald)' : isUnlocked ? '1px solid var(--border-color)' : '1px dashed var(--border-color)',
                       padding: '20px',
                       borderRadius: 'var(--radius-lg)',
-                      opacity: isUnlocked ? 1 : 0.6,
                       position: 'relative'
                     }}
                   >

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Network, Database, Zap, Layers, Play, CheckCircle2, RotateCcw, ArrowRight } from 'lucide-react';
+
+import { Network, Database, Play, CheckCircle2 } from 'lucide-react';
 import { GRAPHQL_AST_SCENARIOS } from '../../data/expertLabsData';
 import { useStore } from '../../store/useStore';
 

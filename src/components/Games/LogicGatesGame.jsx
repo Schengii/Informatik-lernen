@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Cpu, Zap, CheckCircle2, RefreshCw } from 'lucide-react';
+import { Cpu, Zap } from 'lucide-react';
 
 export default function LogicGatesGame({ onCompleteGame }) {
   const [inputA, setInputA] = useState(0);
   const [inputB, setInputB] = useState(0);
   const [gateType, setGateType] = useState('AND');
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [,setIsSuccess] = useState(false);
 
   // Compute logic gate output
   const computeOutput = (a, b, gate) => {

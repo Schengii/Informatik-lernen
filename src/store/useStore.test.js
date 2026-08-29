@@ -78,4 +78,16 @@ describe('useStore Zustand Store', () => {
     state = useStore.getState().userState;
     expect(state.xp).toBe(50);
   });
+
+  it('toggles bookmarked labs properly', () => {
+    const { toggleBookmarkLab } = useStore.getState();
+
+    const isAdded = toggleBookmarkLab('linux_vfs_lab');
+    expect(isAdded).toBe(true);
+    expect(useStore.getState().userState.bookmarkedLabs).toContain('linux_vfs_lab');
+
+    const isRemoved = toggleBookmarkLab('linux_vfs_lab');
+    expect(isRemoved).toBe(false);
+    expect(useStore.getState().userState.bookmarkedLabs).not.toContain('linux_vfs_lab');
+  });
 });

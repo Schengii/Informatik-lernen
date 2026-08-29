@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, CheckCircle2, XCircle, Award, Sparkles, Code } from 'lucide-react';
+import { Search, CheckCircle2 } from 'lucide-react';
 
 export default function RegexLab({ onCompleteGame }) {
   const challenges = [
@@ -41,7 +41,7 @@ export default function RegexLab({ onCompleteGame }) {
       if (success) {
         onCompleteGame('regex_master', 60);
       }
-    } catch (e) {
+    } catch {
       setUserMatches(['Ungültiges RegEx-Muster!']);
       setIsSuccess(false);
     }

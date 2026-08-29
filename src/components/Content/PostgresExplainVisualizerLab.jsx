@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Database, Search, Layers, Clock, Zap, CheckCircle2, ChevronRight, Activity, Award } from 'lucide-react';
+
+import { Database, Layers, ChevronRight } from 'lucide-react';
 import { POSTGRES_EXPLAIN_PLANS } from '../../data/advancedLabsData';
 import { useStore } from '../../store/useStore';
 
 export default function PostgresExplainVisualizerLab() {
   const { awardXP } = useStore();
-  const [selectedPlanId, setSelectedPlanId] = useState(POSTGRES_EXPLAIN_PLANS[0].id);
+  const [selectedPlanId] = useState(POSTGRES_EXPLAIN_PLANS[0].id);
   const [selectedNode, setSelectedNode] = useState(null);
   const [isExplored, setIsExplored] = useState(false);
 

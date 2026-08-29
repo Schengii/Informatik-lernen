@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ALGORITHM_DESCRIPTIONS } from '../../data/algorithmData';
-import { Play, Pause, RotateCcw, Cpu, Zap, Award } from 'lucide-react';
+import { Play, RotateCcw, Cpu } from 'lucide-react';
 
 export default function AlgoPlaygroundLab({ onRewardXP }) {
   const [array, setArray] = useState([45, 12, 89, 34, 67, 23, 90, 11, 55, 78]);
@@ -137,6 +137,7 @@ export default function AlgoPlaygroundLab({ onRewardXP }) {
             step="50"
             value={650 - speed}
             onChange={(e) => setSpeed(650 - Number(e.target.value))}
+            aria-label={`Animationsgeschwindigkeit: ${650 - speed}`}
             style={{ accentColor: 'var(--accent-indigo)' }}
           />
         </div>

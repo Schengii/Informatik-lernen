@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Network, Server, Database, Zap, Activity, ShieldAlert, CheckCircle2, RefreshCw, Cpu, HardDrive, Play, Pause, Sparkles } from 'lucide-react';
+import { Network, Zap, Activity, ShieldAlert, Play, Pause } from 'lucide-react';
 
 export default function SystemDesignLab({ onRewardXP }) {
   const [rps, setRps] = useState(1200);
@@ -125,6 +125,7 @@ export default function SystemDesignLab({ onRewardXP }) {
               step="100"
               value={rps}
               onChange={(e) => setRps(Number(e.target.value))}
+              aria-label={`Traffic Load (RPS): ${rps} Req/sec`}
               style={{ width: '100%', cursor: 'pointer' }}
             />
           </div>

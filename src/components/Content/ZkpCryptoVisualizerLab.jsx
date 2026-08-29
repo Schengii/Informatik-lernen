@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Key, EyeOff, CheckCircle2, ShieldAlert, Cpu, ArrowRight } from 'lucide-react';
+import { Shield, Key, EyeOff, CheckCircle2, ShieldAlert, ArrowRight } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { EllipticCurve, simulateSchnorrZkp } from '../../utils/zkpCryptoEngine';
+
+// Setup static curve parameters outside component
+const CURVE = new EllipticCurve(2n, 2n, 17n);
+const G_POINT = [5n, 1n];
+const ORDER_N = 19n;
+const PRIVATE_KEY_X = 7n; // Secret
 
 export default function ZkpCryptoVisualizerLab() {
   const { awardXP } = useStore();
   const [step, setStep] = useState(0);
   const [zkpData, setZkpData] = useState(null);
 
-  // Setup our simple curve
-  const curve = new EllipticCurve(2n, 2n, 17n);
-  const G = [5n, 1n];
-  const orderN = 19n;
-  const privateKeyX = 7n; // Secret
-
   useEffect(() => {
     if (step === 1 && !zkpData) {
-      const data = simulateSchnorrZkp(curve, G, orderN, privateKeyX);
+      const data = simulateSchnorrZkp(CURVE, G_POINT, ORDER_N, PRIVATE_KEY_X);
       setZkpData(data);
     }
     if (step === 4) {
       awardXP(45, 'Zero-Knowledge Proof Verifier');
     }
-  }, [step, zkpData, curve, G, orderN, privateKeyX, awardXP]);
+  }, [step, zkpData, awardXP]);
 
   const nextStep = () => {
     if (step < 4) setStep(step + 1);
@@ -54,7 +54,7 @@ export default function ZkpCryptoVisualizerLab() {
           </h2>
           <div style={{ background: 'var(--bg-tertiary)', padding: '16px', borderRadius: 'var(--radius-md)', marginBottom: '16px' }}>
             <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '8px' }}>Geheimnis & Schlüssel:</div>
-            <div>Privater Schlüssel <strong>x = {privateKeyX.toString()}</strong> <span style={{ color: 'var(--accent-red)', fontSize: '0.8rem' }}>(Streng geheim)</span></div>
+            <div>Privater Schlüssel <strong>x = {PRIVATE_KEY_X.toString()}</strong> <span style={{ color: 'var(--accent-red)', fontSize: '0.8rem' }}>(Streng geheim)</span></div>
             <div>Öffentlicher Schlüssel <strong>Y = x * G</strong></div>
           </div>
 
@@ -86,7 +86,7 @@ export default function ZkpCryptoVisualizerLab() {
           </h2>
           <div style={{ background: 'var(--bg-tertiary)', padding: '16px', borderRadius: 'var(--radius-md)', marginBottom: '16px' }}>
             <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '8px' }}>Bekannte Parameter:</div>
-            <div>Basis-Punkt <strong>G = ({G[0].toString()}, {G[1].toString()})</strong></div>
+            <div>Basis-Punkt <strong>G = ({G_POINT[0].toString()}, {G_POINT[1].toString()})</strong></div>
             <div>Alices Öffentlicher Schlüssel <strong>Y = ({zkpData?.Y[0].toString() || '?'}, {zkpData?.Y[1].toString() || '?'})</strong></div>
           </div>
 

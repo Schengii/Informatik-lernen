@@ -1,14 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Search, Terminal, BookOpen, Sparkles, Trophy, Cpu, Code2, 
+import {
+  Search, Terminal, BookOpen, Sparkles, Trophy, Cpu, Code2,
   Layers, Award, FileText, ArrowRight, X, Command, Database, ShieldCheck,
-  Calculator, Globe, ShieldAlert, Brain, GitMerge
+  Calculator, Globe, ShieldAlert, Brain, GitMerge, Lock, Radio, Flame, Swords,
+  GitBranch, HardDrive, Users, Cloud, Network, Zap, Key, TrendingUp, Bell, History, Boxes, Landmark, Video, Activity, Scale
 } from 'lucide-react';
+import { useTranslation } from '../../utils/i18n';
 import { TOPICS } from '../../data/topicsData';
 import { GLOSSARY_TERMS } from '../../data/glossaryData';
+import { LAB_REGISTRY } from '../../data/labRegistry';
 
 export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpenModal }) {
+  const { t } = useTranslation();
   const [search, setSearch] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef(null);
@@ -23,67 +27,100 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
 
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
-    { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
-    { id: 'view-os-scheduler', title: 'OS Process Scheduler & Deadlock Studio (Gantt & Bankier)', category: 'Labs & Tools', icon: Cpu, action: () => onNavigate('os_scheduler') },
-    { id: 'view-packet-sniffer', title: 'Web-Wireshark Packet Sniffer & Hex Analyzer', category: 'Labs & Tools', icon: Terminal, action: () => onNavigate('packet_sniffer') },
-    { id: 'view-erd-designer', title: 'Relational ERD Designer & 3NF Normalform-Linter', category: 'Labs & Tools', icon: Database, action: () => onNavigate('erd_designer') },
-    { id: 'view-transformer-attention', title: 'Transformer Self-Attention & LLM Sampling Studio', category: 'Labs & Tools', icon: Brain, action: () => onNavigate('transformer_attention') },
-    { id: 'view-cloud-canvas', title: 'Cloud Architecture SLA & SPOF Canvas', category: 'Labs & Tools', icon: Globe, action: () => onNavigate('cloud_canvas') },
-    { id: 'view-ihk-grade-calc', title: 'IHK Notenrechner & Mündliche Ergänzungsprüfung (AO 2020)', category: 'Prüfung', icon: Award, action: () => onNavigate('ihk_grade_calculator') },
-    { id: 'view-rack-configurator', title: '19"-Server-Rack Konfigurator & USV/Klimarechner', category: 'Hardware', icon: Cpu, action: () => onNavigate('rack_configurator') },
-    { id: 'view-itsm-simulator', title: 'ITIL 4 ITSM & Service Desk Management Studio', category: 'Prüfung', icon: Award, action: () => onNavigate('itsm_simulator') },
-    { id: 'view-sm2-repetition', title: 'SuperMemo SM-2 Spaced Repetition Mastery & Ebbinghaus', category: 'Lernen', icon: Brain, action: () => onNavigate('sm2_spaced_repetition') },
-    { id: 'view-personal-notebook', title: 'Developer Notizen- & Wissens-Archiv (Markdown Vault)', category: 'Tools', icon: FileText, action: () => onNavigate('personal_notebook') },
-    { id: 'view-wasm-compiler', title: 'WebAssembly Compiler Playground & Hex-Inspector', category: 'Labs & Tools', icon: Terminal, action: () => onNavigate('wasm_compiler') },
-    { id: 'view-zkp-crypto', title: 'ZKP & Kryptographie Visualizer (Elliptische Kurven)', category: 'Labs & Tools', icon: ShieldCheck, action: () => onNavigate('zkp_crypto') },
-    { id: 'view-oauth-pkce', title: 'OAuth 2.0 PKCE & OIDC Flow Studio (S256 & JWT Claims)', category: 'Labs & Tools', icon: Lock, action: () => onNavigate('oauth_pkce_studio') },
-    { id: 'view-k8s-cluster', title: 'Kubernetes Cluster & Topology Visualizer (Pods & Ingress)', category: 'Labs & Tools', icon: Cpu, action: () => onNavigate('k8s_cluster_studio') },
-    { id: 'view-webrtc-peer', title: 'WebRTC P2P DataChannel & Signaling Studio (SDP & STUN)', category: 'Labs & Tools', icon: Radio, action: () => onNavigate('webrtc_peer_studio') },
-    { id: 'view-scrum-simulator', title: 'Scrum Sprint & Kanban Simulator', category: 'Prüfung', icon: Award, action: () => onNavigate('scrum_simulator') },
-    { id: 'view-graphql-explorer', title: 'GraphQL Schema & Query Explorer', category: 'Labs & Tools', icon: Layers, action: () => onNavigate('graphql_explorer') },
-    { id: 'view-ble-sensor', title: 'BLE & GATT Sensor Simulator', category: 'Hardware', icon: Cpu, action: () => onNavigate('ble_sensor') },
-    { id: 'view-regex-railroad', title: 'RegEx Railroad & Diagramm Studio', category: 'Labs & Tools', icon: Code2, action: () => onNavigate('regex_railroad') },
-    { id: 'view-webhook-inspector', title: 'REST API Webhook Inspector & Mock Server', category: 'Labs & Tools', icon: Terminal, action: () => onNavigate('webhook_inspector') },
-    { id: 'view-voice-quiz', title: 'Podcast Voice Quiz Studio', category: 'Prüfung', icon: Award, action: () => onNavigate('voice_quiz') },
-    { id: 'view-tco-roi', title: 'TCO & ROI Wirtschaftlichkeits-Simulator', category: 'Prüfung', icon: Calculator, action: () => onNavigate('tco_roi_lab') },
-    { id: 'view-git-conflict', title: 'Git 3-Way Merge Conflict Resolver', category: 'Labs & Tools', icon: GitMerge, action: () => onNavigate('git_conflict_lab') },
-    { id: 'view-custom-challenges', title: 'Custom Coding Challenge Creator', category: 'Labs & Tools', icon: Code2, action: () => onNavigate('custom_challenges') },
-    { id: 'view-p2p-duell', title: 'IHK Quiz-Duell Arena (1v1 / P2P)', category: 'Prüfung', icon: Award, action: () => onNavigate('p2p_duell') },
-    { id: 'view-sqlite-studio', title: 'SQLite & Relational DB Sandbox', category: 'Labs & Tools', icon: Database, action: () => onNavigate('sqlite_studio') },
-    { id: 'view-coding-challenges', title: 'Live Coding Challenge Studio', category: 'Labs & Tools', icon: Code2, action: () => onNavigate('coding_challenges') },
-    { id: 'view-wiso-kalkulation', title: 'WISO & Handelskalkulations-Studio', category: 'Labs & Tools', icon: Calculator, action: () => onNavigate('wiso_kalkulation') },
-    { id: 'view-ieee754-lab', title: 'IEEE-754 Float & Zahlen-Studio', category: 'Labs & Tools', icon: Cpu, action: () => onNavigate('ieee754_lab') },
-    { id: 'view-ipv6-routing', title: 'IPv6 & Routing-Table Simulator', category: 'Labs & Tools', icon: Globe, action: () => onNavigate('ipv6_routing_lab') },
-    { id: 'view-owasp-exploit', title: 'OWASP Top 10 Live-Exploit Sandbox', category: 'Labs & Tools', icon: ShieldAlert, action: () => onNavigate('owasp_exploit_lab') },
-    { id: 'view-neural-net', title: 'Neural Network & BPE Tokenizer Studio', category: 'Labs & Tools', icon: Brain, action: () => onNavigate('neural_net_lab') },
-    { id: 'view-cheat-sheets', title: 'IHK Spickzettel & PDF-Generator', category: 'Prüfung', icon: FileText, action: () => onNavigate('cheat_sheets') },
-    { id: 'view-topics', title: 'Alle Informatik-Themen', category: 'Themen & Content', icon: Layers, action: () => onNavigate('wissen') },
-    { id: 'view-labs', title: 'Interaktive Labs & Simulatoren', category: 'Labs & Tools', icon: Terminal, action: () => onNavigate('labs') },
-    { id: 'view-jwks-rotation', title: 'OAuth2 JWKS Key Rotation Lab', category: 'Labs & Tools', icon: ShieldCheck, action: () => onNavigate('jwks_rotation_lab') },
-    { id: 'view-postgres-mvcc', title: 'PostgreSQL MVCC & VACUUM Lab', category: 'Labs & Tools', icon: Database, action: () => onNavigate('postgres_mvcc_lab') },
-    { id: 'view-http3-quic', title: 'HTTP/3 & QUIC Protocol Inspector', category: 'Labs & Tools', icon: Layers, action: () => onNavigate('http3_quic_lab') },
-    { id: 'view-redis-caching', title: 'Redis Caching & Invalidation Lab', category: 'Labs & Tools', icon: Database, action: () => onNavigate('redis_caching_lab') },
-    { id: 'view-circuit-breaker', title: 'Circuit Breaker & Resilience Lab', category: 'Labs & Tools', icon: Layers, action: () => onNavigate('circuit_breaker_lab') },
-    { id: 'view-k8s-cni', title: 'Kubernetes CNI & VXLAN Overlay Lab', category: 'Labs & Tools', icon: Terminal, action: () => onNavigate('k8s_cni_lab') },
-    { id: 'view-graphql-resolver', title: 'GraphQL AST & DataLoader Lab', category: 'Labs & Tools', icon: Layers, action: () => onNavigate('graphql_resolver_lab') },
-    { id: 'view-linux-permissions', title: 'Linux Permissions & Inode Rechner', category: 'Labs & Tools', icon: Terminal, action: () => onNavigate('linux_permissions_lab') },
-    { id: 'view-crypto-keygen', title: 'RSA & Diffie-Hellman Crypto Lab', category: 'Labs & Tools', icon: ShieldCheck, action: () => onNavigate('crypto_keygen_lab') },
-    { id: 'view-cicd-matrix', title: 'CI/CD Matrix Linter & Runner Lab', category: 'Labs & Tools', icon: Layers, action: () => onNavigate('cicd_matrix_lab') },
-    { id: 'view-postgres-explain', title: 'PostgreSQL Query Tree & Cost Visualizer', category: 'Labs & Tools', icon: Database, action: () => onNavigate('postgres_explain_lab') },
-    { id: 'view-webrtc-signaling', title: 'WebRTC P2P & SDP Signaling Lab', category: 'Labs & Tools', icon: Terminal, action: () => onNavigate('webrtc_signaling_lab') },
-    { id: 'view-code-debugger', title: 'Code Execution & Memory Debugger Lab', category: 'Labs & Tools', icon: Cpu, action: () => onNavigate('code_debugger_lab') },
-    { id: 'view-clean-code', title: 'Clean Code & Security Review Arena', category: 'Labs & Tools', icon: ShieldCheck, action: () => onNavigate('clean_code_lab') },
-    { id: 'view-dns-http', title: 'DNS & HTTP/TLS Request Inspector', category: 'Labs & Tools', icon: Layers, action: () => onNavigate('dns_http_lab') },
-    { id: 'view-sql-transaction', title: 'SQL Transaktionen & ACID Simulator', category: 'Labs & Tools', icon: Database, action: () => onNavigate('sql_transaction_lab') },
-    { id: 'view-ihk-doku', title: 'IHK Projektantrags- & Doku-Generator', category: 'Prüfung', icon: FileText, action: () => onNavigate('ihk_doc_generator') },
-    { id: 'view-games', title: 'Coding Games & SQL Dungeon', category: 'Spiele', icon: Trophy, action: () => onNavigate('games') },
-    { id: 'view-exam', title: 'IHK Prüfungssimulator (AP1 & AP2)', category: 'Prüfung', icon: FileText, action: () => onNavigate('exam') },
-    { id: 'view-oral-exam', title: 'IHK Mündliches Fachgespräch Simulation', category: 'Prüfung', icon: Award, action: () => onNavigate('oral-exam') },
-    { id: 'view-campaign', title: 'Story-Kampagne: Der IT-Aufstieg', category: 'Quests', icon: Sparkles, action: () => onNavigate('campaign') },
-    { id: 'view-cpu-arch', title: 'Von-Neumann CPU & Register-Simulator', category: 'Labs & Tools', icon: Cpu, action: () => onNavigate('cpu_architecture_lab') },
-    { id: 'view-sql-optimizer', title: 'SQL Query Optimizer & EXPLAIN Lab', category: 'Labs & Tools', icon: Database, action: () => onNavigate('sql_optimizer_lab') },
-    { id: 'view-git-graph', title: 'Git Branch & Rebase Graph Visualizer', category: 'Labs & Tools', icon: Code2, action: () => onNavigate('git_graph_lab') },
-    { id: 'view-sql-join', title: 'SQL JOIN Visualizer Lab', category: 'Labs & Tools', icon: Terminal, action: () => onNavigate('sql_joins') },
+    { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, labId: 'dashboard', action: () => onNavigate('dashboard') },
+    { id: 'view-otel-tracing', title: 'OpenTelemetry (OTel) Tracing Studio (W3C traceparent & Spans)', category: 'Labs & Tools', icon: Activity, labId: 'otel_tracing_lab', action: () => onNavigate('otel_tracing_lab') },
+    { id: 'view-postgres-wal', title: 'PostgreSQL WAL & LSN Replication Studio (Checkpoints & Sync/Async)', category: 'Labs & Tools', icon: Database, labId: 'postgres_wal_lab', action: () => onNavigate('postgres_wal_lab') },
+    { id: 'view-wiso-leverage', title: 'IHK Rentabilitäts- & Leverage-Effekt Studio (EKR, GKR & FK-Hebel)', category: 'Prüfung', icon: Scale, labId: 'wiso_leverage_lab', action: () => onNavigate('wiso_leverage_lab') },
+    { id: 'view-tcp-congestion', title: 'TCP Congestion Control Studio (Reno vs. CUBIC vs. BBR CWND)', category: 'Labs & Tools', icon: Network, labId: 'tcp_congestion_lab', action: () => onNavigate('tcp_congestion_lab') },
+    { id: 'view-k8s-operator', title: 'Kubernetes Operator & CRD Controller Studio (Reconcile Loop & YAML)', category: 'Labs & Tools', icon: Cloud, labId: 'k8s_operator_lab', action: () => onNavigate('k8s_operator_lab') },
+    { id: 'view-webrtc-sfu', title: 'WebRTC Media Server Studio (Mesh vs. MCU vs. SFU Simulcast)', category: 'Labs & Tools', icon: Video, labId: 'webrtc_sfu_lab', action: () => onNavigate('webrtc_sfu_lab') },
+    { id: 'view-wiso-loan', title: 'IHK Darlehensarten- & Kreditsicherheiten-Studio (Annuität & Bürgschaft)', category: 'Prüfung', icon: Landmark, labId: 'wiso_loan_collateral', action: () => onNavigate('wiso_loan_collateral') },
+    { id: 'view-db-index', title: 'Database Index Studio (B+ Tree Leaf Scans vs. Hash Index O(1))', category: 'Labs & Tools', icon: Database, labId: 'db_index_lab', action: () => onNavigate('db_index_lab') },
+    { id: 'view-promql-alert', title: 'Prometheus PromQL & Alerting Rule Studio (Histogram Quantile & SLOs)', category: 'Labs & Tools', icon: Bell, labId: 'promql_alert_lab', action: () => onNavigate('promql_alert_lab') },
+    { id: 'view-event-sourcing', title: 'Event-Sourcing & CQRS Event Store Simulator (Append-Only & Replay)', category: 'Labs & Tools', icon: History, labId: 'event_sourcing_lab', action: () => onNavigate('event_sourcing_lab') },
+    { id: 'view-wiso-abc-xyz', title: 'IHK ABC- / XYZ-Materialanalyse Studio (Lorenz-Kurve & Beschaffung)', category: 'Prüfung', icon: Boxes, labId: 'wiso_abc_xyz_lab', action: () => onNavigate('wiso_abc_xyz_lab') },
+    { id: 'view-wireguard-ztna', title: 'WireGuard VPN & Zero-Trust Network Access (ZTNA Cryptokey Routing)', category: 'Labs & Tools', icon: ShieldCheck, labId: 'wireguard_ztna_lab', action: () => onNavigate('wireguard_ztna_lab') },
+    { id: 'view-kafka-rebalance', title: 'Apache Kafka Partition Rebalance & Consumer Groups (Sticky Protocol)', category: 'Labs & Tools', icon: Layers, labId: 'kafka_rebalance_lab', action: () => onNavigate('kafka_rebalance_lab') },
+    { id: 'view-ebpf-xdp', title: 'Linux eBPF & XDP Packet Filter Sandbox (Kernel Verifier & XDP_DROP)', category: 'Labs & Tools', icon: Terminal, labId: 'ebpf_xdp_lab', action: () => onNavigate('ebpf_xdp_lab') },
+    { id: 'view-webauthn-passkeys', title: 'WebAuthn / Passkeys & FIDO2 Flow Visualizer (ES256 & Biometrics)', category: 'Labs & Tools', icon: Key, labId: 'webauthn_passkey_lab', action: () => onNavigate('webauthn_passkey_lab') },
+    { id: 'view-wiso-deckungsbeitrag', title: 'Deckungsbeitrags- & Break-Even-Point Studio (DB I, II, III / Fixkosten)', category: 'Prüfung', icon: TrendingUp, labId: 'wiso_contribution_margin', action: () => onNavigate('wiso_contribution_margin') },
+    { id: 'view-redis-eviction', title: 'Redis Cache Eviction & Penetration Studio (LRU, LFU, Bloom Filter)', category: 'Labs & Tools', icon: Database, labId: 'redis_eviction_lab', action: () => onNavigate('redis_eviction_lab') },
+    { id: 'view-api-benchmark', title: 'REST vs. gRPC vs. GraphQL Benchmark Studio (Protobuf vs JSON)', category: 'Labs & Tools', icon: Zap, labId: 'api_protocol_benchmark', action: () => onNavigate('api_protocol_benchmark') },
+    { id: 'view-dsgvo-dsfa', title: 'IHK DSGVO DSFA & TOM-Studio (Art. 35 & 32 Datenschutz-Audit)', category: 'Prüfung', icon: ShieldCheck, labId: 'dsgvo_dsfa_tom', action: () => onNavigate('dsgvo_dsfa_tom') },
+    { id: 'view-bgp-routing', title: 'BGP Routing & Autonomous System (AS) Path Studio (Best-Path)', category: 'Labs & Tools', icon: Network, labId: 'bgp_routing_lab', action: () => onNavigate('bgp_routing_lab') },
+    { id: 'view-sqlite-cli', title: 'SQLite CLI Terminal & Virtual Tables REPL (Dot-Commands & SQL)', category: 'Labs & Tools', icon: Terminal, labId: 'sqlite_cli_repl', action: () => onNavigate('sqlite_cli_repl') },
+    { id: 'view-k8s-helm', title: 'Kubernetes Helm Chart & Kustomize Overlay Studio (GitOps)', category: 'Labs & Tools', icon: Cloud, labId: 'k8s_helm_kustomize', action: () => onNavigate('k8s_helm_kustomize') },
+    { id: 'view-wiso-salary', title: 'IHK Brutto-Netto & Sozialversicherungs-Rechner 2026 (WISO)', category: 'Prüfung', icon: Award, labId: 'wiso_salary_calculator', action: () => onNavigate('wiso_salary_calculator') },
+    { id: 'view-dockerfile-opt', title: 'Dockerfile Multi-Stage Optimizer & Security Linter (Distroless)', category: 'Labs & Tools', icon: HardDrive, labId: 'dockerfile_optimizer', action: () => onNavigate('dockerfile_optimizer') },
+    { id: 'view-postgres-flamegraph', title: 'PostgreSQL EXPLAIN FlameGraph & Window Functions Studio', category: 'Labs & Tools', icon: Flame, labId: 'postgres_flamegraph', action: () => onNavigate('postgres_flamegraph') },
+    { id: 'view-git-rebase', title: 'Git Interactive Rebase Studio (git rebase -i / Squash & Fixup)', category: 'Labs & Tools', icon: GitBranch, labId: 'git_interactive_rebase', action: () => onNavigate('git_interactive_rebase') },
+    { id: 'view-collab-whiteboard', title: 'Collaborative Architecture Whiteboard & Mermaid Diagrammer', category: 'Labs & Tools', icon: Users, labId: 'collaborative_whiteboard', action: () => onNavigate('collaborative_whiteboard') },
+    { id: 'view-sql-query-plan', title: 'SQL Query Execution Plan & Cost Optimizer (Plan Tree & Indexes)', category: 'Labs & Tools', icon: Database, labId: 'sql_query_plan', action: () => onNavigate('sql_query_plan') },
+    { id: 'view-p2p-code-duel', title: 'Live Coding-Duell & Speedrun Arena (Realtime Multiplayer & Bot)', category: 'Labs & Tools', icon: Swords, labId: 'p2p_code_duel', action: () => onNavigate('p2p_code_duel') },
+    { id: 'view-linux-vfs', title: 'Linux POSIX Terminal & VFS Sandbox (Pipes, Chmod, Systemd)', category: 'Labs & Tools', icon: Terminal, labId: 'linux_vfs_lab', action: () => onNavigate('linux_vfs_lab') },
+    { id: 'view-ihk-project-planner', title: 'IHK Projektdokumentation & Nutzwertanalyse-Studio (AO 2020)', category: 'Prüfung', icon: FileText, labId: 'ihk_project_planner', action: () => onNavigate('ihk_project_planner') },
+    { id: 'view-chaos-engineering', title: 'Chaos Engineering & Microservice Failure Studio', category: 'Labs & Tools', icon: Flame, labId: 'chaos_engineering', action: () => onNavigate('chaos_engineering') },
+    { id: 'view-cicd-dag', title: 'CI/CD Pipeline DAG Studio & Runner (GitHub Actions)', category: 'Labs & Tools', icon: GitMerge, labId: 'cicd_dag_builder', action: () => onNavigate('cicd_dag_builder') },
+    { id: 'view-os-scheduler', title: 'OS Process Scheduler & Deadlock Studio (Gantt & Bankier)', category: 'Labs & Tools', icon: Cpu, labId: 'os_scheduler', action: () => onNavigate('os_scheduler') },
+    { id: 'view-packet-sniffer', title: 'Web-Wireshark Packet Sniffer & Hex Analyzer', category: 'Labs & Tools', icon: Terminal, labId: 'packet_sniffer', action: () => onNavigate('packet_sniffer') },
+    { id: 'view-erd-designer', title: 'Relational ERD Designer & 3NF Normalform-Linter', category: 'Labs & Tools', icon: Database, labId: 'erd_designer', action: () => onNavigate('erd_designer') },
+    { id: 'view-transformer-attention', title: 'Transformer Self-Attention & LLM Sampling Studio', category: 'Labs & Tools', icon: Brain, labId: 'transformer_attention', action: () => onNavigate('transformer_attention') },
+    { id: 'view-cloud-canvas', title: 'Cloud Architecture SLA & SPOF Canvas', category: 'Labs & Tools', icon: Globe, labId: 'cloud_canvas', action: () => onNavigate('cloud_canvas') },
+    { id: 'view-ihk-grade-calc', title: 'IHK Notenrechner & Mündliche Ergänzungsprüfung (AO 2020)', category: 'Prüfung', icon: Award, labId: 'ihk_grade_calculator', action: () => onNavigate('ihk_grade_calculator') },
+    { id: 'view-rack-configurator', title: '19"-Server-Rack Konfigurator & USV/Klimarechner', category: 'Hardware', icon: Cpu, labId: 'rack_configurator', action: () => onNavigate('rack_configurator') },
+    { id: 'view-itsm-simulator', title: 'ITIL 4 ITSM & Service Desk Management Studio', category: 'Prüfung', icon: Award, labId: 'itsm_simulator', action: () => onNavigate('itsm_simulator') },
+    { id: 'view-sm2-repetition', title: 'SuperMemo SM-2 Spaced Repetition Mastery & Ebbinghaus', category: 'Lernen', icon: Brain, labId: 'sm2_spaced_repetition', action: () => onNavigate('sm2_spaced_repetition') },
+    { id: 'view-personal-notebook', title: 'Developer Notizen- & Wissens-Archiv (Markdown Vault)', category: 'Tools', icon: FileText, labId: 'personal_notebook', action: () => onNavigate('personal_notebook') },
+    { id: 'view-wasm-compiler', title: 'WebAssembly Compiler Playground & Hex-Inspector', category: 'Labs & Tools', icon: Terminal, labId: 'wasm_compiler', action: () => onNavigate('wasm_compiler') },
+    { id: 'view-zkp-crypto', title: 'ZKP & Kryptographie Visualizer (Elliptische Kurven)', category: 'Labs & Tools', icon: ShieldCheck, labId: 'zkp_crypto', action: () => onNavigate('zkp_crypto') },
+    { id: 'view-oauth-pkce', title: 'OAuth 2.0 PKCE & OIDC Flow Studio (S256 & JWT Claims)', category: 'Labs & Tools', icon: Lock, labId: 'oauth_pkce_studio', action: () => onNavigate('oauth_pkce_studio') },
+    { id: 'view-k8s-cluster', title: 'Kubernetes Cluster & Topology Visualizer (Pods & Ingress)', category: 'Labs & Tools', icon: Cpu, labId: 'k8s_cluster_studio', action: () => onNavigate('k8s_cluster_studio') },
+    { id: 'view-webrtc-peer', title: 'WebRTC P2P DataChannel & Signaling Studio (SDP & STUN)', category: 'Labs & Tools', icon: Radio, labId: 'webrtc_peer_studio', action: () => onNavigate('webrtc_peer_studio') },
+    { id: 'view-scrum-simulator', title: 'Scrum Sprint & Kanban Simulator', category: 'Prüfung', icon: Award, labId: 'scrum_simulator', action: () => onNavigate('scrum_simulator') },
+    { id: 'view-graphql-explorer', title: 'GraphQL Schema & Query Explorer', category: 'Labs & Tools', icon: Layers, labId: 'graphql_explorer', action: () => onNavigate('graphql_explorer') },
+    { id: 'view-ble-sensor', title: 'BLE & GATT Sensor Simulator', category: 'Hardware', icon: Cpu, labId: 'ble_sensor', action: () => onNavigate('ble_sensor') },
+    { id: 'view-regex-railroad', title: 'RegEx Railroad & Diagramm Studio', category: 'Labs & Tools', icon: Code2, labId: 'regex_railroad', action: () => onNavigate('regex_railroad') },
+    { id: 'view-webhook-inspector', title: 'REST API Webhook Inspector & Mock Server', category: 'Labs & Tools', icon: Terminal, labId: 'webhook_inspector', action: () => onNavigate('webhook_inspector') },
+    { id: 'view-voice-quiz', title: 'Podcast Voice Quiz Studio', category: 'Prüfung', icon: Award, labId: 'voice_quiz', action: () => onNavigate('voice_quiz') },
+    { id: 'view-tco-roi', title: 'TCO & ROI Wirtschaftlichkeits-Simulator', category: 'Prüfung', icon: Calculator, labId: 'tco_roi_lab', action: () => onNavigate('tco_roi_lab') },
+    { id: 'view-git-conflict', title: 'Git 3-Way Merge Conflict Resolver', category: 'Labs & Tools', icon: GitMerge, labId: 'git_conflict_lab', action: () => onNavigate('git_conflict_lab') },
+    { id: 'view-custom-challenges', title: 'Custom Coding Challenge Creator', category: 'Labs & Tools', icon: Code2, labId: 'custom_challenges', action: () => onNavigate('custom_challenges') },
+    { id: 'view-p2p-duell', title: 'IHK Quiz-Duell Arena (1v1 / P2P)', category: 'Prüfung', icon: Award, labId: 'p2p_duell', action: () => onNavigate('p2p_duell') },
+    { id: 'view-sqlite-studio', title: 'SQLite & Relational DB Sandbox', category: 'Labs & Tools', icon: Database, labId: 'sqlite_studio', action: () => onNavigate('sqlite_studio') },
+    { id: 'view-coding-challenges', title: 'Live Coding Challenge Studio', category: 'Labs & Tools', icon: Code2, labId: 'coding_challenges', action: () => onNavigate('coding_challenges') },
+    { id: 'view-wiso-kalkulation', title: 'WISO & Handelskalkulations-Studio', category: 'Labs & Tools', icon: Calculator, labId: 'wiso_kalkulation', action: () => onNavigate('wiso_kalkulation') },
+    { id: 'view-ieee754-lab', title: 'IEEE-754 Float & Zahlen-Studio', category: 'Labs & Tools', icon: Cpu, labId: 'ieee754_lab', action: () => onNavigate('ieee754_lab') },
+    { id: 'view-ipv6-routing', title: 'IPv6 & Routing-Table Simulator', category: 'Labs & Tools', icon: Globe, labId: 'ipv6_routing_lab', action: () => onNavigate('ipv6_routing_lab') },
+    { id: 'view-owasp-exploit', title: 'OWASP Top 10 Live-Exploit Sandbox', category: 'Labs & Tools', icon: ShieldAlert, labId: 'owasp_exploit_lab', action: () => onNavigate('owasp_exploit_lab') },
+    { id: 'view-neural-net', title: 'Neural Network & BPE Tokenizer Studio', category: 'Labs & Tools', icon: Brain, labId: 'neural_net_lab', action: () => onNavigate('neural_net_lab') },
+    { id: 'view-cheat-sheets', title: 'IHK Spickzettel & PDF-Generator', category: 'Prüfung', icon: FileText, labId: 'cheat_sheets', action: () => onNavigate('cheat_sheets') },
+    { id: 'view-topics', title: 'Alle Informatik-Themen', category: 'Themen & Content', icon: Layers, labId: 'wissen', action: () => onNavigate('wissen') },
+    { id: 'view-labs', title: 'Interaktive Labs & Simulatoren', category: 'Labs & Tools', icon: Terminal, labId: 'labs', action: () => onNavigate('labs') },
+    { id: 'view-jwks-rotation', title: 'OAuth2 JWKS Key Rotation Lab', category: 'Labs & Tools', icon: ShieldCheck, labId: 'jwks_rotation_lab', action: () => onNavigate('jwks_rotation_lab') },
+    { id: 'view-postgres-mvcc', title: 'PostgreSQL MVCC & VACUUM Lab', category: 'Labs & Tools', icon: Database, labId: 'postgres_mvcc_lab', action: () => onNavigate('postgres_mvcc_lab') },
+    { id: 'view-http3-quic', title: 'HTTP/3 & QUIC Protocol Inspector', category: 'Labs & Tools', icon: Layers, labId: 'http3_quic_lab', action: () => onNavigate('http3_quic_lab') },
+    { id: 'view-redis-caching', title: 'Redis Caching & Invalidation Lab', category: 'Labs & Tools', icon: Database, labId: 'redis_caching_lab', action: () => onNavigate('redis_caching_lab') },
+    { id: 'view-circuit-breaker', title: 'Circuit Breaker & Resilience Lab', category: 'Labs & Tools', icon: Layers, labId: 'circuit_breaker_lab', action: () => onNavigate('circuit_breaker_lab') },
+    { id: 'view-k8s-cni', title: 'Kubernetes CNI & VXLAN Overlay Lab', category: 'Labs & Tools', icon: Terminal, labId: 'k8s_cni_lab', action: () => onNavigate('k8s_cni_lab') },
+    { id: 'view-graphql-resolver', title: 'GraphQL AST & DataLoader Lab', category: 'Labs & Tools', icon: Layers, labId: 'graphql_resolver_lab', action: () => onNavigate('graphql_resolver_lab') },
+    { id: 'view-linux-permissions', title: 'Linux Permissions & Inode Rechner', category: 'Labs & Tools', icon: Terminal, labId: 'linux_permissions_lab', action: () => onNavigate('linux_permissions_lab') },
+    { id: 'view-crypto-keygen', title: 'RSA & Diffie-Hellman Crypto Lab', category: 'Labs & Tools', icon: ShieldCheck, labId: 'crypto_keygen_lab', action: () => onNavigate('crypto_keygen_lab') },
+    { id: 'view-cicd-matrix', title: 'CI/CD Matrix Linter & Runner Lab', category: 'Labs & Tools', icon: Layers, labId: 'cicd_matrix_lab', action: () => onNavigate('cicd_matrix_lab') },
+    { id: 'view-postgres-explain', title: 'PostgreSQL Query Tree & Cost Visualizer', category: 'Labs & Tools', icon: Database, labId: 'postgres_explain_lab', action: () => onNavigate('postgres_explain_lab') },
+    { id: 'view-webrtc-signaling', title: 'WebRTC P2P & SDP Signaling Lab', category: 'Labs & Tools', icon: Terminal, labId: 'webrtc_signaling_lab', action: () => onNavigate('webrtc_signaling_lab') },
+    { id: 'view-code-debugger', title: 'Code Execution & Memory Debugger Lab', category: 'Labs & Tools', icon: Cpu, labId: 'code_debugger_lab', action: () => onNavigate('code_debugger_lab') },
+    { id: 'view-clean-code', title: 'Clean Code & Security Review Arena', category: 'Labs & Tools', icon: ShieldCheck, labId: 'clean_code_lab', action: () => onNavigate('clean_code_lab') },
+    { id: 'view-dns-http', title: 'DNS & HTTP/TLS Request Inspector', category: 'Labs & Tools', icon: Layers, labId: 'dns_http_lab', action: () => onNavigate('dns_http_lab') },
+    { id: 'view-sql-transaction', title: 'SQL Transaktionen & ACID Simulator', category: 'Labs & Tools', icon: Database, labId: 'sql_transaction_lab', action: () => onNavigate('sql_transaction_lab') },
+    { id: 'view-ihk-doku', title: 'IHK Projektantrags- & Doku-Generator', category: 'Prüfung', icon: FileText, labId: 'ihk_doc_generator', action: () => onNavigate('ihk_doc_generator') },
+    { id: 'view-games', title: 'Coding Games & SQL Dungeon', category: 'Spiele', icon: Trophy, labId: 'games', action: () => onNavigate('games') },
+    { id: 'view-exam', title: 'IHK Prüfungssimulator (AP1 & AP2)', category: 'Prüfung', icon: FileText, labId: 'exam', action: () => onNavigate('exam') },
+    { id: 'view-oral-exam', title: 'IHK Mündliches Fachgespräch Simulation', category: 'Prüfung', icon: Award, labId: 'oral_exam', action: () => onNavigate('oral_exam') },
+    { id: 'view-campaign', title: 'Story-Kampagne: Der IT-Aufstieg', category: 'Quests', icon: Sparkles, labId: 'campaign', action: () => onNavigate('campaign') },
+    { id: 'view-cpu-arch', title: 'Von-Neumann CPU & Register-Simulator', category: 'Labs & Tools', icon: Cpu, labId: 'cpu_architecture_lab', action: () => onNavigate('cpu_architecture_lab') },
+    { id: 'view-sql-optimizer', title: 'SQL Query Optimizer & EXPLAIN Lab', category: 'Labs & Tools', icon: Database, labId: 'sql_optimizer_lab', action: () => onNavigate('sql_optimizer_lab') },
+    { id: 'view-git-graph', title: 'Git Branch & Rebase Graph Visualizer', category: 'Labs & Tools', icon: Code2, labId: 'git_graph_lab', action: () => onNavigate('git_graph_lab') },
+    { id: 'view-sql-join', title: 'SQL JOIN Visualizer Lab', category: 'Labs & Tools', icon: Terminal, labId: 'sql_joins', action: () => onNavigate('sql_joins') },
     { id: 'modal-badges', title: 'Erfolge & Abzeichen ansehen', category: 'Profil & Gamification', icon: Trophy, action: () => onOpenModal('badges') },
     { id: 'modal-glossary', title: 'IT-Glossar & Fachbegriffe durchsuchen', category: 'Wissen', icon: BookOpen, action: () => onOpenModal('glossary') },
     { id: 'modal-flashcards', title: 'Karteikarten-Trainer öffnen', category: 'Lernen', icon: Layers, action: () => onOpenModal('flashcards') },
@@ -109,15 +146,105 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
     action: () => onOpenModal('glossary', g.term)
   }));
 
-  const allItems = [...staticActions, ...topicItems, ...glossaryMatches];
+  // Alle Labs aus der zentralen Registry (siehe data/labRegistry.js) durchsuchbar machen -
+  // nicht nur die oben handverlesenen `staticActions`. Vorher fand die Suche ein Lab nur,
+  // wenn sein Titel exakt in `staticActions` gepflegt war; jetzt matcht sie zusätzlich auf
+  // Beschreibung und Tags jedes der 102 Labs (z. B. findet "Bankier" jetzt den OS-Scheduler,
+  // auch ohne dass "Bankier" im kuratierten Titel oben vorkommt).
+  const curatedLabIds = new Set(staticActions.map((a) => a.labId).filter(Boolean));
+  const labItems = LAB_REGISTRY
+    .filter((lab) => !curatedLabIds.has(lab.id))
+    .map((lab) => ({
+      id: `lab-${lab.id}`,
+      title: lab.title,
+      category: 'Labs & Tools',
+      icon: lab.icon,
+      description: [lab.desc, ...(lab.tags || [])].join(' '),
+      action: () => onNavigate(lab.id)
+    }));
+
+  // Quick Calculator detection
+  const quickCalcItems = [];
+  const query = search.trim();
+  if (query) {
+    // 1. Math calculation (e.g. "80 * 65 + 1500")
+    if (/^[0-9+\-*/().\s^%]+$/.test(query) && /[+\-*/^%]/.test(query)) {
+      try {
+        const sanitized = query.replace(/\^/g, '**');
+        const mathRes = Function(`'use strict'; return (${sanitized})`)();
+        if (typeof mathRes === 'number' && !isNaN(mathRes) && isFinite(mathRes)) {
+          quickCalcItems.push({
+            id: 'quick-calc-math',
+            title: `Ergebnis: ${query} = ${mathRes.toLocaleString('de-DE')}`,
+            category: 'Schnellrechner',
+            icon: Calculator,
+            action: () => {
+              navigator.clipboard?.writeText(String(mathRes));
+            }
+          });
+        }
+      } catch {
+        // ignore
+      }
+    }
+
+    // 2. Base Conversion (e.g. "hex 255", "bin 42")
+    const hexMatch = query.match(/^hex\s+(\d+)$/i);
+    if (hexMatch) {
+      const num = parseInt(hexMatch[1], 10);
+      quickCalcItems.push({
+        id: 'quick-calc-hex',
+        title: `Konvertierung: ${num} = 0x${num.toString(16).toUpperCase()} (Binär: ${num.toString(2)})`,
+        category: 'Schnellrechner',
+        icon: Cpu,
+        action: () => onNavigate('ieee754_lab')
+      });
+    }
+
+    const binMatch = query.match(/^bin\s+(\d+)$/i);
+    if (binMatch) {
+      const num = parseInt(binMatch[1], 10);
+      quickCalcItems.push({
+        id: 'quick-calc-bin',
+        title: `Konvertierung: ${num} = 0b${num.toString(2)} (Hex: 0x${num.toString(16).toUpperCase()})`,
+        category: 'Schnellrechner',
+        icon: Cpu,
+        action: () => onNavigate('ieee754_lab')
+      });
+    }
+
+    // 3. Subnet CIDR match (e.g. "/24", "subnet /24")
+    const cidrMatch = query.match(/(?:subnet\s+|cidr\s+)?\/([0-9]{1,2})$/i);
+    if (cidrMatch) {
+      const prefix = parseInt(cidrMatch[1], 10);
+      if (prefix >= 0 && prefix <= 32) {
+        const totalIps = Math.pow(2, 32 - prefix);
+        const usableHosts = prefix >= 31 ? (prefix === 31 ? 2 : 1) : totalIps - 2;
+        quickCalcItems.push({
+          id: 'quick-calc-subnet',
+          title: `Subnetz /${prefix}: ${usableHosts.toLocaleString('de-DE')} nutzbare Hosts (${totalIps.toLocaleString('de-DE')} IPs)`,
+          category: 'Schnellrechner',
+          icon: Globe,
+          action: () => onNavigate('subnetting')
+        });
+      }
+    }
+  }
+
+  const allItems = [...quickCalcItems, ...staticActions, ...topicItems, ...glossaryMatches, ...labItems];
 
   const filteredItems = search.trim() === '' 
     ? staticActions 
-    : allItems.filter(item => 
-        item.title.toLowerCase().includes(search.toLowerCase()) ||
-        item.category.toLowerCase().includes(search.toLowerCase()) ||
-        (item.description && item.description.toLowerCase().includes(search.toLowerCase()))
-      ).slice(0, 10);
+    : [
+        ...quickCalcItems,
+        ...allItems.filter(item => 
+          item.id.startsWith('quick-calc') ? false : (
+            item.title.toLowerCase().includes(search.toLowerCase()) ||
+            item.category.toLowerCase().includes(search.toLowerCase()) ||
+            (item.description && item.description.toLowerCase().includes(search.toLowerCase()))
+          )
+        )
+      ].slice(0, 10);
 
   const handleKeyDown = (e) => {
     if (e.key === 'ArrowDown') {
@@ -182,7 +309,7 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
             <input
               ref={inputRef}
               type="text"
-              placeholder="Suche Themen, Labs, IHK-Prüfungen, Glossar... (↑↓ navigieren, Enter wählen)"
+              placeholder={t('cmdk_placeholder')}
               value={search}
               onChange={e => {
                 setSearch(e.target.value);
@@ -212,8 +339,8 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
             {filteredItems.length === 0 ? (
               <div style={{ padding: '32px 16px', textAlign: 'center', color: 'var(--text-muted)' }}>
                 <Search size={32} style={{ margin: '0 auto 12px', opacity: 0.5 }} />
-                <p style={{ margin: 0, fontWeight: '600' }}>Keine passenden Ergebnisse für "{search}"</p>
-                <span style={{ fontSize: '0.85rem' }}>Versuche es mit Begriffen wie 'SQL', 'Git', 'IHK', 'Docker' oder 'Netzwerk'</span>
+                <p style={{ margin: 0, fontWeight: '600' }}>{t('cmdk_no_results')} "{search}"</p>
+                <span style={{ fontSize: '0.85rem' }}>{t('cmdk_no_results_hint')}</span>
               </div>
             ) : (
               filteredItems.map((item, index) => {
@@ -284,12 +411,12 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
             color: 'var(--text-muted)'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <span><kbd style={{ background: 'var(--bg-card)', padding: '2px 5px', borderRadius: '4px', border: '1px solid var(--border-color)' }}>↑↓</kbd> Navigieren</span>
-              <span><kbd style={{ background: 'var(--bg-card)', padding: '2px 5px', borderRadius: '4px', border: '1px solid var(--border-color)' }}>↵</kbd> Auswählen</span>
+              <span><kbd style={{ background: 'var(--bg-card)', padding: '2px 5px', borderRadius: '4px', border: '1px solid var(--border-color)' }}>↑↓</kbd> {t('cmdk_navigate')}</span>
+              <span><kbd style={{ background: 'var(--bg-card)', padding: '2px 5px', borderRadius: '4px', border: '1px solid var(--border-color)' }}>↵</kbd> {t('cmdk_select')}</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <Command size={12} />
-              <span>Informatik Power Search</span>
+              <span>{t('cmdk_power_search')}</span>
             </div>
           </div>
         </motion.div>

@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
-import { QUIZ_ARENA_CATEGORIES } from '../../data/quizArenaData';
-import { Trophy, CheckCircle2, XCircle, Award, Sparkles, RefreshCw } from 'lucide-react';
+import { QUIZ_ARENA_CATEGORIES, getLocalizedQuizCategory } from '../../data/quizArenaData';
+import { Trophy, Award, RefreshCw } from 'lucide-react';
+import { useStore } from '../../store/useStore';
+import { useTranslation } from '../../utils/i18n';
 
 export default function KnowledgeQuizArena({ onRewardXP }) {
+  const { recordCategoryAttempt } = useStore();
+  const { t, lang } = useTranslation();
   const [selectedCatId, setSelectedCatId] = useState(QUIZ_ARENA_CATEGORIES[0].id);
   const [userAnswers, setUserAnswers] = useState({});
   const [isEvaluated, setIsEvaluated] = useState(false);
   const [score, setScore] = useState(null);
 
-  const category = QUIZ_ARENA_CATEGORIES.find(c => c.id === selectedCatId) || QUIZ_ARENA_CATEGORIES[0];
+  const category = getLocalizedQuizCategory(
+    QUIZ_ARENA_CATEGORIES.find(c => c.id === selectedCatId) || QUIZ_ARENA_CATEGORIES[0],
+    lang
+  );
 
   const handleSelectAnswer = (qIdx, optIdx) => {
     if (!isEvaluated) {
@@ -28,6 +35,13 @@ export default function KnowledgeQuizArena({ onRewardXP }) {
     setScore(finalScore);
     setIsEvaluated(true);
 
+    recordCategoryAttempt(category.id, {
+      label: category.title,
+      source: 'quiz_arena',
+      correctCount: correct,
+      totalCount: category.questions.length
+    });
+
     if (finalScore >= 50) {
       onRewardXP(50);
     }
@@ -43,35 +57,38 @@ export default function KnowledgeQuizArena({ onRewardXP }) {
     <div style={{ maxWidth: '950px', margin: '0 auto', paddingBottom: '60px' }}>
       <div className="glass-panel" style={{ padding: '32px', marginBottom: '24px', border: '2px solid var(--accent-primary)' }}>
         <h1 style={{ fontSize: '2.2rem', fontWeight: '800', marginBottom: '8px', color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <Trophy size={32} style={{ color: 'var(--accent-amber)' }} /> Interaktive IT Wissens-Quiz Arena
+          <Trophy size={32} style={{ color: 'var(--accent-amber)' }} /> {t('quiz_arena_heading')}
         </h1>
         <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem' }}>
-          Teste dein Wissen über KI-Trends, Cloud, Kubernetes, IT-Basics und IHK-Themen.
+          {t('quiz_arena_subheading')}
         </p>
       </div>
 
       {/* Category Selection Tabs */}
       <div style={{ display: 'flex', gap: '10px', marginBottom: '24px', overflowX: 'auto' }}>
-        {QUIZ_ARENA_CATEGORIES.map((cat) => (
-          <button
-            key={cat.id}
-            onClick={() => { setSelectedCatId(cat.id); handleReset(); }}
-            style={{
-              minHeight: '48px',
-              padding: '10px 20px',
-              borderRadius: 'var(--radius-md)',
-              fontWeight: '700',
-              fontSize: '0.95rem',
-              background: selectedCatId === cat.id ? 'var(--accent-primary)' : 'var(--bg-card)',
-              color: selectedCatId === cat.id ? '#ffffff' : 'var(--text-main)',
-              border: selectedCatId === cat.id ? '2px solid var(--accent-primary)' : '2px solid var(--border-color)',
-              cursor: 'pointer',
-              whiteSpace: 'nowrap'
-            }}
-          >
-            {cat.title}
-          </button>
-        ))}
+        {QUIZ_ARENA_CATEGORIES.map((cat) => {
+          const localizedCat = getLocalizedQuizCategory(cat, lang);
+          return (
+            <button
+              key={cat.id}
+              onClick={() => { setSelectedCatId(cat.id); handleReset(); }}
+              style={{
+                minHeight: '48px',
+                padding: '10px 20px',
+                borderRadius: 'var(--radius-md)',
+                fontWeight: '700',
+                fontSize: '0.95rem',
+                background: selectedCatId === cat.id ? 'var(--accent-primary)' : 'var(--bg-card)',
+                color: selectedCatId === cat.id ? '#ffffff' : 'var(--text-main)',
+                border: selectedCatId === cat.id ? '2px solid var(--accent-primary)' : '2px solid var(--border-color)',
+                cursor: 'pointer',
+                whiteSpace: 'nowrap'
+              }}
+            >
+              {localizedCat.title}
+            </button>
+          );
+        })}
       </div>
 
       {/* Questions Panel */}
@@ -131,7 +148,7 @@ export default function KnowledgeQuizArena({ onRewardXP }) {
 
             {isEvaluated && (
               <div style={{ marginTop: '12px', fontSize: '0.9rem', color: 'var(--text-main)', background: 'var(--bg-secondary)', padding: '10px 14px', borderRadius: '6px', borderLeft: '4px solid var(--accent-primary)' }}>
-                💡 <strong>Erklärung:</strong> {q.explanation}
+                💡 <strong>{t('quiz_arena_explanation_label')}</strong> {q.explanation}
               </div>
             )}
           </div>
@@ -144,15 +161,15 @@ export default function KnowledgeQuizArena({ onRewardXP }) {
             disabled={Object.keys(userAnswers).length < category.questions.length}
             style={{ opacity: Object.keys(userAnswers).length < category.questions.length ? 0.5 : 1, width: '100%', minHeight: '48px', fontSize: '1rem' }}
           >
-            <Award size={20} /> Quiz Auswerten (+50 XP)
+            <Award size={20} /> {t('quiz_arena_evaluate_button')}
           </button>
         ) : (
           <div style={{ textAlign: 'center' }}>
             <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: score >= 50 ? 'var(--accent-emerald)' : 'var(--accent-rose)', marginBottom: '12px' }}>
-              Ergebnis: {score}% {score >= 50 ? 'Bestanden! (+50 XP)' : 'Versuche es erneut'}
+              {t('quiz_arena_result_label')} {score}% {score >= 50 ? t('quiz_arena_passed') : t('quiz_arena_retry_hint')}
             </h3>
             <button className="btn btn-secondary" onClick={handleReset} style={{ minHeight: '44px' }}>
-              <RefreshCw size={18} /> Erneut versuchen
+              <RefreshCw size={18} /> {t('quiz_arena_retry_button')}
             </button>
           </div>
         )}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Volume2, VolumeX, Sparkles, X, Play, Music } from 'lucide-react';
+import { Volume2, VolumeX, X, Play } from 'lucide-react';
 import { soundManager } from '../../utils/audioSystem';
 import { useStore } from '../../store/useStore';
 
@@ -74,6 +74,7 @@ export default function AudioSettingsModal({ isOpen, onClose }) {
                 step="0.05"
                 value={soundVolume}
                 disabled={isSoundMuted}
+                aria-label={`Gesamtlautstärke: ${Math.round(soundVolume * 100)}%`}
                 onChange={(e) => setSoundVolume(Number(e.target.value))}
                 className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500 disabled:opacity-50"
               />

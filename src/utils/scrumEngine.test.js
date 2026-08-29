@@ -25,4 +25,16 @@ describe('scrumEngine', () => {
     const metricsAfter = calculateSprintMetrics(updated, 10);
     expect(metricsAfter.completedPoints).toBe(7); // 2 + 5 = 7 SP
   });
+
+  it('passt das Burndown-Chart an eine benutzerdefinierte Sprintlänge an', () => {
+    const metrics = calculateSprintMetrics(INITIAL_USER_STORIES, 14);
+
+    // 14-Tage Sprint => 15 Datenpunkte (Tag 0 bis Tag 14)
+    expect(metrics.burndownData.length).toBe(15);
+    expect(metrics.burndownData[0].idealRemaining).toBe(23);
+    expect(metrics.burndownData[14].idealRemaining).toBe(0);
+    // Der letzte tatsächliche Wert muss am letzten Sprinttag gesetzt sein,
+    // nicht nur bei einem hartkodierten Tag 10.
+    expect(metrics.burndownData[14].actualRemaining).toBe(metrics.remainingPoints);
+  });
 });

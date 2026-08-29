@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SUBNETTING_QUIZ, NETWORK_CHEAT_SHEET } from '../../data/subnettingData';
-import { Network, Calculator, CheckCircle2, XCircle, HelpCircle, Award, Sparkles } from 'lucide-react';
+import { Network, Calculator, HelpCircle, Award } from 'lucide-react';
 
 export default function SubnettingLab({ onRewardXP }) {
   const [ipAddress, setIpAddress] = useState('192.168.1.100');
@@ -155,6 +155,7 @@ export default function SubnettingLab({ onRewardXP }) {
                 max="30"
                 value={cidr}
                 onChange={(e) => setCidr(e.target.value)}
+                aria-label={`Subnetzmaske Prefix: /${cidr}`}
                 style={{ width: '100%', accentColor: 'var(--accent-indigo)' }}
               />
             </div>

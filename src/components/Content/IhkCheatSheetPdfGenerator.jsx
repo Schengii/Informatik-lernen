@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+
 import { 
-  FileText, Download, Printer, Sparkles, CheckCircle2, 
-  BookOpen, Award, Database, Terminal, Globe, Calculator 
+  FileText, Download, CheckCircle2, 
+  Database, Globe, Calculator 
 } from 'lucide-react';
 import { jsPDF } from 'jspdf';
 import { useStore } from '../../store/useStore';

@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { EXAM_QUESTIONS, IHK_EXAM_MODES, getIhkGrade } from '../../data/examData';
 import { Timer, CheckCircle2, XCircle, RefreshCw, Play, Pause, FileCheck2 } from 'lucide-react';
+import { useStore } from '../../store/useStore';
 
 export default function ExamSimulator({ onCompleteExam }) {
+  const { recordCategoryAttempt } = useStore();
   const [activeModeId, setActiveModeId] = useState('ap1');
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -25,15 +27,17 @@ export default function ExamSimulator({ onCompleteExam }) {
     setSelectedAnswers({});
     setIsSubmitted(false);
     setScoreData(null);
-  }, [activeModeId]);
+  }, [activeModeId, currentMode.durationMinutes]);
+
+  const handleSubmitRef = useRef(null);
 
   useEffect(() => {
     let interval = null;
     if (isTimerRunning && !isSubmitted && timeLeft > 0) {
       interval = setInterval(() => {
-        setTimeLeft(prev => {
+        setTimeLeft((prev) => {
           if (prev <= 1) {
-            handleSubmit();
+            handleSubmitRef.current?.();
             return 0;
           }
           return prev - 1;
@@ -41,7 +45,11 @@ export default function ExamSimulator({ onCompleteExam }) {
       }, 1000);
     }
     return () => clearInterval(interval);
-  }, [isTimerRunning, isSubmitted, timeLeft]);
+  }, [
+    isTimerRunning,
+    isSubmitted,
+    timeLeft
+  ]);
 
   const formatTimer = (seconds) => {
     const m = Math.floor(seconds / 60);
@@ -59,14 +67,30 @@ export default function ExamSimulator({ onCompleteExam }) {
     let earnedPoints = 0;
     let maxPoints = 0;
     let correctCount = 0;
+    const categoryTally = {}; // { [category]: { correct, total } } für Lernempfehlungen
 
     filteredQuestions.forEach((q, idx) => {
       const qPoints = q.points || 10;
       maxPoints += qPoints;
-      if (selectedAnswers[idx] === q.correct) {
+      const isCorrect = selectedAnswers[idx] === q.correct;
+      if (isCorrect) {
         earnedPoints += qPoints;
         correctCount++;
       }
+
+      const cat = categoryTally[q.category] || { correct: 0, total: 0 };
+      cat.total += 1;
+      if (isCorrect) cat.correct += 1;
+      categoryTally[q.category] = cat;
+    });
+
+    Object.entries(categoryTally).forEach(([category, tally]) => {
+      recordCategoryAttempt(category, {
+        label: category,
+        source: 'exam',
+        correctCount: tally.correct,
+        totalCount: tally.total
+      });
     });
 
     const percent = Math.round((earnedPoints / maxPoints) * 100);
@@ -89,6 +113,7 @@ export default function ExamSimulator({ onCompleteExam }) {
       onCompleteExam(percent, percent >= 80 ? 150 : 80);
     }
   };
+  handleSubmitRef.current = handleSubmit;
 
   const handleReset = () => {
     setSelectedAnswers({});

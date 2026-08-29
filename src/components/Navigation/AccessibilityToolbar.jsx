@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Eye, Type, Sun, Volume2, ShieldAlert, Sparkles, X, RotateCcw } from 'lucide-react';
+import { Eye, X, RotateCcw } from 'lucide-react';
+import { useTranslation } from '../../utils/i18n';
 
 export default function AccessibilityToolbar({
   fontSize,
@@ -12,9 +13,9 @@ export default function AccessibilityToolbar({
   setIsHighContrast,
   isReducedMotion,
   setIsReducedMotion,
-  theme,
   setTheme
 }) {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
   const resetSettings = () => {
@@ -39,11 +40,11 @@ export default function AccessibilityToolbar({
           borderColor: (isDyslexic || isColorblind || isHighContrast) ? 'var(--accent-primary)' : 'var(--border-color)',
           background: (isDyslexic || isColorblind || isHighContrast) ? 'rgba(79, 70, 229, 0.1)' : 'var(--bg-tertiary)'
         }}
-        title="Barrierefreiheit & Anzeige-Einstellungen"
-        aria-label="Barrierefreiheit Menü öffnen"
+        title={t('a11y_button_title')}
+        aria-label={t('a11y_menu_aria')}
       >
         <Eye size={18} style={{ color: 'var(--accent-primary)' }} />
-        <span className="desktop-only">Barrierefreiheit</span>
+        <span className="desktop-only">{t('a11y_button_label')}</span>
       </button>
 
       {isOpen && (
@@ -62,17 +63,17 @@ export default function AccessibilityToolbar({
             border: '2px solid var(--accent-primary)'
           }}
           role="dialog"
-          aria-label="Barrierefreiheit Einstellungen"
+          aria-label={t('a11y_menu_aria')}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', borderBottom: '1px solid var(--border-color)', paddingBottom: '10px' }}>
             <h3 style={{ fontSize: '1.1rem', margin: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Eye size={20} style={{ color: 'var(--accent-primary)' }} />
-              Barrierefreiheit & Lesen
+              {t('a11y_heading')}
             </h3>
             <button
               onClick={() => setIsOpen(false)}
               style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}
-              aria-label="Schließen"
+              aria-label={t('a11y_close')}
             >
               <X size={20} />
             </button>
@@ -82,7 +83,7 @@ export default function AccessibilityToolbar({
             {/* Font Size Scaling */}
             <div>
               <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>
-                Schriftgröße ({fontSize}%)
+                {t('a11y_font_size')} ({fontSize}%)
               </label>
               <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
                 <button
@@ -116,8 +117,8 @@ export default function AccessibilityToolbar({
             {/* Dyslexia Mode (Lese-Rechtschreib-Hilfe) */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
-                <strong style={{ fontSize: '0.9rem', display: 'block' }}>Lese-Rechtschreib-Hilfe</strong>
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Gut lesbare Schrift & Abstand</span>
+                <strong style={{ fontSize: '0.9rem', display: 'block' }}>{t('a11y_dyslexia_title')}</strong>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{t('a11y_dyslexia_desc')}</span>
               </div>
               <input
                 type="checkbox"
@@ -131,8 +132,8 @@ export default function AccessibilityToolbar({
             {/* Colorblind Mode (Rot-Grün-Sehhilfe) */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
-                <strong style={{ fontSize: '0.9rem', display: 'block' }}>Rot-Grün-Sehhilfe</strong>
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Angepasste Farben & Symbole</span>
+                <strong style={{ fontSize: '0.9rem', display: 'block' }}>{t('a11y_colorblind_title')}</strong>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{t('a11y_colorblind_desc')}</span>
               </div>
               <input
                 type="checkbox"
@@ -146,8 +147,8 @@ export default function AccessibilityToolbar({
             {/* High Contrast Mode */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
-                <strong style={{ fontSize: '0.9rem', display: 'block' }}>Hoher Kontrast (WCAG AAA)</strong>
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Maximaler Textkontrast</span>
+                <strong style={{ fontSize: '0.9rem', display: 'block' }}>{t('a11y_contrast_title')}</strong>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{t('a11y_contrast_desc')}</span>
               </div>
               <input
                 type="checkbox"
@@ -161,8 +162,8 @@ export default function AccessibilityToolbar({
             {/* Reduced Motion Toggle */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
-                <strong style={{ fontSize: '0.9rem', display: 'block' }}>Reduzierte Animationen</strong>
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Sanftere Bewegung</span>
+                <strong style={{ fontSize: '0.9rem', display: 'block' }}>{t('a11y_motion_title')}</strong>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{t('a11y_motion_desc')}</span>
               </div>
               <input
                 type="checkbox"
@@ -179,7 +180,7 @@ export default function AccessibilityToolbar({
               className="btn btn-secondary btn-sm"
               style={{ marginTop: '6px', width: '100%', gap: '6px' }}
             >
-              <RotateCcw size={14} /> Standard wiederherstellen
+              <RotateCcw size={14} /> {t('a11y_reset')}
             </button>
           </div>
         </div>

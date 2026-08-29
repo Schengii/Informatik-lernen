@@ -66,19 +66,23 @@ export function calculateSprintMetrics(stories, sprintDays = 10) {
   // Generate Burndown Chart Data (Ideal vs Actual)
   const burndownData = [];
   const idealBurnPerDay = totalPoints / sprintDays;
+  // Midpoint of the sprint (was hardcoded to day 5, which only worked for the
+  // default 10-day sprint). Scaling it to sprintDays keeps the curve sensible
+  // for any sprint length selected in the UI.
+  const midpoint = Math.max(1, Math.round(sprintDays / 2));
 
   for (let day = 0; day <= sprintDays; day++) {
     const ideal = Number(Math.max(0, totalPoints - day * idealBurnPerDay).toFixed(1));
-    
+
     // Simulate actual burndown curve
     let actual = null;
     if (day === 0) {
       actual = totalPoints;
-    } else if (day <= 5) {
-      // Halfway through sprint
-      const burnedSoFar = (completedPoints * (day / 5)) * 0.8;
+    } else if (day <= midpoint) {
+      // First half of the sprint
+      const burnedSoFar = (completedPoints * (day / midpoint)) * 0.8;
       actual = Number(Math.max(0, totalPoints - burnedSoFar).toFixed(1));
-    } else if (day === 10) {
+    } else if (day === sprintDays) {
       actual = remainingPoints;
     }
 

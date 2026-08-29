@@ -1,43 +1,11 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
+
 import { 
-  Regex, Play, CheckCircle2, AlertCircle, 
-  Sparkles, Layers, Award, ArrowRight, Eye, Code2 
+  Regex, Layers, Award, Eye, Code2 
 } from 'lucide-react';
-import { parseRegexTokens, testRegexMatch } from '../../utils/regexParserEngine';
+import { parseRegexTokens, testRegexMatch, REGEX_PRESETS } from '../../utils/regexParserEngine';
 import { soundManager } from '../../utils/audioSystem';
 import { useStore } from '../../store/useStore';
-
-export const REGEX_PRESETS = [
-  {
-    id: 'email',
-    name: 'E-Mail Adresse (RFC 5322)',
-    pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$',
-    flags: 'g',
-    sampleText: 'Kontakt: max.mustermann@firma.de oder info@tech-cloud.io (ungueltig: test@.com)'
-  },
-  {
-    id: 'ipv4',
-    name: 'IPv4 Adresse',
-    pattern: '^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$',
-    flags: 'g',
-    sampleText: 'Gültige IP: 192.168.1.1 und 10.0.0.254'
-  },
-  {
-    id: 'password',
-    name: 'Starkes Passwort (min. 8 Zeichen, Zahl, Großbuchstabe)',
-    pattern: '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$',
-    flags: 'g',
-    sampleText: 'SicheresP@ssw0rt!2026'
-  },
-  {
-    id: 'date_iso',
-    name: 'ISO-Datum (YYYY-MM-DD)',
-    pattern: '^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$',
-    flags: 'g',
-    sampleText: '2026-08-22'
-  }
-];
 
 export default function RegexRailroadVisualizerLab() {
   const { awardXP } = useStore();

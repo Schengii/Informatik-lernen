@@ -1,43 +1,15 @@
 import React, { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+
 import { 
-  Brain, RotateCw, CheckCircle2, AlertCircle, Sparkles, 
-  TrendingUp, Layers, HelpCircle, ArrowRight, Bell
+  Brain, Sparkles, 
+  TrendingUp, Bell
 } from 'lucide-react';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 import { useStore } from '../../store/useStore';
 import { calculateSm2NextReview, calculateEbbinghausCurve } from '../../utils/sm2Algorithm';
 import { scheduleDailyReminder } from '../../utils/pushNotificationManager';
-
-export const SM2_SAMPLE_CARDS = [
-  {
-    id: 1,
-    front: 'Was besagt das EVA-Prinzip in der Informatik?',
-    back: 'Eingabe -> Verarbeitung -> Ausgabe (Grundlegendes Strukturprinzip der Datenverarbeitung).',
-    category: 'Grundlagen',
-    repetitions: 2,
-    easeFactor: 2.5,
-    interval: 6
-  },
-  {
-    id: 2,
-    front: 'Welcher HTTP-Statuscode signalisiert "101 Switching Protocols" (z.B. bei WebSockets)?',
-    back: 'HTTP 101: Der Server wechselt das Protokoll gemäß dem Upgrade-Header des Clients (z.B. von HTTP/1.1 zu WebSocket).',
-    category: 'Netzwerke',
-    repetitions: 1,
-    easeFactor: 2.4,
-    interval: 1
-  },
-  {
-    id: 3,
-    front: 'Was ist der Unterschied zwischen 2. Normalform (2NF) und 3. Normalform (3NF)?',
-    back: '2NF fordert keine partiellen Abhängigkeiten vom zusammengesetzten Primärschlüssel. 3NF fordert zusätzlich keine transitiven Abhängigkeiten zwischen Nichtschlüssel-Attributen.',
-    category: 'Datenbanken',
-    repetitions: 0,
-    easeFactor: 2.5,
-    interval: 0
-  }
-];
+import { SM2_SAMPLE_CARDS } from '../../data/flashcardsData';
+import { triggerHaptic } from '../../utils/haptics';
 
 export default function Sm2SpacedRepetitionLab() {
   const { awardXP } = useStore();
@@ -63,6 +35,7 @@ export default function Sm2SpacedRepetitionLab() {
     const nextCards = cards.map((c, i) => i === currentIdx ? { ...c, ...updated } : c);
     setCards(nextCards);
     setIsFlipped(false);
+    triggerHaptic(grade >= 4 ? 'SUCCESS' : 'WARNING');
     setCurrentIdx((currentIdx + 1) % cards.length);
     awardXP(20, 'sm2_reviewed');
   };
@@ -175,7 +148,7 @@ export default function Sm2SpacedRepetitionLab() {
         {/* Ebbinghaus Forgetting Curve Chart */}
         <div className="glass-panel" style={{ padding: '24px', borderRadius: 'var(--radius-lg)' }}>
           <h2 style={{ fontSize: '1.15rem', fontWeight: '800', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <TrendingUp size={18} color="var(--accent-teal)" /> Ebbinghaus-Vergessenskurve $R(t) = e^{-t / S}$
+            <TrendingUp size={18} color="var(--accent-teal)" /> {'Ebbinghaus-Vergessenskurve $R(t) = e^{-t / S}$'}
           </h2>
           <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '14px' }}>
             Erwartete Gedächtnis-Behaltensrate für diese Karte über 14 Tage:

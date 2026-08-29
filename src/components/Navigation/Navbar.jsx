@@ -1,12 +1,25 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { USER_ROLES } from '../../data/userProfiles';
-import { 
-  Trophy, Flame, Code2, Sun, Moon, BookOpen, 
-  Layers, ShieldCheck, BookMarked, Globe, Rocket, Search, 
-  ChevronDown, Terminal, Award, 
+import { USER_ROLES, getLocalizedRole } from '../../data/userProfiles';
+import { useTranslation } from '../../utils/i18n';
+import {
+  Trophy, Flame, Code2, Sun, Moon, BookOpen,
+  Layers, ShieldCheck, BookMarked, Globe, Rocket, Search,
+  ChevronDown, Terminal, Award,
   FileText, Wrench, GraduationCap, Sliders,
   Volume2, Menu, X
 } from 'lucide-react';
+
+// Badges in den Mega-Dropdowns unten sind größtenteils ohnehin englische Fachbegriffe
+// (DB, API, DevOps, ...) — nur die tatsächlich deutschen Kürzel werden hier übersetzt.
+const BADGE_KEYS = {
+  Neu: 'badge_neu',
+  Didaktik: 'badge_didaktik',
+  Prüfung: 'badge_pruefung',
+  WISO: 'badge_wiso',
+  Doku: 'badge_doku',
+  Praxis: 'badge_praxis',
+  KI: 'badge_ki'
+};
 
 export default function Navbar({
   userState,
@@ -34,7 +47,9 @@ export default function Navbar({
   theme,
   setTheme
 }) {
-  const currentRole = USER_ROLES[userState.role] || USER_ROLES.anfaenger;
+  const { t } = useTranslation();
+  const currentRole = getLocalizedRole(USER_ROLES[userState.role] || USER_ROLES.anfaenger, lang);
+  const translateBadge = (badge) => (BADGE_KEYS[badge] ? t(BADGE_KEYS[badge]) : badge);
 
   // Single Active Dropdown: 'labs' | 'exam' | 'learn' | 'tools' | 'profile_menu' | 'mobile_nav' | null
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -72,6 +87,39 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 60+ interaktiven Labs', badge: 'Hub' },
+    { id: 'otel_tracing_lab', label: '📡 OTel Tracing & W3C Header Studio', desc: 'Distributed Spans, Waterfall & Traceparent', badge: 'Neu' },
+    { id: 'postgres_wal_lab', label: '💾 PostgreSQL WAL & LSN Replication', desc: 'Write-Ahead Log, LSN Offsets & Checkpoints', badge: 'Neu' },
+    { id: 'wiso_leverage_lab', label: '📈 Rentabilität & Leverage-Effekt', desc: 'EKR, GKR & Fremdkapital-Zinshebel', badge: 'Neu' },
+    { id: 'tcp_congestion_lab', label: '🌐 TCP Congestion Control Studio', desc: 'Reno AIMD, CUBIC Kurve & Google BBR CWND', badge: 'Neu' },
+    { id: 'k8s_operator_lab', label: '☸️ K8s Operator & CRD Studio', desc: 'Reconcile Loop, State Drift & Custom Resources', badge: 'Neu' },
+    { id: 'webrtc_sfu_lab', label: '📹 WebRTC SFU vs. MCU Media Studio', desc: 'Simulcast Layer-Routing & Bandbreiten-Vergleich', badge: 'Neu' },
+    { id: 'wiso_loan_collateral', label: '🏦 Darlehensarten & Kreditsicherheiten', desc: 'Annuitätentilgung & Personal-/Realsicherheiten', badge: 'Neu' },
+    { id: 'db_index_lab', label: '🌲 Database B+ Tree & Hash Index', desc: 'Node Splitting, Leaf Range Scans & O(1) Lookups', badge: 'Neu' },
+    { id: 'promql_alert_lab', label: '📊 Prometheus PromQL & Alert Studio', desc: 'p95 Histogramme, Alerting-Schwellwerte & YAML', badge: 'Neu' },
+    { id: 'event_sourcing_lab', label: '📜 Event-Sourcing & CQRS Studio', desc: 'Append-Only Event Store, Replay & Snapshots', badge: 'Neu' },
+    { id: 'wiso_abc_xyz_lab', label: '📦 IHK ABC- / XYZ-Materialanalyse', desc: 'Lorenz-Kurve, Verbrauchsschwankung & JIT Matrix', badge: 'Neu' },
+    { id: 'wireguard_ztna_lab', label: '🔒 WireGuard VPN & ZTNA Studio', desc: 'NoiseIK Handshake & Zero-Trust Cryptokey Routing', badge: 'Neu' },
+    { id: 'kafka_rebalance_lab', label: '📨 Kafka Partition Rebalance Studio', desc: 'Consumer Groups, Failover & Sticky Rebalance', badge: 'Neu' },
+    { id: 'ebpf_xdp_lab', label: '🛡️ Linux eBPF & XDP Sandbox', desc: 'NIC Driver Packet Filtering (XDP_DROP/PASS)', badge: 'Neu' },
+    { id: 'webauthn_passkey_lab', label: '🔑 WebAuthn & Passkeys (FIDO2)', desc: 'Biometrie, Asymmetrische Keys & Zero-Password', badge: 'Neu' },
+    { id: 'wiso_contribution_margin', label: '📊 Mehrstufige Deckungsbeitragsrechnung', desc: 'DB I, II, III & Break-Even-Point Gewinnschwelle', badge: 'Neu' },
+    { id: 'redis_eviction_lab', label: '⚡ Redis Eviction & Bloom Filter Studio', desc: 'LRU, LFU, TTL & Cache Penetration Defense', badge: 'Neu' },
+    { id: 'api_protocol_benchmark', label: '⚡ REST vs. gRPC vs. GraphQL Benchmark', desc: 'Protobuf Binary vs JSON Latenz & Durchsatz', badge: 'Neu' },
+    { id: 'dsgvo_dsfa_tom', label: '⚖️ IHK DSGVO DSFA & TOM-Studio', desc: 'Art. 35 Schwellwertanalyse & Art. 32 TOM-Katalog', badge: 'Neu' },
+    { id: 'bgp_routing_lab', label: '🌐 BGP Routing & AS Path Studio', desc: 'Autonomous Systems, Best Path & AS Prepending', badge: 'Neu' },
+    { id: 'sqlite_cli_repl', label: '💻 SQLite CLI Terminal & REPL', desc: 'In-Browser SQL-Konsole mit Dot-Commands & DDL', badge: 'Neu' },
+    { id: 'k8s_helm_kustomize', label: '☸️ Helm Chart & Kustomize Studio', desc: 'GitOps Vorlagen (values.yaml, deployment, overlays)', badge: 'Neu' },
+    { id: 'wiso_salary_calculator', label: '💶 IHK Brutto-Netto & Sozialversicherung', desc: 'Lohnsteuer, KV/RV/AV/PV & BBG-Berechnung 2026', badge: 'Neu' },
+    { id: 'dockerfile_optimizer', label: '🐳 Dockerfile Multi-Stage Optimizer', desc: 'Distroless, Root-Detection & Caching-Linter', badge: 'Neu' },
+    { id: 'postgres_flamegraph', label: '🔥 PostgreSQL EXPLAIN FlameGraph', desc: 'Hierarchischer Zeitbalken & Window Functions', badge: 'Neu' },
+    { id: 'git_interactive_rebase', label: '🌿 Git Interactive Rebase Studio', desc: 'Commits umordnen, squashen & History bereinigen', badge: 'Neu' },
+    { id: 'collaborative_whiteboard', label: '🎨 Architecture Whiteboard & Canvas', desc: 'Verteilte Microservices planen & Mermaid Export', badge: 'Neu' },
+    { id: 'sql_query_plan', label: '🗄️ SQL Execution Plan & Cost Optimizer', desc: 'Plan Tree, Index Scans, I/O-Kosten & B-Trees', badge: 'Neu' },
+    { id: 'p2p_code_duel', label: '⚔️ Live Coding-Duell & Speedrun Arena', desc: 'Multiplayer Coding-Race gegen Azubis oder Bot', badge: 'Neu' },
+    { id: 'linux_vfs_lab', label: '🐧 Linux POSIX Terminal & VFS Sandbox', desc: 'In-Memory VFS mit Pipes, Chmod & SysAdmin Notfällen', badge: 'Neu' },
+    { id: 'ihk_project_planner', label: '📝 IHK Projektdokumentation & NWA-Studio', desc: 'Phasen-Rechner, Nutzwertanalyse & Amortisation', badge: 'Neu' },
+    { id: 'chaos_engineering', label: '🔥 Chaos Engineering & Resilience Studio', desc: 'Fault Injection, Circuit Breaker & Fallback Cache', badge: 'Neu' },
+    { id: 'cicd_dag_builder', label: '⚙️ CI/CD Pipeline DAG Studio & Runner', desc: 'Directed Acyclic Graph & GitHub Actions YAML', badge: 'Neu' },
     { id: 'os_scheduler', label: '⏱️ OS Process Scheduler & Deadlock', desc: 'FCFS, SJF, Round Robin & Bankier-Algorithmus', badge: 'Flagship' },
     { id: 'packet_sniffer', label: '📡 Web-Wireshark Packet Sniffer', desc: 'Frame Dissection, Hex Dump & Display Filter', badge: 'Flagship' },
     { id: 'erd_designer', label: '🗄️ Relational ERD & 3NF Normalform-Linter', desc: 'Entity Relationships, 1NF-3NF Audit & SQL DDL', badge: 'Flagship' },
@@ -182,7 +230,7 @@ export default function Navbar({
           onClick={() => navigateTo('dashboard')}
           role="button"
           tabIndex={0}
-          aria-label="Zum Dashboard"
+          aria-label={t('nav_to_dashboard')}
         >
           <div
             style={{
@@ -225,7 +273,7 @@ export default function Navbar({
               transition: 'all 0.15s ease'
             }}
           >
-            Dashboard
+            {t('nav_dashboard')}
           </button>
 
           {/* DROPDOWN 1: Labs & Tools */}
@@ -247,7 +295,7 @@ export default function Navbar({
               }}
             >
               <Terminal size={17} color="var(--accent-primary)" />
-              <span>Labs &amp; Tools</span>
+              <span>{t('nav_labs_tools')}</span>
               <ChevronDown size={14} style={{ transform: activeDropdown === 'labs' ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease' }} />
             </button>
 
@@ -300,7 +348,7 @@ export default function Navbar({
                     </div>
                     {item.badge && (
                       <span style={{ fontSize: '0.72rem', padding: '3px 8px', borderRadius: '6px', background: 'rgba(99, 102, 241, 0.15)', color: 'var(--accent-primary)', fontWeight: 800, whiteSpace: 'nowrap' }}>
-                        {item.badge}
+                        {translateBadge(item.badge)}
                       </span>
                     )}
                   </div>
@@ -328,7 +376,7 @@ export default function Navbar({
               }}
             >
               <GraduationCap size={17} color="var(--accent-teal)" />
-              <span>IHK Prüfung</span>
+              <span>{t('nav_exam')}</span>
               <ChevronDown size={14} style={{ transform: activeDropdown === 'exam' ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease' }} />
             </button>
 
@@ -381,7 +429,7 @@ export default function Navbar({
                     </div>
                     {item.badge && (
                       <span style={{ fontSize: '0.72rem', padding: '3px 8px', borderRadius: '6px', background: 'rgba(13, 148, 136, 0.15)', color: 'var(--accent-teal)', fontWeight: 800, whiteSpace: 'nowrap' }}>
-                        {item.badge}
+                        {translateBadge(item.badge)}
                       </span>
                     )}
                   </div>
@@ -409,7 +457,7 @@ export default function Navbar({
               }}
             >
               <BookOpen size={17} color="var(--accent-amber)" />
-              <span>Kurse &amp; Wissen</span>
+              <span>{t('nav_learn')}</span>
               <ChevronDown size={14} style={{ transform: activeDropdown === 'learn' ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease' }} />
             </button>
 
@@ -462,7 +510,7 @@ export default function Navbar({
                     </div>
                     {item.badge && (
                       <span style={{ fontSize: '0.72rem', padding: '3px 8px', borderRadius: '6px', background: 'rgba(217, 119, 6, 0.15)', color: 'var(--accent-amber)', fontWeight: 800, whiteSpace: 'nowrap' }}>
-                        {item.badge}
+                        {translateBadge(item.badge)}
                       </span>
                     )}
                   </div>
@@ -485,7 +533,7 @@ export default function Navbar({
               cursor: 'pointer'
             }}
           >
-            🎮 Games
+            {t('nav_games')}
           </button>
         </nav>
 
@@ -504,10 +552,10 @@ export default function Navbar({
               minHeight: '40px',
               padding: '8px 14px'
             }}
-            title="Schnellsuche (Ctrl + K)"
+            title={t('nav_search_title')}
           >
             <Search size={16} />
-            <span className="desktop-only" style={{ fontSize: '0.88rem' }}>Suche</span>
+            <span className="desktop-only" style={{ fontSize: '0.88rem' }}>{t('nav_search')}</span>
             <kbd style={{ background: 'var(--bg-card)', padding: '2px 5px', borderRadius: '4px', fontSize: '0.7rem', border: '1px solid var(--border-color)', color: 'var(--text-muted)' }}>Ctrl+K</kbd>
           </button>
 
@@ -525,10 +573,10 @@ export default function Navbar({
                 borderColor: activeDropdown === 'tools' ? 'var(--accent-primary)' : 'var(--border-color)',
                 color: activeDropdown === 'tools' ? 'var(--accent-primary)' : 'var(--text-main)'
               }}
-              title="Lernwerkzeuge & Modale"
+              title={t('nav_tools_title')}
             >
               <Wrench size={16} />
-              <span className="desktop-only">Tools</span>
+              <span className="desktop-only">{t('nav_tools')}</span>
               <ChevronDown size={14} style={{ transform: activeDropdown === 'tools' ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease' }} />
             </button>
 
@@ -557,7 +605,7 @@ export default function Navbar({
                   onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-tertiary)'}
                   onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                 >
-                  <Layers size={17} color="var(--accent-purple)" /> IT-Karteikarten (SM-2)
+                  <Layers size={17} color="var(--accent-purple)" /> {t('nav_flashcards')}
                 </div>
 
                 <div
@@ -566,7 +614,7 @@ export default function Navbar({
                   onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-tertiary)'}
                   onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                 >
-                  <BookOpen size={17} color="var(--accent-primary)" /> IT-Lexikon (200+ Begriffe)
+                  <BookOpen size={17} color="var(--accent-primary)" /> {t('nav_lexicon')}
                 </div>
 
                 <div
@@ -575,7 +623,7 @@ export default function Navbar({
                   onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-tertiary)'}
                   onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                 >
-                  <BookMarked size={17} color="var(--accent-teal)" /> Fachwort-Vokabeltrainer
+                  <BookMarked size={17} color="var(--accent-teal)" /> {t('nav_vocab_trainer')}
                 </div>
 
                 <div
@@ -584,7 +632,7 @@ export default function Navbar({
                   onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-tertiary)'}
                   onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                 >
-                  <Rocket size={17} color="var(--accent-amber)" /> Live Deployment Guide
+                  <Rocket size={17} color="var(--accent-amber)" /> {t('nav_deployment_guide')}
                 </div>
 
                 <div
@@ -593,7 +641,7 @@ export default function Navbar({
                   onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-tertiary)'}
                   onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                 >
-                  <Volume2 size={17} color="var(--accent-teal)" /> Audio- &amp; SFX-Einstellungen
+                  <Volume2 size={17} color="var(--accent-teal)" /> {t('nav_audio_settings')}
                 </div>
 
                 <div style={{ height: '1px', background: 'var(--border-color)', margin: '4px 0' }} />
@@ -604,7 +652,7 @@ export default function Navbar({
                   onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-tertiary)'}
                   onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                 >
-                  <ShieldCheck size={17} /> Backup &amp; Wiederherstellen
+                  <ShieldCheck size={17} /> {t('nav_backup')}
                 </div>
 
                 <div
@@ -613,7 +661,7 @@ export default function Navbar({
                   onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-tertiary)'}
                   onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                 >
-                  <Globe size={17} /> Sprache: {lang.toUpperCase()} (DE / EN)
+                  <Globe size={17} /> {t('nav_language')}: {lang.toUpperCase()} (DE / EN)
                 </div>
               </div>
             )}
@@ -633,7 +681,7 @@ export default function Navbar({
                 borderColor: activeDropdown === 'profile_menu' ? 'var(--accent-primary)' : 'var(--border-color)',
                 background: 'var(--bg-tertiary)'
               }}
-              title="Profil, Level & Einstellungen"
+              title={t('nav_profile_settings_title')}
             >
               {/* XP & Level Summary */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--accent-amber)', fontSize: '0.85rem', fontWeight: '800' }}>
@@ -681,7 +729,7 @@ export default function Navbar({
                     onClick={() => { onOpenProfileModal(); setActiveDropdown(null); }}
                     style={{ fontSize: '0.75rem', fontWeight: 700, padding: '4px 8px', borderRadius: '6px', background: 'rgba(79, 70, 229, 0.15)', color: 'var(--accent-primary)', border: 'none', cursor: 'pointer' }}
                   >
-                    Rolle ändern
+                    {t('nav_change_role')}
                   </button>
                 </div>
 
@@ -693,10 +741,10 @@ export default function Navbar({
                   onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                 >
                   <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Award size={17} color="var(--accent-amber)" /> Badges &amp; Erfolge
+                    <Award size={17} color="var(--accent-amber)" /> {t('nav_badges')}
                   </span>
                   <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 700 }}>
-                    {userState.unlockedBadges?.length || 0} freigeschaltet
+                    {userState.unlockedBadges?.length || 0} {t('nav_unlocked_suffix')}
                   </span>
                 </div>
 
@@ -706,7 +754,7 @@ export default function Navbar({
                   onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-tertiary)'}
                   onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                 >
-                  <FileText size={17} color="var(--accent-teal)" /> Zertifikat erstellen
+                  <FileText size={17} color="var(--accent-teal)" /> {t('nav_create_certificate')}
                 </div>
 
                 <div style={{ height: '1px', background: 'var(--border-color)', margin: '4px 0' }} />
@@ -714,20 +762,20 @@ export default function Navbar({
                 {/* Theme Switcher Row */}
                 <div style={{ padding: '8px 12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.88rem', fontWeight: 600 }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-main)' }}>
-                    {theme === 'light' ? <Sun size={17} color="var(--accent-amber)" /> : <Moon size={17} color="var(--accent-primary)" />} Farbschema
+                    {theme === 'light' ? <Sun size={17} color="var(--accent-amber)" /> : <Moon size={17} color="var(--accent-primary)" />} {t('nav_color_scheme')}
                   </span>
                   <div style={{ display: 'flex', gap: '4px' }}>
                     <button
                       onClick={() => setTheme('light')}
-                      style={{ padding: '4px 8px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 700, border: '1px solid var(--border-color)', background: theme === 'light' ? 'var(--accent-primary)' : 'var(--bg-tertiary)', color: theme === 'light' ? '#fff' : 'var(--text-muted)', cursor: 'pointer' }}
+                      style={{ padding: '4px 8px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 700, border: '1px solid var(--border-color)', background: theme === 'light' ? 'var(--accent-primary)' : 'var(--bg-tertiary)', color: theme === 'light' ? 'var(--on-accent-text)' : 'var(--text-muted)', cursor: 'pointer' }}
                     >
-                      Hell
+                      {t('nav_light')}
                     </button>
                     <button
                       onClick={() => setTheme('dark')}
-                      style={{ padding: '4px 8px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 700, border: '1px solid var(--border-color)', background: theme === 'dark' ? 'var(--accent-primary)' : 'var(--bg-tertiary)', color: theme === 'dark' ? '#fff' : 'var(--text-muted)', cursor: 'pointer' }}
+                      style={{ padding: '4px 8px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 700, border: '1px solid var(--border-color)', background: theme === 'dark' ? 'var(--accent-primary)' : 'var(--bg-tertiary)', color: theme === 'dark' ? 'var(--on-accent-text)' : 'var(--text-muted)', cursor: 'pointer' }}
                     >
-                      Dunkel
+                      {t('nav_dark')}
                     </button>
                   </div>
                 </div>
@@ -735,12 +783,12 @@ export default function Navbar({
                 {/* Accessibility Controls Inside Unified Dropdown */}
                 <div style={{ padding: '8px 12px', background: 'var(--bg-tertiary)', borderRadius: '10px' }}>
                   <div style={{ fontSize: '0.78rem', fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <Sliders size={13} /> Barrierefreiheit (WCAG)
+                    <Sliders size={13} /> {t('nav_accessibility_wcag')}
                   </div>
-                  
+
                   {/* Font Size Row */}
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px', fontSize: '0.82rem' }}>
-                    <span>Schriftgröße</span>
+                    <span>{t('a11y_font_size')}</span>
                     <div style={{ display: 'flex', gap: '4px' }}>
                       <button onClick={() => setFontSize(prev => Math.max(prev - 5, 85))} style={{ padding: '2px 6px', borderRadius: '4px', border: '1px solid var(--border-color)', background: 'var(--bg-card)', color: 'var(--text-main)', cursor: 'pointer' }}>A-</button>
                       <button onClick={() => setFontSize(100)} style={{ padding: '2px 6px', borderRadius: '4px', border: '1px solid var(--border-color)', background: 'var(--bg-card)', color: 'var(--text-main)', cursor: 'pointer' }}>100%</button>
@@ -751,17 +799,17 @@ export default function Navbar({
                   {/* Accessibility Toggles */}
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.82rem' }}>
                     <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer' }}>
-                      <span>Dyslexie-Schrift</span>
+                      <span>{t('nav_dyslexia_font')}</span>
                       <input type="checkbox" checked={isDyslexic} onChange={e => setIsDyslexic(e.target.checked)} style={{ cursor: 'pointer' }} />
                     </label>
 
                     <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer' }}>
-                      <span>Rot-Grün-Sehhilfe</span>
+                      <span>{t('nav_colorblind_mode')}</span>
                       <input type="checkbox" checked={isColorblind} onChange={e => setIsColorblind(e.target.checked)} style={{ cursor: 'pointer' }} />
                     </label>
 
                     <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer' }}>
-                      <span>Hoher Kontrast</span>
+                      <span>{t('nav_high_contrast')}</span>
                       <input type="checkbox" checked={isHighContrast} onChange={e => setIsHighContrast(e.target.checked)} style={{ cursor: 'pointer' }} />
                     </label>
                   </div>
@@ -775,7 +823,7 @@ export default function Navbar({
             className="mobile-only btn btn-secondary btn-sm"
             onClick={() => toggleDropdown('mobile_nav')}
             style={{ minHeight: '40px', width: '40px', padding: 0, borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-            aria-label="Navigation öffnen"
+            aria-label={t('nav_open_navigation')}
           >
             {activeDropdown === 'mobile_nav' ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -796,22 +844,22 @@ export default function Navbar({
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <div style={{ fontWeight: 800, fontSize: '0.85rem', color: 'var(--accent-primary)', textTransform: 'uppercase' }}>
-              Navigation
+              {t('nav_mobile_navigation')}
             </div>
-            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('dashboard')} style={{ justifyContent: 'flex-start' }}>🏠 Dashboard</button>
-            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('campaign')} style={{ justifyContent: 'flex-start' }}>🗺️ Story Kampagne</button>
-            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('labs')} style={{ justifyContent: 'flex-start' }}>🧪 Alle Labs &amp; Simulatoren</button>
-            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('wiso_kalkulation')} style={{ justifyContent: 'flex-start' }}>📊 WISO &amp; Kalkulation</button>
-            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('ieee754_lab')} style={{ justifyContent: 'flex-start' }}>🔬 IEEE-754 Zahlen-Lab</button>
-            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('ipv6_routing_lab')} style={{ justifyContent: 'flex-start' }}>🌐 IPv6 &amp; Routing</button>
-            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('owasp_exploit_lab')} style={{ justifyContent: 'flex-start' }}>🔒 OWASP Top 10</button>
-            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('neural_net_lab')} style={{ justifyContent: 'flex-start' }}>🧠 Neural Network &amp; BPE</button>
-            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('cheat_sheets')} style={{ justifyContent: 'flex-start' }}>📄 IHK Spickzettel (PDF)</button>
-            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('exam')} style={{ justifyContent: 'flex-start' }}>🎓 IHK Abschlussprüfung</button>
-            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('oral_exam')} style={{ justifyContent: 'flex-start' }}>🎙️ Mündliches Fachgespräch</button>
-            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('anfaenger_guide')} style={{ justifyContent: 'flex-start' }}>🌱 Einsteiger Kurs</button>
-            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('languages')} style={{ justifyContent: 'flex-start' }}>🐍 Sprachen Academy</button>
-            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('games')} style={{ justifyContent: 'flex-start' }}>🎮 Mini-Games</button>
+            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('dashboard')} style={{ justifyContent: 'flex-start' }}>{t('nav_mobile_dashboard')}</button>
+            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('campaign')} style={{ justifyContent: 'flex-start' }}>{t('nav_mobile_campaign')}</button>
+            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('labs')} style={{ justifyContent: 'flex-start' }}>{t('nav_mobile_all_labs')}</button>
+            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('wiso_kalkulation')} style={{ justifyContent: 'flex-start' }}>{t('nav_mobile_wiso')}</button>
+            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('ieee754_lab')} style={{ justifyContent: 'flex-start' }}>{t('nav_mobile_ieee')}</button>
+            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('ipv6_routing_lab')} style={{ justifyContent: 'flex-start' }}>{t('nav_mobile_ipv6')}</button>
+            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('owasp_exploit_lab')} style={{ justifyContent: 'flex-start' }}>{t('nav_mobile_owasp')}</button>
+            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('neural_net_lab')} style={{ justifyContent: 'flex-start' }}>{t('nav_mobile_neural')}</button>
+            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('cheat_sheets')} style={{ justifyContent: 'flex-start' }}>{t('nav_mobile_cheat_sheets')}</button>
+            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('exam')} style={{ justifyContent: 'flex-start' }}>{t('nav_mobile_exam')}</button>
+            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('oral_exam')} style={{ justifyContent: 'flex-start' }}>{t('nav_mobile_oral_exam')}</button>
+            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('anfaenger_guide')} style={{ justifyContent: 'flex-start' }}>{t('nav_mobile_beginner')}</button>
+            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('languages')} style={{ justifyContent: 'flex-start' }}>{t('nav_mobile_languages')}</button>
+            <button className="btn btn-secondary btn-sm" onClick={() => navigateTo('games')} style={{ justifyContent: 'flex-start' }}>{t('nav_mobile_games')}</button>
           </div>
         </div>
       )}

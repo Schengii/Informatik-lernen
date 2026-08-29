@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+
 import { 
   Calculator, TrendingUp, GitBranch, Scale, CheckCircle2, 
-  HelpCircle, Sparkles, RefreshCw, Award, ArrowRight, BookOpen 
+  Sparkles, Award 
 } from 'lucide-react';
 import { 
   calculateVorwaertskalkulation, 
@@ -42,7 +42,7 @@ export default function WisoKalkulationLab() {
   const dbResult = calculateDeckungsbeitrag(dbParams);
 
   // Netzplan State
-  const [netzplanNodes, setNetzplanNodes] = useState([
+  const [netzplanNodes] = useState([
     { id: 'A', name: 'Projektinitialisierung & Kickoff', dauer: 3, vorgaenger: [] },
     { id: 'B', name: 'Anforderungsanalyse (Lastenheft)', dauer: 5, vorgaenger: ['A'] },
     { id: 'C', name: 'Systemarchitektur & DB-Design', dauer: 4, vorgaenger: ['B'] },

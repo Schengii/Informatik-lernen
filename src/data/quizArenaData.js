@@ -1,3 +1,7 @@
+// Nur die Einsteiger-Kategorie ("ihk_basics") trägt bisher eine englische Übersetzung
+// (`en`-Unterobjekt) - erster i18n-Content-Pilot, siehe utils/i18n.js Header-Kommentar.
+// Die zwei fortgeschritteneren Kategorien (ai_trends, cloud_devops) bleiben für diesen
+// Piloten bewusst Deutsch, genau wie die meisten der 100+ Labs.
 export const QUIZ_ARENA_CATEGORIES = [
   {
     id: 'ai_trends',
@@ -62,6 +66,28 @@ export const QUIZ_ARENA_CATEGORIES = [
         correct: 1,
         explanation: 'RAM verliert beim Ausschalten alle Daten, während eine SSD Daten dauerhaft sichert.'
       }
-    ]
+    ],
+    en: {
+      title: '🌱 Computer Science Basics & IHK Fundamentals',
+      difficulty: 'Beginner & Apprentices',
+      questions: [
+        {
+          q: 'What is the difference between RAM and an SSD?',
+          options: [
+            'RAM stores data permanently, an SSD is volatile.',
+            'RAM is the fast, volatile main memory, an SSD stores data permanently.',
+            'Both types of storage are identical.',
+            'An SSD is slower than a USB stick.'
+          ],
+          correct: 1,
+          explanation: 'RAM loses all data when powered off, while an SSD saves data permanently.'
+        }
+      ]
+    }
   }
 ];
+
+export function getLocalizedQuizCategory(category, lang) {
+  if (lang !== 'en' || !category.en) return category;
+  return { ...category, ...category.en };
+}

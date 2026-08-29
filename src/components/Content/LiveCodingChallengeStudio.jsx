@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+
 import { 
   Code2, Play, CheckCircle2, XCircle, RotateCcw, 
-  Sparkles, Award, Terminal, Layers, HelpCircle, ArrowRight 
+  Terminal 
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { 

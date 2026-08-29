@@ -1,8 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Kanban, CheckCircle2, ArrowRight, Award, 
-  RotateCcw, Sparkles, Plus, TrendingDown, Layers, Clock
+import {
+  Kanban, Award,
+  RotateCcw, TrendingDown, Layers
 } from 'lucide-react';
 import { 
   LineChart, Line, XAxis, YAxis, CartesianGrid, 
@@ -182,10 +181,25 @@ export default function AgileScrumSimulatorLab() {
 
       {/* Burndown Chart */}
       <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl space-y-4">
-        <h2 className="text-base font-bold text-white flex items-center gap-2">
-          <TrendingDown className="w-4 h-4 text-rose-400" />
-          Sprint Burndown Chart (Ideal vs. Tatsächlich)
-        </h2>
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
+          <h2 className="text-base font-bold text-white flex items-center gap-2">
+            <TrendingDown className="w-4 h-4 text-rose-400" />
+            Sprint Burndown Chart (Ideal vs. Tatsächlich)
+          </h2>
+
+          <label className="flex items-center gap-3 text-xs text-slate-300">
+            <span className="font-semibold whitespace-nowrap">Sprintlänge: {sprintDays} Tage</span>
+            <input
+              type="range"
+              min="5"
+              max="20"
+              step="1"
+              value={sprintDays}
+              onChange={(e) => setSprintDays(Number(e.target.value))}
+              className="w-40 accent-teal-500"
+            />
+          </label>
+        </div>
 
         <div className="h-64 w-full">
           <ResponsiveContainer width="100%" height="100%">

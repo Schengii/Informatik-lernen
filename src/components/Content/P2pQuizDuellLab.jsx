@@ -18,7 +18,7 @@ export default function P2pQuizDuellLab() {
 
   // Match States: 'lobby' | 'countdown' | 'in_game' | 'round_result' | 'game_over'
   const [gameState, setGameState] = useState('lobby');
-  const [roomCode, setRoomCode] = useState(() => generateRoomCode());
+  const [roomCode] = useState(() => generateRoomCode());
   const [joinCodeInput, setJoinCodeInput] = useState('');
   const [opponentType, setOpponentType] = useState('bot_medium'); // 'bot_easy' | 'bot_medium' | 'bot_hard' | 'webrtc'
   
@@ -29,7 +29,7 @@ export default function P2pQuizDuellLab() {
 
   const [playerScore, setPlayerScore] = useState(0);
   const [opponentScore, setOpponentScore] = useState(0);
-  const [roundHistory, setRoundHistory] = useState([]);
+  const [,setRoundHistory] = useState([]);
 
   const timerRef = useRef(null);
 
@@ -48,35 +48,7 @@ export default function P2pQuizDuellLab() {
     soundManager.playSFX('click');
   };
 
-  // Timer Effect
-  useEffect(() => {
-    if (gameState === 'in_game') {
-      // Simulate Bot Response delay
-      const difficulty = opponentType.replace('bot_', '');
-      const botResponse = createBotResponse(currentQuestionIdx, difficulty);
-      setBotSelectedData(botResponse);
-
-      timerRef.current = setInterval(() => {
-        setTimeLeft((prev) => {
-          if (prev <= 1) {
-            clearInterval(timerRef.current);
-            evaluateRound(null, botResponse, 0);
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-    }
-
-    return () => clearInterval(timerRef.current);
-  }, [gameState, currentQuestionIdx]);
-
-  const handlePlayerAnswer = (optionIdx) => {
-    if (playerSelected !== null || gameState !== 'in_game') return;
-    clearInterval(timerRef.current);
-    setPlayerSelected(optionIdx);
-    evaluateRound(optionIdx, botSelectedData, timeLeft);
-  };
+  const evaluateRoundRef = useRef(null);
 
   const evaluateRound = (pChoice, bData, remainingTime) => {
     const isPlayerCorrect = pChoice !== null && pChoice === currentQ.correct;
@@ -95,7 +67,7 @@ export default function P2pQuizDuellLab() {
       soundManager.playSFX('error');
     }
 
-    setRoundHistory(prev => [
+    setRoundHistory((prev) => [
       ...prev,
       {
         question: currentQ.question,
@@ -109,6 +81,41 @@ export default function P2pQuizDuellLab() {
     ]);
 
     setGameState('round_result');
+  };
+  evaluateRoundRef.current = evaluateRound;
+
+  // Timer Effect
+  useEffect(() => {
+    if (gameState === 'in_game') {
+      // Simulate Bot Response delay
+      const difficulty = opponentType.replace('bot_', '');
+      const botResponse = createBotResponse(currentQuestionIdx, difficulty);
+      setBotSelectedData(botResponse);
+
+      timerRef.current = setInterval(() => {
+        setTimeLeft((prev) => {
+          if (prev <= 1) {
+            clearInterval(timerRef.current);
+            evaluateRoundRef.current?.(null, botResponse, 0);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    }
+
+    return () => clearInterval(timerRef.current);
+  }, [
+    gameState,
+    currentQuestionIdx,
+    opponentType
+  ]);
+
+  const handlePlayerAnswer = (optionIdx) => {
+    if (playerSelected !== null || gameState !== 'in_game') return;
+    clearInterval(timerRef.current);
+    setPlayerSelected(optionIdx);
+    evaluateRound(optionIdx, botSelectedData, timeLeft);
   };
 
   const handleNextRound = () => {

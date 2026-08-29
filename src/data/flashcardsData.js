@@ -70,3 +70,40 @@ export const FLASHCARDS_DATA = [
     back: 'RTO = Maximale Ausfallzeit (Wie schnell muss das System nach einem Crash wieder laufen?).\nRPO = Maximal tolerierbarer Datenverlust gemessen in Zeit (Wie alt darf das letzte Backup sein?).'
   }
 ];
+
+export const LEITNER_FLASHCARDS = [
+  { id: 'l1', q: 'Was bedeutet die Abkürzung EVA im Grundprinzip der DV?', a: 'Eingabe, Verarbeitung, Ausgabe', box: 1 },
+  { id: 'l2', q: 'Welche Schicht des OSI-Modells ist für das IP-Routing verantwortlich?', a: 'Schicht 3 (Network Layer / Vermittlungsschicht)', box: 1 },
+  { id: 'l3', q: 'Was ist der Hauptunterschied zwischen symmetrischer und asymmetrischer Verschlüsselung?', a: 'Symmetrisch nutzt 1 gemeinsamen Schlüssel; Asymmetrisch nutzt ein Schlüsselpaar (Public/Private Key).', box: 1 },
+  { id: 'l4', q: 'Was beschreibt die Normalisierung bis zur 3. Normalform (3NF)?', a: 'Freiheit von redundanten Attributen und transitiven Abhängigkeiten.', box: 1 }
+];
+
+export const SM2_SAMPLE_CARDS = [
+  {
+    id: 1,
+    front: 'Was besagt das EVA-Prinzip in der Informatik?',
+    back: 'Eingabe -> Verarbeitung -> Ausgabe (Grundlegendes Strukturprinzip der Datenverarbeitung).',
+    category: 'Grundlagen',
+    repetitions: 2,
+    easeFactor: 2.5,
+    interval: 6
+  },
+  {
+    id: 2,
+    front: 'Welcher HTTP-Statuscode signalisiert "101 Switching Protocols" (z.B. bei WebSockets)?',
+    back: 'HTTP 101: Der Server wechselt das Protokoll gemäß dem Upgrade-Header des Clients (z.B. von HTTP/1.1 zu WebSocket).',
+    category: 'Netzwerke',
+    repetitions: 1,
+    easeFactor: 2.4,
+    interval: 1
+  },
+  {
+    id: 3,
+    front: 'Was ist der Unterschied zwischen 2. Normalform (2NF) und 3. Normalform (3NF)?',
+    back: '2NF fordert keine partiellen Abhängigkeiten vom zusammengesetzten Primärschlüssel. 3NF fordert zusätzlich keine transitiven Abhängigkeiten zwischen Nichtschlüssel-Attributen.',
+    category: 'Datenbanken',
+    repetitions: 0,
+    easeFactor: 2.5,
+    interval: 0
+  }
+];
