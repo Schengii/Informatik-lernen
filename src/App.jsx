@@ -75,7 +75,6 @@ const RegexMasterLab = lazy(() => import('./components/Content/RegexMasterLab'))
 const WebSocketProtocolLab = lazy(() => import('./components/Content/WebSocketProtocolLab'));
 const VectorSearchLab = lazy(() => import('./components/Content/VectorSearchLab'));
 const BigOBenchmarkLab = lazy(() => import('./components/Content/BigOBenchmarkLab'));
-const OauthPkceStudio = lazy(() => import('./components/Content/OauthPkceStudio'));
 const WasmCompilerPlaygroundLab = lazy(() => import('./components/Content/WasmCompilerPlaygroundLab'));
 
 // Neue Labs, Simulatoren & Kampagnen Hub
@@ -1213,13 +1212,6 @@ export default function App() {
             {activeTab === 'bigo_benchmark' && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <BigOBenchmarkLab onRewardXP={(xp) => awardXP(xp, 'bigo_benchmark_master')} />
-              </Suspense>
-            )}
-
-            {/* OAUTH PKCE */}
-            {activeTab === 'oauth_pkce_studio' && (
-              <Suspense fallback={<LabLoadingFallback />}>
-                <OauthPkceStudio onRewardXP={(xp) => awardXP(xp, 'oauth_pkce_master')} />
               </Suspense>
             )}
 
