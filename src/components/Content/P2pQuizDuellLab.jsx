@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { 
   Swords, Trophy, Play, RotateCcw, 
   CheckCircle2, Bot, User, Wifi
@@ -48,37 +48,7 @@ export default function P2pQuizDuellLab() {
     soundManager.playSFX('click');
   };
 
-  // Timer Effect
-  useEffect(() => {
-    if (gameState === 'in_game') {
-      // Simulate Bot Response delay
-      const difficulty = opponentType.replace('bot_', '');
-      const botResponse = createBotResponse(currentQuestionIdx, difficulty);
-      setBotSelectedData(botResponse);
-
-      timerRef.current = setInterval(() => {
-        setTimeLeft((prev) => {
-          if (prev <= 1) {
-            clearInterval(timerRef.current);
-            evaluateRound(null, botResponse, 0);
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-    }
-
-    return () => clearInterval(timerRef.current);
-  }, [gameState, currentQuestionIdx]);
-
-  const handlePlayerAnswer = (optionIdx) => {
-    if (playerSelected !== null || gameState !== 'in_game') return;
-    clearInterval(timerRef.current);
-    setPlayerSelected(optionIdx);
-    evaluateRound(optionIdx, botSelectedData, timeLeft);
-  };
-
-  const evaluateRound = (pChoice, bData, remainingTime) => {
+  const evaluateRound = useCallback((pChoice, bData, remainingTime) => {
     const isPlayerCorrect = pChoice !== null && pChoice === currentQ.correct;
     const playerGain = calculateRoundScore(isPlayerCorrect, remainingTime, currentQ.timeLimit);
     const botGain = bData ? bData.score : 0;
@@ -109,6 +79,36 @@ export default function P2pQuizDuellLab() {
     ]);
 
     setGameState('round_result');
+  }, [currentQ, playerScore, opponentScore]);
+
+  // Timer Effect
+  useEffect(() => {
+    if (gameState === 'in_game') {
+      // Simulate Bot Response delay
+      const difficulty = opponentType.replace('bot_', '');
+      const botResponse = createBotResponse(currentQuestionIdx, difficulty);
+      setBotSelectedData(botResponse);
+
+      timerRef.current = setInterval(() => {
+        setTimeLeft((prev) => {
+          if (prev <= 1) {
+            clearInterval(timerRef.current);
+            evaluateRound(null, botResponse, 0);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    }
+
+    return () => clearInterval(timerRef.current);
+  }, [gameState, currentQuestionIdx, opponentType, evaluateRound]);
+
+  const handlePlayerAnswer = (optionIdx) => {
+    if (playerSelected !== null || gameState !== 'in_game') return;
+    clearInterval(timerRef.current);
+    setPlayerSelected(optionIdx);
+    evaluateRound(optionIdx, botSelectedData, timeLeft);
   };
 
   const handleNextRound = () => {

@@ -11,7 +11,7 @@ import ProjectViewer from './components/Projects/ProjectViewer';
 import DsgvoFooterModal from './components/Footer/DsgvoFooterModal';
 import DifficultyFilterBar from './components/Navigation/DifficultyFilterBar';
 import ExamSimulator from './components/Content/ExamSimulator';
-import SkillMatrixWidget from './components/Gamification/SkillMatrixWidget';
+const SkillMatrixWidget = lazy(() => import('./components/Gamification/SkillMatrixWidget'));
 import DailyChallengeWidget from './components/Gamification/DailyChallengeWidget';
 import SkillTreeWidget from './components/Gamification/SkillTreeWidget';
 import ActivityHeatmapWidget from './components/Gamification/ActivityHeatmapWidget';
@@ -384,7 +384,9 @@ export default function App() {
                 <SkillTreeWidget userState={userState} onRewardXP={(xp) => awardXP(xp)} />
 
                 {/* Skill Matrix Visualizer */}
-                <SkillMatrixWidget userState={userState} />
+                <Suspense fallback={null}>
+                  <SkillMatrixWidget userState={userState} />
+                </Suspense>
 
                 {/* Feature Modules Quick Access Grid */}
                 <div>

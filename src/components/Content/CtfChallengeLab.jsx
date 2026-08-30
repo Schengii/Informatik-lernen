@@ -83,7 +83,7 @@ export default function CtfChallengeLab({ onRewardXP }) {
       try {
         const decoded = atob('Q1RGe0JBU0U2NF9ERUNPREVfV0lOfQ==');
         setTestOutput(`Dekodierter String: ${decoded}`);
-      } catch (_e) {
+      } catch {
         setTestOutput('Fehler beim Dekodieren');
       }
     }

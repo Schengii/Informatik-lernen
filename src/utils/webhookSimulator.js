@@ -58,7 +58,7 @@ export const WEBHOOK_PRESETS = [
   }
 ];
 
-export function simulateWebhookDispatch(webhookData, expectedSecret = 'secret123') {
+export function simulateWebhookDispatch(webhookData, _expectedSecret = 'secret123') {
   const startTime = performance.now();
   const timestamp = new Date().toISOString();
 

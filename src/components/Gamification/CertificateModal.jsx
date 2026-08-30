@@ -65,7 +65,7 @@ export default function CertificateModal({ isOpen, onClose, userState }) {
       doc.text('Verifiziert durch IT-DevGame Certification Engine', 270, 180, { align: 'right' });
 
       doc.save(`Informatik_Zertifikat_Level_${userState.level}.pdf`);
-    } catch (_e) {
+    } catch {
       window.print();
     }
   };

@@ -132,7 +132,7 @@ export default function ApiMockStudioLab({ onRewardXP }) {
   const tryParseJson = (str) => {
     try {
       return JSON.parse(str);
-    } catch (_e) {
+    } catch {
       return str;
     }
   };

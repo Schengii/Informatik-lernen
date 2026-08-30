@@ -33,6 +33,10 @@ export default defineConfig({
   ],
   build: {
     cssMinify: false,
+    modulePreload: {
+      resolveDependencies: (filename, deps) =>
+        deps.filter((dep) => !/vendor-(charts|pdf|sql)-/.test(dep))
+    },
     rollupOptions: {
       output: {
         manualChunks(id) {
@@ -42,8 +46,14 @@ export default defineConfig({
           if (id.includes('node_modules/framer-motion/') || id.includes('node_modules/lucide-react/') || id.includes('node_modules/canvas-confetti/')) {
             return 'vendor-ui';
           }
-          if (id.includes('node_modules/recharts/') || id.includes('node_modules/jspdf/') || id.includes('node_modules/alasql/')) {
-            return 'vendor-charts-pdf';
+          if (id.includes('node_modules/recharts/')) {
+            return 'vendor-charts';
+          }
+          if (id.includes('node_modules/jspdf/') || id.includes('node_modules/html2canvas/')) {
+            return 'vendor-pdf';
+          }
+          if (id.includes('node_modules/alasql/')) {
+            return 'vendor-sql';
           }
         }
       }

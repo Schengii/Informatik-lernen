@@ -1,9 +1,11 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, lazy } from 'react';
 import RoleSelectionModal from '../Onboarding/RoleSelectionModal';
 import BadgesModal from '../Gamification/BadgesModal';
 import GlossaryModal from '../Content/GlossaryModal';
-import CertificateModal from '../Gamification/CertificateModal';
 import FlashcardsModal from '../Gamification/FlashcardsModal';
+
+// Lazy: pulls in jspdf + html2canvas, only needed once the user opens it
+const CertificateModal = lazy(() => import('../Gamification/CertificateModal'));
 import BackupModal from '../Gamification/BackupModal';
 import VocabularyTrainerModal from '../Content/VocabularyTrainerModal';
 import DeploymentGuideModal from '../Content/DeploymentGuideModal';
@@ -70,11 +72,13 @@ export default function ModalContainer({
 
       {/* Certificate Modal */}
       {isCertificateModalOpen && (
-        <CertificateModal
-          isOpen={isCertificateModalOpen}
-          userState={userState}
-          onClose={() => setIsCertificateModalOpen(false)}
-        />
+        <Suspense fallback={null}>
+          <CertificateModal
+            isOpen={isCertificateModalOpen}
+            userState={userState}
+            onClose={() => setIsCertificateModalOpen(false)}
+          />
+        </Suspense>
       )}
 
       {/* Flashcards Modal */}

@@ -41,7 +41,7 @@ export default function RegexLab({ onCompleteGame }) {
         onCompleteGame('regex_master', 60);
       }
       setIsSuccess(success);
-    } catch (_e) {
+    } catch {
       setUserMatches(['Ungültiges RegEx-Muster!']);
       setIsSuccess(false);
     }
