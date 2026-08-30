@@ -151,7 +151,30 @@ export default function Navbar({
     { id: 'sql_joins', label: '📊 SQL JOINs & Venn-Diagramm', desc: 'INNER, LEFT, RIGHT & FULL Joins', badge: 'SQL' },
     { id: 'datastructures', label: '🌲 Trees, BST & Graphen Lab', desc: 'Binäre Suchbäume & Dijkstra Algorithmus', badge: 'Algo' },
     { id: 'docker', label: '🐳 Docker & Container Lab', desc: 'Dockerfile, Container & Port-Mapping', badge: 'Cloud' },
-    { id: 'kubernetes', label: '☸️ Kubernetes Pods & Cluster', desc: 'Deployments, ReplicaSets & Ingress', badge: 'Cloud' }
+    { id: 'kubernetes', label: '☸️ Kubernetes Pods & Cluster', desc: 'Deployments, ReplicaSets & Ingress', badge: 'Cloud' },
+    { id: 'algo_lab', label: '⚡ Algorithmen Step-Visualisierer', desc: 'Sortier- & Suchalgorithmen Schritt für Schritt', badge: 'Algo' },
+    { id: 'python_wasm', label: '🐍 Python 3 WASM Sandbox', desc: 'Python direkt im Browser via WebAssembly', badge: 'Code' },
+    { id: 'packet_tracer', label: '📡 Network Packet Tracer', desc: 'Route Visualizer & Ping-Simulation', badge: 'Netzwerk' },
+    { id: 'leitner', label: '🧠 Leitner Karteikarten-System', desc: 'Spaced Repetition mit 5 Lernboxen', badge: 'Lernen' },
+    { id: 'monaco_studio', label: '💻 Monaco Code Studio', desc: 'VS-Code-Editor direkt im Browser', badge: 'Code' },
+    { id: 'cloud_designer', label: '☁️ Cloud Infrastructure Designer', desc: 'Architektur-Canvas & Terraform-Code-Export', badge: 'Cloud' },
+    { id: 'ctf_lab', label: '🚩 Cybersecurity CTF Quest', desc: 'XSS, SQL-Injection & Command Injection', badge: 'Security' },
+    { id: 'cicd_pipeline', label: '🚀 CI/CD Pipeline Builder', desc: 'GitHub-Actions-Stages & YAML-Export', badge: 'DevOps' },
+    { id: 'system_design', label: '⚡ System Design & Load Balancer', desc: 'Skalierung, Caching & Balancing-Strategien', badge: 'Architektur' },
+    { id: 'websocket_protocol', label: '🌐 WebSockets & Real-Time Protokoll', desc: 'Handshake, Frames & Ping/Pong', badge: 'Netzwerk' },
+    { id: 'bigo_benchmark', label: '📊 Big-O Benchmark Arena', desc: 'Laufzeit- & Speicherkomplexität im Vergleich', badge: 'Algo' },
+    { id: 'wasm_rust_studio', label: '⚙️ WebAssembly & Rust Compiler', desc: 'Rust zu Wasm kompilieren & ausführen', badge: 'Code' },
+    { id: 'oauth_oidc', label: '🔐 OAuth2 & OpenID Connect', desc: 'Authorization Code Flow mit PKCE & JWT', badge: 'Security' },
+    { id: 'websockets', label: '🔌 WebSockets Grundlagen', desc: 'HTTP-101-Handshake & TCP-Duplex-Verbindung', badge: 'Netzwerk' },
+    { id: 'perf_lab', label: '⚡ Performance Profiling Lab', desc: 'V8 Garbage Collection & Memory-Leak-Analyse', badge: 'Performance' },
+    { id: 'kafka', label: '📨 Apache Kafka Event-Architektur', desc: 'Producers, Topics & Consumer Groups', badge: 'DevOps' },
+    { id: 'security_lab_v2', label: '🛡️ Red vs Blue Team Simulator', desc: 'Angriffs- & Verteidigungsszenarien', badge: 'Security' },
+    { id: 'api_studio', label: '🔗 REST vs GraphQL API Studio', desc: 'Endpunkte testen & HTTP-Status-Codes live', badge: 'API' },
+    { id: 'design_patterns', label: '🧩 Design Patterns Lab', desc: 'Singleton, Observer, Factory & Strategy', badge: 'Architektur' },
+    { id: 'roadmaps', label: '🗺️ Karriere-Lernpfade', desc: 'Fullstack, Cybersecurity & AI Engineering', badge: 'Karriere' },
+    { id: 'big_o', label: '📈 Big-O Komplexitäts-Visualizer', desc: 'Laufzeitverhalten bei wachsender Eingabegröße', badge: 'Algo' },
+    { id: 'tooling', label: '🛠️ Entwickler-Setup-Guide', desc: 'VS Code, Git & Docker einrichten', badge: 'Einsteiger' },
+    { id: 'app_workshop', label: '📱 App-Workshop: Task-Manager', desc: 'Eigene Web- & Mobile-App von A bis Z bauen', badge: 'Projekt' }
   ];
 
   const examMenuItems = [
