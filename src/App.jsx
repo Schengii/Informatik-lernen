@@ -188,6 +188,7 @@ const KafkaRebalanceLab = lazy(() => import('./components/Content/KafkaRebalance
 // v3.17.0 Next-Gen BGP Anycast, Postgres Fulltext, NPV & gRPC Protobuf
 const BgpAnycastLab = lazy(() => import('./components/Content/BgpAnycastLab'));
 const TlsHandshakeLab = lazy(() => import('./components/Content/TlsHandshakeLab'));
+const JwtAttackLab = lazy(() => import('./components/Content/JwtAttackLab'));
 const PostgresFulltextLab = lazy(() => import('./components/Content/PostgresFulltextLab'));
 const WisoCapitalValueLab = lazy(() => import('./components/Content/WisoCapitalValueLab'));
 const GrpcProtobufLab = lazy(() => import('./components/Content/GrpcProtobufLab'));
@@ -1573,6 +1574,13 @@ export default function App() {
             {activeTab === 'tls_handshake_lab' && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <TlsHandshakeLab onRewardXP={(xp) => awardXP(xp, 'tls_handshake_master')} />
+              </Suspense>
+            )}
+
+            {/* JWT ATTACK SANDBOX */}
+            {activeTab === 'jwt_attack_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <JwtAttackLab onRewardXP={(xp) => awardXP(xp, 'jwt_attack_defender')} />
               </Suspense>
             )}
 
