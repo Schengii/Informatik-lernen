@@ -80,6 +80,7 @@ export default function Navbar({
     { id: 'bgp_anycast_lab', label: '🌐 Linux BGP Routing & Anycast', desc: 'eBGP/iBGP Peering, AS-Path & Anycast IP', badge: 'Neu' },
     { id: 'tls_handshake_lab', label: '🔒 TLS 1.3 Handshake Studio', desc: '1-RTT Full Handshake & 0-RTT Session Resumption', badge: 'Neu' },
     { id: 'jwt_attack_lab', label: '🔑 JWT Sicherheitslücken Studio', desc: 'alg:none Fälschung, Secret-Bruteforce & kid-Injection', badge: 'Neu' },
+    { id: 'cors_pitfalls_lab', label: '🌐 CORS Fehlkonfigurationen Studio', desc: 'Origin-Reflection, Regex-Bypass & Wildcard-Konflikt', badge: 'Neu' },
     { id: 'postgres_fulltext_lab', label: '🔍 PostgreSQL Full-Text Search', desc: 'tsvector, tsquery & ts_rank Scoring', badge: 'Neu' },
     { id: 'wiso_capital_value', label: '📊 IHK Kapitalwertmethode (NPV)', desc: 'Dynamische Investitionsrechnung & Barwert', badge: 'Neu' },
     { id: 'grpc_protobuf_lab', label: '⚡ gRPC Protocol Buffers Studio', desc: 'Proto3 Schema, Wire Varints & HTTP/2', badge: 'Neu' },

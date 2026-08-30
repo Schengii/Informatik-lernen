@@ -50,6 +50,7 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
     { id: 'view-bgp-anycast', title: 'Linux BGP Routing & Anycast Studio (AS-Path & Anycast IP)', category: 'Labs & Tools', icon: Globe, action: () => onNavigate('bgp_anycast_lab') },
     { id: 'view-tls-handshake', title: 'TLS 1.3 Handshake Studio (1-RTT Full & 0-RTT Resumption)', category: 'Labs & Tools', icon: ShieldCheck, action: () => onNavigate('tls_handshake_lab') },
     { id: 'view-jwt-attack', title: 'JWT Sicherheitslücken Studio (alg:none, Secret-Bruteforce, kid-Injection)', category: 'Labs & Tools', icon: ShieldAlert, action: () => onNavigate('jwt_attack_lab') },
+    { id: 'view-cors-pitfalls', title: 'CORS Fehlkonfigurationen Studio (Origin-Reflection & Regex-Bypass)', category: 'Labs & Tools', icon: Globe, action: () => onNavigate('cors_pitfalls_lab') },
     { id: 'view-postgres-fulltext', title: 'PostgreSQL Full-Text Search Studio (tsvector & tsquery)', category: 'Labs & Tools', icon: Database, action: () => onNavigate('postgres_fulltext_lab') },
     { id: 'view-wiso-capital-value', title: 'IHK Kapitalwertmethode Studio (NPV & Barwert-Diskontierung)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('wiso_capital_value') },
     { id: 'view-grpc-protobuf', title: 'gRPC Protocol Buffers Studio (Proto3 & Wire Varints)', category: 'Labs & Tools', icon: Code, action: () => onNavigate('grpc_protobuf_lab') },

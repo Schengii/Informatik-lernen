@@ -189,6 +189,7 @@ const KafkaRebalanceLab = lazy(() => import('./components/Content/KafkaRebalance
 const BgpAnycastLab = lazy(() => import('./components/Content/BgpAnycastLab'));
 const TlsHandshakeLab = lazy(() => import('./components/Content/TlsHandshakeLab'));
 const JwtAttackLab = lazy(() => import('./components/Content/JwtAttackLab'));
+const CorsPitfallsLab = lazy(() => import('./components/Content/CorsPitfallsLab'));
 const PostgresFulltextLab = lazy(() => import('./components/Content/PostgresFulltextLab'));
 const WisoCapitalValueLab = lazy(() => import('./components/Content/WisoCapitalValueLab'));
 const GrpcProtobufLab = lazy(() => import('./components/Content/GrpcProtobufLab'));
@@ -1581,6 +1582,13 @@ export default function App() {
             {activeTab === 'jwt_attack_lab' && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <JwtAttackLab onRewardXP={(xp) => awardXP(xp, 'jwt_attack_defender')} />
+              </Suspense>
+            )}
+
+            {/* CORS PITFALLS */}
+            {activeTab === 'cors_pitfalls_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <CorsPitfallsLab onRewardXP={(xp) => awardXP(xp, 'cors_defender')} />
               </Suspense>
             )}
 
