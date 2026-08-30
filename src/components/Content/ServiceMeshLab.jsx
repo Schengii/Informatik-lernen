@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import {
-  Shield, Copy, Check, Radio, Network, Play, RefreshCw, Layers
-} from 'lucide-react';
+import { Shield, Copy, Check, Network, Play } from 'lucide-react';
 import { ServiceMeshSimulator } from '../../utils/serviceMeshEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';

@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  Activity, Award, Terminal, Play, Cpu, CheckCircle2, Flame, Layers, RefreshCw
-} from 'lucide-react';
+import { Activity, Award, Terminal } from 'lucide-react';
 import { BpftraceSimulator } from '../../utils/bpftraceEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';

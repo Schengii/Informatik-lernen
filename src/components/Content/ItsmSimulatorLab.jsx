@@ -1,13 +1,8 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Headphones, AlertCircle, Clock, ShieldCheck, CheckCircle2, 
-  Sparkles, Check, ArrowRight, Layers, Sliders, RefreshCw
-} from 'lucide-react';
+
+import { Headphones, AlertCircle, ShieldCheck, Sparkles, Check } from 'lucide-react';
 import { useStore } from '../../store/useStore';
-import { 
-  ITSM_INITIAL_TICKETS, calculatePriorityMatrix, evaluateCabRiskScore 
-} from '../../utils/itsmEngine';
+import { ITSM_INITIAL_TICKETS, evaluateCabRiskScore } from '../../utils/itsmEngine';
 
 export default function ItsmSimulatorLab() {
   const { awardXP } = useStore();
@@ -189,6 +184,21 @@ export default function ItsmSimulatorLab() {
                     max="5"
                     value={cabRollback}
                     onChange={(e) => setCabRollback(parseInt(e.target.value))}
+                    style={{ width: '100%' }}
+                  />
+                </div>
+
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', marginBottom: '4px' }}>
+                    <span>Geschäftliche Auswirkung (Business Impact)</span>
+                    <strong>{cabBusinessImpact} / 5</strong>
+                  </div>
+                  <input
+                    type="range"
+                    min="1"
+                    max="5"
+                    value={cabBusinessImpact}
+                    onChange={(e) => setCabBusinessImpact(parseInt(e.target.value))}
                     style={{ width: '100%' }}
                   />
                 </div>

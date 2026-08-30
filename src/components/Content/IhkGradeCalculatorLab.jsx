@@ -1,16 +1,11 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Award, Calculator, CheckCircle2, ShieldAlert, Sparkles, 
-  HelpCircle, TrendingUp, AlertTriangle, ArrowRight
-} from 'lucide-react';
-import { useStore } from '../../store/useStore';
-import { 
-  IHK_OCCUPATIONS, calculateIhkFinalScore, calculateMepPossibilities 
+
+import { Award, Calculator, CheckCircle2, Sparkles, TrendingUp, AlertTriangle } from 'lucide-react';
+import {
+  IHK_OCCUPATIONS, calculateIhkFinalScore, calculateMepPossibilities
 } from '../../utils/ihkGradeCalculations';
 
 export default function IhkGradeCalculatorLab() {
-  const { awardXP } = useStore();
   const [selectedOccupation, setSelectedOccupation] = useState('fiae');
 
   // Scores State (0 - 100 points)

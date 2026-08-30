@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, Layers, Server, Database, ShieldCheck, FileCode, CheckCircle2, RefreshCw, Terminal, Cpu, HardDrive } from 'lucide-react';
+import { Play, Layers, FileCode, RefreshCw, Terminal } from 'lucide-react';
 
 const INITIAL_SERVICES = [
   {

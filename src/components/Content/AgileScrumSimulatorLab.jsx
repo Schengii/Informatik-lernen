@@ -1,9 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Kanban, CheckCircle2, ArrowRight, Award, 
-  RotateCcw, Sparkles, Plus, TrendingDown, Layers, Clock
-} from 'lucide-react';
+
+import { Kanban, Award, RotateCcw, TrendingDown, Layers } from 'lucide-react';
 import { 
   LineChart, Line, XAxis, YAxis, CartesianGrid, 
   Tooltip, ResponsiveContainer, Legend 
@@ -93,6 +90,17 @@ export default function AgileScrumSimulatorLab() {
         <div className="bg-slate-900 border border-slate-800 p-4 rounded-xl shadow-md">
           <span className="text-xs text-slate-400 font-semibold block mb-1">Gesamte Story Points</span>
           <div className="text-2xl font-bold text-white">{metrics.totalPoints} SP</div>
+        </div>
+        <div className="bg-slate-900 border border-slate-800 p-4 rounded-xl shadow-md">
+          <span className="text-xs text-slate-400 font-semibold block mb-1">Sprintlänge: {sprintDays} Tage</span>
+          <input
+            type="range"
+            min="5"
+            max="20"
+            value={sprintDays}
+            onChange={(e) => setSprintDays(parseInt(e.target.value, 10))}
+            className="w-full"
+          />
         </div>
         <div className="bg-slate-900 border border-slate-800 p-4 rounded-xl shadow-md">
           <span className="text-xs text-slate-400 font-semibold block mb-1">Abgeschlossen (Done)</span>

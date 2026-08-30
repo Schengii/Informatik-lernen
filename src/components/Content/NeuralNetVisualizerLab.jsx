@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Brain, Cpu, Sparkles, Award, Play, RotateCcw, 
-  Layers, Sliders, ArrowRight, Hash, Database 
-} from 'lucide-react';
+
+import { Brain, Award, Layers, Sliders, Hash } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 
 export default function NeuralNetVisualizerLab() {

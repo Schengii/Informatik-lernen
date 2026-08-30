@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Cpu, Server, Box, Layers, Play, AlertOctagon, CheckCircle2, 
-  RotateCcw, RefreshCw, Send, ArrowRight, ShieldCheck, Activity, Globe
-} from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Server, Box, Layers, RotateCcw, Send, ArrowRight, Activity, Globe } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import {
   createInitialCluster,

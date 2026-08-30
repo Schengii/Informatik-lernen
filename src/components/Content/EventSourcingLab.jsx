@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  History, Award, Database, RefreshCw, CheckCircle2, ArrowRight, Play, FastForward
-} from 'lucide-react';
+import { History, Award, Database, ArrowRight } from 'lucide-react';
 import { EventSourcingProjectionEngine } from '../../utils/eventSourcingEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';

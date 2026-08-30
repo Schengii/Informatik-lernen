@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  PlusCircle, Save, Trash2, Download, Upload, 
-  Sparkles, CheckCircle2, AlertCircle, Play, Code2, Layers, Award
-} from 'lucide-react';
+
+import { PlusCircle, Save, Trash2, Download, Upload, CheckCircle2, AlertCircle, Play, Code2, Layers } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { 
   getStoredCustomChallenges, 
@@ -13,7 +10,7 @@ import {
   exportChallengesToJson,
   importChallengesFromJson
 } from '../../utils/customChallengesManager';
-import { runChallengeCode } from '../../utils/codingChallengesEngine';
+
 import { soundManager } from '../../utils/audioSystem';
 import { useStore } from '../../store/useStore';
 

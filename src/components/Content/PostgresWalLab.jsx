@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  Database, Award, HardDrive, ArrowRight, RefreshCw, CheckCircle2, AlertTriangle, ShieldCheck
-} from 'lucide-react';
+import { Database, Award, HardDrive, ArrowRight, RefreshCw } from 'lucide-react';
 import { PostgresWalSimulator } from '../../utils/postgresWalEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';

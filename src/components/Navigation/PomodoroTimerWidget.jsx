@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, Pause, RotateCcw, Timer, Sparkles, X, ChevronUp, ChevronDown } from 'lucide-react';
+import { Play, Pause, RotateCcw, Timer, X } from 'lucide-react';
 import { soundManager } from '../../utils/audioSystem';
 import { useStore } from '../../store/useStore';
 

@@ -1,9 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Calculator, TrendingUp, DollarSign, Cloud, Server, 
-  Award, Sparkles, Download, CheckCircle2, Clock, BarChart3
-} from 'lucide-react';
+
+import { Calculator, TrendingUp, DollarSign, Cloud, Server, Award, Download, CheckCircle2, BarChart3 } from 'lucide-react';
 import { 
   ResponsiveContainer, 
   LineChart, 
@@ -20,6 +17,7 @@ import { useStore } from '../../store/useStore';
 
 export default function TcoRoiCalculatorLab() {
   const { awardXP } = useStore();
+  const [xpClaimed, setXpClaimed] = useState(false);
 
   const [years, setYears] = useState(5);
   // On-Premises Inputs
@@ -114,10 +112,11 @@ export default function TcoRoiCalculatorLab() {
               <Download className="w-4 h-4" /> JSON Export
             </button>
             <button
-              onClick={() => awardXP(60, 'wiso_master')}
+              onClick={() => { if (!xpClaimed) { setXpClaimed(true); awardXP(60, 'wiso_master'); } }}
+              disabled={xpClaimed}
               className="px-4 py-2 bg-teal-600 hover:bg-teal-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-lg"
             >
-              <Award className="w-4 h-4" /> Analyse XP sichern
+              <Award className="w-4 h-4" /> {xpClaimed ? 'XP gesichert!' : 'Analyse XP sichern'}
             </button>
           </div>
         </div>

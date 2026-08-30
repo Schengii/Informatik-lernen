@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import {
-  Boxes, Award, Calculator, TrendingDown, DollarSign, RefreshCw, CheckCircle2, Clock
+  Boxes, Award, Calculator
 } from 'lucide-react';
 import { calculateAndlerOptimalOrder } from '../../utils/wisoAndlerEngine';
 import { useStore } from '../../store/useStore';

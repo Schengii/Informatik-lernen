@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Key, ShieldCheck, RefreshCw, CheckCircle2, Lock, ArrowRight, Server, FileText } from 'lucide-react';
+
+import { Key, ShieldCheck, RefreshCw, CheckCircle2, Lock } from 'lucide-react';
 import { JWKS_SETS } from '../../data/cloudArchLabsData';
 import { useStore } from '../../store/useStore';
 

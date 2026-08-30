@@ -3,7 +3,7 @@
  * Allows creating, validating, exporting and importing custom code challenges.
  */
 
-import { runChallengeCode } from './codingChallengesEngine';
+
 
 export const CUSTOM_CHALLENGES_STORAGE_KEY = 'it_game_custom_challenges';
 

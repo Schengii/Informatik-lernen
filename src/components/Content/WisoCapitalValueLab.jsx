@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import {
-  TrendingUp, Award, Calculator, DollarSign, CheckCircle2, AlertTriangle, RefreshCw
+  TrendingUp, Award, Calculator
 } from 'lucide-react';
 import { calculateNetPresentValue } from '../../utils/wisoCapitalValueEngine';
 import { useStore } from '../../store/useStore';
@@ -144,6 +144,14 @@ export default function WisoCapitalValueLab({ onRewardXP }) {
 
             <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '10px', marginBottom: '4px' }}>Cashflow Jahr 2: {cf2.toLocaleString('de-DE')} €</label>
             <input type="range" min="10000" max="100000" step="2500" value={cf2} onChange={(e) => setCf2(parseInt(e.target.value, 10))} style={{ width: '100%' }} />
+          </div>
+
+          <div>
+            <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Cashflow Jahr 3: {cf3.toLocaleString('de-DE')} €</label>
+            <input type="range" min="10000" max="100000" step="2500" value={cf3} onChange={(e) => setCf3(parseInt(e.target.value, 10))} style={{ width: '100%' }} />
+
+            <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '10px', marginBottom: '4px' }}>Liquidationserlös (Restwert L_3): {salvage.toLocaleString('de-DE')} €</label>
+            <input type="range" min="0" max="30000" step="1000" value={salvage} onChange={(e) => setSalvage(parseInt(e.target.value, 10))} style={{ width: '100%' }} />
           </div>
         </div>
       </div>

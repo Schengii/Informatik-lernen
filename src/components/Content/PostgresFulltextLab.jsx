@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  Search, Award, Database, Filter, CheckCircle2, Zap, RefreshCw, FileText
-} from 'lucide-react';
+import { Search, Award, Database } from 'lucide-react';
 import { toTsVector, evaluateTsQuery } from '../../utils/postgresFulltextEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';

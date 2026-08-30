@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  Box, Award, Shield, Cpu, HardDrive, Layers, CheckCircle2, AlertTriangle, Play
-} from 'lucide-react';
+import { Box, Award, Layers } from 'lucide-react';
 import { LINUX_NAMESPACES, CgroupsV2Controller } from '../../utils/linuxContainerEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';

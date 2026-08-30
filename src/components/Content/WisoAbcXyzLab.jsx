@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import {
-  Package, Award, DollarSign, Layers, CheckCircle2, TrendingUp, RefreshCw, BarChart2
+  Package, Award, BarChart2
 } from 'lucide-react';
 import { calculateAbcXyzMatrix } from '../../utils/wisoAbcXyzEngine';
 import { useStore } from '../../store/useStore';

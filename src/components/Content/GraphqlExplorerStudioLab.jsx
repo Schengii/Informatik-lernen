@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Terminal, Play, CheckCircle2, RotateCcw, 
-  Sparkles, Layers, Award, Code2, Database, Zap 
-} from 'lucide-react';
+
+import { Play, Layers, Award, Code2, Database } from 'lucide-react';
 import { 
   SAMPLE_GRAPHQL_QUERIES, 
   executeGraphQLQuery 

@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  Database, Award, Shield, CheckCircle2, RefreshCw, Zap, Server, Layers
-} from 'lucide-react';
+import { Database, Award, Layers } from 'lucide-react';
 import {
   PostgresPoolSimulator,
   SQL_ISOLATION_LEVELS

@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  Binary, Award, Code, Zap, CheckCircle2, RefreshCw, FileText, ArrowRight
-} from 'lucide-react';
+import { Binary, Award, Code } from 'lucide-react';
 import { GrpcProtobufSimulator } from '../../utils/grpcProtobufEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';
@@ -102,6 +100,29 @@ export default function GrpcProtobufLab({ onRewardXP }) {
                 onChange={(e) => setUsername(e.target.value)}
                 style={{ width: '100%', padding: '8px 12px', background: 'var(--bg-primary)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'var(--text-main)', fontSize: '0.85rem' }}
               />
+            </div>
+
+            <div>
+              <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>User ID (int32): {userId}</label>
+              <input
+                type="range"
+                min="1"
+                max="999"
+                value={userId}
+                onChange={(e) => setUserId(parseInt(e.target.value, 10))}
+                style={{ width: '100%' }}
+              />
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>isActive (bool):</label>
+              <button
+                onClick={() => setIsActive(!isActive)}
+                className={`btn ${isActive ? 'btn-primary' : 'btn-secondary'}`}
+                style={{ padding: '4px 12px', fontSize: '0.75rem' }}
+              >
+                {isActive ? 'true' : 'false'}
+              </button>
             </div>
           </div>
         </div>

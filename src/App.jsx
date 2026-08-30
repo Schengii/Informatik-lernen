@@ -1221,7 +1221,7 @@ export default function App() {
             {/* WASM RUST */}
             {activeTab === 'wasm_rust_studio' && (
               <Suspense fallback={<LabLoadingFallback />}>
-                <WasmRustStudio onRewardXP={(xp) => awardXP(xp, 'wasm_rust_master')} />
+                <WasmRustLab onRewardXP={(xp) => awardXP(xp, 'wasm_rust_master')} />
               </Suspense>
             )}
 

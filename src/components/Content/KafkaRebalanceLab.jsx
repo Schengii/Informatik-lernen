@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  Shuffle, Award, Server, Users, RefreshCw, CheckCircle2, AlertTriangle, Zap, Layers
-} from 'lucide-react';
+import { Shuffle, Award, Server } from 'lucide-react';
 import { KafkaRebalanceSimulator } from '../../utils/kafkaRebalanceEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';

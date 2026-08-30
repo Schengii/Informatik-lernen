@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Calculator, TrendingUp, GitBranch, Scale, CheckCircle2, 
-  HelpCircle, Sparkles, RefreshCw, Award, ArrowRight, BookOpen 
-} from 'lucide-react';
+
+import { Calculator, TrendingUp, GitBranch, Scale, CheckCircle2, Sparkles, Award } from 'lucide-react';
 import { 
   calculateVorwaertskalkulation, 
   calculateDeckungsbeitrag, 
@@ -42,7 +39,7 @@ export default function WisoKalkulationLab() {
   const dbResult = calculateDeckungsbeitrag(dbParams);
 
   // Netzplan State
-  const [netzplanNodes, setNetzplanNodes] = useState([
+  const netzplanNodes = [
     { id: 'A', name: 'Projektinitialisierung & Kickoff', dauer: 3, vorgaenger: [] },
     { id: 'B', name: 'Anforderungsanalyse (Lastenheft)', dauer: 5, vorgaenger: ['A'] },
     { id: 'C', name: 'Systemarchitektur & DB-Design', dauer: 4, vorgaenger: ['B'] },
@@ -50,7 +47,7 @@ export default function WisoKalkulationLab() {
     { id: 'E', name: 'Backend & API Implementierung', dauer: 6, vorgaenger: ['C'] },
     { id: 'F', name: 'Frontend Entwicklung', dauer: 5, vorgaenger: ['D', 'C'] },
     { id: 'G', name: 'Integrationstest & Deployment', dauer: 3, vorgaenger: ['E', 'F'] }
-  ]);
+  ];
 
   const netzplanResult = calculateNetzplan(netzplanNodes);
 

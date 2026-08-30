@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import {
-  TrendingUp, Award, DollarSign, Calculator, Layers, CheckCircle2, AlertCircle, Scale
+  TrendingUp, Award, Scale
 } from 'lucide-react';
 import {
   calculateContributionMargin,

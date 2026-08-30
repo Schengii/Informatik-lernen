@@ -129,7 +129,6 @@ export function scaleDeployment(cluster, deploymentId, targetReplicas) {
     }
   } else if (currentPods.length > targetReplicas) {
     // Remove excess pods
-    const toRemove = currentPods.length - targetReplicas;
     const remainingPods = nextCluster.pods.filter(p => p.deploymentId !== deploymentId);
     const keptPods = currentPods.slice(0, targetReplicas);
     nextCluster.pods = [...remainingPods, ...keptPods];

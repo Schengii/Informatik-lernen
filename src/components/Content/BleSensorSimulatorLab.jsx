@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Bluetooth, Play, Pause, Activity, Wifi, 
-  Battery, Thermometer, Droplet, Heart, Award, Layers 
-} from 'lucide-react';
+
+import { Bluetooth, Play, Pause, Activity, Battery, Thermometer, Droplet, Heart, Layers } from 'lucide-react';
 import { 
   LineChart, Line, XAxis, YAxis, CartesianGrid, 
   Tooltip, ResponsiveContainer 

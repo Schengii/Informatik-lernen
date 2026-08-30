@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Filter, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network } from 'lucide-react';
+import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network } from 'lucide-react';
 
 export const LAB_MODULES = [
   {

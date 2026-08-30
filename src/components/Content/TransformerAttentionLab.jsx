@@ -1,17 +1,12 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Sparkles, Brain, Cpu, Sliders, Activity, Play, 
-  ArrowRight, Layers, CheckCircle2, MessageSquare
-} from 'lucide-react';
-import { useStore } from '../../store/useStore';
-import { 
-  SAMPLE_SENTENCES, calculateAttentionMatrix, 
-  sampleNextTokenDistribution, REACT_AGENT_SAMPLE_RUN 
+
+import { Sparkles, Brain, Sliders, Activity, Play, Layers } from 'lucide-react';
+import {
+  SAMPLE_SENTENCES, calculateAttentionMatrix,
+  sampleNextTokenDistribution, REACT_AGENT_SAMPLE_RUN
 } from '../../utils/transformerAttentionEngine';
 
 export default function TransformerAttentionLab() {
-  const { awardXP } = useStore();
   const [activeTab, setActiveTab] = useState('attention'); // 'attention' | 'sampling' | 'react_agent'
 
   // Attention State

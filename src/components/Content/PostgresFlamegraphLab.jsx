@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  Database, Award, Search, Flame, HardDrive, Layers, RefreshCw
-} from 'lucide-react';
+import { Database, Award, Flame } from 'lucide-react';
 import { PostgresFlamegraphSimulator } from '../../utils/postgresFlamegraphEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';

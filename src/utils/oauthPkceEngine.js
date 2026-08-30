@@ -9,11 +9,8 @@ export function sha256Sync(ascii) {
     return (value >>> amount) | (value << (32 - amount));
   }
 
-  const mathPow = Math.pow;
-  const maxWord = mathPow(2, 32);
   let lengthProperty = 'length';
   let i, j;
-  let result = '';
 
   const words = [];
   const asciiBitLength = ascii[lengthProperty] * 8;

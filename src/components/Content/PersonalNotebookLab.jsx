@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  BookOpen, Plus, Trash2, Tag, Search, Download, 
-  Sparkles, CheckCircle2, FileText, Code, Edit3, Eye
-} from 'lucide-react';
+
+import { BookOpen, Plus, Trash2, Tag, Search, Download, Sparkles, Edit3, Eye } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 
 const STORAGE_KEY = 'it_devgame_personal_notes';

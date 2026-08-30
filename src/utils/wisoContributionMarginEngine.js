@@ -22,7 +22,6 @@ export function calculateContributionMargin({
   const bepUmsatz = bepMenge !== Infinity ? bepMenge * p : Infinity;
 
   const gesamtUmsatz = m * p;
-  const gesamtVariableKosten = m * kv;
   const gesamtDb = m * db;
   const betriebsergebnis = gesamtDb - kf;
 

@@ -1,9 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Server, Zap, Thermometer, BatteryCharging, ShieldCheck, 
-  Sparkles, Plus, Trash2, CheckCircle2, HardDrive, Cpu, AlertTriangle
-} from 'lucide-react';
+
+import { Server, Sparkles, Plus, Trash2 } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { RACK_PRESET_DEVICES, calculateRackMetrics } from '../../utils/rackCalculations';
 

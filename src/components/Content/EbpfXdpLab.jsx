@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  ShieldAlert, Award, Play, Terminal, CheckCircle2, AlertTriangle, Zap, Cpu, RefreshCw
-} from 'lucide-react';
+import { ShieldAlert, Award, Play, Terminal } from 'lucide-react';
 import { EbpfXdpSimulator } from '../../utils/ebpfXdpEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';

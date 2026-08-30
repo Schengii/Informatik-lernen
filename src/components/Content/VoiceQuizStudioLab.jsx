@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Mic, MicOff, Volume2, VolumeX, CheckCircle2, 
-  RotateCcw, Sparkles, Award, Headphones, Play, MessageSquare
-} from 'lucide-react';
+
+import { Mic, MicOff, Volume2, RotateCcw, Headphones, MessageSquare } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { VOICE_QUIZ_QUESTIONS, evaluateSpokenAnswer } from '../../utils/voiceQuizEngine';
 import { soundManager } from '../../utils/audioSystem';

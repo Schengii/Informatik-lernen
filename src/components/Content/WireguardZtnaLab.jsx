@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  ShieldCheck, Award, Lock, Key, Smartphone, Laptop, CheckCircle2, AlertTriangle, RefreshCw
-} from 'lucide-react';
+import { ShieldCheck, Award, Lock } from 'lucide-react';
 import { WireguardZtnaSimulator } from '../../utils/wireguardZtnaEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';

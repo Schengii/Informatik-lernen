@@ -1,14 +1,6 @@
 // @vitest-environment jsdom
 import { describe, it, expect, beforeEach } from 'vitest';
-import {
-  validateChallengeStructure,
-  exportChallengesToJson,
-  importChallengesFromJson,
-  saveCustomChallenge,
-  getStoredCustomChallenges,
-  deleteCustomChallenge,
-  CUSTOM_CHALLENGES_STORAGE_KEY
-} from './customChallengesManager';
+import { validateChallengeStructure, exportChallengesToJson, importChallengesFromJson, saveCustomChallenge, getStoredCustomChallenges, deleteCustomChallenge } from './customChallengesManager';
 
 describe('customChallengesManager', () => {
   beforeEach(() => {

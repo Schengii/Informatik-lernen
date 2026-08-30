@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Cpu, Play, Pause, RotateCcw, Zap, Database, Terminal } from 'lucide-react';
 
 export default function CpuArchitectureLab({ onRewardXP }) {

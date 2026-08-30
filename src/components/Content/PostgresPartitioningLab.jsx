@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  Database, Award, Split, Layers, Search, CheckCircle2, Zap, RefreshCw
-} from 'lucide-react';
+import { Database, Award, Split } from 'lucide-react';
 import { PostgresPartitioningSimulator } from '../../utils/postgresPartitioningEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';

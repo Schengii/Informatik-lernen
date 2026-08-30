@@ -1,8 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import {
-  runChallengeCode,
-  CODING_CHALLENGES
-} from './codingChallengesEngine';
+import { runChallengeCode } from './codingChallengesEngine';
 
 describe('codingChallengesEngine', () => {
   it('führt korrekten Palindrome-Code erfolgreich aus', () => {

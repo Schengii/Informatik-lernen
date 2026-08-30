@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  KeyRound, Award, Shield, Check, Copy, RefreshCw, ArrowRight, UserCheck
-} from 'lucide-react';
+import { KeyRound, Award, Shield, Check, Copy } from 'lucide-react';
 import { OAuthTokenExchangeSimulator } from '../../utils/oauthTokenExchangeEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';

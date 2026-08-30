@@ -18,7 +18,7 @@ export default function P2pQuizDuellLab() {
 
   // Match States: 'lobby' | 'countdown' | 'in_game' | 'round_result' | 'game_over'
   const [gameState, setGameState] = useState('lobby');
-  const [roomCode, setRoomCode] = useState(() => generateRoomCode());
+  const [roomCode] = useState(() => generateRoomCode());
   const [joinCodeInput, setJoinCodeInput] = useState('');
   const [opponentType, setOpponentType] = useState('bot_medium'); // 'bot_easy' | 'bot_medium' | 'bot_hard' | 'webrtc'
   
@@ -346,6 +346,17 @@ export default function P2pQuizDuellLab() {
             <p className="text-slate-400 text-sm">
               Endstand: <span className="text-cyan-400 font-bold">{playerScore} Punkte</span> vs. <span className="text-rose-400 font-bold">{opponentScore} Punkte</span>
             </p>
+          </div>
+
+          <div className="text-left bg-slate-950 rounded-xl border border-slate-800 divide-y divide-slate-800 max-h-64 overflow-y-auto">
+            {roundHistory.map((round, idx) => (
+              <div key={idx} className="flex items-center justify-between px-4 py-2.5 text-xs">
+                <span className="text-slate-400 truncate max-w-[60%]">{idx + 1}. {round.question}</span>
+                <span className={round.isPlayerCorrect ? 'text-emerald-400 font-bold' : 'text-rose-400 font-bold'}>
+                  {round.isPlayerCorrect ? `+${round.playerGain}` : '0'} Pkt.
+                </span>
+              </div>
+            ))}
           </div>
 
           <button

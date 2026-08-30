@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
-import {
-  Cpu, HardDrive, Search, Award, RefreshCw, AlertTriangle, Zap
-} from 'lucide-react';
+import { Cpu, HardDrive, Search, Award } from 'lucide-react';
 import { LinuxMemorySimulator } from '../../utils/linuxMemoryEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';

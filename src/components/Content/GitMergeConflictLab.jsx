@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  GitMerge, GitBranch, GitCommit, CheckCircle2, 
-  AlertTriangle, RotateCcw, Play, Code2, Sparkles, Award, ArrowRight
-} from 'lucide-react';
+
+import { GitMerge, GitBranch, GitCommit, CheckCircle2, RotateCcw, Code2 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { 
   GIT_CONFLICT_SCENARIOS, 

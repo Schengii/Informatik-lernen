@@ -13,6 +13,7 @@ import { useStore } from '../../store/useStore';
 export default function Ieee754FloatingPointLab() {
   const { awardXP } = useStore();
   const [activeTab, setActiveTab] = useState('ieee754');
+  const [xpClaimed, setXpClaimed] = useState(false);
 
   // IEEE 754 State
   const [inputNumber, setInputNumber] = useState('3.14159');
@@ -80,11 +81,12 @@ export default function Ieee754FloatingPointLab() {
             </p>
           </div>
           <button
-            onClick={() => awardXP(30, 'ieee_architect')}
+            onClick={() => { if (!xpClaimed) { setXpClaimed(true); awardXP(30, 'ieee_architect'); } }}
+            disabled={xpClaimed}
             className="flex items-center gap-2 px-4 py-2.5 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl text-sm font-medium transition shadow-lg shrink-0"
           >
             <Award className="w-4 h-4" />
-            Hardware XP sichern
+            {xpClaimed ? 'XP gesichert!' : 'Hardware XP sichern'}
           </button>
         </div>
       </div>

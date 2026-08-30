@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  Network, Award, Layers, Server, Shield, CheckCircle2, RefreshCw, Cpu
-} from 'lucide-react';
+import { Network, Award, Layers } from 'lucide-react';
 import { LinuxBridgeVxlanSimulator } from '../../utils/linuxBridgeVxlanEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';
@@ -59,6 +57,14 @@ export default function LinuxBridgeVxlanLab({ onRewardXP }) {
         >
           <Award size={16} /> VXLAN-Kapselung Bestätigen (+45 XP)
         </button>
+      </div>
+
+      {/* VNI Slider */}
+      <div style={{ background: 'var(--bg-secondary)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', marginBottom: '24px', maxWidth: '400px' }}>
+        <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
+          VXLAN Network Identifier (VNI): {vni}
+        </label>
+        <input type="range" min="1" max="16777215" step="1" value={vni} onChange={(e) => setVni(parseInt(e.target.value, 10))} style={{ width: '100%' }} />
       </div>
 
       {/* Metric Cards */}

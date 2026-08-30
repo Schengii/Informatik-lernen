@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Code2, Play, CheckCircle2, XCircle, RotateCcw, 
-  Sparkles, Award, Terminal, Layers, HelpCircle, ArrowRight 
-} from 'lucide-react';
+
+import { Code2, Play, CheckCircle2, XCircle, RotateCcw, Terminal } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { 
   CODING_CHALLENGES, 

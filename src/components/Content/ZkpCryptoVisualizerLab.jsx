@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Key, EyeOff, CheckCircle2, ShieldAlert, Cpu, ArrowRight } from 'lucide-react';
+import { Shield, Key, EyeOff, CheckCircle2, ShieldAlert, ArrowRight } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { EllipticCurve, simulateSchnorrZkp } from '../../utils/zkpCryptoEngine';
 

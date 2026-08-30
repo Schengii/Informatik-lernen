@@ -1,8 +1,8 @@
 import { create } from 'zustand';
-import { initialProfileState, loadUserState, saveUserState, calculateLevel, recordDailyActivity } from '../utils/storage';
+import { loadUserState, saveUserState, calculateLevel, recordDailyActivity } from '../utils/storage';
 import { soundManager } from '../utils/audioSystem';
 
-export const useStore = create((set, get) => {
+export const useStore = create((set) => {
   const initialUser = loadUserState();
   if (initialUser.soundSettings) {
     soundManager.setVolume(initialUser.soundSettings.volume ?? 0.5);

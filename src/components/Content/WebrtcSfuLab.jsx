@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  Video, Award, Server, Users, Zap, CheckCircle2, AlertTriangle, RefreshCw, Cpu
-} from 'lucide-react';
+import { Video, Award, Server } from 'lucide-react';
 import { WebRtcMediaTopologySimulator } from '../../utils/webrtcSfuEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';

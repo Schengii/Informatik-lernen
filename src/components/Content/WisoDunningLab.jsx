@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import {
-  FileText, Award, DollarSign, Percent, AlertCircle, CheckCircle2, ShieldCheck, Scale
+  FileText, Award, Scale
 } from 'lucide-react';
 import {
   calculateSkontoEffektivzins,
@@ -112,6 +112,18 @@ export default function WisoDunningLab({ onRewardXP }) {
               onChange={(e) => setSkontofrist(parseInt(e.target.value, 10))}
               style={{ width: '100%' }}
             />
+
+            <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '8px', marginBottom: '4px' }}>
+              Zahlungsziel (Netto): {zahlungsziel} Tage
+            </label>
+            <input
+              type="range"
+              min="15"
+              max="60"
+              value={zahlungsziel}
+              onChange={(e) => setZahlungsziel(parseInt(e.target.value, 10))}
+              style={{ width: '100%' }}
+            />
           </div>
 
           <div style={{ background: 'var(--bg-primary)', padding: '16px', borderRadius: '10px', border: '1px solid var(--border-color)', textAlign: 'center' }}>
@@ -148,6 +160,35 @@ export default function WisoDunningLab({ onRewardXP }) {
             >
               B2C (+ 5%)
             </button>
+          </div>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', alignItems: 'center', marginBottom: '14px' }}>
+          <div>
+            <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
+              Rechnungsbetrag: {rechnungsbetrag.toLocaleString('de-DE')} €
+            </label>
+            <input
+              type="range"
+              min="500"
+              max="50000"
+              step="500"
+              value={rechnungsbetrag}
+              onChange={(e) => setRechnungsbetrag(parseInt(e.target.value, 10))}
+              style={{ width: '100%' }}
+            />
+
+            <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '8px', marginBottom: '4px' }}>
+              Verzugstage: {verzugstage} Tage
+            </label>
+            <input
+              type="range"
+              min="1"
+              max="180"
+              value={verzugstage}
+              onChange={(e) => setVerzugstage(parseInt(e.target.value, 10))}
+              style={{ width: '100%' }}
+            />
           </div>
         </div>
 

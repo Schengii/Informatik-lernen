@@ -1,9 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Brain, RotateCw, CheckCircle2, AlertCircle, Sparkles, 
-  TrendingUp, Layers, HelpCircle, ArrowRight, Bell
-} from 'lucide-react';
+
+import { Brain, Sparkles, TrendingUp, Bell } from 'lucide-react';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 import { useStore } from '../../store/useStore';
 import { calculateSm2NextReview, calculateEbbinghausCurve } from '../../utils/sm2Algorithm';

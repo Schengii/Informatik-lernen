@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  Percent, Award, Calculator, TrendingUp, DollarSign, RefreshCw, CheckCircle2, Clock
-} from 'lucide-react';
+import { Percent, Award, Calculator } from 'lucide-react';
 import {
   calculateSimpleInterest,
   calculateCompoundInterest
@@ -141,13 +139,18 @@ export default function WisoInterestCalculationsLab({ onRewardXP }) {
       ) : (
         /* Compound Table */
         <div style={{ background: 'var(--bg-secondary)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', overflowX: 'auto' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', flexWrap: 'wrap', gap: '12px' }}>
             <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--text-muted)' }}>
               Zinseszinsentwicklung über {jahre} Jahre (Aufzinsungsfaktor: {compoundData.aufzinsungsfaktor}):
             </span>
             <div style={{ fontSize: '0.9rem', fontWeight: 'bold', color: '#10b981' }}>
               Gesamtzinsen: +{compoundData.gesamtzinsen.toLocaleString('de-DE')} €
             </div>
+          </div>
+
+          <div style={{ marginBottom: '16px', maxWidth: '320px' }}>
+            <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Laufzeit (n): {jahre} Jahre</label>
+            <input type="range" min="1" max="30" step="1" value={jahre} onChange={(e) => setJahre(parseInt(e.target.value, 10))} style={{ width: '100%' }} />
           </div>
 
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.84rem' }}>

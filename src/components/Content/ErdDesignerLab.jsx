@@ -1,9 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Database, Table, Key, Link2, CheckCircle2, AlertTriangle, 
-  Code, Copy, Sparkles, Plus, Trash2, ShieldCheck, Layers
-} from 'lucide-react';
+
+import { Database, Table, Key, Link2, CheckCircle2, Code, Copy, Sparkles, Plus, Trash2, ShieldCheck } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { INITIAL_ERD_SCHEMA, auditNormalization, generateSqlDdl } from '../../utils/erdDesignerEngine';
 

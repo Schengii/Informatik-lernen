@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  Landmark, Award, DollarSign, Calculator, Shield, Layers, RefreshCw, CheckCircle2
-} from 'lucide-react';
+import { Landmark, Award, Calculator } from 'lucide-react';
 import { calculateLoanSchedule } from '../../utils/wisoLoanCollateralEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';
@@ -93,6 +91,32 @@ export default function WisoLoanCollateralLab({ onRewardXP }) {
           <div style={{ fontWeight: 'bold' }}>3. Fälligkeitsdarlehen</div>
           <div style={{ fontSize: '0.72rem', opacity: 0.8 }}>Nur Zinsen, 100% Tilgung am Laufzeitende</div>
         </button>
+      </div>
+
+      {/* Parameter Sliders */}
+      <div style={{ background: 'var(--bg-secondary)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', marginBottom: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
+          <div>
+            <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
+              Darlehensbetrag: {darlehensbetrag.toLocaleString('de-DE')} €
+            </label>
+            <input type="range" min="10000" max="500000" step="5000" value={darlehensbetrag} onChange={(e) => setDarlehensbetrag(parseInt(e.target.value, 10))} style={{ width: '100%' }} />
+          </div>
+
+          <div>
+            <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
+              Zinssatz: {zinssatz}%
+            </label>
+            <input type="range" min="1" max="12" step="0.5" value={zinssatz} onChange={(e) => setZinssatz(parseFloat(e.target.value))} style={{ width: '100%' }} />
+          </div>
+
+          <div>
+            <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
+              Laufzeit: {laufzeit} Jahre
+            </label>
+            <input type="range" min="1" max="20" step="1" value={laufzeit} onChange={(e) => setLaufzeit(parseInt(e.target.value, 10))} style={{ width: '100%' }} />
+          </div>
+        </div>
       </div>
 
       {/* Stats Cards */}

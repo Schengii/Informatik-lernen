@@ -1,9 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Cloud, Server, Database, ShieldCheck, ShieldAlert, 
-  DollarSign, Activity, Sparkles, Plus, Trash2, CheckCircle2, Layers
-} from 'lucide-react';
+
+import { Cloud, ShieldAlert, Sparkles, Trash2, CheckCircle2, Layers } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { INITIAL_CLOUD_TOPOLOGY, calculateSystemSla, auditSpofRisks } from '../../utils/cloudArchitectureEngine';
 

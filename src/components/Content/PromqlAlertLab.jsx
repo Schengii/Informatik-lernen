@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  BellRing, Award, Activity, AlertTriangle, CheckCircle2, Copy, Check, Terminal, Flame
-} from 'lucide-react';
+import { BellRing, Award, Activity, Copy, Check } from 'lucide-react';
 import { PromqlAlertEngine } from '../../utils/promqlAlertEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';
@@ -128,6 +126,20 @@ export default function PromqlAlertLab({ onRewardXP }) {
             onChange={(e) => setThreshold(parseFloat(e.target.value))}
             style={{ width: '180px' }}
           />
+
+          <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '10px', marginBottom: '4px' }}>Severity Label:</label>
+          <div style={{ display: 'flex', gap: '6px' }}>
+            {['critical', 'warning', 'info'].map(sev => (
+              <button
+                key={sev}
+                onClick={() => { setSeverity(sev); triggerHaptic('SELECTION'); }}
+                className={`btn ${severity === sev ? 'btn-primary' : 'btn-secondary'}`}
+                style={{ padding: '4px 10px', fontSize: '0.72rem' }}
+              >
+                {sev}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 

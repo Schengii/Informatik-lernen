@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  GitCommit, Award, Network, Copy, Check, ArrowRight, Activity, Clock, Layers
-} from 'lucide-react';
+import { GitCommit, Award, Network, Copy, Check } from 'lucide-react';
 import { OpenTelemetryTracingSimulator } from '../../utils/opentelemetryTracingEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';

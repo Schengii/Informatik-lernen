@@ -1,9 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Network, Search, Filter, Layers, ArrowRight, ShieldCheck, 
-  Terminal, Sparkles, CheckCircle2, Play, RefreshCw, Cpu
-} from 'lucide-react';
+
+import { Network, Filter, Layers, Terminal, Sparkles, Cpu } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { SAMPLE_PACKETS, formatHexDump, evaluatePacketFilter } from '../../utils/packetSnifferEngine';
 

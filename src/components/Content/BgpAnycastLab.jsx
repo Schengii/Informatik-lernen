@@ -1,7 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import {
-  Globe, Award, Network, ArrowRight, ShieldCheck, CheckCircle2, Zap, RefreshCw
-} from 'lucide-react';
+import { Globe, Award, Network } from 'lucide-react';
 import { BgpAnycastSimulator } from '../../utils/bgpAnycastEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';

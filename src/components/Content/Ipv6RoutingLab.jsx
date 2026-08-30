@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Globe, Network, Shield, Sparkles, Award, ArrowRight, 
-  CheckCircle2, RefreshCw, Send, HelpCircle 
-} from 'lucide-react';
+
+import { Globe, Network, Award, RefreshCw, Send } from 'lucide-react';
 import { 
   compressIpv6, 
   expandIpv6, 
@@ -27,13 +24,13 @@ export default function Ipv6RoutingLab() {
   const eui64Result = generateEui64(macInput, ipv6Prefix);
 
   // Routing Table Simulator State
-  const [routes, setRoutes] = useState([
+  const routes = [
     { destination: '0.0.0.0/0', nextHop: '192.168.1.1', iface: 'wan0 (Internet)' },
     { destination: '10.0.0.0/8', nextHop: '10.254.0.1', iface: 'eth1 (Corporate Backbone)' },
     { destination: '10.1.0.0/16', nextHop: '10.1.254.1', iface: 'eth2 (Campus Branch)' },
     { destination: '10.1.5.0/24', nextHop: '10.1.5.254', iface: 'eth3 (Server VLAN 5)' },
     { destination: '172.16.0.0/12', nextHop: '172.31.255.1', iface: 'eth4 (DMZ Lab)' }
-  ]);
+  ];
   const [targetIp, setTargetIp] = useState('10.1.5.42');
   const routingMatch = matchRoutingTable(targetIp, routes);
 
