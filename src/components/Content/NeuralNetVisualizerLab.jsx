@@ -6,6 +6,7 @@ import { useStore } from '../../store/useStore';
 export default function NeuralNetVisualizerLab() {
   const { awardXP } = useStore();
   const [activeTab, setActiveTab] = useState('neural_net');
+  const [xpClaimed, setXpClaimed] = useState(false);
 
   // Neural Net State
   const [inputX1, setInputX1] = useState(0.8);
@@ -106,11 +107,12 @@ export default function NeuralNetVisualizerLab() {
             </p>
           </div>
           <button
-            onClick={() => awardXP(30, 'ai_pioneer')}
+            onClick={() => { if (!xpClaimed) { setXpClaimed(true); awardXP(30, 'ai_pioneer'); } }}
+            disabled={xpClaimed}
             className="flex items-center gap-2 px-4 py-2.5 bg-purple-600 hover:bg-purple-500 text-white rounded-xl text-sm font-medium transition shadow-lg shrink-0"
           >
             <Award className="w-4 h-4" />
-            AI XP sichern
+            {xpClaimed ? 'XP gesichert!' : 'AI XP sichern'}
           </button>
         </div>
       </div>

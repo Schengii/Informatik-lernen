@@ -39,6 +39,8 @@ export default function OsProcessSchedulerLab() {
   const [requestTargetProc, setRequestTargetProc] = useState(1);
   const [requestVector, setRequestVector] = useState([1, 0, 2]);
   const [bankerResultMsg, setBankerResultMsg] = useState(null);
+  const [bankerXpClaimed, setBankerXpClaimed] = useState(false);
+  const [schedulerXpClaimed, setSchedulerXpClaimed] = useState(false);
 
   // Run Scheduling Simulation
   const schedulerResult = useMemo(() => {
@@ -75,7 +77,10 @@ export default function OsProcessSchedulerLab() {
       setBankerAvailable(res.newAvailable);
       setBankerAlloc(res.newAlloc);
       setBankerResultMsg({ type: 'success', text: res.message });
-      awardXP(35, 'banker_master');
+      if (!bankerXpClaimed) {
+        setBankerXpClaimed(true);
+        awardXP(35, 'banker_master');
+      }
     } else {
       setBankerResultMsg({ type: 'error', text: res.reason });
     }
@@ -171,12 +176,16 @@ export default function OsProcessSchedulerLab() {
                 </button>
                 <button
                   onClick={() => {
-                    awardXP(25, 'scheduler_explored');
+                    if (!schedulerXpClaimed) {
+                      setSchedulerXpClaimed(true);
+                      awardXP(25, 'scheduler_explored');
+                    }
                   }}
+                  disabled={schedulerXpClaimed}
                   className="btn btn-primary"
                   style={{ padding: '8px 16px', fontSize: '0.88rem', gap: '6px' }}
                 >
-                  <Play size={16} /> Zeitablauf Berechnen
+                  <Play size={16} /> {schedulerXpClaimed ? 'Zeitablauf Berechnet!' : 'Zeitablauf Berechnen'}
                 </button>
               </div>
             </div>

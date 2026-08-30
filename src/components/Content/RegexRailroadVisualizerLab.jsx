@@ -42,6 +42,7 @@ export default function RegexRailroadVisualizerLab() {
   const [pattern, setPattern] = useState(REGEX_PRESETS[0].pattern);
   const [flags, setFlags] = useState('g');
   const [sampleText, setSampleText] = useState(REGEX_PRESETS[0].sampleText);
+  const [xpClaimed, setXpClaimed] = useState(false);
 
   const tokens = useMemo(() => parseRegexTokens(pattern), [pattern]);
   const testResult = useMemo(() => testRegexMatch(pattern, flags, sampleText), [pattern, flags, sampleText]);
@@ -77,10 +78,11 @@ export default function RegexRailroadVisualizerLab() {
           </div>
 
           <button
-            onClick={() => awardXP(45, 'regex_master')}
+            onClick={() => { if (!xpClaimed) { setXpClaimed(true); awardXP(45, 'regex_master'); } }}
+            disabled={xpClaimed}
             className="px-4 py-2 bg-pink-600 hover:bg-pink-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-lg shrink-0"
           >
-            <Award className="w-4 h-4" /> RegEx XP sichern
+            <Award className="w-4 h-4" /> {xpClaimed ? 'XP gesichert!' : 'RegEx XP sichern'}
           </button>
         </div>
       </div>

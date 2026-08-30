@@ -16,6 +16,7 @@ export default function WebhookInspectorLab() {
   const [bodyJson, setBodyJson] = useState(() => JSON.stringify(preset.body, null, 2));
 
   const [logs, setLogs] = useState([]);
+  const [xpClaimed, setXpClaimed] = useState(false);
   const [selectedLog, setSelectedLog] = useState(null);
 
   const handleSelectPreset = (pId) => {
@@ -52,7 +53,10 @@ export default function WebhookInspectorLab() {
     setLogs(prev => [res, ...prev]);
     setSelectedLog(res);
     soundManager.playSFX('success');
-    awardXP(35, 'api_mock_master');
+    if (!xpClaimed) {
+      setXpClaimed(true);
+      awardXP(35, 'api_mock_master');
+    }
   };
 
   const handleClearLogs = () => {
@@ -85,10 +89,11 @@ export default function WebhookInspectorLab() {
           </div>
 
           <button
-            onClick={() => awardXP(35, 'api_mock_master')}
+            onClick={() => { if (!xpClaimed) { setXpClaimed(true); awardXP(35, 'api_mock_master'); } }}
+            disabled={xpClaimed}
             className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-lg shrink-0"
           >
-            <Award className="w-4 h-4" /> Webhook XP
+            <Award className="w-4 h-4" /> {xpClaimed ? 'XP gesichert!' : 'Webhook XP'}
           </button>
         </div>
       </div>

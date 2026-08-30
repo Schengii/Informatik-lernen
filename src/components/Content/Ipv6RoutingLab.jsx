@@ -12,6 +12,7 @@ import { useStore } from '../../store/useStore';
 export default function Ipv6RoutingLab() {
   const { awardXP } = useStore();
   const [activeTab, setActiveTab] = useState('ipv6_compress');
+  const [xpClaimed, setXpClaimed] = useState(false);
 
   // IPv6 Compression / Expansion State
   const [ipv6Input, setIpv6Input] = useState('2001:0db8:0000:0000:0000:ff00:0042:8329');
@@ -57,11 +58,12 @@ export default function Ipv6RoutingLab() {
             </p>
           </div>
           <button
-            onClick={() => awardXP(30, 'ipv6_expert')}
+            onClick={() => { if (!xpClaimed) { setXpClaimed(true); awardXP(30, 'ipv6_expert'); } }}
+            disabled={xpClaimed}
             className="flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-sm font-medium transition shadow-lg shrink-0"
           >
             <Award className="w-4 h-4" />
-            Netzwerk XP sichern
+            {xpClaimed ? 'XP gesichert!' : 'Netzwerk XP sichern'}
           </button>
         </div>
       </div>

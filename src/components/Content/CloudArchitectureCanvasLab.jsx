@@ -7,6 +7,7 @@ import { INITIAL_CLOUD_TOPOLOGY, calculateSystemSla, auditSpofRisks } from '../.
 export default function CloudArchitectureCanvasLab() {
   const { awardXP } = useStore();
   const [nodes, setNodes] = useState(INITIAL_CLOUD_TOPOLOGY);
+  const [xpClaimed, setXpClaimed] = useState(false);
 
   // Compute SLA & Cost
   const slaMetrics = useMemo(() => {
@@ -31,7 +32,10 @@ export default function CloudArchitectureCanvasLab() {
       }
       return n;
     }));
-    awardXP(15, 'cloud_arch_modified');
+    if (!xpClaimed) {
+      setXpClaimed(true);
+      awardXP(15, 'cloud_arch_modified');
+    }
   };
 
   const handleRemoveNode = (id) => {

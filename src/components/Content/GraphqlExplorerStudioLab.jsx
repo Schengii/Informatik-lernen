@@ -14,6 +14,7 @@ export default function GraphqlExplorerStudioLab() {
   const [selectedPresetId, setSelectedPresetId] = useState(SAMPLE_GRAPHQL_QUERIES[0].id);
   const [queryString, setQueryString] = useState(SAMPLE_GRAPHQL_QUERIES[0].query);
   const [queryResult, setQueryResult] = useState(() => executeGraphQLQuery(SAMPLE_GRAPHQL_QUERIES[0].query));
+  const [xpClaimed, setXpClaimed] = useState(false);
 
   const handleSelectPreset = (preset) => {
     setSelectedPresetId(preset.id);
@@ -28,7 +29,10 @@ export default function GraphqlExplorerStudioLab() {
     setQueryResult(res);
     if (res.success) {
       soundManager.playSFX('success');
-      awardXP(35, 'graphql_explorer_master');
+      if (!xpClaimed) {
+        setXpClaimed(true);
+        awardXP(35, 'graphql_explorer_master');
+      }
     } else {
       soundManager.playSFX('error');
     }
@@ -58,10 +62,11 @@ export default function GraphqlExplorerStudioLab() {
           </div>
 
           <button
-            onClick={() => awardXP(35, 'graphql_explorer_master')}
+            onClick={() => { if (!xpClaimed) { setXpClaimed(true); awardXP(35, 'graphql_explorer_master'); } }}
+            disabled={xpClaimed}
             className="px-4 py-2 bg-violet-600 hover:bg-violet-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-lg shrink-0"
           >
-            <Award className="w-4 h-4" /> GraphQL XP
+            <Award className="w-4 h-4" /> {xpClaimed ? 'XP gesichert!' : 'GraphQL XP'}
           </button>
         </div>
       </div>

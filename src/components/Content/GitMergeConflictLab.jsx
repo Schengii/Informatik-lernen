@@ -51,6 +51,7 @@ export default function GitMergeConflictLab() {
       soundManager.playSFX('error');
       return;
     }
+    if (mergeStatus === 'committed') return;
 
     setMergeStatus('committed');
     soundManager.playSFX('levelUp');
@@ -179,15 +180,15 @@ export default function GitMergeConflictLab() {
             </button>
             <button
               onClick={handleCommitMerge}
-              disabled={stillHasConflict}
+              disabled={stillHasConflict || mergeStatus === 'committed'}
               className={`px-5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition shadow-lg ${
-                stillHasConflict
+                stillHasConflict || mergeStatus === 'committed'
                   ? 'bg-slate-800 text-slate-500 cursor-not-allowed'
                   : 'bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 text-white'
               }`}
             >
               <GitCommit className="w-3.5 h-3.5" />
-              git commit (Merge abschließen)
+              {mergeStatus === 'committed' ? 'Merge abgeschlossen!' : 'git commit (Merge abschließen)'}
             </button>
           </div>
         </div>

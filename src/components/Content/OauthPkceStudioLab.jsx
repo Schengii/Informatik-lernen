@@ -12,6 +12,7 @@ import {
 export default function OauthPkceStudioLab() {
   const { awardXP } = useStore();
   const [step, setStep] = useState(1);
+  const [xpClaimed, setXpClaimed] = useState(false);
   const [clientId] = useState('spa-devgame-client-app');
   const [redirectUri] = useState('https://app.devgame.it/oauth/callback');
   const [scope] = useState('openid profile email api:read');
@@ -80,7 +81,10 @@ export default function OauthPkceStudioLab() {
     if (res.success) {
       setTokenResponse(res.tokens);
       setStep(4);
-      awardXP(45, 'OAuth2 & OIDC Security Expert (PKCE)');
+      if (!xpClaimed) {
+        setXpClaimed(true);
+        awardXP(45, 'OAuth2 & OIDC Security Expert (PKCE)');
+      }
     } else {
       alert(`[OAuth Error: ${res.error}] ${res.error_description}`);
     }

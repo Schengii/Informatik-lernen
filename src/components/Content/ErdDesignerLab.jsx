@@ -10,6 +10,7 @@ export default function ErdDesignerLab() {
   const [sqlDialect, setSqlDialect] = useState('postgres'); // 'postgres' | 'mysql' | 'sqlite'
   const [copied, setCopied] = useState(false);
   const [selectedEntityId, setSelectedEntityId] = useState('e_customers');
+  const [xpClaimed, setXpClaimed] = useState(false);
 
   // Normalization Audit Results
   const normalizationIssues = useMemo(() => {
@@ -25,7 +26,10 @@ export default function ErdDesignerLab() {
     navigator.clipboard.writeText(generatedSql);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-    awardXP(15, 'erd_sql_exported');
+    if (!xpClaimed) {
+      setXpClaimed(true);
+      awardXP(15, 'erd_sql_exported');
+    }
   };
 
   const handleAddField = (entityId) => {

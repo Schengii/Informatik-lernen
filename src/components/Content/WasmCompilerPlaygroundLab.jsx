@@ -28,13 +28,17 @@ export default function WasmCompilerPlaygroundLab() {
   const [wasmBuffer, setWasmBuffer] = useState(null);
   const [hoveredByte, setHoveredByte] = useState(null);
   const [selectedSection, setSelectedSection] = useState(null);
+  const [xpClaimed, setXpClaimed] = useState(false);
 
   const handleCompile = () => {
     setIsCompiling(true);
     setTimeout(() => {
       setWasmBuffer(MOCK_WASM_BINARY);
       setIsCompiling(false);
-      awardXP(40, 'WASM Compiler Engineer');
+      if (!xpClaimed) {
+        setXpClaimed(true);
+        awardXP(40, 'WASM Compiler Engineer');
+      }
     }, 1500);
   };
 

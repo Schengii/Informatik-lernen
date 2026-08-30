@@ -18,6 +18,7 @@ export default function BleSensorSimulatorLab() {
   const [isConnected, setIsConnected] = useState(false);
   const [isStreaming, setIsStreaming] = useState(false);
   const [telemetryHistory, setTelemetryHistory] = useState(() => [generateSensorPacket()]);
+  const [xpClaimed, setXpClaimed] = useState(false);
   const currentPacket = telemetryHistory[telemetryHistory.length - 1];
 
   // Stream simulation effect
@@ -44,7 +45,10 @@ export default function BleSensorSimulatorLab() {
       setIsConnected(true);
       setIsStreaming(true);
       soundManager.playSFX('success');
-      awardXP(35, 'ble_sensor_master');
+      if (!xpClaimed) {
+        setXpClaimed(true);
+        awardXP(35, 'ble_sensor_master');
+      }
     } else {
       setIsConnected(false);
       setIsStreaming(false);

@@ -63,6 +63,8 @@ export default function PersonalNotebookLab() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTag, setSelectedTag] = useState('ALL');
   const [isPreviewMode, setIsPreviewMode] = useState(false);
+  const [noteCreatedXpClaimed, setNoteCreatedXpClaimed] = useState(false);
+  const [noteExportedXpClaimed, setNoteExportedXpClaimed] = useState(false);
 
   // Auto-save to localStorage
   useEffect(() => {
@@ -96,7 +98,10 @@ export default function PersonalNotebookLab() {
     };
     setNotes([newNote, ...notes]);
     setSelectedNoteId(newNote.id);
-    awardXP(10, 'note_created');
+    if (!noteCreatedXpClaimed) {
+      setNoteCreatedXpClaimed(true);
+      awardXP(10, 'note_created');
+    }
   };
 
   const handleUpdateCurrentNote = (field, value) => {
@@ -127,7 +132,10 @@ export default function PersonalNotebookLab() {
     a.download = `${selectedNote.title.replace(/[^a-zA-Z0-9_-]/g, '_')}.md`;
     a.click();
     URL.revokeObjectURL(url);
-    awardXP(15, 'note_exported');
+    if (!noteExportedXpClaimed) {
+      setNoteExportedXpClaimed(true);
+      awardXP(15, 'note_exported');
+    }
   };
 
   return (

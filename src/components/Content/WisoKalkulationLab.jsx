@@ -12,6 +12,7 @@ export default function WisoKalkulationLab() {
   const { awardXP } = useStore();
   const [activeTab, setActiveTab] = useState('handelskalkulation');
   const [completedQuizzes, setCompletedQuizzes] = useState({});
+  const [headerXpClaimed, setHeaderXpClaimed] = useState(false);
 
   // Handelskalkulation State
   const [kalkParams, setKalkParams] = useState({
@@ -124,11 +125,12 @@ export default function WisoKalkulationLab() {
             </p>
           </div>
           <button
-            onClick={() => awardXP(30, 'wiso_master')}
+            onClick={() => { if (!headerXpClaimed) { setHeaderXpClaimed(true); awardXP(30, 'wiso_master'); } }}
+            disabled={headerXpClaimed}
             className="flex items-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-sm font-medium transition shadow-lg shrink-0"
           >
             <Award className="w-4 h-4" />
-            WISO XP sichern
+            {headerXpClaimed ? 'XP gesichert!' : 'WISO XP sichern'}
           </button>
         </div>
       </div>

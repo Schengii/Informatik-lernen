@@ -16,6 +16,7 @@ export default function LiveCodingChallengeStudio() {
 
   const [userCode, setUserCode] = useState(currentChallenge.starterCode);
   const [testRunResult, setTestRunResult] = useState(null);
+  const [solvedChallengeIds, setSolvedChallengeIds] = useState([]);
 
   const handleSelectChallenge = (cId) => {
     const ch = CODING_CHALLENGES.find(c => c.id === cId);
@@ -34,7 +35,10 @@ export default function LiveCodingChallengeStudio() {
     if (res.success && res.allPassed) {
       soundManager.playSFX('levelUp');
       confetti({ particleCount: 90, spread: 60, origin: { y: 0.6 } });
-      awardXP(50, 'code_challenge_master');
+      if (!solvedChallengeIds.includes(currentChallenge.id)) {
+        setSolvedChallengeIds(prev => [...prev, currentChallenge.id]);
+        awardXP(50, 'code_challenge_master');
+      }
     } else {
       soundManager.playSFX('error');
     }

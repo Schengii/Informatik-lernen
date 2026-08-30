@@ -16,6 +16,7 @@ ORDER BY o.total_amount DESC;`);
   
   const [queryResult, setQueryResult] = useState(null);
   const [activePreset, setActivePreset] = useState('ecommerce');
+  const [xpClaimed, setXpClaimed] = useState(false);
 
   useEffect(() => {
     const inst = new SqlSandboxInstance();
@@ -42,7 +43,10 @@ ORDER BY o.total_amount DESC;`);
     setSchema(sandbox.getSchema());
     if (res.success) {
       soundManager.playSFX('success');
-      awardXP(15, 'sql_master');
+      if (!xpClaimed) {
+        setXpClaimed(true);
+        awardXP(15, 'sql_master');
+      }
     } else {
       soundManager.playSFX('error');
     }
@@ -105,11 +109,12 @@ ORDER BY o.total_amount DESC;`);
             </p>
           </div>
           <button
-            onClick={() => awardXP(30, 'sql_master')}
+            onClick={() => { if (!xpClaimed) { setXpClaimed(true); awardXP(30, 'sql_master'); } }}
+            disabled={xpClaimed}
             className="flex items-center gap-2 px-4 py-2.5 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl text-sm font-medium transition shadow-lg shrink-0"
           >
             <Award className="w-4 h-4" />
-            SQL XP sichern
+            {xpClaimed ? 'XP gesichert!' : 'SQL XP sichern'}
           </button>
         </div>
       </div>

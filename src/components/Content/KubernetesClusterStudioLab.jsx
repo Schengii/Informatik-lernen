@@ -15,19 +15,26 @@ export default function KubernetesClusterStudioLab() {
   const [requestPath, setRequestPath] = useState('/api/auth/login');
   const [lastRouteTrace, setLastRouteTrace] = useState(null);
   const [isSimulatingTraffic, setIsSimulatingTraffic] = useState(false);
+  const [xpEvents, setXpEvents] = useState({ scale: false, node: false, traffic: false });
 
   const handleScale = (deploymentId, delta) => {
     const dep = cluster.deployments.find(d => d.id === deploymentId);
     if (!dep) return;
     const newCount = Math.max(0, dep.replicas + delta);
     setCluster(scaleDeployment(cluster, deploymentId, newCount));
-    awardXP(10, 'K8s Deployment Scaled');
+    if (!xpEvents.scale) {
+      setXpEvents(prev => ({ ...prev, scale: true }));
+      awardXP(10, 'K8s Deployment Scaled');
+    }
   };
 
   const handleToggleNode = (nodeId) => {
     const nextCluster = toggleNodeFailure(cluster, nodeId);
     setCluster(nextCluster);
-    awardXP(25, 'K8s Self-Healing Cluster Rebalancing');
+    if (!xpEvents.node) {
+      setXpEvents(prev => ({ ...prev, node: true }));
+      awardXP(25, 'K8s Self-Healing Cluster Rebalancing');
+    }
   };
 
   const handleSendTraffic = () => {
@@ -36,7 +43,10 @@ export default function KubernetesClusterStudioLab() {
       const trace = routeIngressRequest(cluster, requestPath);
       setLastRouteTrace(trace);
       setIsSimulatingTraffic(false);
-      awardXP(15, 'K8s Ingress Traffic Routed');
+      if (!xpEvents.traffic) {
+        setXpEvents(prev => ({ ...prev, traffic: true }));
+        awardXP(15, 'K8s Ingress Traffic Routed');
+      }
     }, 400);
   };
 

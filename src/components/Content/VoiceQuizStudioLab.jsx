@@ -10,6 +10,7 @@ export default function VoiceQuizStudioLab() {
   const { awardXP } = useStore();
 
   const [currentIdx, setCurrentIdx] = useState(0);
+  const [xpClaimedIdx, setXpClaimedIdx] = useState([]);
   const currentQ = VOICE_QUIZ_QUESTIONS[currentIdx];
 
   const [isListening, setIsListening] = useState(false);
@@ -85,7 +86,10 @@ export default function VoiceQuizStudioLab() {
     if (res.passed) {
       soundManager.playSFX('levelUp');
       confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
-      awardXP(40, 'podcast_quiz_master');
+      if (!xpClaimedIdx.includes(currentIdx)) {
+        setXpClaimedIdx(prev => [...prev, currentIdx]);
+        awardXP(40, 'podcast_quiz_master');
+      }
     } else {
       soundManager.playSFX('error');
     }

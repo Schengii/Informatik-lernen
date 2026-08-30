@@ -26,6 +26,7 @@ export default function AgileScrumSimulatorLab() {
 
   const [stories, setStories] = useState(INITIAL_USER_STORIES);
   const [sprintDays, setSprintDays] = useState(10);
+  const [xpClaimed, setXpClaimed] = useState(false);
 
   const metrics = useMemo(() => calculateSprintMetrics(stories, sprintDays), [stories, sprintDays]);
 
@@ -35,12 +36,15 @@ export default function AgileScrumSimulatorLab() {
   };
 
   const handleCompleteSprint = () => {
+    if (xpClaimed) return;
     soundManager.playSFX('levelUp');
+    setXpClaimed(true);
     awardXP(50, 'scrum_master');
   };
 
   const handleReset = () => {
     setStories(INITIAL_USER_STORIES);
+    setXpClaimed(false);
     soundManager.playSFX('click');
   };
 
@@ -70,9 +74,10 @@ export default function AgileScrumSimulatorLab() {
           <div className="flex items-center gap-2 shrink-0">
             <button
               onClick={handleCompleteSprint}
+              disabled={xpClaimed}
               className="px-4 py-2 bg-teal-600 hover:bg-teal-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-lg"
             >
-              <Award className="w-4 h-4" /> Sprint abschließen
+              <Award className="w-4 h-4" /> {xpClaimed ? 'Sprint abgeschlossen!' : 'Sprint abschließen'}
             </button>
             <button
               onClick={handleReset}

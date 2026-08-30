@@ -74,8 +74,10 @@ ${p.tasks.map(t => `- [x] ${t}`).join('\n')}`).join('\n\n')}
     link.click();
     URL.revokeObjectURL(url);
 
-    setIsExported(true);
-    awardXP(75, 'IHK Master: Projektantrag generiert');
+    if (!isExported) {
+      setIsExported(true);
+      awardXP(75, 'IHK Master: Projektantrag generiert');
+    }
   };
 
   return (

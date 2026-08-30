@@ -9,6 +9,7 @@ export default function PacketSnifferLab() {
   const [filterQuery, setFilterQuery] = useState('');
   const [selectedPacketId, setSelectedPacketId] = useState(1);
   const [highlightedByteRange, setHighlightedByteRange] = useState(null); // [start, end]
+  const [xpClaimed, setXpClaimed] = useState(false);
 
   // Filtered Packets
   const filteredPackets = useMemo(() => {
@@ -26,7 +27,10 @@ export default function PacketSnifferLab() {
 
   const handleSelectLayerField = (byteRange) => {
     setHighlightedByteRange(byteRange);
-    awardXP(10, 'packet_inspected');
+    if (!xpClaimed) {
+      setXpClaimed(true);
+      awardXP(10, 'packet_inspected');
+    }
   };
 
   const isByteHighlighted = (byteIndex) => {

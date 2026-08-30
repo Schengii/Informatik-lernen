@@ -11,6 +11,7 @@ export default function GraphqlResolverLab() {
   const scenario = GRAPHQL_AST_SCENARIOS[0];
 
   const handleExecute = () => {
+    if (isExecuted) return;
     setIsExecuted(true);
     awardXP(65, 'API Master: GraphQL AST & DataLoader');
   };

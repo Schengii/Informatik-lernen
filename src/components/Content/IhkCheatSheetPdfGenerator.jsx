@@ -8,6 +8,7 @@ export default function IhkCheatSheetPdfGenerator() {
   const { awardXP } = useStore();
   const [selectedTopic, setSelectedTopic] = useState('ihk_wiso');
   const [isGenerating, setIsGenerating] = useState(false);
+  const [xpClaimed, setXpClaimed] = useState(false);
 
   const cheatSheets = {
     ihk_wiso: {
@@ -116,7 +117,10 @@ export default function IhkCheatSheetPdfGenerator() {
       doc.text('Generiert mit IT-DevGame | 100% DSGVO & Open Educational Resource (OER)', 14, 285);
 
       doc.save(`IHK-CheatSheet-${selectedTopic}-${new Date().toISOString().slice(0, 10)}.pdf`);
-      awardXP(25, 'exam_passed');
+      if (!xpClaimed) {
+        setXpClaimed(true);
+        awardXP(25, 'exam_passed');
+      }
     } catch (e) {
       console.error('PDF generation error:', e);
     } finally {

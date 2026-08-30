@@ -11,6 +11,7 @@ export default function JwksRotationLab() {
   const [isValidated, setIsValidated] = useState(false);
 
   const handleRotateKey = () => {
+    if (isRotated) return;
     setIsRotated(true);
     setActiveKid('key-2027-future-v3');
     awardXP(75, 'Security Architect: OAuth2 JWKS Key Rotation');

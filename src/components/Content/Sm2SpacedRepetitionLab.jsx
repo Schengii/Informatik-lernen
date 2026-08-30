@@ -65,13 +65,17 @@ export default function Sm2SpacedRepetitionLab() {
   };
 
   const [pushEnabled, setPushEnabled] = useState(false);
+  const [pushXpClaimed, setPushXpClaimed] = useState(false);
 
   const handleTogglePush = async () => {
     if (!pushEnabled) {
       const success = await scheduleDailyReminder('🧠 Zeit für deine SM-2 Repetition!', { body: 'Wiederhole deine IT-Karteikarten, um die Ebbinghaus-Vergessenskurve zu besiegen.' });
       if (success) {
         setPushEnabled(true);
-        awardXP(10, 'Push Notifications Aktiviert');
+        if (!pushXpClaimed) {
+          setPushXpClaimed(true);
+          awardXP(10, 'Push Notifications Aktiviert');
+        }
       }
     } else {
       setPushEnabled(false);

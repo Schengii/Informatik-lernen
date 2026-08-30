@@ -10,6 +10,7 @@ export default function Http3QuicLab() {
   const [isTested, setIsTested] = useState(false);
 
   const handleRunBenchmark = () => {
+    if (isTested) return;
     setIsTested(true);
     awardXP(75, 'Web Architecture Master: HTTP/3 & QUIC Protocol');
   };
