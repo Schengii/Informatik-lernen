@@ -187,6 +187,7 @@ const KafkaRebalanceLab = lazy(() => import('./components/Content/KafkaRebalance
 
 // v3.17.0 Next-Gen BGP Anycast, Postgres Fulltext, NPV & gRPC Protobuf
 const BgpAnycastLab = lazy(() => import('./components/Content/BgpAnycastLab'));
+const TlsHandshakeLab = lazy(() => import('./components/Content/TlsHandshakeLab'));
 const PostgresFulltextLab = lazy(() => import('./components/Content/PostgresFulltextLab'));
 const WisoCapitalValueLab = lazy(() => import('./components/Content/WisoCapitalValueLab'));
 const GrpcProtobufLab = lazy(() => import('./components/Content/GrpcProtobufLab'));
@@ -1565,6 +1566,13 @@ export default function App() {
             {activeTab === 'bgp_anycast_lab' && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <BgpAnycastLab onRewardXP={(xp) => awardXP(xp, 'bgp_anycast_master')} />
+              </Suspense>
+            )}
+
+            {/* TLS 1.3 HANDSHAKE */}
+            {activeTab === 'tls_handshake_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <TlsHandshakeLab onRewardXP={(xp) => awardXP(xp, 'tls_handshake_master')} />
               </Suspense>
             )}
 

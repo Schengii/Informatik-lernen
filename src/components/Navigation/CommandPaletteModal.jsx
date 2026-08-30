@@ -48,6 +48,7 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
     { id: 'view-wiso-interest', title: 'IHK Zinsrechnung & Zinseszins Studio (30/360 & Aufzinsung)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('wiso_interest') },
     { id: 'view-kafka-rebalance', title: 'Kafka Partition Rebalance Studio (Cooperative Sticky)', category: 'Labs & Tools', icon: Server, action: () => onNavigate('kafka_rebalance_lab') },
     { id: 'view-bgp-anycast', title: 'Linux BGP Routing & Anycast Studio (AS-Path & Anycast IP)', category: 'Labs & Tools', icon: Globe, action: () => onNavigate('bgp_anycast_lab') },
+    { id: 'view-tls-handshake', title: 'TLS 1.3 Handshake Studio (1-RTT Full & 0-RTT Resumption)', category: 'Labs & Tools', icon: ShieldCheck, action: () => onNavigate('tls_handshake_lab') },
     { id: 'view-postgres-fulltext', title: 'PostgreSQL Full-Text Search Studio (tsvector & tsquery)', category: 'Labs & Tools', icon: Database, action: () => onNavigate('postgres_fulltext_lab') },
     { id: 'view-wiso-capital-value', title: 'IHK Kapitalwertmethode Studio (NPV & Barwert-Diskontierung)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('wiso_capital_value') },
     { id: 'view-grpc-protobuf', title: 'gRPC Protocol Buffers Studio (Proto3 & Wire Varints)', category: 'Labs & Tools', icon: Code, action: () => onNavigate('grpc_protobuf_lab') },
