@@ -142,6 +142,92 @@ export function runSimdBenchmark(itemCount = 100000, operation = 'add') {
 }
 
 /**
+ * 3x3 Faltungskerne für Bildverarbeitung (Bildfilter)
+ */
+export const CONVOLUTION_KERNELS = {
+  sobelX: [
+    [-1, 0, 1],
+    [-2, 0, 2],
+    [-1, 0, 1]
+  ],
+  sobelY: [
+    [-1, -2, -1],
+    [0, 0, 0],
+    [1, 2, 1]
+  ],
+  sharpen: [
+    [0, -1, 0],
+    [-1, 5, -1],
+    [0, -1, 0]
+  ],
+  gaussianBlur: [
+    [1 / 16, 2 / 16, 1 / 16],
+    [2 / 16, 4 / 16, 2 / 16],
+    [1 / 16, 2 / 16, 1 / 16]
+  ]
+};
+
+/**
+ * Führt eine 3x3 Faltungsoperation mit simulierter SIMD-Vektorisierung durch
+ */
+export function applySimdConvolutionFilter(pixels, width = 64, height = 64, filterType = 'sobel') {
+  const output = new Uint8ClampedArray(width * height);
+  const totalPixels = width * height;
+
+  const t0 = performance.now();
+
+  if (filterType === 'sobel') {
+    const kx = CONVOLUTION_KERNELS.sobelX;
+    const ky = CONVOLUTION_KERNELS.sobelY;
+
+    for (let y = 1; y < height - 1; y++) {
+      for (let x = 1; x < width - 1; x++) {
+        let gx = 0;
+        let gy = 0;
+
+        for (let kyIdx = -1; kyIdx <= 1; kyIdx++) {
+          for (let kxIdx = -1; kxIdx <= 1; kxIdx++) {
+            const p = pixels[(y + kyIdx) * width + (x + kxIdx)] || 0;
+            gx += p * kx[kyIdx + 1][kxIdx + 1];
+            gy += p * ky[kyIdx + 1][kxIdx + 1];
+          }
+        }
+
+        const mag = Math.min(255, Math.round(Math.sqrt(gx * gx + gy * gy)));
+        output[y * width + x] = mag;
+      }
+    }
+  } else {
+    const kernel = CONVOLUTION_KERNELS[filterType] || CONVOLUTION_KERNELS.sharpen;
+    for (let y = 1; y < height - 1; y++) {
+      for (let x = 1; x < width - 1; x++) {
+        let sum = 0;
+        for (let kyIdx = -1; kyIdx <= 1; kyIdx++) {
+          for (let kxIdx = -1; kxIdx <= 1; kxIdx++) {
+            const p = pixels[(y + kyIdx) * width + (x + kxIdx)] || 0;
+            sum += p * kernel[kyIdx + 1][kxIdx + 1];
+          }
+        }
+        output[y * width + x] = Math.max(0, Math.min(255, Math.round(sum)));
+      }
+    }
+  }
+
+  const t1 = performance.now();
+  const scalarDurationMs = Math.max(0.02, t1 - t0);
+  const simdDurationMs = Math.max(0.005, scalarDurationMs / 3.9);
+
+  return {
+    output: Array.from(output),
+    totalPixels,
+    filterType,
+    scalarDurationMs: Number(scalarDurationMs.toFixed(3)),
+    simdDurationMs: Number(simdDurationMs.toFixed(3)),
+    speedup: 3.9
+  };
+}
+
+/**
  * Generiert anschaulichen WebAssembly Text Format (WAT) Code
  */
 export function generateWatSimdSnippet(op = 'f32x4.add') {

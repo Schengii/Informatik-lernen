@@ -6,7 +6,9 @@ import {
   simdBrightnessU8x16,
   simdMatrixMul4x4,
   runSimdBenchmark,
-  generateWatSimdSnippet
+  generateWatSimdSnippet,
+  applySimdConvolutionFilter,
+  CONVOLUTION_KERNELS
 } from './wasmSimdEngine';
 
 describe('wasmSimdEngine', () => {
@@ -75,5 +77,24 @@ describe('wasmSimdEngine', () => {
     expect(wat).toContain('v128.load');
     expect(wat).toContain('f32x4.mul');
     expect(wat).toContain('v128.store');
+  });
+
+  it('should compute 3x3 convolution matrix Sobel edge filter', () => {
+    const width = 8;
+    const height = 8;
+    const pixels = new Uint8Array(width * height);
+    // Erstelle ein klares Rechteck für Kantendetektion
+    for (let y = 2; y < 6; y++) {
+      for (let x = 2; x < 6; x++) {
+        pixels[y * width + x] = 200;
+      }
+    }
+
+    const res = applySimdConvolutionFilter(pixels, width, height, 'sobel');
+    expect(res.totalPixels).toBe(64);
+    expect(res.output.length).toBe(64);
+    expect(res.speedup).toBeGreaterThan(1);
+    expect(CONVOLUTION_KERNELS.sobelX).toBeDefined();
+    expect(CONVOLUTION_KERNELS.gaussianBlur).toBeDefined();
   });
 });

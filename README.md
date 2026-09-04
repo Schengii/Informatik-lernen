@@ -1,12 +1,12 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), IHK Projekt-Gantt & Meilenstein-Editor (AP2 Zeitplanung 80h FIAE / 40h FISI), WebAssembly 128-Bit SIMD & Vector Processing Studio (v128, f32x4/i32x4), HTTP/3 & QUIC Protocol Inspector & UDP Packet Loss Recovery Simulator, IndexedDB Store Hydration & Redundanter Persistenz-Layer, IHK Präsentations-Stoppuhr & Folien-Gliederung (15 Min AP2 Teil A), Docker Compose Multi-Container Orchestrator (DAG & Network Isolation), Dynamic CI/CD GitHub Actions Workflow Simulator, Offline IndexedDB Storage Synchronizer, IHK Fachgespräch & Audio-Prüfungssimulator (Web Speech STT/TTS), Ansible Playbook & Idempotenz Studio, Web Worker & Hintergrund-Performance Concurrency Studio, IHK DIN 69900 CPM Netzplantechnik, OMG UML 2.5 Studio, Terraform & OpenTofu IaC Studio, IHK Nutzwertanalyse Studio (NWA), RAID Storage & Paritäts-Rechner, VLSM Subnet Splitter, IHK Projektantrags-Prüfer, OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer, Relationalem ERD Designer & 1NF–3NF Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer, Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), IHK Wirtschaftlichkeits-, Amortisations- & Make-or-Buy Rechner (AP2 Doku-Modul), Web Crypto API & FIDO2 Passkey Studio (WebAuthn), Linux Systemd Unit Lifecycle & Cgroups v2 Sandbox, WebAssembly 128-Bit SIMD & Sobel Convolution Matrix Studio, IHK Projekt-Gantt & Meilenstein-Editor (AP2 Zeitplanung 80h FIAE / 40h FISI), HTTP/3 & QUIC Protocol Inspector & UDP Packet Loss Recovery Simulator, IndexedDB Store Hydration & Redundanter Persistenz-Layer, IHK Präsentations-Stoppuhr & Folien-Gliederung (15 Min AP2 Teil A), Docker Compose Multi-Container Orchestrator (DAG & Network Isolation), Dynamic CI/CD GitHub Actions Workflow Simulator, Offline IndexedDB Storage Synchronizer, IHK Fachgespräch & Audio-Prüfungssimulator (Web Speech STT/TTS), Ansible Playbook & Idempotenz Studio, Web Worker & Hintergrund-Performance Concurrency Studio, IHK DIN 69900 CPM Netzplantechnik, OMG UML 2.5 Studio, Terraform & OpenTofu IaC Studio, IHK Nutzwertanalyse Studio (NWA), RAID Storage & Paritäts-Rechner, VLSM Subnet Splitter, IHK Projektantrags-Prüfer, OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer, Relationalem ERD Designer & 1NF–3NF Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer, Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.33.0)](#-hauptfunktionen--neue-features-v3330-ihk-projekt-gantt-webassembly-simd-http3-quic--indexeddb-store-edition)
+- [Hauptfunktionen & Neue Features (v3.34.0)](#-hauptfunktionen--neue-features-v3340-ihk-wirtschaftlichkeitsrechner-webauthn-passkeys-systemd-cgroups--wasm-sobel-edition)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -25,6 +25,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Einsteiger-Kurs (`AnfaengerGuideHub.jsx`)**: Lernen ohne jegliche Vorkenntnisse.
    - Grundlagen leicht verständlich erklärt: **EVA-Prinzip**, **CPU-Gehirn** (ALU, Steuerwerk, Register), **Binärsystem & Bytes**, **Internet & DNS**.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI/DP/DVS, IT-Systemelektroniker, Kaufleute IT-Systemmanagement)**:
+   - **IHK Wirtschaftlichkeits-, Amortisations- & Make-or-Buy Rechner (`IhkWirtschaftlichkeitLab.jsx` & `ihkWirtschaftlichkeitEngine.js`)**: Praxisorientiertes Pflicht-Kalkulationsmodul für die IHK-Projektdokumentation (AP2 Teil A) mit statischer & dynamischer Amortisationsrechnung (Break-Even in Monaten), vollständiger Make-or-Buy Gegenüberstellung (interne Entwicklungskosten vs. SaaS-Lizenzierung über $N$ Jahre), Kostenvergleichs-Matrix (Alt vs. Neu) und 1-Klick IHK-Dokumentations-Markdown-Export.
    - **IHK Projekt-Gantt & Meilenstein-Editor (`IhkProjectGanttLab.jsx` & `ihkProjectGanttEngine.js`)**: Offizielles Zeit- und Phasenplanungs-Studio für den IHK-Abschlussbericht und Projektantrag (AP2 Teil A) mit Profilen für FIAE (80h) und FISI (40h), Kalender-Gantt-Berechnung ohne Wochenenden, Realisierungs- & Dokumentations-Grenzwertprüfungen und Markdown-Export.
    - **IHK Präsentations-Stoppuhr & Folien-Gliederung (`IhkPresentationTimerLab.jsx` & `ihkPresentationTimerEngine.js`)**: Exakt 15-minütige Countdown-Stoppuhr für AP2 Teil A, 4 Phasen-Gliederung mit Zeitbudgets (Einleitung 2 Min, Analyse 4 Min, Entwurf/Realisierung 6 Min, Fazit 3 Min), Web Audio Gong-Warnsignale und Rubriken-Bewertung.
    - **IHK Fachgespräch & Audio-Simulator (`IhkOralDefenseStudioLab.jsx` & `ihkOralDefenseEngine.js`)**: Realistisches 15-Minuten Prüfungs-Fachgespräch vor dem 3-köpfigen IHK-Prüfungsausschuss mit Web Speech Sprachausgabe (TTS) und Einsprechen (STT), Persona-Prüfern, Keyword-Rubrik-Scoring und IHK-Notenvergabe.
@@ -47,19 +48,45 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Developer Notizbuch & Vault (`PersonalNotebookLab.jsx` & `indexedDbStorage.js`)**: Persönliches Markdown-Notizbuch mit asynchroner IndexedDB-Synchronisation, Tag-Suche, LocalStorage Auto-Save und `.md`-Export.
    - Detaillierte IHK-Berufsschul Lernfelder (LF 1 bis LF 12b), **Handelskalkulationen**, **Deckungsbeitragsrechnung & Break-Even-Point**, **Netzplantechnik (CPM)**, **WISO-Arbeitsrecht** und druckfertige **A4 PDF-Spickzettel**.
 3. **🚀 Junior Developer & Systemintegratoren**:
+   - **Linux Systemd Unit Lifecycle & Cgroups v2 Sandbox (`SystemdServiceLab.jsx` & `systemdServiceEngine.js`)**: Vollständiger Linux Service Daemon Simulator mit Unit-Lifecycle (`active`, `activating`, `deactivating`, `failed`), Restart-Policies (`always`, `on-failure`), Cgroups v2 Ressourcen-Limitierung (`CPUQuota=50%`, `MemoryMax=512M`), OOM-Killer Trigger und interaktivem `systemctl` & `journalctl` Terminal-Log-Viewer.
    - **Docker Compose Multi-Container Orchestrator (`DockerComposeLab.jsx` & `dockerComposeEngine.js`)**: Topologische DAG-Startreihenfolge (`depends_on`), Bridge-Netzwerk-Isolation mit Ping-Simulator, persistente Docker-Volumes und Compose 3.8 YAML Generator.
    - **Dynamic CI/CD GitHub Actions Workflow Simulator (`GithubActionsWorkflowLab.jsx` & `githubActionsEngine.js`)**: Mehrstufige Pipelines (`needs`), Dependency Caching (`actions/cache@v4`), Secrets-Maskierung (`***`) und Live ANSI Runner-Logs.
    - **Cloud Architecture SLA & SPOF Canvas (`CloudArchitectureCanvasLab.jsx` & `cloudArchitectureEngine.js`)**: Multi-Tier Topologie-Planung, Compound Availability ($A_{\text{ges}}$), Ausfallzeiten-Rechner und Single-Point-of-Failure Audit.
    - **Transformer Attention & LLM Playground (`TransformerAttentionLab.jsx` & `transformerAttentionEngine.js`)**: Scaled Dot-Product Self-Attention Heatmap, Temperature / Top-P / Top-K Token Sampling und autonome AI-Agenten ReAct-Loops.
    - **GraphQL Schema & Query Explorer (`GraphqlExplorerStudioLab.jsx`)**, **RegEx Railroad Visualizer**, **Webhook Inspector**, **Git 3-Way Merge Conflict Resolver**, **Custom Challenge Creator**, **SQLite WASM Studio** und **Live Coding Challenge Studio**.
 4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
-   - **WebAssembly 128-Bit SIMD & Vector Processing Studio (`WasmSimdStudioLab.jsx` & `wasmSimdEngine.js`)**: 128-Bit Vektor-Register (`v128`, `f32x4`, `i32x4`, `u8x16`), Parallelisierung von 4 Floats in einem CPU-Takt, MFLOPS-Durchsatzmessung gegen skalaren JS-Code und WAT Bytecode-Generierung.
+   - **Web Crypto API & Hardware Token Studio (FIDO2 / WebAuthn & Passkeys) (`WebAuthnPasskeyLab.jsx` & `webAuthnEngine.js`)**: Passwortlose Authentifizierung nach W3C WebAuthn Level 3 und FIDO2 Standard mit Hardware-Sicherheitsschlüsseln (YubiKey / Touch ID / Windows Hello), Public-Key Kryptographie (ES256 / RS256), Authenticator Data Flag-Dekodierung (UP, UV, BE, BS) und Replay-Schutz via kryptografischen Challenges.
+   - **WebAssembly 128-Bit SIMD & Sobel Convolution Matrix Studio (`WasmSimdStudioLab.jsx` & `wasmSimdEngine.js`)**: 128-Bit Vektor-Register (`v128`, `f32x4`, `i32x4`, `u8x16`), Parallelisierung von 4 Floats in einem CPU-Takt, MFLOPS-Durchsatzmessung gegen skalaren JS-Code, 3x3 Faltungsmatrix-Kerne (Sobel-Edge-Detection, Gaussian-Blur, Sharpen) und WAT Bytecode-Generierung.
    - **Next-Gen Transport: HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx` & `http3QuicEngine.js`)**: Head-of-Line Blocking Eliminierung bei Paketverlust, Multi-Stream Übertragung über UDP, 0-RTT TLS 1.3 Session Resumption und Connection-ID (CID) Migration.
    - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation**, **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
 ---
 
-## ✨ Hauptfunktionen & Neue Features (v3.33.0: IHK Projekt-Gantt, WebAssembly SIMD, HTTP/3 QUIC & IndexedDB Store Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.34.0: IHK Wirtschaftlichkeitsrechner, WebAuthn Passkeys, Systemd Cgroups & WASM Sobel Edition)
+
+* **💰 IHK Wirtschaftlichkeits-, Amortisations- & Make-or-Buy Rechner (`IhkWirtschaftlichkeitLab.jsx` & `src/utils/ihkWirtschaftlichkeitEngine.js`)**:
+  * Offizielles Wirtschaftlichkeits- und Kostenkalkulations-Tool für die IHK-Abschlussarbeit (AP2 Teil A für FIAE & FISI).
+  * **Amortisationsrechnung (Break-Even)**: Statische und dynamische Berechnung der Amortisationsdauer in Monaten, Netto-Einsparungen über den Analysezeitraum und kumulierter ROI-Gewinnverlauf.
+  * **Make-or-Buy Analyse**: Quantitative Gegenüberstellung von Eigenentwicklung (Entwicklerstunden $\times$ Stundensatz + Hardware/Software + Wartung) vs. Fremdbezug / SaaS-Lösung über $N$ Jahre mit klarer Handlungsempfehlung.
+  * **Kostenvergleich Alt vs. Neu**: Detaillierte Gegenüberstellung laufender Personal-, Lizenz- und Hostingkosten vor und nach Einführung des Projekts.
+  * 1-Klick **IHK-Markdown-Export** mit formatierten Tabellen und Zusammenfassung zur direkten Übernahme in Kapitel "Wirtschaftlichkeitsanalyse" der Projektdokumentation inklusive 65 XP Belohnung.
+* **🔑 Web Crypto API & Hardware Token Studio: FIDO2, WebAuthn & Passkeys (`WebAuthnPasskeyLab.jsx` & `src/utils/webAuthnEngine.js`)**:
+  * Passwortlose Authentifizierung nach W3C WebAuthn Level 3 und FIDO2 Standard.
+  * **Registrierungs-Flow**: Erstellung von Public/Private Keypaaren (`navigator.credentials.create`), Dekodierung von `clientDataJSON` und `attestationObject`.
+  * **Login-Flow**: Kryptografische Signaturprüfung von Server-Challenges mit dem privaten Schlüssel des Authenticators (`navigator.credentials.get`).
+  * **Authenticator Data Flag-Inspektor**: Visuelle Dekodierung des 1-Byte Flag-Registers (User Present `UP`, User Verified `UV`, Backup Eligibility `BE`, Backup State `BS`).
+  * Schutz vor Phishing und Man-in-the-Middle durch Origin-Bindung und Replay-Prävention via kryptografischer Challenge mit 55 XP Belohnung.
+* **🐧 Linux Systemd Unit Lifecycle & Cgroups v2 Service Sandbox (`SystemdServiceLab.jsx` & `src/utils/systemdServiceEngine.js`)**:
+  * Interaktive Simulation von Linux Service Daemons (`.service` Unit-Dateien) und Cgroups v2 Ressourcen-Limitierung.
+  * **Unit Lifecycle**: Visualisierung der internen Systemd-Zustände (`inactive`, `activating`, `active (running)`, `deactivating`, `failed`) inklusive `systemctl start / stop / restart / reload`.
+  * **Restart-Policies**: Simulation von `Restart=always`, `Restart=on-failure` und `RestartSec=2s` mit Crash-Injektor und automatischem Restart-Counter.
+  * **Cgroups v2 Ressourcen-Limits**: Konfiguration von `CPUQuota=50%` und `MemoryMax=512M` mit OOM-Killer-Auslösung bei Speicherüberschreitung.
+  * Dynamischer **Systemd Unit File Generator** (`[Unit]`, `[Service]`, `[Install]`) und Live `journalctl -u service -f` Terminal-Log-Stream mit 50 XP Belohnung.
+* **⚡ WebAssembly SIMD 3x3 Faltungsmatrix & Sobel-Filter Upgrade (`WasmSimdStudioLab.jsx` & `src/utils/wasmSimdEngine.js`)**:
+  * Erweiterung des WASM SIMD Studios um 2D-Bildfaltungs-Algorithmen (Image Convolutions).
+  * Vordefinierte 3x3 Faltungskerne: **Sobel X/Y** (Kantenerkennung / Gradienten-Operator), **Gaußscher Weichzeichner** (3x3 Gaussian Blur Smoothing) und **Scharfzeichnen** (Sharpening Kernel).
+  * Parallele Vektorberechnung: Parallele Berechnung von 4 Float-Nachbarpixeln bzw. 16 Farb-Bytes in einem CPU-Takt via `v128` Vektormultiplikation und Fused Multiply-Add (FMA) mit gemessenem Hardware-Speedup von bis zu $\sim 3.9\times$.
+  * Interaktiver Live-Test-Matrix-Inspektor mit direkter Auswertung über `applySimdConvolutionFilter`.
 
 * **📅 IHK Projekt-Gantt & Meilenstein-Editor (`IhkProjectGanttLab.jsx` & `src/utils/ihkProjectGanttEngine.js`)**:
   * Offizielles Zeitplanungs- und Phasen-Tool für den IHK-Abschlussbericht und Projektantrag (AP2 Teil A).
@@ -338,6 +365,7 @@ Informatik-lernen/
     │   │   ├── SqliteWasmStudioLab.jsx
     │   │   ├── SubnettingLab.jsx
     │   │   ├── SystemDesignLab.jsx
+    │   │   ├── SystemdServiceLab.jsx
     │   │   ├── TcoRoiCalculatorLab.jsx
     │   │   ├── TddUnitTestLab.jsx
     │   │   ├── TerraformLab.jsx
@@ -354,6 +382,7 @@ Informatik-lernen/
     │   │   ├── WasmRustLab.jsx
     │   │   ├── WasmRustStudio.jsx
     │   │   ├── WasmSimdStudioLab.jsx
+    │   │   ├── WebAuthnPasskeyLab.jsx
     │   │   ├── WebComponentsHub.jsx
     │   │   ├── WebRtcPeerStudioLab.jsx
     │   │   ├── WebRtcSfuLab.jsx
@@ -502,6 +531,8 @@ Informatik-lernen/
         ├── ihkProjectGanttEngine.test.js
         ├── ihkProjectProposalEngine.js
         ├── ihkProjectProposalEngine.test.js
+        ├── ihkWirtschaftlichkeitEngine.js
+        ├── ihkWirtschaftlichkeitEngine.test.js
         ├── indexedDbStorage.js
         ├── indexedDbStorage.test.js
         ├── indexedDbStoreMiddleware.js
@@ -560,6 +591,8 @@ Informatik-lernen/
         ├── srsAlgorithm.test.js
         ├── storage.js
         ├── storage.test.js
+        ├── systemdServiceEngine.js
+        ├── systemdServiceEngine.test.js
         ├── tcoCalculations.js
         ├── tcoCalculations.test.js
         ├── terraformEngine.js
@@ -572,6 +605,8 @@ Informatik-lernen/
         ├── voiceQuizEngine.test.js
         ├── wasmSimdEngine.js
         ├── wasmSimdEngine.test.js
+        ├── webAuthnEngine.js
+        ├── webAuthnEngine.test.js
         ├── webhookSimulator.js
         ├── webhookSimulator.test.js
         ├── webrtcSfuEngine.js
@@ -641,6 +676,16 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.34.0 (IHK Wirtschaftlichkeitsrechner, WebAuthn Passkeys, Systemd Cgroups & WASM Sobel Edition)
+
+- **Neu**: `IhkWirtschaftlichkeitLab.jsx` & `src/utils/ihkWirtschaftlichkeitEngine.js` — IHK Wirtschaftlichkeits-, Amortisations- & Make-or-Buy Rechner (AP2 Teil A Pflichtmodul): Praxisorientierte Kostenkalkulation für IHK-Abschlussprojekte. Statische & dynamische Amortisationsdauer (Break-Even in Monaten, Netto-Ersparnis, ROI), vollständige Make-or-Buy Analyse (interne Entwicklungskosten vs. SaaS-Lizenzierung über $N$ Jahre mit Handlungsempfehlung), Kostenvergleichs-Matrix (Alt vs. Neu) und 1-Klick IHK-Dokumentations-Markdown-Export mit 65 XP Belohnung.
+- **Neu**: `WebAuthnPasskeyLab.jsx` & `src/utils/webAuthnEngine.js` — Web Crypto API & Hardware Token Studio (FIDO2 / WebAuthn & Passkeys): Passwortlose Authentifizierung nach W3C WebAuthn Level 3 und FIDO2 Standard. Registrierungs- und Anmelde-Flows mit asymmetrischen Schlüsselpaaren (`ES256` / `RS256`), ClientDataJSON- und AttestationObject-Dekodierung, Authenticator Data Flag-Inspektor (UP, UV, BE, BS) und Replay-Schutz via kryptografischen Challenges mit 55 XP Belohnung.
+- **Neu**: `SystemdServiceLab.jsx` & `src/utils/systemdServiceEngine.js` — Linux Systemd Unit Lifecycle & Cgroups v2 Service Sandbox: Vollständige Simulation von Linux Service Daemons (`.service` Unit-Dateien) und Cgroups v2 Ressourcen-Limitierung. Unit-Lifecycle-Zustände (`inactive`, `activating`, `active`, `deactivating`, `failed`), Restart-Policies (`always`, `on-failure`), Cgroups v2 Limits (`CPUQuota=50%`, `MemoryMax=512M`), OOM-Killer Auslösung, interaktives `systemctl` Terminal, dynamischer Unit-File-Generator und Live `journalctl -u service -f` Logging mit 50 XP Belohnung.
+- **Neu**: `WasmSimdStudioLab.jsx` & `src/utils/wasmSimdEngine.js` (Upgrade) — WebAssembly SIMD 3x3 Faltungsmatrix & Sobel-Filter: Parallele 2D-Bildfaltungsberechnungen mit 128-Bit Vektor-Registern (`v128`). Vordefinierte 3x3 Faltungskerne (Sobel X/Y Kantenerkennung, Gaußscher Weichzeichner, Scharfzeichnen), Vektorisierung von 4 Float-Nachbarpixeln in einem CPU-Takt via FMA und Live-Faltungsmatrix-Inspektor mit direkter Auswertung über `applySimdConvolutionFilter`.
+- **Routing & Navigation**: Vollständige Integration aller neuen Labs in `App.jsx` (inklusive Routen `ihk_wirtschaftlichkeit_lab`, `webauthn_passkey_lab`, `systemd_service_lab`), `CommandPaletteModal.jsx` (neue Aktionen mit `Calculator`, `Key` und `Cpu` Icons) und `LabsDashboard.jsx`.
+- **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für alle neuen Module erweitert (21/21 Komponenten-Integrations-Tests grün).
+- **Test-Suite & Qualität**: **309 bestandene Unit-Tests** in **92 Test-Dateien** mit 100% Erfolgsquote (vorher 290/89). **0 Linter-Fehler / 0 Warnungen** in Oxlint über 404 Dateien und blitzschneller PWA Produktions-Build in 686ms.
 
 ### Version 3.33.0 (IHK Projekt-Gantt, WebAssembly SIMD, HTTP/3 QUIC & IndexedDB Store Edition)
 

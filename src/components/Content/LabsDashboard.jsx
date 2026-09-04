@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar } from 'lucide-react';
+import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key } from 'lucide-react';
 
 export const LAB_MODULES = [
   {
@@ -155,6 +155,39 @@ export const LAB_MODULES = [
     icon: Cpu,
     badge: 'Neu',
     color: '#9333ea'
+  },
+  {
+    id: 'ihk_wirtschaftlichkeit_lab',
+    title: 'IHK Wirtschaftlichkeit & Amortisation',
+    category: 'ihk',
+    tags: ['#Wirtschaftlichkeit', '#Amortisation', '#MakeOrBuy', '#ROI', '#AP2', '#IHK'],
+    difficulty: 'Advanced',
+    desc: 'Kaufmännische Amortisationsrechnung (Pay-Off), Make-or-Buy Matrix und Kostenvergleich Alt vs. Neu.',
+    icon: Calculator,
+    badge: 'IHK Neu',
+    color: '#059669'
+  },
+  {
+    id: 'webauthn_passkey_lab',
+    title: 'FIDO2 WebAuthn & Passkey Studio',
+    category: 'security',
+    tags: ['#WebAuthn', '#FIDO2', '#Passkeys', '#PublicPrivateKey', '#PhishingResistant'],
+    difficulty: 'Advanced',
+    desc: 'Passwortlose Anmeldung via Hardware-Tokens & Biometrie mit interaktivem Phishing-Schutz-Beweis.',
+    icon: Key,
+    badge: 'Neu',
+    color: '#6366f1'
+  },
+  {
+    id: 'systemd_service_lab',
+    title: 'Linux Systemd & Cgroups v2 Sandbox',
+    category: 'devops',
+    tags: ['#Systemd', '#Linux', '#Cgroups', '#OOM', '#ServiceLifecycle', '#RestartPolicy'],
+    difficulty: 'Intermediate',
+    desc: 'Service Lifecycle, Restart-Policies (on-failure) und Cgroups v2 Memory-Limits unter OOM-Stress.',
+    icon: Server,
+    badge: 'FISI Neu',
+    color: '#eab308'
   },
   {
     id: 'scrum_simulator',

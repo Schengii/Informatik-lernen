@@ -25,6 +25,9 @@ import GithubActionsWorkflowLab from './Content/GithubActionsWorkflowLab';
 import IhkProjectGanttLab from './Content/IhkProjectGanttLab';
 import WasmSimdStudioLab from './Content/WasmSimdStudioLab';
 import Http3QuicLab from './Content/Http3QuicLab';
+import IhkWirtschaftlichkeitLab from './Content/IhkWirtschaftlichkeitLab';
+import WebAuthnPasskeyLab from './Content/WebAuthnPasskeyLab';
+import SystemdServiceLab from './Content/SystemdServiceLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -176,4 +179,29 @@ describe('Component Integrity & Smoke Tests', () => {
     expect(container).toBeDefined();
     expect(screen.getAllByText(/HTTP\/3 & QUIC/i).length).toBeGreaterThan(0);
   });
+
+  it('rendert IhkWirtschaftlichkeitLab fehlerfrei', () => {
+    const { container } = render(
+      <IhkWirtschaftlichkeitLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Wirtschaftlichkeit/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert WebAuthnPasskeyLab fehlerfrei', () => {
+    const { container } = render(
+      <WebAuthnPasskeyLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/WebAuthn/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert SystemdServiceLab fehlerfrei', () => {
+    const { container } = render(
+      <SystemdServiceLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/systemd/i).length).toBeGreaterThan(0);
+  });
 });
+

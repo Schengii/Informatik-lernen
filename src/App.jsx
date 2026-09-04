@@ -212,6 +212,10 @@ const GithubActionsWorkflowLab = lazy(() => import('./components/Content/GithubA
 // v3.33.0 IHK Projekt-Gantt & WebAssembly SIMD Studio
 const IhkProjectGanttLab = lazy(() => import('./components/Content/IhkProjectGanttLab'));
 const WasmSimdStudioLab = lazy(() => import('./components/Content/WasmSimdStudioLab'));
+// v3.34.0 IHK Wirtschaftlichkeit, WebAuthn Passkeys & Systemd Cgroups
+const IhkWirtschaftlichkeitLab = lazy(() => import('./components/Content/IhkWirtschaftlichkeitLab'));
+const WebAuthnPasskeyLab = lazy(() => import('./components/Content/WebAuthnPasskeyLab'));
+const SystemdServiceLab = lazy(() => import('./components/Content/SystemdServiceLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -1276,6 +1280,27 @@ export default function App() {
             {(activeTab === 'wasm_simd_studio_lab' || activeTab === 'wasm_simd_studio' || activeTab === 'wasm_simd') && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <WasmSimdStudioLab onRewardXP={(xp) => awardXP(xp, 'wasm_simd_master')} />
+              </Suspense>
+            )}
+
+            {/* IHK WIRTSCHAFTLICHKEIT, AMORTISATION & MAKE-OR-BUY */}
+            {(activeTab === 'ihk_wirtschaftlichkeit_lab' || activeTab === 'ihk_wirtschaftlichkeit' || activeTab === 'amortisation_lab') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <IhkWirtschaftlichkeitLab onRewardXP={(xp) => awardXP(xp, 'ihk_wirtschaftlichkeit_master')} />
+              </Suspense>
+            )}
+
+            {/* FIDO2 WEBAUTHN & PASSKEY STUDIO */}
+            {(activeTab === 'webauthn_passkey_lab' || activeTab === 'webauthn_passkey' || activeTab === 'passkey_lab') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <WebAuthnPasskeyLab onRewardXP={(xp) => awardXP(xp, 'passkey_master')} />
+              </Suspense>
+            )}
+
+            {/* LINUX SYSTEMD & CGROUPS V2 SANDBOX */}
+            {(activeTab === 'systemd_service_lab' || activeTab === 'systemd_service' || activeTab === 'systemd_lab') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <SystemdServiceLab onRewardXP={(xp) => awardXP(xp, 'systemd_master')} />
               </Suspense>
             )}
 

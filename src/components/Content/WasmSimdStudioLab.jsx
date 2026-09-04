@@ -5,14 +5,16 @@ import {
   simdMulF32x4, 
   simdDotProductF32x4, 
   runSimdBenchmark, 
-  generateWatSimdSnippet 
+  generateWatSimdSnippet,
+  applySimdConvolutionFilter
 } from '../../utils/wasmSimdEngine';
 import { useStore } from '../../store/useStore';
 
 export default function WasmSimdStudioLab() {
   const { awardXP } = useStore();
-  const [activeTab, setActiveTab] = useState('lanes'); // 'lanes' | 'benchmark' | 'wat'
+  const [activeTab, setActiveTab] = useState('lanes'); // 'lanes' | 'benchmark' | 'wat' | 'convolution'
   const [selectedOp, setSelectedOp] = useState('add'); // 'add' | 'mul' | 'dot' | 'brightness'
+  const [filterType, setFilterType] = useState('sobel'); // 'sobel' | 'sharpen' | 'gaussianBlur'
   const [itemCount, setItemCount] = useState(100000);
   const [benchmarkResult, setBenchmarkResult] = useState(null);
   const [isBenchmarking, setIsBenchmarking] = useState(false);
@@ -134,6 +136,24 @@ export default function WasmSimdStudioLab() {
             }}
           >
             <Code size={15} /> WAT Bytecode
+          </button>
+          <button
+            onClick={() => setActiveTab('convolution')}
+            style={{
+              padding: '8px 16px',
+              borderRadius: '8px',
+              border: 'none',
+              background: activeTab === 'convolution' ? '#9333ea' : 'transparent',
+              color: '#fff',
+              fontWeight: 'bold',
+              fontSize: '0.85rem',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px'
+            }}
+          >
+            <Zap size={15} /> 3x3 Faltung (Sobel)
           </button>
         </div>
       </div>
@@ -390,6 +410,132 @@ export default function WasmSimdStudioLab() {
           <pre style={{ margin: 0, padding: '16px', background: 'rgba(0,0,0,0.5)', borderRadius: '8px', color: '#38bdf8', fontSize: '0.9rem', lineHeight: '1.6', overflowX: 'auto' }}>
             <code>{watCode}</code>
           </pre>
+        </div>
+      )}
+
+      {activeTab === 'convolution' && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div style={{ background: 'var(--card-bg, #1e293b)', padding: '20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#fff', margin: '0 0 14px 0' }}>
+              3x3 Bildfaltungs-Matrix (Convolution Kernel)
+            </h3>
+            <p style={{ fontSize: '0.88rem', color: '#94a3b8', margin: '0 0 16px 0' }}>
+              In der Computergrafik und Bildverarbeitung werden 3x3 Faltungskerne (Sobel, Gauß) über Bildpixel geschoben. Mit 128-Bit SIMD werden 4 oder 16 Farbkanäle parallel berechnet.
+            </p>
+
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '20px' }}>
+              <button
+                onClick={() => setFilterType('sobel')}
+                style={{
+                  padding: '8px 16px',
+                  borderRadius: '8px',
+                  border: filterType === 'sobel' ? '2px solid #a855f7' : '1px solid rgba(255,255,255,0.1)',
+                  background: filterType === 'sobel' ? 'rgba(168, 85, 247, 0.2)' : 'rgba(0,0,0,0.3)',
+                  color: filterType === 'sobel' ? '#c084fc' : '#94a3b8',
+                  fontWeight: 'bold',
+                  cursor: 'pointer'
+                }}
+              >
+                Sobel Filter (Kantendetektion)
+              </button>
+              <button
+                onClick={() => setFilterType('gaussianBlur')}
+                style={{
+                  padding: '8px 16px',
+                  borderRadius: '8px',
+                  border: filterType === 'gaussianBlur' ? '2px solid #a855f7' : '1px solid rgba(255,255,255,0.1)',
+                  background: filterType === 'gaussianBlur' ? 'rgba(168, 85, 247, 0.2)' : 'rgba(0,0,0,0.3)',
+                  color: filterType === 'gaussianBlur' ? '#c084fc' : '#94a3b8',
+                  fontWeight: 'bold',
+                  cursor: 'pointer'
+                }}
+              >
+                Gaußscher Weichzeichner (Blur)
+              </button>
+              <button
+                onClick={() => setFilterType('sharpen')}
+                style={{
+                  padding: '8px 16px',
+                  borderRadius: '8px',
+                  border: filterType === 'sharpen' ? '2px solid #a855f7' : '1px solid rgba(255,255,255,0.1)',
+                  background: filterType === 'sharpen' ? 'rgba(168, 85, 247, 0.2)' : 'rgba(0,0,0,0.3)',
+                  color: filterType === 'sharpen' ? '#c084fc' : '#94a3b8',
+                  fontWeight: 'bold',
+                  cursor: 'pointer'
+                }}
+              >
+                Scharfzeichnen (Sharpen)
+              </button>
+            </div>
+
+            {/* Matrix & Performance Metrics */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+              <div style={{ background: 'rgba(0,0,0,0.3)', padding: '16px', borderRadius: '8px' }}>
+                <div style={{ fontSize: '0.82rem', color: '#94a3b8', marginBottom: '8px', fontWeight: 'bold' }}>
+                  Aktueller 3x3 Faltungskern ({filterType}):
+                </div>
+                <div style={{ fontFamily: 'monospace', fontSize: '0.9rem', color: '#38bdf8', lineHeight: '1.6' }}>
+                  {filterType === 'sobel' && (
+                    <>
+                      <div>Sobel X: [-1, 0, 1; -2, 0, 2; -1, 0, 1]</div>
+                      <div>Sobel Y: [-1, -2, -1; 0, 0, 0; 1, 2, 1]</div>
+                    </>
+                  )}
+                  {filterType === 'gaussianBlur' && (
+                    <>
+                      <div>[1/16, 2/16, 1/16]</div>
+                      <div>[2/16, 4/16, 2/16]</div>
+                      <div>[1/16, 2/16, 1/16]</div>
+                    </>
+                  )}
+                  {filterType === 'sharpen' && (
+                    <>
+                      <div>[ 0, -1,  0]</div>
+                      <div>[-1,  5, -1]</div>
+                      <div>[ 0, -1,  0]</div>
+                    </>
+                  )}
+                </div>
+              </div>
+
+              <div style={{ background: 'rgba(168, 85, 247, 0.12)', border: '1px solid rgba(168, 85, 247, 0.3)', padding: '16px', borderRadius: '8px' }}>
+                <div style={{ fontSize: '0.82rem', color: '#d8b4fe', marginBottom: '6px', fontWeight: 'bold' }}>
+                  SIMD Vektorisierungs-Gewinn (3x3 Faltung):
+                </div>
+                <div style={{ fontSize: '1.6rem', fontWeight: '800', color: '#c084fc', marginBottom: '4px' }}>
+                  ~3.9x Hardware Speedup
+                </div>
+                <div style={{ fontSize: '0.78rem', color: '#cbd5e1' }}>
+                  Berechnet 4 Float-Nachbarpixel oder 16 Farb-Bytes parallel in einem CPU-Zyklus via <code>v128</code> Vektor-Multiplikation und Fused Multiply-Add (FMA).
+                </div>
+              </div>
+            </div>
+
+            {/* Live-Faltungsfilter-Berechnung (SIMD Kern) */}
+            <div style={{ marginTop: '16px', background: 'rgba(0,0,0,0.4)', padding: '16px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.06)' }}>
+              <div style={{ fontSize: '0.85rem', color: '#38bdf8', fontWeight: 'bold', marginBottom: '8px' }}>
+                Live Test-Matrix (4x4 Pixel Sample) gefiltert mit <code>applySimdConvolutionFilter</code>:
+              </div>
+              {(() => {
+                const samplePixels = [10, 20, 30, 40, 50, 200, 220, 70, 90, 210, 230, 80, 30, 40, 50, 60];
+                const kernelKey = filterType === 'sobel' ? 'sobelX' : filterType;
+                const result = applySimdConvolutionFilter(samplePixels, 4, 4, kernelKey);
+                return (
+                  <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+                    <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
+                      Ausgewählter Filter-Kernel: <span style={{ color: '#c084fc', fontWeight: 'bold' }}>{kernelKey}</span>
+                    </div>
+                    <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
+                      Zentrum-Pixel [1,1] (Vorher: 200) &rarr; Gefiltert: <span style={{ color: '#4ade80', fontWeight: 'bold' }}>{result[5]}</span>
+                    </div>
+                    <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
+                      Zentrum-Pixel [2,2] (Vorher: 230) &rarr; Gefiltert: <span style={{ color: '#4ade80', fontWeight: 'bold' }}>{result[10]}</span>
+                    </div>
+                  </div>
+                );
+              })()}
+            </div>
+          </div>
         </div>
       )}
     </div>

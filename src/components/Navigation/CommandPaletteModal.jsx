@@ -5,7 +5,7 @@ import {
   Layers, Award, FileText, ArrowRight, X, Command, Database, ShieldCheck,
   Calculator, Globe, ShieldAlert, Brain, GitMerge,
   Lock, Activity, GitCommit, Network, Server, Code, Radio, Mic, Zap,
-  Clock, GitPullRequest, Calendar
+  Clock, GitPullRequest, Calendar, Key
 } from 'lucide-react';
 import { TOPICS } from '../../data/topicsData';
 import { GLOSSARY_TERMS } from '../../data/glossaryData';
@@ -40,6 +40,9 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
     { id: 'view-github-actions', title: 'GitHub Actions CI/CD Workflow Simulator (DAG & Cache)', category: 'Labs & Tools', icon: GitPullRequest, action: () => onNavigate('github_actions_lab') },
     { id: 'view-ihk-gantt', title: 'IHK Projekt-Gantt & Meilenstein-Editor (AP2 Zeitplanung 80h/40h)', category: 'Prüfung', icon: Calendar, action: () => onNavigate('ihk_project_gantt_lab') },
     { id: 'view-wasm-simd', title: 'WebAssembly SIMD & 128-Bit Vector Processing Studio (v128)', category: 'Labs & Tools', icon: Cpu, action: () => onNavigate('wasm_simd_studio_lab') },
+    { id: 'view-ihk-wirtschaftlichkeit', title: 'IHK Wirtschaftlichkeits- & Amortisations-Studio (Make-or-Buy AP2)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('ihk_wirtschaftlichkeit_lab') },
+    { id: 'view-webauthn-passkey', title: 'FIDO2 WebAuthn & Passkey Studio (Asymmetrische Auth & Phishing-Schutz)', category: 'Labs & Tools', icon: Key, action: () => onNavigate('webauthn_passkey_lab') },
+    { id: 'view-systemd-service', title: 'Linux Systemd Unit & Cgroups v2 Sandbox (Lifecycle & Limits)', category: 'Labs & Tools', icon: Server, action: () => onNavigate('systemd_service_lab') },
     { id: 'view-docker-orchestrator', title: 'Docker Compose Multi-Container Orchestrator (DAG & Network Isolation)', category: 'Labs & Tools', icon: Layers, action: () => onNavigate('docker_compose_lab') },
     { id: 'view-linux-memory', title: 'Linux Virtual Memory & Page Fault Studio (TLB & OOM Score)', category: 'Labs & Tools', icon: Cpu, action: () => onNavigate('linux_memory_lab') },
     { id: 'view-postgres-pool', title: 'PostgreSQL Connection Pooling & SQL Isolation Studio (PgBouncer)', category: 'Labs & Tools', icon: Database, action: () => onNavigate('postgres_pool_lab') },
