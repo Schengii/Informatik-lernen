@@ -87,6 +87,22 @@ export const loadUserState = () => {
   }
 };
 
+/**
+ * Prüft, ob bereits ein persistierter User-State in localStorage existiert.
+ * Wird beim App-Start genutzt, um zu entscheiden, ob eine asynchrone
+ * Notfall-Hydration aus IndexedDB versucht werden soll (siehe
+ * `useStore.js`): Nur ein wirklich leerer/gelöschter localStorage gilt als
+ * Hydrations-Kandidat, nicht jeder Nutzer mit Default-Werten.
+ * @returns {boolean}
+ */
+export const hasStoredUserState = () => {
+  try {
+    return localStorage.getItem(STORAGE_KEY) !== null;
+  } catch {
+    return false;
+  }
+};
+
 /** @param {UserState} state */
 const persistStateNow = (state) => {
   try {

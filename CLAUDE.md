@@ -22,7 +22,7 @@ Entwickler- und KI-Leitfaden für das Projekt **Informatik-lernen (IT-DevGame)**
 # Entwicklungsserver starten (Standard-Port http://localhost:5173)
 npm run dev
 
-# Vollständige Test-Suite ausführen (102 Test-Dateien, 520 Tests)
+# Vollständige Test-Suite ausführen (104 Test-Dateien, 734 Tests)
 npm test
 
 # Test-Coverage-Report erzeugen (Statements/Branches/Functions/Lines)
@@ -58,6 +58,7 @@ npm run preview
    - UI-Komponenten in `src/components/Content/*.jsx` konsumieren die Engines und binden XP-Rewards ein.
 3. **Performance & Code-Splitting**:
    - Alle großen Laboratorien und Simulatoren müssen in `src/App.jsx` per `React.lazy()` dynamisch importiert werden.
+   - Ein neues, einfaches Lab (ein Tab → eine Komponente) wird NICHT als eigener `{activeTab === 'x' && (...)}`-Block ergänzt, sondern als zusätzlicher `case` in der `activeLabElement`-Switch-Tabelle in `App.jsx` (kurz vor `return (` in der `App`-Funktion). Nur Tabs, die mehr als ein Lab rendern oder eigenen lokalen State brauchen (Dashboard, Wissen, Games, Lückentext, Videos, Projekte), bleiben eigene Blöcke weiter unten.
 4. **Barrierefreiheit (Accessibility & A11y)**:
    - Respektiere Nutzer-Präferenzen für reduzierte Bewegung (`prefers-reduced-motion` und `body.reduced-motion`).
    - Keine Viewport-Zoom-Blocker (`user-scalable=no` verboten).

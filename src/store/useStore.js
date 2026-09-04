@@ -1,5 +1,6 @@
 import { create } from 'zustand';
-import { loadUserState, saveUserState, calculateLevel, recordDailyActivity } from '../utils/storage';
+import { loadUserState, saveUserState, hasStoredUserState, initialProfileState, calculateLevel, recordDailyActivity } from '../utils/storage';
+import { hydrateUserStateFromIndexedDb } from '../utils/indexedDbStoreMiddleware';
 import { soundManager } from '../utils/audioSystem';
 
 export const useStore = create((set) => {
@@ -7,6 +8,29 @@ export const useStore = create((set) => {
   if (initialUser.soundSettings) {
     soundManager.setVolume(initialUser.soundSettings.volume ?? 0.5);
     soundManager.setMuted(initialUser.soundSettings.isMuted ?? false);
+  }
+
+  // Notfall-Hydration: localStorage kann gelöscht werden (manuell, durch den
+  // Browser bei Speicherdruck, oder bei Überschreitung des 5-MB-Quotas) ohne
+  // dass IndexedDB davon betroffen ist, da beide unabhängige Speicher sind.
+  // War localStorage beim Start leer, wird asynchron versucht, den zuletzt
+  // redundant gesicherten Zustand aus IndexedDB wiederherzustellen, statt den
+  // Nutzer stillschweigend auf Level 1 zurückzusetzen. Betrifft nur den
+  // seltenen Fall eines leeren localStorage - der normale Ladepfad oben
+  // bleibt synchron und unverändert.
+  if (!hasStoredUserState()) {
+    hydrateUserStateFromIndexedDb().then((backupState) => {
+      if (!backupState) return;
+      const restored = { ...initialProfileState, ...backupState };
+      saveUserState(restored, { immediate: true });
+      soundManager.setVolume(restored.soundSettings?.volume ?? 0.5);
+      soundManager.setMuted(restored.soundSettings?.isMuted ?? false);
+      set({
+        userState: restored,
+        soundVolume: restored.soundSettings?.volume ?? 0.5,
+        isSoundMuted: restored.soundSettings?.isMuted ?? false
+      });
+    });
   }
 
   return {
