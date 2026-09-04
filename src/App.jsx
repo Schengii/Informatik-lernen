@@ -198,6 +198,10 @@ const NwaScoringLab = lazy(() => import('./components/Content/NwaScoringLab'));
 const RaidCalculatorLab = lazy(() => import('./components/Content/RaidCalculatorLab'));
 const VlsmSubnetLab = lazy(() => import('./components/Content/VlsmSubnetLab'));
 const IhkProjectProposalLab = lazy(() => import('./components/Content/IhkProjectProposalLab'));
+// v3.30.0 IHK CPM, UML & IaC Studios
+const CpmNetworkLab = lazy(() => import('./components/Content/CpmNetworkLab'));
+const UmlDiagramLab = lazy(() => import('./components/Content/UmlDiagramLab'));
+const TerraformLab = lazy(() => import('./components/Content/TerraformLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -1168,30 +1172,51 @@ export default function App() {
             )}
 
             {/* IHK NUTZWERTANALYSE STUDIO (NWA) */}
-            {activeTab === 'nwa_scoring_lab' && (
+            {(activeTab === 'nwa_scoring_lab' || activeTab === 'nwa_scoring') && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <NwaScoringLab onRewardXP={(xp) => awardXP(xp, 'nwa_master')} />
               </Suspense>
             )}
 
             {/* RAID STORAGE & PARITÄTS-RECHNER */}
-            {activeTab === 'raid_calculator_lab' && (
+            {(activeTab === 'raid_calculator_lab' || activeTab === 'raid_calculator') && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <RaidCalculatorLab onRewardXP={(xp) => awardXP(xp, 'raid_master')} />
               </Suspense>
             )}
 
             {/* VLSM SUBNET SPLITTER & IP-RECHNER */}
-            {activeTab === 'vlsm_subnet_lab' && (
+            {(activeTab === 'vlsm_subnet_lab' || activeTab === 'vlsm_subnet') && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <VlsmSubnetLab onRewardXP={(xp) => awardXP(xp, 'vlsm_master')} />
               </Suspense>
             )}
 
             {/* IHK PROJEKTANTRAGS-PRÜFER */}
-            {activeTab === 'ihk_project_proposal_lab' && (
+            {(activeTab === 'ihk_project_proposal_lab' || activeTab === 'ihk_project_proposal') && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <IhkProjectProposalLab onRewardXP={(xp) => awardXP(xp, 'ihk_proposal_master')} />
+              </Suspense>
+            )}
+
+            {/* IHK NETZPLAN STUDIO (CPM / DIN 69900) */}
+            {(activeTab === 'cpm_network_lab' || activeTab === 'cpm_network') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <CpmNetworkLab onRewardXP={(xp) => awardXP(xp, 'cpm_master')} />
+              </Suspense>
+            )}
+
+            {/* UML SEQUENZ- & AKTIVITÄTSDIAGRAMM STUDIO */}
+            {(activeTab === 'uml_diagram_lab' || activeTab === 'uml_diagram') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <UmlDiagramLab onRewardXP={(xp) => awardXP(xp, 'uml_master')} />
+              </Suspense>
+            )}
+
+            {/* TERRAFORM & OPENTOFU IAC STUDIO */}
+            {(activeTab === 'terraform_lab' || activeTab === 'terraform') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <TerraformLab onRewardXP={(xp) => awardXP(xp, 'terraform_master')} />
               </Suspense>
             )}
 

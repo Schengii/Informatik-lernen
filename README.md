@@ -6,7 +6,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.29.0)](#-hauptfunktionen--neue-features-v3290-ihk-flagship-edition-nutzwertanalyse-raid-rechner-vlsm-subnetting--projektantrags-prüfer)
+- [Hauptfunktionen & Neue Features (v3.30.0)](#-hauptfunktionen--neue-features-v3300-ihk-cpm-netzplantechnik-uml-studio--terraform-iac-edition)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -25,6 +25,9 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Einsteiger-Kurs (`AnfaengerGuideHub.jsx`)**: Lernen ohne jegliche Vorkenntnisse.
    - Grundlagen leicht verständlich erklärt: **EVA-Prinzip**, **CPU-Gehirn** (ALU, Steuerwerk, Register), **Binärsystem & Bytes**, **Internet & DNS**.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI/DP/DVS, IT-Systemelektroniker, Kaufleute IT-Systemmanagement)**:
+   - **IHK Netzplan Studio (`CpmNetworkLab.jsx` & `cpmEngine.js`)**: DIN 69900 Vorgangsknotennetzplan mit Vorwärts-/Rückwärtsrechnung (FAZ, FEZ, SAZ, SEZ), Gesamt- und Freiem Puffer (GP, FP) und automatischem Kritischem Pfad.
+   - **UML Studio (`UmlDiagramLab.jsx` & `umlEngine.js`)**: OMG UML 2.5 Sequenz- und Aktivitätsdiagramme mit Live-Mermaid.js-Export und IHK-Konformitäts-Linter.
+   - **Terraform & OpenTofu IaC Studio (`TerraformLab.jsx` & `terraformEngine.js`)**: Deklaratives State-Management, Execution Plans (`terraform plan`), DAG-Ressourcenbaum und Cloud State Drift-Erkennung.
    - **IHK Noten- & MEP-Rechner (`IhkGradeCalculatorLab.jsx` & `ihkGradeCalculations.js`)**: Offizielle AO 2020 Prüfungsordnung, Gewichtungen (AP1 20%, AP2 30%, Projekt 50%) und automatischer Rechner für die **Mündliche Ergänzungsprüfung (MEP)**.
    - **19"-Rack Konfigurator & USV/Klimarechner (`RackConfiguratorLab.jsx` & `rackCalculations.js`)**: 42HE Serverschrank, Schein- & Wirkleistung ($VA, W$), USV-Akkulaufzeit und BTU/h Kühlungslast.
    - **ITIL 4 ITSM & Service Desk Studio (`ItsmSimulatorLab.jsx` & `itsmEngine.js`)**: Incident Queue mit SLA-Timern, Impact $\times$ Urgency Priorisierung und Change Advisory Board (CAB) Risiko-Scoring.
@@ -43,8 +46,18 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v3.29.0 IHK Flagship Edition: Nutzwertanalyse, RAID-Rechner, VLSM Subnetting & Projektantrags-Prüfer)
+## 🔥 Hauptfunktionen & Neue Features (v3.30.0 IHK CPM Netzplantechnik, UML Studio & Terraform IaC Edition)
 
+* **🔀 IHK Netzplan Studio (CPM / DIN 69900) (`CpmNetworkLab.jsx` & `src/utils/cpmEngine.js`)**:
+  * Vollständige Berechnung nach DIN 69900: Vorwärtsrechnung (FAZ, FEZ) und Rückwärtsrechnung (SAZ, SEZ).
+  * Berechnung des Gesamtpuffers ($GP = SAZ - FAZ$) und Freien Puffers ($FP = \min(FAZ_{\text{Nachfolger}}) - FEZ$).
+  * Automatische Identifizierung des **Kritischen Pfads** (Vorgänge mit $GP = 0$) mit visuellem Signal-Highlight und Zyklen-Erkennung via Kahn-Topologie.
+* **📐 UML Studio: Sequenz- & Aktivitätsdiagramme (`UmlDiagramLab.jsx` & `src/utils/umlEngine.js`)**:
+  * Modellierung von Interaktionen (Synchron `->>`, Asynchron `-))`, Rückgabe `-->>`) und Geschäftsprozessen (Entscheidungs-Guards, Forks, Joins).
+  * 1-Klick **Mermaid.js Export** für Projektdokumentationen und automatische IHK-Konformitätsprüfung (fehlende Antworten, unaufgelöste Aufrufe).
+* **☁️ Terraform & OpenTofu IaC Studio (`TerraformLab.jsx` & `src/utils/terraformEngine.js`)**:
+  * Directed Acyclic Graph (DAG) Ressourcenbaum zur Ermittlung paralleler/sequenzieller Bereitstellungsstufen.
+  * Interaktiver Terminal-Diff-Simulator für `terraform plan` (`+ create`, `~ update in-place`, `- destroy`) und Cloud State Drift-Erkennung.
 * **📊 IHK Nutzwertanalyse Studio (NWA) (`NwaScoringLab.jsx` & `src/utils/nwaEngine.js`)**:
   * Offizielle IHK-Entscheidungsmatrix nach DIN / VDI 2225: Gewichtete Punktbewertung (Wichtungen $\sum w_i = 100\%$), Ausschlusskriterien (K.O.-Kriterien), Sensitivitätsanalyse bei Wichtungsverschiebungen und tabellarischer CSV/Text-Export.
 * **💾 RAID Storage & Paritäts-Rechner (`RaidCalculatorLab.jsx` & `src/utils/raidEngine.js`)**:
@@ -170,6 +183,7 @@ Informatik-lernen/
     │   │   ├── ClozeTester.jsx
     │   │   ├── CodeExecutionDebuggerLab.jsx
     │   │   ├── CpuArchitectureLab.jsx
+    │   │   ├── CpmNetworkLab.jsx
     │   │   ├── CryptoKeygenLab.jsx
     │   │   ├── CtfChallengeLab.jsx
     │   │   ├── CustomChallengeCreatorLab.jsx
@@ -257,8 +271,10 @@ Informatik-lernen/
     │   │   ├── SystemDesignLab.jsx
     │   │   ├── TcoRoiCalculatorLab.jsx
     │   │   ├── TddUnitTestLab.jsx
+    │   │   ├── TerraformLab.jsx
     │   │   ├── ToolingSetupGuide.jsx
     │   │   ├── TopicReader.jsx
+    │   │   ├── UmlDiagramLab.jsx
     │   │   ├── TransformerAttentionLab.jsx
     │   │   ├── VectorSearchLab.jsx
     │   │   ├── VlsmSubnetLab.jsx
@@ -377,6 +393,8 @@ Informatik-lernen/
         ├── cloudArchitectureEngine.test.js
         ├── codingChallengesEngine.js
         ├── codingChallengesEngine.test.js
+        ├── cpmEngine.js
+        ├── cpmEngine.test.js
         ├── customChallengesManager.js
         ├── customChallengesManager.test.js
         ├── ebpfXdpEngine.js
@@ -454,8 +472,12 @@ Informatik-lernen/
         ├── storage.test.js
         ├── tcoCalculations.js
         ├── tcoCalculations.test.js
+        ├── terraformEngine.js
+        ├── terraformEngine.test.js
         ├── transformerAttentionEngine.js
         ├── transformerAttentionEngine.test.js
+        ├── umlEngine.js
+        ├── umlEngine.test.js
         ├── voiceQuizEngine.js
         ├── voiceQuizEngine.test.js
         ├── webhookSimulator.js
@@ -527,6 +549,14 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.30.0 (IHK CPM Netzplantechnik, UML Studio & Terraform IaC Edition)
+
+- **Neu**: `CpmNetworkLab.jsx` & `src/utils/cpmEngine.js` — IHK Netzplan Studio (CPM / DIN 69900): Vollständige Vorwärts- & Rückwärtsrechnung (FAZ, FEZ, SAZ, SEZ), Gesamtpuffer ($GP$), Freier Puffer ($FP$), Identifikation des Kritischen Pfads, Zyklen-Detektion via Kahn-Algorithmus, DIN 69900 6-Felder-Vorgangsknoten-Matrix und Vorlagen für FIAE (80h) und FISI (40h) Abschlussprojekte.
+- **Neu**: `UmlDiagramLab.jsx` & `src/utils/umlEngine.js` — UML Studio (Sequenz- & Aktivitätsdiagramme nach OMG UML 2.5): Synchrone Aufrufe, asynchrone Nachrichten, Rückgaben, Verzweigungs-Guards, IHK-Konformitäts-Linter und 1-Klick Mermaid.js Export für Projektdokumentationen.
+- **Neu**: `TerraformLab.jsx` & `src/utils/terraformEngine.js` — Terraform & OpenTofu IaC Studio: Deklarative Infrastruktur, Directed Acyclic Graph (DAG) Ressourcenstufen, interaktiver Diff-Simulator für `terraform plan` (`+ create`, `~ update`, `- destroy`) und Cloud State Drift-Erkennung.
+- **Routing & Navigation**: Vollständige Verknüpfung in `Navbar.jsx`, `CommandPaletteModal.jsx`, `LabsDashboard.jsx`, `DashboardQuickAccessGrid.jsx` und `App.jsx` (robuste Alias-Unterstützung mit/ohne `_lab` Suffix).
+- **Test-Suite & Qualität**: **236 bestandene Unit-Tests** in **78 Test-Dateien** mit 100% Erfolgsquote (vorher 224/75). 0 Linter-Fehler in Oxlint und optimierter PWA Produktions-Build.
 
 ### Version 3.29.0 (IHK Flagship Edition: Nutzwertanalyse Studio, RAID Storage Rechner, VLSM Subnet Splitter & Projektantrags-Prüfer)
 

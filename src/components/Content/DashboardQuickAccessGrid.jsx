@@ -40,6 +40,33 @@ export default function DashboardQuickAccessGrid({ setActiveTab }) {
       badge: 'IHK Neu'
     },
     {
+      id: 'cpm_network',
+      icon: '🔀',
+      title: 'IHK Netzplan Studio (CPM / DIN 69900)',
+      desc: 'Vorwärts- & Rückwärtsrechnung, FAZ/FEZ/SAZ/SEZ, Pufferzeiten GP/FP & Kritischer Pfad.',
+      actionText: 'Netzplan Starten',
+      color: 'var(--accent-purple)',
+      badge: 'IHK Neu'
+    },
+    {
+      id: 'uml_diagram',
+      icon: '📐',
+      title: 'UML Studio (Sequenz & Aktivität)',
+      desc: 'Synchrone/asynchrone Aufrufe modellieren, IHK-Linter prüfen und Mermaid.js exportieren.',
+      actionText: 'Diagramm Öffnen',
+      color: 'var(--accent-rose)',
+      badge: 'Neu'
+    },
+    {
+      id: 'terraform',
+      icon: '☁️',
+      title: 'Terraform & OpenTofu IaC Studio',
+      desc: 'Deklaratives State-Management, Execution Plans (Diff) & Directed Acyclic Graph (DAG).',
+      actionText: 'IaC Simulieren',
+      color: 'var(--accent-indigo)',
+      badge: 'Neu'
+    },
+    {
       id: 'os_scheduler',
       icon: '⏱️',
       title: 'OS Process Scheduler & Deadlock',

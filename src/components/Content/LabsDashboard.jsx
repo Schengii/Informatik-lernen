@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2 } from 'lucide-react';
+import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server } from 'lucide-react';
 
 export const LAB_MODULES = [
   {
@@ -45,6 +45,39 @@ export const LAB_MODULES = [
     icon: Award,
     badge: 'IHK Neu',
     color: '#059669'
+  },
+  {
+    id: 'cpm_network',
+    title: 'IHK Netzplan Studio (CPM / DIN 69900)',
+    category: 'ihk',
+    tags: ['#Netzplan', '#CPM', '#Pufferzeiten', '#KritischerPfad', '#DIN69900', '#IHK'],
+    difficulty: 'Intermediate',
+    desc: 'Vorwärts- & Rückwärtsrechnung, FAZ/FEZ/SAZ/SEZ, Pufferzeiten GP/FP & Kritischer Pfad.',
+    icon: GitCommit,
+    badge: 'IHK Neu',
+    color: '#8b5cf6'
+  },
+  {
+    id: 'uml_diagram',
+    title: 'UML Studio (Sequenz & Aktivität)',
+    category: 'devops',
+    tags: ['#UML', '#Sequenzdiagramm', '#Aktivitätsdiagramm', '#Mermaid', '#SoftwareDesign'],
+    difficulty: 'Intermediate',
+    desc: 'Interaktive Modellierung synchroner/asynchroner Nachrichtenflüsse & Mermaid.js Export.',
+    icon: Layers,
+    badge: 'Neu',
+    color: '#ec4899'
+  },
+  {
+    id: 'terraform',
+    title: 'Terraform & OpenTofu IaC Studio',
+    category: 'cloud',
+    tags: ['#Terraform', '#OpenTofu', '#IaC', '#DAG', '#State', '#CloudOps'],
+    difficulty: 'Advanced',
+    desc: 'Deklaratives State-Management, Execution Plans (Diff) & Directed Acyclic Resource Graph.',
+    icon: Server,
+    badge: 'Neu',
+    color: '#6366f1'
   },
   {
     id: 'scrum_simulator',

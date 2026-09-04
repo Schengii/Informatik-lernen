@@ -14,6 +14,9 @@ import NwaScoringLab from './Content/NwaScoringLab';
 import RaidCalculatorLab from './Content/RaidCalculatorLab';
 import VlsmSubnetLab from './Content/VlsmSubnetLab';
 import IhkProjectProposalLab from './Content/IhkProjectProposalLab';
+import CpmNetworkLab from './Content/CpmNetworkLab';
+import UmlDiagramLab from './Content/UmlDiagramLab';
+import TerraformLab from './Content/TerraformLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -76,5 +79,29 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getByText(/IHK Projektantrag/i)).toBeDefined();
+  });
+
+  it('rendert CpmNetworkLab fehlerfrei', () => {
+    const { container } = render(
+      <CpmNetworkLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getByText(/IHK Netzplan Studio/i)).toBeDefined();
+  });
+
+  it('rendert UmlDiagramLab fehlerfrei', () => {
+    const { container } = render(
+      <UmlDiagramLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getByText(/UML Studio/i)).toBeDefined();
+  });
+
+  it('rendert TerraformLab fehlerfrei', () => {
+    const { container } = render(
+      <TerraformLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Terraform & OpenTofu/i).length).toBeGreaterThan(0);
   });
 });
