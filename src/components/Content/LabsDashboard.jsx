@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server } from 'lucide-react';
+import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap } from 'lucide-react';
 
 export const LAB_MODULES = [
   {
@@ -78,6 +78,39 @@ export const LAB_MODULES = [
     icon: Server,
     badge: 'Neu',
     color: '#6366f1'
+  },
+  {
+    id: 'oral_defense_studio',
+    title: 'IHK Fachgespräch & Audio-Simulator',
+    category: 'ihk',
+    tags: ['#Fachgespräch', '#AP2', '#Mündlich', '#Prüfungsausschuss', '#Audio', '#Speech'],
+    difficulty: 'Advanced',
+    desc: '15-minütiges Prüfungsgespräch mit Sprachausgabe, Persona-Prüfern und Antwort-Scoring.',
+    icon: Mic,
+    badge: 'IHK Neu',
+    color: '#f43f5e'
+  },
+  {
+    id: 'ansible_playbook',
+    title: 'Ansible Playbook & Idempotenz Studio',
+    category: 'devops',
+    tags: ['#Ansible', '#Idempotenz', '#DevOps', '#Linux', '#Automation', '#FISI'],
+    difficulty: 'Intermediate',
+    desc: 'Server-Provisionierung mit apt, template & systemd. Beweise das Idempotenz-Prinzip.',
+    icon: Server,
+    badge: 'FISI Neu',
+    color: '#06b6d4'
+  },
+  {
+    id: 'computation_worker',
+    title: 'Web Worker & Concurrency Studio',
+    category: 'algorithms',
+    tags: ['#WebWorker', '#Multithreading', '#Performance', '#EventLoop', '#Concurrency'],
+    difficulty: 'Intermediate',
+    desc: 'Main Thread vs. Worker Thread CPU-Benchmarks ohne UI-Blockaden (60fps Garantie).',
+    icon: Zap,
+    badge: 'Neu',
+    color: '#eab308'
   },
   {
     id: 'scrum_simulator',

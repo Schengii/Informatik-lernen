@@ -1,12 +1,12 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer & Frame Analyzer, Relationalem ERD Designer & 1NF–3NF Normalform-Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery mit Ebbinghaus-Kurven, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer (AST Visualizer), Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), IHK Fachgespräch & Audio-Prüfungssimulator (Web Speech STT/TTS), Ansible Playbook & Idempotenz Studio, Web Worker & Hintergrund-Performance Concurrency Studio, IHK DIN 69900 CPM Netzplantechnik, OMG UML 2.5 Studio, Terraform & OpenTofu IaC Studio, IHK Nutzwertanalyse Studio (NWA), RAID Storage & Paritäts-Rechner, VLSM Subnet Splitter, IHK Projektantrags-Prüfer, OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer, Relationalem ERD Designer & 1NF–3NF Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer, Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.30.0)](#-hauptfunktionen--neue-features-v3300-ihk-cpm-netzplantechnik-uml-studio--terraform-iac-edition)
+- [Hauptfunktionen & Neue Features (v3.31.0)](#-hauptfunktionen--neue-features-v3310-ihk-fachgespräch-ansible-playbook--web-worker-concurrency-edition)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -25,9 +25,16 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Einsteiger-Kurs (`AnfaengerGuideHub.jsx`)**: Lernen ohne jegliche Vorkenntnisse.
    - Grundlagen leicht verständlich erklärt: **EVA-Prinzip**, **CPU-Gehirn** (ALU, Steuerwerk, Register), **Binärsystem & Bytes**, **Internet & DNS**.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI/DP/DVS, IT-Systemelektroniker, Kaufleute IT-Systemmanagement)**:
+   - **IHK Fachgespräch & Audio-Simulator (`IhkOralDefenseStudioLab.jsx` & `ihkOralDefenseEngine.js`)**: Realistisches 15-Minuten Prüfungs-Fachgespräch vor dem 3-köpfigen IHK-Prüfungsausschuss mit Web Speech Sprachausgabe (TTS) und Einsprechen (STT), Persona-Prüfern (Fachexperte, Prozessprüfer, WISO-Prüfer), Keyword-Rubrik-Scoring und IHK-Notenvergabe.
+   - **Ansible Playbook & Idempotenz Studio (`AnsiblePlaybookLab.jsx` & `ansiblePlaybookEngine.js`)**: Automatisierte Server-Provisionierung für heterogene Host-Inventories, Task-Module (`apt`, `template`, `systemd`) und interaktiver Beweis der Idempotenz (Lauf 1: changed=2, Lauf 2: changed=0).
+   - **Web Worker & Concurrency Studio (`ComputationWorkerLab.jsx` & `computationWorkerEngine.js`)**: Vergleichender CPU-Benchmark zwischen Single-Thread Main-Thread (UI friert ein) und Dedicated Web Worker mit 60 FPS Herzschlag-Anzeige und Zero UI-Jank.
    - **IHK Netzplan Studio (`CpmNetworkLab.jsx` & `cpmEngine.js`)**: DIN 69900 Vorgangsknotennetzplan mit Vorwärts-/Rückwärtsrechnung (FAZ, FEZ, SAZ, SEZ), Gesamt- und Freiem Puffer (GP, FP) und automatischem Kritischem Pfad.
    - **UML Studio (`UmlDiagramLab.jsx` & `umlEngine.js`)**: OMG UML 2.5 Sequenz- und Aktivitätsdiagramme mit Live-Mermaid.js-Export und IHK-Konformitäts-Linter.
    - **Terraform & OpenTofu IaC Studio (`TerraformLab.jsx` & `terraformEngine.js`)**: Deklaratives State-Management, Execution Plans (`terraform plan`), DAG-Ressourcenbaum und Cloud State Drift-Erkennung.
+   - **IHK Nutzwertanalyse Studio (`NwaScoringLab.jsx` & `nwaEngine.js`)**: Bewertungsmatrix nach DIN/VDI 2225 mit K.O.-Kriterien, Wichtungssummenvalidierung und Sensitivitätsanalyse.
+   - **RAID Storage & Paritäts-Rechner (`RaidCalculatorLab.jsx` & `raidEngine.js`)**: RAID 0, 1, 5, 6, 10, 50, Write-Penalty-Faktoren, Rebuild-Zeiten und URE-Wahrscheinlichkeiten.
+   - **VLSM Subnet Splitter (`VlsmSubnetLab.jsx` & `vlsmEngine.js`)**: IP-Netzwerk-Segmentierung nach absteigendem Host-Bedarf, Subnetzmasken, Wildcards und Binär-Oktette.
+   - **IHK Projektantrags-Prüfer (`IhkProjectProposalLab.jsx` & `ihkProjectProposalEngine.js`)**: Regelprüfer für FIAE (80h), FISI (40h), FIDP (40h), FIDV (40h) mit Qualitäts-Score und Anti-Pattern-Erkennung.
    - **IHK Noten- & MEP-Rechner (`IhkGradeCalculatorLab.jsx` & `ihkGradeCalculations.js`)**: Offizielle AO 2020 Prüfungsordnung, Gewichtungen (AP1 20%, AP2 30%, Projekt 50%) und automatischer Rechner für die **Mündliche Ergänzungsprüfung (MEP)**.
    - **19"-Rack Konfigurator & USV/Klimarechner (`RackConfiguratorLab.jsx` & `rackCalculations.js`)**: 42HE Serverschrank, Schein- & Wirkleistung ($VA, W$), USV-Akkulaufzeit und BTU/h Kühlungslast.
    - **ITIL 4 ITSM & Service Desk Studio (`ItsmSimulatorLab.jsx` & `itsmEngine.js`)**: Incident Queue mit SLA-Timern, Impact $\times$ Urgency Priorisierung und Change Advisory Board (CAB) Risiko-Scoring.
@@ -46,8 +53,20 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v3.30.0 IHK CPM Netzplantechnik, UML Studio & Terraform IaC Edition)
+## 🔥 Hauptfunktionen & Neue Features (v3.31.0 IHK Fachgespräch, Ansible Playbook & Web Worker Concurrency Edition)
 
+* **🎙️ IHK Fachgespräch & Audio-Prüfungssimulator (`IhkOralDefenseStudioLab.jsx` & `src/utils/ihkOralDefenseEngine.js`)**:
+  * 15-Minuten mündliche Prüfungssimulation für die IHK Abschlussprüfung Teil 2 (Fachinformatiker FIAE / FISI).
+  * Web Speech API Integration: Audiowiedergabe der Prüferfragen via Sprachausgabe (TTS) sowie freiwilliges Diktieren der Antworten via Spracheingabe (STT) mit stufenlosem Textarea-Fallback.
+  * 3 authentische IHK-Prüfer-Personas (Dr. Weber für Architektur & Fachtiefe, Fr. Sommer für Projektphasen & QS, Hr. Becker für WISO & Wirtschaftlichkeit).
+  * Ausführliche Keyword-Rubrik-Bewertung mit individueller Punkteverteilung, qualitativen Feedbacktexten und offizieller IHK-Notenberechnung (Schlüssel 1–6) inklusive XP-Belohnung.
+* **⚙️ Ansible Playbook & Idempotenz Studio (`AnsiblePlaybookLab.jsx` & `src/utils/ansiblePlaybookEngine.js`)**:
+  * Vollständige Simulation deklarativer Konfigurationsverwaltung (Infrastructure as Code) für Webserver- und Datenbank-Cluster.
+  * Simulation heterogener Host-Inventories (`inventory.ini`) und YAML Playbook Tasks (`apt`, `template`, `systemd`).
+  * Interaktiver Nachweis des Kernprinzips der **Idempotenz**: Beim 1. Durchlauf werden Pakete installiert und Konfigurationen geändert (`changed=2`). Bei wiederholter Ausführung bleibt der Systemzustand identisch (`changed=0`, `ok=3`), wodurch XP für den bewiesenen Idempotenz-Nachweis vergeben werden.
+* **⚡ Web Worker & Hintergrund-Performance Studio (`ComputationWorkerLab.jsx` & `src/utils/computationWorkerEngine.js`)**:
+  * Direkter Performance-Vergleich rechenintensiver CPU-Tasks (Eratosthenes Primzahl-Sieb, Monte-Carlo URE-Ausfallszenarien) zwischen Single-Thread Main-Thread und nebenläufigem Dedicated Web Worker.
+  * Animierte 60-FPS Herzschlag-Gauges zur Visualisierung von Frame-Drops und UI-Blockaden auf dem Haupt-Thread vs. flüssiger Benutzeroberfläche bei Auslagerung in Web Worker.
 * **🔀 IHK Netzplan Studio (CPM / DIN 69900) (`CpmNetworkLab.jsx` & `src/utils/cpmEngine.js`)**:
   * Vollständige Berechnung nach DIN 69900: Vorwärtsrechnung (FAZ, FEZ) und Rückwärtsrechnung (SAZ, SEZ).
   * Berechnung des Gesamtpuffers ($GP = SAZ - FAZ$) und Freien Puffers ($FP = \min(FAZ_{\text{Nachfolger}}) - FEZ$).
@@ -161,6 +180,7 @@ Informatik-lernen/
     │   │   ├── AiPromptLab.jsx
     │   │   ├── AlgoPlaygroundLab.jsx
     │   │   ├── AnfaengerGuideHub.jsx
+    │   │   ├── AnsiblePlaybookLab.jsx
     │   │   ├── ApiBenchStudio.jsx
     │   │   ├── ApiMockStudioLab.jsx
     │   │   ├── AppWorkshop.jsx
@@ -182,6 +202,7 @@ Informatik-lernen/
     │   │   ├── CloudDevOpsLab.jsx
     │   │   ├── ClozeTester.jsx
     │   │   ├── CodeExecutionDebuggerLab.jsx
+    │   │   ├── ComputationWorkerLab.jsx
     │   │   ├── CpuArchitectureLab.jsx
     │   │   ├── CpmNetworkLab.jsx
     │   │   ├── CryptoKeygenLab.jsx
@@ -210,6 +231,7 @@ Informatik-lernen/
     │   │   ├── Ieee754FloatingPointLab.jsx
     │   │   ├── IhkCheatSheetPdfGenerator.jsx
     │   │   ├── IhkGradeCalculatorLab.jsx
+    │   │   ├── IhkOralDefenseStudioLab.jsx
     │   │   ├── IhkOralExamSimulator.jsx
     │   │   ├── IhkProjectDocumentationGenerator.jsx
     │   │   ├── IhkProjectProposalLab.jsx
@@ -384,6 +406,8 @@ Informatik-lernen/
     │   └── global.css
     └── utils/
         ├── audioSystem.js
+        ├── ansiblePlaybookEngine.js
+        ├── ansiblePlaybookEngine.test.js
         ├── bleSensorEngine.js
         ├── bleSensorEngine.test.js
         ├── bpftraceEngine.js
@@ -393,6 +417,8 @@ Informatik-lernen/
         ├── cloudArchitectureEngine.test.js
         ├── codingChallengesEngine.js
         ├── codingChallengesEngine.test.js
+        ├── computationWorkerEngine.js
+        ├── computationWorkerEngine.test.js
         ├── cpmEngine.js
         ├── cpmEngine.test.js
         ├── customChallengesManager.js
@@ -414,6 +440,8 @@ Informatik-lernen/
         ├── ieee754.test.js
         ├── ihkGradeCalculations.js
         ├── ihkGradeCalculations.test.js
+        ├── ihkOralDefenseEngine.js
+        ├── ihkOralDefenseEngine.test.js
         ├── ihkProjectProposalEngine.js
         ├── ihkProjectProposalEngine.test.js
         ├── ipv6Routing.js
@@ -549,6 +577,15 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.31.0 (IHK Fachgespräch Audio-Simulator, Ansible Playbook & Web Worker Concurrency Edition)
+
+- **Neu**: `IhkOralDefenseStudioLab.jsx` & `src/utils/ihkOralDefenseEngine.js` — IHK Fachgespräch & Audio-Prüfungssimulator (Abschlussprüfung Teil 2): Vollständige Simulation des 15-Minuten Prüfungsgesprächs vor dem 3-köpfigen Prüfungsausschuss (Architektur/Fachtiefe, Projektphasen/QS, WISO/Wirtschaftlichkeit). Web Speech API Integration mit Sprachausgabe der Prüferfragen (TTS), Spracheingabe für Kandidaten (STT), automatischer Keyword-Rubrik-Auswertung mit individueller Punktvergabe und Notenberechnung nach offiziellem IHK-Schlüssel (1–6) sowie XP-Freischaltung bei Bestehen.
+- **Neu**: `AnsiblePlaybookLab.jsx` & `src/utils/ansiblePlaybookEngine.js` — Ansible Playbook & Idempotenz Studio: Deklarative Server-Provisionierung und Konfigurationsverwaltung für Web- & DB-Cluster. Simulation von Host-Inventories (`inventory.ini`), YAML Playbook Tasks (`apt`, `template`, `systemd`) und interaktiver Beweis der Idempotenz (Lauf 1: changed=2, Lauf 2: changed=0, ok=3) mit XP-Belohnung.
+- **Neu**: `ComputationWorkerLab.jsx` & `src/utils/computationWorkerEngine.js` — Web Worker & Hintergrund-Performance Studio: Vergleichender CPU-Benchmark zwischen synchroner Ausführung auf dem Haupt-Thread (UI friert ein, Framedrops) und nebenläufigem Dedicated Web Worker. 60 FPS Herzschlag-Gauges demonstrieren die unterbrechungsfreie Responsiveness von Benutzeroberflächen bei rechenintensiven Aufgaben (Eratosthenes Primzahl-Sieb & Monte-Carlo RAID URE Simulation).
+- **Routing & Navigation**: Vollständige Integration aller 3 Flaggschiff-Module in `App.jsx` (mit Alias-Routing wie `oral_defense_studio`, `ansible_playbook_lab`, `computation_worker_lab`), `CommandPaletteModal.jsx`, `LabsDashboard.jsx` und `DashboardQuickAccessGrid.jsx`.
+- **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für alle 3 neuen Labs erweitert (13/13 Komponenten-Integrations-Tests grün).
+- **Test-Suite & Qualität**: **249 bestandene Unit-Tests** in **81 Test-Dateien** mit 100% Erfolgsquote (vorher 236/78). **0 Linter-Fehler / 0 Warnungen** in Oxlint über 375 Dateien und blitzschneller PWA Produktions-Build in ~1.1s.
 
 ### Version 3.30.0 (IHK CPM Netzplantechnik, UML Studio & Terraform IaC Edition)
 

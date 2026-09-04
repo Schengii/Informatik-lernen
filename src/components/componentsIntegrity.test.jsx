@@ -17,6 +17,9 @@ import IhkProjectProposalLab from './Content/IhkProjectProposalLab';
 import CpmNetworkLab from './Content/CpmNetworkLab';
 import UmlDiagramLab from './Content/UmlDiagramLab';
 import TerraformLab from './Content/TerraformLab';
+import IhkOralDefenseStudioLab from './Content/IhkOralDefenseStudioLab';
+import AnsiblePlaybookLab from './Content/AnsiblePlaybookLab';
+import ComputationWorkerLab from './Content/ComputationWorkerLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -103,5 +106,29 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/Terraform & OpenTofu/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert IhkOralDefenseStudioLab fehlerfrei', () => {
+    const { container } = render(
+      <IhkOralDefenseStudioLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/IHK Fachgespräch/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert AnsiblePlaybookLab fehlerfrei', () => {
+    const { container } = render(
+      <AnsiblePlaybookLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Ansible Playbook/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert ComputationWorkerLab fehlerfrei', () => {
+    const { container } = render(
+      <ComputationWorkerLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Web Worker/i).length).toBeGreaterThan(0);
   });
 });

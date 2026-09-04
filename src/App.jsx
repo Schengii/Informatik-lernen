@@ -202,6 +202,10 @@ const IhkProjectProposalLab = lazy(() => import('./components/Content/IhkProject
 const CpmNetworkLab = lazy(() => import('./components/Content/CpmNetworkLab'));
 const UmlDiagramLab = lazy(() => import('./components/Content/UmlDiagramLab'));
 const TerraformLab = lazy(() => import('./components/Content/TerraformLab'));
+// v3.31.0 IHK Audio Fachgespräch, Ansible & Web Worker
+const IhkOralDefenseStudioLab = lazy(() => import('./components/Content/IhkOralDefenseStudioLab'));
+const AnsiblePlaybookLab = lazy(() => import('./components/Content/AnsiblePlaybookLab'));
+const ComputationWorkerLab = lazy(() => import('./components/Content/ComputationWorkerLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -1217,6 +1221,27 @@ export default function App() {
             {(activeTab === 'terraform_lab' || activeTab === 'terraform') && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <TerraformLab onRewardXP={(xp) => awardXP(xp, 'terraform_master')} />
+              </Suspense>
+            )}
+
+            {/* IHK FACHGESPRÄCH AUDIO-SIMULATOR */}
+            {(activeTab === 'oral_defense_studio' || activeTab === 'oral_defense') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <IhkOralDefenseStudioLab onRewardXP={(xp) => awardXP(xp, 'oral_defense_master')} />
+              </Suspense>
+            )}
+
+            {/* ANSIBLE PLAYBOOK & IDEMPOTENZ STUDIO */}
+            {(activeTab === 'ansible_playbook_lab' || activeTab === 'ansible_playbook') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <AnsiblePlaybookLab onRewardXP={(xp) => awardXP(xp, 'ansible_master')} />
+              </Suspense>
+            )}
+
+            {/* WEB WORKER & CONCURRENCY STUDIO */}
+            {(activeTab === 'computation_worker_lab' || activeTab === 'computation_worker') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <ComputationWorkerLab onRewardXP={(xp) => awardXP(xp, 'worker_master')} />
               </Suspense>
             )}
 

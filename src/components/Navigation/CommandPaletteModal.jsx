@@ -4,7 +4,7 @@ import {
   Search, Terminal, BookOpen, Sparkles, Trophy, Cpu, Code2, 
   Layers, Award, FileText, ArrowRight, X, Command, Database, ShieldCheck,
   Calculator, Globe, ShieldAlert, Brain, GitMerge,
-  Lock, Activity, GitCommit, Network, Server, Code, Radio
+  Lock, Activity, GitCommit, Network, Server, Code, Radio, Mic, Zap
 } from 'lucide-react';
 import { TOPICS } from '../../data/topicsData';
 import { GLOSSARY_TERMS } from '../../data/glossaryData';
@@ -32,6 +32,9 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
     { id: 'view-cpm-network', title: 'IHK Netzplan Studio (CPM / Critical Path Method DIN 69900)', category: 'Prüfung', icon: GitCommit, action: () => onNavigate('cpm_network') },
     { id: 'view-uml-diagram', title: 'UML Studio (Sequenz- & Aktivitätsdiagramme mit Mermaid.js)', category: 'Labs & Tools', icon: Layers, action: () => onNavigate('uml_diagram') },
     { id: 'view-terraform', title: 'Terraform & OpenTofu IaC Studio (State Management & DAG)', category: 'Labs & Tools', icon: Server, action: () => onNavigate('terraform') },
+    { id: 'view-oral-defense', title: 'IHK Fachgespräch & Audio-Simulator (15-Minuten Prüfungsgespräch)', category: 'Prüfung', icon: Mic, action: () => onNavigate('oral_defense_studio') },
+    { id: 'view-ansible-playbook', title: 'Ansible Playbook & Idempotenz Studio (Server Automation)', category: 'Labs & Tools', icon: Server, action: () => onNavigate('ansible_playbook_lab') },
+    { id: 'view-computation-worker', title: 'Web Worker & Hintergrund-Performance Studio (Concurrency)', category: 'Labs & Tools', icon: Zap, action: () => onNavigate('computation_worker_lab') },
     { id: 'view-linux-memory', title: 'Linux Virtual Memory & Page Fault Studio (TLB & OOM Score)', category: 'Labs & Tools', icon: Cpu, action: () => onNavigate('linux_memory_lab') },
     { id: 'view-postgres-pool', title: 'PostgreSQL Connection Pooling & SQL Isolation Studio (PgBouncer)', category: 'Labs & Tools', icon: Database, action: () => onNavigate('postgres_pool_lab') },
     { id: 'view-wiso-dunning', title: 'IHK Skonto-Effektivzins & Mahnwesen Studio (BGB § 288)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('wiso_dunning_lab') },

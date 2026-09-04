@@ -67,6 +67,33 @@ export default function DashboardQuickAccessGrid({ setActiveTab }) {
       badge: 'Neu'
     },
     {
+      id: 'oral_defense_studio',
+      icon: '🎙️',
+      title: 'IHK Fachgespräch & Audio-Simulator',
+      desc: '15-minütiges mündliches Fachgespräch mit Sprachausgabe, Persona-Prüfern & Bewertungsmatrix.',
+      actionText: 'Fachgespräch Starten',
+      color: 'var(--accent-rose)',
+      badge: 'IHK Neu'
+    },
+    {
+      id: 'ansible_playbook',
+      icon: '🤖',
+      title: 'Ansible Playbook & Idempotenz',
+      desc: 'Automatisierte Server-Provisionierung, Host-Inventories & Idempotenz-Beweis.',
+      actionText: 'Playbook Ausführen',
+      color: 'var(--accent-teal)',
+      badge: 'FISI Neu'
+    },
+    {
+      id: 'computation_worker',
+      icon: '⚡',
+      title: 'Web Worker & Concurrency Studio',
+      desc: 'Main Thread vs. Background Worker CPU-Benchmarks ohne UI-Freezing (60fps).',
+      actionText: 'Worker Benchmark',
+      color: 'var(--accent-amber)',
+      badge: 'Neu'
+    },
+    {
       id: 'os_scheduler',
       icon: '⏱️',
       title: 'OS Process Scheduler & Deadlock',
