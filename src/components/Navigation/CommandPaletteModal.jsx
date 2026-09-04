@@ -5,7 +5,7 @@ import {
   Layers, Award, FileText, ArrowRight, X, Command, Database, ShieldCheck,
   Calculator, Globe, ShieldAlert, Brain, GitMerge,
   Lock, Activity, GitCommit, Network, Server, Code, Radio, Mic, Zap,
-  Clock, GitPullRequest, Calendar, Key
+  Clock, GitPullRequest, Calendar, Key, HardDrive, FileCode, TrendingDown
 } from 'lucide-react';
 import { TOPICS } from '../../data/topicsData';
 import { GLOSSARY_TERMS } from '../../data/glossaryData';
@@ -47,6 +47,10 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
     { id: 'view-ihk-risk-analysis', title: 'IHK Risikoanalyse & 5x5 Risikomatrix (DIN EN 31010 / FMEA für AP2)', category: 'Prüfung', icon: ShieldAlert, action: () => onNavigate('ihk_risk_analysis_lab') },
     { id: 'view-ebpf-cilium', title: 'eBPF Cilium Service Mesh & L7 Tracing Sandbox (Sidecarless Kernel Bypass)', category: 'Labs & Tools', icon: Network, action: () => onNavigate('ebpf_cilium_lab') },
     { id: 'view-postgres-index-types', title: 'PostgreSQL Index Types Deep Dive (B-Tree, GIN, GiST & BRIN Tuning)', category: 'Labs & Tools', icon: Database, action: () => onNavigate('postgres_index_types_lab') },
+    { id: 'view-dnssec-validation', title: 'DNSSEC Cryptographic Chain of Trust & RRSIG Validation Studio (RFC 4035)', category: 'Labs & Tools', icon: Globe, action: () => onNavigate('dnssec_validation_lab') },
+    { id: 'view-ihk-burndown', title: 'IHK Agile vs. Waterfall & Burndown Studio (AP2 Teil A Projektarbeit)', category: 'Prüfung', icon: TrendingDown, action: () => onNavigate('ihk_burndown_lab') },
+    { id: 'view-linux-cow-snapshot', title: 'Linux Btrfs / ZFS Copy-on-Write & Snapshot Sandbox (Extents & Scrub)', category: 'Labs & Tools', icon: HardDrive, action: () => onNavigate('linux_cow_snapshot_lab') },
+    { id: 'view-openapi-contract', title: 'OpenAPI 3.1 & JSON-Schema Contract Testing Studio (Breaking Changes)', category: 'Labs & Tools', icon: FileCode, action: () => onNavigate('openapi_contract_lab') },
     { id: 'view-docker-orchestrator', title: 'Docker Compose Multi-Container Orchestrator (DAG & Network Isolation)', category: 'Labs & Tools', icon: Layers, action: () => onNavigate('docker_compose_lab') },
     { id: 'view-linux-memory', title: 'Linux Virtual Memory & Page Fault Studio (TLB & OOM Score)', category: 'Labs & Tools', icon: Cpu, action: () => onNavigate('linux_memory_lab') },
     { id: 'view-postgres-pool', title: 'PostgreSQL Connection Pooling & SQL Isolation Studio (PgBouncer)', category: 'Labs & Tools', icon: Database, action: () => onNavigate('postgres_pool_lab') },

@@ -221,6 +221,11 @@ const TlsReplayLab = lazy(() => import('./components/Content/TlsReplayLab'));
 const IhkRiskAnalysisLab = lazy(() => import('./components/Content/IhkRiskAnalysisLab'));
 const EbpfCiliumLab = lazy(() => import('./components/Content/EbpfCiliumLab'));
 const PostgresIndexTypesLab = lazy(() => import('./components/Content/PostgresIndexTypesLab'));
+// v3.36.0 DNSSEC, IHK Burndown, Linux Btrfs CoW & OpenAPI Contract
+const DnssecValidationLab = lazy(() => import('./components/Content/DnssecValidationLab'));
+const IhkAgileBurndownLab = lazy(() => import('./components/Content/IhkAgileBurndownLab'));
+const LinuxCowSnapshotLab = lazy(() => import('./components/Content/LinuxCowSnapshotLab'));
+const OpenApiContractLab = lazy(() => import('./components/Content/OpenApiContractLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -1334,6 +1339,34 @@ export default function App() {
             {(activeTab === 'postgres_index_types_lab' || activeTab === 'postgres_index_types' || activeTab === 'postgres_index_lab') && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <PostgresIndexTypesLab onRewardXP={(xp) => awardXP(xp, 'postgres_index_master')} />
+              </Suspense>
+            )}
+
+            {/* DNSSEC CRYPTOGRAPHIC CHAIN OF TRUST & RRSIG */}
+            {(activeTab === 'dnssec_validation_lab' || activeTab === 'dnssec_validation' || activeTab === 'dnssec_lab') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <DnssecValidationLab onRewardXP={(xp) => awardXP(xp, 'dnssec_master')} />
+              </Suspense>
+            )}
+
+            {/* IHK AGILE VS. WATERFALL & BURNDOWN STUDIO */}
+            {(activeTab === 'ihk_burndown_lab' || activeTab === 'ihk_burndown' || activeTab === 'agile_burndown_lab') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <IhkAgileBurndownLab onRewardXP={(xp) => awardXP(xp, 'ihk_burndown_master')} />
+              </Suspense>
+            )}
+
+            {/* LINUX BTRFS / ZFS COW & SNAPSHOT SANDBOX */}
+            {(activeTab === 'linux_cow_snapshot_lab' || activeTab === 'linux_cow_snapshot' || activeTab === 'btrfs_cow_lab') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <LinuxCowSnapshotLab onRewardXP={(xp) => awardXP(xp, 'linux_cow_master')} />
+              </Suspense>
+            )}
+
+            {/* OPENAPI 3.1 & JSON-SCHEMA CONTRACT TESTING */}
+            {(activeTab === 'openapi_contract_lab' || activeTab === 'openapi_contract' || activeTab === 'openapi_lab') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <OpenApiContractLab onRewardXP={(xp) => awardXP(xp, 'openapi_contract_master')} />
               </Suspense>
             )}
 

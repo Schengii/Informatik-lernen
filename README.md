@@ -1,12 +1,12 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), TLS 1.3 0-RTT Replay Attack & Anti-Replay Studio (RFC 8446 Early Data), IHK Risikoanalyse & 5x5 Risikomatrix (DIN EN 31010 / FMEA für AP2), eBPF Cilium Service Mesh & L7 Tracing Sandbox, PostgreSQL Index Types Deep Dive (B-Tree, GIN, GiST, BRIN), IHK Wirtschaftlichkeits-, Amortisations- & Make-or-Buy Rechner (AP2 Doku-Modul), Web Crypto API & FIDO2 Passkey Studio (WebAuthn), Linux Systemd Unit Lifecycle & Cgroups v2 Sandbox, WebAssembly 128-Bit SIMD & Sobel Convolution Matrix Studio, IHK Projekt-Gantt & Meilenstein-Editor (AP2 Zeitplanung 80h FIAE / 40h FISI), HTTP/3 & QUIC Protocol Inspector & UDP Packet Loss Recovery Simulator, IndexedDB Store Hydration & Redundanter Persistenz-Layer, IHK Präsentations-Stoppuhr & Folien-Gliederung (15 Min AP2 Teil A), Docker Compose Multi-Container Orchestrator (DAG & Network Isolation), Dynamic CI/CD GitHub Actions Workflow Simulator, Offline IndexedDB Storage Synchronizer, IHK Fachgespräch & Audio-Prüfungssimulator (Web Speech STT/TTS), Ansible Playbook & Idempotenz Studio, Web Worker & Hintergrund-Performance Concurrency Studio, IHK DIN 69900 CPM Netzplantechnik, OMG UML 2.5 Studio, Terraform & OpenTofu IaC Studio, IHK Nutzwertanalyse Studio (NWA), RAID Storage & Paritäts-Rechner, VLSM Subnet Splitter, IHK Projektantrags-Prüfer, OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer, Relationalem ERD Designer & 1NF–3NF Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer, Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), DNSSEC Cryptographic Chain of Trust & RRSIG Validation Studio (RFC 4035), IHK Agile vs. Waterfall & Burndown Studio (AP2 Teil A), Linux Btrfs / ZFS Copy-on-Write & Snapshot Sandbox, OpenAPI 3.1 & JSON-Schema Contract Testing Studio, TLS 1.3 0-RTT Replay Attack & Anti-Replay Studio (RFC 8446 Early Data), IHK Risikoanalyse & 5x5 Risikomatrix (DIN EN 31010 / FMEA für AP2), eBPF Cilium Service Mesh & L7 Tracing Sandbox, PostgreSQL Index Types Deep Dive (B-Tree, GIN, GiST, BRIN), IHK Wirtschaftlichkeits-, Amortisations- & Make-or-Buy Rechner (AP2 Doku-Modul), Web Crypto API & FIDO2 Passkey Studio (WebAuthn), Linux Systemd Unit Lifecycle & Cgroups v2 Sandbox, WebAssembly 128-Bit SIMD & Sobel Convolution Matrix Studio, IHK Projekt-Gantt & Meilenstein-Editor (AP2 Zeitplanung 80h FIAE / 40h FISI), HTTP/3 & QUIC Protocol Inspector & UDP Packet Loss Recovery Simulator, IndexedDB Store Hydration & Redundanter Persistenz-Layer, IHK Präsentations-Stoppuhr & Folien-Gliederung (15 Min AP2 Teil A), Docker Compose Multi-Container Orchestrator (DAG & Network Isolation), Dynamic CI/CD GitHub Actions Workflow Simulator, Offline IndexedDB Storage Synchronizer, IHK Fachgespräch & Audio-Prüfungssimulator (Web Speech STT/TTS), Ansible Playbook & Idempotenz Studio, Web Worker & Hintergrund-Performance Concurrency Studio, IHK DIN 69900 CPM Netzplantechnik, OMG UML 2.5 Studio, Terraform & OpenTofu IaC Studio, IHK Nutzwertanalyse Studio (NWA), RAID Storage & Paritäts-Rechner, VLSM Subnet Splitter, IHK Projektantrags-Prüfer, OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer, Relationalem ERD Designer & 1NF–3NF Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer, Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.35.0)](#-hauptfunktionen--neue-features-v3350-tls-13-0-rtt-replay-ihk-risikoanalyse-ebpf-cilium--postgres-index-types-edition)
+- [Hauptfunktionen & Neue Features (v3.36.0)](#-hauptfunktionen--neue-features-v3360-dnssec-ihk-burndown-linux-btrfs-cow--openapi-contract-edition)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -25,6 +25,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Einsteiger-Kurs (`AnfaengerGuideHub.jsx`)**: Lernen ohne jegliche Vorkenntnisse.
    - Grundlagen leicht verständlich erklärt: **EVA-Prinzip**, **CPU-Gehirn** (ALU, Steuerwerk, Register), **Binärsystem & Bytes**, **Internet & DNS**.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI/DP/DVS, IT-Systemelektroniker, Kaufleute IT-Systemmanagement)**:
+   - **IHK Agile vs. Waterfall & Burndown Studio (`IhkAgileBurndownLab.jsx` & `ihkAgileBurndownEngine.js`)**: Praxisorientierter Vorgehensmodell-Entscheider für den IHK-Projektantrag und die Dokumentation (AP2 Teil A). Dynamische Sprint-Burndown-Kurve (Ideal-Linie vs. Ist-Verlauf), Story-Point-Velocity-Berechnung, Scope-Creep-Simulation, Kanban WIP-Bottleneck-Prüfung und 1-Klick IHK-Begründungstext-Generator für hybride Entwicklung nach AO 2020.
    - **IHK Risikoanalyse & 5x5 Risikomatrix Studio (`IhkRiskAnalysisLab.jsx` & `ihkRiskAnalysisEngine.js`)**: DIN EN 31010 / FMEA Standard für die IHK-Abschlussarbeit (AP2 Teil A Pflichtkapitel). Quantifizierung von Eintrittswahrscheinlichkeit ($W \in [1, 5]$) und Schadensausmaß ($S \in [1, 5]$) zur Risikoprioritätszahl ($RPZ \in [1, 25]$), 5x5 Ampel-Matrix, Handlungsstrategien (Vermeidung, Minderung, Übertragung, Akzeptanz) und 1-Klick Markdown-Export für den Projektbericht.
    - **IHK Wirtschaftlichkeits-, Amortisations- & Make-or-Buy Rechner (`IhkWirtschaftlichkeitLab.jsx` & `ihkWirtschaftlichkeitEngine.js`)**: Praxisorientiertes Pflicht-Kalkulationsmodul für die IHK-Projektdokumentation (AP2 Teil A) mit statischer & dynamischer Amortisationsrechnung (Break-Even in Monaten), vollständiger Make-or-Buy Gegenüberstellung (interne Entwicklungskosten vs. SaaS-Lizenzierung über $N$ Jahre), Kostenvergleichs-Matrix (Alt vs. Neu) und 1-Klick IHK-Dokumentations-Markdown-Export.
    - **IHK Projekt-Gantt & Meilenstein-Editor (`IhkProjectGanttLab.jsx` & `ihkProjectGanttEngine.js`)**: Offizielles Zeit- und Phasenplanungs-Studio für den IHK-Abschlussbericht und Projektantrag (AP2 Teil A) mit Profilen für FIAE (80h) und FISI (40h), Kalender-Gantt-Berechnung ohne Wochenenden, Realisierungs- & Dokumentations-Grenzwertprüfungen und Markdown-Export.
@@ -49,6 +50,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Developer Notizbuch & Vault (`PersonalNotebookLab.jsx` & `indexedDbStorage.js`)**: Persönliches Markdown-Notizbuch mit asynchroner IndexedDB-Synchronisation, Tag-Suche, LocalStorage Auto-Save und `.md`-Export.
    - Detaillierte IHK-Berufsschul Lernfelder (LF 1 bis LF 12b), **Handelskalkulationen**, **Deckungsbeitragsrechnung & Break-Even-Point**, **Netzplantechnik (CPM)**, **WISO-Arbeitsrecht** und druckfertige **A4 PDF-Spickzettel**.
 3. **🚀 Junior Developer & Systemintegratoren**:
+   - **OpenAPI 3.1 & JSON-Schema Contract Testing Studio (`OpenApiContractLab.jsx` & `openApiContractEngine.js`)**: Moderne REST-API Vertragsspezifikation und Validierung. Echtzeit-Validierung gegen JSON Schema 2020-12, Erkennung von Breaking Changes (entfernte Endpunkte/Felder, geänderte Typen), automatischer TypeScript DTO Interface Generator und Test-Mock-Payloads.
    - **eBPF Cilium Service Mesh & L7 Tracing Sandbox (`EbpfCiliumLab.jsx` & `ebpfCiliumEngine.js`)**: Sidecarless Cloud-Native Service-to-Service Kommunikation. Linux Kernel Socket-Bypass via `sock_ops` und `sk_msg` Sockmap Redirection, Umgehung von TCP/IP & iptables, Latenz-Speedup von $\sim 4\times$ gegenüber Envoy Sidecars, Einsparung von 65MB RAM pro Pod und L7 HTTP/gRPC Tracing direkt im Kernel.
    - **Linux Systemd Unit Lifecycle & Cgroups v2 Sandbox (`SystemdServiceLab.jsx` & `systemdServiceEngine.js`)**: Vollständiger Linux Service Daemon Simulator mit Unit-Lifecycle (`active`, `activating`, `deactivating`, `failed`), Restart-Policies (`always`, `on-failure`), Cgroups v2 Ressourcen-Limitierung (`CPUQuota=50%`, `MemoryMax=512M`), OOM-Killer Trigger und interaktivem `systemctl` & `journalctl` Terminal-Log-Viewer.
    - **Docker Compose Multi-Container Orchestrator (`DockerComposeLab.jsx` & `dockerComposeEngine.js`)**: Topologische DAG-Startreihenfolge (`depends_on`), Bridge-Netzwerk-Isolation mit Ping-Simulator, persistente Docker-Volumes und Compose 3.8 YAML Generator.
@@ -57,6 +59,8 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Transformer Attention & LLM Playground (`TransformerAttentionLab.jsx` & `transformerAttentionEngine.js`)**: Scaled Dot-Product Self-Attention Heatmap, Temperature / Top-P / Top-K Token Sampling und autonome AI-Agenten ReAct-Loops.
    - **GraphQL Schema & Query Explorer (`GraphqlExplorerStudioLab.jsx`)**, **RegEx Railroad Visualizer**, **Webhook Inspector**, **Git 3-Way Merge Conflict Resolver**, **Custom Challenge Creator**, **SQLite WASM Studio** und **Live Coding Challenge Studio**.
 4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
+   - **DNSSEC Cryptographic Chain of Trust & RRSIG Validation Studio (`DnssecValidationLab.jsx` & `dnssecValidationEngine.js`)**: End-to-End Vertrauenskette von der ICANN Root Zone (`.`) über TLDs (`.de`) bis zur Domain (`example.de`). KSK/ZSK Schlüsseltrennung, SHA-256 DS-Record Hashing, RRSIG Signaturprüfung, NSEC3 Authenticated Denial of Existence gegen Zone Walking und Simulation der Kaminsky DNS Cache Poisoning Abwehr.
+   - **Linux Btrfs / ZFS Copy-on-Write (CoW) & Snapshot Sandbox (`LinuxCowSnapshotLab.jsx` & `linuxCowSnapshotEngine.js`)**: Extent-B-Trees, geteilte physische Disk-Blöcke (Refcounts), atomare 0-Byte-Snapshots in Millisekunden, Write-Delta-Allokationen, Instant Rollbacks und Bit-Rot Self-Healing Scrubbing via CRC32C/Blake2b Prüfsummen.
    - **TLS 1.3 0-RTT Replay Attack & Anti-Replay Studio (`TlsReplayLab.jsx` & `tlsReplayEngine.js`)**: RFC 8446 Early Data Sicherheit. Interaktive Demonstration von Replay-Angriffen auf abgefangene 0-RTT HTTP-Requests (Geldüberweisung / POST), Gegenüberstellung idempotenter vs. nicht-idempotenter APIs sowie 3 serverseitige Abwehrmechanismen: Single-Use Ticket-Invalidierung, Client Timestamp Drift-Fenster und Server Strike-Register (Bloom-Filter Hash-Set) inklusive Audit-Linter.
    - **PostgreSQL Index Types Deep Dive (B-Tree, GIN, GiST, BRIN) (`PostgresIndexTypesLab.jsx` & `postgresIndexTypesEngine.js`)**: Interaktiver Performance- und Speicher-Vergleich relationaler Indexstrukturen. B-Tree (Allrounder $O(\log N)$), GIN (Invertierter Index für Volltext und JSONB `@>`), GiST (Mehrdimensionale Geodaten & Ranges `&&`) und BRIN (Block Range Index für Millionen zeitbasierter Datensätze mit $<1\%$ Speicherbedarf eines B-Trees) inklusive automatischem Index-Advisor.
    - **Web Crypto API & Hardware Token Studio (FIDO2 / WebAuthn & Passkeys) (`WebAuthnPasskeyLab.jsx` & `webAuthnEngine.js`)**: Passwortlose Authentifizierung nach W3C WebAuthn Level 3 und FIDO2 Standard mit Hardware-Sicherheitsschlüsseln (YubiKey / Touch ID / Windows Hello), Public-Key Kryptographie (ES256 / RS256), Authenticator Data Flag-Dekodierung (UP, UV, BE, BS) und Replay-Schutz via kryptografischen Challenges.
@@ -66,7 +70,53 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## ✨ Hauptfunktionen & Neue Features (v3.35.0: TLS 1.3 0-RTT Replay, IHK Risikoanalyse, eBPF Cilium & Postgres Index Types Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.36.0: DNSSEC, IHK Burndown, Linux Btrfs CoW & OpenAPI Contract Edition)
+
+* **🌐 DNSSEC Cryptographic Chain of Trust & RRSIG Validation Studio (`DnssecValidationLab.jsx` & `src/utils/dnssecValidationEngine.js`)**:
+  * Vollständige Validierung der hierarchischen Vertrauenskette nach RFC 4033, 4034 und 4035:
+    * **Root Zone (.)**: KSK (Key Signing Key) als lokaler Trust Anchor des Resolvers.
+    * **TLD Zone (.de)**: DS-Record (Delegation Signer) mit kryptografischem SHA-256 Digest-Match auf den Root-Schlüssel.
+    * **Domain Zone (example.de)**: Parent DS verifiziert Domain-KSK, KSK signiert den Zone Signing Key (ZSK), und ZSK signiert die Nutzdaten-RRsets (A-Records) mittels `RRSIG`.
+  * **Interaktive Fehler- & Angriffs-Injektion**:
+    * Manipulierter DS-Hash im Parent -> Kette bricht ab, Status wechselt sofort auf `BOGUS` (`SERVFAIL`).
+    * Kompromittierte ZSK-Signatur oder abgelaufene RRSIG-Gültigkeitsdauer (`expiration`) -> Replay-Angriffe und gefälschte IP-Adressen werden blockiert.
+  * **NSEC3 Authenticated Denial of Existence Simulator (RFC 5155)**:
+    * Beweist kryptografisch Nichtexistenz (`NXDOMAIN`), indem angefragte Subdomains in gehashte, gesalzene Intervalle eingeordnet werden – ohne Namen im Klartext preiszugeben (Schutz vor Dictionary- und Zone-Walking-Angriffen).
+  * **Dan Kaminsky DNS Cache Poisoning Sandbox (2008)**:
+    * Interaktiver Direktvergleich: Ohne DNSSEC führt das Erraten der 16-Bit Transaction ID zur Cache-Vergiftung und Nutzerumleitung; mit DNSSEC verwirft der Resolver unsignierte Spoofing-Pakete automatisch inklusive 65 XP Belohnung.
+* **📈 IHK Agile vs. Waterfall & Burndown Studio (`IhkAgileBurndownLab.jsx` & `src/utils/ihkAgileBurndownEngine.js`)**:
+  * Offizielles Methoden- und Controlling-Studio für die IHK-Abschlussprüfung Teil 2 (AP2 Teil A Pflichtthema).
+  * **Sprint Burndown Chart (Ideal vs. Ist)**:
+    * Dynamisches SVG-Diagramm mit linearer Ideallinie und tatsächlicher Punkteentwicklung über 5 bis 15 Arbeitstage.
+    * **Velocity-Messung**: Ermittelt die Team-Geschwindigkeit (Story Points / Tag) und prognostiziert die Erreichbarkeit des Sprint-Ziels.
+    * **Scope-Creep Simulation**: Injektion ungeplanter Anforderungen zur Laufzeit und deren visuelle Auswirkung auf den Restaufwand.
+  * **IHK-Vorgehensmodell-Entscheider & Vergleichsmatrix**:
+    * Systematische Gegenüberstellung von Wasserfall (klassisch), Scrum (agil) und dem **hybriden Vorgehensmodell** (IHK-Best-Practice nach AO 2020: starre Phasen für Analyse/Doku, agile Sprints im Entwicklungskern).
+  * **1-Klick IHK-Begründungstext-Generator**:
+    * Erzeugt prüfungskonforme Markdown-Begründungen für Projektantrag und Dokumentation (differenziert nach FIAE 80h und FISI 40h).
+  * **Kanban WIP Bottleneck Inspector**:
+    * Visuelle Spaltenüberwachung mit Work-in-Progress Limits nach Little's Law, Warnung bei Überlastung und Handlungsempfehlungen inklusive 60 XP Belohnung.
+* **💾 Linux Btrfs / ZFS Copy-on-Write & Snapshot Sandbox (`LinuxCowSnapshotLab.jsx` & `src/utils/linuxCowSnapshotEngine.js`)**:
+  * Tiefgehende Simulation moderner CoW-Dateisysteme auf Block- und Extent-Ebene.
+  * **Geteilte physische Blöcke & Refcounts**:
+    * Atomare Snapshot-Erstellung (`btrfs subvolume snapshot -r @root @snap-1`) in Millisekunden mit **0 zusätzlichen physischen Bytes** auf der SSD.
+  * **Copy-on-Write Write-Deltas**:
+    * Beim Ändern einer Datei (`/etc/systemd.conf`) wird der physische Sektor nicht überschrieben, sondern ein neuer Block alloziert.
+    * Der aktive Subvolume-Pointer wechselt auf den neuen Block, während der Snapshot unverändert auf den alten Block zeigt.
+  * **Instant Snapshot Rollback**:
+    * Blitzschnelle Wiederherstellung von Systemzuständen ohne Gigabyte-Kopiervorgänge.
+  * **Bit-Rot & Self-Healing Scrubbing**:
+    * Simulation stiller Datenkorruption (Hardware Bit-Flips).
+    * `btrfs scrub start`: Erkennt Checksummen-Fehler (CRC32C / Blake2b) und repariert beschädigte Blöcke automatisch aus intakten DUP/Mirror-Kopien inklusive 70 XP Belohnung.
+* **📑 OpenAPI 3.1 & JSON-Schema Contract Testing Studio (`OpenApiContractLab.jsx` & `src/utils/openApiContractEngine.js`)**:
+  * Vollständiges REST-API Spezifikations- und Validierungs-Studio nach OpenAPI 3.1 und JSON Schema 2020-12.
+  * **Live Contract Validator**:
+    * Interaktiver JSON-Payload-Editor zur Echtzeitprüfung gegen OpenAPI Schemas (`type`, `required`, `minimum`, `minLength`, `format: 'email'`, `enum`).
+    * Detaillierte Fehleraufschlüsselung bei Schnittstellenverletzungen (HTTP 422).
+  * **Breaking Change Detector (v1.0 vs. v2.0)**:
+    * Automatisierte Erkennung abwärtsinkompatibler Änderungen (neue Pflichtfelder im Request, entfernte Response-Felder, geänderte Datentypen, gelöschte Endpunkte) vs. sichere Erweiterungen (optionale Felder).
+  * **Code- & Mock-Generator**:
+    * 1-Klick Export von typsicheren **TypeScript DTO Interfaces** und realistischen JSON Test-Mocks inklusive 65 XP Belohnung.
 
 * **🔒 TLS 1.3 0-RTT Replay Attack & Anti-Replay Studio (`TlsReplayLab.jsx` & `src/utils/tlsReplayEngine.js`)**:
   * Vollständige Simulation von **0-RTT Early Data** nach RFC 8446 zur Latenz-Optimierung bei wiederholten Verbindungen.
@@ -315,6 +365,7 @@ Informatik-lernen/
     │   │   ├── DeploymentGuideModal.jsx
     │   │   ├── DesignPatternsLab.jsx
     │   │   ├── DnsHttpLifecycleLab.jsx
+    │   │   ├── DnssecValidationLab.jsx
     │   │   ├── DockerComposeLab.jsx
     │   │   ├── DockerLab.jsx
     │   │   ├── EbpfCiliumLab.jsx
@@ -333,6 +384,7 @@ Informatik-lernen/
     │   │   ├── GrpcProtobufLab.jsx
     │   │   ├── Http3QuicLab.jsx
     │   │   ├── Ieee754FloatingPointLab.jsx
+    │   │   ├── IhkAgileBurndownLab.jsx
     │   │   ├── IhkCheatSheetPdfGenerator.jsx
     │   │   ├── IhkGradeCalculatorLab.jsx
     │   │   ├── IhkOralDefenseStudioLab.jsx
@@ -359,6 +411,7 @@ Informatik-lernen/
     │   │   ├── LinuxPermissionsLab.jsx
     │   │   ├── LinuxBridgeVxlanLab.jsx
     │   │   ├── LinuxContainerLab.jsx
+    │   │   ├── LinuxCowSnapshotLab.jsx
     │   │   ├── LinuxMemoryLab.jsx
     │   │   ├── LiveCodingChallengeStudio.jsx
     │   │   ├── MonacoStudioLab.jsx
@@ -367,6 +420,7 @@ Informatik-lernen/
     │   │   ├── OauthOidcLab.jsx
     │   │   ├── OauthPkceStudio.jsx
     │   │   ├── OauthTokenExchangeLab.jsx
+    │   │   ├── OpenApiContractLab.jsx
     │   │   ├── OpentelemetryTracingLab.jsx
     │   │   ├── OsProcessSchedulerLab.jsx
     │   │   ├── OwaspExploitLab.jsx
@@ -538,6 +592,8 @@ Informatik-lernen/
         ├── customChallengesManager.test.js
         ├── dockerComposeEngine.js
         ├── dockerComposeEngine.test.js
+        ├── dnssecValidationEngine.js
+        ├── dnssecValidationEngine.test.js
         ├── ebpfCiliumEngine.js
         ├── ebpfCiliumEngine.test.js
         ├── ebpfXdpEngine.js
@@ -559,6 +615,8 @@ Informatik-lernen/
         ├── i18n.js
         ├── ieee754.js
         ├── ieee754.test.js
+        ├── ihkAgileBurndownEngine.js
+        ├── ihkAgileBurndownEngine.test.js
         ├── ihkGradeCalculations.js
         ├── ihkGradeCalculations.test.js
         ├── ihkOralDefenseEngine.js
@@ -587,12 +645,16 @@ Informatik-lernen/
         ├── linuxBridgeVxlanEngine.test.js
         ├── linuxContainerEngine.js
         ├── linuxContainerEngine.test.js
+        ├── linuxCowSnapshotEngine.js
+        ├── linuxCowSnapshotEngine.test.js
         ├── linuxMemoryEngine.js
         ├── linuxMemoryEngine.test.js
         ├── nwaEngine.js
         ├── nwaEngine.test.js
         ├── oauthTokenExchangeEngine.js
         ├── oauthTokenExchangeEngine.test.js
+        ├── openApiContractEngine.js
+        ├── openApiContractEngine.test.js
         ├── opentelemetryTracingEngine.js
         ├── opentelemetryTracingEngine.test.js
         ├── osSchedulerEngine.js
@@ -720,6 +782,16 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.36.0 (DNSSEC Chain of Trust, IHK Burndown, Linux Btrfs CoW & OpenAPI Contract Edition)
+
+- **Neu**: `DnssecValidationLab.jsx` & `src/utils/dnssecValidationEngine.js` — DNSSEC Cryptographic Chain of Trust & RRSIG Validation Studio (RFC 4033, 4034, 4035): End-to-End Vertrauenskette von der ICANN Root Zone (`.`) über TLDs (`.de`) bis zur Domain (`example.de`). KSK/ZSK Schlüsseltrennung (Flags 257/256), SHA-256 DS-Record Hashing im Parent, RRSIG Signaturprüfung über RRsets (A-Records), interaktive Fehlersimulation (korrupter DS-Digest, abgelaufene RRSIG, Spoofing), NSEC3 Authenticated Denial of Existence Simulator (RFC 5155 gehashte & gesalzene Intervalle gegen Zone Walking) und Dan Kaminsky DNS Cache Poisoning Angriffsabwehr mit 65 XP Belohnung.
+- **Neu**: `IhkAgileBurndownLab.jsx` & `src/utils/ihkAgileBurndownEngine.js` — IHK Agile vs. Waterfall & Burndown Studio (AP2 Teil A Projektarbeit & Dokumentation): Offizieller Vorgehensmodell-Entscheider und Controlling-Simulator für IT-Abschlussprojekte nach AO 2020. Dynamisches SVG Sprint Burndown Diagramm (Ideal-Linie vs. Ist-Verlauf über 5–15 Tage), Velocity-Messung (Story Points pro Tag), interaktive Scope-Creep Simulation, Kanban WIP (Work-in-Progress) Bottleneck Analyzer nach Little's Law, Vergleichsmatrix (Wasserfall vs. Scrum vs. Hybrides Modell) und 1-Klick IHK-Begründungstext-Generator für den Projektantrag mit 60 XP Belohnung.
+- **Neu**: `LinuxCowSnapshotLab.jsx` & `src/utils/linuxCowSnapshotEngine.js` — Linux Btrfs / ZFS Copy-on-Write (CoW) & Snapshot Sandbox: Extent-B-Tree und Block-Level Storage Simulator für moderne Linux-Dateisysteme. Geteilte physische Disk-Blöcke (Refcounts), atomare 0-Byte-Snapshots (`btrfs subvolume snapshot -r @root @snap`) in Millisekunden ohne zusätzliche SSD-Belegung, Write-Delta-Allokationen (Änderungen schreiben immer auf neue freie Blöcke), Instant Snapshot Rollbacks, Terminal CLI Emulator und Bit-Rot Self-Healing Scrubbing (`btrfs scrub start`) zur Reparatur stiller Datenkorruption via Prüfsummen mit 70 XP Belohnung.
+- **Neu**: `OpenApiContractLab.jsx` & `src/utils/openApiContractEngine.js` — OpenAPI 3.1 & JSON-Schema Contract Testing Studio: REST-API Vertragsspezifikation und Validierungs-Studio nach OpenAPI 3.1 und JSON Schema 2020-12. Interaktiver Live Contract Validator mit Schema-Fehler-Audit (HTTP 422), semantischer Breaking Change Detector (v1 vs. v2) zur Warnung vor rückwärtsinkompatiblen Schnittstellenänderungen, 1-Klick TypeScript DTO Interface Generator und automatischer Test-Mock Payload Generator mit 65 XP Belohnung.
+- **Routing & Navigation**: Vollständige Integration aller neuen Labs in `App.jsx` (inklusive Lazy-Routen `dnssec_validation_lab`, `ihk_burndown_lab`, `linux_cow_snapshot_lab`, `openapi_contract_lab`), `CommandPaletteModal.jsx` (neue Shortcuts mit `Globe`, `TrendingDown`, `HardDrive` und `FileCode` Icons) und `LabsDashboard.jsx`.
+- **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für alle 4 neuen Module erweitert (29/29 Komponenten-Integrations-Tests grün).
+- **Test-Suite & Qualität**: **349 bestandene Unit-Tests** in **100 Test-Dateien** mit 100% Erfolgsquote (vorher 328/96). **0 Linter-Fehler / 0 Warnungen** in Oxlint über 428 Dateien und blitzschneller PWA Produktions-Build in 776ms.
 
 ### Version 3.35.0 (TLS 1.3 0-RTT Replay, IHK Risikoanalyse, eBPF Cilium & Postgres Index Types Edition)
 

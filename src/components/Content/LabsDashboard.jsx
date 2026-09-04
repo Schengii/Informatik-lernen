@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key, Lock, AlertTriangle } from 'lucide-react';
+import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key, Lock, AlertTriangle, Globe, TrendingDown, HardDrive, FileCode } from 'lucide-react';
 
 export const LAB_MODULES = [
   {
@@ -232,6 +232,50 @@ export const LAB_MODULES = [
     icon: Database,
     badge: 'Neu',
     color: '#3b82f6'
+  },
+  {
+    id: 'dnssec_validation_lab',
+    title: 'DNSSEC Chain of Trust & RRSIG Studio',
+    category: 'security',
+    tags: ['#DNSSEC', '#RRSIG', '#NSEC3', '#Kaminsky', '#ChainOfTrust', '#RFC4035'],
+    difficulty: 'Advanced',
+    desc: 'Hierarchische Validierung vom Root-Anker über TLDs, NSEC3 Denial-of-Existence und Kaminsky-Abwehr.',
+    icon: Globe,
+    badge: 'Neu',
+    color: '#10b981'
+  },
+  {
+    id: 'ihk_burndown_lab',
+    title: 'IHK Agile vs. Waterfall & Burndown Studio',
+    category: 'ihk',
+    tags: ['#Burndown', '#Scrum', '#Wasserfall', '#Velocity', '#Kanban', '#AP2', '#IHK'],
+    difficulty: 'Intermediate',
+    desc: 'Sprint-Burndown Chart (Ideal vs. Ist), Scope-Creep, WIP-Bottlenecks und IHK-Begründungsgenerator.',
+    icon: TrendingDown,
+    badge: 'IHK Neu',
+    color: '#6366f1'
+  },
+  {
+    id: 'linux_cow_snapshot_lab',
+    title: 'Linux Btrfs/ZFS Copy-on-Write Sandbox',
+    category: 'hardware',
+    tags: ['#Btrfs', '#ZFS', '#CopyOnWrite', '#Snapshots', '#Extents', '#BitRot', '#Scrub'],
+    difficulty: 'Advanced',
+    desc: 'Block-Level Refcounts, atomare 0-Byte-Snapshots, Write-Deltas, Rollbacks und Bit-Rot Self-Healing.',
+    icon: HardDrive,
+    badge: 'FISI Neu',
+    color: '#06b6d4'
+  },
+  {
+    id: 'openapi_contract_lab',
+    title: 'OpenAPI 3.1 & JSON-Schema Contract Testing',
+    category: 'code',
+    tags: ['#OpenAPI31', '#JSONSchema', '#ContractTesting', '#BreakingChanges', '#TypeScript', '#REST'],
+    difficulty: 'Intermediate',
+    desc: 'Echtzeit-Payload-Validierung gegen JSON Schema 2020-12, Breaking Change Erkennung und DTO-Export.',
+    icon: FileCode,
+    badge: 'Neu',
+    color: '#8b5cf6'
   },
   {
     id: 'scrum_simulator',

@@ -32,6 +32,10 @@ import TlsReplayLab from './Content/TlsReplayLab';
 import IhkRiskAnalysisLab from './Content/IhkRiskAnalysisLab';
 import EbpfCiliumLab from './Content/EbpfCiliumLab';
 import PostgresIndexTypesLab from './Content/PostgresIndexTypesLab';
+import DnssecValidationLab from './Content/DnssecValidationLab';
+import IhkAgileBurndownLab from './Content/IhkAgileBurndownLab';
+import LinuxCowSnapshotLab from './Content/LinuxCowSnapshotLab';
+import OpenApiContractLab from './Content/OpenApiContractLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -238,6 +242,38 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/PostgreSQL Index/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert DnssecValidationLab fehlerfrei', () => {
+    const { container } = render(
+      <DnssecValidationLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/DNSSEC/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert IhkAgileBurndownLab fehlerfrei', () => {
+    const { container } = render(
+      <IhkAgileBurndownLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Burndown/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert LinuxCowSnapshotLab fehlerfrei', () => {
+    const { container } = render(
+      <LinuxCowSnapshotLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Copy-on-Write/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert OpenApiContractLab fehlerfrei', () => {
+    const { container } = render(
+      <OpenApiContractLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/OpenAPI/i).length).toBeGreaterThan(0);
   });
 });
 
