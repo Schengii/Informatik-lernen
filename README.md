@@ -6,7 +6,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.8.0)](#-hauptfunktionen--neue-features-v380-next-gen-engineering-architecture--ihk-power-edition)
+- [Hauptfunktionen & Neue Features (v3.29.0)](#-hauptfunktionen--neue-features-v3290-ihk-flagship-edition-nutzwertanalyse-raid-rechner-vlsm-subnetting--projektantrags-prüfer)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -43,8 +43,16 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v3.8.0 Next-Gen Engineering, Architecture & IHK Power Edition)
+## 🔥 Hauptfunktionen & Neue Features (v3.29.0 IHK Flagship Edition: Nutzwertanalyse, RAID-Rechner, VLSM Subnetting & Projektantrags-Prüfer)
 
+* **📊 IHK Nutzwertanalyse Studio (NWA) (`NwaScoringLab.jsx` & `src/utils/nwaEngine.js`)**:
+  * Offizielle IHK-Entscheidungsmatrix nach DIN / VDI 2225: Gewichtete Punktbewertung (Wichtungen $\sum w_i = 100\%$), Ausschlusskriterien (K.O.-Kriterien), Sensitivitätsanalyse bei Wichtungsverschiebungen und tabellarischer CSV/Text-Export.
+* **💾 RAID Storage & Paritäts-Rechner (`RaidCalculatorLab.jsx` & `src/utils/raidEngine.js`)**:
+  * Simulation von RAID 0, 1, 5, 6, 10 und 50. Berechnung von Netto-Nutzdaten, Paritäts-Overhead, tolerierten Plattenausfällen, Write-Penalty ($4\times$ bei RAID 5, $6\times$ bei RAID 6), Rebuild-Dauer und Unrecoverable Read Error (URE) Wahrscheinlichkeiten ($1 - (1 - 10^{-14})^{\text{Bits}}$) mit visueller Disk-Block-Striping-Matrix.
+* **🌐 VLSM Subnet Splitter & IP-Rechner (`VlsmSubnetLab.jsx` & `src/utils/vlsmEngine.js`)**:
+  * Variable Length Subnet Masking nach IHK FISI / AP1 Standard. Automatische absteigende Host-Sortierung zur kollisionsfreien Vergabe, Berechnung von CIDR-Präfixen, Subnetzmasken, Wildcards, Broadcast-Adressen und Nutzhost-Bereichen mit Binär-Oktett-Darstellung.
+* **📝 IHK Projektantrags-Prüfer (`IhkProjectProposalLab.jsx` & `src/utils/ihkProjectProposalEngine.js`)**:
+  * Automatisierter IHK-Konformitätsprüfer für Abschlussarbeiten nach Berufsordnung (FIAE 80h, FISI 40h, FIDP 40h, FIDV 40h). Phasen- und Zeitbudgets-Validierung (Analyse, Entwurf, Implementierung, QS, Dokumentation), Anti-Pattern-Detektor (z. B. "Installationsarbeiten", fehlende Wirtschaftlichkeitsanalyse) und IHK-Qualitäts-Score (0–100 Punkte).
 * **⏱️ OS Process Scheduler & Deadlock Studio (`OsProcessSchedulerLab.jsx` & `osSchedulerEngine.js`)**:
   * Vollwertige Simulation von FCFS, Shortest Job First (SJF), Round Robin (mit dynamischem Time-Quantum-Slider) und Priority Scheduling.
   * Animiertes Echtzeit-**Gantt-Diagramm** mit automatischer Berechnung von $T_{WT}$ (Wartezeit), $T_{TAT}$ (Turnaround) und CPU-Auslastung.
@@ -102,6 +110,8 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 * **Lese-Rechtschreib-Hilfe (Dyslexie-Modus)**: Spezialschriftart (*Atkinson Hyperlegible*), erweiterter Zeichen- & Zeilenabstand.
 * **Rot-Grün-Sehhilfe (Farbenblindheits-Modus)**: Zusätzliche Icon-Indikatoren (✓ / ✗) und barrierefreie Farbwelten.
+* **Bewegungsreduzierung (Reduced Motion)**: Schnelle Deaktivierung rechenintensiver CSS-Animationen & Transitions für Nutzer mit vestibulären Störungen (`body.reduced-motion` & `@media (prefers-reduced-motion: reduce)`).
+* **WCAG 2.1 Mobile Zoom Compliance**: Volle Barrierefreiheit auf Mobilgeräten ohne blockierende Viewport-Skalierungsbegrenzungen.
 * **Vorlesefunktion (Text-to-Speech)**: Audio-Steuerung zum Vorlesen aller Lerneinheiten.
 * **Schriftgrößen-Skalierung**: Stufenlose Anpassung (A- / 100% / A+).
 * **100% DSGVO-konform**: Keine Tracking-Cookies, alle Daten verbleiben rein lokal im `localStorage`.
@@ -114,8 +124,10 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 Informatik-lernen/
 ├── .agents/
 │   └── AGENTS.md
+├── .claudeignore
 ├── .gitignore
 ├── .oxlintrc.json
+├── CLAUDE.md
 ├── index.html
 ├── package.json
 ├── package-lock.json
@@ -129,6 +141,7 @@ Informatik-lernen/
     ├── App.jsx
     ├── main.jsx
     ├── components/
+    │   ├── componentsIntegrity.test.jsx
     │   ├── Content/
     │   │   ├── AgileScrumSimulatorLab.jsx
     │   │   ├── AiBusinessMasterclass.jsx
@@ -160,6 +173,7 @@ Informatik-lernen/
     │   │   ├── CryptoKeygenLab.jsx
     │   │   ├── CtfChallengeLab.jsx
     │   │   ├── CustomChallengeCreatorLab.jsx
+    │   │   ├── DashboardQuickAccessGrid.jsx
     │   │   ├── DataStructuresLab.jsx
     │   │   ├── DeploymentGuideModal.jsx
     │   │   ├── DesignPatternsLab.jsx
@@ -184,6 +198,7 @@ Informatik-lernen/
     │   │   ├── IhkGradeCalculatorLab.jsx
     │   │   ├── IhkOralExamSimulator.jsx
     │   │   ├── IhkProjectDocumentationGenerator.jsx
+    │   │   ├── IhkProjectProposalLab.jsx
     │   │   ├── Ipv6RoutingLab.jsx
     │   │   ├── ItPodcastHub.jsx
     │   │   ├── ItsmSimulatorLab.jsx
@@ -204,6 +219,7 @@ Informatik-lernen/
     │   │   ├── LiveCodingChallengeStudio.jsx
     │   │   ├── MonacoStudioLab.jsx
     │   │   ├── NeuralNetVisualizerLab.jsx
+    │   │   ├── NwaScoringLab.jsx
     │   │   ├── OauthOidcLab.jsx
     │   │   ├── OauthPkceStudio.jsx
     │   │   ├── OauthTokenExchangeLab.jsx
@@ -225,6 +241,7 @@ Informatik-lernen/
     │   │   ├── PromqlAlertLab.jsx
     │   │   ├── PythonWasmLab.jsx
     │   │   ├── RackConfiguratorLab.jsx
+    │   │   ├── RaidCalculatorLab.jsx
     │   │   ├── RagAiSimulator.jsx
     │   │   ├── RedBlueTeamLab.jsx
     │   │   ├── RedisCachingLab.jsx
@@ -244,6 +261,7 @@ Informatik-lernen/
     │   │   ├── TopicReader.jsx
     │   │   ├── TransformerAttentionLab.jsx
     │   │   ├── VectorSearchLab.jsx
+    │   │   ├── VlsmSubnetLab.jsx
     │   │   ├── VideoHub.jsx
     │   │   ├── VocabularyTrainerModal.jsx
     │   │   ├── VoiceQuizStudioLab.jsx
@@ -378,6 +396,8 @@ Informatik-lernen/
         ├── ieee754.test.js
         ├── ihkGradeCalculations.js
         ├── ihkGradeCalculations.test.js
+        ├── ihkProjectProposalEngine.js
+        ├── ihkProjectProposalEngine.test.js
         ├── ipv6Routing.js
         ├── ipv6Routing.test.js
         ├── itsmEngine.js
@@ -390,6 +410,8 @@ Informatik-lernen/
         ├── linuxContainerEngine.test.js
         ├── linuxMemoryEngine.js
         ├── linuxMemoryEngine.test.js
+        ├── nwaEngine.js
+        ├── nwaEngine.test.js
         ├── oauthTokenExchangeEngine.js
         ├── oauthTokenExchangeEngine.test.js
         ├── opentelemetryTracingEngine.js
@@ -414,6 +436,8 @@ Informatik-lernen/
         ├── promqlAlertEngine.test.js
         ├── rackCalculations.js
         ├── rackCalculations.test.js
+        ├── raidEngine.js
+        ├── raidEngine.test.js
         ├── regexParserEngine.js
         ├── regexParserEngine.test.js
         ├── scrumEngine.js
@@ -438,6 +462,8 @@ Informatik-lernen/
         ├── webhookSimulator.test.js
         ├── webrtcSfuEngine.js
         ├── webrtcSfuEngine.test.js
+        ├── vlsmEngine.js
+        ├── vlsmEngine.test.js
         ├── wireguardZtnaEngine.js
         ├── wireguardZtnaEngine.test.js
         ├── wisoAbcXyzEngine.js
@@ -501,6 +527,20 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.29.0 (IHK Flagship Edition: Nutzwertanalyse Studio, RAID Storage Rechner, VLSM Subnet Splitter & Projektantrags-Prüfer)
+
+- **Neu**: `NwaScoringLab.jsx` & `src/utils/nwaEngine.js` — IHK Nutzwertanalyse Studio (NWA): Vollständiges Entscheidungsmatrix-Tool nach DIN/VDI 2225 mit dynamischer Kriterien- und Alternativen-Verwaltung, 100%-Wichtungssummenvalidierung, K.O.-Kriterien-Erkennung, Sensitivitätsanalyse und Markdown/CSV-Zusammenfassung.
+- **Neu**: `RaidCalculatorLab.jsx` & `src/utils/raidEngine.js` — RAID Storage & Paritäts-Rechner: Simulation aller praxisrelevanten RAID-Level (0, 1, 5, 6, 10, 50). Berechnung von Bruttokapazität, Nettodaten, Redundanz-Overhead, tolerierten Festplattenausfällen, Write-Penalty-Faktoren ($4\times$ bei RAID 5, $6\times$ bei RAID 6), Rebuild-Laufzeiten in Stunden und URE-Risikowahrscheinlichkeiten ($1 - (1 - 10^{-14})^{\text{Bits}}$) mit visueller Disk-Block-Matrix.
+- **Neu**: `VlsmSubnetLab.jsx` & `src/utils/vlsmEngine.js` — VLSM Subnet Splitter & IP-Netzwerk-Rechner: Variable Length Subnet Masking nach IHK FISI/AP1 Standard mit automatischer Sortierung nach absteigendem Host-Bedarf, Berechnung von Netzadresse, Subnetzmaske, Wildcard, erstem/letztem Host, Broadcast, Effizienzquoten und detaillierter Binär-Oktett-Darstellung.
+- **Neu**: `IhkProjectProposalLab.jsx` & `src/utils/ihkProjectProposalEngine.js` — IHK Projektantrags-Prüfer: Vollautomatische Prüfung von Anträgen für FIAE (80h), FISI (40h), FIDP (40h) und FIDV (40h). Phasenzeit-Checks (Analyse, Entwurf, Implementierung, QS, Doku), IHK-Qualitäts-Score (0–100), Erkennung typischer IHK-Anti-Patterns (z. B. "Installationsarbeiten", fehlende Wirtschaftlichkeitsbetrachtung) und interaktive Checkliste.
+- **Neu**: `DashboardQuickAccessGrid.jsx` — Modularisierung des Haupt-Dashboards (`App.jsx`), Entkopplung von über 450 Zeilen Code in eine wiederverwendbare Grid-Komponente.
+- **Neu**: Barrierefreiheit & UX: Umschaltbarer `reduced-motion` Modus (`body.reduced-motion` & `@media (prefers-reduced-motion: reduce)`) in `global.css` & `Navbar.jsx`, Behebung mobiler Viewport-Zoom-Blocker in `index.html` nach WCAG 2.1.
+- **Neu**: Algorithmus-Konsolidierung: `src/utils/srsAlgorithm.js` als kanonischer Wrapper auf `src/utils/sm2Algorithm.js` konsolidiert, um Code-Duplikate zu beseitigen.
+- **Neu**: Inhalts-Erweiterung: 15 neue authentische IHK-Prüfungsfragen in `src/data/examData.js`, 10 neue Spaced-Repetition-Karteikarten in `src/data/flashcardsData.js`, 5 neue IT-Fachbegriffe in `src/data/vocabularyData.js`.
+- **Neu**: `CLAUDE.md` & `.claudeignore` Entwickler- und KI-Leitfaden im Projekt-Root.
+- **Routing & Navigation**: Vollständige Verknüpfung in `Navbar.jsx`, `CommandPaletteModal.jsx`, `LabsDashboard.jsx` und `App.jsx`.
+- **Test-Suite & Qualität**: **224 bestandene Unit-Tests** in **75 Test-Dateien** mit 100% Erfolgsquote (vorher 177/63). 0 Linter-Fehler in Oxlint und optimierter Produktions-Build.
 
 ### Version 3.28.0 (Linux Bridge/VXLAN, Postgres Partitioning, IHK Zinsrechnung & Kafka Rebalance Edition)
 

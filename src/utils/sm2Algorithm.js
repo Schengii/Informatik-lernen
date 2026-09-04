@@ -39,7 +39,26 @@ export function calculateSm2NextReview({
     repetitions: newRepetitions,
     interval: newInterval,
     easeFactor: Number(newEaseFactor.toFixed(2)),
-    nextDueDate
+    nextDueDate,
+    dueDate: nextDueDate.split('T')[0]
+  };
+}
+
+/**
+ * SuperMemo-2 (SM-2) Alias für Flashcards Kompatibilität
+ */
+export function calculateSM2({ quality, repetitions = 0, interval = 1, easeFactor = 2.5 }) {
+  const res = calculateSm2NextReview({
+    grade: quality,
+    repetitions,
+    interval,
+    easeFactor
+  });
+  return {
+    repetitions: res.repetitions,
+    interval: res.interval,
+    easeFactor: res.easeFactor,
+    dueDate: res.dueDate
   };
 }
 

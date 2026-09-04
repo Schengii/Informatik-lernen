@@ -1,7 +1,51 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network } from 'lucide-react';
+import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2 } from 'lucide-react';
 
 export const LAB_MODULES = [
+  {
+    id: 'nwa_scoring',
+    title: 'IHK Nutzwertanalyse Studio (NWA)',
+    category: 'ihk',
+    tags: ['#NWA', '#Nutzwertanalyse', '#Entscheidungsmatrix', '#Scoring', '#IHK', '#Projektdoku'],
+    difficulty: 'Intermediate',
+    desc: 'Offizielle Bewertungsmatrix mit Gewichtung, K.O.-Kriterien & IHK-Projektbericht Export.',
+    icon: Award,
+    badge: 'IHK Neu',
+    color: '#4f46e5'
+  },
+  {
+    id: 'raid_calculator',
+    title: 'RAID Storage & Paritäts-Rechner',
+    category: 'hardware',
+    tags: ['#RAID', '#Storage', '#Parität', '#Festplatten', '#Redundanz', '#FISI'],
+    difficulty: 'Intermediate',
+    desc: 'Simuliere RAID 0, 1, 5, 6, 10 & 50. Berechne Kapazitäten, URE-Risiko & Rebuild-Zeiten.',
+    icon: Database,
+    badge: 'IHK Neu',
+    color: '#0d9488'
+  },
+  {
+    id: 'vlsm_subnet',
+    title: 'VLSM Subnet Splitter & IP-Planer',
+    category: 'network',
+    tags: ['#VLSM', '#Subnetting', '#CIDR', '#IPv4', '#Netzwerk', '#FISI'],
+    difficulty: 'Intermediate',
+    desc: 'Hierarchische IPv4-Subnetzaufteilung nach Host-Bedarf ohne Adressraum-Verschwendung.',
+    icon: Network,
+    badge: 'IHK Neu',
+    color: '#d97706'
+  },
+  {
+    id: 'ihk_project_proposal',
+    title: 'IHK Projektantrags-Prüfer & Meilenstein-Planer',
+    category: 'ihk',
+    tags: ['#Projektantrag', '#AO2020', '#FIAE', '#FISI', '#Phasenplanung', '#Checkliste'],
+    difficulty: 'Advanced',
+    desc: 'Stundenprüfung (80h/40h), Phasenverteilung und IHK-Genehmigungs-Checkliste.',
+    icon: Award,
+    badge: 'IHK Neu',
+    color: '#059669'
+  },
   {
     id: 'scrum_simulator',
     title: 'Scrum Sprint & Kanban Simulator',

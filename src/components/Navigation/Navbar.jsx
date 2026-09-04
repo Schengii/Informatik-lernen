@@ -31,6 +31,8 @@ export default function Navbar({
   setIsColorblind,
   isHighContrast,
   setIsHighContrast,
+  isReducedMotion,
+  setIsReducedMotion,
   theme,
   setTheme
 }) {
@@ -72,6 +74,10 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 60+ interaktiven Labs', badge: 'Hub' },
+    { id: 'nwa_scoring', label: '📊 IHK Nutzwertanalyse Studio (NWA)', desc: 'Offizielle Entscheidungsmatrix mit K.O.-Kriterien', badge: 'IHK Neu' },
+    { id: 'raid_calculator', label: '💾 RAID Storage & Paritäts-Rechner', desc: 'RAID 0-50, Kapazitäten, URE & Paritäts-Matrix', badge: 'IHK Neu' },
+    { id: 'vlsm_subnet', label: '🌐 VLSM Subnet Splitter & IP-Planer', desc: 'Hierarchische IPv4-Subnetze ohne Adressverlust', badge: 'IHK Neu' },
+    { id: 'ihk_project_proposal', label: '📋 IHK Projektantrag & Meilenstein-Planer', desc: 'AO 2020 Stundenprüfung (80h/40h) & Checkliste', badge: 'IHK Neu' },
     { id: 'os_scheduler', label: '⏱️ OS Process Scheduler & Deadlock', desc: 'FCFS, SJF, Round Robin & Bankier-Algorithmus', badge: 'Flagship' },
     { id: 'packet_sniffer', label: '📡 Web-Wireshark Packet Sniffer', desc: 'Frame Dissection, Hex Dump & Display Filter', badge: 'Flagship' },
     { id: 'erd_designer', label: '🗄️ Relational ERD & 3NF Normalform-Linter', desc: 'Entity Relationships, 1NF-3NF Audit & SQL DDL', badge: 'Flagship' },
@@ -812,6 +818,11 @@ export default function Navbar({
                     <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer' }}>
                       <span>Hoher Kontrast</span>
                       <input type="checkbox" checked={isHighContrast} onChange={e => setIsHighContrast(e.target.checked)} style={{ cursor: 'pointer' }} />
+                    </label>
+
+                    <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer' }}>
+                      <span>Reduzierte Bewegung</span>
+                      <input type="checkbox" checked={isReducedMotion} onChange={e => setIsReducedMotion(e.target.checked)} style={{ cursor: 'pointer' }} />
                     </label>
                   </div>
                 </div>

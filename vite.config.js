@@ -18,21 +18,17 @@ export default defineConfig({
         theme_color: '#0f172a',
         icons: [
           {
-            src: 'pwa-192x192.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: 'pwa-512x512.png',
-            sizes: '512x512',
-            type: 'image/png'
+            src: 'favicon.svg',
+            sizes: 'any',
+            type: 'image/svg+xml',
+            purpose: 'any maskable'
           }
         ]
       }
     })
   ],
   build: {
-    cssMinify: false,
+    cssMinify: true,
     modulePreload: {
       resolveDependencies: (filename, deps) =>
         deps.filter((dep) => !/vendor-(charts|pdf|sql)-/.test(dep))

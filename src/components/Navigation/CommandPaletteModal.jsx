@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Search, Terminal, BookOpen, Sparkles, Trophy, Cpu, Code2, 
   Layers, Award, FileText, ArrowRight, X, Command, Database, ShieldCheck,
-  Calculator, Globe, ShieldAlert, Brain, GitMerge
+  Calculator, Globe, ShieldAlert, Brain, GitMerge,
+  Lock, Activity, GitCommit, Network, Server, Code, Radio
 } from 'lucide-react';
 import { TOPICS } from '../../data/topicsData';
 import { GLOSSARY_TERMS } from '../../data/glossaryData';
@@ -24,6 +25,10 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-nwa-scoring', title: 'IHK Nutzwertanalyse Studio (NWA Entscheidungsmatrix & K.O.-Kriterien)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('nwa_scoring') },
+    { id: 'view-raid-calculator', title: 'RAID Storage & Paritäts-Rechner (RAID 0, 1, 5, 6, 10, 50 & URE Risiko)', category: 'Labs & Tools', icon: Database, action: () => onNavigate('raid_calculator') },
+    { id: 'view-vlsm-subnet', title: 'VLSM Subnet Splitter & IP-Planer (Hierarchische Host-Berechnung)', category: 'Labs & Tools', icon: Network, action: () => onNavigate('vlsm_subnet') },
+    { id: 'view-ihk-proposal', title: 'IHK Projektantrags-Prüfer & Meilenstein-Gantt (AO 2020 80h/40h)', category: 'Prüfung', icon: Award, action: () => onNavigate('ihk_project_proposal') },
     { id: 'view-linux-memory', title: 'Linux Virtual Memory & Page Fault Studio (TLB & OOM Score)', category: 'Labs & Tools', icon: Cpu, action: () => onNavigate('linux_memory_lab') },
     { id: 'view-postgres-pool', title: 'PostgreSQL Connection Pooling & SQL Isolation Studio (PgBouncer)', category: 'Labs & Tools', icon: Database, action: () => onNavigate('postgres_pool_lab') },
     { id: 'view-wiso-dunning', title: 'IHK Skonto-Effektivzins & Mahnwesen Studio (BGB § 288)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('wiso_dunning_lab') },

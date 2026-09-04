@@ -193,6 +193,13 @@ const PostgresFulltextLab = lazy(() => import('./components/Content/PostgresFull
 const WisoCapitalValueLab = lazy(() => import('./components/Content/WisoCapitalValueLab'));
 const GrpcProtobufLab = lazy(() => import('./components/Content/GrpcProtobufLab'));
 
+// v3.18.0 IHK Power Labs: NWA, RAID, VLSM & Projektantrag
+const NwaScoringLab = lazy(() => import('./components/Content/NwaScoringLab'));
+const RaidCalculatorLab = lazy(() => import('./components/Content/RaidCalculatorLab'));
+const VlsmSubnetLab = lazy(() => import('./components/Content/VlsmSubnetLab'));
+const IhkProjectProposalLab = lazy(() => import('./components/Content/IhkProjectProposalLab'));
+import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
+
 import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
@@ -211,6 +218,7 @@ export default function App() {
     lang, setLang, theme, setTheme, fontSize, setFontSize,
     isDyslexic, setIsDyslexic, isColorblind, setIsColorblind,
     isHighContrast, setIsHighContrast,
+    isReducedMotion, setIsReducedMotion,
     difficultyFilter, setDifficultyFilter
   } = useStore();
 
@@ -270,7 +278,13 @@ export default function App() {
     } else {
       document.body.classList.remove('high-contrast-mode');
     }
-  }, [theme, fontSize, isDyslexic, isColorblind, isHighContrast]);
+
+    if (isReducedMotion) {
+      document.body.classList.add('reduced-motion');
+    } else {
+      document.body.classList.remove('reduced-motion');
+    }
+  }, [theme, fontSize, isDyslexic, isColorblind, isHighContrast, isReducedMotion]);
 
   const currentRole = USER_ROLES[userState.role] || USER_ROLES.anfaenger;
 
@@ -306,6 +320,8 @@ export default function App() {
         setIsColorblind={setIsColorblind}
         isHighContrast={isHighContrast}
         setIsHighContrast={setIsHighContrast}
+        isReducedMotion={isReducedMotion}
+        setIsReducedMotion={setIsReducedMotion}
         theme={theme}
         setTheme={setTheme}
       />
@@ -391,461 +407,7 @@ export default function App() {
                 </Suspense>
 
                 {/* Feature Modules Quick Access Grid */}
-                <div>
-                  <h2 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '20px', color: 'var(--text-main)' }}>
-                    Empfohlene Lernbereiche &amp; neue Studios
-                  </h2>
-
-                  <div className="grid-responsive" style={{ marginBottom: '40px' }}>
-                    {/* Scrum Sprint Simulator Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('scrum_simulator')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📋</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Scrum Sprint Simulator</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        Story Points, Kanban-Board &amp; Recharts Burndown-Charts.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Sprint Planen <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* GraphQL Explorer Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('graphql_explorer')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🧬</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>GraphQL Schema Explorer</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        In-Browser Query Engine mit AST-Visualisierung &amp; JSON-Output.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-purple)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        GraphQL Testen <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* BLE Sensor Lab Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('ble_sensor')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📡</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>BLE Sensor &amp; GATT Studio</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        Bluetooth Low Energy Telemetrie, GATT Services &amp; Byte-Decoder.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-cyan)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Sensor Verbinden <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* RegEx Railroad Studio Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('regex_railroad')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🚂</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>RegEx Railroad Studio</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        Visuelle Eisenbahndiagramme &amp; Token-Syntaxbäume für RegEx.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-pink)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Diagramme Öffnen <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* REST Webhook Inspector Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('webhook_inspector')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📡</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Webhook &amp; Mock Server</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        HTTP Webhooks live empfangen, verifizieren &amp; inspizieren.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Inspector Starten <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* Podcast Voice Quiz Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('voice_quiz')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🎙️</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Podcast Voice Quiz</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        IHK-Fachfragen frei per Sprachaufnahme &amp; Mikrofon beantworten.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-purple)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Voice Quiz Starten <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* TCO & ROI Calculator Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('tco_roi_lab')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📊</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>TCO &amp; ROI Simulator</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        Wirtschaftlichkeitsanalyse (On-Prem vs. Cloud) für IHK-Projekte.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        TCO Berechnen <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* Git 3-Way Merge Conflict Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('git_conflict_lab')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🌿</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Git Merge Conflict Resolver</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        Interaktives Lösen von 3-Way Git Merge-Konflikten im Code.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-orange)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Konflikte Lösen <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* Custom Challenge Creator Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('custom_challenges')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>✍️</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Challenge Creator Studio</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        Eigene Code-Rätsel mit Testfällen erstellen, testen &amp; exportieren.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Aufgaben Erstellen <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* P2P Quiz Duell Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('p2p_duell')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>⚔️</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>IHK Quiz-Duell Arena</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        1v1 Echtzeit-Multiplayer gegen Azubis oder smarte KI-Bots.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-amber)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Duell Starten <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* SQLite Relational DB Studio Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('sqlite_studio')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🗄️</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>SQL Relational Database</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        In-Browser SQL Konsole mit Tabellen-Schema und CSV Export.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        SQL Sandbox Öffnen <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* Live Coding Challenge Studio Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('coding_challenges')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>💻</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Live Coding Challenge Studio</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        LeetCode &amp; Exercism Style Code-Rätsel mit Test-Runner.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-purple)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Challenges Lösen <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* WISO & Kalkulation Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('wiso_kalkulation')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📊</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>WISO &amp; Kalkulations-Studio</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        Handelskalkulation, Break-Even &amp; Netzplantechnik (Kritischer Pfad).
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Studio Öffnen <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* IEEE 754 Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('ieee754_lab')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🔬</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>IEEE-754 Float &amp; Zahlen-Lab</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        32-Bit Bit-Manipulation, Zweierkomplement &amp; KV-Diagramme.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Zahlen-Lab Öffnen <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* IPv6 Routing Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('ipv6_routing_lab')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🌐</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>IPv6 &amp; Routing Simulator</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        SLAAC / EUI-64 Rechner &amp; Longest Prefix Match Router.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Router Öffnen <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* OWASP Top 10 Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('owasp_exploit_lab')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🔒</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>OWASP Top 10 Live Sandbox</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        XSS, SQL Injection, CSRF &amp; IDOR Exploit Defense.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-amber)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Security Sandbox <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* Neural Net & BPE Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('neural_net_lab')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🧠</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Neural Net &amp; BPE Tokenizer</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        Forward-Propagation, Gewichte &amp; Byte-Pair Encoding.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-purple)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        AI Studio Öffnen <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* PDF Cheat Sheet Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('cheat_sheets')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📄</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>IHK Spickzettel &amp; PDF-Export</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        Druckfertige DIN A4 Formelsammlungen für IHK-Klausuren.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-primary)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        PDFs Generieren <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* OS Process Scheduler Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('os_scheduler')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>⏱️</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>OS Scheduler &amp; Deadlock</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        FCFS, SJF, Round Robin Gantt &amp; Bankier-Algorithmus.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Scheduler Öffnen <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* Packet Sniffer Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('packet_sniffer')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📡</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Web-Wireshark Sniffer</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        Frame Dissection, Hex Dump Sync &amp; Display Filter.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Sniffer Starten <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* Relational ERD Designer Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('erd_designer')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🗄️</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Relational ERD &amp; 3NF Linter</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        Visuelle ER-Modelle, 1NF–3NF Audit &amp; SQL DDL Export.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-purple)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        ERD Gestalten <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* Transformer Attention Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('transformer_attention')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🧠</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Transformer Attention Studio</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        Self-Attention Heatmap, Softmax, Temperature &amp; ReAct.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-pink)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        LLM Lab Öffnen <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* Cloud Canvas Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('cloud_canvas')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>☁️</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Cloud SLA &amp; SPOF Canvas</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        Topologie-Designer, Ausfallzeiten &amp; Kostenrechner.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-cyan)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Topologie Planen <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* IHK Grade Calculator Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('ihk_grade_calculator')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🎓</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>IHK Noten- &amp; MEP-Rechner</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        AO 2020 Gewichtung, AP1/AP2 &amp; Ergänzungsprüfung.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-emerald)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Noten Berechnen <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* 19" Rack Configurator Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('rack_configurator')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🗄️</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>19" Rack- &amp; USV-Planer</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        42HE Schrank, USV-Laufzeit &amp; RZ-Klimatisierung (BTU).
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-indigo)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Rack Bestücken <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* ITIL ITSM Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('itsm_simulator')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>🎧</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>ITIL 4 ITSM &amp; CAB Studio</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        Service Desk, SLA-Matrix &amp; Change Advisory Board.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-amber)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Tickets Bearbeiten <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* SM-2 Spaced Repetition Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('sm2_spaced_repetition')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>💡</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>SuperMemo SM-2 Mastery</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        Spaced Repetition &amp; Ebbinghaus-Vergessenskurven.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-teal)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Karteikarten Lernen <ArrowRight size={16} />
-                      </span>
-                    </div>
-
-                    {/* Personal Notebook Card */}
-                    <div
-                      className="glass-panel glass-panel-hover"
-                      onClick={() => setActiveTab('personal_notebook')}
-                      style={{ padding: '24px', cursor: 'pointer', border: '1px solid var(--border-color)' }}
-                    >
-                      <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>📓</div>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>Developer Notizbuch</h3>
-                      <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '16px', lineHeight: '1.5' }}>
-                        Persönliche Markdown-Notizen, Code-Vault &amp; Export.
-                      </p>
-                      <span style={{ fontSize: '0.9rem', color: 'var(--accent-primary)', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        Notizen Öffnen <ArrowRight size={16} />
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                <DashboardQuickAccessGrid setActiveTab={setActiveTab} />
               </div>
             )}
 
@@ -1602,6 +1164,34 @@ export default function App() {
             {activeTab === 'grpc_protobuf_lab' && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <GrpcProtobufLab onRewardXP={(xp) => awardXP(xp, 'grpc_protobuf_master')} />
+              </Suspense>
+            )}
+
+            {/* IHK NUTZWERTANALYSE STUDIO (NWA) */}
+            {activeTab === 'nwa_scoring_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <NwaScoringLab onRewardXP={(xp) => awardXP(xp, 'nwa_master')} />
+              </Suspense>
+            )}
+
+            {/* RAID STORAGE & PARITÄTS-RECHNER */}
+            {activeTab === 'raid_calculator_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <RaidCalculatorLab onRewardXP={(xp) => awardXP(xp, 'raid_master')} />
+              </Suspense>
+            )}
+
+            {/* VLSM SUBNET SPLITTER & IP-RECHNER */}
+            {activeTab === 'vlsm_subnet_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <VlsmSubnetLab onRewardXP={(xp) => awardXP(xp, 'vlsm_master')} />
+              </Suspense>
+            )}
+
+            {/* IHK PROJEKTANTRAGS-PRÜFER */}
+            {activeTab === 'ihk_project_proposal_lab' && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <IhkProjectProposalLab onRewardXP={(xp) => awardXP(xp, 'ihk_proposal_master')} />
               </Suspense>
             )}
 
