@@ -22,8 +22,17 @@ Entwickler- und KI-Leitfaden für das Projekt **Informatik-lernen (IT-DevGame)**
 # Entwicklungsserver starten (Standard-Port http://localhost:5173)
 npm run dev
 
-# Vollständige Test-Suite ausführen (100 Test-Dateien, 349 Tests)
+# Vollständige Test-Suite ausführen (104 Test-Dateien, 734 Tests)
 npm test
+
+# Test-Coverage-Report erzeugen (Statements/Branches/Functions/Lines)
+npm run test:coverage
+
+# Bundle-Size-Regression gegen definierte Chunk-Limits prüfen (nach npm run build)
+npm run size
+
+# End-to-End Smoke-Tests gegen den Produktions-Build (Playwright)
+npm run e2e
 
 # Einzelnen Test ausführen
 npx vitest run src/utils/nwaEngine.test.js
@@ -49,8 +58,15 @@ npm run preview
    - UI-Komponenten in `src/components/Content/*.jsx` konsumieren die Engines und binden XP-Rewards ein.
 3. **Performance & Code-Splitting**:
    - Alle großen Laboratorien und Simulatoren müssen in `src/App.jsx` per `React.lazy()` dynamisch importiert werden.
+   - Ein neues, einfaches Lab (ein Tab → eine Komponente) wird NICHT als eigener `{activeTab === 'x' && (...)}`-Block ergänzt, sondern als zusätzlicher `case` in der `activeLabElement`-Switch-Tabelle in `App.jsx` (kurz vor `return (` in der `App`-Funktion). Nur Tabs, die mehr als ein Lab rendern oder eigenen lokalen State brauchen (Dashboard, Wissen, Games, Lückentext, Videos, Projekte), bleiben eigene Blöcke weiter unten.
 4. **Barrierefreiheit (Accessibility & A11y)**:
    - Respektiere Nutzer-Präferenzen für reduzierte Bewegung (`prefers-reduced-motion` und `body.reduced-motion`).
    - Keine Viewport-Zoom-Blocker (`user-scalable=no` verboten).
 5. **README-Wartungsregel (`AGENTS.md`)**:
    - Wann immer Dateien hinzugefügt, verändert oder entfernt werden, muss `README.md` aktualisiert und die Änderungshistorie fortgeführt werden.
+6. **Fehlerisolation (Error Boundaries)**:
+   - Der gesamte Tab-Content-Bereich in `App.jsx` sowie jedes Modal in `ModalContainer.jsx` sind bereits mit `src/components/ErrorBoundary.jsx` umschlossen. Neue Labs benötigen dafür KEINE eigene Boundary — ein Absturz in einem Lab zeigt automatisch eine lokale Fallback-UI statt die gesamte App zum Absturz zu bringen.
+7. **Smoke-Test-Abdeckung für neue Labs**:
+   - `src/components/allLabsSmoke.test.jsx` rendert automatisch JEDE Datei in `src/components/Content/*.jsx` (via `import.meta.glob`) mit generischen No-Op-Props. Ein neues Lab wird also ohne weiteres Zutun mitgetestet — nur bei echten Sonderfällen (z. B. Komponenten, die zwingend echtes Netzwerk/WebAssembly/Web-Worker beim Mount brauchen) muss es explizit in `KNOWN_UNSUITABLE_FOR_JSDOM_SMOKE` eingetragen und dort begründet werden.
+8. **Graduelle Typisierung sicherheitskritischer Engines**:
+   - `checkJs` ist projektweit deaktiviert (`tsconfig.json`), sodass bestehender Code nicht plötzlich hunderte Typfehler wirft. Eine Datei wird gezielt typgeprüft, indem `// @ts-check` als erste Zeile ergänzt und die Funktionen mit JSDoc (`@param`/`@returns`/`@typedef`) versehen werden — siehe `src/utils/ihkGradeCalculations.js`, `src/utils/nwaEngine.js` und `src/utils/storage.js` als Referenzmuster. `npm run typecheck` (`tsc --noEmit`) prüft nur die so markierten Dateien und läuft in CI. Neue oder geänderte Engines mit realem Fehlerrisiko (Noten-/Geld-/Sicherheitsberechnungen) sollten nach diesem Muster typisiert werden.

@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { USER_ROLES } from '../../data/userProfiles';
 import { 
   Trophy, Flame, Code2, Sun, Moon, BookOpen, 
-  Layers, ShieldCheck, BookMarked, Globe, Rocket, Search, 
+  Layers, ShieldCheck, BookMarked, Rocket, Search,
   ChevronDown, Terminal, Award, 
   FileText, Wrench, GraduationCap, Sliders,
   Volume2, Menu, X
@@ -22,8 +22,6 @@ export default function Navbar({
   onOpenAudioModal,
   activeTab,
   setActiveTab,
-  lang,
-  setLang,
   setFontSize,
   isDyslexic,
   setIsDyslexic,
@@ -660,15 +658,6 @@ export default function Navbar({
                   onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                 >
                   <ShieldCheck size={17} /> Backup &amp; Wiederherstellen
-                </div>
-
-                <div
-                  onClick={() => { setLang(lang === 'de' ? 'en' : 'de'); setActiveDropdown(null); }}
-                  style={{ padding: '10px 12px', borderRadius: '8px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.88rem', color: 'var(--text-muted)', fontWeight: 600 }}
-                  onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-tertiary)'}
-                  onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
-                >
-                  <Globe size={17} /> Sprache: {lang.toUpperCase()} (DE / EN)
                 </div>
               </div>
             )}

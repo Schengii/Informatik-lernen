@@ -3,14 +3,59 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=22.18.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "oxlint src",
     "lint:ci": "oxlint src --deny-warnings",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "size": "size-limit",
+    "e2e": "playwright test",
+    "typecheck": "tsc --noEmit"
   },
+  "size-limit": [
+    {
+      "name": "Vendor: React/Router/Zustand",
+      "path": "dist/assets/vendor-react-*.js",
+      "gzip": true,
+      "limit": "70 KB"
+    },
+    {
+      "name": "Vendor: UI (framer-motion, lucide, confetti)",
+      "path": "dist/assets/vendor-ui-*.js",
+      "gzip": true,
+      "limit": "70 KB"
+    },
+    {
+      "name": "Vendor: Charts (recharts)",
+      "path": "dist/assets/vendor-charts-*.js",
+      "gzip": true,
+      "limit": "130 KB"
+    },
+    {
+      "name": "Vendor: PDF (jspdf, html2canvas)",
+      "path": "dist/assets/vendor-pdf-*.js",
+      "gzip": true,
+      "limit": "190 KB"
+    },
+    {
+      "name": "Vendor: SQL (alasql)",
+      "path": "dist/assets/vendor-sql-*.js",
+      "gzip": true,
+      "limit": "120 KB"
+    },
+    {
+      "name": "Haupt-Bundle (App-Shell, ohne Labs)",
+      "path": "dist/assets/index-*.js",
+      "gzip": true,
+      "limit": "110 KB"
+    }
+  ],
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
     "alasql": "^4.17.3",
@@ -27,12 +72,18 @@
     "zustand": "^5.0.15"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.62.1",
+    "@size-limit/file": "^13.0.3",
     "@testing-library/react": "^16.3.2",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.4",
+    "@vitest/coverage-v8": "^4.1.11",
     "jsdom": "^29.1.1",
     "oxlint": "^1.75.0",
+    "size-limit": "^13.0.3",
+    "typescript": "^7.0.2",
     "vite": "^8.2.0",
     "vite-plugin-pwa": "^1.3.0",
     "vitest": "^4.1.10"

@@ -1,8 +1,37 @@
+// @ts-check
 // Storage utility to manage user state, progress, XP, activity history and badges
 import { syncUserStateToIndexedDb } from './indexedDbStoreMiddleware';
 
+/**
+ * @typedef {object} ActivityDay
+ * @property {number} count
+ * @property {number} xp
+ *
+ * @typedef {object} SoundSettings
+ * @property {number} volume
+ * @property {boolean} isMuted
+ *
+ * @typedef {object} UserState
+ * @property {string} role
+ * @property {string} userName
+ * @property {number} xp
+ * @property {number} level
+ * @property {number} streak
+ * @property {number} streakFreezes
+ * @property {Record<string, unknown>} srsFlashcards
+ * @property {string[]} completedTopics
+ * @property {string[]} completedGames
+ * @property {string[]} completedCloze
+ * @property {string[]} completedProjects
+ * @property {string[]} unlockedBadges
+ * @property {Record<string, unknown>} savedCodeSnippets
+ * @property {Record<string, ActivityDay>} activityHistory
+ * @property {SoundSettings} soundSettings
+ */
+
 const STORAGE_KEY = 'informatik_game_state_v1';
 
+/** @type {UserState} */
 export const initialProfileState = {
   role: 'anfaenger', // 'anfaenger' | 'azubi' | 'junior' | 'pro'
   userName: 'Dev Explorer',
@@ -25,6 +54,11 @@ export const getTodayDateKey = () => {
   return new Date().toISOString().slice(0, 10);
 };
 
+/**
+ * @param {UserState} state
+ * @param {number} [xpGained]
+ * @returns {UserState}
+ */
 export const recordDailyActivity = (state, xpGained = 0) => {
   const dateKey = getTodayDateKey();
   const history = { ...(state.activityHistory || {}) };
@@ -41,6 +75,7 @@ export const recordDailyActivity = (state, xpGained = 0) => {
   };
 };
 
+/** @returns {UserState} */
 export const loadUserState = () => {
   try {
     const data = localStorage.getItem(STORAGE_KEY);
@@ -52,7 +87,24 @@ export const loadUserState = () => {
   }
 };
 
-export const saveUserState = (state) => {
+/**
+ * Prüft, ob bereits ein persistierter User-State in localStorage existiert.
+ * Wird beim App-Start genutzt, um zu entscheiden, ob eine asynchrone
+ * Notfall-Hydration aus IndexedDB versucht werden soll (siehe
+ * `useStore.js`): Nur ein wirklich leerer/gelöschter localStorage gilt als
+ * Hydrations-Kandidat, nicht jeder Nutzer mit Default-Werten.
+ * @returns {boolean}
+ */
+export const hasStoredUserState = () => {
+  try {
+    return localStorage.getItem(STORAGE_KEY) !== null;
+  } catch {
+    return false;
+  }
+};
+
+/** @param {UserState} state */
+const persistStateNow = (state) => {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   } catch (e) {
@@ -63,6 +115,74 @@ export const saveUserState = (state) => {
   } catch {
     // Ignoriere Fehler im synchronen Pfad
   }
+};
+
+// Debounced Persistenz: Der Zustand im Zustand-Store (Zustand/zustand) wird
+// bei JEDER Mikro-Aktion (XP-Vergabe, SRS-Update, Sound-Toggle, ...) neu
+// gesetzt. Würde jede dieser Aktionen sofort einen kompletten
+// `JSON.stringify` + `localStorage.setItem` auslösen, würde ein häufiges
+// Trigger-Muster (z. B. mehrere XP-Events in schneller Folge) unnötig oft
+// den kompletten, mit der Zeit wachsenden State (Notizen, SRS-Karten,
+// Activity-Verlauf) neu serialisieren. Stattdessen wird nur der jeweils
+// letzte Zustand innerhalb eines kurzen Zeitfensters tatsächlich geschrieben
+// ("trailing debounce"). Der In-Memory-Zustand im Store ist davon nicht
+// betroffen - die UI bleibt sofort reaktiv, nur das Schreiben auf die Platte
+// wird gebündelt.
+const PERSIST_DEBOUNCE_MS = 400;
+/** @type {UserState | null} */
+let pendingState = null;
+/** @type {ReturnType<typeof setTimeout> | null} */
+let debounceTimer = null;
+
+const flushPendingWrite = () => {
+  if (debounceTimer !== null) {
+    clearTimeout(debounceTimer);
+    debounceTimer = null;
+  }
+  if (pendingState !== null) {
+    persistStateNow(pendingState);
+    pendingState = null;
+  }
+};
+
+// Sicherheitsnetz: Falls der Tab geschlossen oder in den Hintergrund gelegt
+// wird, während noch ein gebündeltes Schreiben aussteht, wird sofort
+// synchron persistiert - so geht trotz Debounce kein Fortschritt verloren.
+if (typeof window !== 'undefined') {
+  window.addEventListener('pagehide', flushPendingWrite);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+      flushPendingWrite();
+    }
+  });
+}
+
+/**
+ * Persistiert den User-State in localStorage & IndexedDB.
+ *
+ * @param {UserState} state - Der zu speichernde User-State.
+ * @param {{ immediate?: boolean }} [options] - `immediate: true` erzwingt ein
+ *   sofortiges, synchrones Schreiben (z. B. für Backup-Export/Import oder
+ *   Rollenwahl, wo der Nutzer eine unmittelbare Bestätigung erwartet).
+ *   Ohne diese Option wird das Schreiben um `PERSIST_DEBOUNCE_MS` gebündelt.
+ */
+export const saveUserState = (state, options = {}) => {
+  if (options.immediate) {
+    flushPendingWrite();
+    persistStateNow(state);
+    return;
+  }
+
+  pendingState = state;
+  if (debounceTimer !== null) {
+    clearTimeout(debounceTimer);
+  }
+  debounceTimer = setTimeout(flushPendingWrite, PERSIST_DEBOUNCE_MS);
+};
+
+/** Erzwingt das sofortige Schreiben eines eventuell noch ausstehenden, gebündelten Speichervorgangs. */
+export const flushUserState = () => {
+  flushPendingWrite();
 };
 
 export const exportUserDataJSON = () => {
@@ -80,11 +200,15 @@ export const exportUserDataJSON = () => {
   }
 };
 
+/**
+ * @param {string} jsonString
+ * @returns {boolean}
+ */
 export const importUserDataJSON = (jsonString) => {
   try {
     const parsed = JSON.parse(jsonString);
     if (typeof parsed === 'object' && parsed !== null) {
-      saveUserState({ ...initialProfileState, ...parsed });
+      saveUserState({ ...initialProfileState, ...parsed }, { immediate: true });
       return true;
     }
     return false;
@@ -94,6 +218,10 @@ export const importUserDataJSON = (jsonString) => {
   }
 };
 
+/**
+ * @param {number} xp
+ * @returns {number}
+ */
 export const calculateLevel = (xp) => {
   return Math.floor(Math.sqrt(xp / 50)) + 1;
 };

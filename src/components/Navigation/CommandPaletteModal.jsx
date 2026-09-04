@@ -282,14 +282,14 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
             />
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <kbd style={{ background: 'var(--bg-secondary)', padding: '3px 7px', borderRadius: '6px', fontSize: '0.75rem', border: '1px solid var(--border-color)', color: 'var(--text-muted)' }}>ESC</kbd>
-              <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', display: 'flex', alignItems: 'center' }}>
+              <button onClick={onClose} aria-label="Suche schließen" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', display: 'flex', alignItems: 'center' }}>
                 <X size={18} />
               </button>
             </div>
           </div>
 
           {/* Results List */}
-          <div style={{ maxHeight: '380px', overflowY: 'auto', padding: '8px' }}>
+          <div tabIndex={0} aria-label="Suchergebnisse" style={{ maxHeight: '380px', overflowY: 'auto', padding: '8px' }}>
             {filteredItems.length === 0 ? (
               <div style={{ padding: '32px 16px', textAlign: 'center', color: 'var(--text-muted)' }}>
                 <Search size={32} style={{ margin: '0 auto 12px', opacity: 0.5 }} />
