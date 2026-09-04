@@ -14,7 +14,6 @@ export const useStore = create((set) => {
     userState: initialUser,
     
     // Theme & Accessibility State
-    lang: 'de',
     theme: 'light',
     fontSize: 100,
     isDyslexic: false,
@@ -28,7 +27,6 @@ export const useStore = create((set) => {
     isSoundMuted: initialUser.soundSettings?.isMuted ?? false,
 
     // Actions
-    setLang: (lang) => set({ lang }),
     setTheme: (theme) => set({ theme }),
     setFontSize: (fontSize) => set({ fontSize }),
     setIsDyslexic: (isDyslexic) => set({ isDyslexic }),
@@ -73,7 +71,10 @@ export const useStore = create((set) => {
     handleSelectRole: (roleId) => {
       set((state) => {
         const updatedState = { ...state.userState, role: roleId };
-        saveUserState(updatedState);
+        // Seltene, bewusste Aktion (einmalig beim Onboarding/Rollenwechsel) -
+        // sofort persistieren statt zu debouncen, damit sie auch bei einem
+        // direkt folgenden Reload sicher übernommen ist.
+        saveUserState(updatedState, { immediate: true });
         return { userState: updatedState };
       });
     },

@@ -17,6 +17,7 @@ import SkillTreeWidget from './components/Gamification/SkillTreeWidget';
 import ActivityHeatmapWidget from './components/Gamification/ActivityHeatmapWidget';
 import PomodoroTimerWidget from './components/Navigation/PomodoroTimerWidget';
 import ModalContainer from './components/Navigation/ModalContainer';
+import ErrorBoundary from './components/ErrorBoundary';
 
 // Lazy Loaded Games & Labs for Maximum Initial Load Speed & Low Bundle Size
 const SqlDungeon = lazy(() => import('./components/Games/SqlDungeon'));
@@ -243,7 +244,7 @@ const LabLoadingFallback = () => (
 export default function App() {
   const { 
     userState, handleSelectRole, awardXP, handleCompleteTopic, refreshStateFromStorage,
-    lang, setLang, theme, setTheme, fontSize, setFontSize,
+    theme, setTheme, fontSize, setFontSize,
     isDyslexic, setIsDyslexic, isColorblind, setIsColorblind,
     isHighContrast, setIsHighContrast,
     isReducedMotion, setIsReducedMotion,
@@ -339,8 +340,6 @@ export default function App() {
         onOpenAudioModal={() => setIsAudioModalOpen(true)}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
-        lang={lang}
-        setLang={setLang}
         setFontSize={setFontSize}
         isDyslexic={isDyslexic}
         setIsDyslexic={setIsDyslexic}
@@ -365,6 +364,7 @@ export default function App() {
             transition={{ duration: 0.25, ease: 'easeOut' }}
             style={{ width: '100%' }}
           >
+          <ErrorBoundary resetKey={activeTab} onGoHome={() => setActiveTab('dashboard')}>
             {/* DASHBOARD TAB */}
             {activeTab === 'dashboard' && (
               <div className="space-y-8">
@@ -1630,6 +1630,7 @@ export default function App() {
             {activeTab === 'projekte' && (
               <ProjectViewer onCompleteProject={(_id, xp) => awardXP(xp)} />
             )}
+          </ErrorBoundary>
           </motion.div>
         </AnimatePresence>
       </main>

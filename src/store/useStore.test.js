@@ -8,7 +8,6 @@ describe('useStore Zustand Store', () => {
     localStorage.clear();
     useStore.setState({
       userState: { ...initialProfileState, completedTopics: [], unlockedBadges: [], xp: 0, level: 1 },
-      lang: 'de',
       theme: 'light',
       fontSize: 100,
       isDyslexic: false,
@@ -20,10 +19,7 @@ describe('useStore Zustand Store', () => {
   });
 
   it('updates accessibility options correctly', () => {
-    const { setLang, setTheme, setFontSize, setIsDyslexic, setIsColorblind, setIsHighContrast, setIsReducedMotion, setDifficultyFilter } = useStore.getState();
-    
-    setLang('en');
-    expect(useStore.getState().lang).toBe('en');
+    const { setTheme, setFontSize, setIsDyslexic, setIsColorblind, setIsHighContrast, setIsReducedMotion, setDifficultyFilter } = useStore.getState();
 
     setTheme('dark');
     expect(useStore.getState().theme).toBe('dark');

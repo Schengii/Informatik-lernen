@@ -163,12 +163,6 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
   * **Restart-Policies**: Simulation von `Restart=always`, `Restart=on-failure` und `RestartSec=2s` mit Crash-Injektor und automatischem Restart-Counter.
   * **Cgroups v2 Ressourcen-Limits**: Konfiguration von `CPUQuota=50%` und `MemoryMax=512M` mit OOM-Killer-Auslösung bei Speicherüberschreitung.
   * Dynamischer **Systemd Unit File Generator** (`[Unit]`, `[Service]`, `[Install]`) und Live `journalctl -u service -f` Terminal-Log-Stream mit 50 XP Belohnung.
-* **⚡ WebAssembly SIMD 3x3 Faltungsmatrix & Sobel-Filter Upgrade (`WasmSimdStudioLab.jsx` & `src/utils/wasmSimdEngine.js`)**:
-  * Erweiterung des WASM SIMD Studios um 2D-Bildfaltungs-Algorithmen (Image Convolutions).
-  * Vordefinierte 3x3 Faltungskerne: **Sobel X/Y** (Kantenerkennung / Gradienten-Operator), **Gaußscher Weichzeichner** (3x3 Gaussian Blur Smoothing) und **Scharfzeichnen** (Sharpening Kernel).
-  * Parallele Vektorberechnung: Parallele Berechnung von 4 Float-Nachbarpixeln bzw. 16 Farb-Bytes in einem CPU-Takt via `v128` Vektormultiplikation und Fused Multiply-Add (FMA) mit gemessenem Hardware-Speedup von bis zu $\sim 3.9\times$.
-  * Interaktiver Live-Test-Matrix-Inspektor mit direkter Auswertung über `applySimdConvolutionFilter`.
-
 * **📅 IHK Projekt-Gantt & Meilenstein-Editor (`IhkProjectGanttLab.jsx` & `src/utils/ihkProjectGanttEngine.js`)**:
   * Offizielles Zeitplanungs- und Phasen-Tool für den IHK-Abschlussbericht und Projektantrag (AP2 Teil A).
   * Vordefinierte Standardphasen nach IHK-Prüfungsvorschriften für **FIAE (80 Stunden)** und **FISI (40 Stunden)**.
@@ -180,6 +174,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
   * Interaktive Register-Visualisierung: Lane-by-Lane Input für Vektoren A & B mit gleichzeitiger Berechnung in 1 CPU-Taktzyklus.
   * Live Benchmark-Runner: Vergleicht traditionellen skalaren JavaScript-Schleifencode mit unrolled SIMD-Vektorbefehlen auf bis zu 500.000 Float-Elementen und misst Speedup ($\sim 3.8\times$) und Durchsatz in **MFLOPS**.
   * Integrierter **WebAssembly Text Format (WAT)** Bytecode-Inspektor mit `v128.load`, `f32x4.add/mul` und `v128.store`.
+  * **2D-Bildfaltungs-Erweiterung (Image Convolutions)**: Vordefinierte 3x3 Faltungskerne (**Sobel X/Y** Kantenerkennung, **Gaußscher Weichzeichner**, **Scharfzeichnen**) mit paralleler Berechnung von 4 Float-Nachbarpixeln bzw. 16 Farb-Bytes pro CPU-Takt via Fused Multiply-Add (FMA), gemessenem Speedup von bis zu $\sim 3.9\times$ und Live-Test-Matrix-Inspektor über `applySimdConvolutionFilter`.
 * **🌐 HTTP/3 & QUIC Protocol Inspector & UDP Packet Loss Simulator (`Http3QuicLab.jsx` & `src/utils/http3QuicEngine.js`)**:
   * Vollwertiger Protokoll-Simulator zum praxisnahen Vergleich von **HTTP/1.1** (6 parallele TCP-Sockets), **HTTP/2** (Single-TCP Multiplexing) und **HTTP/3** (QUIC über UDP).
   * Paketverlust-Simulator (0–35% Packet Loss): Veranschaulicht eindrucksvoll das Problem des **TCP Head-of-Line Blockings** in HTTP/2 (1 verloren gegangenes Paket stoppt alle parallelen Streams) vs. unabhängige QUIC-Streams in HTTP/3.
@@ -203,9 +198,10 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
   * Parallele und sequentielle Job-Ausführung anhand von `needs`-Abhängigkeiten.
   * Dependency-Caching-Simulation via `actions/cache@v4`: Misst Geschwindigkeitsvorteile durch Cache-Hits vs. Remote-Downloads bei Cache-Misses.
   * Secrets-Maskierung im Runner-Log (automatischer Ersatz von sensiblen Tokens durch `***`) und Live ANSI-Farb-Ausgabe.
-* **💾 Offline IndexedDB Storage Synchronizer & Database Layer (`PersonalNotebookLab.jsx` & `src/utils/indexedDbStorage.js`)**:
-  * Asynchrone, unbegrenzte Offline-Persistenz über das 5-MB-LocalStorage-Limit hinaus.
-  * Dual-Save-Architektur im Entwickler-Notizbuch (`PersonalNotebookLab.jsx`) mit automatischer Synchronisation und "IndexedDB Offline-Sync: Aktiv"-Statusanzeige.
+* **💾 Developer Notizbuch & Offline IndexedDB Storage Layer (`PersonalNotebookLab.jsx` & `src/utils/indexedDbStorage.js`)**:
+  * In-App Markdown-Editor mit Live-Vorschau, Tag-Organisation, Volltextsuche, LocalStorage Auto-Save und `.md`-Export.
+  * Asynchrone, unbegrenzte Offline-Persistenz über das 5-MB-LocalStorage-Limit hinaus via IndexedDB.
+  * Dual-Save-Architektur mit automatischer Synchronisation und "IndexedDB Offline-Sync: Aktiv"-Statusanzeige.
 
 * **🎙️ IHK Fachgespräch & Audio-Prüfungssimulator (`IhkOralDefenseStudioLab.jsx` & `src/utils/ihkOralDefenseEngine.js`)**:
   * 15-Minuten mündliche Prüfungssimulation für die IHK Abschlussprüfung Teil 2 (Fachinformatiker FIAE / FISI).
@@ -270,8 +266,6 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 * **💡 SuperMemo SM-2 Spaced Repetition Mastery (`Sm2SpacedRepetitionLab.jsx` & `sm2Algorithm.js`)**:
   * Wissenschaftlicher SM-2 Algorithmus mit Repetitionen, Intervallen und Ease-Faktoren ($EF \ge 1.3$).
   * Interaktive **Ebbinghaus-Vergessenskurven-Diagramme** mit Recharts.
-* **📓 Developer Notizbuch & Markdown Vault (`PersonalNotebookLab.jsx`)**:
-  * In-App Markdown-Editor mit Live-Vorschau, Tag-Organisation, Volltextsuche, LocalStorage Auto-Save und `.md`-Export.
 * **🔐 OAuth 2.0 PKCE & OIDC Flow Studio (`OauthPkceStudioLab.jsx` & `oauthPkceEngine.js`)**:
   * Vollständige RFC 7636 Authorization Code Flow mit PKCE Simulation ($S256$ SHA-256 Code Challenge).
   * JWT Payload Dekodierung (Header, Claims, Signature) und geschützter API-Aufruf (`GET /userinfo` mit Bearer Token).
@@ -772,6 +766,15 @@ npm run dev
 # Unit-Tests ausführen (Vitest)
 npm test
 
+# Unit-Tests MIT Coverage-Report (Statements/Branches/Functions/Lines)
+npm run test:coverage
+
+# Bundle-Size-Regression gegen definierte Chunk-Limits prüfen (benötigt vorherigen Build)
+npm run build && npm run size
+
+# End-to-End Smoke-Tests gegen den echten Produktions-Build (Playwright)
+npm run e2e
+
 # Linter ausführen (Oxlint)
 npm run lint
 
@@ -782,6 +785,19 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.37.0 (Stabilitäts- & Qualitätssicherungs-Edition)
+
+- **Neu**: `src/components/ErrorBoundary.jsx` — Globale React Error Boundary um den kompletten Tab-Content-Bereich (`App.jsx`) sowie einzeln um jedes Modal (`ModalContainer.jsx`). Ein Laufzeitfehler in einem einzelnen Lab führt nicht mehr zum Absturz der gesamten App, sondern zeigt eine lokale Fallback-UI mit Retry-Option; beim Wechsel des Tabs (`resetKey`) wird der Fehlerzustand automatisch zurückgesetzt.
+- **Neu**: `src/components/allLabsSmoke.test.jsx` — Generischer Render-Smoke-Test für ALLE ~165 Content-Komponenten via `import.meta.glob`, statt einer manuell gepflegten Teilliste. Deckte beim ersten Lauf 3 reale Absturz-Bugs auf, die daraufhin behoben wurden: einen versehentlichen JSX-Ausdruck in `Sm2SpacedRepetitionLab.jsx` (LaTeX-Text `$e^{-t/S}$` wurde als JS-Expression interpretiert), einen Datenmodell-Mismatch in `VideoHub.jsx` (`activeVideo.timestamps`/`.summary`/`.author` existierten nie in `videosData.js`) und einen Variablen-Tippfehler in `ZkpCryptoVisualizerLab.jsx` (`privateKeyX` statt `PRIVATE_KEY_X`).
+- **Neu**: Test-Coverage-Messung via `@vitest/coverage-v8` (`npm run test:coverage`), in CI als Artefakt hochgeladen.
+- **Neu**: Bundle-Size-Regression-Check via `size-limit` (`npm run size`) mit Limits pro Vendor-Chunk (React, UI, Charts, PDF, SQL) und Haupt-Bundle, in CI als Pflicht-Check.
+- **Neu**: End-to-End Smoke-Tests via Playwright (`e2e/smoke.spec.js`, `npm run e2e`) gegen den echten Produktions-Build: Dashboard-Start, Rollenwahl-Persistenz über einen Reload, direkte Routen-Navigation zu einem Lab und die Ctrl+K Command Palette.
+- **Neu**: Graduelles JSDoc/TypeScript-Typing (`tsconfig.json`, `npm run typecheck`) — `checkJs` ist projektweit deaktiviert, einzelne Dateien aktivieren die Typprüfung gezielt per `// @ts-check`-Kommentar. Als Referenzmuster typisiert: `src/utils/ihkGradeCalculations.js` (AO-2020-Notenberechnung), `src/utils/nwaEngine.js` (IHK-Nutzwertanalyse) und `src/utils/storage.js` (User-State-Persistenz). Deckte dabei einen ungeprüften `undefined`-Zugriff in `calculateMepPossibilities` auf, der defensiv mit Standardwerten abgesichert wurde.
+- **Optimiert**: `src/utils/storage.js` — Persistenz des User-States (`saveUserState`) debounct jetzt nicht-kritische Schreibvorgänge (400ms), statt bei jeder Mikro-Aktion (XP-Vergabe, SRS-Update) sofort den kompletten State neu zu serialisieren. Ein `pagehide`/`visibilitychange`-Listener erzwingt bei Tab-Wechsel/-Schließung ein sofortiges Schreiben, sodass kein Fortschritt verloren geht; kritische Aktionen (Rollenwahl, Backup-Import) nutzen weiterhin `{ immediate: true }`.
+- **Behoben**: Der "Sprache: DE/EN"-Umschalter im Navbar-Profil-Dropdown änderte nur einen internen Store-Wert (`lang`), der nirgendwo im UI ausgelesen wurde — `src/utils/i18n.js` mit den Übersetzungen war komplett totgelegter, nie importierter Code. Der nicht-funktionale Umschalter wurde entfernt, um Nutzer nicht in die Irre zu führen; **IT-DevGame ist eine bewusst deutschsprachige Plattform** (IHK-Fachbegriffe, Prüfungsordnung AO 2020), eine echte Mehrsprachigkeit ist kein aktuelles Ziel.
+- **Bereinigt**: README-Duplikate zusammengeführt (`WasmSimdStudioLab` und `PersonalNotebookLab` waren je zweimal mit überlappendem Text in den Hauptfunktionen gelistet).
+- **Test-Suite & Qualität**: **520 bestandene Unit-Tests** in **102 Test-Dateien** (vorher 349/100) plus **4 bestandene End-to-End-Tests** (Playwright). **0 Linter-Fehler / 0 Warnungen** in Oxlint und fehlerfreier PWA Produktions-Build.
 
 ### Version 3.36.0 (DNSSEC Chain of Trust, IHK Burndown, Linux Btrfs CoW & OpenAPI Contract Edition)
 

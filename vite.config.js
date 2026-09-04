@@ -54,5 +54,25 @@ export default defineConfig({
         }
       }
     }
+  },
+  test: {
+    environment: 'node',
+    // e2e/ enthält Playwright-Specs (eigener Testrunner, eigenes `test`-API) -
+    // ohne diesen Ausschluss würde Vitests Standard-Glob (`*.spec.js`) sie
+    // fälschlich einsammeln und mit der falschen Test-API ausführen wollen.
+    exclude: ['**/node_modules/**', '**/dist/**', 'e2e/**'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'html', 'lcov'],
+      reportsDirectory: './coverage',
+      // Nur tatsächlich getesteten Anwendungscode berücksichtigen - Config-,
+      // Build- und Testdateien selbst verzerren sonst die Prozentzahl.
+      include: ['src/**/*.{js,jsx}'],
+      exclude: [
+        'src/**/*.test.{js,jsx}',
+        'src/main.jsx',
+        'src/assets/**'
+      ]
+    }
   }
 })
