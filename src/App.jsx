@@ -206,6 +206,9 @@ const TerraformLab = lazy(() => import('./components/Content/TerraformLab'));
 const IhkOralDefenseStudioLab = lazy(() => import('./components/Content/IhkOralDefenseStudioLab'));
 const AnsiblePlaybookLab = lazy(() => import('./components/Content/AnsiblePlaybookLab'));
 const ComputationWorkerLab = lazy(() => import('./components/Content/ComputationWorkerLab'));
+// v3.32.0 IHK Präsentations-Timer & GitHub Actions CI/CD
+const IhkPresentationTimerLab = lazy(() => import('./components/Content/IhkPresentationTimerLab'));
+const GithubActionsWorkflowLab = lazy(() => import('./components/Content/GithubActionsWorkflowLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -1242,6 +1245,20 @@ export default function App() {
             {(activeTab === 'computation_worker_lab' || activeTab === 'computation_worker') && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <ComputationWorkerLab onRewardXP={(xp) => awardXP(xp, 'worker_master')} />
+              </Suspense>
+            )}
+
+            {/* IHK PRÄSENTATIONS-STOPPUHR & FOLIEN-GLIEDERUNG (AP2 TEIL A) */}
+            {(activeTab === 'presentation_timer_lab' || activeTab === 'presentation_timer' || activeTab === 'ihk_presentation_timer') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <IhkPresentationTimerLab onRewardXP={(xp) => awardXP(xp, 'presentation_master')} />
+              </Suspense>
+            )}
+
+            {/* GITHUB ACTIONS CI/CD WORKFLOW SIMULATOR */}
+            {(activeTab === 'github_actions_lab' || activeTab === 'github_actions' || activeTab === 'github_actions_workflow_lab') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <GithubActionsWorkflowLab onRewardXP={(xp) => awardXP(xp, 'github_actions_master')} />
               </Suspense>
             )}
 

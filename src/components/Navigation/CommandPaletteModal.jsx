@@ -4,7 +4,8 @@ import {
   Search, Terminal, BookOpen, Sparkles, Trophy, Cpu, Code2, 
   Layers, Award, FileText, ArrowRight, X, Command, Database, ShieldCheck,
   Calculator, Globe, ShieldAlert, Brain, GitMerge,
-  Lock, Activity, GitCommit, Network, Server, Code, Radio, Mic, Zap
+  Lock, Activity, GitCommit, Network, Server, Code, Radio, Mic, Zap,
+  Clock, GitPullRequest
 } from 'lucide-react';
 import { TOPICS } from '../../data/topicsData';
 import { GLOSSARY_TERMS } from '../../data/glossaryData';
@@ -35,6 +36,9 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
     { id: 'view-oral-defense', title: 'IHK Fachgespräch & Audio-Simulator (15-Minuten Prüfungsgespräch)', category: 'Prüfung', icon: Mic, action: () => onNavigate('oral_defense_studio') },
     { id: 'view-ansible-playbook', title: 'Ansible Playbook & Idempotenz Studio (Server Automation)', category: 'Labs & Tools', icon: Server, action: () => onNavigate('ansible_playbook_lab') },
     { id: 'view-computation-worker', title: 'Web Worker & Hintergrund-Performance Studio (Concurrency)', category: 'Labs & Tools', icon: Zap, action: () => onNavigate('computation_worker_lab') },
+    { id: 'view-presentation-timer', title: 'IHK Präsentations-Stoppuhr & Folien-Gliederung (15 Min AP2 Teil A)', category: 'Prüfung', icon: Clock, action: () => onNavigate('presentation_timer_lab') },
+    { id: 'view-github-actions', title: 'GitHub Actions CI/CD Workflow Simulator (DAG & Cache)', category: 'Labs & Tools', icon: GitPullRequest, action: () => onNavigate('github_actions_lab') },
+    { id: 'view-docker-orchestrator', title: 'Docker Compose Multi-Container Orchestrator (DAG & Network Isolation)', category: 'Labs & Tools', icon: Layers, action: () => onNavigate('docker_compose_lab') },
     { id: 'view-linux-memory', title: 'Linux Virtual Memory & Page Fault Studio (TLB & OOM Score)', category: 'Labs & Tools', icon: Cpu, action: () => onNavigate('linux_memory_lab') },
     { id: 'view-postgres-pool', title: 'PostgreSQL Connection Pooling & SQL Isolation Studio (PgBouncer)', category: 'Labs & Tools', icon: Database, action: () => onNavigate('postgres_pool_lab') },
     { id: 'view-wiso-dunning', title: 'IHK Skonto-Effektivzins & Mahnwesen Studio (BGB § 288)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('wiso_dunning_lab') },

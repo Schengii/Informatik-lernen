@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-import { BookOpen, Plus, Trash2, Tag, Search, Download, Sparkles, Edit3, Eye } from 'lucide-react';
+import { BookOpen, Plus, Trash2, Tag, Search, Download, Sparkles, Edit3, Eye, Database } from 'lucide-react';
 import { useStore } from '../../store/useStore';
+import { saveItem, deleteItem } from '../../utils/indexedDbStorage';
 
 const STORAGE_KEY = 'it_devgame_personal_notes';
 
@@ -66,13 +67,17 @@ export default function PersonalNotebookLab() {
   const [noteCreatedXpClaimed, setNoteCreatedXpClaimed] = useState(false);
   const [noteExportedXpClaimed, setNoteExportedXpClaimed] = useState(false);
 
-  // Auto-save to localStorage
+  // Auto-save to localStorage & IndexedDB
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
     } catch (e) {
       console.error('Failed to save notes to localStorage', e);
     }
+    // Async IndexedDB Sync
+    notes.forEach(note => {
+      saveItem('notes', note).catch(() => {});
+    });
   }, [notes]);
 
   const selectedNote = notes.find(n => n.id === selectedNoteId) || notes[0];
@@ -98,6 +103,7 @@ export default function PersonalNotebookLab() {
     };
     setNotes([newNote, ...notes]);
     setSelectedNoteId(newNote.id);
+    saveItem('notes', newNote).catch(() => {});
     if (!noteCreatedXpClaimed) {
       setNoteCreatedXpClaimed(true);
       awardXP(10, 'note_created');
@@ -107,11 +113,13 @@ export default function PersonalNotebookLab() {
   const handleUpdateCurrentNote = (field, value) => {
     setNotes(notes.map(n => {
       if (n.id === selectedNoteId) {
-        return {
+        const updated = {
           ...n,
           [field]: value,
           updatedAt: new Date().toLocaleString('de-DE', { dateStyle: 'short', timeStyle: 'short' })
         };
+        saveItem('notes', updated).catch(() => {});
+        return updated;
       }
       return n;
     }));
@@ -122,6 +130,7 @@ export default function PersonalNotebookLab() {
     const remaining = notes.filter(n => n.id !== id);
     setNotes(remaining);
     setSelectedNoteId(remaining[0].id);
+    deleteItem('notes', id).catch(() => {});
   };
 
   const handleExportMarkdown = () => {
@@ -147,6 +156,9 @@ export default function PersonalNotebookLab() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
               <span className="badge badge-indigo"><BookOpen size={14} /> Persönliches Notizbuch</span>
               <span className="badge badge-teal"><Sparkles size={14} /> Markdown &amp; Cheat-Sheet Vault</span>
+              <span className="badge badge-green" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                <Database size={12} /> IndexedDB Offline-Sync
+              </span>
             </div>
             <h1 style={{ fontSize: '2rem', fontWeight: '800', margin: 0, color: 'var(--text-main)' }}>
               Developer Notizen- &amp; Wissens-Archiv

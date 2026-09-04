@@ -20,6 +20,8 @@ import TerraformLab from './Content/TerraformLab';
 import IhkOralDefenseStudioLab from './Content/IhkOralDefenseStudioLab';
 import AnsiblePlaybookLab from './Content/AnsiblePlaybookLab';
 import ComputationWorkerLab from './Content/ComputationWorkerLab';
+import IhkPresentationTimerLab from './Content/IhkPresentationTimerLab';
+import GithubActionsWorkflowLab from './Content/GithubActionsWorkflowLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -130,5 +132,21 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/Web Worker/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert IhkPresentationTimerLab fehlerfrei', () => {
+    const { container } = render(
+      <IhkPresentationTimerLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Präsentations-Stoppuhr/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert GithubActionsWorkflowLab fehlerfrei', () => {
+    const { container } = render(
+      <GithubActionsWorkflowLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/GitHub Actions/i).length).toBeGreaterThan(0);
   });
 });

@@ -1,12 +1,12 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), IHK Fachgespräch & Audio-Prüfungssimulator (Web Speech STT/TTS), Ansible Playbook & Idempotenz Studio, Web Worker & Hintergrund-Performance Concurrency Studio, IHK DIN 69900 CPM Netzplantechnik, OMG UML 2.5 Studio, Terraform & OpenTofu IaC Studio, IHK Nutzwertanalyse Studio (NWA), RAID Storage & Paritäts-Rechner, VLSM Subnet Splitter, IHK Projektantrags-Prüfer, OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer, Relationalem ERD Designer & 1NF–3NF Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer, Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), IHK Präsentations-Stoppuhr & Folien-Gliederung (15 Min AP2 Teil A), Docker Compose Multi-Container Orchestrator (DAG & Network Isolation), Dynamic CI/CD GitHub Actions Workflow Simulator, Offline IndexedDB Storage Synchronizer, IHK Fachgespräch & Audio-Prüfungssimulator (Web Speech STT/TTS), Ansible Playbook & Idempotenz Studio, Web Worker & Hintergrund-Performance Concurrency Studio, IHK DIN 69900 CPM Netzplantechnik, OMG UML 2.5 Studio, Terraform & OpenTofu IaC Studio, IHK Nutzwertanalyse Studio (NWA), RAID Storage & Paritäts-Rechner, VLSM Subnet Splitter, IHK Projektantrags-Prüfer, OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer, Relationalem ERD Designer & 1NF–3NF Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer, Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.31.0)](#-hauptfunktionen--neue-features-v3310-ihk-fachgespräch-ansible-playbook--web-worker-concurrency-edition)
+- [Hauptfunktionen & Neue Features (v3.32.0)](#-hauptfunktionen--neue-features-v3320-ihk-präsentations-timer-docker-compose-orchestrator-github-actions-cicd--offline-indexeddb-edition)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -25,7 +25,8 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Einsteiger-Kurs (`AnfaengerGuideHub.jsx`)**: Lernen ohne jegliche Vorkenntnisse.
    - Grundlagen leicht verständlich erklärt: **EVA-Prinzip**, **CPU-Gehirn** (ALU, Steuerwerk, Register), **Binärsystem & Bytes**, **Internet & DNS**.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI/DP/DVS, IT-Systemelektroniker, Kaufleute IT-Systemmanagement)**:
-   - **IHK Fachgespräch & Audio-Simulator (`IhkOralDefenseStudioLab.jsx` & `ihkOralDefenseEngine.js`)**: Realistisches 15-Minuten Prüfungs-Fachgespräch vor dem 3-köpfigen IHK-Prüfungsausschuss mit Web Speech Sprachausgabe (TTS) und Einsprechen (STT), Persona-Prüfern (Fachexperte, Prozessprüfer, WISO-Prüfer), Keyword-Rubrik-Scoring und IHK-Notenvergabe.
+   - **IHK Präsentations-Stoppuhr & Folien-Gliederung (`IhkPresentationTimerLab.jsx` & `ihkPresentationTimerEngine.js`)**: Exakt 15-minütige Countdown-Stoppuhr für AP2 Teil A, 4 Phasen-Gliederung mit Zeitbudgets (Einleitung 2 Min, Analyse 4 Min, Entwurf/Realisierung 6 Min, Fazit 3 Min), Web Audio Gong-Warnsignale und Rubriken-Bewertung.
+   - **IHK Fachgespräch & Audio-Simulator (`IhkOralDefenseStudioLab.jsx` & `ihkOralDefenseEngine.js`)**: Realistisches 15-Minuten Prüfungs-Fachgespräch vor dem 3-köpfigen IHK-Prüfungsausschuss mit Web Speech Sprachausgabe (TTS) und Einsprechen (STT), Persona-Prüfern, Keyword-Rubrik-Scoring und IHK-Notenvergabe.
    - **Ansible Playbook & Idempotenz Studio (`AnsiblePlaybookLab.jsx` & `ansiblePlaybookEngine.js`)**: Automatisierte Server-Provisionierung für heterogene Host-Inventories, Task-Module (`apt`, `template`, `systemd`) und interaktiver Beweis der Idempotenz (Lauf 1: changed=2, Lauf 2: changed=0).
    - **Web Worker & Concurrency Studio (`ComputationWorkerLab.jsx` & `computationWorkerEngine.js`)**: Vergleichender CPU-Benchmark zwischen Single-Thread Main-Thread (UI friert ein) und Dedicated Web Worker mit 60 FPS Herzschlag-Anzeige und Zero UI-Jank.
    - **IHK Netzplan Studio (`CpmNetworkLab.jsx` & `cpmEngine.js`)**: DIN 69900 Vorgangsknotennetzplan mit Vorwärts-/Rückwärtsrechnung (FAZ, FEZ, SAZ, SEZ), Gesamt- und Freiem Puffer (GP, FP) und automatischem Kritischem Pfad.
@@ -38,13 +39,15 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **IHK Noten- & MEP-Rechner (`IhkGradeCalculatorLab.jsx` & `ihkGradeCalculations.js`)**: Offizielle AO 2020 Prüfungsordnung, Gewichtungen (AP1 20%, AP2 30%, Projekt 50%) und automatischer Rechner für die **Mündliche Ergänzungsprüfung (MEP)**.
    - **19"-Rack Konfigurator & USV/Klimarechner (`RackConfiguratorLab.jsx` & `rackCalculations.js`)**: 42HE Serverschrank, Schein- & Wirkleistung ($VA, W$), USV-Akkulaufzeit und BTU/h Kühlungslast.
    - **ITIL 4 ITSM & Service Desk Studio (`ItsmSimulatorLab.jsx` & `itsmEngine.js`)**: Incident Queue mit SLA-Timern, Impact $\times$ Urgency Priorisierung und Change Advisory Board (CAB) Risiko-Scoring.
-   - **OS Process Scheduler & Deadlock Studio (`OsProcessSchedulerLab.jsx` & `osSchedulerEngine.js`)**: CPU-Scheduling (FCFS, SJF, Round Robin mit Quantum, Priority), animierter Gantt-Chart und Bankier-Algorithmus (Banker's Algorithm) zur Deadlock-Vermeidung.
+   - **OS Process Scheduler & Deadlock Studio (`OsProcessSchedulerLab.jsx` & `osSchedulerEngine.js`)**: CPU-Scheduling (FCFS, SJF, Round Robin mit Quantum, Priority), animierter Gantt-Chart und Bankier-Algorithmus zur Deadlock-Vermeidung.
    - **Web-Wireshark Packet Sniffer (`PacketSnifferLab.jsx` & `packetSnifferEngine.js`)**: Schichten 2–7 Paket-Dissektion (Ethernet, IP, TCP/UDP, DNS, HTTP), Hex-Dump Synchronisation und Display-Filter.
    - **Relational ERD Designer & 3NF Linter (`ErdDesignerLab.jsx` & `erdDesignerEngine.js`)**: Visuelle Entity-Relationship Modelle, 1NF–3NF Normalisierungs-Audit und produktionsreifer SQL DDL Export.
    - **SuperMemo SM-2 Spaced Repetition Mastery (`Sm2SpacedRepetitionLab.jsx` & `sm2Algorithm.js`)**: Wissenschaftliches Karteikarten-Lernen mit dynamischen Ease-Faktoren ($EF$) und Ebbinghaus-Vergessenskurven.
-   - **Developer Notizbuch & Vault (`PersonalNotebookLab.jsx`)**: Persönliches Markdown-Notizbuch mit Tag-Suche, LocalStorage Auto-Save und `.md`-Export.
+   - **Developer Notizbuch & Vault (`PersonalNotebookLab.jsx` & `indexedDbStorage.js`)**: Persönliches Markdown-Notizbuch mit asynchroner IndexedDB-Synchronisation, Tag-Suche, LocalStorage Auto-Save und `.md`-Export.
    - Detaillierte IHK-Berufsschul Lernfelder (LF 1 bis LF 12b), **Handelskalkulationen**, **Deckungsbeitragsrechnung & Break-Even-Point**, **Netzplantechnik (CPM)**, **WISO-Arbeitsrecht** und druckfertige **A4 PDF-Spickzettel**.
 3. **🚀 Junior Developer & Systemintegratoren**:
+   - **Docker Compose Multi-Container Orchestrator (`DockerComposeLab.jsx` & `dockerComposeEngine.js`)**: Topologische DAG-Startreihenfolge (`depends_on`), Bridge-Netzwerk-Isolation mit Ping-Simulator, persistente Docker-Volumes und Compose 3.8 YAML Generator.
+   - **Dynamic CI/CD GitHub Actions Workflow Simulator (`GithubActionsWorkflowLab.jsx` & `githubActionsEngine.js`)**: Mehrstufige Pipelines (`needs`), Dependency Caching (`actions/cache@v4`), Secrets-Maskierung (`***`) und Live ANSI Runner-Logs.
    - **Cloud Architecture SLA & SPOF Canvas (`CloudArchitectureCanvasLab.jsx` & `cloudArchitectureEngine.js`)**: Multi-Tier Topologie-Planung, Compound Availability ($A_{\text{ges}}$), Ausfallzeiten-Rechner und Single-Point-of-Failure Audit.
    - **Transformer Attention & LLM Playground (`TransformerAttentionLab.jsx` & `transformerAttentionEngine.js`)**: Scaled Dot-Product Self-Attention Heatmap, Temperature / Top-P / Top-K Token Sampling und autonome AI-Agenten ReAct-Loops.
    - **GraphQL Schema & Query Explorer (`GraphqlExplorerStudioLab.jsx`)**, **RegEx Railroad Visualizer**, **Webhook Inspector**, **Git 3-Way Merge Conflict Resolver**, **Custom Challenge Creator**, **SQLite WASM Studio** und **Live Coding Challenge Studio**.
@@ -53,7 +56,24 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## 🔥 Hauptfunktionen & Neue Features (v3.31.0 IHK Fachgespräch, Ansible Playbook & Web Worker Concurrency Edition)
+## 🔥 Hauptfunktionen & Neue Features (v3.32.0 IHK Präsentations-Timer, Docker Compose Orchestrator, GitHub Actions CI/CD & Offline IndexedDB Edition)
+
+* **⏱️ IHK Präsentations-Stoppuhr & Folien-Gliederungs Studio (`IhkPresentationTimerLab.jsx` & `src/utils/ihkPresentationTimerEngine.js`)**:
+  * 15-Minuten Zeitmanagement- und Countdown-Studio für die IHK-Abschlussprüfung Teil 2 (AP2 Teil A).
+  * 4 strukturierte Phasen nach offiziellem IHK-Standard: Einleitung & Problemstellung (2 Min), Analyse & Wirtschaftlichkeit (4 Min), Entwurf & Realisierung (6 Min), QS, Fazit & Ausblick (3 Min).
+  * Web Audio Synthesizer: Akustisches Gong-Signal bei Phasenwechseln sowie Warnsignal 1 Minute vor Ablauf des 15-Minuten-Limits.
+  * Interaktive IHK-Bewertungsmatrix (Rubriken: Struktur, Fachliche Tiefe, Medieneinsatz, Vortrag, Timing) mit Notenberechnung (1–6) und XP-Belohnung.
+* **🐳 Docker Compose Multi-Container Orchestrator (`DockerComposeLab.jsx` & `src/utils/dockerComposeEngine.js`)**:
+  * Vollständige DAG-Auflösung von Service-Startreihenfolgen via Kahn-Topologie anhand von `depends_on` (z. B. `postgres` & `redis` vor `api`, danach `web`).
+  * Interaktiver Netzwerk-Isolations- und Ping-Simulator: Visualisiert, warum Frontend-Container aus Sicherheitsgründen die interne Datenbank im Backend-Netzwerk nicht direkt erreichen können.
+  * Named Volumes und Bind-Mounts Inspektion sowie dynamischer Export von produktionsreifem `docker-compose.yml` (Version 3.8).
+* **⚡ Dynamic CI/CD GitHub Actions Workflow Simulator (`GithubActionsWorkflowLab.jsx` & `src/utils/githubActionsEngine.js`)**:
+  * Parallele und sequentielle Job-Ausführung anhand von `needs`-Abhängigkeiten.
+  * Dependency-Caching-Simulation via `actions/cache@v4`: Misst Geschwindigkeitsvorteile durch Cache-Hits vs. Remote-Downloads bei Cache-Misses.
+  * Secrets-Maskierung im Runner-Log (automatischer Ersatz von sensiblen Tokens durch `***`) und Live ANSI-Farb-Ausgabe.
+* **💾 Offline IndexedDB Storage Synchronizer & Database Layer (`PersonalNotebookLab.jsx` & `src/utils/indexedDbStorage.js`)**:
+  * Asynchrone, unbegrenzte Offline-Persistenz über das 5-MB-LocalStorage-Limit hinaus.
+  * Dual-Save-Architektur im Entwickler-Notizbuch (`PersonalNotebookLab.jsx`) mit automatischer Synchronisation und "IndexedDB Offline-Sync: Aktiv"-Statusanzeige.
 
 * **🎙️ IHK Fachgespräch & Audio-Prüfungssimulator (`IhkOralDefenseStudioLab.jsx` & `src/utils/ihkOralDefenseEngine.js`)**:
   * 15-Minuten mündliche Prüfungssimulation für die IHK Abschlussprüfung Teil 2 (Fachinformatiker FIAE / FISI).
@@ -223,6 +243,7 @@ Informatik-lernen/
     │   │   ├── GitBranchGraphLab.jsx
     │   │   ├── GitLab.jsx
     │   │   ├── GitMergeConflictLab.jsx
+    │   │   ├── GithubActionsWorkflowLab.jsx
     │   │   ├── GlossaryModal.jsx
     │   │   ├── GraphqlExplorerStudioLab.jsx
     │   │   ├── GraphqlResolverLab.jsx
@@ -233,6 +254,7 @@ Informatik-lernen/
     │   │   ├── IhkGradeCalculatorLab.jsx
     │   │   ├── IhkOralDefenseStudioLab.jsx
     │   │   ├── IhkOralExamSimulator.jsx
+    │   │   ├── IhkPresentationTimerLab.jsx
     │   │   ├── IhkProjectDocumentationGenerator.jsx
     │   │   ├── IhkProjectProposalLab.jsx
     │   │   ├── Ipv6RoutingLab.jsx
@@ -423,6 +445,8 @@ Informatik-lernen/
         ├── cpmEngine.test.js
         ├── customChallengesManager.js
         ├── customChallengesManager.test.js
+        ├── dockerComposeEngine.js
+        ├── dockerComposeEngine.test.js
         ├── ebpfXdpEngine.js
         ├── ebpfXdpEngine.test.js
         ├── erdDesignerEngine.js
@@ -431,6 +455,8 @@ Informatik-lernen/
         ├── eventSourcingEngine.test.js
         ├── gitConflictEngine.js
         ├── gitConflictEngine.test.js
+        ├── githubActionsEngine.js
+        ├── githubActionsEngine.test.js
         ├── graphqlSandboxEngine.js
         ├── graphqlSandboxEngine.test.js
         ├── haptics.js
@@ -442,8 +468,12 @@ Informatik-lernen/
         ├── ihkGradeCalculations.test.js
         ├── ihkOralDefenseEngine.js
         ├── ihkOralDefenseEngine.test.js
+        ├── ihkPresentationTimerEngine.js
+        ├── ihkPresentationTimerEngine.test.js
         ├── ihkProjectProposalEngine.js
         ├── ihkProjectProposalEngine.test.js
+        ├── indexedDbStorage.js
+        ├── indexedDbStorage.test.js
         ├── ipv6Routing.js
         ├── ipv6Routing.test.js
         ├── itsmEngine.js
@@ -577,6 +607,16 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.32.0 (IHK Präsentations-Timer, Docker Compose Orchestrator, GitHub Actions CI/CD & Offline IndexedDB Edition)
+
+- **Neu**: `IhkPresentationTimerLab.jsx` & `src/utils/ihkPresentationTimerEngine.js` — IHK Präsentations-Stoppuhr & Folien-Gliederung (AP2 Teil A): Offizieller 15-Minuten Zeitmanagement-Timer mit 4 Phasen-Gliederung (Einleitung 2 Min, Analyse & Wirtschaftlichkeit 4 Min, Entwurf & Realisierung 6 Min, QS & Fazit 3 Min), Web Audio Gong-Signalen bei Phasenübergängen, 1-Minuten-Warnung vor Überzeit und offizieller IHK-Rubriken-Matrix (Struktur, Fachliche Tiefe, Medieneinsatz, Vortrag, Zeitmanagement) mit automatischer Notenberechnung (1–6) und 45 XP Belohnung.
+- **Neu**: `DockerComposeLab.jsx` (Upgrade) & `src/utils/dockerComposeEngine.js` — Docker Compose Multi-Container Orchestrator: Topologische DAG-Startreihenfolge von Services via Kahn-Algorithmus basierend auf `depends_on`, Multi-Network Bridge-Isolation mit Ping-Erreichbarkeitstest (Sicherheits-Isolation zwischen Frontend und interner Datenbank), persistente Named Volumes & Bind-Mounts, interaktiver `docker compose up -d` Terminal-Simulator mit Healthcheck-Polling und Compose 3.8 YAML Export.
+- **Neu**: `GithubActionsWorkflowLab.jsx` & `src/utils/githubActionsEngine.js` — Dynamic CI/CD GitHub Actions Workflow Simulator: Visueller DAG-Workflow-Graph mit parallelen und sequentiellen Ausführungsstufen (`needs`), Dependency Caching via `actions/cache@v4` (Cache Hit/Miss Simulation), Secrets-Maskierung (`***`) und Live ANSI-Runner-Konsolenausgabe mit 50 XP Belohnung.
+- **Neu**: `src/utils/indexedDbStorage.js` & Integration in `PersonalNotebookLab.jsx` — Asynchroner IndexedDB NoSQL-Speicher-Layer: Unbegrenzte Offline-Persistenz über das 5-MB-LocalStorage-Limit hinaus, automatischer Fallback für Testumgebungen, Dual-Save-Architektur im Entwickler-Notizbuch und "IndexedDB Offline-Sync: Aktiv"-Statusanzeige.
+- **Routing & Navigation**: Vollständige Integration aller neuen Labs in `App.jsx` (inklusive Alias-Routen wie `presentation_timer_lab`, `github_actions_lab`, `docker_compose_lab`), `CommandPaletteModal.jsx` (neue Shortcuts mit `Clock` und `GitPullRequest` Icons) und `LabsDashboard.jsx`.
+- **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für `IhkPresentationTimerLab` und `GithubActionsWorkflowLab` erweitert (15/15 Tests bestanden).
+- **Test-Suite & Qualität**: **268 bestandene Unit-Tests** in **85 Test-Dateien** mit 100% Erfolgsquote (vorher 249/81). **0 Linter-Fehler / 0 Warnungen** in Oxlint über 385 Dateien und blitzschneller PWA Produktions-Build in ~1.2s.
 
 ### Version 3.31.0 (IHK Fachgespräch Audio-Simulator, Ansible Playbook & Web Worker Concurrency Edition)
 

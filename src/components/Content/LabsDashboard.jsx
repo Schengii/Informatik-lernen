@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap } from 'lucide-react';
+import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest } from 'lucide-react';
 
 export const LAB_MODULES = [
   {
@@ -111,6 +111,28 @@ export const LAB_MODULES = [
     icon: Zap,
     badge: 'Neu',
     color: '#eab308'
+  },
+  {
+    id: 'presentation_timer_lab',
+    title: 'IHK Präsentations-Stoppuhr & Gliederung',
+    category: 'ihk',
+    tags: ['#Präsentation', '#AP2', '#15Minuten', '#Folien', '#Zeitmanagement', '#IHK'],
+    difficulty: 'Intermediate',
+    desc: '15-Minuten Zeitüberwachung mit Phasengliederung, Akustik-Warnung & IHK-Rubriken.',
+    icon: Clock,
+    badge: 'IHK Neu',
+    color: '#f97316'
+  },
+  {
+    id: 'github_actions_lab',
+    title: 'GitHub Actions CI/CD Workflow Studio',
+    category: 'devops',
+    tags: ['#GitHubActions', '#CICD', '#Pipeline', '#DAG', '#Cache', '#DevOps'],
+    difficulty: 'Intermediate',
+    desc: 'DAG Job-Stufen, Dependency Caching, Secrets-Maskierung und Live ANSI Runner-Logs.',
+    icon: GitPullRequest,
+    badge: 'Neu',
+    color: '#3b82f6'
   },
   {
     id: 'scrum_simulator',
