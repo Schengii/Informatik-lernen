@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest } from 'lucide-react';
+import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar } from 'lucide-react';
 
 export const LAB_MODULES = [
   {
@@ -133,6 +133,28 @@ export const LAB_MODULES = [
     icon: GitPullRequest,
     badge: 'Neu',
     color: '#3b82f6'
+  },
+  {
+    id: 'ihk_project_gantt_lab',
+    title: 'IHK Projekt-Gantt & Meilenstein-Editor',
+    category: 'ihk',
+    tags: ['#Gantt', '#AP2', '#FIAE', '#FISI', '#80h', '#40h', '#Meilensteine'],
+    difficulty: 'Advanced',
+    desc: 'Interaktive Zeit- & Phasenplanung für den IHK-Abschlussbericht mit Soll/Ist-Prüfung & Export.',
+    icon: Calendar,
+    badge: 'IHK Neu',
+    color: '#3b82f6'
+  },
+  {
+    id: 'wasm_simd_studio_lab',
+    title: 'WebAssembly SIMD & Vector Studio',
+    category: 'algorithms',
+    tags: ['#Wasm', '#SIMD', '#v128', '#Vector', '#Performance', '#MFLOPS'],
+    difficulty: 'Expert',
+    desc: '128-Bit Vektor-Register (f32x4), Geschwindigkeits-Benchmark vs. JS Loop & WAT Bytecode.',
+    icon: Cpu,
+    badge: 'Neu',
+    color: '#9333ea'
   },
   {
     id: 'scrum_simulator',

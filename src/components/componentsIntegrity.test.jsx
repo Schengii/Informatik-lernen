@@ -22,6 +22,9 @@ import AnsiblePlaybookLab from './Content/AnsiblePlaybookLab';
 import ComputationWorkerLab from './Content/ComputationWorkerLab';
 import IhkPresentationTimerLab from './Content/IhkPresentationTimerLab';
 import GithubActionsWorkflowLab from './Content/GithubActionsWorkflowLab';
+import IhkProjectGanttLab from './Content/IhkProjectGanttLab';
+import WasmSimdStudioLab from './Content/WasmSimdStudioLab';
+import Http3QuicLab from './Content/Http3QuicLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -148,5 +151,29 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/GitHub Actions/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert IhkProjectGanttLab fehlerfrei', () => {
+    const { container } = render(
+      <IhkProjectGanttLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/IHK Projekt-Gantt/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert WasmSimdStudioLab fehlerfrei', () => {
+    const { container } = render(
+      <WasmSimdStudioLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/WebAssembly SIMD/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert Http3QuicLab fehlerfrei', () => {
+    const { container } = render(
+      <Http3QuicLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/HTTP\/3 & QUIC/i).length).toBeGreaterThan(0);
   });
 });

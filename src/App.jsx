@@ -209,6 +209,9 @@ const ComputationWorkerLab = lazy(() => import('./components/Content/Computation
 // v3.32.0 IHK Präsentations-Timer & GitHub Actions CI/CD
 const IhkPresentationTimerLab = lazy(() => import('./components/Content/IhkPresentationTimerLab'));
 const GithubActionsWorkflowLab = lazy(() => import('./components/Content/GithubActionsWorkflowLab'));
+// v3.33.0 IHK Projekt-Gantt & WebAssembly SIMD Studio
+const IhkProjectGanttLab = lazy(() => import('./components/Content/IhkProjectGanttLab'));
+const WasmSimdStudioLab = lazy(() => import('./components/Content/WasmSimdStudioLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -1259,6 +1262,20 @@ export default function App() {
             {(activeTab === 'github_actions_lab' || activeTab === 'github_actions' || activeTab === 'github_actions_workflow_lab') && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <GithubActionsWorkflowLab onRewardXP={(xp) => awardXP(xp, 'github_actions_master')} />
+              </Suspense>
+            )}
+
+            {/* IHK PROJEKT-GANTT & MEILENSTEIN-EDITOR (AP2) */}
+            {(activeTab === 'ihk_project_gantt_lab' || activeTab === 'ihk_project_gantt' || activeTab === 'ihk_gantt') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <IhkProjectGanttLab onRewardXP={(xp) => awardXP(xp, 'ihk_gantt_master')} />
+              </Suspense>
+            )}
+
+            {/* WEBASSEMBLY SIMD & VECTOR PROCESSING STUDIO */}
+            {(activeTab === 'wasm_simd_studio_lab' || activeTab === 'wasm_simd_studio' || activeTab === 'wasm_simd') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <WasmSimdStudioLab onRewardXP={(xp) => awardXP(xp, 'wasm_simd_master')} />
               </Suspense>
             )}
 

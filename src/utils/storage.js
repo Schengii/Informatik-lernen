@@ -1,4 +1,5 @@
 // Storage utility to manage user state, progress, XP, activity history and badges
+import { syncUserStateToIndexedDb } from './indexedDbStoreMiddleware';
 
 const STORAGE_KEY = 'informatik_game_state_v1';
 
@@ -56,6 +57,11 @@ export const saveUserState = (state) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   } catch (e) {
     console.error('Failed to save storage:', e);
+  }
+  try {
+    syncUserStateToIndexedDb(state);
+  } catch {
+    // Ignoriere Fehler im synchronen Pfad
   }
 };
 
