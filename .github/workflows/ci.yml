@@ -14,7 +14,9 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # size-limit@13 requires Node >=22.18 (uses node:fs/promises' `glob`
+          # export, only available from Node 22+) - Node 20 fails at runtime.
+          node-version: 22
           cache: npm
 
       - run: npm ci
