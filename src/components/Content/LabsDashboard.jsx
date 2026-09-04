@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key } from 'lucide-react';
+import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key, Lock, AlertTriangle } from 'lucide-react';
 
 export const LAB_MODULES = [
   {
@@ -188,6 +188,50 @@ export const LAB_MODULES = [
     icon: Server,
     badge: 'FISI Neu',
     color: '#eab308'
+  },
+  {
+    id: 'tls_replay_lab',
+    title: 'TLS 1.3 0-RTT Replay Attack Studio',
+    category: 'security',
+    tags: ['#TLS13', '#0RTT', '#ReplayAttack', '#RFC8446', '#EarlyData', '#StrikeRegister'],
+    difficulty: 'Advanced',
+    desc: 'RFC 8446 Early Data Sicherheit, Replay-Angriffe auf Zahlungen und Single-Use Ticket Abwehr.',
+    icon: Lock,
+    badge: 'Neu',
+    color: '#ef4444'
+  },
+  {
+    id: 'ihk_risk_analysis_lab',
+    title: 'IHK Risikoanalyse & 5x5 Risikomatrix',
+    category: 'ihk',
+    tags: ['#Risikoanalyse', '#FMEA', '#DIN_EN_31010', '#RPZ', '#AP2', '#IHK', '#Projektdoku'],
+    difficulty: 'Intermediate',
+    desc: 'DIN EN 31010 & FMEA Risikomatrix (W × S = RPZ), Gegenmaßnahmen & IHK-Markdown-Export.',
+    icon: AlertTriangle,
+    badge: 'IHK Neu',
+    color: '#f59e0b'
+  },
+  {
+    id: 'ebpf_cilium_lab',
+    title: 'eBPF Cilium Service Mesh & L7 Tracing',
+    category: 'cloud',
+    tags: ['#eBPF', '#Cilium', '#ServiceMesh', '#Sidecarless', '#SockOps', '#KernelBypass'],
+    difficulty: 'Expert',
+    desc: 'Sidecarless Cloud-Native Architektur: Linux Kernel Socket-Bypass (sockmap) vs. Envoy Sidecars.',
+    icon: Network,
+    badge: 'Neu',
+    color: '#06b6d4'
+  },
+  {
+    id: 'postgres_index_types_lab',
+    title: 'PostgreSQL Index Types Deep Dive',
+    category: 'database',
+    tags: ['#PostgreSQL', '#BTree', '#GIN', '#GiST', '#BRIN', '#QueryTuning', '#IndexAdvisor'],
+    difficulty: 'Advanced',
+    desc: 'Vergleiche B-Tree, GIN, GiST und BRIN Indizes hinsichtlich Speicherbedarf & Abfrage-Speedup.',
+    icon: Database,
+    badge: 'Neu',
+    color: '#3b82f6'
   },
   {
     id: 'scrum_simulator',

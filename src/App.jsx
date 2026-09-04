@@ -216,6 +216,11 @@ const WasmSimdStudioLab = lazy(() => import('./components/Content/WasmSimdStudio
 const IhkWirtschaftlichkeitLab = lazy(() => import('./components/Content/IhkWirtschaftlichkeitLab'));
 const WebAuthnPasskeyLab = lazy(() => import('./components/Content/WebAuthnPasskeyLab'));
 const SystemdServiceLab = lazy(() => import('./components/Content/SystemdServiceLab'));
+// v3.35.0 TLS 1.3 Replay, IHK Risikoanalyse, eBPF Cilium & Postgres Index Types
+const TlsReplayLab = lazy(() => import('./components/Content/TlsReplayLab'));
+const IhkRiskAnalysisLab = lazy(() => import('./components/Content/IhkRiskAnalysisLab'));
+const EbpfCiliumLab = lazy(() => import('./components/Content/EbpfCiliumLab'));
+const PostgresIndexTypesLab = lazy(() => import('./components/Content/PostgresIndexTypesLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -1301,6 +1306,34 @@ export default function App() {
             {(activeTab === 'systemd_service_lab' || activeTab === 'systemd_service' || activeTab === 'systemd_lab') && (
               <Suspense fallback={<LabLoadingFallback />}>
                 <SystemdServiceLab onRewardXP={(xp) => awardXP(xp, 'systemd_master')} />
+              </Suspense>
+            )}
+
+            {/* TLS 1.3 0-RTT REPLAY & ANTI-REPLAY STUDIO */}
+            {(activeTab === 'tls_replay_lab' || activeTab === 'tls_replay' || activeTab === '0rtt_replay_lab') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <TlsReplayLab onRewardXP={(xp) => awardXP(xp, 'tls_replay_master')} />
+              </Suspense>
+            )}
+
+            {/* IHK RISIKOANALYSE & RISIKOMATRIX STUDIO */}
+            {(activeTab === 'ihk_risk_analysis_lab' || activeTab === 'ihk_risk_analysis' || activeTab === 'risikoanalyse_lab') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <IhkRiskAnalysisLab onRewardXP={(xp) => awardXP(xp, 'ihk_risk_master')} />
+              </Suspense>
+            )}
+
+            {/* EBPF CILIUM SERVICE MESH & L7 TRACING SANDBOX */}
+            {(activeTab === 'ebpf_cilium_lab' || activeTab === 'ebpf_cilium' || activeTab === 'cilium_mesh_lab') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <EbpfCiliumLab onRewardXP={(xp) => awardXP(xp, 'cilium_master')} />
+              </Suspense>
+            )}
+
+            {/* POSTGRESQL INDEX TYPES DEEP DIVE */}
+            {(activeTab === 'postgres_index_types_lab' || activeTab === 'postgres_index_types' || activeTab === 'postgres_index_lab') && (
+              <Suspense fallback={<LabLoadingFallback />}>
+                <PostgresIndexTypesLab onRewardXP={(xp) => awardXP(xp, 'postgres_index_master')} />
               </Suspense>
             )}
 

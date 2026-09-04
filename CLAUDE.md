@@ -22,7 +22,7 @@ Entwickler- und KI-Leitfaden für das Projekt **Informatik-lernen (IT-DevGame)**
 # Entwicklungsserver starten (Standard-Port http://localhost:5173)
 npm run dev
 
-# Vollständige Test-Suite ausführen (92 Test-Dateien, 309 Tests)
+# Vollständige Test-Suite ausführen (96 Test-Dateien, 328 Tests)
 npm test
 
 # Einzelnen Test ausführen

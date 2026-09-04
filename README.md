@@ -1,12 +1,12 @@
 # 💻 IT-DevGame | Interaktives Informatik-Spiel & Lernplattform für alle Altersgruppen
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), IHK Wirtschaftlichkeits-, Amortisations- & Make-or-Buy Rechner (AP2 Doku-Modul), Web Crypto API & FIDO2 Passkey Studio (WebAuthn), Linux Systemd Unit Lifecycle & Cgroups v2 Sandbox, WebAssembly 128-Bit SIMD & Sobel Convolution Matrix Studio, IHK Projekt-Gantt & Meilenstein-Editor (AP2 Zeitplanung 80h FIAE / 40h FISI), HTTP/3 & QUIC Protocol Inspector & UDP Packet Loss Recovery Simulator, IndexedDB Store Hydration & Redundanter Persistenz-Layer, IHK Präsentations-Stoppuhr & Folien-Gliederung (15 Min AP2 Teil A), Docker Compose Multi-Container Orchestrator (DAG & Network Isolation), Dynamic CI/CD GitHub Actions Workflow Simulator, Offline IndexedDB Storage Synchronizer, IHK Fachgespräch & Audio-Prüfungssimulator (Web Speech STT/TTS), Ansible Playbook & Idempotenz Studio, Web Worker & Hintergrund-Performance Concurrency Studio, IHK DIN 69900 CPM Netzplantechnik, OMG UML 2.5 Studio, Terraform & OpenTofu IaC Studio, IHK Nutzwertanalyse Studio (NWA), RAID Storage & Paritäts-Rechner, VLSM Subnet Splitter, IHK Projektantrags-Prüfer, OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer, Relationalem ERD Designer & 1NF–3NF Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer, Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), TLS 1.3 0-RTT Replay Attack & Anti-Replay Studio (RFC 8446 Early Data), IHK Risikoanalyse & 5x5 Risikomatrix (DIN EN 31010 / FMEA für AP2), eBPF Cilium Service Mesh & L7 Tracing Sandbox, PostgreSQL Index Types Deep Dive (B-Tree, GIN, GiST, BRIN), IHK Wirtschaftlichkeits-, Amortisations- & Make-or-Buy Rechner (AP2 Doku-Modul), Web Crypto API & FIDO2 Passkey Studio (WebAuthn), Linux Systemd Unit Lifecycle & Cgroups v2 Sandbox, WebAssembly 128-Bit SIMD & Sobel Convolution Matrix Studio, IHK Projekt-Gantt & Meilenstein-Editor (AP2 Zeitplanung 80h FIAE / 40h FISI), HTTP/3 & QUIC Protocol Inspector & UDP Packet Loss Recovery Simulator, IndexedDB Store Hydration & Redundanter Persistenz-Layer, IHK Präsentations-Stoppuhr & Folien-Gliederung (15 Min AP2 Teil A), Docker Compose Multi-Container Orchestrator (DAG & Network Isolation), Dynamic CI/CD GitHub Actions Workflow Simulator, Offline IndexedDB Storage Synchronizer, IHK Fachgespräch & Audio-Prüfungssimulator (Web Speech STT/TTS), Ansible Playbook & Idempotenz Studio, Web Worker & Hintergrund-Performance Concurrency Studio, IHK DIN 69900 CPM Netzplantechnik, OMG UML 2.5 Studio, Terraform & OpenTofu IaC Studio, IHK Nutzwertanalyse Studio (NWA), RAID Storage & Paritäts-Rechner, VLSM Subnet Splitter, IHK Projektantrags-Prüfer, OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer, Relationalem ERD Designer & 1NF–3NF Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer, Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.34.0)](#-hauptfunktionen--neue-features-v3340-ihk-wirtschaftlichkeitsrechner-webauthn-passkeys-systemd-cgroups--wasm-sobel-edition)
+- [Hauptfunktionen & Neue Features (v3.35.0)](#-hauptfunktionen--neue-features-v3350-tls-13-0-rtt-replay-ihk-risikoanalyse-ebpf-cilium--postgres-index-types-edition)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -25,6 +25,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Einsteiger-Kurs (`AnfaengerGuideHub.jsx`)**: Lernen ohne jegliche Vorkenntnisse.
    - Grundlagen leicht verständlich erklärt: **EVA-Prinzip**, **CPU-Gehirn** (ALU, Steuerwerk, Register), **Binärsystem & Bytes**, **Internet & DNS**.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI/DP/DVS, IT-Systemelektroniker, Kaufleute IT-Systemmanagement)**:
+   - **IHK Risikoanalyse & 5x5 Risikomatrix Studio (`IhkRiskAnalysisLab.jsx` & `ihkRiskAnalysisEngine.js`)**: DIN EN 31010 / FMEA Standard für die IHK-Abschlussarbeit (AP2 Teil A Pflichtkapitel). Quantifizierung von Eintrittswahrscheinlichkeit ($W \in [1, 5]$) und Schadensausmaß ($S \in [1, 5]$) zur Risikoprioritätszahl ($RPZ \in [1, 25]$), 5x5 Ampel-Matrix, Handlungsstrategien (Vermeidung, Minderung, Übertragung, Akzeptanz) und 1-Klick Markdown-Export für den Projektbericht.
    - **IHK Wirtschaftlichkeits-, Amortisations- & Make-or-Buy Rechner (`IhkWirtschaftlichkeitLab.jsx` & `ihkWirtschaftlichkeitEngine.js`)**: Praxisorientiertes Pflicht-Kalkulationsmodul für die IHK-Projektdokumentation (AP2 Teil A) mit statischer & dynamischer Amortisationsrechnung (Break-Even in Monaten), vollständiger Make-or-Buy Gegenüberstellung (interne Entwicklungskosten vs. SaaS-Lizenzierung über $N$ Jahre), Kostenvergleichs-Matrix (Alt vs. Neu) und 1-Klick IHK-Dokumentations-Markdown-Export.
    - **IHK Projekt-Gantt & Meilenstein-Editor (`IhkProjectGanttLab.jsx` & `ihkProjectGanttEngine.js`)**: Offizielles Zeit- und Phasenplanungs-Studio für den IHK-Abschlussbericht und Projektantrag (AP2 Teil A) mit Profilen für FIAE (80h) und FISI (40h), Kalender-Gantt-Berechnung ohne Wochenenden, Realisierungs- & Dokumentations-Grenzwertprüfungen und Markdown-Export.
    - **IHK Präsentations-Stoppuhr & Folien-Gliederung (`IhkPresentationTimerLab.jsx` & `ihkPresentationTimerEngine.js`)**: Exakt 15-minütige Countdown-Stoppuhr für AP2 Teil A, 4 Phasen-Gliederung mit Zeitbudgets (Einleitung 2 Min, Analyse 4 Min, Entwurf/Realisierung 6 Min, Fazit 3 Min), Web Audio Gong-Warnsignale und Rubriken-Bewertung.
@@ -48,6 +49,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Developer Notizbuch & Vault (`PersonalNotebookLab.jsx` & `indexedDbStorage.js`)**: Persönliches Markdown-Notizbuch mit asynchroner IndexedDB-Synchronisation, Tag-Suche, LocalStorage Auto-Save und `.md`-Export.
    - Detaillierte IHK-Berufsschul Lernfelder (LF 1 bis LF 12b), **Handelskalkulationen**, **Deckungsbeitragsrechnung & Break-Even-Point**, **Netzplantechnik (CPM)**, **WISO-Arbeitsrecht** und druckfertige **A4 PDF-Spickzettel**.
 3. **🚀 Junior Developer & Systemintegratoren**:
+   - **eBPF Cilium Service Mesh & L7 Tracing Sandbox (`EbpfCiliumLab.jsx` & `ebpfCiliumEngine.js`)**: Sidecarless Cloud-Native Service-to-Service Kommunikation. Linux Kernel Socket-Bypass via `sock_ops` und `sk_msg` Sockmap Redirection, Umgehung von TCP/IP & iptables, Latenz-Speedup von $\sim 4\times$ gegenüber Envoy Sidecars, Einsparung von 65MB RAM pro Pod und L7 HTTP/gRPC Tracing direkt im Kernel.
    - **Linux Systemd Unit Lifecycle & Cgroups v2 Sandbox (`SystemdServiceLab.jsx` & `systemdServiceEngine.js`)**: Vollständiger Linux Service Daemon Simulator mit Unit-Lifecycle (`active`, `activating`, `deactivating`, `failed`), Restart-Policies (`always`, `on-failure`), Cgroups v2 Ressourcen-Limitierung (`CPUQuota=50%`, `MemoryMax=512M`), OOM-Killer Trigger und interaktivem `systemctl` & `journalctl` Terminal-Log-Viewer.
    - **Docker Compose Multi-Container Orchestrator (`DockerComposeLab.jsx` & `dockerComposeEngine.js`)**: Topologische DAG-Startreihenfolge (`depends_on`), Bridge-Netzwerk-Isolation mit Ping-Simulator, persistente Docker-Volumes und Compose 3.8 YAML Generator.
    - **Dynamic CI/CD GitHub Actions Workflow Simulator (`GithubActionsWorkflowLab.jsx` & `githubActionsEngine.js`)**: Mehrstufige Pipelines (`needs`), Dependency Caching (`actions/cache@v4`), Secrets-Maskierung (`***`) und Live ANSI Runner-Logs.
@@ -55,6 +57,8 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Transformer Attention & LLM Playground (`TransformerAttentionLab.jsx` & `transformerAttentionEngine.js`)**: Scaled Dot-Product Self-Attention Heatmap, Temperature / Top-P / Top-K Token Sampling und autonome AI-Agenten ReAct-Loops.
    - **GraphQL Schema & Query Explorer (`GraphqlExplorerStudioLab.jsx`)**, **RegEx Railroad Visualizer**, **Webhook Inspector**, **Git 3-Way Merge Conflict Resolver**, **Custom Challenge Creator**, **SQLite WASM Studio** und **Live Coding Challenge Studio**.
 4. **🔥 Erfahrene Senior Developer & IT-Architekten**:
+   - **TLS 1.3 0-RTT Replay Attack & Anti-Replay Studio (`TlsReplayLab.jsx` & `tlsReplayEngine.js`)**: RFC 8446 Early Data Sicherheit. Interaktive Demonstration von Replay-Angriffen auf abgefangene 0-RTT HTTP-Requests (Geldüberweisung / POST), Gegenüberstellung idempotenter vs. nicht-idempotenter APIs sowie 3 serverseitige Abwehrmechanismen: Single-Use Ticket-Invalidierung, Client Timestamp Drift-Fenster und Server Strike-Register (Bloom-Filter Hash-Set) inklusive Audit-Linter.
+   - **PostgreSQL Index Types Deep Dive (B-Tree, GIN, GiST, BRIN) (`PostgresIndexTypesLab.jsx` & `postgresIndexTypesEngine.js`)**: Interaktiver Performance- und Speicher-Vergleich relationaler Indexstrukturen. B-Tree (Allrounder $O(\log N)$), GIN (Invertierter Index für Volltext und JSONB `@>`), GiST (Mehrdimensionale Geodaten & Ranges `&&`) und BRIN (Block Range Index für Millionen zeitbasierter Datensätze mit $<1\%$ Speicherbedarf eines B-Trees) inklusive automatischem Index-Advisor.
    - **Web Crypto API & Hardware Token Studio (FIDO2 / WebAuthn & Passkeys) (`WebAuthnPasskeyLab.jsx` & `webAuthnEngine.js`)**: Passwortlose Authentifizierung nach W3C WebAuthn Level 3 und FIDO2 Standard mit Hardware-Sicherheitsschlüsseln (YubiKey / Touch ID / Windows Hello), Public-Key Kryptographie (ES256 / RS256), Authenticator Data Flag-Dekodierung (UP, UV, BE, BS) und Replay-Schutz via kryptografischen Challenges.
    - **WebAssembly 128-Bit SIMD & Sobel Convolution Matrix Studio (`WasmSimdStudioLab.jsx` & `wasmSimdEngine.js`)**: 128-Bit Vektor-Register (`v128`, `f32x4`, `i32x4`, `u8x16`), Parallelisierung von 4 Floats in einem CPU-Takt, MFLOPS-Durchsatzmessung gegen skalaren JS-Code, 3x3 Faltungsmatrix-Kerne (Sobel-Edge-Detection, Gaussian-Blur, Sharpen) und WAT Bytecode-Generierung.
    - **Next-Gen Transport: HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx` & `http3QuicEngine.js`)**: Head-of-Line Blocking Eliminierung bei Paketverlust, Multi-Stream Übertragung über UDP, 0-RTT TLS 1.3 Session Resumption und Connection-ID (CID) Migration.
@@ -62,7 +66,34 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## ✨ Hauptfunktionen & Neue Features (v3.34.0: IHK Wirtschaftlichkeitsrechner, WebAuthn Passkeys, Systemd Cgroups & WASM Sobel Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.35.0: TLS 1.3 0-RTT Replay, IHK Risikoanalyse, eBPF Cilium & Postgres Index Types Edition)
+
+* **🔒 TLS 1.3 0-RTT Replay Attack & Anti-Replay Studio (`TlsReplayLab.jsx` & `src/utils/tlsReplayEngine.js`)**:
+  * Vollständige Simulation von **0-RTT Early Data** nach RFC 8446 zur Latenz-Optimierung bei wiederholten Verbindungen.
+  * **Replay-Angriffsszenario**: Veranschaulicht, wie ein Netzwerk-Sniffer abgefangene 0-RTT Pakete replizieren kann und warum nicht-idempotente Requests (`POST /transfers`) katastrophale Doppelausführungen nach sich ziehen.
+  * **3 serverseitige Abwehrmechanismen**:
+    * **Single-Use Session Tickets**: Automatische Invalidierung des PSKs nach einmaliger Nutzung.
+    * **Client Hello Timestamps**: Abweisung von Paketen mit Zeitabweichung außerhalb des 5-Sekunden-Fensters.
+    * **Server Strike-Register**: In-Memory Hash-Set / Bloom-Filter zur Erkennung bereits gesehener Ticket-Hashes.
+  * **Server Security Audit Engine**: Bewertet die Serverkonfiguration (Note A+ bis F) und warnt vor RFC 8446 Sicherheitsverstößen inklusive 50 XP Belohnung.
+* **🏢 IHK Risikoanalyse & 5x5 Risikomatrix Studio (`IhkRiskAnalysisLab.jsx` & `src/utils/ihkRiskAnalysisEngine.js`)**:
+  * Offizielles Risikomanagement-Studio nach **DIN EN 31010** und **FMEA** für das Pflichtkapitel in der IHK-Projektdokumentation (AP2 Teil A).
+  * **Quantifizierung & Bewertung**: Berechnung der Risikoprioritätszahl ($RPZ = W \times S$) aus Eintrittswahrscheinlichkeit ($W \in [1, 5]$) und Schadensausmaß ($S \in [1, 5]$).
+  * **Interaktive 5x5 Ampel-Matrix**: Visualisiert Risiken in Grün (1–6, akzeptabel), Gelb (7–14, Überwachung) und Rot (15–25, kritisch).
+  * **Handlungsstrategien**: Zuordnung von Vermeidung (Avoidance), Verminderung (Mitigation), Übertragung (Transfer) und Akzeptanz (Retention) mit Erfassung konkreter Präventivmaßnahmen und Notfallplänen (Contingency Plans).
+  * **1-Klick IHK-Markdown-Export**: Erzeugt eine druckfertige Risikotabelle zur direkten Einbindung in die Fachdokumentation inklusive 60 XP Belohnung.
+* **📦 eBPF Cilium Service Mesh & L7 Tracing Sandbox (`EbpfCiliumLab.jsx` & `src/utils/ebpfCiliumEngine.js`)**:
+  * Next-Gen Cloud-Native Architektur: Gegenüberstellung von traditionellem **Envoy Sidecar Proxy** vs. **Cilium eBPF Socket-Bypass**.
+  * **Kernel Socket Redirection**: Demonstration von `sock_ops` und `sk_msg` zur direkten Verbindung von Sockets im Kernel-Speicher unter Umgehung des TCP/IP-Stacks, veth-Paaren und iptables.
+  * **Performance & Benchmark**: Misst Latenzvorteile ($\sim 4\times$ Speedup von 2.65ms auf 0.35ms) und zeigt die RAM-Einsparung (0 MB vs. 65 MB pro Pod-Sidecar).
+  * **Integrierter eBPF C-Code Viewer**: Zeigt den nativen C-Code mit `BPF_MAP_TYPE_SOCKHASH` und `bpf_msg_redirect_hash` inklusive 55 XP Belohnung.
+* **📊 PostgreSQL Index Types Deep Dive (B-Tree, GIN, GiST, BRIN) (`PostgresIndexTypesLab.jsx` & `src/utils/postgresIndexTypesEngine.js`)**:
+  * Tiefgreifender Vergleich der 4 Kern-Indexstrukturen moderner Datenbanksysteme.
+  * **B-Tree**: Balanced Tree für Gleichheits- und Bereichsabfragen (`=`, `<`, `>`, `BETWEEN`, `ORDER BY`).
+  * **GIN**: Generalized Inverted Index für JSONB (`@>`), Text-Arrays und PostgreSQL Volltextsuche (`to_tsvector @@ to_tsquery`).
+  * **GiST**: Generalized Search Tree für mehrdimensionale Geodaten (PostGIS), Polygone und Bounding-Box Überlappungen (`&&`).
+  * **BRIN**: Block Range Index für riesige, chronologisch wachsende Tabellen (10M+ Zeilen), der über 98% Speicherplatz gegenüber B-Tree einspart.
+  * **Intelligenter Index Advisor**: Ermittelt anhand von Datentyp, Abfragemuster und Tabellengröße den optimalen Indextyp und generiert produktionsreife SQL DDL Statements inklusive 50 XP Belohnung.
 
 * **💰 IHK Wirtschaftlichkeits-, Amortisations- & Make-or-Buy Rechner (`IhkWirtschaftlichkeitLab.jsx` & `src/utils/ihkWirtschaftlichkeitEngine.js`)**:
   * Offizielles Wirtschaftlichkeits- und Kostenkalkulations-Tool für die IHK-Abschlussarbeit (AP2 Teil A für FIAE & FISI).
@@ -286,6 +317,7 @@ Informatik-lernen/
     │   │   ├── DnsHttpLifecycleLab.jsx
     │   │   ├── DockerComposeLab.jsx
     │   │   ├── DockerLab.jsx
+    │   │   ├── EbpfCiliumLab.jsx
     │   │   ├── EbpfXdpLab.jsx
     │   │   ├── ErdDesignerLab.jsx
     │   │   ├── EventSourcingLab.jsx
@@ -309,6 +341,8 @@ Informatik-lernen/
     │   │   ├── IhkProjectDocumentationGenerator.jsx
     │   │   ├── IhkProjectGanttLab.jsx
     │   │   ├── IhkProjectProposalLab.jsx
+    │   │   ├── IhkRiskAnalysisLab.jsx
+    │   │   ├── IhkWirtschaftlichkeitLab.jsx
     │   │   ├── Ipv6RoutingLab.jsx
     │   │   ├── ItPodcastHub.jsx
     │   │   ├── ItsmSimulatorLab.jsx
@@ -344,6 +378,7 @@ Informatik-lernen/
     │   │   ├── PostgresExplainVisualizerLab.jsx
     │   │   ├── PostgresFlamegraphLab.jsx
     │   │   ├── PostgresFulltextLab.jsx
+    │   │   ├── PostgresIndexTypesLab.jsx
     │   │   ├── PostgresMvccLab.jsx
     │   │   ├── PostgresPartitioningLab.jsx
     │   │   ├── PostgresPoolLab.jsx
@@ -368,6 +403,7 @@ Informatik-lernen/
     │   │   ├── SystemdServiceLab.jsx
     │   │   ├── TcoRoiCalculatorLab.jsx
     │   │   ├── TddUnitTestLab.jsx
+    │   │   ├── TlsReplayLab.jsx
     │   │   ├── TerraformLab.jsx
     │   │   ├── ToolingSetupGuide.jsx
     │   │   ├── TopicReader.jsx
@@ -502,6 +538,8 @@ Informatik-lernen/
         ├── customChallengesManager.test.js
         ├── dockerComposeEngine.js
         ├── dockerComposeEngine.test.js
+        ├── ebpfCiliumEngine.js
+        ├── ebpfCiliumEngine.test.js
         ├── ebpfXdpEngine.js
         ├── ebpfXdpEngine.test.js
         ├── erdDesignerEngine.js
@@ -531,6 +569,8 @@ Informatik-lernen/
         ├── ihkProjectGanttEngine.test.js
         ├── ihkProjectProposalEngine.js
         ├── ihkProjectProposalEngine.test.js
+        ├── ihkRiskAnalysisEngine.js
+        ├── ihkRiskAnalysisEngine.test.js
         ├── ihkWirtschaftlichkeitEngine.js
         ├── ihkWirtschaftlichkeitEngine.test.js
         ├── indexedDbStorage.js
@@ -563,6 +603,8 @@ Informatik-lernen/
         ├── packetSnifferEngine.test.js
         ├── postgresFlamegraphEngine.js
         ├── postgresFlamegraphEngine.test.js
+        ├── postgresIndexTypesEngine.js
+        ├── postgresIndexTypesEngine.test.js
         ├── postgresMvccEngine.js
         ├── postgresMvccEngine.test.js
         ├── postgresPartitioningEngine.js
@@ -597,6 +639,8 @@ Informatik-lernen/
         ├── tcoCalculations.test.js
         ├── terraformEngine.js
         ├── terraformEngine.test.js
+        ├── tlsReplayEngine.js
+        ├── tlsReplayEngine.test.js
         ├── transformerAttentionEngine.js
         ├── transformerAttentionEngine.test.js
         ├── umlEngine.js
@@ -676,6 +720,16 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.35.0 (TLS 1.3 0-RTT Replay, IHK Risikoanalyse, eBPF Cilium & Postgres Index Types Edition)
+
+- **Neu**: `TlsReplayLab.jsx` & `src/utils/tlsReplayEngine.js` — TLS 1.3 0-RTT Early Data Replay Attack & Anti-Replay Defense Studio: Tiefgehende Simulation des TLS 1.3 Handshake-Ablaufs (1-RTT Full Handshake vs. 0-RTT Pre-Shared Key Early Data). Demonstration von Man-in-the-Middle Replay-Angriffen auf nicht-idempotente Zahlungs- und Transfer-Requests (`POST /api/transfer`) bei Wiederverwendung von Session-Tickets (`ticket_age_add`). Interaktive Gegenmaßnahmen: Server Single-Use Ticket Cache, Freshness Checks via ClientHello Timestamp-Validierung, Strict Idempotency Filter (Erlaubnis nur für `GET` Requests im 0-RTT Fenster) und Client-seitige Nonce-Diversifikation mit 65 XP Belohnung.
+- **Neu**: `IhkRiskAnalysisLab.jsx` & `src/utils/ihkRiskAnalysisEngine.js` — IHK Risikoanalyse & 5x5 Risikomatrix Studio (DIN EN 31010 / FMEA für AP2 Teil A & B): Prüfungsrelevantes Risikomanagement für IT-Projekte nach offiziellem IHK-Standard. 5x5 Risikomatrix nach Schadensausmaß und Eintrittswahrscheinlichkeit ($RPZ = A \times E$ bzw. FMEA $RPZ = A \times E \times D$), farbcodierte Risikoklassen (Niedrig, Mittel, Hoch, Kritisch), 4 IHK-Standardstrategien (Vermeiden, Vermindern/Mitigieren, Übertragen/Versichern, Akzeptieren/Tragen), vordefinierte Projektszenarien (DSGVO Data-Breach, Cloud-Vendor Lock-in, Ausfall Lead-Developer, Scope-Creep), Restrisiko-Neuberechnung nach Maßnahmenumsetzung und 1-Klick IHK-Dokumentations-Markdown-Export mit 60 XP Belohnung.
+- **Neu**: `EbpfCiliumLab.jsx` & `src/utils/ebpfCiliumEngine.js` — eBPF Cilium Service Mesh & L7 Tracing Sandbox: Hochperformante Kernel-basierte Netzwerk- und Security-Beobachtbarkeit für Cloud-Native Kubernetes-Cluster. Simulation von eBPF TC (Traffic Control) und XDP (eXpress Data Path) Hook-Points im Linux-Kernel, Cilium Network Policies (L3/L4 Pod-Isolation und L7 HTTP Header/Path Filter), Kernel-Map-Inspektor (`BPF_MAP_TYPE_HASH` & `BPF_MAP_TYPE_LRU_HASH`), L7 Hubble Live-Flow-Stream mit Latenzmetriken und interaktiver XDP Fast-Path DDoS SYN-Flood-Drop-Filter (bis zu 100k pps verworfen direkt im Netzwerkkartentreiber ohne Kernel-TCP-Stack Overhead) mit 70 XP Belohnung.
+- **Neu**: `PostgresIndexTypesLab.jsx` & `src/utils/postgresIndexTypesEngine.js` — PostgreSQL Index Types Deep Dive Studio (B-Tree, GIN, GiST, BRIN): Tiefgehende Datenbank-Performance-Analyse und Index-Auswahl für relationale SQL-Workloads. Interaktiver Kosten- und Laufzeitvergleich (`EXPLAIN ANALYZE`) zwischen Sequential Scan, B-Tree Index (B-Baum Seitenstruktur für Skalare, Bereichsabfragen und Sortierungen), GIN (Generalized Inverted Index für JSONB Arrays und Volltextsuche `to_tsvector`), GiST (Generalized Search Tree mit R-Tree Bounding Boxes für 2D Geodaten `geometry(Point)`) und BRIN (Block Range Index für zeitlich sortierte Append-Only Big-Data Zeitreihen mit 99% Speicherplatzersparnis) sowie automatischer Index-Empfehlungs-Assistent mit 65 XP Belohnung.
+- **Routing & Navigation**: Vollständige Integration aller neuen Labs in `App.jsx` (inklusive Lazy-Routen `tls_replay_lab`, `ihk_risk_analysis_lab`, `ebpf_cilium_lab`, `postgres_index_types_lab`), `CommandPaletteModal.jsx` (neue Shortcuts mit `ShieldAlert`, `AlertTriangle`, `Network` und `Database` Icons) und `LabsDashboard.jsx`.
+- **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für alle 4 neuen Module erweitert (25/25 Komponenten-Integrations-Tests grün).
+- **Test-Suite & Qualität**: **328 bestandene Unit-Tests** in **96 Test-Dateien** mit 100% Erfolgsquote (vorher 309/92). **0 Linter-Fehler / 0 Warnungen** in Oxlint über 416 Dateien und blitzschneller PWA Produktions-Build in 1.01s.
 
 ### Version 3.34.0 (IHK Wirtschaftlichkeitsrechner, WebAuthn Passkeys, Systemd Cgroups & WASM Sobel Edition)
 

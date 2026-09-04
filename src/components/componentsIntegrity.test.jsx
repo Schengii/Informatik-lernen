@@ -28,6 +28,10 @@ import Http3QuicLab from './Content/Http3QuicLab';
 import IhkWirtschaftlichkeitLab from './Content/IhkWirtschaftlichkeitLab';
 import WebAuthnPasskeyLab from './Content/WebAuthnPasskeyLab';
 import SystemdServiceLab from './Content/SystemdServiceLab';
+import TlsReplayLab from './Content/TlsReplayLab';
+import IhkRiskAnalysisLab from './Content/IhkRiskAnalysisLab';
+import EbpfCiliumLab from './Content/EbpfCiliumLab';
+import PostgresIndexTypesLab from './Content/PostgresIndexTypesLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -202,6 +206,38 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/systemd/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert TlsReplayLab fehlerfrei', () => {
+    const { container } = render(
+      <TlsReplayLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/0-RTT/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert IhkRiskAnalysisLab fehlerfrei', () => {
+    const { container } = render(
+      <IhkRiskAnalysisLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Risikoanalyse/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert EbpfCiliumLab fehlerfrei', () => {
+    const { container } = render(
+      <EbpfCiliumLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Cilium/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert PostgresIndexTypesLab fehlerfrei', () => {
+    const { container } = render(
+      <PostgresIndexTypesLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/PostgreSQL Index/i).length).toBeGreaterThan(0);
   });
 });
 
