@@ -14,6 +14,17 @@ export const LAB_MODULES = [
     color: '#10b981'
   },
   {
+    id: 'ihk_dpia_lab',
+    title: 'IHK Datenschutz-Folgenabschätzung (DSFA / Art. 35)',
+    category: 'ihk',
+    tags: ['#DSFA', '#DPIA', '#Art35', '#DSGVO', '#Schwellenwert', '#Risikomatrix', '#IHK'],
+    difficulty: 'Intermediate',
+    desc: 'Schwellenwertanalyse (DSK-Blacklist), Risikomatrix für Betroffene & Markdown Doku-Export.',
+    icon: Shield,
+    badge: 'IHK Neu',
+    color: '#f43f5e'
+  },
+  {
     id: 'wiso_labor_law_lab',
     title: 'IHK Arbeitsrecht & Kündigungsschutz Studio',
     category: 'ihk',

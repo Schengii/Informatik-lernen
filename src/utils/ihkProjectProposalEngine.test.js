@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { evaluateIhkProjectProposal, DEFAULT_PROPOSAL_PHASES } from './ihkProjectProposalEngine';
+import { evaluateIhkProjectProposal, DEFAULT_PROPOSAL_PHASES, generateProjectPhasesWizard } from './ihkProjectProposalEngine';
 
 describe('ihkProjectProposalEngine (IHK Projektantrags-Prüfer)', () => {
   it('genehmigt einen konformen 80h FIAE Antrag', () => {
@@ -39,5 +39,15 @@ describe('ihkProjectProposalEngine (IHK Projektantrags-Prüfer)', () => {
 
     expect(res.status).toBe('REJECTED');
     expect(res.errors.length).toBeGreaterThan(0);
+  });
+
+  it('generiert IHK-konforme Phasen für FIAE und FISI im Wizard', () => {
+    const fiaePhases = generateProjectPhasesWizard('fiae', 'web_app');
+    const fiaeTotal = fiaePhases.reduce((s, p) => s + p.hours, 0);
+    expect(fiaeTotal).toBe(80);
+
+    const fisiPhases = generateProjectPhasesWizard('fisi', 'cloud_migration');
+    const fisiTotal = fisiPhases.reduce((s, p) => s + p.hours, 0);
+    expect(fisiTotal).toBe(40);
   });
 });

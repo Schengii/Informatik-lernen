@@ -231,6 +231,7 @@ const OpenApiContractLab = lazy(() => import('./components/Content/OpenApiContra
 const DataLineageEtlLab = lazy(() => import('./components/Content/DataLineageEtlLab'));
 const IhkTomCatalogLab = lazy(() => import('./components/Content/IhkTomCatalogLab'));
 const WisoLaborLawLab = lazy(() => import('./components/Content/WisoLaborLawLab'));
+const IhkDpiaLab = lazy(() => import('./components/Content/IhkDpiaLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -623,6 +624,8 @@ export default function App() {
         return <IhkTomCatalogLab onRewardXP={(xp) => awardXP(xp, 'ihk_dsgvo_tom_master')} />;
       case activeTab === 'wiso_labor_law_lab' || activeTab === 'wiso_labor_law' || activeTab === 'arbeitsrecht_lab' || activeTab === 'kuendigungsschutz_lab':
         return <WisoLaborLawLab onRewardXP={(xp) => awardXP(xp, 'wiso_labor_law_master')} />;
+      case activeTab === 'ihk_dpia_lab' || activeTab === 'ihk_dpia' || activeTab === 'dpia_lab' || activeTab === 'dsfa_lab':
+        return <IhkDpiaLab onRewardXP={(xp) => awardXP(xp, 'ihk_dpia_master')} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':

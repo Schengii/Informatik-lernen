@@ -129,3 +129,55 @@ export function evaluateIhkProjectProposal({
     checklistPassed: missingChecklist.length === 0
   };
 }
+
+/**
+ * Automatischer IHK-Projektphasen-Generator für Standard-Projekttypen
+ * @param {'fiae' | 'fisi' | 'fidp'} occupationId
+ * @param {'custom' | 'web_app' | 'cloud_migration' | 'etl_pipeline' | 'monitoring'} projectType
+ * @returns {Array<{ id: string, name: string, hours: number, category: string }>}
+ */
+export function generateProjectPhasesWizard(occupationId = 'fiae', projectType = 'web_app') {
+  if (occupationId === 'fisi') {
+    // 40h FISI
+    switch (projectType) {
+      case 'cloud_migration':
+      case 'monitoring':
+        return [
+          { id: 'w1', name: '1. Analysephase (Ist-Analyse, Soll-Konzept & NWA)', hours: 6, category: 'analyse' },
+          { id: 'w2', name: '2. Entwurf & Planung (Netzwerktopologie & Rollback-Strategie)', hours: 8, category: 'entwurf' },
+          { id: 'w3', name: '3. Implementierung (Automatisierung via Ansible/Terraform)', hours: 14, category: 'umsetzung' },
+          { id: 'w4', name: '4. Qualitätssicherung (Funktionstests & Lastsimulation)', hours: 6, category: 'qs' },
+          { id: 'w5', name: '5. Projektabschluss (Dokumentation & Übergabe)', hours: 6, category: 'doku' }
+        ];
+      default:
+        return [
+          { id: 'w1', name: '1. Analysephase (Ist-Zustand & Wirtschaftlichkeit)', hours: 7, category: 'analyse' },
+          { id: 'w2', name: '2. Entwurfsphase (Systemarchitektur & Hardware)', hours: 7, category: 'entwurf' },
+          { id: 'w3', name: '3. Realisierung (Installation & Konfiguration)', hours: 14, category: 'umsetzung' },
+          { id: 'w4', name: '4. Qualitätssicherung (Tests & Abnahme)', hours: 6, category: 'qs' },
+          { id: 'w5', name: '5. Dokumentation (Benutzerhandbuch & Projektdoku)', hours: 6, category: 'doku' }
+        ];
+    }
+  }
+
+  // 80h FIAE / FIDP
+  switch (projectType) {
+    case 'etl_pipeline':
+      return [
+        { id: 'w1', name: '1. Analysephase (Quellsystem-Analyse, Datenschutz & NWA)', hours: 14, category: 'analyse' },
+        { id: 'w2', name: '2. Entwurf (DWH Star-Schema, Schnittstellendefinition)', hours: 16, category: 'entwurf' },
+        { id: 'w3', name: '3. Implementierung (ETL-Pipelines & Schema-Drift-Filter)', hours: 28, category: 'umsetzung' },
+        { id: 'w4', name: '4. Qualitätssicherung (Unit-Tests & Validierung)', hours: 11, category: 'qs' },
+        { id: 'w5', name: '5. Projektdokumentation (Entwicklerdoku & Anhang)', hours: 11, category: 'doku' }
+      ];
+    default:
+      return [
+        { id: 'w1', name: '1. Analysephase (Ist-Analyse, Fachkonzept & NWA)', hours: 12, category: 'analyse' },
+        { id: 'w2', name: '2. Entwurfsphase (Datenbank-Design, REST-API & UI-Mockups)', hours: 16, category: 'entwurf' },
+        { id: 'w3', name: '3. Implementierungsphase (Frontend & Backend Kernlogik)', hours: 32, category: 'umsetzung' },
+        { id: 'w4', name: '4. Qualitätssicherung (Automatisierte Tests & CI/CD)', hours: 10, category: 'qs' },
+        { id: 'w5', name: '5. Projektdokumentation (Projektdoku & Übergabe)', hours: 10, category: 'doku' }
+      ];
+  }
+}
+
