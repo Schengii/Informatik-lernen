@@ -80,7 +80,7 @@ export default function Navbar({
     { id: 'packet_sniffer', label: '📡 Web-Wireshark Packet Sniffer', desc: 'Frame Dissection, Hex Dump & Display Filter', badge: 'Flagship' },
     { id: 'erd_designer', label: '🗄️ Relational ERD & 3NF Normalform-Linter', desc: 'Entity Relationships, 1NF-3NF Audit & SQL DDL', badge: 'Flagship' },
     { id: 'transformer_attention', label: '🧠 Transformer Attention & LLM Studio', desc: 'Self-Attention Heatmap, Softmax & ReAct Agent', badge: 'Flagship' },
-    { id: 'cloud_canvas', label: '☁️ Cloud SLA & SPOF Architecture Canvas', desc: 'Verfügbarkeit (99.99%), Downtime & SPOF Linter', badge: 'Flagship' },
+    { id: 'data_lineage_etl', label: '🔄 ETL Pipeline & Data Lineage Studio', desc: 'FIDP/FIAE Datenintegration, DWH & Schema-Drift Audit', badge: 'Neu' },
     { id: 'bgp_anycast_lab', label: '🌐 Linux BGP Routing & Anycast', desc: 'eBGP/iBGP Peering, AS-Path & Anycast IP', badge: 'Neu' },
     { id: 'tls_handshake_lab', label: '🔒 TLS 1.3 Handshake Studio', desc: '1-RTT Full Handshake & 0-RTT Session Resumption', badge: 'Neu' },
     { id: 'jwt_attack_lab', label: '🔑 JWT Sicherheitslücken Studio', desc: 'alg:none Fälschung, Secret-Bruteforce & kid-Injection', badge: 'Neu' },

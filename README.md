@@ -356,6 +356,7 @@ Informatik-lernen/
     │   │   ├── CtfChallengeLab.jsx
     │   │   ├── CustomChallengeCreatorLab.jsx
     │   │   ├── DashboardQuickAccessGrid.jsx
+    │   │   ├── DataLineageEtlLab.jsx
     │   │   ├── DataStructuresLab.jsx
     │   │   ├── DeploymentGuideModal.jsx
     │   │   ├── DesignPatternsLab.jsx
@@ -587,6 +588,8 @@ Informatik-lernen/
         ├── cpmEngine.test.js
         ├── customChallengesManager.js
         ├── customChallengesManager.test.js
+        ├── dataLineageEtlEngine.js
+        ├── dataLineageEtlEngine.test.js
         ├── dockerComposeEngine.js
         ├── dockerComposeEngine.test.js
         ├── dnssecValidationEngine.js
@@ -788,6 +791,14 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.41.0 (ETL Data-Lineage Studio, SQL-Injection Defense & PWA Live Update Toast)
+
+- **Neu**: `src/components/Content/DataLineageEtlLab.jsx` & `src/utils/dataLineageEtlEngine.js` — Didaktisches Datenintegrations- und Governance-Studio für Fachinformatiker Daten- und Prozessanalyse (FIDP) und Anwendungsentwicklung (FIAE). Interaktive 4-Stufen-Pipeline (Extract, Validate, Transform, Load ins DWH Star-Schema), automatische Schema-Drift-Erkennung (Typfehler, ungültige Datumsformate wie DD.MM.YYYY vs. ISO-8601, Kommazahlen mit Währungszeichen) und Quarantäne-Logging für fehlerhafte Datensätze. Vollständig mit `// @ts-check` typisiert und mit 4 Unit-Tests abgesichert.
+- **Neu**: SQL-Injection AST & Parameterized Query Analyzer (`src/utils/sqlSandboxEngine.js` & `src/utils/sqlSandboxEngine.test.js`) — Prüft SQL-Eingaben auf typische Angriffsvektoren (Tautologien wie `OR 1=1`, Kommentare wie `--` oder `/*`, Stacked Queries `; DROP TABLE` und `UNION SELECT`) und stellt den Ausführungsunterschied zwischen ungesicherter String-Konkatenation und vorkompilierten Prepared Statements auf Token-/AST-Ebene interaktiv gegenüber.
+- **Neu**: PWA Update Notification Toast (`src/components/Navigation/PwaUpdateToast.jsx` & `src/main.jsx`) — Erkennt automatisch, wenn ein neuer Service Worker im Hintergrund installiert wurde (`updatefound` / `controllerchange`), und blendet einen eleganten Toast-Hinweis ein, der Nutzern das 1-Klick-Aktualisieren auf die neueste Version ermöglicht.
+- **Erweitert**: Linux BGP Anycast Routing Engine (`src/utils/bgpAnycastEngine.js` & `src/utils/bgpAnycastEngine.test.js`) — Loop-Detection nach RFC 4271 (Routen mit eigener ASN im `AS_PATH` werden automatisch verworfen) sowie AS-Path-Prepending (`prependAsPath`) zur künstlichen Pfadverlängerung implementiert.
+- **Test-Suite & Qualität**: **761 bestandene Unit-/Integrationstests** in **106 Test-Dateien**, **0 Linter-Fehler** (`oxlint src --deny-warnings`), `tsc --noEmit` fehlerfrei, produktionsreifer Build und PWA Service Worker precached 190 Dateien.
 
 ### Version 3.40.0 (Vercel Cloud Deployment, OpenGraph SEO & Caching-Integration)
 

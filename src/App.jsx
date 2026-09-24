@@ -16,6 +16,7 @@ import DailyChallengeWidget from './components/Gamification/DailyChallengeWidget
 import SkillTreeWidget from './components/Gamification/SkillTreeWidget';
 import ActivityHeatmapWidget from './components/Gamification/ActivityHeatmapWidget';
 import PomodoroTimerWidget from './components/Navigation/PomodoroTimerWidget';
+import PwaUpdateToast from './components/Navigation/PwaUpdateToast';
 import ModalContainer from './components/Navigation/ModalContainer';
 import ErrorBoundary from './components/ErrorBoundary';
 
@@ -227,6 +228,7 @@ const DnssecValidationLab = lazy(() => import('./components/Content/DnssecValida
 const IhkAgileBurndownLab = lazy(() => import('./components/Content/IhkAgileBurndownLab'));
 const LinuxCowSnapshotLab = lazy(() => import('./components/Content/LinuxCowSnapshotLab'));
 const OpenApiContractLab = lazy(() => import('./components/Content/OpenApiContractLab'));
+const DataLineageEtlLab = lazy(() => import('./components/Content/DataLineageEtlLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -613,6 +615,8 @@ export default function App() {
         return <LinuxCowSnapshotLab onRewardXP={(xp) => awardXP(xp, 'linux_cow_master')} />;
       case activeTab === 'openapi_contract_lab' || activeTab === 'openapi_contract' || activeTab === 'openapi_lab':
         return <OpenApiContractLab onRewardXP={(xp) => awardXP(xp, 'openapi_contract_master')} />;
+      case activeTab === 'data_lineage_etl_lab' || activeTab === 'data_lineage_etl' || activeTab === 'etl_lab':
+        return <DataLineageEtlLab onRewardXP={(xp) => awardXP(xp, 'etl_data_lineage_master')} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':
@@ -915,6 +919,9 @@ export default function App() {
 
       {/* Floating Pomodoro Focus Timer */}
       <PomodoroTimerWidget />
+
+      {/* PWA Background Update Toast */}
+      <PwaUpdateToast />
 
       {/* Footer with DSGVO Privacy & Impressum */}
       <DsgvoFooterModal />
