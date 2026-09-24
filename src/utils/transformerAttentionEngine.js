@@ -2,6 +2,8 @@
  * Transformer Attention, Softmax & LLM Inference Sampling Engine
  */
 
+import { getCache, setCache } from './cacheEngine';
+
 export const SAMPLE_SENTENCES = [
   { id: 's1', text: 'Der Server stürzte ab weil er überlastet war' },
   { id: 's2', text: 'The developer deployed a microservice to production' },
@@ -12,6 +14,10 @@ export const SAMPLE_SENTENCES = [
  * Computes simulated Scaled Dot-Product Attention weights for token pairs
  */
 export function calculateAttentionMatrix(tokens, headSeed = 1) {
+  const cacheKey = `${headSeed}_${tokens.join('|')}`;
+  const cached = getCache(cacheKey, { namespace: 'transformer_attention' });
+  if (cached) return /** @type {number[][]} */ (cached);
+
   const n = tokens.length;
   const matrix = [];
 
@@ -55,6 +61,7 @@ export function calculateAttentionMatrix(tokens, headSeed = 1) {
     matrix.push(softmaxRow);
   }
 
+  setCache(cacheKey, matrix, { namespace: 'transformer_attention', ttl: 10 * 60 * 1000 });
   return matrix;
 }
 

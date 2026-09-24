@@ -411,3 +411,38 @@ h1, h2, h3, h4, h5, h6 {
     display: none !important;
   }
 }
+
+/* Print Optimization for IHK Documentation, Reports & Sheets */
+@media print {
+  nav, footer, .no-print, button, .mobile-only, #mobile-nav {
+    display: none !important;
+  }
+  body, #root, main {
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  .glass-panel {
+    background: #ffffff !important;
+    border: 1px solid #cccccc !important;
+    box-shadow: none !important;
+    color: #000000 !important;
+    page-break-inside: avoid;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #000000 !important;
+    page-break-after: avoid;
+  }
+  table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+  }
+  th, td {
+    border: 1px solid #dddddd !important;
+    color: #000000 !important;
+    padding: 6px 8px !important;
+  }
+}
+

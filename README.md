@@ -310,6 +310,7 @@ Informatik-lernen/
 ├── package.json
 ├── package-lock.json
 ├── README.md
+├── vercel.json
 ├── vite.config.js
 ├── public/
 │   ├── manifest.json
@@ -573,6 +574,8 @@ Informatik-lernen/
         ├── bleSensorEngine.test.js
         ├── bpftraceEngine.js
         ├── bpftraceEngine.test.js
+        ├── cacheEngine.js
+        ├── cacheEngine.test.js
         ├── campaignAndExam.test.js
         ├── cloudArchitectureEngine.js
         ├── cloudArchitectureEngine.test.js
@@ -785,6 +788,21 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.40.0 (Vercel Cloud Deployment, OpenGraph SEO & Caching-Integration)
+
+- **Neu**: `vercel.json` Konfigurationsdatei — Vollständige Produktions-Konfiguration für Vercel mit SPA-Catch-All-Rewrites (`/(.*) -> /index.html`), immutable Cache-Control-Headern für kompilierte Vite-Assets (1 Jahr), aggressivem Cache-Bypass für `sw.js` (PWA Service Worker) sowie globalen Sicherheits-Headern (`X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `X-XSS-Protection`, `Referrer-Policy: strict-origin-when-cross-origin`).
+- **Neu**: OpenGraph & Twitter Card SEO Meta-Tags in `index.html` — Rich Social Sharing Vorschauen (`og:type`, `og:title`, `og:description`, `og:image`, `twitter:card`, `twitter:title`, `twitter:description`) für Discord, WhatsApp, LinkedIn und X.
+- **Neu**: Druck-Optimierung (`@media print` in `src/styles/global.css`) — IHK-Berichte, Nutzwertanalyse-Tabellen, Notenkalkulationen und Projektdokumentationen werden ohne störende Navigationsleisten, Footer oder Buttons sauber mit schwarzem Text auf weißem Hintergrund für die IHK-Abgabe gedruckt.
+- **Optimiert**: Caching-Anbindung via `src/utils/cacheEngine.js` in `src/utils/transformerAttentionEngine.js` — Berechnung der Scaled Dot-Product Self-Attention-Matrix wird für wiederholte Tokens und Seeds transparent im In-Memory-Cache (`transformer_attention` Namespace) mit 10-Minuten-TTL gehalten.
+- **Aktualisiert**: `src/components/Content/DeploymentGuideModal.jsx` — Bereitstellungshinweise für das 1-Klick-Deployment auf Vercel inklusive Erwähnung der vorkonfigurierten `vercel.json` aktualisiert.
+- **Test-Suite & Qualität**: **750 bestandene Unit-/Integrationstests** in **105 Test-Dateien**, **0 Linter-Fehler**, `tsc --noEmit` sauber, fehlerfreier Produktions-Build und alle `size-limit`-Vorgaben eingehalten.
+
+### Version 3.39.0 (Generischer Caching-Layer)
+
+- **Neu**: `src/utils/cacheEngine.js` — Generischer, wiederverwendbarer Caching-Layer für teure Berechnungen, Simulationsergebnisse und (zukünftige) Fetches. Drei Ebenen je nach Bedarf: reines In-Memory (`setCache`/`getCache`/`getOrSetCache`, TTL-basiert, Namespace-isoliert), LocalStorage-persistent für kleine Werte, die einen Reload überleben sollen (`setPersistentCache`/`getPersistentCache`), und IndexedDB-persistent für größere Ergebnisse (`getOrSetIndexedDbCache`, nutzt den bestehenden `keyvalue`-Store aus `indexedDbStorage.js`). `getCacheStats()` liefert Hit/Miss/Eviction-Zähler zur Beobachtbarkeit, `pruneExpiredCache()` räumt abgelaufene Einträge periodisch auf. Nach dem Muster in Regel 8 (graduelle Typisierung) vollständig mit `// @ts-check` und JSDoc typisiert.
+- **Neu**: `src/utils/cacheEngine.test.js` — 16 Vitest-Tests decken In-Memory-TTL-Ablauf (inkl. `ttl: Infinity`), Namespace-Isolation, `getOrSetCache`-Memoization (Factory wird nur einmal aufgerufen), LocalStorage-Persistenz über einen simulierten In-Memory-Cache-Reset hinweg sowie IndexedDB-Persistenz inklusive Invalidierung ab.
+- **Test-Suite & Qualität**: **750 bestandene Unit-/Integrationstests** (vorher 734) in **105 Test-Dateien** (vorher 104). **0 Linter-Fehler**, `tsc --noEmit` sauber.
 
 ### Version 3.38.0 (Routing-Refactor, IndexedDB-Hydration & A11y/PWA-Testabdeckung)
 
