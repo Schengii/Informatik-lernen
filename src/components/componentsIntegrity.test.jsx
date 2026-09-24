@@ -36,6 +36,8 @@ import DnssecValidationLab from './Content/DnssecValidationLab';
 import IhkAgileBurndownLab from './Content/IhkAgileBurndownLab';
 import LinuxCowSnapshotLab from './Content/LinuxCowSnapshotLab';
 import OpenApiContractLab from './Content/OpenApiContractLab';
+import IhkTomCatalogLab from './Content/IhkTomCatalogLab';
+import WisoLaborLawLab from './Content/WisoLaborLawLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -274,6 +276,22 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/OpenAPI/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert IhkTomCatalogLab fehlerfrei', () => {
+    const { container } = render(
+      <IhkTomCatalogLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/DSGVO/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert WisoLaborLawLab fehlerfrei', () => {
+    const { container } = render(
+      <WisoLaborLawLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Arbeitsrecht/i).length).toBeGreaterThan(0);
   });
 });
 

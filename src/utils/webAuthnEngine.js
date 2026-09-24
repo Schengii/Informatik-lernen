@@ -150,3 +150,44 @@ export function authenticatePasskey({
     message: 'Erfolgreich passwortlos authentifiziert via FIDO2 WebAuthn Signature!'
   };
 }
+
+/**
+ * Prüft, ob der aktuelle Browser und das Betriebssystem echte WebAuthn/FIDO2 Hardware-Tokens unterstützen.
+ * @returns {boolean}
+ */
+export function isWebAuthnSupported() {
+  return typeof window !== 'undefined' &&
+    typeof window.PublicKeyCredential !== 'undefined' &&
+    typeof navigator.credentials !== 'undefined';
+}
+
+/**
+ * Führt einen realen Browser Web Crypto / WebAuthn Testdurchlauf durch, falls Hardware vorhanden ist.
+ * @param {string} username
+ * @returns {Promise<{ isSupported: boolean, hasPlatformAuthenticator?: boolean, error?: string }>}
+ */
+export async function testRealWebAuthnHardware(_username = 'ihk-azubi@devgame.local') {
+  if (!isWebAuthnSupported()) {
+    return {
+      isSupported: false,
+      error: 'WebAuthn API im aktuellen Browser nicht verfügbar (z.B. unsichere HTTP-Verbindung oder veralteter Client).'
+    };
+  }
+
+  try {
+    const hasPlatformAuthenticator = typeof window.PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable === 'function'
+      ? await window.PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable()
+      : false;
+
+    return {
+      isSupported: true,
+      hasPlatformAuthenticator
+    };
+  } catch (err) {
+    return {
+      isSupported: true,
+      error: err instanceof Error ? err.message : String(err)
+    };
+  }
+}
+

@@ -80,6 +80,8 @@ export default function Navbar({
     { id: 'packet_sniffer', label: '📡 Web-Wireshark Packet Sniffer', desc: 'Frame Dissection, Hex Dump & Display Filter', badge: 'Flagship' },
     { id: 'erd_designer', label: '🗄️ Relational ERD & 3NF Normalform-Linter', desc: 'Entity Relationships, 1NF-3NF Audit & SQL DDL', badge: 'Flagship' },
     { id: 'transformer_attention', label: '🧠 Transformer Attention & LLM Studio', desc: 'Self-Attention Heatmap, Softmax & ReAct Agent', badge: 'Flagship' },
+    { id: 'ihk_tom_catalog_lab', label: '🛡️ IHK DSGVO TOM-Katalog Studio (Art. 32)', desc: 'Zutritt, Zugang, Trennung & Markdown Doku-Export', badge: 'Neu' },
+    { id: 'wiso_labor_law_lab', label: '⚖️ IHK Arbeitsrecht & Kündigungsschutz', desc: 'BGB § 622 Fristen, KSchG & Sonderkündigungsschutz', badge: 'Neu' },
     { id: 'data_lineage_etl', label: '🔄 ETL Pipeline & Data Lineage Studio', desc: 'FIDP/FIAE Datenintegration, DWH & Schema-Drift Audit', badge: 'Neu' },
     { id: 'bgp_anycast_lab', label: '🌐 Linux BGP Routing & Anycast', desc: 'eBGP/iBGP Peering, AS-Path & Anycast IP', badge: 'Neu' },
     { id: 'tls_handshake_lab', label: '🔒 TLS 1.3 Handshake Studio', desc: '1-RTT Full Handshake & 0-RTT Session Resumption', badge: 'Neu' },

@@ -5,7 +5,7 @@ tags:
   - tech/react
   - domain/ihk-ausbildung
   - status/active
-version: v3.41.0
+version: v3.42.0
 date: 2026-09-24
 ---
 
@@ -49,10 +49,10 @@ date: 2026-09-24
 
 ---
 
-## 📊 Aktuelle Test- & Qualitätsmetriken (v3.41.0)
-- **Unit-Tests**: 761 bestandene Tests in 106 Test-Dateien (100% Erfolgsquote)
-- **Code-Qualität**: 0 Oxlint Fehler / 0 Warnungen über 438 Quelldateien, `tsc --noEmit` fehlerfrei
-- **Build**: Vite 8 & PWA Offline Service Worker (190 Precache-Einträge)
+## 📊 Aktuelle Test- & Qualitätsmetriken (v3.42.0)
+- **Unit-Tests**: 782 bestandene Tests in 108 Test-Dateien (100% Erfolgsquote)
+- **Code-Qualität**: 0 Oxlint Fehler / 0 Warnungen über 444 Quelldateien, `tsc --noEmit` fehlerfrei
+- **Build**: Vite 8 & PWA Offline Service Worker (192 Precache-Einträge)
 - **Performance & Limits**: Alle Chunks innerhalb der Size-Limits (App-Shell < 100 KB gzipped)
 - **Vercel-Deployment**: Produktionsreife `vercel.json` mit SPA-Rewrites, Asset-Caching & Security-Headern
 - **A11y**: WCAG 2.1 Konformität (Reduced Motion Support, keine Zoom-Blocker)

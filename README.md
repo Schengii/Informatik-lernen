@@ -25,6 +25,8 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Einsteiger-Kurs (`AnfaengerGuideHub.jsx`)**: Lernen ohne jegliche Vorkenntnisse.
    - Grundlagen leicht verständlich erklärt: **EVA-Prinzip**, **CPU-Gehirn** (ALU, Steuerwerk, Register), **Binärsystem & Bytes**, **Internet & DNS**.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI/DP/DVS, IT-Systemelektroniker, Kaufleute IT-Systemmanagement)**:
+   - **IHK DSGVO TOM-Katalog Studio (Art. 32 DSGVO) (`IhkTomCatalogLab.jsx` & `ihkTomCatalogEngine.js`)**: Praxisorientiertes Datenschutz- und IT-Sicherheits-Audit aller 8 gesetzlichen TOM-Kategorien (Zutritt, Zugang, Zugriff, Weitergabe, Eingabe, Auftrag, Verfügbarkeit & Trennungsgebot) mit Compliance-Scoring (0–100%) und 1-Klick-Export für den IHK-Projektdokumentations-Anhang (`IHK_Anhang_TOM_Art32_DSGVO.md`).
+   - **IHK WISO Arbeitsrecht & Kündigungsschutz Studio (`WisoLaborLawLab.jsx` & `wisoLaborLawEngine.js`)**: Gesetzliche Kündigungsfristen nach BGB § 622 (Probezeit, Grundkündigungsfrist, 7 Betriebszugehörigkeitsstufen), Wartezeiten & Kleinbetriebsklausel nach Kündigungsschutzgesetz (KSchG), Sonderkündigungsschutz (Mutterschutz § 17 MuSchG, Schwerbehinderung § 168 SGB IX, Betriebsrat § 15 KSchG, BBiG § 22) und 3-Wochen-Klagefrist.
    - **IHK Agile vs. Waterfall & Burndown Studio (`IhkAgileBurndownLab.jsx` & `ihkAgileBurndownEngine.js`)**: Praxisorientierter Vorgehensmodell-Entscheider für den IHK-Projektantrag und die Dokumentation (AP2 Teil A). Dynamische Sprint-Burndown-Kurve (Ideal-Linie vs. Ist-Verlauf), Story-Point-Velocity-Berechnung, Scope-Creep-Simulation, Kanban WIP-Bottleneck-Prüfung und 1-Klick IHK-Begründungstext-Generator für hybride Entwicklung nach AO 2020.
    - **IHK Risikoanalyse & 5x5 Risikomatrix Studio (`IhkRiskAnalysisLab.jsx` & `ihkRiskAnalysisEngine.js`)**: DIN EN 31010 / FMEA Standard für die IHK-Abschlussarbeit (AP2 Teil A Pflichtkapitel). Quantifizierung von Eintrittswahrscheinlichkeit ($W \in [1, 5]$) und Schadensausmaß ($S \in [1, 5]$) zur Risikoprioritätszahl ($RPZ \in [1, 25]$), 5x5 Ampel-Matrix, Handlungsstrategien (Vermeidung, Minderung, Übertragung, Akzeptanz) und 1-Klick Markdown-Export für den Projektbericht.
    - **IHK Wirtschaftlichkeits-, Amortisations- & Make-or-Buy Rechner (`IhkWirtschaftlichkeitLab.jsx` & `ihkWirtschaftlichkeitEngine.js`)**: Praxisorientiertes Pflicht-Kalkulationsmodul für die IHK-Projektdokumentation (AP2 Teil A) mit statischer & dynamischer Amortisationsrechnung (Break-Even in Monaten), vollständiger Make-or-Buy Gegenüberstellung (interne Entwicklungskosten vs. SaaS-Lizenzierung über $N$ Jahre), Kostenvergleichs-Matrix (Alt vs. Neu) und 1-Klick IHK-Dokumentations-Markdown-Export.
@@ -70,7 +72,19 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## ✨ Hauptfunktionen & Neue Features (v3.36.0: DNSSEC, IHK Burndown, Linux Btrfs CoW & OpenAPI Contract Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.42.0: IHK TOM-Katalog, WISO Arbeitsrecht & Real WebAuthn Hardware Edition)
+
+* **🛡️ IHK DSGVO TOM-Katalog Studio (Art. 32 DSGVO) (`IhkTomCatalogLab.jsx` & `src/utils/ihkTomCatalogEngine.js`)**:
+  * Offizielles Datenschutz- und Sicherheits-Audit nach Art. 32 DSGVO für IHK-Projektdokumentationen und Fachinformatiker-Prüfungen.
+  * **8 gesetzliche Kontrollbereiche**: Zutrittskontrolle, Zugangskontrolle, Zugriffskontrolle, Weitergabekontrolle, Eingabekontrolle, Auftragskontrolle, Verfügbarkeitskontrolle & Trennungsgebot.
+  * **Compliance-Audit & Scoring**: Automatische Berechnung des Erfüllungsgrades (0–100%) mit farbkodierter Ampel-Bewertung (Ausreichend, Nachbesserung erforderlich, Kritisch).
+  * **1-Klick IHK-Dokumentations-Export**: Generiert ein druckfertiges, strukturiertes Markdown-Dokument (`IHK_Anhang_TOM_Art32_DSGVO.md`) mit allen getroffenen Maßnahmen zur direkten Einbindung in die Projektdokumentation inklusive 55 XP Belohnung.
+
+* **⚖️ IHK WISO Arbeitsrecht & Kündigungsschutz Studio (`WisoLaborLawLab.jsx` & `src/utils/wisoLaborLawEngine.js`)**:
+  * Vollständiger Rechner und Wissens-Hub für Wirtschafts- und Sozialkunde (WISO) in der IHK Abschlussprüfung (AP1 & AP2).
+  * **Gesetzliche Kündigungsfristen (§ 622 BGB)**: Probezeit (2 Wochen zu jedem Tag), Grundkündigungsfrist für Arbeitnehmer (4 Wochen zum 15. oder Monatsende) und die 7 gesetzlichen Staffeln der Betriebszugehörigkeit des Arbeitgebers (bis zu 7 Monate zum Monatsende nach 20 Jahren).
+  * **Kündigungsschutzgesetz (KSchG) Prüfung**: Überprüfung der Wartezeit (> 6 Monate nach § 1 KSchG) und des Schwellenwerts im Kleinbetrieb (> 10 Vollzeit-Arbeitnehmer nach § 23 KSchG).
+  * **Besonderer Kündigungsschutz & Klagefristen**: Mutterschutz (§ 17 MuSchG), Schwerbehinderung mit Integrationsamt (§ 168 SGB IX), Betriebsrat/JAV (§ 15 KSchG), Auszubildende nach der Probezeit (§ 22 BBiG) und 3-Wochen-Klagefrist beim Arbeitsgericht (§ 4 KSchG) inklusive 50 XP Belohnung.
 
 * **🌐 DNSSEC Cryptographic Chain of Trust & RRSIG Validation Studio (`DnssecValidationLab.jsx` & `src/utils/dnssecValidationEngine.js`)**:
   * Vollständige Validierung der hierarchischen Vertrauenskette nach RFC 4033, 4034 und 4035:
@@ -390,6 +404,7 @@ Informatik-lernen/
     │   │   ├── IhkProjectGanttLab.jsx
     │   │   ├── IhkProjectProposalLab.jsx
     │   │   ├── IhkRiskAnalysisLab.jsx
+    │   │   ├── IhkTomCatalogLab.jsx
     │   │   ├── IhkWirtschaftlichkeitLab.jsx
     │   │   ├── Ipv6RoutingLab.jsx
     │   │   ├── ItPodcastHub.jsx
@@ -483,6 +498,7 @@ Informatik-lernen/
     │   │   ├── WisoContributionMarginLab.jsx
     │   │   ├── WisoDunningLab.jsx
     │   │   ├── WisoInterestCalculationsLab.jsx
+    │   │   ├── WisoLaborLawLab.jsx
     │   │   ├── WisoLoanCollateralLab.jsx
     │   │   └── WisoKalkulationLab.jsx
     │   ├── Footer/
@@ -629,6 +645,8 @@ Informatik-lernen/
         ├── ihkProjectProposalEngine.test.js
         ├── ihkRiskAnalysisEngine.js
         ├── ihkRiskAnalysisEngine.test.js
+        ├── ihkTomCatalogEngine.js
+        ├── ihkTomCatalogEngine.test.js
         ├── ihkWirtschaftlichkeitEngine.js
         ├── ihkWirtschaftlichkeitEngine.test.js
         ├── indexedDbStorage.js
@@ -733,6 +751,8 @@ Informatik-lernen/
         ├── wisoDunningEngine.test.js
         ├── wisoInterestCalculationsEngine.js
         ├── wisoInterestCalculationsEngine.test.js
+        ├── wisoLaborLawEngine.js
+        ├── wisoLaborLawEngine.test.js
         ├── wisoLoanCollateralEngine.js
         └── wisoLoanCollateralEngine.test.js
 ```
@@ -791,6 +811,15 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.42.0 (IHK DSGVO TOM-Katalog Studio, WISO Arbeitsrecht & Real WebAuthn Hardware Check)
+
+- **Neu**: `src/components/Content/IhkTomCatalogLab.jsx` & `src/utils/ihkTomCatalogEngine.js` — Offizielles IHK DSGVO Technisch-Organisatorische Maßnahmen (TOM) Studio nach Art. 32 DSGVO: Interaktives Audit aller 8 gesetzlichen Kontrollbereiche (Zutrittskontrolle, Zugangskontrolle, Zugriffskontrolle, Weitergabekontrolle, Eingabekontrolle, Auftragskontrolle, Verfügbarkeitskontrolle & Trennungsgebot). Berechnung des Compliance-Gesamtscores (0–100%), Ampel-Statusanzeige, interaktive Toggle-Checklisten mit Maßnahmenbeschreibungen (z. B. 2FA, Festplattenverschlüsselung LUKS, Rollenkonzepte, 3-2-1 Backups) und 1-Klick-Export eines vollständigen, prüfungsfertigen Markdown-Dokuments für den IHK-Projektdokumentations-Anhang (`IHK_Anhang_TOM_Art32_DSGVO.md`) mit 55 XP Belohnung. Vollständig mit `// @ts-check` und 3 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/WisoLaborLawLab.jsx` & `src/utils/wisoLaborLawEngine.js` — IHK WISO Arbeitsrecht & Kündigungsschutz Studio: Gesetzliche Kündigungsfristen nach BGB § 622 (Probezeit 2 Wochen zu jedem Tag, Grundkündigungsfrist 4 Wochen zum 15. oder Monatsende sowie die 7 Betriebszugehörigkeitsstufen von 1 bis 7 Monaten zum Monatsende). Prüfung des Kündigungsschutzgesetzes (KSchG) mit Wartezeitprüfung (> 6 Monate nach § 1 KSchG) und Schwellenwert-Check (> 10 Mitarbeiter nach § 23 KSchG) sowie Sondertatbestände (Mutterschutz § 17 MuSchG, Schwerbehinderung § 168 SGB IX mit Integrationsamt, Betriebsrat § 15 KSchG und Azubis nach Probezeit § 22 BBiG) und 3-Wochen-Klagefrist (§ 4 KSchG) mit 50 XP Belohnung. Vollständig mit `// @ts-check` und 5 Unit-Tests abgesichert.
+- **Neu**: Echte WebAuthn Hardware-Fähigkeitenprüfung (`src/utils/webAuthnEngine.js` & `src/components/Content/WebAuthnPasskeyLab.jsx`) — Reale Abfrage der Plattform-Authentifikatoren (`PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable()`), mit der Nutzer im Browser direkt testen können, ob ihr Endgerät (Touch ID, Windows Hello, Face ID oder YubiKey) für echte FIDO2/Passkey-Flows einsatzbereit ist.
+- **Routing & Integration**: Nahtlose Lazy-Routierung beider neuen Labs in `src/App.jsx`, Registrierung in `src/components/Navigation/Navbar.jsx` (Menüs "Labs" & "Prüfung / WISO") sowie im `src/components/Content/LabsDashboard.jsx`.
+- **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für `IhkTomCatalogLab` und `WisoLaborLawLab` erweitert (31/31 Komponenten-Tests bestanden).
+- **Test-Suite & Qualität**: **782 bestandene Unit-/Integrationstests** in **108 Test-Dateien** (100% Erfolgsquote, +21 Tests), **0 Oxlint-Fehler / 0 Warnungen** über 444 Dateien (`oxlint src --deny-warnings`), `tsc --noEmit` fehlerfrei, optimierter PWA Produktions-Build und alle `size-limit`-Vorgaben eingehalten (App-Shell 99.25 kB gzipped < 110 kB Limit).
 
 ### Version 3.41.0 (ETL Data-Lineage Studio, SQL-Injection Defense & PWA Live Update Toast)
 

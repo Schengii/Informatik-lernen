@@ -3,6 +3,28 @@ import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Da
 
 export const LAB_MODULES = [
   {
+    id: 'ihk_tom_catalog_lab',
+    title: 'IHK DSGVO TOM-Katalog Studio (Art. 32)',
+    category: 'ihk',
+    tags: ['#DSGVO', '#TOM', '#Art32', '#Zutritt', '#Zugang', '#Verschluesselung', '#IHK'],
+    difficulty: 'Intermediate',
+    desc: 'Audit aller 8 gesetzlichen TOM-Kategorien nach Art. 32 DSGVO mit Score & IHK-Markdown-Export.',
+    icon: Shield,
+    badge: 'IHK Neu',
+    color: '#10b981'
+  },
+  {
+    id: 'wiso_labor_law_lab',
+    title: 'IHK Arbeitsrecht & Kündigungsschutz Studio',
+    category: 'ihk',
+    tags: ['#Arbeitsrecht', '#BGB622', '#KSchG', '#MuSchG', '#WISO', '#Kündigungsfrist'],
+    difficulty: 'Intermediate',
+    desc: 'Gesetzliche Kündigungsfristen nach BGB § 622, KSchG-Wartezeit & Sonderkündigungsschutz prüfen.',
+    icon: Calculator,
+    badge: 'IHK Neu',
+    color: '#6366f1'
+  },
+  {
     id: 'nwa_scoring',
     title: 'IHK Nutzwertanalyse Studio (NWA)',
     category: 'ihk',
