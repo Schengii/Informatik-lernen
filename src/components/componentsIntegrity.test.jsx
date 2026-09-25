@@ -64,6 +64,7 @@ import LinuxMacSelinuxLab from './Content/LinuxMacSelinuxLab';
 import DnsPrivacyLab from './Content/DnsPrivacyLab';
 import WisoLiquiditaetLab from './Content/WisoLiquiditaetLab';
 import RagSemanticCacheLab from './Content/RagSemanticCacheLab';
+import JwtConfusionLab from './Content/JwtConfusionLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -526,6 +527,14 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/Semantic Cache/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert JwtConfusionLab fehlerfrei', () => {
+    const { container } = render(
+      <JwtConfusionLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/JWT Security/i).length).toBeGreaterThan(0);
   });
 });
 

@@ -261,7 +261,7 @@ export default function SqliteWorkerStudioLab() {
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
               <thead>
                 <tr style={{ background: 'rgba(0, 0, 0, 0.3)', textAlign: 'left' }}>
-                  {result.columns.map((c) => (
+                  {(result.columns || []).map((c) => (
                     <th key={c} style={{ padding: '10px 12px', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', color: '#10b981' }}>
                       {c}
                     </th>
@@ -269,9 +269,9 @@ export default function SqliteWorkerStudioLab() {
                 </tr>
               </thead>
               <tbody>
-                {result.rows.map((r, i) => (
+                {(result.rows || []).map((r, i) => (
                   <tr key={i} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
-                    {result.columns.map((c) => (
+                    {(result.columns || []).map((c) => (
                       <td key={c} style={{ padding: '8px 12px' }}>
                         {String(r[c] ?? '')}
                       </td>

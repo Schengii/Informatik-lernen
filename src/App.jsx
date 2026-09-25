@@ -263,6 +263,8 @@ const LinuxMacSelinuxLab = lazy(() => import('./components/Content/LinuxMacSelin
 const DnsPrivacyLab = lazy(() => import('./components/Content/DnsPrivacyLab'));
 const WisoLiquiditaetLab = lazy(() => import('./components/Content/WisoLiquiditaetLab'));
 const RagSemanticCacheLab = lazy(() => import('./components/Content/RagSemanticCacheLab'));
+// v3.49.0 JWT Algorithm Confusion & Security Studio
+const JwtConfusionLab = lazy(() => import('./components/Content/JwtConfusionLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -707,6 +709,8 @@ export default function App() {
         return <WisoLiquiditaetLab onRewardXP={(xp) => awardXP(xp, 'wiso_liquiditaet_master')} />;
       case activeTab === 'rag_semantic_cache_lab' || activeTab === 'rag_semantic_cache' || activeTab === 'semantic_cache_lab':
         return <RagSemanticCacheLab onRewardXP={(xp) => awardXP(xp, 'semantic_cache_master')} />;
+      case activeTab === 'jwt_confusion_lab' || activeTab === 'jwt_confusion' || activeTab === 'jwt_security':
+        return <JwtConfusionLab onRewardXP={(xp) => awardXP(xp, 'jwt_confusion_master')} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':

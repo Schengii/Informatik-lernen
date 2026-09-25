@@ -72,6 +72,7 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 60+ interaktiven Labs', badge: 'Hub' },
+    { id: 'jwt_confusion_lab', label: '🔐 JWT Algorithm Confusion & Security Studio', desc: 'RS256 vs. HS256 Key-Confusion & None-Algorithmus Exploit-Abwehr', badge: 'Neu' },
     { id: 'linux_mac_selinux_lab', label: '🛡️ Linux SELinux & AppArmor MAC Studio', desc: 'Type Enforcement, AVC Denials, DAC vs. MAC & Root-Schutz', badge: 'Neu' },
     { id: 'dns_privacy_lab', label: '🔒 DNS Privacy: DoH & DoT vs. Port 53', desc: 'RFC 8484 & RFC 7858 Wire-Format, TLS & ISP-Eavesdropping', badge: 'Neu' },
     { id: 'wiso_liquiditaet_lab', label: '💰 IHK Liquiditätsgrade & Working Capital', desc: 'Cash/Quick/Current Ratio & InsO § 17 Zahlungsunfähigkeit', badge: 'IHK Neu' },

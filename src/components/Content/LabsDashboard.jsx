@@ -3,6 +3,17 @@ import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Da
 
 export const LAB_MODULES = [
   {
+    id: 'jwt_confusion_lab',
+    title: 'JWT Algorithm Confusion & Security Studio',
+    category: 'security',
+    tags: ['#JWT', '#Security', '#AlgConfusion', '#RS256', '#HS256', '#NoneAlg', '#RFC7519', '#PrivilegeEscalation'],
+    difficulty: 'Advanced',
+    desc: 'RFC 7519 / 7518: Asymmetrische RS256 vs. symmetrische HS256 Key-Confusion, None-Algorithmus Exploit (CVE-2015-9235) und Signature Verification Defense.',
+    icon: Key,
+    badge: 'Neu',
+    color: '#ef4444'
+  },
+  {
     id: 'linux_mac_selinux_lab',
     title: 'Linux SELinux & AppArmor MAC Security Studio',
     category: 'linux',

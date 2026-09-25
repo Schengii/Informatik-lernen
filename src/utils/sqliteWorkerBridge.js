@@ -59,9 +59,13 @@ export class SqliteWorkerBridge {
 
         const res = this.instance.execute(sql);
         const duration = Math.round((performance.now() - startTime) * 100) / 100;
+        const rows = res.rows || [];
+        const columns = rows.length > 0 ? Object.keys(rows[0]) : [];
 
         resolve({
           ...res,
+          rows,
+          columns,
           executionTimeMs: duration,
           workerThread: simulateWorkerThread,
           schema: this.instance.getSchema()

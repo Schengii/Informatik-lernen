@@ -26,6 +26,7 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-jwt-confusion', title: 'JWT Algorithm Confusion & Security Studio (RS256 vs. HS256 Key Confusion & None Exploit)', category: 'Labs & Tools', icon: Key, action: () => onNavigate('jwt_confusion_lab') },
     { id: 'view-linux-mac-selinux', title: 'Linux SELinux & AppArmor MAC Security Studio (DAC vs. MAC & Type Enforcement)', category: 'Labs & Tools', icon: ShieldCheck, action: () => onNavigate('linux_mac_selinux_lab') },
     { id: 'view-dns-privacy', title: 'DNS Privacy Inspector (DNS-over-HTTPS DoH & DoT vs. Port 53 Wire-Format)', category: 'Labs & Tools', icon: Globe, action: () => onNavigate('dns_privacy_lab') },
     { id: 'view-wiso-liquiditaet', title: 'IHK WISO Liquiditätsgrade & Working Capital Studio (1., 2. & 3. Grad / InsO § 17)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('wiso_liquiditaet_lab') },
