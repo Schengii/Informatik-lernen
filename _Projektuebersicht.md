@@ -5,8 +5,8 @@ tags:
   - tech/react
   - domain/ihk-ausbildung
   - status/active
-version: v3.42.0
-date: 2026-09-24
+version: v3.43.0
+date: 2026-09-25
 ---
 
 # 💻 Informatik-lernen (IT-DevGame) - Projektübersicht
@@ -49,9 +49,9 @@ date: 2026-09-24
 
 ---
 
-## 📊 Aktuelle Test- & Qualitätsmetriken (v3.42.0)
-- **Unit-Tests**: 782 bestandene Tests in 108 Test-Dateien (100% Erfolgsquote)
-- **Code-Qualität**: 0 Oxlint Fehler / 0 Warnungen über 444 Quelldateien, `tsc --noEmit` fehlerfrei
+## 📊 Aktuelle Test- & Qualitätsmetriken (v3.43.0)
+- **Unit-Tests**: 810 bestandene Tests in 113 Test-Dateien (100% Erfolgsquote)
+- **Code-Qualität**: 0 Oxlint Fehler / 0 Warnungen über 461 Quelldateien, `tsc --noEmit` fehlerfrei
 - **Build**: Vite 8 & PWA Offline Service Worker (192 Precache-Einträge)
 - **Performance & Limits**: Alle Chunks innerhalb der Size-Limits (App-Shell < 100 KB gzipped)
 - **Vercel-Deployment**: Produktionsreife `vercel.json` mit SPA-Rewrites, Asset-Caching & Security-Headern

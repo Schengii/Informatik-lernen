@@ -232,6 +232,12 @@ const DataLineageEtlLab = lazy(() => import('./components/Content/DataLineageEtl
 const IhkTomCatalogLab = lazy(() => import('./components/Content/IhkTomCatalogLab'));
 const WisoLaborLawLab = lazy(() => import('./components/Content/WisoLaborLawLab'));
 const IhkDpiaLab = lazy(() => import('./components/Content/IhkDpiaLab'));
+// v3.43.0 Flagship Labs: BSI IT-Grundschutz, IPv6 SLAAC NDP, WISO Payroll, Study Plan & Certificate
+const BsiGrundschutzLab = lazy(() => import('./components/Content/BsiGrundschutzLab'));
+const Ipv6NdpLab = lazy(() => import('./components/Content/Ipv6NdpLab'));
+const WisoPayrollLab = lazy(() => import('./components/Content/WisoPayrollLab'));
+const IhkStudyPlanLab = lazy(() => import('./components/Content/IhkStudyPlanLab'));
+const IhkCertificatePdfLab = lazy(() => import('./components/Content/IhkCertificatePdfLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -626,6 +632,16 @@ export default function App() {
         return <WisoLaborLawLab onRewardXP={(xp) => awardXP(xp, 'wiso_labor_law_master')} />;
       case activeTab === 'ihk_dpia_lab' || activeTab === 'ihk_dpia' || activeTab === 'dpia_lab' || activeTab === 'dsfa_lab':
         return <IhkDpiaLab onRewardXP={(xp) => awardXP(xp, 'ihk_dpia_master')} />;
+      case activeTab === 'bsi_grundschutz_lab' || activeTab === 'bsi_grundschutz' || activeTab === 'nis2_lab':
+        return <BsiGrundschutzLab onRewardXP={(xp) => awardXP(xp, 'bsi_grundschutz_master')} />;
+      case activeTab === 'ipv6_ndp_lab' || activeTab === 'ipv6_ndp' || activeTab === 'slaac_lab':
+        return <Ipv6NdpLab onRewardXP={(xp) => awardXP(xp, 'ipv6_ndp_master')} />;
+      case activeTab === 'wiso_payroll_lab' || activeTab === 'wiso_payroll' || activeTab === 'gehalt_lab':
+        return <WisoPayrollLab onRewardXP={(xp) => awardXP(xp, 'wiso_payroll_master')} />;
+      case activeTab === 'ihk_study_plan_lab' || activeTab === 'ihk_study_plan' || activeTab === 'pruefungsplaner':
+        return <IhkStudyPlanLab onNavigateTab={(tab) => setActiveTab(tab)} onRewardXP={(xp) => awardXP(xp, 'study_plan_master')} />;
+      case activeTab === 'ihk_certificate_pdf_lab' || activeTab === 'ihk_certificate' || activeTab === 'lernpass':
+        return <IhkCertificatePdfLab onRewardXP={(xp) => awardXP(xp, 'certificate_pdf_master')} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':

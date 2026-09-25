@@ -3,6 +3,61 @@ import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Da
 
 export const LAB_MODULES = [
   {
+    id: 'bsi_grundschutz_lab',
+    title: 'BSI IT-Grundschutz & NIS-2 Risiko-Studio',
+    category: 'ihk',
+    tags: ['#BSI', '#Grundschutz', '#NIS2', '#Schutzbedarf', '#CIA', '#IHK', '#AP2'],
+    difficulty: 'Intermediate',
+    desc: 'Schutzbedarfsfeststellung (BSI 200-2), Baustein-Audit (BSI 200-3) & NIS-2 Melde- und Risikoplanung mit IHK-Export.',
+    icon: Shield,
+    badge: 'IHK Flaggschiff',
+    color: '#0284c7'
+  },
+  {
+    id: 'ipv6_ndp_lab',
+    title: 'IPv6 SLAAC, DHCPv6 & NDP Inspector',
+    category: 'network',
+    tags: ['#IPv6', '#SLAAC', '#NDP', '#EUI64', '#PrivacyExtensions', '#DHCPv6', '#FISI'],
+    difficulty: 'Advanced',
+    desc: 'RFC 4861 Neighbor Discovery Protocol, invertiertes EUI-64 u/l Bit & RFC 8981 Privacy Extensions Simulation.',
+    icon: Network,
+    badge: 'Neu',
+    color: '#6366f1'
+  },
+  {
+    id: 'wiso_payroll_lab',
+    title: 'WISO Brutto-Netto & Lohnabrechnungs-Studio',
+    category: 'ihk',
+    tags: ['#WISO', '#Lohn', '#Gehalt', '#Sozialabgaben', '#Paritätsprinzip', '#Arbeitgeberkosten'],
+    difficulty: 'Beginner',
+    desc: 'Lohnsteuerklassen I-VI, Sozialabgaben (KV, PV mit Kinderlosenzuschlag, RV, AV) & AG-Gesamtbelastung.',
+    icon: Calculator,
+    badge: 'IHK Neu',
+    color: '#10b981'
+  },
+  {
+    id: 'ihk_study_plan_lab',
+    title: 'IHK Prüfungs-Countdown & Adaptiver Lernplaner',
+    category: 'ihk',
+    tags: ['#Prüfungsplaner', '#Countdown', '#Lernplan', '#FIAE', '#FISI', '#Wochenplan'],
+    difficulty: 'Beginner',
+    desc: 'Prüfungstermine für AP1/AP2, tagesgenauer Countdown und personalisierte wochenbasierte Sprints.',
+    icon: Calendar,
+    badge: 'IHK Neu',
+    color: '#f59e0b'
+  },
+  {
+    id: 'ihk_certificate_pdf_lab',
+    title: 'IHK Lernpass & Zertifikats-Generator',
+    category: 'ihk',
+    tags: ['#Lernpass', '#Zertifikat', '#PDF', '#Berichtsheft', '#Ausbildungsnachweis'],
+    difficulty: 'Beginner',
+    desc: 'Offizieller PDF-Ausbildungsnachweis für das Berichtsheft mit allen absolvierten IHK-Kompetenzen.',
+    icon: Award,
+    badge: 'IHK Neu',
+    color: '#0284c7'
+  },
+  {
     id: 'ihk_tom_catalog_lab',
     title: 'IHK DSGVO TOM-Katalog Studio (Art. 32)',
     category: 'ihk',
