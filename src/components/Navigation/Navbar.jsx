@@ -185,6 +185,11 @@ export default function Navbar({
   ];
 
   const examMenuItems = [
+    { id: 'ihk_study_plan_lab', label: '📅 IHK Prüfungs-Countdown & Lernplaner', desc: 'Prüfungstermine, Tage/Wochen & FIAE/FISI Sprints', badge: 'Neu' },
+    { id: 'bsi_grundschutz_lab', label: '🛡️ BSI IT-Grundschutz & NIS-2 Studio', desc: 'BSI 200-2 Schutzbedarf (CIA), Bausteine & NIS-2', badge: 'Neu' },
+    { id: 'wiso_payroll_lab', label: '💰 WISO Brutto-Netto & Lohnabrechnung', desc: 'Steuerklassen I-VI, Sozialabgaben & AG-Kosten', badge: 'Neu' },
+    { id: 'ipv6_ndp_lab', label: '🌐 IPv6 SLAAC, DHCPv6 & NDP Inspector', desc: 'RFC 4861 NDP, EUI-64 & Privacy Extensions', badge: 'Neu' },
+    { id: 'ihk_certificate_pdf_lab', label: '🎓 IHK Lernpass & Zertifikats-PDF', desc: 'Offizieller Nachweis für das Berichtsheft', badge: 'Neu' },
     { id: 'ihk_grade_calculator', label: '🎓 IHK Noten- & MEP-Rechner (AO 2020)', desc: 'Exakte Gewichtung AP1/AP2 & Ergänzungsprüfung', badge: 'Neu' },
     { id: 'exam', label: '🎓 IHK Abschlussprüfung (AP1 & AP2)', desc: '90-Min. Timer, Punkte & IHK Noten 1-6', badge: 'Prüfung' },
     { id: 'cheat_sheets', label: '📄 IHK Spickzettel & PDF Generator', desc: 'Druckfertige DIN A4 Zusammenfassungen & Formeln', badge: 'Neu' },

@@ -26,6 +26,11 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-bsi-grundschutz', title: 'BSI IT-Grundschutz & NIS-2 Risiko-Studio (BSI 200-2 / 200-3 & CIA)', category: 'Prüfung', icon: ShieldCheck, action: () => onNavigate('bsi_grundschutz_lab') },
+    { id: 'view-ipv6-ndp', title: 'IPv6 SLAAC, DHCPv6 & NDP Inspector (RFC 4861 & EUI-64 / Privacy)', category: 'Labs & Tools', icon: Network, action: () => onNavigate('ipv6_ndp_lab') },
+    { id: 'view-wiso-payroll', title: 'WISO Brutto-Netto & Lohnabrechnungs-Studio (Steuern & Sozialabgaben)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('wiso_payroll_lab') },
+    { id: 'view-ihk-study-plan', title: 'IHK Prüfungs-Countdown & Adaptiver Lernplaner (FIAE / FISI Sprints)', category: 'Prüfung', icon: Calendar, action: () => onNavigate('ihk_study_plan_lab') },
+    { id: 'view-ihk-certificate-pdf', title: 'IHK Lernpass & Zertifikats-Generator (PDF für das Berichtsheft)', category: 'Prüfung', icon: Award, action: () => onNavigate('ihk_certificate_pdf_lab') },
     { id: 'view-nwa-scoring', title: 'IHK Nutzwertanalyse Studio (NWA Entscheidungsmatrix & K.O.-Kriterien)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('nwa_scoring') },
     { id: 'view-raid-calculator', title: 'RAID Storage & Paritäts-Rechner (RAID 0, 1, 5, 6, 10, 50 & URE Risiko)', category: 'Labs & Tools', icon: Database, action: () => onNavigate('raid_calculator') },
     { id: 'view-vlsm-subnet', title: 'VLSM Subnet Splitter & IP-Planer (Hierarchische Host-Berechnung)', category: 'Labs & Tools', icon: Network, action: () => onNavigate('vlsm_subnet') },

@@ -39,6 +39,11 @@ import OpenApiContractLab from './Content/OpenApiContractLab';
 import IhkTomCatalogLab from './Content/IhkTomCatalogLab';
 import WisoLaborLawLab from './Content/WisoLaborLawLab';
 import IhkDpiaLab from './Content/IhkDpiaLab';
+import BsiGrundschutzLab from './Content/BsiGrundschutzLab';
+import Ipv6NdpLab from './Content/Ipv6NdpLab';
+import WisoPayrollLab from './Content/WisoPayrollLab';
+import IhkStudyPlanLab from './Content/IhkStudyPlanLab';
+import IhkCertificatePdfLab from './Content/IhkCertificatePdfLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -301,6 +306,46 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/DSFA/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert BsiGrundschutzLab fehlerfrei', () => {
+    const { container } = render(
+      <BsiGrundschutzLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/BSI IT-Grundschutz/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert Ipv6NdpLab fehlerfrei', () => {
+    const { container } = render(
+      <Ipv6NdpLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/IPv6 SLAAC/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert WisoPayrollLab fehlerfrei', () => {
+    const { container } = render(
+      <WisoPayrollLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Lohnabrechnungs/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert IhkStudyPlanLab fehlerfrei', () => {
+    const { container } = render(
+      <IhkStudyPlanLab onNavigateTab={() => {}} onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Prüfungs-Countdown/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert IhkCertificatePdfLab fehlerfrei', () => {
+    const { container } = render(
+      <IhkCertificatePdfLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/IHK Lernpass/i).length).toBeGreaterThan(0);
   });
 });
 
