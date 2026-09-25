@@ -72,6 +72,10 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 60+ interaktiven Labs', badge: 'Hub' },
+    { id: 'linux_psi_cgroup_lab', label: '🐧 Linux Cgroups v2 & PSI Pressure Stall Studio', desc: 'CPU, Memory & I/O Stalls (some vs. full) & OOM-Kill', badge: 'Neu' },
+    { id: 'nwa_sensitivity_lab', label: '📊 IHK Nutzwertanalyse Sensitivitäts-Studio', desc: '500x Monte-Carlo Stresstest & K.O.-Kriterien DIN 2225', badge: 'IHK Neu' },
+    { id: 'webrtc_ice_gathering_lab', label: '📡 WebRTC STUN/TURN & ICE Candidate Gathering', desc: 'RFC 8445 Candidate Types, Symmetric NAT & Relay', badge: 'Neu' },
+    { id: 'wiso_rentabilitaet_leverage_lab', label: '💰 WISO Rentabilitätskennzahlen & Leverage', desc: 'Eigenkapital-, Gesamtkapitalrentabilität & Hebelwirkung', badge: 'IHK Neu' },
     { id: 'linux_cap_seccomp_lab', label: '🐧 Linux Capabilities & Seccomp BPF Sandbox', desc: 'CAP_NET_BIND_SERVICE, Rootless Container & Syscall-Filter', badge: 'Neu' },
     { id: 'bgp_path_selection_lab', label: '🌐 BGP Path Selection & Decision Studio', desc: 'RFC 4271 8-Stufen-Algorithmus: Weight, LocalPref & AS-Path', badge: 'Neu' },
     { id: 'wiso_maschinenstundensatz_lab', label: '📊 IHK Maschinenstundensatz-Rechner (MSS)', desc: 'Kalkulatorische Abschreibung, Zinsen & Stundensatz', badge: 'IHK Neu' },

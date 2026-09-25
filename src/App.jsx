@@ -253,6 +253,11 @@ const LinuxCapSeccompLab = lazy(() => import('./components/Content/LinuxCapSecco
 const BgpPathSelectionLab = lazy(() => import('./components/Content/BgpPathSelectionLab'));
 const WisoMaschinenstundensatzLab = lazy(() => import('./components/Content/WisoMaschinenstundensatzLab'));
 const LlmRagChunkingLab = lazy(() => import('./components/Content/LlmRagChunkingLab'));
+// v3.47.0 Linux PSI Cgroups, NWA Sensitivity, WebRTC ICE & WISO Leverage
+const LinuxPsiCgroupLab = lazy(() => import('./components/Content/LinuxPsiCgroupLab'));
+const NwaSensitivityLab = lazy(() => import('./components/Content/NwaSensitivityLab'));
+const WebrtcIceGatheringLab = lazy(() => import('./components/Content/WebrtcIceGatheringLab'));
+const WisoRentabilitaetLeverageLab = lazy(() => import('./components/Content/WisoRentabilitaetLeverageLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -681,6 +686,14 @@ export default function App() {
         return <WisoMaschinenstundensatzLab onRewardXP={(xp) => awardXP(xp, 'maschinenstundensatz_master')} />;
       case activeTab === 'llm_rag_chunking_lab' || activeTab === 'llm_rag_chunking' || activeTab === 'rag_chunking':
         return <LlmRagChunkingLab onRewardXP={(xp) => awardXP(xp, 'rag_chunking_master')} />;
+      case activeTab === 'linux_psi_cgroup_lab' || activeTab === 'linux_psi_cgroup' || activeTab === 'psi_lab':
+        return <LinuxPsiCgroupLab onRewardXP={(xp) => awardXP(xp, 'linux_psi_master')} />;
+      case activeTab === 'nwa_sensitivity_lab' || activeTab === 'nwa_sensitivity' || activeTab === 'nwa_monte_carlo':
+        return <NwaSensitivityLab onRewardXP={(xp) => awardXP(xp, 'nwa_sensitivity_master')} />;
+      case activeTab === 'webrtc_ice_gathering_lab' || activeTab === 'webrtc_ice_gathering' || activeTab === 'ice_gathering_lab':
+        return <WebrtcIceGatheringLab onRewardXP={(xp) => awardXP(xp, 'webrtc_ice_master')} />;
+      case activeTab === 'wiso_rentabilitaet_leverage_lab' || activeTab === 'wiso_rentabilitaet_leverage' || activeTab === 'leverage_effekt':
+        return <WisoRentabilitaetLeverageLab onRewardXP={(xp) => awardXP(xp, 'wiso_leverage_master')} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':

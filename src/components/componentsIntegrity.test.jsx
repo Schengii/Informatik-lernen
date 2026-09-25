@@ -56,6 +56,10 @@ import LinuxCapSeccompLab from './Content/LinuxCapSeccompLab';
 import BgpPathSelectionLab from './Content/BgpPathSelectionLab';
 import WisoMaschinenstundensatzLab from './Content/WisoMaschinenstundensatzLab';
 import LlmRagChunkingLab from './Content/LlmRagChunkingLab';
+import LinuxPsiCgroupLab from './Content/LinuxPsiCgroupLab';
+import NwaSensitivityLab from './Content/NwaSensitivityLab';
+import WebrtcIceGatheringLab from './Content/WebrtcIceGatheringLab';
+import WisoRentabilitaetLeverageLab from './Content/WisoRentabilitaetLeverageLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -454,6 +458,38 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/LLM RAG Chunking/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert LinuxPsiCgroupLab fehlerfrei', () => {
+    const { container } = render(
+      <LinuxPsiCgroupLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Linux Cgroups v2/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert NwaSensitivityLab fehlerfrei', () => {
+    const { container } = render(
+      <NwaSensitivityLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Nutzwertanalyse/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert WebrtcIceGatheringLab fehlerfrei', () => {
+    const { container } = render(
+      <WebrtcIceGatheringLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/ICE Candidate Gathering/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert WisoRentabilitaetLeverageLab fehlerfrei', () => {
+    const { container } = render(
+      <WisoRentabilitaetLeverageLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Rentabilitätskennzahlen/i).length).toBeGreaterThan(0);
   });
 });
 

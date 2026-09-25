@@ -26,6 +26,10 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-linux-psi-cgroup', title: 'Linux Cgroups v2 & PSI Pressure Stall Studio (CPU, Memory & I/O Stalls / OOM)', category: 'Labs & Tools', icon: Activity, action: () => onNavigate('linux_psi_cgroup_lab') },
+    { id: 'view-nwa-sensitivity', title: 'IHK Nutzwertanalyse Sensitivitäts- & Monte-Carlo Studio (500x Stresstest)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('nwa_sensitivity_lab') },
+    { id: 'view-webrtc-ice', title: 'WebRTC STUN/TURN & ICE Candidate Gathering Studio (RFC 8445 Candidate Pairs)', category: 'Labs & Tools', icon: Radio, action: () => onNavigate('webrtc_ice_gathering_lab') },
+    { id: 'view-wiso-leverage', title: 'WISO Rentabilitätskennzahlen & Leverage-Effekt Studio (EK-, GK-Rendite & Hebel)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('wiso_rentabilitaet_leverage_lab') },
     { id: 'view-linux-cap-seccomp', title: 'Linux Capabilities & Seccomp BPF Sandbox (Least Privilege, Syscall Filter & Rootless)', category: 'Labs & Tools', icon: Terminal, action: () => onNavigate('linux_cap_seccomp_lab') },
     { id: 'view-bgp-path-selection', title: 'BGP Path Selection & Decision Studio (RFC 4271 8-Stufen BGP Decision Engine)', category: 'Labs & Tools', icon: Network, action: () => onNavigate('bgp_path_selection_lab') },
     { id: 'view-wiso-mss', title: 'IHK Maschinenstundensatz-Rechner (Kalk. Abschreibung, Zinsen & Stundensatz MSS)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('wiso_maschinenstundensatz_lab') },

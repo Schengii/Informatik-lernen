@@ -1,7 +1,51 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key, Lock, AlertTriangle, Globe, TrendingDown, HardDrive, FileCode, Brain } from 'lucide-react';
+import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key, Lock, AlertTriangle, Globe, TrendingDown, HardDrive, FileCode, Brain, Activity, Radio, BarChart2 } from 'lucide-react';
 
 export const LAB_MODULES = [
+  {
+    id: 'linux_psi_cgroup_lab',
+    title: 'Linux Cgroups v2 & PSI Pressure Stall Studio',
+    category: 'linux',
+    tags: ['#Linux', '#CgroupsV2', '#PSI', '#OOM', '#CFS', '#Kernel', '#Kubernetes'],
+    difficulty: 'Advanced',
+    desc: 'CPU, Memory & I/O Pressure Stalls (some vs. full), CFS-Throttling und OOM-Killer Vermeidung für Kubernetes Pods.',
+    icon: Activity,
+    badge: 'Neu',
+    color: '#06b6d4'
+  },
+  {
+    id: 'nwa_sensitivity_lab',
+    title: 'IHK Nutzwertanalyse (NWA) Sensitivitäts-Studio',
+    category: 'ihk',
+    tags: ['#WISO', '#NWA', '#Nutzwertanalyse', '#Sensitivität', '#MonteCarlo', '#KOKriterien', '#DIN2225'],
+    difficulty: 'Intermediate',
+    desc: 'DIN/VDI 2225 Entscheidungsmatrix mit 500x Monte-Carlo Stresstest und K.O.-Kriterien Absicherung für AP2.',
+    icon: BarChart2,
+    badge: 'IHK Neu',
+    color: '#f59e0b'
+  },
+  {
+    id: 'webrtc_ice_gathering_lab',
+    title: 'WebRTC STUN/TURN & ICE Candidate Gathering',
+    category: 'network',
+    tags: ['#WebRTC', '#ICE', '#RFC8445', '#STUN', '#TURN', '#SymmetricNAT', '#P2P'],
+    difficulty: 'Advanced',
+    desc: 'RFC 8445 Candidate Gathering (Host, Server Reflexive, Relay), NAT-Traversal & automatischer TURN Fallback.',
+    icon: Radio,
+    badge: 'Neu',
+    color: '#6366f1'
+  },
+  {
+    id: 'wiso_rentabilitaet_leverage_lab',
+    title: 'WISO Rentabilitätskennzahlen & Leverage-Effekt',
+    category: 'ihk',
+    tags: ['#WISO', '#Rentabilität', '#Leverage', '#Eigenkapital', '#Fremdkapital', '#Bilanzanalyse'],
+    difficulty: 'Intermediate',
+    desc: 'Eigenkapital-, Gesamtkapital- und Umsatzrendite sowie Hebelwirkung von Fremdkapital (Leverage-Effekt).',
+    icon: Calculator,
+    badge: 'IHK Neu',
+    color: '#10b981'
+  },
   {
     id: 'linux_cap_seccomp_lab',
     title: 'Linux Capabilities & Seccomp BPF Sandbox',

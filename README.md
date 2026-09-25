@@ -6,7 +6,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.46.0)](#-hauptfunktionen--neue-features-v3460-linux-capabilities--seccomp-bgp-path-selection-maschinenstundensatz--llm-rag-chunking-edition)
+- [Hauptfunktionen & Neue Features (v3.47.0)](#-hauptfunktionen--neue-features-v3470-linux-psi-cgroups-nwa-sensitivität-webrtc-ice--wiso-leverage-edition)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -25,6 +25,10 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Einsteiger-Kurs (`AnfaengerGuideHub.jsx`)**: Lernen ohne jegliche Vorkenntnisse.
    - Grundlagen leicht verständlich erklärt: **EVA-Prinzip**, **CPU-Gehirn** (ALU, Steuerwerk, Register), **Binärsystem & Bytes**, **Internet & DNS**.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI/DP/DVS, IT-Systemelektroniker, Kaufleute IT-Systemmanagement)**:
+   - **Linux Cgroups v2 & PSI (Pressure Stall Information) Studio (`LinuxPsiCgroupLab.jsx` & `src/utils/linuxPsiCgroupEngine.js`)**: Kernel-Ressourcenüberwachung nach modernstem Linux-Standard (Linux 4.20+ / 5.x). Unterscheidung von `some` vs. `full` Pressure Stalls für CPU, Memory und I/O, CFS-Bandbreitendrosselung (`cpu.max`) und Vermeidung von OOM-Kills sowie K8s-Node-Evictions mit 65 XP Belohnung.
+   - **IHK Nutzwertanalyse (NWA) Sensitivitäts- & Monte-Carlo Studio (`NwaSensitivityLab.jsx` & `src/utils/nwaSensitivityEngine.js`)**: DIN/VDI 2225 Entscheidungsmatrix mit 500 probabilistischen Gewichtungs-Variationen zur Überprüfung der Entscheidungssicherheit gegen subjektive Verzerrungen im IHK-Fachgespräch (AP2) mit 65 XP Belohnung.
+   - **WebRTC STUN/TURN & ICE Candidate Gathering Studio (`WebrtcIceGatheringLab.jsx` & `src/utils/webrtcIceGatheringEngine.js`)**: RFC 8445 Interactive Connectivity Establishment (ICE), RFC 8489 STUN Binding Requests, RFC 8656 TURN Relays und P2P NAT-Traversal für Symmetric NAT mit 65 XP Belohnung.
+   - **WISO Rentabilitätskennzahlen & Leverage-Effekt Studio (`WisoRentabilitaetLeverageLab.jsx` & `src/utils/wisoRentabilitaetLeverageEngine.js`)**: Bilanz- und Rentabilitätsanalyse für die IHK Abschlussprüfung (AP2 WISO). Eigenkapital-, Gesamtkapital- und Umsatzrendite sowie Hebelwirkung von Fremdkapital mit 60 XP Belohnung.
    - **Linux Capabilities & Seccomp BPF Sandbox (`LinuxCapSeccompLab.jsx` & `src/utils/linuxCapSeccompEngine.js`)**: Principle of Least Privilege in modernen Linux- und Container-Umgebungen (Docker/Kubernetes). Granulare Rechtevergabe (`CAP_NET_BIND_SERVICE`, `CAP_SYS_ADMIN`, `CAP_DAC_OVERRIDE`), Rootless Container Isolation und Kernel-Syscall-Filterung via Seccomp BPF (`SECCOMP_RET_ALLOW`, `SECCOMP_RET_ERRNO`, `SECCOMP_RET_KILL_PROCESS`) mit 65 XP Belohnung.
    - **BGP Path Selection & Decision Studio (`BgpPathSelectionLab.jsx` & `src/utils/bgpPathSelectionEngine.js`)**: RFC 4271 8-Stufen-Entscheidungsalgorithmus für Internet Service Provider und Rechenzentren (Weight, Local Preference, Locally Originated, AS-Path-Länge, Origin Code, Multi-Exit Discriminator MED, eBGP vs. iBGP, Router-ID Tie-Breaker) mit 65 XP Belohnung.
    - **IHK Maschinenstundensatz-Rechner (MSS) (`WisoMaschinenstundensatzLab.jsx` & `src/utils/wisoMaschinenstundensatzEngine.js`)**: Kosten- und Leistungsrechnung (KLR) nach offiziellem IHK-Prüfungsstandard für AP2 und WISO. Kalkulatorische Abschreibung, Zinsen nach Durchschnittsmethode, Raumkosten, Energiekosten, Instandhaltung und Werkzeugkosten zur Ermittlung des exakten Stundensatzes mit 60 XP Belohnung.
@@ -76,7 +80,31 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## ✨ Hauptfunktionen & Neue Features (v3.46.0: Linux Capabilities & Seccomp, BGP Path Selection, Maschinenstundensatz & LLM RAG Chunking Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.47.0: Linux PSI Cgroups, NWA Sensitivität, WebRTC ICE & WISO Leverage Edition)
+
+* **🐧 Linux Cgroups v2 & PSI (Pressure Stall Information) Studio (`LinuxPsiCgroupLab.jsx` & `src/utils/linuxPsiCgroupEngine.js`)**:
+  * Didaktische Kernel-Monitoring- und Ressourcensättigungs-Simulation für DevOps, Cloud-Architekten und Fachinformatiker Systemintegration (FISI).
+  * **Pressure Stall Information (PSI)**: Detaillierte Analyse von `/proc/pressure/cpu`, `/proc/pressure/memory` und `/proc/pressure/io`.
+  * **`some` vs. `full` Stalls**: Verständnis des Unterschieds zwischen partieller Ressourcen-Verzögerung (`some`: mindestens ein Task wartet auf I/O oder RAM, andere rechnen weiter) und vollständigem System-Stillstand (`full`: alle unblockierten Tasks warten auf Paging oder Disk-I/O).
+  * **Cgroup v2 Limits & OOM-Vermeidung**: Konfiguration von `cpu.max` (CFS Bandbreite), `memory.high` (präventives Kernel-Page-Reclaim) und `memory.max` (harter OOM-Killer Trigger) mit 65 XP Belohnung.
+
+* **📊 IHK Nutzwertanalyse (NWA) Sensitivitäts- & Monte-Carlo Studio (`NwaSensitivityLab.jsx` & `src/utils/nwaSensitivityEngine.js`)**:
+  * Wissenschaftlich fundiertes Entscheidungs- und Risiko-Studio nach DIN/VDI 2225 für die IHK-Abschlussarbeit (AP2 Teil A Pflichtkapitel).
+  * **500x Monte-Carlo Stresstest**: Probabilistische Simulation von Gewichtungsschwankungen (&plusmn;10% bis &plusmn;35% Jitter), um zu überprüfen, ob die Siegeroption auch bei subjektiven Bewertungsfehlern robust (>70% Siegquote) bleibt.
+  * **K.O.-Kriterien Absicherung**: Automatische Disqualifikation von Optionen, die kritische Mindestanforderungen verfehlen (z. B. Datenschutz/DSGVO, Compliance, Maximalbudget) mit 65 XP Belohnung.
+
+* **📡 WebRTC STUN/TURN & ICE Candidate Gathering Studio (`WebrtcIceGatheringLab.jsx` & `src/utils/webrtcIceGatheringEngine.js`)**:
+  * Tiefgehende Netzwerk- und NAT-Traversal-Simulation nach RFC 8445 (ICE), RFC 8489 (STUN) und RFC 8656 (TURN).
+  * **Kandidaten-Typen & Priorisierung**: Generierung und Prioritätsberechnung von Host-Kandidaten (LAN), Server Reflexive Kandidaten (STUN Public IP/Port) und Relay-Kandidaten (TURN Proxy).
+  * **Symmetric NAT & Firewall-Szenarien**: Interaktive Demonstration, warum zwei Peers hinter Symmetric NAT kein direktes P2P-Hole-Punching durchführen können und zwingend auf ein TURN-Relay ausweichen müssen mit 65 XP Belohnung.
+
+* **💰 WISO Rentabilitätskennzahlen & Leverage-Effekt Studio (`WisoRentabilitaetLeverageLab.jsx` & `src/utils/wisoRentabilitaetLeverageEngine.js`)**:
+  * Praxisorientiertes Bilanzanalyse- und Finanzierungs-Studio für Wirtschafts- und Sozialkunde (WISO) in der IHK Abschlussprüfung (AP2).
+  * **Klassische Rentabilitätskennzahlen**:
+    * Eigenkapitalrentabilität ($r_{\text{EK}} = \frac{\text{Gewinn}}{\text{Eigenkapital}} \times 100$)
+    * Gesamtkapitalrentabilität ($r_{\text{GK}} = \frac{\text{Gewinn} + \text{Fremdkapitalzinsen}}{\text{Gesamtkapital}} \times 100$)
+    * Umsatzrentabilität ($r_{\text{U}} = \frac{\text{Gewinn}}{\text{Umsatz}} \times 100$)
+  * **Der finanzielle Leverage-Effekt**: Demonstration der Hebelwirkung des Verschuldungsgrads ($r_{\text{EK}} = r_{\text{GK}} + (r_{\text{GK}} - i) \times \frac{\text{FK}}{\text{EK}}$) sowie der Risiken eines negativen Leverage-Effekts bei Zinsanstieg mit 60 XP Belohnung.
 
 * **🐧 Linux Capabilities & Seccomp BPF Sandbox (`LinuxCapSeccompLab.jsx` & `src/utils/linuxCapSeccompEngine.js`)**:
   * Didaktische Kernel-Security- und Sandbox-Simulation für Fachinformatiker Systemintegration (FISI) und Cloud/Container-Sicherheit.
@@ -908,6 +936,16 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.47.0 (Linux PSI Cgroups, NWA Sensitivität, WebRTC ICE & WISO Leverage Edition)
+
+- **Neu**: `src/components/Content/LinuxPsiCgroupLab.jsx` & `src/utils/linuxPsiCgroupEngine.js` — Linux Cgroups v2 & PSI (Pressure Stall Information) Studio: Didaktisches Kernel-Ressourcensättigungs- und K8s-Node-Pressure-Studio. Analyse von `/proc/pressure/*` für CPU, Memory und I/O (`some` vs. `full` Stalls), CFS Bandbreiten-Drosselung (`cpu.max`) und Auslösung von Page-Reclaim (`memory.high`) sowie OOM-Killer (`memory.max`) mit 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 3 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/NwaSensitivityLab.jsx` & `src/utils/nwaSensitivityEngine.js` — IHK Nutzwertanalyse (NWA) Sensitivitäts- & Monte-Carlo Stresstest Studio: DIN/VDI 2225 Entscheidungsmatrix für AP2 Teil A. 500 probabilistische Monte-Carlo-Durchläufe mit parametrierbarem Jitter (&plusmn;10% bis &plusmn;35%), automatische Auswertung der Entscheidungssicherheit (>70% Siegquote) und strikte K.O.-Kriterien-Validierung mit 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 3 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/WebrtcIceGatheringLab.jsx` & `src/utils/webrtcIceGatheringEngine.js` — WebRTC STUN/TURN & ICE Candidate Gathering Studio: RFC 8445 ICE Agent Simulation. Kandidaten-Typen (Host, Server Reflexive STUN, Relay TURN), RFC 8445 Prioritätsberechnung, NAT-Traversal für Full Cone bis Symmetric NAT und automatischer TURN Relay Fallback mit 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 3 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/WisoRentabilitaetLeverageLab.jsx` & `src/utils/wisoRentabilitaetLeverageEngine.js` — WISO Rentabilitätskennzahlen & Leverage-Effekt Studio: Bilanzanalyse für die IHK Abschlussprüfung (AP2 WISO). Berechnung von Eigenkapital-, Gesamtkapital- und Umsatzrentabilität, Verschuldungsgrad (FK/EK) und Hebelwirkung des Leverage-Effekts mit 60 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 2 Unit-Tests abgesichert.
+- **Routing & Integration**: Vollständige Registrierung der 4 neuen Labs in `src/App.jsx` (Lazy Loading & `activeLabElement` Switch-Tabelle), `src/components/Content/LabsDashboard.jsx` (Kategorie-Filter & Tags), `src/components/Navigation/Navbar.jsx` (Menüs "Labs" & "Prüfung / WISO") und `src/components/Navigation/CommandPaletteModal.jsx` (Ctrl+K Schnellbefehle).
+- **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für alle 4 neuen Labs erweitert (53/53 Komponenten-Tests bestanden) und `src/components/allLabsSmoke.test.jsx` (187/187 Komponenten) fehlerfrei validiert.
+- **Test-Suite & Qualität**: **941 bestandene Unit- & Integrationstests** in **130 Test-Dateien** (100% Erfolgsquote, +11 Tests!), **0 Oxlint-Fehler / 0 Warnungen** über 509 Quelldateien (`oxlint src --deny-warnings`), `tsc --noEmit` fehlerfrei, optimierter PWA Produktions-Build und alle `size-limit`-Vorgaben eingehalten.
 
 ### Version 3.46.0 (Linux Capabilities & Seccomp, BGP Path Selection, Maschinenstundensatz & LLM RAG Chunking Edition)
 
