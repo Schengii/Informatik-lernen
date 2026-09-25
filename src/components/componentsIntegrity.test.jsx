@@ -60,6 +60,10 @@ import LinuxPsiCgroupLab from './Content/LinuxPsiCgroupLab';
 import NwaSensitivityLab from './Content/NwaSensitivityLab';
 import WebrtcIceGatheringLab from './Content/WebrtcIceGatheringLab';
 import WisoRentabilitaetLeverageLab from './Content/WisoRentabilitaetLeverageLab';
+import LinuxMacSelinuxLab from './Content/LinuxMacSelinuxLab';
+import DnsPrivacyLab from './Content/DnsPrivacyLab';
+import WisoLiquiditaetLab from './Content/WisoLiquiditaetLab';
+import RagSemanticCacheLab from './Content/RagSemanticCacheLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -490,6 +494,38 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/Rentabilitätskennzahlen/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert LinuxMacSelinuxLab fehlerfrei', () => {
+    const { container } = render(
+      <LinuxMacSelinuxLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Mandatory Access Control/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert DnsPrivacyLab fehlerfrei', () => {
+    const { container } = render(
+      <DnsPrivacyLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/DNS-over-HTTPS/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert WisoLiquiditaetLab fehlerfrei', () => {
+    const { container } = render(
+      <WisoLiquiditaetLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Liquiditätsgrade/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert RagSemanticCacheLab fehlerfrei', () => {
+    const { container } = render(
+      <RagSemanticCacheLab />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Semantic Cache/i).length).toBeGreaterThan(0);
   });
 });
 

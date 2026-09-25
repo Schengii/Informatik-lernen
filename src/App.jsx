@@ -258,6 +258,11 @@ const LinuxPsiCgroupLab = lazy(() => import('./components/Content/LinuxPsiCgroup
 const NwaSensitivityLab = lazy(() => import('./components/Content/NwaSensitivityLab'));
 const WebrtcIceGatheringLab = lazy(() => import('./components/Content/WebrtcIceGatheringLab'));
 const WisoRentabilitaetLeverageLab = lazy(() => import('./components/Content/WisoRentabilitaetLeverageLab'));
+// v3.48.0 Linux MAC/SELinux, DNS Privacy, WISO Liquiditaet & RAG Semantic Cache
+const LinuxMacSelinuxLab = lazy(() => import('./components/Content/LinuxMacSelinuxLab'));
+const DnsPrivacyLab = lazy(() => import('./components/Content/DnsPrivacyLab'));
+const WisoLiquiditaetLab = lazy(() => import('./components/Content/WisoLiquiditaetLab'));
+const RagSemanticCacheLab = lazy(() => import('./components/Content/RagSemanticCacheLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -694,6 +699,14 @@ export default function App() {
         return <WebrtcIceGatheringLab onRewardXP={(xp) => awardXP(xp, 'webrtc_ice_master')} />;
       case activeTab === 'wiso_rentabilitaet_leverage_lab' || activeTab === 'wiso_rentabilitaet_leverage' || activeTab === 'leverage_effekt':
         return <WisoRentabilitaetLeverageLab onRewardXP={(xp) => awardXP(xp, 'wiso_leverage_master')} />;
+      case activeTab === 'linux_mac_selinux_lab' || activeTab === 'linux_mac_selinux' || activeTab === 'selinux_lab':
+        return <LinuxMacSelinuxLab onRewardXP={(xp) => awardXP(xp, 'selinux_master')} />;
+      case activeTab === 'dns_privacy_lab' || activeTab === 'dns_privacy' || activeTab === 'doh_dot_lab':
+        return <DnsPrivacyLab onRewardXP={(xp) => awardXP(xp, 'dns_privacy_master')} />;
+      case activeTab === 'wiso_liquiditaet_lab' || activeTab === 'wiso_liquiditaet' || activeTab === 'liquiditaet_lab':
+        return <WisoLiquiditaetLab onRewardXP={(xp) => awardXP(xp, 'wiso_liquiditaet_master')} />;
+      case activeTab === 'rag_semantic_cache_lab' || activeTab === 'rag_semantic_cache' || activeTab === 'semantic_cache_lab':
+        return <RagSemanticCacheLab onRewardXP={(xp) => awardXP(xp, 'semantic_cache_master')} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':

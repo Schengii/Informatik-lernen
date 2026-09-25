@@ -26,6 +26,10 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-linux-mac-selinux', title: 'Linux SELinux & AppArmor MAC Security Studio (DAC vs. MAC & Type Enforcement)', category: 'Labs & Tools', icon: ShieldCheck, action: () => onNavigate('linux_mac_selinux_lab') },
+    { id: 'view-dns-privacy', title: 'DNS Privacy Inspector (DNS-over-HTTPS DoH & DoT vs. Port 53 Wire-Format)', category: 'Labs & Tools', icon: Globe, action: () => onNavigate('dns_privacy_lab') },
+    { id: 'view-wiso-liquiditaet', title: 'IHK WISO Liquiditätsgrade & Working Capital Studio (1., 2. & 3. Grad / InsO § 17)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('wiso_liquiditaet_lab') },
+    { id: 'view-rag-semantic-cache', title: 'RAG Semantic Cache & Vector Similarity Studio (Cosine Threshold & Zero-Cost Hits)', category: 'Labs & Tools', icon: Brain, action: () => onNavigate('rag_semantic_cache_lab') },
     { id: 'view-linux-psi-cgroup', title: 'Linux Cgroups v2 & PSI Pressure Stall Studio (CPU, Memory & I/O Stalls / OOM)', category: 'Labs & Tools', icon: Activity, action: () => onNavigate('linux_psi_cgroup_lab') },
     { id: 'view-nwa-sensitivity', title: 'IHK Nutzwertanalyse Sensitivitäts- & Monte-Carlo Studio (500x Stresstest)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('nwa_sensitivity_lab') },
     { id: 'view-webrtc-ice', title: 'WebRTC STUN/TURN & ICE Candidate Gathering Studio (RFC 8445 Candidate Pairs)', category: 'Labs & Tools', icon: Radio, action: () => onNavigate('webrtc_ice_gathering_lab') },

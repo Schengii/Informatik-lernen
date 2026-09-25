@@ -3,6 +3,50 @@ import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Da
 
 export const LAB_MODULES = [
   {
+    id: 'linux_mac_selinux_lab',
+    title: 'Linux SELinux & AppArmor MAC Security Studio',
+    category: 'linux',
+    tags: ['#Linux', '#SELinux', '#AppArmor', '#MAC', '#DAC', '#TypeEnforcement', '#AVC', '#RootMitigation'],
+    difficulty: 'Advanced',
+    desc: 'Mandatory Access Control vs. DAC (chmod/chown), Type Enforcement (httpd_t -> shadow_t), AVC Denials und Root-Privilege Escalation Abwehr.',
+    icon: Shield,
+    badge: 'Neu',
+    color: '#06b6d4'
+  },
+  {
+    id: 'dns_privacy_lab',
+    title: 'DNS Privacy Inspector: DoH & DoT vs. Port 53',
+    category: 'network',
+    tags: ['#DNS', '#DoH', '#DoT', '#RFC8484', '#RFC7858', '#TLS', '#Privacy', '#ISP'],
+    difficulty: 'Intermediate',
+    desc: 'RFC 8484 DNS-over-HTTPS & RFC 7858 DNS-over-TLS Wire-Format-Analyse, ISP-Eavesdropping Abwehr und TLS-Verschlüsselung im Vergleich.',
+    icon: Globe,
+    badge: 'Neu',
+    color: '#3b82f6'
+  },
+  {
+    id: 'wiso_liquiditaet_lab',
+    title: 'IHK WISO Liquiditätsgrade & Working Capital Studio',
+    category: 'ihk',
+    tags: ['#WISO', '#Liquidität', '#CashRatio', '#QuickRatio', '#CurrentRatio', '#WorkingCapital', '#InsO'],
+    difficulty: 'Intermediate',
+    desc: 'Berechnung von Liquidität 1., 2. und 3. Grades (Cash, Quick, Current Ratio), Net Working Capital (NWC) und IHK-Zahlungsunfähigkeit nach InsO § 17.',
+    icon: Calculator,
+    badge: 'IHK Neu',
+    color: '#10b981'
+  },
+  {
+    id: 'rag_semantic_cache_lab',
+    title: 'RAG Semantic Cache & Vector Similarity Studio',
+    category: 'ai',
+    tags: ['#KI', '#RAG', '#SemanticCache', '#VectorSearch', '#CosineSimilarity', '#LLM', '#Latency'],
+    difficulty: 'Advanced',
+    desc: 'Vektor-Ähnlichkeits-Caching mit Cosine-Similarity Schwellenwert. Schnelle Index-Lookups (<10ms) sparen teure LLM-Inferenz und Token-Kosten.',
+    icon: Brain,
+    badge: 'Neu',
+    color: '#a855f7'
+  },
+  {
     id: 'linux_psi_cgroup_lab',
     title: 'Linux Cgroups v2 & PSI Pressure Stall Studio',
     category: 'linux',

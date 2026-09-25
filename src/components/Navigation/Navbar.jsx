@@ -72,6 +72,10 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 60+ interaktiven Labs', badge: 'Hub' },
+    { id: 'linux_mac_selinux_lab', label: '🛡️ Linux SELinux & AppArmor MAC Studio', desc: 'Type Enforcement, AVC Denials, DAC vs. MAC & Root-Schutz', badge: 'Neu' },
+    { id: 'dns_privacy_lab', label: '🔒 DNS Privacy: DoH & DoT vs. Port 53', desc: 'RFC 8484 & RFC 7858 Wire-Format, TLS & ISP-Eavesdropping', badge: 'Neu' },
+    { id: 'wiso_liquiditaet_lab', label: '💰 IHK Liquiditätsgrade & Working Capital', desc: 'Cash/Quick/Current Ratio & InsO § 17 Zahlungsunfähigkeit', badge: 'IHK Neu' },
+    { id: 'rag_semantic_cache_lab', label: '🧠 RAG Semantic Cache & Vector Similarity', desc: 'Cosine Similarity Schwellenwert & Zero-Cost Cache Hits', badge: 'Neu' },
     { id: 'linux_psi_cgroup_lab', label: '🐧 Linux Cgroups v2 & PSI Pressure Stall Studio', desc: 'CPU, Memory & I/O Stalls (some vs. full) & OOM-Kill', badge: 'Neu' },
     { id: 'nwa_sensitivity_lab', label: '📊 IHK Nutzwertanalyse Sensitivitäts-Studio', desc: '500x Monte-Carlo Stresstest & K.O.-Kriterien DIN 2225', badge: 'IHK Neu' },
     { id: 'webrtc_ice_gathering_lab', label: '📡 WebRTC STUN/TURN & ICE Candidate Gathering', desc: 'RFC 8445 Candidate Types, Symmetric NAT & Relay', badge: 'Neu' },
