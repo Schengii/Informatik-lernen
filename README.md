@@ -948,9 +948,9 @@ Informatik-lernen/
 
 ## 🔒 DSGVO & Datenschutz
 
-* **Kein Tracking, keine Analyse-Tools, keine Werbe-Cookies**.
-* Alle Daten bleiben auf dem Endgerät des Nutzers.
-* Export- und Importfunktion zur einfachen Datensicherung als JSON.
+* **100% Client-Side Datensouveränität:** Alle Lernfortschritte, Badges, Level und SM-2 Karteikarten verbleiben rein lokal auf dem Endgerät des Nutzers.
+* **Datenschutzfreundliche Web-Analytics:** Einsatz von Vercel Web Analytics – **ohne Cookies**, ohne Speicherung von IP-Adressen und ohne geräteübergreifendes Tracking, vollständig DSGVO-konform ohne Cookie-Banner-Zwang.
+* **Datensicherung & Export:** Integrierte Export- und Importfunktion zur transparenten JSON-Sicherung des Spielstands.
 
 ---
 
@@ -999,6 +999,7 @@ npm run build
   - **Rot-Grün- & Sehschwächen-Modus**: Vollständige Entkopplung reiner Farb-Indikatoren durch geometrische Symbole (`✓` für Erfolg, `✗` für Fehler, `⚠` für Warnungen) und kontraststarke Sky-Blue (`#0284c7`) sowie Rust-Orange (`#c2410c`) Farbtöne.
   - **Hoher Kontrast & Bewegungsschutz**: WCAG AAA Kontraste (>7:1) und nativer Support für vestibuläre Störungen (`prefers-reduced-motion`).
   - **DSGVO & Inklusions-Transparenz**: Eigenes modales Informationsfenster für Barrierefreiheit & Inklusion im Footer (`DsgvoFooterModal.jsx`).
+- **Vercel Web Analytics Integration**: Nahtlose Integration des offiziellen `@vercel/analytics/react` Pakets in `src/main.jsx`. Ermöglicht datenschutzkonforme Echtzeit-Metriken (Seitenaufrufe, Performance & Devices) im Vercel-Dashboard komplett ohne Cookies und ohne Speicherung von PII nach strengem DSGVO-Standard.
 - **Routing & Integration**: Vollständige Registrierung der 4 neuen Labs in `src/App.jsx` (Lazy Loading & `activeLabElement` Switch-Tabelle), `src/components/Content/LabsDashboard.jsx` (Kategorie-Filter & Tags), `src/components/Navigation/Navbar.jsx` (Menüs "Labs" & "Prüfung / WISO") und `src/components/Navigation/CommandPaletteModal.jsx` (Ctrl+K Schnellbefehle).
 - **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für alle 4 neuen Labs erweitert (57/57 Komponenten-Tests bestanden) und `src/components/allLabsSmoke.test.jsx` (191/191 Komponenten) fehlerfrei validiert.
 - **Test-Suite & Qualität**: **993 bestandene Unit- & Integrationstests** in **134 Test-Dateien** (100% Erfolgsquote, +52 Tests!), **0 Oxlint-Fehler / 0 Warnungen** über 521 Quelldateien (`oxlint src --deny-warnings`), `tsc --noEmit` fehlerfrei, optimierter PWA Produktions-Build und alle `size-limit`-Vorgaben eingehalten.

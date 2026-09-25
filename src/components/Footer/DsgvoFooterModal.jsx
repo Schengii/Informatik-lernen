@@ -279,7 +279,7 @@ export default function DsgvoFooterModal() {
                     <strong>1. 100% Lokale Datenspeicherung:</strong> Diese Anwendung speichert und verarbeitet keinerlei personenbezogene Daten auf Remote-Servern. Alle Lernfortschritte, Karteikarten-Wiederholungsintervalle (SM-2 Algorithmus), Erfahrungspunkte (XP) und Badges verbleiben ausschließlich im <code>localStorage</code> deines Endgeräts.
                   </p>
                   <p style={{ marginBottom: '12px' }}>
-                    <strong>2. Verzicht auf Tracking &amp; Cookies:</strong> Wir setzen weder Google Analytics, Werbe-Pixel noch sonstige Drittanbieter-Tracker ein.
+                    <strong>2. Datenschutzfreundliche Web-Analytics (Cookie-less):</strong> Zur technischen Fehleranalyse und Lastüberwachung setzen wir <em>Vercel Web Analytics</em> ein. Es werden <strong>keine Cookies</strong> gesetzt, keine IP-Adressen gespeichert und keine geräteübergreifenden Profile erstellt. Die Erfassung erfolgt vollständig anonymisiert und DSGVO-konform ohne Einwilligungspflicht.
                   </p>
                   <p style={{ marginBottom: '12px' }}>
                     <strong>3. Datensouveränität &amp; Backup:</strong> Über das Menü <em>Tools ➔ Backup &amp; Wiederherstellen</em> kannst du jederzeit deinen gesamten Spielstand als JSON-Datei exportieren oder löschen.
