@@ -87,7 +87,21 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## ✨ Hauptfunktionen & Neue Features (v3.49.0: JWT Security & Algorithm Confusion Attack Studio Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.49.0: JWT Security & Kapitalwert/NPV Studio Edition)
+
+* **📊 IHK Kosten-Nutzen-Analyse & Kapitalwertmethode Studio (`WisoCapitalValueLab.jsx` & `src/utils/wisoCapitalValueEngine.js`)**:
+  * Didaktisches Investitions- und Wirtschaftlichkeitsrechnungs-Studio nach offiziellem IHK-Standard für AP2 Teil A (Pflichtmodul Projektdokumentation) und WISO.
+  * **Dynamische Diskontierung & Zeitwert des Geldes**:
+    * Exakte Abzinsung zukünftiger Einzahlungsüberschüsse mit dem Kalkulationszinssatz ($C_0 = -I_0 + \sum_{t=1}^n \frac{R_t}{(1+i)^t} + \frac{L_n}{(1+i)^n}$).
+    * Gegenüberstellung statischer (Kostenvergleich) und dynamischer Investitionsrechnung zur Vermeidung von Fehlentscheidungen durch Zinseszinseffekte.
+  * **Erweiterte IHK-Kennzahlen**:
+    * **Interner Zinsfuß (IRR / IZF)**: Bestimmung des kritischen Zinssatzes via Sekantenverfahren, bei dem der Kapitalwert exakt $0 €$ wird.
+    * **Dynamische Amortisationsdauer (Discounted Payback Period)**: Exakte Laufzeitberechnung in Jahren (mit linearer Interpolation) bis zur Tilgung der Investition.
+    * **Profitabilitätsindex (PI)**: Benefit-Cost-Ratio zur Priorisierung von Projekten ($PI \ge 1.0$).
+    * **Annuität**: Gleichmäßige jährliche Mehrrendite über die Nutzungsdauer.
+  * **IHK-Projektszenarien & 1-Klick-Dokumentationsexport**:
+    * Realistische Presets für FIAE (Microservice Refactoring 80h) und FISI (Hybrid Cloud Cluster 40h).
+    * Export eines formatierungsfertigen Markdown-Berichts (`IHK_Kosten_Nutzen_Kapitalwert_*.md`) für den Anhang des IHK-Abschlussberichts mit 60 XP Belohnung.
 
 * **🔑 JWT Security & Algorithm Confusion Attack Studio (`JwtConfusionLab.jsx` & `src/utils/jwtConfusionEngine.js`)**:
   * Didaktisches Cyber-Security-, API-Security- und Kryptographie-Studio nach RFC 7519 (JSON Web Token) und RFC 7518 (JSON Web Algorithms).
@@ -998,12 +1012,13 @@ npm run build
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
-### Version 3.49.0 (JWT Security & Algorithm Confusion Attack Studio Edition)
+### Version 3.49.0 (JWT Security & IHK Kosten-Nutzen Kapitalwert/NPV Studio Edition)
 
 - **Neu**: `src/components/Content/JwtConfusionLab.jsx` & `src/utils/jwtConfusionEngine.js` — JWT Security & Algorithm Confusion Attack Studio (RFC 7519 / RFC 7518): Didaktisches Cyber-Security-, API-Security- und Kryptographie-Studio. Asymmetrische RS256 vs. symmetrische HS256 Key-Confusion (Angreifer signiert manipulierte Admin-Claims mit dem öffentlichen RSA-Key als HMAC-Secret), None-Algorithm Bypass Exploit (`{"alg": "none"}`), interaktive Server-Absicherung (Strict Algorithm Whitelisting, Key-Type-Verifikation) und Terminal-Verifikations-Konsole mit 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 6 Unit-Tests in `src/utils/jwtConfusionEngine.test.js` abgesichert.
-- **Routing & Integration**: Vollständige Registrierung in `src/App.jsx` (Lazy Loading & `activeLabElement` Switch-Tabelle mit Route `jwt_confusion`), `src/components/Content/LabsDashboard.jsx` (Kategorie-Filter & Tags "Security", "Crypto", "API"), `src/components/Navigation/Navbar.jsx` (Menü "Labs" -> "Security") und `src/components/Navigation/CommandPaletteModal.jsx` (Ctrl+K Schnellbefehl mit `Key` Icon).
+- **Erweitert**: `src/components/Content/WisoCapitalValueLab.jsx` & `src/utils/wisoCapitalValueEngine.js` — IHK Kosten-Nutzen-Analyse & Kapitalwertmethode (NPV) Studio: Umfassendes Upgrade für die IHK-Projektdokumentation (AP2 Teil A Pflichtmodul) und WISO. Dynamische Diskontierung mit Zinseszins, Berechnung des Internen Zinsfußes (IRR / IZF via Sekantenverfahren), dynamische Amortisationsdauer (Discounted Payback Period mit linearer Interpolation), Profitabilitätsindex (PI / Benefit-Cost-Ratio), Annuitäten-Kalkulation, Preset-Szenarien (FIAE Monolith-Refactoring 80h vs. FISI Cloud-Migration 40h) und 1-Klick-Export eines prüfungsfertigen Markdown-Berichts (`IHK_Kosten_Nutzen_Kapitalwert_*.md`) mit 60 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 4 Unit-Tests abgesichert.
+- **Routing & Integration**: Vollständige Registrierung in `src/App.jsx` (Lazy Loading & `activeLabElement` Switch-Tabelle mit Route `jwt_confusion`), `src/components/Content/LabsDashboard.jsx` (Kategorie-Filter & Tags "Security", "Crypto", "API", "Wirtschaft / IHK"), `src/components/Navigation/Navbar.jsx` und `src/components/Navigation/CommandPaletteModal.jsx`.
 - **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für `JwtConfusionLab` erweitert (58/58 Komponenten-Tests bestanden) und `src/App.routing.test.jsx` erfolgreich mit 304/304 Routen-Tests durchlaufen.
-- **Test-Suite & Qualität**: **999 bestandene Unit- & Integrationstests** in **135 Test-Dateien** (100% Erfolgsquote, +6 Tests!), **0 Oxlint-Fehler / 0 Warnungen** über 525 Quelldateien (`oxlint src --deny-warnings`), `tsc --noEmit` fehlerfrei, optimierter PWA Produktions-Build und alle `size-limit`-Vorgaben eingehalten.
+- **Test-Suite & Qualität**: **1002 bestandene Unit- & Integrationstests** in **135 Test-Dateien** (100% Erfolgsquote, +9 Tests!), **0 Oxlint-Fehler / 0 Warnungen** über 525 Quelldateien (`oxlint src --deny-warnings`), `tsc --noEmit` fehlerfrei, optimierter PWA Produktions-Build und alle `size-limit`-Vorgaben eingehalten.
 
 ### Version 3.48.0 (Linux MAC SELinux, DNS Privacy, WISO Liquidität & RAG Semantic Cache Edition)
 
