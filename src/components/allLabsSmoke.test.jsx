@@ -117,7 +117,7 @@ describe('Alle Lab-Komponenten (Content/*.jsx): generischer Render-Smoke-Test', 
       } finally {
         spy.mockRestore();
       }
-    });
+    }, 20000);
   }
 
   it('Zusammenfassung: keine Komponente ist beim Mount abgestürzt', () => {

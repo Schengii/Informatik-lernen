@@ -115,7 +115,7 @@ export default function WisoCapitalValueLab({ onRewardXP }) {
           </h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', marginTop: '6px', maxWidth: '850px' }}>
             Dynamische Investitionsrechnung nach IHK-Standard für AP2 Teil A (Projektdokumentation) &amp; WISO.
-            Diskontiere zukünftige Cashflows mit dem Kalkulationszins ($C_0 = -I_0 + \sum \frac{R_t}{(1+i)^t}$), ermittle den internen Zinsfuß (IRR) und exportiere die fertige Dokumentation.
+            Diskontiere zukünftige Cashflows mit dem Kalkulationszins (C_0 = -I_0 + &Sigma; R_t / (1+i)^t), ermittle den internen Zinsfuß (IRR) und exportiere die fertige Dokumentation.
           </p>
         </div>
 
@@ -187,7 +187,7 @@ export default function WisoCapitalValueLab({ onRewardXP }) {
           {/* Key Metric Cards */}
           <div className="grid-responsive" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '16px', marginBottom: '24px' }}>
             <div className="glass-panel" style={{ padding: '18px' }}>
-              <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'block' }}>Summe Barwerte ($\sum BW$):</span>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'block' }}>Summe Barwerte (&Sigma; BW):</span>
               <div style={{ fontSize: '1.45rem', fontWeight: '800', color: 'var(--accent-primary)', marginTop: '4px' }}>
                 {npvData.sumBarwerte.toLocaleString('de-DE')} €
               </div>
@@ -238,8 +238,8 @@ export default function WisoCapitalValueLab({ onRewardXP }) {
               <thead>
                 <tr style={{ borderBottom: '2px solid var(--border-color)', color: 'var(--text-muted)', textAlign: 'left' }}>
                   <th style={{ padding: '10px' }}>Periode (t)</th>
-                  <th style={{ padding: '10px' }}>Einzahlungsüberschuss ($R_t$)</th>
-                  <th style={{ padding: '10px' }}>Abzinsungsfaktor ($q^{-t}$)</th>
+                  <th style={{ padding: '10px' }}>Einzahlungsüberschuss (R_t)</th>
+                  <th style={{ padding: '10px' }}>Abzinsungsfaktor (1/(1+i)^t)</th>
                   <th style={{ padding: '10px' }}>Barwert (Diskontiert)</th>
                   <th style={{ padding: '10px' }}>Kumulierter Barwert</th>
                 </tr>
@@ -399,7 +399,7 @@ export default function WisoCapitalValueLab({ onRewardXP }) {
                 2. Die Kapitalwert-Formel
               </h3>
               <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.5, fontFamily: 'monospace' }}>
-                C_0 = -I_0 + \sum_&#123;t=1&#125;^n \frac&#123;R_t&#125;&#123;(1 + i)^t&#125; + \frac&#123;L_n&#125;&#123;(1 + i)^n&#125;
+                C_0 = -I_0 + &Sigma; [ R_t / (1 + i)^t ] + [ L_n / (1 + i)^n ]
               </p>
               <ul style={{ fontSize: '0.82rem', color: 'var(--text-muted)', paddingLeft: '18px', marginTop: '6px' }}>
                 <li>$I_0$: Anschaffungsauszahlung (t=0)</li>
