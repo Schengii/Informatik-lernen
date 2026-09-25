@@ -65,6 +65,9 @@ import DnsPrivacyLab from './Content/DnsPrivacyLab';
 import WisoLiquiditaetLab from './Content/WisoLiquiditaetLab';
 import RagSemanticCacheLab from './Content/RagSemanticCacheLab';
 import JwtConfusionLab from './Content/JwtConfusionLab';
+import SqlWindowFunctionsLab from './Content/SqlWindowFunctionsLab';
+import ArgoCdGitOpsLab from './Content/ArgoCdGitOpsLab';
+import VectorMathEmbeddingLab from './Content/VectorMathEmbeddingLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -535,6 +538,30 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/JWT Security/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert SqlWindowFunctionsLab fehlerfrei', () => {
+    const { container } = render(
+      <SqlWindowFunctionsLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/SQL Window Functions/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert ArgoCdGitOpsLab fehlerfrei', () => {
+    const { container } = render(
+      <ArgoCdGitOpsLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/ArgoCD GitOps/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert VectorMathEmbeddingLab fehlerfrei', () => {
+    const { container } = render(
+      <VectorMathEmbeddingLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Vektor-Mathematik/i).length).toBeGreaterThan(0);
   });
 });
 

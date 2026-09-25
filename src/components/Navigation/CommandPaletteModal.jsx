@@ -5,7 +5,8 @@ import {
   Layers, Award, FileText, ArrowRight, X, Command, Database, ShieldCheck,
   Calculator, Globe, ShieldAlert, Brain, GitMerge,
   Lock, Activity, GitCommit, Network, Server, Code, Radio, Mic, Zap,
-  Clock, GitPullRequest, Calendar, Key, HardDrive, FileCode, TrendingDown
+  Clock, GitPullRequest, Calendar, Key, HardDrive, FileCode, TrendingDown,
+  Cloud, Compass
 } from 'lucide-react';
 import { TOPICS } from '../../data/topicsData';
 import { GLOSSARY_TERMS } from '../../data/glossaryData';
@@ -26,6 +27,9 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-sql-window-functions', title: 'SQL Window Functions & Analytics Studio (ROW_NUMBER, RANK, DENSE_RANK, NTILE, LEAD/LAG)', category: 'Labs & Tools', icon: Database, action: () => onNavigate('sql_window_functions_lab') },
+    { id: 'view-argocd-gitops', title: 'ArgoCD GitOps & Cluster Sync Studio (Git-to-Cluster Drift, Out-of-Sync & Self-Healing)', category: 'Labs & Tools', icon: Cloud, action: () => onNavigate('argocd_gitops_lab') },
+    { id: 'view-vector-math-embedding', title: 'Vektor-Mathematik & Embedding-Distanz Studio (Cosine Sim, L2 Euclidean & Manhattan)', category: 'Labs & Tools', icon: Compass, action: () => onNavigate('vector_math_embedding_lab') },
     { id: 'view-jwt-confusion', title: 'JWT Algorithm Confusion & Security Studio (RS256 vs. HS256 Key Confusion & None Exploit)', category: 'Labs & Tools', icon: Key, action: () => onNavigate('jwt_confusion_lab') },
     { id: 'view-linux-mac-selinux', title: 'Linux SELinux & AppArmor MAC Security Studio (DAC vs. MAC & Type Enforcement)', category: 'Labs & Tools', icon: ShieldCheck, action: () => onNavigate('linux_mac_selinux_lab') },
     { id: 'view-dns-privacy', title: 'DNS Privacy Inspector (DNS-over-HTTPS DoH & DoT vs. Port 53 Wire-Format)', category: 'Labs & Tools', icon: Globe, action: () => onNavigate('dns_privacy_lab') },

@@ -3,6 +3,39 @@ import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Da
 
 export const LAB_MODULES = [
   {
+    id: 'sql_window_functions_lab',
+    title: 'SQL Window Functions & Analytics Studio',
+    category: 'database',
+    tags: ['#SQL', '#WindowFunctions', '#ROW_NUMBER', '#RANK', '#DENSE_RANK', '#PARTITION_BY', '#LEAD_LAG', '#Analytics'],
+    difficulty: 'Advanced',
+    desc: 'Analytische SQL-Fensterfunktionen nach ANSI SQL:2003: ROW_NUMBER(), RANK(), DENSE_RANK(), NTILE(), LEAD/LAG und kumulierende Summen.',
+    icon: Database,
+    badge: 'Neu',
+    color: '#0284c7'
+  },
+  {
+    id: 'argocd_gitops_lab',
+    title: 'ArgoCD GitOps & Cluster Sync Studio',
+    category: 'cloud',
+    tags: ['#GitOps', '#ArgoCD', '#Kubernetes', '#ContinuousDelivery', '#Drift', '#SelfHealing', '#AutoPrune'],
+    difficulty: 'Advanced',
+    desc: 'Deklaratives GitOps mit ArgoCD: Git als Single Source of Truth, Drift-Erkennung (Out-of-Sync), Auto-Prune und Self-Healing.',
+    icon: Cloud,
+    badge: 'Neu',
+    color: '#f97316'
+  },
+  {
+    id: 'vector_math_embedding_lab',
+    title: 'Vektor-Mathematik & Embedding-Distanz Studio',
+    category: 'ai',
+    tags: ['#KI', '#Embeddings', '#VectorMath', '#CosineSimilarity', '#EuclideanDistance', '#Manhattan', '#HNSW'],
+    difficulty: 'Intermediate',
+    desc: 'Mathematisches Fundament von Vektordatenbanken: Cosine-Similarity, Euklidische L2-Distanz, Manhattan L1-Abstand und Skalarprodukt.',
+    icon: Brain,
+    badge: 'Neu',
+    color: '#8b5cf6'
+  },
+  {
     id: 'jwt_confusion_lab',
     title: 'JWT Algorithm Confusion & Security Studio',
     category: 'security',

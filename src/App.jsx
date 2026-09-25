@@ -265,6 +265,10 @@ const WisoLiquiditaetLab = lazy(() => import('./components/Content/WisoLiquidita
 const RagSemanticCacheLab = lazy(() => import('./components/Content/RagSemanticCacheLab'));
 // v3.49.0 JWT Algorithm Confusion & Security Studio
 const JwtConfusionLab = lazy(() => import('./components/Content/JwtConfusionLab'));
+// v3.50.0 Window Functions, ArgoCD GitOps & Vector Math Studios
+const SqlWindowFunctionsLab = lazy(() => import('./components/Content/SqlWindowFunctionsLab'));
+const ArgoCdGitOpsLab = lazy(() => import('./components/Content/ArgoCdGitOpsLab'));
+const VectorMathEmbeddingLab = lazy(() => import('./components/Content/VectorMathEmbeddingLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -711,6 +715,12 @@ export default function App() {
         return <RagSemanticCacheLab onRewardXP={(xp) => awardXP(xp, 'semantic_cache_master')} />;
       case activeTab === 'jwt_confusion_lab' || activeTab === 'jwt_confusion' || activeTab === 'jwt_security':
         return <JwtConfusionLab onRewardXP={(xp) => awardXP(xp, 'jwt_confusion_master')} />;
+      case activeTab === 'sql_window_functions_lab' || activeTab === 'sql_window_functions' || activeTab === 'window_functions':
+        return <SqlWindowFunctionsLab onRewardXP={(xp) => awardXP(xp, 'sql_window_functions_master')} />;
+      case activeTab === 'argocd_gitops_lab' || activeTab === 'argocd_gitops' || activeTab === 'gitops_lab':
+        return <ArgoCdGitOpsLab onRewardXP={(xp) => awardXP(xp, 'argocd_gitops_master')} />;
+      case activeTab === 'vector_math_embedding_lab' || activeTab === 'vector_math' || activeTab === 'embedding_distance_lab':
+        return <VectorMathEmbeddingLab onRewardXP={(xp) => awardXP(xp, 'vector_math_master')} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':

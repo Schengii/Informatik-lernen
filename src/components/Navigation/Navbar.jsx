@@ -72,6 +72,9 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 60+ interaktiven Labs', badge: 'Hub' },
+    { id: 'sql_window_functions_lab', label: '⚡ SQL Window Functions & Analytics Studio', desc: 'ROW_NUMBER, RANK, DENSE_RANK, NTILE & PARTITION BY', badge: 'Neu' },
+    { id: 'argocd_gitops_lab', label: '🐙 ArgoCD GitOps & Cluster Sync Studio', desc: 'Deklaratives GitOps, Drift-Erkennung, Auto-Prune & Self-Healing', badge: 'Neu' },
+    { id: 'vector_math_embedding_lab', label: '📐 Vektor-Mathematik & Embedding-Distanz Studio', desc: 'Cosine-Similarity, Euklidische L2- & Manhattan-Distanz', badge: 'Neu' },
     { id: 'jwt_confusion_lab', label: '🔐 JWT Algorithm Confusion & Security Studio', desc: 'RS256 vs. HS256 Key-Confusion & None-Algorithmus Exploit-Abwehr', badge: 'Neu' },
     { id: 'linux_mac_selinux_lab', label: '🛡️ Linux SELinux & AppArmor MAC Studio', desc: 'Type Enforcement, AVC Denials, DAC vs. MAC & Root-Schutz', badge: 'Neu' },
     { id: 'dns_privacy_lab', label: '🔒 DNS Privacy: DoH & DoT vs. Port 53', desc: 'RFC 8484 & RFC 7858 Wire-Format, TLS & ISP-Eavesdropping', badge: 'Neu' },
