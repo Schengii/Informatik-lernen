@@ -6,7 +6,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.44.0)](#-hauptfunktionen--neue-features-v3440-clean-architecture-linux-netns-mehrstufige-db--schwachstellen-audit-edition)
+- [Hauptfunktionen & Neue Features (v3.45.0)](#-hauptfunktionen--neue-features-v3450-oauth-revocation-raid-6-galois-sqlite-worker--zuschlagskalkulation-edition)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -72,7 +72,32 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## ✨ Hauptfunktionen & Neue Features (v3.44.0: Clean Architecture, Linux NetNS, Mehrstufige DB & Schwachstellen-Audit Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.45.0: OAuth Revocation, RAID 6 Galois, SQLite Worker & Zuschlagskalkulation Edition)
+
+* **🔐 OAuth 2.0 Token Revocation & Introspection Studio (`OauthRevocationIntrospectionLab.jsx` & `src/utils/oauthRevocationIntrospectionEngine.js`)**:
+  * Didaktisches API-Gateway- und Security-Studio für IT-Sicherheit und moderne Microservice-Architekturen.
+  * **RFC 7662 Token Introspection**: Simulation der Gateway-Tokenvalidierung (`POST /oauth/introspect`) mit aktiven Metadaten (`sub`, `client_id`, `scope`, `exp`, `iat`, `token_type: Bearer`).
+  * **RFC 7009 Token Revocation**: Serverseitiges Widerrufen aktiver Tokens (`POST /oauth/revoke`) mit Standard HTTP 200 OK Verhalten und automatischer Kaskadierung (Widerruf eines Refresh-Tokens invalidiert alle zugehörigen Access-Tokens des Nutzers) mit 65 XP Belohnung.
+
+* **💾 RAID 6 Dual-Parity & Galois Field $\text{GF}(2^8)$ Studio (`Raid6GaloisLab.jsx` & `src/utils/raid6GaloisEngine.js`)**:
+  * Tiefgehende mathematische Speicher- und Ausfallsicherheits-Simulation für Fachinformatiker Systemintegration (FISI) und Cloud/Storage-Architekten.
+  * **P-Parität (Standard XOR)**: Schnelle bitweise XOR-Verknüpfung über alle Datenplatten des Stripes.
+  * **Q-Parität (Reed-Solomon / Galois-Feld)**: Polynom-Multiplikation über $x^8 + x^4 + x^3 + x^2 + 1$ (0x11d) mit Generator $g=2$ ($Q = \bigoplus 2^i \otimes D_i$).
+  * **Dual-Disk Failure Rebuild**: Interaktive Simulation des gleichzeitigen Ausfalls von zwei Festplatten und deren vollständige mathematische Rekonstruktion über ein lineares Gleichungssystem in $\text{GF}(2^8)$ mit 65 XP Belohnung.
+
+* **⚡ SQLite Web Worker Sandbox (`SqliteWorkerStudioLab.jsx` & `src/utils/sqliteWorkerBridge.js`)**:
+  * Hochperformante relationale In-Browser Datenbank-Sandbox ohne Main-Thread-Jank für Fachinformatiker Anwendungsentwicklung (FIAE).
+  * **Asynchrone Web-Worker-Bridge**: Vollständige Auslagerung von SQL-Queries in einen Dedicated Hintergrund-Thread, wodurch die Benutzeroberfläche selbst bei komplexen Aggregationen stabil bei 60 FPS bleibt.
+  * **Aggregation-Benchmark**: Integrierter Belastungstest mit über 500 synthetischen Datensätzen, GROUP-BY-Analysen und präziser Millisekunden-Laufzeitmessung mit 60 XP Belohnung.
+
+* **📊 IHK Fertigungs- & Zuschlagskalkulation Studio (`WisoZuschlagskalkulationLab.jsx` & `src/utils/wisoZuschlagskalkulationEngine.js`)**:
+  * Praxisorientiertes Kalkulations- und KLR-Studio für die IHK Abschlussprüfung (AP1/AP2 und WISO).
+  * **Vollständige Staffelrechnung**:
+    * Fertigungsmaterial (FM) + Materialgemeinkosten (MGKZ) = Materialkosten (MK)
+    * Fertigungslohn (FL) + Fertigungsgemeinkosten (FGKZ) + SEKF = Fertigungskosten (FK)
+    * Herstellkosten (HK) = Materialkosten (MK) + Fertigungskosten (FK)
+    * Selbstkosten (SK) = HK + Verwaltungsgemeinkosten (VwGKZ) + Vertriebsgemeinkosten (VtGKZ) + SEKV
+    * Gewinnzuschlag, Kundenskonto, Kundenrabatt sowie Ermittlung des Bar-, Ziel- und Bruttoverkaufspreises mit 60 XP Belohnung.
 
 * **🏛️ Clean Architecture & Hexagonal Ports/Adapters Linter (`CleanArchLab.jsx` & `src/utils/cleanArchEngine.js`)**:
   * Didaktisches Architektur-Studio nach Robert C. Martin (Uncle Bob) und Alistair Cockburn für Anwendungsentwickler (FIAE).
@@ -843,6 +868,16 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.45.0 (OAuth 2.0 Revocation, RAID 6 Dual-Parity Galois, SQLite Worker & Zuschlagskalkulation Edition)
+
+- **Neu**: `src/components/Content/OauthRevocationIntrospectionLab.jsx` & `src/utils/oauthRevocationIntrospectionEngine.js` — OAuth 2.0 Token Revocation (RFC 7009) & Token Introspection (RFC 7662) Studio: Didaktisches API-Gateway- und Security-Studio für Web-Architektur und IT-Sicherheit. RFC 7662 Introspection mit aktiven Metadaten (`sub`, `client_id`, `scope`, `exp`, `iat`), RFC 7009 Token Revocation (`POST /oauth/revoke`) mit HTTP 200 Standardverhalten, automatischer Kaskadierung von Refresh-Token-Entwertungen auf zugehörige Access-Tokens und Audit-Trail mit 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 5 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/Raid6GaloisLab.jsx` & `src/utils/raid6GaloisEngine.js` — RAID 6 Dual-Parity & Reed-Solomon / Galois Field GF(2^8) Studio: Tiefgehende mathematische Speicher- und Ausfallsicherheits-Simulation für Fachinformatiker Systemintegration (FISI) und Storage-Architekten. Exakte Berechnung der P-Parität (bitweises XOR) und Q-Parität über Polynom-Multiplikation im Galois-Feld $\text{GF}(2^8)$ ($x^8 + x^4 + x^3 + x^2 + 1$), interaktive Simulation des gleichzeitigen Ausfalls von 2 Festplatten und deren vollständige Datenrekonstruktion mit 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 3 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/SqliteWorkerStudioLab.jsx` & `src/utils/sqliteWorkerBridge.js` — SQLite Web Worker Sandbox (Zero-Jank Query Engine): Asynchrone Auslagerung rechenintensiver SQL-Abfragen und Aggregationen in einen Dedicated Hintergrund-Thread. Verhinderung von Frame-Drops und UI-Blockaden bei komplexen JOINs und Group-By-Operationen, Live-Zeitmessung sowie integrierter Aggregations-Benchmark (500+ Datensätze) mit 60 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 3 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/WisoZuschlagskalkulationLab.jsx` & `src/utils/wisoZuschlagskalkulationEngine.js` — IHK Fertigungs- & Zuschlagskalkulation Studio: Vollständiges Kalkulationsschema für Wirtschafts- und Sozialkunde (WISO) und Kosten- und Leistungsrechnung (KLR) nach IHK-Standard. Staffelrechnung: Fertigungsmaterial (FM) + MGKZ = Materialkosten (MK), Fertigungslohn (FL) + FGKZ + SEKF = Fertigungskosten (FK), Herstellkosten (HK = MK + FK), Verwaltungsgemeinkosten (VwGKZ) + Vertriebsgemeinkosten (VtGKZ) + SEKV = Selbstkosten (SK), Gewinnzuschlag, Kundenskonto, Kundenrabatt und Ermittlung des Bar-, Ziel- und Bruttoverkaufspreises mit 60 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 1 Unit-Test abgesichert.
+- **Routing & Integration**: Vollständige Registrierung aller 4 neuen Labs in `src/App.jsx` (Lazy Loading & `activeLabElement` Switch-Tabelle), `src/components/Content/LabsDashboard.jsx` (Filter-Tags & Badges), `src/components/Navigation/Navbar.jsx` (Menüs "Labs" & "Prüfung / WISO") und `src/components/Navigation/CommandPaletteModal.jsx` (Ctrl+K Schnellbefehle).
+- **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für alle 4 neuen Labs erweitert (45/45 Komponenten-Tests bestanden) und `src/components/allLabsSmoke.test.jsx` (179/179 Komponenten) sowie `src/App.routing.test.jsx` fehlerfrei validiert.
+- **Test-Suite & Qualität**: **898 bestandene Unit- & Integrationstests** in **122 Test-Dateien** (100% Erfolgsquote, +32 Tests!), **0 Oxlint-Fehler / 0 Warnungen** über 485 Quelldateien (`oxlint src --deny-warnings`), `tsc --noEmit` fehlerfrei, optimierter PWA Produktions-Build (207 Precache-Einträge) und alle `size-limit`-Vorgaben eingehalten.
 
 ### Version 3.44.0 (Clean Architecture & Hexagonal Linter, Linux NetNS, Multi-Contribution Margin & IHK Weakness Audit Edition)
 

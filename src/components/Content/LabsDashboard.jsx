@@ -3,6 +3,50 @@ import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Da
 
 export const LAB_MODULES = [
   {
+    id: 'oauth_revocation_lab',
+    title: 'OAuth 2.0 Token Revocation & Introspection Studio',
+    category: 'security',
+    tags: ['#OAuth2', '#RFC7009', '#RFC7662', '#TokenRevocation', '#Introspection', '#APIGateway'],
+    difficulty: 'Advanced',
+    desc: 'RFC 7009 Token Revocation & RFC 7662 Introspection am API Gateway mit Kaskadierungslogik.',
+    icon: Lock,
+    badge: 'Security Neu',
+    color: '#f59e0b'
+  },
+  {
+    id: 'raid6_galois_lab',
+    title: 'RAID 6 Dual-Parity & Galois Field GF(2^8) Studio',
+    category: 'architecture',
+    tags: ['#RAID6', '#GaloisField', '#ReedSolomon', '#DualParity', '#Storage', '#FISI'],
+    difficulty: 'Expert',
+    desc: 'Mathematische P (XOR) & Q (GF 2^8) Paritätsberechnung und simultane Rekonstruktion zweier Ausfälle.',
+    icon: Database,
+    badge: 'IHK Neu',
+    color: '#0ea5e9'
+  },
+  {
+    id: 'sqlite_worker_lab',
+    title: 'SQLite Web Worker Sandbox (Zero-Jank Query Engine)',
+    category: 'tools',
+    tags: ['#SQLite', '#WebWorker', '#Concurrency', '#Database', '#Performance'],
+    difficulty: 'Intermediate',
+    desc: 'Asynchrone Auslagerung rechenintensiver SQL-Abfragen und Aggregationen in einen Hintergrund-Thread.',
+    icon: Cpu,
+    badge: 'Performance Neu',
+    color: '#10b981'
+  },
+  {
+    id: 'wiso_zuschlagskalkulation_lab',
+    title: 'IHK Fertigungs- & Zuschlagskalkulation Studio',
+    category: 'ihk',
+    tags: ['#WISO', '#KLR', '#Zuschlagskalkulation', '#Herstellkosten', '#Selbstkosten'],
+    difficulty: 'Intermediate',
+    desc: 'Staffelrechnung: MGKZ, FGKZ, Herstellkosten, VwGKZ/VtGKZ, Gewinn und Barverkaufspreis.',
+    icon: Calculator,
+    badge: 'IHK Neu',
+    color: '#ec4899'
+  },
+  {
     id: 'clean_arch_lab',
     title: 'Clean Architecture & Hexagonal Ports/Adapters',
     category: 'architecture',

@@ -243,6 +243,11 @@ const CleanArchLab = lazy(() => import('./components/Content/CleanArchLab'));
 const LinuxNetNsLab = lazy(() => import('./components/Content/LinuxNetNsLab'));
 const WisoMultiContributionLab = lazy(() => import('./components/Content/WisoMultiContributionLab'));
 const IhkWeaknessAuditLab = lazy(() => import('./components/Content/IhkWeaknessAuditLab'));
+// v3.45.0 OAuth Revocation, RAID 6 Galois, SQLite Worker & Zuschlagskalkulation
+const OauthRevocationIntrospectionLab = lazy(() => import('./components/Content/OauthRevocationIntrospectionLab'));
+const Raid6GaloisLab = lazy(() => import('./components/Content/Raid6GaloisLab'));
+const SqliteWorkerStudioLab = lazy(() => import('./components/Content/SqliteWorkerStudioLab'));
+const WisoZuschlagskalkulationLab = lazy(() => import('./components/Content/WisoZuschlagskalkulationLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -655,6 +660,14 @@ export default function App() {
         return <WisoMultiContributionLab onRewardXP={(xp) => awardXP(xp, 'multi_contribution_master')} />;
       case activeTab === 'ihk_weakness_audit_lab' || activeTab === 'ihk_weakness_audit' || activeTab === 'schwachstellen_audit':
         return <IhkWeaknessAuditLab onNavigateTab={(tab) => setActiveTab(tab)} onRewardXP={(xp) => awardXP(xp, 'weakness_audit_master')} />;
+      case activeTab === 'oauth_revocation_lab' || activeTab === 'oauth_revocation' || activeTab === 'token_revocation':
+        return <OauthRevocationIntrospectionLab onRewardXP={(xp) => awardXP(xp, 'oauth_revocation_master')} />;
+      case activeTab === 'raid6_galois_lab' || activeTab === 'raid6_galois' || activeTab === 'raid6_dual_parity':
+        return <Raid6GaloisLab onRewardXP={(xp) => awardXP(xp, 'raid6_galois_master')} />;
+      case activeTab === 'sqlite_worker_lab' || activeTab === 'sqlite_worker' || activeTab === 'sqlite_worker_studio':
+        return <SqliteWorkerStudioLab onRewardXP={(xp) => awardXP(xp, 'sqlite_worker_master')} />;
+      case activeTab === 'wiso_zuschlagskalkulation_lab' || activeTab === 'wiso_zuschlagskalkulation' || activeTab === 'zuschlagskalkulation':
+        return <WisoZuschlagskalkulationLab onRewardXP={(xp) => awardXP(xp, 'zuschlagskalkulation_master')} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':

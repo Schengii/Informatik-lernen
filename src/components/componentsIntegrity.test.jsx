@@ -48,6 +48,10 @@ import CleanArchLab from './Content/CleanArchLab';
 import LinuxNetNsLab from './Content/LinuxNetNsLab';
 import WisoMultiContributionLab from './Content/WisoMultiContributionLab';
 import IhkWeaknessAuditLab from './Content/IhkWeaknessAuditLab';
+import OauthRevocationIntrospectionLab from './Content/OauthRevocationIntrospectionLab';
+import Raid6GaloisLab from './Content/Raid6GaloisLab';
+import SqliteWorkerStudioLab from './Content/SqliteWorkerStudioLab';
+import WisoZuschlagskalkulationLab from './Content/WisoZuschlagskalkulationLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -382,6 +386,38 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/IHK Schwachstellen-Audit/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert OauthRevocationIntrospectionLab fehlerfrei', () => {
+    const { container } = render(
+      <OauthRevocationIntrospectionLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Token Revocation/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert Raid6GaloisLab fehlerfrei', () => {
+    const { container } = render(
+      <Raid6GaloisLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/RAID 6 Dual-Parity/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert SqliteWorkerStudioLab fehlerfrei', () => {
+    const { container } = render(
+      <SqliteWorkerStudioLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/SQLite Web Worker Sandbox/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert WisoZuschlagskalkulationLab fehlerfrei', () => {
+    const { container } = render(
+      <WisoZuschlagskalkulationLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Zuschlagskalkulation/i).length).toBeGreaterThan(0);
   });
 });
 

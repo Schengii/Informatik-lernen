@@ -72,6 +72,10 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 60+ interaktiven Labs', badge: 'Hub' },
+    { id: 'oauth_revocation_lab', label: '🔐 OAuth 2.0 Token Revocation & Introspection', desc: 'RFC 7009 & RFC 7662 Token-Sicherheit am API Gateway', badge: 'Neu' },
+    { id: 'raid6_galois_lab', label: '💾 RAID 6 Dual-Parity & Galois Field Studio', desc: 'P & Q Reed-Solomon Paritätsberechnung & Dual-Rebuild', badge: 'Neu' },
+    { id: 'sqlite_worker_lab', label: '⚡ SQLite Web Worker Sandbox', desc: 'Zero-Jank Hintergrund-Query & Aggregations-Benchmark', badge: 'Neu' },
+    { id: 'wiso_zuschlagskalkulation_lab', label: '📊 IHK Fertigungs- & Zuschlagskalkulation', desc: 'MGKZ, FGKZ, Herstellkosten, VwGKZ/VtGKZ & Preisfindung', badge: 'Neu' },
     { id: 'clean_arch_lab', label: '🏛️ Clean Architecture & Hexagonal Linter', desc: 'DIP Dependency Rule, Ports/Adapters & Cycle Detection', badge: 'Neu' },
     { id: 'linux_netns_lab', label: '🐧 Linux Network Namespaces & veth Studio', desc: 'Isolation, veth Pairs, Bridge Switching & Bash Script', badge: 'Neu' },
     { id: 'wiso_multi_contribution_lab', label: '📊 IHK Mehrstufige Deckungsbeitragsrechnung', desc: 'DB I bis IV Fixkosten-Kaskade, BEP & Sicherheitskoeffizient', badge: 'Neu' },
