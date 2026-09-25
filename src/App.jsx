@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
 import { useStore } from './store/useStore';
 import Navbar from './components/Navigation/Navbar';
 import MobileNav from './components/Navigation/MobileNav';
@@ -1046,6 +1047,9 @@ export default function App() {
         refreshStateFromStorage={refreshStateFromStorage}
         setActiveTab={setActiveTab}
       />
+
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </div>
   );
 }
