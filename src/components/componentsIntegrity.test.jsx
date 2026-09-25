@@ -52,6 +52,10 @@ import OauthRevocationIntrospectionLab from './Content/OauthRevocationIntrospect
 import Raid6GaloisLab from './Content/Raid6GaloisLab';
 import SqliteWorkerStudioLab from './Content/SqliteWorkerStudioLab';
 import WisoZuschlagskalkulationLab from './Content/WisoZuschlagskalkulationLab';
+import LinuxCapSeccompLab from './Content/LinuxCapSeccompLab';
+import BgpPathSelectionLab from './Content/BgpPathSelectionLab';
+import WisoMaschinenstundensatzLab from './Content/WisoMaschinenstundensatzLab';
+import LlmRagChunkingLab from './Content/LlmRagChunkingLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -418,6 +422,38 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/Zuschlagskalkulation/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert LinuxCapSeccompLab fehlerfrei', () => {
+    const { container } = render(
+      <LinuxCapSeccompLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Linux Capabilities/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert BgpPathSelectionLab fehlerfrei', () => {
+    const { container } = render(
+      <BgpPathSelectionLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/BGP Path Selection/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert WisoMaschinenstundensatzLab fehlerfrei', () => {
+    const { container } = render(
+      <WisoMaschinenstundensatzLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Maschinenstundensatz/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert LlmRagChunkingLab fehlerfrei', () => {
+    const { container } = render(
+      <LlmRagChunkingLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/LLM RAG Chunking/i).length).toBeGreaterThan(0);
   });
 });
 

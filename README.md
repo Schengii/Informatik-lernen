@@ -6,7 +6,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.45.0)](#-hauptfunktionen--neue-features-v3450-oauth-revocation-raid-6-galois-sqlite-worker--zuschlagskalkulation-edition)
+- [Hauptfunktionen & Neue Features (v3.46.0)](#-hauptfunktionen--neue-features-v3460-linux-capabilities--seccomp-bgp-path-selection-maschinenstundensatz--llm-rag-chunking-edition)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -25,6 +25,10 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Einsteiger-Kurs (`AnfaengerGuideHub.jsx`)**: Lernen ohne jegliche Vorkenntnisse.
    - Grundlagen leicht verständlich erklärt: **EVA-Prinzip**, **CPU-Gehirn** (ALU, Steuerwerk, Register), **Binärsystem & Bytes**, **Internet & DNS**.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI/DP/DVS, IT-Systemelektroniker, Kaufleute IT-Systemmanagement)**:
+   - **Linux Capabilities & Seccomp BPF Sandbox (`LinuxCapSeccompLab.jsx` & `src/utils/linuxCapSeccompEngine.js`)**: Principle of Least Privilege in modernen Linux- und Container-Umgebungen (Docker/Kubernetes). Granulare Rechtevergabe (`CAP_NET_BIND_SERVICE`, `CAP_SYS_ADMIN`, `CAP_DAC_OVERRIDE`), Rootless Container Isolation und Kernel-Syscall-Filterung via Seccomp BPF (`SECCOMP_RET_ALLOW`, `SECCOMP_RET_ERRNO`, `SECCOMP_RET_KILL_PROCESS`) mit 65 XP Belohnung.
+   - **BGP Path Selection & Decision Studio (`BgpPathSelectionLab.jsx` & `src/utils/bgpPathSelectionEngine.js`)**: RFC 4271 8-Stufen-Entscheidungsalgorithmus für Internet Service Provider und Rechenzentren (Weight, Local Preference, Locally Originated, AS-Path-Länge, Origin Code, Multi-Exit Discriminator MED, eBGP vs. iBGP, Router-ID Tie-Breaker) mit 65 XP Belohnung.
+   - **IHK Maschinenstundensatz-Rechner (MSS) (`WisoMaschinenstundensatzLab.jsx` & `src/utils/wisoMaschinenstundensatzEngine.js`)**: Kosten- und Leistungsrechnung (KLR) nach offiziellem IHK-Prüfungsstandard für AP2 und WISO. Kalkulatorische Abschreibung, Zinsen nach Durchschnittsmethode, Raumkosten, Energiekosten, Instandhaltung und Werkzeugkosten zur Ermittlung des exakten Stundensatzes mit 60 XP Belohnung.
+   - **LLM RAG Chunking & Cross-Encoder Re-Ranking Studio (`LlmRagChunkingLab.jsx` & `src/utils/llmRagChunkingEngine.js`)**: Didaktische Two-Stage Retrieval Pipeline gegen LLM-Halluzinationen. Dokumenten-Chunking (Fixed Size, Sliding Window mit Overlap, Semantische Absätze) und Cross-Attention Re-Ranking zur Optimierung von Precision@K mit 65 XP Belohnung.
    - **IHK DSGVO TOM-Katalog Studio (Art. 32 DSGVO) (`IhkTomCatalogLab.jsx` & `ihkTomCatalogEngine.js`)**: Praxisorientiertes Datenschutz- und IT-Sicherheits-Audit aller 8 gesetzlichen TOM-Kategorien (Zutritt, Zugang, Zugriff, Weitergabe, Eingabe, Auftrag, Verfügbarkeit & Trennungsgebot) mit Compliance-Scoring (0–100%) und 1-Klick-Export für den IHK-Projektdokumentations-Anhang (`IHK_Anhang_TOM_Art32_DSGVO.md`).
    - **IHK WISO Arbeitsrecht & Kündigungsschutz Studio (`WisoLaborLawLab.jsx` & `wisoLaborLawEngine.js`)**: Gesetzliche Kündigungsfristen nach BGB § 622 (Probezeit, Grundkündigungsfrist, 7 Betriebszugehörigkeitsstufen), Wartezeiten & Kleinbetriebsklausel nach Kündigungsschutzgesetz (KSchG), Sonderkündigungsschutz (Mutterschutz § 17 MuSchG, Schwerbehinderung § 168 SGB IX, Betriebsrat § 15 KSchG, BBiG § 22) und 3-Wochen-Klagefrist.
    - **IHK Agile vs. Waterfall & Burndown Studio (`IhkAgileBurndownLab.jsx` & `ihkAgileBurndownEngine.js`)**: Praxisorientierter Vorgehensmodell-Entscheider für den IHK-Projektantrag und die Dokumentation (AP2 Teil A). Dynamische Sprint-Burndown-Kurve (Ideal-Linie vs. Ist-Verlauf), Story-Point-Velocity-Berechnung, Scope-Creep-Simulation, Kanban WIP-Bottleneck-Prüfung und 1-Klick IHK-Begründungstext-Generator für hybride Entwicklung nach AO 2020.
@@ -72,7 +76,43 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## ✨ Hauptfunktionen & Neue Features (v3.45.0: OAuth Revocation, RAID 6 Galois, SQLite Worker & Zuschlagskalkulation Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.46.0: Linux Capabilities & Seccomp, BGP Path Selection, Maschinenstundensatz & LLM RAG Chunking Edition)
+
+* **🐧 Linux Capabilities & Seccomp BPF Sandbox (`LinuxCapSeccompLab.jsx` & `src/utils/linuxCapSeccompEngine.js`)**:
+  * Didaktische Kernel-Security- und Sandbox-Simulation für Fachinformatiker Systemintegration (FISI) und Cloud/Container-Sicherheit.
+  * **Principle of Least Privilege**: Zerlegung der monolithischen Linux-Root-Rechte (UID 0) in granulare Berechtigungen (`CAP_NET_BIND_SERVICE`, `CAP_SYS_ADMIN`, `CAP_DAC_OVERRIDE`, `CAP_NET_RAW`).
+  * **Seccomp BPF Filterung**: Syscall-Interception auf Kernel-Ebene mit flexiblen Aktions-Policys (`SECCOMP_RET_ALLOW`, `SECCOMP_RET_ERRNO` mit `EPERM`, `SECCOMP_RET_KILL_PROCESS`).
+  * **Interaktives Terminal & Syscall-Executor**: Ausführung privilegierter Operationen (z. B. Port 80 binden, `/etc/shadow` modifizieren, Kernel-Module laden) mit Echtzeit-Terminal-Logging und 65 XP Belohnung.
+
+* **🌐 BGP Path Selection & Decision Studio (`BgpPathSelectionLab.jsx` & `src/utils/bgpPathSelectionEngine.js`)**:
+  * Vollständige Implementierung des RFC 4271 8-Stufen-Entscheidungsprozesses für Internet- und Autonomous-System-Routing (FISI & Network Engineers).
+  * **8-Stufen-Entscheidungskaskade**:
+    1. Highest Weight (lokaler Cisco-Herstellerwert)
+    2. Highest Local Preference (AS-weites Exit-Routing)
+    3. Locally Originated Routes (lokal generierte Netzwerke)
+    4. Shortest AS-Path (geringste AS-Hop-Anzahl)
+    5. Lowest Origin Code (`IGP < EGP < INCOMPLETE`)
+    6. Lowest Multi-Exit Discriminator (MED)
+    7. eBGP über iBGP (externe Nachbarn bevorzugt)
+    8. Lowest Router-ID (Tie-Breaker)
+  * **Interaktiver Routen-Editor & Eliminierungs-Audit**: Konfigurierbare Peer-Routen mit sofortiger Live-Auswertung, Winner-Banner und schrittweisem Eliminierungs-Protokoll mit 65 XP Belohnung.
+
+* **📊 IHK Maschinenstundensatz-Rechner (MSS) (`WisoMaschinenstundensatzLab.jsx` & `src/utils/wisoMaschinenstundensatzEngine.js`)**:
+  * Praxisorientiertes Kosten- und Leistungsrechnungs-Studio (KLR) für die IHK Abschlussprüfung (AP2 und WISO).
+  * **Vollständige IHK-Kalkulation nach Durchschnittsmethode**:
+    * Kalkulatorische Abschreibung pro Stunde: $\frac{\text{Wiederbeschaffungswert} - \text{Restwert}}{\text{Nutzungsdauer} \times \text{Laufstunden}}$
+    * Kalkulatorische Zinsen nach IHK-Durchschnittsmethode: $\frac{(\text{WBW} + \text{RW}) / 2 \times p}{\text{Laufstunden}}$
+    * Raumkosten pro Stunde: $\frac{\text{Fläche} \times \text{Kostensatz}}{\text{Laufstunden}}$
+    * Energiekosten pro Stunde: $\text{Leistung in kW} \times \text{Strompreis}$
+    * Instandhaltungs- und Werkzeugkosten pro Stunde.
+  * **Industrie- & IT-Szenarien**: Sofortige Umschaltung zwischen Standard-IHK-Prüfungsaufgabe, 24/7 Rechenzentrums-Servercluster und CNC-Fertigungsanlage mit 60 XP Belohnung.
+
+* **🧠 LLM RAG Chunking & Cross-Encoder Re-Ranking Studio (`LlmRagChunkingLab.jsx` & `src/utils/llmRagChunkingEngine.js`)**:
+  * Didaktisches KI- und Information-Retrieval-Studio zur Vermeidung von Halluzinationen in modernen Enterprise-RAG-Systemen.
+  * **Chunking-Strategien**: Dynamischer Vergleich von absatzbasiertem Splitting (Paragraphs), Fixed-Size Chunks und Sliding-Window mit konfigurierbarem Token-/Zeichen-Overlap.
+  * **Two-Stage Retrieval Pipeline**:
+    * *Stage 1 (Bi-Encoder Dense Retrieval)*: Schnelle Kosinus- und Term-Ähnlichkeit im Vektorraum.
+    * *Stage 2 (Cross-Encoder Re-Ranking)*: Deep Cross-Attention über Query und Kontext zur präzisen Relevanzbewertung und Filterung irreführender Dokumente für den LLM-Prompt mit 65 XP Belohnung.
 
 * **🔐 OAuth 2.0 Token Revocation & Introspection Studio (`OauthRevocationIntrospectionLab.jsx` & `src/utils/oauthRevocationIntrospectionEngine.js`)**:
   * Didaktisches API-Gateway- und Security-Studio für IT-Sicherheit und moderne Microservice-Architekturen.
@@ -868,6 +908,16 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.46.0 (Linux Capabilities & Seccomp, BGP Path Selection, Maschinenstundensatz & LLM RAG Chunking Edition)
+
+- **Neu**: `src/components/Content/LinuxCapSeccompLab.jsx` & `src/utils/linuxCapSeccompEngine.js` — Linux Capabilities & Seccomp BPF Sandbox: Didaktische Kernel-Security- und Least-Privilege-Simulation für Fachinformatiker Systemintegration (FISI) und Container-Sicherheit. Granulare Rechtevergabe (`CAP_NET_BIND_SERVICE`, `CAP_SYS_ADMIN`, `CAP_DAC_OVERRIDE`, `CAP_NET_RAW`), Seccomp BPF Syscall-Interception (`SECCOMP_RET_ALLOW`, `SECCOMP_RET_ERRNO` mit `EPERM`, `SECCOMP_RET_KILL_PROCESS`) und interaktiver Syscall-Simulator mit Terminal-Log und 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 4 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/BgpPathSelectionLab.jsx` & `src/utils/bgpPathSelectionEngine.js` — BGP Path Selection & Decision Studio: RFC 4271 8-Stufen-Entscheidungsalgorithmus für Internet Service Provider und Enterprise Routing. Kaskade aus Weight, Local Preference, Locally Originated, AS-Path Länge, Origin Code, MED, eBGP/iBGP und Router-ID Tie-Breaker mit interaktivem Routen-Editor, Live-Winner-Banner und schrittweisem Eliminierungs-Protokoll mit 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 3 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/WisoMaschinenstundensatzLab.jsx` & `src/utils/wisoMaschinenstundensatzEngine.js` — IHK Maschinenstundensatz-Rechner (MSS): Offizielles KLR-Prüfungsmodul für WISO und AP2. Kalkulatorische Abschreibung pro Stunde, kalkulatorische Zinsen nach IHK-Durchschnittsmethode, Raumkosten, Energiekosten, Instandhaltung und Werkzeugkosten inklusive Presets (IHK-Standard, RZ 24/7 Cluster, CNC-Maschine) mit 60 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 2 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/LlmRagChunkingLab.jsx` & `src/utils/llmRagChunkingEngine.js` — LLM RAG Chunking & Cross-Encoder Re-Ranking Studio: Two-Stage Information Retrieval Pipeline zur Vermeidung von Halluzinationen. Dynamische Chunking-Strategien (Paragraphs, Sliding Window mit Overlap, Fixed Size) und Gegenüberstellung von Bi-Encoder Dense Retrieval und Cross-Attention Re-Ranking mit 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 3 Unit-Tests abgesichert.
+- **Routing & Integration**: Vollständige Registrierung der 4 neuen Labs in `src/App.jsx` (Lazy Loading & `activeLabElement` Switch-Tabelle), `src/components/Content/LabsDashboard.jsx` (Kategorie-Filter & Tags), `src/components/Navigation/Navbar.jsx` (Menüs "Labs" & "Prüfung / WISO") und `src/components/Navigation/CommandPaletteModal.jsx` (Ctrl+K Schnellbefehle).
+- **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für alle 4 neuen Labs erweitert (49/49 Komponenten-Tests bestanden) und `src/components/allLabsSmoke.test.jsx` (183/183 Komponenten) sowie `src/App.routing.test.jsx` (277/277 Routen) fehlerfrei validiert.
+- **Test-Suite & Qualität**: **930 bestandene Unit- & Integrationstests** in **126 Test-Dateien** (100% Erfolgsquote, +32 Tests!), **0 Oxlint-Fehler / 0 Warnungen** über 497 Quelldateien (`oxlint src --deny-warnings`), `tsc --noEmit` fehlerfrei, optimierter PWA Produktions-Build und alle `size-limit`-Vorgaben eingehalten.
 
 ### Version 3.45.0 (OAuth 2.0 Revocation, RAID 6 Dual-Parity Galois, SQLite Worker & Zuschlagskalkulation Edition)
 

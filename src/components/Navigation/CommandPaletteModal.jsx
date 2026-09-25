@@ -26,6 +26,10 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-linux-cap-seccomp', title: 'Linux Capabilities & Seccomp BPF Sandbox (Least Privilege, Syscall Filter & Rootless)', category: 'Labs & Tools', icon: Terminal, action: () => onNavigate('linux_cap_seccomp_lab') },
+    { id: 'view-bgp-path-selection', title: 'BGP Path Selection & Decision Studio (RFC 4271 8-Stufen BGP Decision Engine)', category: 'Labs & Tools', icon: Network, action: () => onNavigate('bgp_path_selection_lab') },
+    { id: 'view-wiso-mss', title: 'IHK Maschinenstundensatz-Rechner (Kalk. Abschreibung, Zinsen & Stundensatz MSS)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('wiso_maschinenstundensatz_lab') },
+    { id: 'view-llm-rag-chunking', title: 'LLM RAG Chunking & Cross-Encoder Studio (Sliding Window & Two-Stage Re-Ranking)', category: 'Labs & Tools', icon: Brain, action: () => onNavigate('llm_rag_chunking_lab') },
     { id: 'view-bsi-grundschutz', title: 'BSI IT-Grundschutz & NIS-2 Risiko-Studio (BSI 200-2 / 200-3 & CIA)', category: 'Prüfung', icon: ShieldCheck, action: () => onNavigate('bsi_grundschutz_lab') },
     { id: 'view-ipv6-ndp', title: 'IPv6 SLAAC, DHCPv6 & NDP Inspector (RFC 4861 & EUI-64 / Privacy)', category: 'Labs & Tools', icon: Network, action: () => onNavigate('ipv6_ndp_lab') },
     { id: 'view-wiso-payroll', title: 'WISO Brutto-Netto & Lohnabrechnungs-Studio (Steuern & Sozialabgaben)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('wiso_payroll_lab') },

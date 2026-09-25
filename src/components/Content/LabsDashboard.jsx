@@ -3,6 +3,50 @@ import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Da
 
 export const LAB_MODULES = [
   {
+    id: 'linux_cap_seccomp_lab',
+    title: 'Linux Capabilities & Seccomp BPF Sandbox',
+    category: 'linux',
+    tags: ['#Linux', '#Capabilities', '#Seccomp', '#BPF', '#Syscalls', '#Rootless', '#Security'],
+    difficulty: 'Advanced',
+    desc: 'Principle of Least Privilege: CAP_NET_BIND_SERVICE, CAP_SYS_ADMIN, Syscall-Filtering & SECCOMP_RET_KILL.',
+    icon: Terminal,
+    badge: 'Neu',
+    color: '#06b6d4'
+  },
+  {
+    id: 'bgp_path_selection_lab',
+    title: 'BGP Path Selection & Decision Studio',
+    category: 'network',
+    tags: ['#BGP', '#RFC4271', '#Weight', '#LocalPref', '#ASPath', '#MED', '#Routing', '#FISI'],
+    difficulty: 'Advanced',
+    desc: 'RFC 4271 8-Stufen-Entscheidungsprozess: Weight, Local Preference, AS-Path-Länge, Origin, MED, eBGP/iBGP & Router-ID.',
+    icon: Network,
+    badge: 'Neu',
+    color: '#6366f1'
+  },
+  {
+    id: 'wiso_maschinenstundensatz_lab',
+    title: 'IHK Maschinenstundensatz-Rechner (MSS)',
+    category: 'ihk',
+    tags: ['#WISO', '#KLR', '#Maschinenstundensatz', '#Abschreibung', '#Zinsen', '#Gemeinkosten'],
+    difficulty: 'Intermediate',
+    desc: 'Kalkulatorische Abschreibung, Zinsen nach Durchschnittsmethode, Raum-, Energie- & Werkzeugkosten pro Stunde.',
+    icon: Calculator,
+    badge: 'IHK Neu',
+    color: '#f59e0b'
+  },
+  {
+    id: 'llm_rag_chunking_lab',
+    title: 'LLM RAG Chunking & Cross-Encoder Re-Ranking',
+    category: 'architecture',
+    tags: ['#LLM', '#RAG', '#Chunking', '#CrossEncoder', '#ReRanking', '#Embeddings', '#BiEncoder'],
+    difficulty: 'Advanced',
+    desc: 'Dokumenten-Chunking (Fixed, Sliding, Paragraph) und Two-Stage Retrieval mit Cross-Attention gegen Halluzinationen.',
+    icon: Brain,
+    badge: 'Neu',
+    color: '#a855f7'
+  },
+  {
     id: 'oauth_revocation_lab',
     title: 'OAuth 2.0 Token Revocation & Introspection Studio',
     category: 'security',

@@ -72,6 +72,10 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 60+ interaktiven Labs', badge: 'Hub' },
+    { id: 'linux_cap_seccomp_lab', label: '🐧 Linux Capabilities & Seccomp BPF Sandbox', desc: 'CAP_NET_BIND_SERVICE, Rootless Container & Syscall-Filter', badge: 'Neu' },
+    { id: 'bgp_path_selection_lab', label: '🌐 BGP Path Selection & Decision Studio', desc: 'RFC 4271 8-Stufen-Algorithmus: Weight, LocalPref & AS-Path', badge: 'Neu' },
+    { id: 'wiso_maschinenstundensatz_lab', label: '📊 IHK Maschinenstundensatz-Rechner (MSS)', desc: 'Kalkulatorische Abschreibung, Zinsen & Stundensatz', badge: 'IHK Neu' },
+    { id: 'llm_rag_chunking_lab', label: '🧠 LLM RAG Chunking & Cross-Encoder Studio', desc: 'Sliding Window, Semantisches Chunking & Re-Ranking', badge: 'Neu' },
     { id: 'oauth_revocation_lab', label: '🔐 OAuth 2.0 Token Revocation & Introspection', desc: 'RFC 7009 & RFC 7662 Token-Sicherheit am API Gateway', badge: 'Neu' },
     { id: 'raid6_galois_lab', label: '💾 RAID 6 Dual-Parity & Galois Field Studio', desc: 'P & Q Reed-Solomon Paritätsberechnung & Dual-Rebuild', badge: 'Neu' },
     { id: 'sqlite_worker_lab', label: '⚡ SQLite Web Worker Sandbox', desc: 'Zero-Jank Hintergrund-Query & Aggregations-Benchmark', badge: 'Neu' },

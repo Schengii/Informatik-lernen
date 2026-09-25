@@ -248,6 +248,11 @@ const OauthRevocationIntrospectionLab = lazy(() => import('./components/Content/
 const Raid6GaloisLab = lazy(() => import('./components/Content/Raid6GaloisLab'));
 const SqliteWorkerStudioLab = lazy(() => import('./components/Content/SqliteWorkerStudioLab'));
 const WisoZuschlagskalkulationLab = lazy(() => import('./components/Content/WisoZuschlagskalkulationLab'));
+// v3.46.0 Linux Capabilities, BGP Path Selection, Maschinenstundensatz & LLM RAG Chunking
+const LinuxCapSeccompLab = lazy(() => import('./components/Content/LinuxCapSeccompLab'));
+const BgpPathSelectionLab = lazy(() => import('./components/Content/BgpPathSelectionLab'));
+const WisoMaschinenstundensatzLab = lazy(() => import('./components/Content/WisoMaschinenstundensatzLab'));
+const LlmRagChunkingLab = lazy(() => import('./components/Content/LlmRagChunkingLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -668,6 +673,14 @@ export default function App() {
         return <SqliteWorkerStudioLab onRewardXP={(xp) => awardXP(xp, 'sqlite_worker_master')} />;
       case activeTab === 'wiso_zuschlagskalkulation_lab' || activeTab === 'wiso_zuschlagskalkulation' || activeTab === 'zuschlagskalkulation':
         return <WisoZuschlagskalkulationLab onRewardXP={(xp) => awardXP(xp, 'zuschlagskalkulation_master')} />;
+      case activeTab === 'linux_cap_seccomp_lab' || activeTab === 'linux_cap_seccomp' || activeTab === 'seccomp_lab':
+        return <LinuxCapSeccompLab onRewardXP={(xp) => awardXP(xp, 'seccomp_master')} />;
+      case activeTab === 'bgp_path_selection_lab' || activeTab === 'bgp_path_selection' || activeTab === 'bgp_path_lab':
+        return <BgpPathSelectionLab onRewardXP={(xp) => awardXP(xp, 'bgp_selection_master')} />;
+      case activeTab === 'wiso_maschinenstundensatz_lab' || activeTab === 'wiso_maschinenstundensatz' || activeTab === 'maschinenstundensatz':
+        return <WisoMaschinenstundensatzLab onRewardXP={(xp) => awardXP(xp, 'maschinenstundensatz_master')} />;
+      case activeTab === 'llm_rag_chunking_lab' || activeTab === 'llm_rag_chunking' || activeTab === 'rag_chunking':
+        return <LlmRagChunkingLab onRewardXP={(xp) => awardXP(xp, 'rag_chunking_master')} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':
