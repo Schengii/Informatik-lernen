@@ -1,7 +1,51 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key, Lock, AlertTriangle, Globe, TrendingDown, HardDrive, FileCode } from 'lucide-react';
+import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key, Lock, AlertTriangle, Globe, TrendingDown, HardDrive, FileCode, Brain } from 'lucide-react';
 
 export const LAB_MODULES = [
+  {
+    id: 'clean_arch_lab',
+    title: 'Clean Architecture & Hexagonal Ports/Adapters',
+    category: 'architecture',
+    tags: ['#CleanArchitecture', '#Hexagonal', '#PortsAndAdapters', '#DependencyInversion', '#FIAE'],
+    difficulty: 'Advanced',
+    desc: 'Interaktiver Architektur-Linter nach Robert C. Martin: Dependency Rule, Domänen-Entkopplung & Ports.',
+    icon: Layers,
+    badge: 'IHK Flaggschiff',
+    color: '#06b6d4'
+  },
+  {
+    id: 'linux_netns_lab',
+    title: 'Linux Network Namespaces, veth & Bridge Studio',
+    category: 'network',
+    tags: ['#Linux', '#Namespaces', '#veth', '#Bridge', '#iptables', '#NAT', '#Container'],
+    difficulty: 'Advanced',
+    desc: 'Container-Netzwerkgrundlagen: Virtual Ethernet Pairs, br0 Switching & iptables MASQUERADE.',
+    icon: Network,
+    badge: 'Neu',
+    color: '#3b82f6'
+  },
+  {
+    id: 'wiso_multi_contribution_lab',
+    title: 'Mehrstufige Deckungsbeitragsrechnung & Break-Even',
+    category: 'ihk',
+    tags: ['#WISO', '#Deckungsbeitrag', '#BreakEven', '#Fixkostenspaltung', '#Sicherheitskoeffizient'],
+    difficulty: 'Intermediate',
+    desc: 'DB I bis DB IV (Erzeugnis-, Gruppen-, Bereichs- & Unternehmensfix) und dynamischer Sicherheitskoeffizient.',
+    icon: Calculator,
+    badge: 'IHK Neu',
+    color: '#10b981'
+  },
+  {
+    id: 'ihk_weakness_audit_lab',
+    title: 'IHK Schwachstellen-Audit & Adaptiver Assistent',
+    category: 'ihk',
+    tags: ['#Audit', '#Schwachstellen', '#Lernfelder', '#LF1-LF12', '#Empfehlungen'],
+    difficulty: 'Beginner',
+    desc: 'Fehlerquoten-Analyse nach IHK-Lernfeldern mit automatischer Generierung gezielter Wiederholungs-Sitzungen.',
+    icon: Brain,
+    badge: 'IHK Neu',
+    color: '#8b5cf6'
+  },
   {
     id: 'bsi_grundschutz_lab',
     title: 'BSI IT-Grundschutz & NIS-2 Risiko-Studio',

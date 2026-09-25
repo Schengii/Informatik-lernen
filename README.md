@@ -6,7 +6,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.36.0)](#-hauptfunktionen--neue-features-v3360-dnssec-ihk-burndown-linux-btrfs-cow--openapi-contract-edition)
+- [Hauptfunktionen & Neue Features (v3.44.0)](#-hauptfunktionen--neue-features-v3440-clean-architecture-linux-netns-mehrstufige-db--schwachstellen-audit-edition)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -72,7 +72,39 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## ✨ Hauptfunktionen & Neue Features (v3.42.0: IHK TOM-Katalog, WISO Arbeitsrecht & Real WebAuthn Hardware Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.44.0: Clean Architecture, Linux NetNS, Mehrstufige DB & Schwachstellen-Audit Edition)
+
+* **🏛️ Clean Architecture & Hexagonal Ports/Adapters Linter (`CleanArchLab.jsx` & `src/utils/cleanArchEngine.js`)**:
+  * Didaktisches Architektur-Studio nach Robert C. Martin (Uncle Bob) und Alistair Cockburn für Anwendungsentwickler (FIAE).
+  * **Interaktives 4-Schichten-Modell**: Visuelle konzentrische Schichten von innen nach außen:
+    1. *Domain Entities* (Geschäftsregeln & Enterprise-Logik)
+    2. *Application Use Cases* (Anwendungsfallspezifische Orchestrierung)
+    3. *Interface Adapters* (Controller, Presenter, Gateways)
+    4. *Frameworks & Drivers* (DB, Web-Frameworks, UI, externe APIs)
+  * **Dependency Rule Auditor**: Strikte Validierung des Dependency Inversion Principle (DIP) – Abhängigkeiten dürfen ausschließlich von außen nach innen zeigen.
+  * **Ports & Adapters (Hexagonal)**: Entkopplung externer Infrastruktur über Inbound/Outbound Interfaces, Zyklen-Erkennung und Compliance-Scoring mit 65 XP Belohnung.
+
+* **🐧 Linux Network Namespaces, veth & Bridge Studio (`LinuxNetNsLab.jsx` & `src/utils/linuxNetNsEngine.js`)**:
+  * Didaktisches Container-Netzwerk-Studio für Fachinformatiker Systemintegration (FISI) und Cloud/DevOps Engineers.
+  * **Isolierte Netzwerk-Stacks**: Simulation von Linux Namespaces (`ip netns add ns-web`, `ip netns add ns-db`) mit eigenen Routing-Tabellen, Loopback- und Schnittstellen-Zuständen.
+  * **Virtual Ethernet Pairs & Bridge Switching**: Erstellung virtueller Kabelpaare (`veth0 <-> veth1`), Anbindung an den Linux Bridge Switch (`br0`) und Simulation von ARP/MAC-Forwarding.
+  * **iptables MASQUERADE & Internet-Gateway**: Demonstration von NAT/PAT zur Freigabe des externen Internet-Zugriffs für isolierte Container.
+  * **Interaktiver ICMP Packet-Walk & Bash Script Export**: Schrittweiser Ping-Trace durch alle Netzwerk-Hops und 1-Klick Export eines lauffähigen Bash-Skripts mit 65 XP Belohnung.
+
+* **📊 IHK Mehrstufige Deckungsbeitragsrechnung & Break-Even Studio (`WisoMultiContributionLab.jsx` & `src/utils/wisoMultiContributionEngine.js`)**:
+  * Praxisorientiertes Controlling- und KLR-Studio für die IHK Abschlussprüfung (AP1/AP2 und WISO).
+  * **4-stufige Fixkosten-Kaskade**:
+    * **DB I**: Produktdeckungsbeitrag ($Erlöse - variable Kosten$).
+    * **DB II**: Deckungsbeitrag nach Abzug der Erzeugnisfixkosten.
+    * **DB III**: Deckungsbeitrag nach Abzug der Erzeugnisgruppenfixkosten.
+    * **DB IV / Betriebserfolg**: Unternehmenserfolg nach Abzug der gesamten Unternehmensfixkosten.
+  * **Sortimentsanalyse & Break-Even**: Identifikation unrentabler Produkte/Sparten, dynamische Break-Even-Point-Berechnung in Stück und Umsatz sowie Ermittlung des Sicherheitskoeffizienten in Prozent mit 60 XP Belohnung.
+
+* **🎯 IHK Schwachstellen-Audit & Adaptiver Lernassistent (`IhkWeaknessAuditLab.jsx` & `src/utils/ihkWeaknessAuditEngine.js`)**:
+  * Didaktische Diagnose- und Trainings-Zentrale nach offiziellem KMK-Rahmenlehrplan (Lernfelder LF 1 bis LF 12b).
+  * **Lernfeld-Fehlerquoten-Analyse**: Auswertung von Prüfungs- und Quiz-Historien zur Identifizierung kritischer Wissenslücken.
+  * **Schwellenwert-Audit & Status**: Automatische Klassifizierung in *Kritisch* (Fehlerquote $> 35\%$), *Moderat* und *Stabil*.
+  * **Adaptiver Drill-Generator**: Erstellt maßgeschneiderte Trainingspläne mit sofortigen Deep-Links zu den passenden Fach-Labs (z. B. SQL, VLSM Subnetting, BSI Grundschutz, Arbeitsrecht) mit 60 XP Belohnung.
 
 * **🛡️ IHK DSGVO TOM-Katalog Studio (Art. 32 DSGVO) (`IhkTomCatalogLab.jsx` & `src/utils/ihkTomCatalogEngine.js`)**:
   * Offizielles Datenschutz- und Sicherheits-Audit nach Art. 32 DSGVO für IHK-Projektdokumentationen und Fachinformatiker-Prüfungen.
@@ -811,6 +843,16 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.44.0 (Clean Architecture & Hexagonal Linter, Linux NetNS, Multi-Contribution Margin & IHK Weakness Audit Edition)
+
+- **Neu**: `src/components/Content/CleanArchLab.jsx` & `src/utils/cleanArchEngine.js` — Clean Architecture & Hexagonal Ports/Adapters Linter: Interaktives Architektur-Studio nach Robert C. Martin (Uncle Bob) und Alistair Cockburn für Fachinformatiker Anwendungsentwicklung (FIAE). Interaktives konzentrisches 4-Schichten-Modell (Entities, Use Cases, Interface Adapters, Frameworks & Drivers), Dependency Rule Auditor mit strikter Überprüfung des Dependency Inversion Principle (DIP: Pfeile dürfen ausschließlich nach innen zeigen), Port/Adapter-Linter zur Entkopplung externer Schnittstellen sowie zyklische Abhängigkeitserkennung mit 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 3 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/LinuxNetNsLab.jsx` & `src/utils/linuxNetNsEngine.js` — Linux Network Namespaces, veth Pairs & Bridge Studio: Didaktisches Container-Networking Studio für Fachinformatiker Systemintegration (FISI) und DevOps. Interaktive Isolation von Netzwerk-Stacks (`ip netns add`), virtuellen Ethernet-Kabeln (`veth`), Linux Bridge Switching (`brctl` / `ip link add br0 type bridge`), iptables NAT/MASQUERADE Simulation, schrittweiser ICMP Ping Packet-Walk mit ARP-Auflösung und 1-Klick Export eines ausführbaren Bash-Provisionierungs-Skripts mit 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 4 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/WisoMultiContributionLab.jsx` & `src/utils/wisoMultiContributionEngine.js` — IHK Mehrstufige Deckungsbeitragsrechnung & Break-Even Studio: Kosten- und Leistungsrechnung (KLR) für die IHK Abschlussprüfung (AP1/AP2 & WISO). 4-stufige Fixkosten-Kaskade (DB I Produktdeckungsbeitrag, DB II Produktgruppendeckungsbeitrag nach Produktfixkosten, DB III Bereichsdeckungsbeitrag nach Bereichsfixkosten, DB IV Betriebserfolg nach Unternehmensfixkosten), Sortiments-Erfolgsrechnung, dynamischer Break-Even-Point und Sicherheitskoeffizient mit 60 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 2 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/IhkWeaknessAuditLab.jsx` & `src/utils/ihkWeaknessAuditEngine.js` — IHK Schwachstellen-Audit & Adaptiver Lernassistent: Diagnose- und Trainings-Zentrale nach offiziellem KMK-Rahmenlehrplan (Lernfelder LF 1 bis LF 12b). Automatische Analyse historischer Fehlerquoten, Erkennung kritischer Wissenslücken nach Schwellenwerten, dynamische Schwachstellen-Klassifizierung (Kritisch, Moderat, Stabil) und intelligenter Drill-Generator mit Direkt-Navigation zu passenden Praxislaboren mit 60 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 2 Unit-Tests abgesichert.
+- **Routing & Integration**: Vollständige Registrierung der neuen Module in `src/App.jsx` (Lazy Loading & `activeLabElement` Switch-Tabelle), `src/components/Content/LabsDashboard.jsx` (Kategorie-Filter & Tags), `src/components/Navigation/Navbar.jsx` (Menüs "Labs" & "Prüfung / WISO") und `src/components/Navigation/CommandPaletteModal.jsx` (Ctrl+K Schnellbefehle).
+- **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für alle 4 neuen Labs erweitert (41/41 Komponenten-Tests bestanden) und `src/components/allLabsSmoke.test.jsx` (175/175 Komponenten) sowie `src/App.routing.test.jsx` (alle ~160 Routen) fehlerfrei validiert.
+- **Test-Suite & Qualität**: **866 bestandene Unit- & Integrationstests** in **118 Test-Dateien** (100% Erfolgsquote, +56 Tests!), **0 Oxlint-Fehler / 0 Warnungen** über 473 Quelldateien (`oxlint src --deny-warnings`), `tsc --noEmit` fehlerfrei, optimierter PWA Produktions-Build und alle `size-limit`-Vorgaben eingehalten.
 
 ### Version 3.43.0 (BSI IT-Grundschutz, IPv6 SLAAC NDP, WISO Payroll, Study Plan & Certificate Edition)
 

@@ -238,6 +238,11 @@ const Ipv6NdpLab = lazy(() => import('./components/Content/Ipv6NdpLab'));
 const WisoPayrollLab = lazy(() => import('./components/Content/WisoPayrollLab'));
 const IhkStudyPlanLab = lazy(() => import('./components/Content/IhkStudyPlanLab'));
 const IhkCertificatePdfLab = lazy(() => import('./components/Content/IhkCertificatePdfLab'));
+// v3.44.0 Clean Architecture, Linux NetNS, Multi-Contribution Margin & IHK Weakness Audit
+const CleanArchLab = lazy(() => import('./components/Content/CleanArchLab'));
+const LinuxNetNsLab = lazy(() => import('./components/Content/LinuxNetNsLab'));
+const WisoMultiContributionLab = lazy(() => import('./components/Content/WisoMultiContributionLab'));
+const IhkWeaknessAuditLab = lazy(() => import('./components/Content/IhkWeaknessAuditLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -642,6 +647,14 @@ export default function App() {
         return <IhkStudyPlanLab onNavigateTab={(tab) => setActiveTab(tab)} onRewardXP={(xp) => awardXP(xp, 'study_plan_master')} />;
       case activeTab === 'ihk_certificate_pdf_lab' || activeTab === 'ihk_certificate' || activeTab === 'lernpass':
         return <IhkCertificatePdfLab onRewardXP={(xp) => awardXP(xp, 'certificate_pdf_master')} />;
+      case activeTab === 'clean_arch_lab' || activeTab === 'clean_arch' || activeTab === 'hexagonal_arch':
+        return <CleanArchLab onRewardXP={(xp) => awardXP(xp, 'clean_arch_master')} />;
+      case activeTab === 'linux_netns_lab' || activeTab === 'linux_netns' || activeTab === 'netns_studio':
+        return <LinuxNetNsLab onRewardXP={(xp) => awardXP(xp, 'netns_master')} />;
+      case activeTab === 'wiso_multi_contribution_lab' || activeTab === 'wiso_multi_contribution' || activeTab === 'deckungsbeitrag_mehrstufig':
+        return <WisoMultiContributionLab onRewardXP={(xp) => awardXP(xp, 'multi_contribution_master')} />;
+      case activeTab === 'ihk_weakness_audit_lab' || activeTab === 'ihk_weakness_audit' || activeTab === 'schwachstellen_audit':
+        return <IhkWeaknessAuditLab onNavigateTab={(tab) => setActiveTab(tab)} onRewardXP={(xp) => awardXP(xp, 'weakness_audit_master')} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':

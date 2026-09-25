@@ -44,6 +44,10 @@ import Ipv6NdpLab from './Content/Ipv6NdpLab';
 import WisoPayrollLab from './Content/WisoPayrollLab';
 import IhkStudyPlanLab from './Content/IhkStudyPlanLab';
 import IhkCertificatePdfLab from './Content/IhkCertificatePdfLab';
+import CleanArchLab from './Content/CleanArchLab';
+import LinuxNetNsLab from './Content/LinuxNetNsLab';
+import WisoMultiContributionLab from './Content/WisoMultiContributionLab';
+import IhkWeaknessAuditLab from './Content/IhkWeaknessAuditLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -346,6 +350,38 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/IHK Lernpass/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert CleanArchLab fehlerfrei', () => {
+    const { container } = render(
+      <CleanArchLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Clean Architecture/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert LinuxNetNsLab fehlerfrei', () => {
+    const { container } = render(
+      <LinuxNetNsLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Linux Network Namespaces/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert WisoMultiContributionLab fehlerfrei', () => {
+    const { container } = render(
+      <WisoMultiContributionLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Mehrstufige Deckungsbeitragsrechnung/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert IhkWeaknessAuditLab fehlerfrei', () => {
+    const { container } = render(
+      <IhkWeaknessAuditLab onNavigateTab={() => {}} onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/IHK Schwachstellen-Audit/i).length).toBeGreaterThan(0);
   });
 });
 

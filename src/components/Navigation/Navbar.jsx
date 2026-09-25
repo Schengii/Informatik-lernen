@@ -72,6 +72,10 @@ export default function Navbar({
   // Gruppierte Navigations-Menüs mit Badges & didaktischen Sub-Labels
   const labsMenuItems = [
     { id: 'labs', label: '🧪 Alle Labs & Simulatoren Hub', desc: 'Zentrale Übersicht aller 60+ interaktiven Labs', badge: 'Hub' },
+    { id: 'clean_arch_lab', label: '🏛️ Clean Architecture & Hexagonal Linter', desc: 'DIP Dependency Rule, Ports/Adapters & Cycle Detection', badge: 'Neu' },
+    { id: 'linux_netns_lab', label: '🐧 Linux Network Namespaces & veth Studio', desc: 'Isolation, veth Pairs, Bridge Switching & Bash Script', badge: 'Neu' },
+    { id: 'wiso_multi_contribution_lab', label: '📊 IHK Mehrstufige Deckungsbeitragsrechnung', desc: 'DB I bis IV Fixkosten-Kaskade, BEP & Sicherheitskoeffizient', badge: 'Neu' },
+    { id: 'ihk_weakness_audit_lab', label: '🎯 IHK Schwachstellen-Audit & Lern-Assistent', desc: 'LF1-LF12 Fehleranalyse, Lücken-Erkennung & Drill-Generator', badge: 'Neu' },
     { id: 'nwa_scoring', label: '📊 IHK Nutzwertanalyse Studio (NWA)', desc: 'Offizielle Entscheidungsmatrix mit K.O.-Kriterien', badge: 'IHK Neu' },
     { id: 'raid_calculator', label: '💾 RAID Storage & Paritäts-Rechner', desc: 'RAID 0-50, Kapazitäten, URE & Paritäts-Matrix', badge: 'IHK Neu' },
     { id: 'vlsm_subnet', label: '🌐 VLSM Subnet Splitter & IP-Planer', desc: 'Hierarchische IPv4-Subnetze ohne Adressverlust', badge: 'IHK Neu' },
