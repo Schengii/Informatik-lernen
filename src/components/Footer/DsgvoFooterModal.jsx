@@ -170,6 +170,13 @@ export default function DsgvoFooterModal() {
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
             <button
+              onClick={() => setActiveModal('barrierefreiheit')}
+              style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', fontSize: '0.82rem', textDecoration: 'underline' }}
+            >
+              ♿ Barrierefreiheit (WCAG 2.1)
+            </button>
+            <span>•</span>
+            <button
               onClick={() => setActiveModal('dsgvo')}
               style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', fontSize: '0.82rem', textDecoration: 'underline' }}
             >
@@ -236,6 +243,31 @@ export default function DsgvoFooterModal() {
             >
               <X size={22} />
             </button>
+
+            {activeModal === 'barrierefreiheit' && (
+              <div>
+                <h2 style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px', color: 'var(--text-main)', fontSize: '1.4rem' }}>
+                  <Shield style={{ color: 'var(--accent-primary)' }} /> Barrierefreiheit &amp; Inklusion (WCAG 2.1 AAA)
+                </h2>
+                <div style={{ lineHeight: '1.7', fontSize: '0.9rem' }}>
+                  <p style={{ marginBottom: '12px' }}>
+                    <strong>1. Lese-Rechtschreib-Schwäche (Dyslexie):</strong> Durch Umschalten auf die eigens entwickelte <em>Atkinson Hyperlegible</em> Schriftart mit vergrößerten Wortabständen (0.16em) und optimierter Zeilenhöhe (1.95) wird Buchstabenverwechslungen (b/d, p/q) gezielt vorgebeugt.
+                  </p>
+                  <p style={{ marginBottom: '12px' }}>
+                    <strong>2. Rot-Grün-Sehhilfe &amp; Farbenblindheit:</strong> Keine Information stützt sich ausschließlich auf Farben. Rote und grüne Indikatoren werden durch eindeutige Icons (✓ und ✗) sowie kontraststarke Blau- und Amber-Töne ersetzt.
+                  </p>
+                  <p style={{ marginBottom: '12px' }}>
+                    <strong>3. Sinnvolle Kontraste (WCAG 7:1+ AAA):</strong> Alle Standard-Schriftfarben und Akzente besitzen optimierte Luminanzwerte für ermüdungsfreies Lesen bei Tag und Nacht.
+                  </p>
+                  <p style={{ marginBottom: '12px' }}>
+                    <strong>4. Reduzierte Bewegung:</strong> Nutzer mit vestibulären Störungen können Animationen vollständig deaktivieren (unterstützt auch systemweites <code>prefers-reduced-motion</code>).
+                  </p>
+                  <p style={{ marginBottom: '12px' }}>
+                    <strong>5. Mobile Touch-Targets:</strong> Alle interaktiven Elemente besitzen eine Mindesthöhe von 44x44 Pixeln nach WCAG-Kriterium 2.5.5 für fehlerfreie Bedienung auf kleineren Touchscreens.
+                  </p>
+                </div>
+              </div>
+            )}
 
             {activeModal === 'dsgvo' && (
               <div>

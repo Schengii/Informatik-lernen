@@ -210,7 +210,7 @@ export default function DashboardQuickAccessGrid({ setActiveTab }) {
           Empfohlene Lernbereiche &amp; Flagship Studios
         </h2>
         <span className="badge badge-indigo" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <Sparkles size={14} /> Neu aktualisiert v3.18
+          <Sparkles size={14} /> Neu aktualisiert v3.48.0
         </span>
       </div>
 
