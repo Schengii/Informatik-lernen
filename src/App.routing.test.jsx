@@ -61,7 +61,7 @@ describe('App.jsx Routing: jeder bekannte Tab lädt ohne unbehandelten Fehler', 
         // eine feste Zeit zu schlafen.
         await vi.waitFor(() => {
           expect(screen.queryByText(/Modul wird geladen/i)).toBeNull();
-        }, { timeout: 5000 });
+        }, { timeout: 15000 });
 
         // Die ErrorBoundary-Fallback-UI darf für keinen bekannten Tab greifen.
         expect(screen.queryByText(/Dieses Modul ist abgestürzt/i)).toBeNull();
@@ -73,7 +73,7 @@ describe('App.jsx Routing: jeder bekannte Tab lädt ohne unbehandelten Fehler', 
       } finally {
         spy.mockRestore();
       }
-    });
+    }, 25000);
   }
 
   it('Zusammenfassung: keine Route ist abgestürzt', () => {

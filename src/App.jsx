@@ -297,6 +297,10 @@ const CloudIamPolicyLab = lazy(() => import('./components/Content/CloudIamPolicy
 const SreSloBurnLab = lazy(() => import('./components/Content/SreSloBurnLab'));
 const KafkaConsumerLagLab = lazy(() => import('./components/Content/KafkaConsumerLagLab'));
 const LinuxAuditdEbpfLab = lazy(() => import('./components/Content/LinuxAuditdEbpfLab'));
+// v3.59.0 K8s Gateway API, WISO Break-Even Stufe 2 & DNSSEC Rollover Studios
+const K8sGatewayApiLab = lazy(() => import('./components/Content/K8sGatewayApiLab'));
+const WisoBreakEvenLab = lazy(() => import('./components/Content/WisoBreakEvenLab'));
+const DnssecRolloverLab = lazy(() => import('./components/Content/DnssecRolloverLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -789,6 +793,12 @@ export default function App() {
         return <KafkaConsumerLagLab onRewardXP={(xp) => awardXP(xp, 'kafka_consumer_lag_master')} />;
       case activeTab === 'linux_auditd_ebpf_lab' || activeTab === 'linux_auditd' || activeTab === 'auditd_ebpf_lab':
         return <LinuxAuditdEbpfLab onRewardXP={(xp) => awardXP(xp, 'linux_auditd_ebpf_master')} />;
+      case activeTab === 'k8s_gateway_api_lab' || activeTab === 'k8s_gateway_api' || activeTab === 'gateway_api_lab':
+        return <K8sGatewayApiLab onRewardXP={(xp) => awardXP(xp, 'k8s_gateway_api_master')} />;
+      case activeTab === 'wiso_break_even_lab' || activeTab === 'wiso_break_even' || activeTab === 'break_even_lab':
+        return <WisoBreakEvenLab onRewardXP={(xp) => awardXP(xp, 'wiso_break_even_master')} />;
+      case activeTab === 'dnssec_rollover_lab' || activeTab === 'dnssec_rollover' || activeTab === 'dnssec_lab':
+        return <DnssecRolloverLab onRewardXP={(xp) => awardXP(xp, 'dnssec_rollover_master')} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':

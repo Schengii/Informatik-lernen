@@ -3,13 +3,13 @@
 > 🌐 **Live-Webseite (Vercel):** [https://informatik-lernen.vercel.app](https://informatik-lernen.vercel.app)  
 > [![Vercel Deployment](https://img.shields.io/badge/Vercel-Deployed-black?style=flat&logo=vercel)](https://informatik-lernen.vercel.app) [![Status](https://img.shields.io/badge/Status-Online%20%26%20PWA%20Ready-success?style=flat)](https://informatik-lernen.vercel.app)
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), Cloud IAM Policy Evaluator & Least-Privilege Linter (SCPs & Explicit Deny), Prometheus SRE Multi-Burn-Rate Alerting (Google SRE Workbook), Kafka Consumer Lag & Cooperative Sticky Rebalance Protocol, Linux Auditd & eBPF Syscall Tracepoint Security Studio, IHK Mündliche Ergänzungsprüfung (MEP) Simulator (2:1 Notenrechner & 15 Min Prüfungsfragen), WISO Finanzierungsvergleich (Kauf vs. Kredit vs. Leasing & AfA Tax Shield), X.509 PKI & Certificate Chain Validator Studio (Trust Anchor, SAN & OCSP), SQL Transaction Isolation & ACID Studio (Read Committed, Repeatable Read, SSI & Write Skew), DGUV Vorschrift 3 & VDE Elektro-Prüfstudio (R_PE, R_ISO, 30 mA RCD & USV), allen 5 IHK-Ausbildungsberufen im Prüfungssimulator (FIAE, FISI, FIDP, FIDV, IT-SE), SQL Window Functions & Analytics Studio (ROW_NUMBER, RANK, DENSE_RANK, NTILE, LEAD/LAG), ArgoCD Kubernetes GitOps & Cluster Drift Studio, Vektor-Mathematik & Embedding-Distanz Studio (Cosine Sim, L2 Euclidean & Manhattan), IHK Projektantrag & Zeitplan-Kollisions-Linter (80h FIAE / 40h FISI), JWT Algorithm Confusion Attack & None-Algorithm Defense Studio (RFC 7519 / RFC 7518 RS256 vs. HS256 Public Key Verification Bypass), Linux SELinux & AppArmor Mandatory Access Control (MAC) Studio, DNS Privacy Inspector (DoH & DoT vs. Port 53 Wire-Format RFC 8484/7858), IHK WISO Liquiditätsgrade (1., 2., 3. Grad / Cash, Quick, Current Ratio) & Net Working Capital (NWC / InsO § 17), RAG Semantic Caching & Vector Similarity Studio (Cosine-Threshold & Zero-Cost Cache Hits), DNSSEC Cryptographic Chain of Trust & RRSIG Validation Studio (RFC 4035), IHK Agile vs. Waterfall & Burndown Studio (AP2 Teil A), Linux Btrfs / ZFS Copy-on-Write & Snapshot Sandbox, OpenAPI 3.1 & JSON-Schema Contract Testing Studio, TLS 1.3 0-RTT Replay Attack & Anti-Replay Studio (RFC 8446 Early Data), IHK Risikoanalyse & 5x5 Risikomatrix (DIN EN 31010 / FMEA für AP2), eBPF Cilium Service Mesh & L7 Tracing Sandbox, PostgreSQL Index Types Deep Dive (B-Tree, GIN, GiST, BRIN), IHK Wirtschaftlichkeits-, Amortisations- & Make-or-Buy Rechner (AP2 Doku-Modul), Web Crypto API & FIDO2 Passkey Studio (WebAuthn), Linux Systemd Unit Lifecycle & Cgroups v2 Sandbox, WebAssembly 128-Bit SIMD & Sobel Convolution Matrix Studio, IHK Projekt-Gantt & Meilenstein-Editor (AP2 Zeitplanung 80h FIAE / 40h FISI), HTTP/3 & QUIC Protocol Inspector & UDP Packet Loss Recovery Simulator, IndexedDB Store Hydration & Redundanter Persistenz-Layer, IHK Präsentations-Stoppuhr & Folien-Gliederung (15 Min AP2 Teil A), Docker Compose Multi-Container Orchestrator (DAG & Network Isolation), Dynamic CI/CD GitHub Actions Workflow Simulator, Offline IndexedDB Storage Synchronizer, IHK Fachgespräch & Audio-Prüfungssimulator (Web Speech STT/TTS), Ansible Playbook & Idempotenz Studio, Web Worker & Hintergrund-Performance Concurrency Studio, IHK DIN 69900 CPM Netzplantechnik, OMG UML 2.5 Studio, Terraform & OpenTofu IaC Studio, IHK Nutzwertanalyse Studio (NWA), RAID Storage & Paritäts-Rechner, VLSM Subnet Splitter, IHK Projektantrags-Prüfer, OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer, Relationalem ERD Designer & 1NF–3NF Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer, Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), Kubernetes Gateway API & Envoy Traffic Splitting Studio (HTTPRoute & Canary Weighting), IHK WISO Deckungsbeitrag Stufe 2 & Break-Even-Point Solver (Erzeugnisfixkosten & Engpassoptimierung), DNSSEC KSK & ZSK Key Rollover & Chain-of-Trust Simulator (ZSK Pre-Publish & Double-DS), Cloud IAM Policy Evaluator & Least-Privilege Linter (SCPs & Explicit Deny), Prometheus SRE Multi-Burn-Rate Alerting (Google SRE Workbook), Kafka Consumer Lag & Cooperative Sticky Rebalance Protocol, Linux Auditd & eBPF Syscall Tracepoint Security Studio, IHK Mündliche Ergänzungsprüfung (MEP) Simulator (2:1 Notenrechner & 15 Min Prüfungsfragen), WISO Finanzierungsvergleich (Kauf vs. Kredit vs. Leasing & AfA Tax Shield), X.509 PKI & Certificate Chain Validator Studio (Trust Anchor, SAN & OCSP), SQL Transaction Isolation & ACID Studio (Read Committed, Repeatable Read, SSI & Write Skew), DGUV Vorschrift 3 & VDE Elektro-Prüfstudio (R_PE, R_ISO, 30 mA RCD & USV), allen 5 IHK-Ausbildungsberufen im Prüfungssimulator (FIAE, FISI, FIDP, FIDV, IT-SE), SQL Window Functions & Analytics Studio (ROW_NUMBER, RANK, DENSE_RANK, NTILE, LEAD/LAG), ArgoCD Kubernetes GitOps & Cluster Drift Studio, Vektor-Mathematik & Embedding-Distanz Studio (Cosine Sim, L2 Euclidean & Manhattan), IHK Projektantrag & Zeitplan-Kollisions-Linter (80h FIAE / 40h FISI), JWT Algorithm Confusion Attack & None-Algorithm Defense Studio (RFC 7519 / RFC 7518 RS256 vs. HS256 Public Key Verification Bypass), Linux SELinux & AppArmor Mandatory Access Control (MAC) Studio, DNS Privacy Inspector (DoH & DoT vs. Port 53 Wire-Format RFC 8484/7858), IHK WISO Liquiditätsgrade (1., 2., 3. Grad / Cash, Quick, Current Ratio) & Net Working Capital (NWC / InsO § 17), RAG Semantic Caching & Vector Similarity Studio (Cosine-Threshold & Zero-Cost Cache Hits), DNSSEC Cryptographic Chain of Trust & RRSIG Validation Studio (RFC 4035), IHK Agile vs. Waterfall & Burndown Studio (AP2 Teil A), Linux Btrfs / ZFS Copy-on-Write & Snapshot Sandbox, OpenAPI 3.1 & JSON-Schema Contract Testing Studio, TLS 1.3 0-RTT Replay Attack & Anti-Replay Studio (RFC 8446 Early Data), IHK Risikoanalyse & 5x5 Risikomatrix (DIN EN 31010 / FMEA für AP2), eBPF Cilium Service Mesh & L7 Tracing Sandbox, PostgreSQL Index Types Deep Dive (B-Tree, GIN, GiST, BRIN), IHK Wirtschaftlichkeits-, Amortisations- & Make-or-Buy Rechner (AP2 Doku-Modul), Web Crypto API & FIDO2 Passkey Studio (WebAuthn), Linux Systemd Unit Lifecycle & Cgroups v2 Sandbox, WebAssembly 128-Bit SIMD & Sobel Convolution Matrix Studio, IHK Projekt-Gantt & Meilenstein-Editor (AP2 Zeitplanung 80h FIAE / 40h FISI), HTTP/3 & QUIC Protocol Inspector & UDP Packet Loss Recovery Simulator, IndexedDB Store Hydration & Redundanter Persistenz-Layer, IHK Präsentations-Stoppuhr & Folien-Gliederung (15 Min AP2 Teil A), Docker Compose Multi-Container Orchestrator (DAG & Network Isolation), Dynamic CI/CD GitHub Actions Workflow Simulator, Offline IndexedDB Storage Synchronizer, IHK Fachgespräch & Audio-Prüfungssimulator (Web Speech STT/TTS), Ansible Playbook & Idempotenz Studio, Web Worker & Hintergrund-Performance Concurrency Studio, IHK DIN 69900 CPM Netzplantechnik, OMG UML 2.5 Studio, Terraform & OpenTofu IaC Studio, IHK Nutzwertanalyse Studio (NWA), RAID Storage & Paritäts-Rechner, VLSM Subnet Splitter, IHK Projektantrags-Prüfer, OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer, Relationalem ERD Designer & 1NF–3NF Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer, Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.58.0)](#-hauptfunktionen--neue-features-v3580-cloud-iam-governance-sre-slo-burn-rate-kafka-rebalance--linux-auditd-ebpf-edition)
+- [Hauptfunktionen & Neue Features (v3.59.0)](#-hauptfunktionen--neue-features-v3590-k8s-gateway-api-wiso-break-even-stufe-2--dnssec-rollover-edition)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -85,7 +85,37 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Next-Gen Transport: HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx` & `http3QuicEngine.js`)**: Head-of-Line Blocking Eliminierung bei Paketverlust, Multi-Stream Übertragung über UDP, 0-RTT TLS 1.3 Session Resumption und Connection-ID (CID) Migration.
    - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation**, **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
-## ✨ Hauptfunktionen & Neue Features (v3.58.0: Cloud IAM Governance, SRE SLO Burn-Rate, Kafka Rebalance & Linux Auditd eBPF Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.59.0: K8s Gateway API, WISO Break-Even Stufe 2 & DNSSEC Rollover Edition)
+
+* **☸️ Kubernetes Gateway API & Envoy Traffic Splitting Studio (`K8sGatewayApiLab.jsx` & `src/utils/k8sGatewayApiEngine.js`)**:
+  * Didaktisches Cloud-Native-, Service-Mesh- und Ingress-Architektur-Studio nach dem offiziellen Kubernetes Gateway API Standard (`gateway.networking.k8s.io/v1`).
+  * **Gewichtetes Canary Traffic Splitting**:
+    * Dynamische Verteilung von Requests zwischen Stable (`v1`) und Canary (`v2`) mit anpassbaren Backend-Gewichten (`weight: 80` / `weight: 20`).
+    * 1000-Request Live-Simulation zur statistischen Verifikation der tatsächlichen Verkehrsverteilung mit Echtzeit-Balkendiagrammen.
+  * **HTTP-Header- & Pfad-Filter (Canary-Targeting)**:
+    * Routing für interne Tester oder Beta-Nutzer via Header-Matching (z.B. `X-Canary: beta` oder Session-Cookies) mit 100% gezieltem Routing auf das Canary-Deployment.
+  * **Traffic Shadowing / Mirroring & YAML-Generator**:
+    * Duplizierung von Produktivverkehr auf Shadow-Backends zu risikofreien Lasttests sowie 1-Klick Export von validen `Gateway`- und `HTTPRoute`-Manifesten mit 65 XP Belohnung.
+
+* **📊 IHK WISO Deckungsbeitrag Stufe 2 & Break-Even-Point Solver (`WisoBreakEvenLab.jsx` & `src/utils/wisoBreakEvenEngine.js`)**:
+  * Didaktisches Kostenrechnungs- und Controlling-Studio nach offiziellem IHK-Prüfungsstandard für AP2 und WISO.
+  * **Mehrstufige Deckungsbeitragsrechnung**:
+    * Stückdeckungsbeitrag ($db = p - k_v$) und Gesamtdeckungsbeitrag I ($DB_I = \sum (x \times db)$).
+    * Abzug erzeugnisfixer Kosten ($K_{f1}$) zum **Deckungsbeitrag II ($DB_{II}$)** und Abzug unternehmensweiter Fixkosten ($K_{f2}$) zur Ermittlung des exakten Betriebsergebnisses.
+  * **Engpassoptimierung (Relativer Deckungsbeitrag)**:
+    * Berechnung des relativen Deckungsbeitrags pro Engpass-Minute ($db_{\text{rel}} = \frac{db}{t}$).
+    * Automatische Erstellung der optimalen Rangfolge des Produktionsprogramms bei limitierter Maschinen- oder Entwicklerkapazität.
+  * **Break-Even-Point (BEP)**:
+    * Mathematisch exakte Berechnung der Gewinnschwelle in Stück ($x_{\text{BEP}} = \frac{K_{f1}}{db}$) und Umsatz ($U_{\text{BEP}} = x_{\text{BEP}} \times p$) mit 65 XP Belohnung.
+
+* **🔐 DNSSEC KSK & ZSK Key Rollover & Chain-of-Trust Simulator (`DnssecRolloverLab.jsx` & `src/utils/dnssecRolloverEngine.js`)**:
+  * Didaktisches Internet-Infrastruktur- und Kryptographie-Studio nach RFC 4034, RFC 4035 und RFC 5011 (Automated Trust Anchor Updates).
+  * **ZSK Pre-Publish Rollover (Zone Signing Key)**:
+    * Schritt-für-Schritt-Ablauf: 1. Alten ZSK aktiv halten, 2. Neuen ZSK im DNSKEY-RRset vorab veröffentlichen (Pre-Publish), 3. TTL-Wartezeit für weltweite Caches abwarten, 4. Zonensignaturen auf neuen ZSK umstellen, 5. Alten ZSK sicher entfernen ohne DNS-Auflösungsfehler.
+  * **KSK Double-DS Rollover (Key Signing Key)**:
+    * Sichere Koordination mit der Parent-Zone (z.B. `.de` oder ICANN Root): Generierung des neuen SHA-256 DS-Records, parallele DS-Publikation im Parent-Nameserver, Abwarten der Parent-DS TTL und lückenlose Validierung der Vertrauenskette (Chain of Trust) mit 65 XP Belohnung.
+
+## ✨ Bisherige Hauptfunktionen (v3.58.0: Cloud IAM Governance, SRE SLO Burn-Rate, Kafka Rebalance & Linux Auditd eBPF Edition)
 
 * **🛡️ Cloud IAM Policy Evaluator & Least-Privilege Linter (`CloudIamPolicyLab.jsx` & `src/utils/cloudIamEngine.js`)**:
   * Didaktisches Cloud-Governance- und Security-Studio für AWS- und Cloud-Infrastrukturen.
@@ -956,6 +986,9 @@ Informatik-lernen/
     │   │   ├── SreSloBurnLab.jsx
     │   │   ├── KafkaConsumerLagLab.jsx
     │   │   ├── LinuxAuditdEbpfLab.jsx
+    │   │   ├── K8sGatewayApiLab.jsx
+    │   │   ├── WisoBreakEvenLab.jsx
+    │   │   ├── DnssecRolloverLab.jsx
     │   │   └── WisoKalkulationLab.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
@@ -1252,7 +1285,13 @@ Informatik-lernen/
         ├── kafkaConsumerLagEngine.js
         ├── kafkaConsumerLagEngine.test.js
         ├── linuxAuditdEbpfEngine.js
-        └── linuxAuditdEbpfEngine.test.js
+        ├── linuxAuditdEbpfEngine.test.js
+        ├── k8sGatewayApiEngine.js
+        ├── k8sGatewayApiEngine.test.js
+        ├── wisoBreakEvenEngine.js
+        ├── wisoBreakEvenEngine.test.js
+        ├── dnssecRolloverEngine.js
+        └── dnssecRolloverEngine.test.js
 ```
 
 ---
@@ -1309,6 +1348,23 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.59.0 (Kubernetes Gateway API, IHK WISO Deckungsbeitrag Stufe 2 & DNSSEC Key Rollover Edition)
+
+- **Neu**: `src/components/Content/K8sGatewayApiLab.jsx` & `src/utils/k8sGatewayApiEngine.js` — Kubernetes Gateway API & Envoy Traffic Splitting Studio:
+  - **Offizieller K8s Gateway API Standard**: Modellierung von `GatewayClass`, `Gateway` und `HTTPRoute` Ressourcen zur Entkopplung von Cluster-Betreiber- und Entwickler-Rollen.
+  - **Gewichtetes Canary Traffic Splitting**: Feingranulare Verkehrsaufteilung (z. B. 90/10 oder 80/20) zwischen Stable und Canary Pods, Header-basiertes Canary-Routing (`X-Canary: beta`) und Traffic Shadowing (Mirroring).
+  - **1000-Request Live-Simulation**: Statistische Verifikation der Lastverteilung und 1-Klick YAML-Export für `HTTPRoute` und Envoy-Proxy mit 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 4 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/WisoBreakEvenLab.jsx` & `src/utils/wisoBreakEvenEngine.js` — IHK WISO Deckungsbeitrag Stufe 2 & Break-Even-Point Solver:
+  - **Mehrstufige Deckungsbeitragsrechnung**: Berechnung von Stück-db ($db = p - k_v$), Gesamt-DB I ($\sum x \cdot db$), Abzug von Erzeugnisfixkosten ($K_{f1}$) zu Deckungsbeitrag II ($DB_{II}$) und Abzug von Unternehmensfixkosten ($K_{f2}$) zum Betriebsergebnis.
+  - **Engpassoptimierung (Relativer Deckungsbeitrag)**: Ermittlung von $db_{\text{rel}} = \frac{db}{t}$ zur Priorisierung des Produktionsprogramms bei limitierter Maschinen- oder Entwicklungszeit.
+  - **Break-Even-Analyse**: Ermittlung der Gewinnschwelle in Stück und Umsatz mit 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 4 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/DnssecRolloverLab.jsx` & `src/utils/dnssecRolloverEngine.js` — DNSSEC KSK & ZSK Key Rollover & Chain-of-Trust Simulator:
+  - **ZSK Pre-Publish Rollover (RFC 4034/4035)**: Simuliert das risikofreie Auswechseln des Zone Signing Keys via Pre-Publishing des neuen öffentlichen Schlüssels, Abwarten weltweiter Resolver-TTL-Caches und schrittweiser Signaturumstellung ohne DNS-Resolution-Failures (BOGUS).
+  - **KSK Double-DS Rollover (RFC 5011)**: Koordination mit der übergeordneten Parent-Zone (TLD `.de` / Root-Zone) via paralleler DS-Record-Publikation, TTL-Wartefenster und lückenloser Validierung der Vertrauenskette mit 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 3 Unit-Tests abgesichert.
+- **Routing & Integration**: Vollständige Registrierung aller 3 neuen Studios in `src/App.jsx` (Lazy Loading & `activeLabElement` Switch-Tabelle mit Routen `k8s_gateway_api_lab`, `wiso_break_even_lab` und `dnssec_rollover_lab`), `src/components/Content/LabsDashboard.jsx`, `src/components/Navigation/CommandPaletteModal.jsx` und Navigation.
+- **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für alle 3 neuen Studios erweitert (84/84 Komponenten-Tests bestanden), `src/components/allLabsSmoke.test.jsx` mit 218/218 Studios bestanden und `src/App.routing.test.jsx` mit 381/381 Routen bestanden.
+- **Test-Suite & Qualität**: **1222 bestandene Unit- & Integrationstests** in **162 Test-Dateien** (100% Erfolgsquote, +45 neue Tests/Subtests!), **0 Oxlint-Fehler / 0 Warnungen** über 604 Quelldateien (`oxlint src --deny-warnings`), `tsc --noEmit` fehlerfrei, PWA Produktions-Build erfolgreich und alle `size-limit`-Vorgaben eingehalten.
 
 ### Version 3.58.0 (Cloud IAM Governance, SRE SLO Burn-Rate, Kafka Rebalance & Linux Auditd eBPF Edition)
 

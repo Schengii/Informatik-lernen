@@ -27,6 +27,9 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-k8s-gateway-api', title: 'Kubernetes Gateway API & Envoy Traffic Splitting Studio (HTTPRoute & Canary Split)', category: 'Labs & Tools', icon: Route, action: () => onNavigate('k8s_gateway_api_lab') },
+    { id: 'view-wiso-break-even', title: 'IHK WISO Deckungsbeitrag Stufe 2 & Break-Even-Point Solver (Fixkostenspaltung & Engpass)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('wiso_break_even_lab') },
+    { id: 'view-dnssec-rollover', title: 'DNSSEC KSK & ZSK Key Rollover Studio (ZSK Pre-Publish, Double-DS & RFC 5011)', category: 'Labs & Tools', icon: KeyRound, action: () => onNavigate('dnssec_rollover_lab') },
     { id: 'view-cloud-iam-policy', title: 'Cloud IAM Policy Evaluator & Least-Privilege Linter (SCPs, Explicit Deny & Role Security)', category: 'Labs & Tools', icon: Lock, action: () => onNavigate('cloud_iam_policy_lab') },
     { id: 'view-sre-slo-burn', title: 'Prometheus PromQL Alerting & SRE Error-Budget Burn Studio (Multi-Window Alerting)', category: 'Labs & Tools', icon: TrendingDown, action: () => onNavigate('sre_slo_burn_lab') },
     { id: 'view-kafka-consumer-lag', title: 'Kafka Consumer Lag & Partition Rebalance Protocol Studio (Cooperative Sticky vs. Eager)', category: 'Labs & Tools', icon: Zap, action: () => onNavigate('kafka_consumer_lag_lab') },

@@ -88,6 +88,9 @@ import CloudIamPolicyLab from './Content/CloudIamPolicyLab';
 import SreSloBurnLab from './Content/SreSloBurnLab';
 import KafkaConsumerLagLab from './Content/KafkaConsumerLagLab';
 import LinuxAuditdEbpfLab from './Content/LinuxAuditdEbpfLab';
+import K8sGatewayApiLab from './Content/K8sGatewayApiLab';
+import WisoBreakEvenLab from './Content/WisoBreakEvenLab';
+import DnssecRolloverLab from './Content/DnssecRolloverLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -742,6 +745,30 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/Linux Auditd/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert K8sGatewayApiLab fehlerfrei', () => {
+    const { container } = render(
+      <K8sGatewayApiLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Gateway API/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert WisoBreakEvenLab fehlerfrei', () => {
+    const { container } = render(
+      <WisoBreakEvenLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Deckungsbeitrag/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert DnssecRolloverLab fehlerfrei', () => {
+    const { container } = render(
+      <DnssecRolloverLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/DNSSEC/i).length).toBeGreaterThan(0);
   });
 });
 

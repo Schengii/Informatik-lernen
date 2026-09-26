@@ -3,6 +3,39 @@ import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Da
 
 export const LAB_MODULES = [
   {
+    id: 'k8s_gateway_api_lab',
+    title: 'Kubernetes Gateway API & Envoy Traffic Splitting Studio',
+    category: 'cloud',
+    tags: ['#Kubernetes', '#GatewayAPI', '#Envoy', '#HTTPRoute', '#Canary', '#TrafficSplitting', '#CloudNative'],
+    difficulty: 'Advanced',
+    desc: 'Moderne Service-Mesh- und Ingress-Architektur: Gewichtetes Canary-Traffic-Splitting, HTTP-Header-Filter, 1000-Request Live-Simulation und production-ready YAML-Manifeste.',
+    icon: Route,
+    badge: 'Neu',
+    color: '#3b82f6'
+  },
+  {
+    id: 'wiso_break_even_lab',
+    title: 'IHK WISO Deckungsbeitrag Stufe 2 & Break-Even-Point Solver',
+    category: 'wiso',
+    tags: ['#WISO', '#Deckungsbeitrag', '#BreakEven', '#Gewinnschwelle', '#Engpass', '#IHKPrüfung', '#Controlling'],
+    difficulty: 'Intermediate',
+    desc: 'Mehrstufige Deckungsbeitragsrechnung (DB I & DB II), Erzeugnis- und Unternehmensfixkosten, optimales Produktionsprogramm bei Engpässen und interaktive Break-Even-Kalkulation.',
+    icon: Calculator,
+    badge: 'IHK Neu',
+    color: '#10b981'
+  },
+  {
+    id: 'dnssec_rollover_lab',
+    title: 'DNSSEC KSK & ZSK Key Rollover & Chain-of-Trust Simulator',
+    category: 'security',
+    tags: ['#DNSSEC', '#KSK', '#ZSK', '#KeyRollover', '#DS', '#RRSIG', '#DNSKEY', '#RFC4034', '#RFC5011'],
+    difficulty: 'Advanced',
+    desc: 'Simuliere ZSK Pre-Publish und KSK Double-DS Rollover Schritt für Schritt: TTL-Caches, Parent-Zone DS-Publikation und lückenlose Validierung der Vertrauenskette.',
+    icon: KeyRound,
+    badge: 'Neu',
+    color: '#8b5cf6'
+  },
+  {
     id: 'cloud_iam_policy_lab',
     title: 'Cloud IAM Policy Evaluator & Least-Privilege Linter',
     category: 'security',
