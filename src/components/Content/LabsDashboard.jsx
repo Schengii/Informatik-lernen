@@ -1,7 +1,40 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key, Lock, AlertTriangle, Globe, TrendingDown, HardDrive, FileCode, Brain, Activity, Radio, BarChart2 } from 'lucide-react';
+import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key, Lock, AlertTriangle, Globe, TrendingDown, HardDrive, FileCode, Brain, Activity, Radio, BarChart2, GraduationCap } from 'lucide-react';
 
 export const LAB_MODULES = [
+  {
+    id: 'ihk_mep_simulator_lab',
+    title: 'IHK Mündliche Ergänzungsprüfung (MEP) Simulator',
+    category: 'ihk',
+    tags: ['#IHK', '#MEP', '#Notenrechner', '#WiSo', '#AP2', '#AO2020', '#BBiG'],
+    difficulty: 'Intermediate',
+    desc: 'Offizieller IHK Notenretter (2:1 Gewichtung): 15-minütige mündliche Ergänzungsprüfung bei schriftlicher Note 5 (30–49 Punkte) mit Frage-Antwort-Simulator.',
+    icon: GraduationCap,
+    badge: 'Neu',
+    color: '#f43f5e'
+  },
+  {
+    id: 'wiso_financing_lab',
+    title: 'WISO Finanzierungsvergleich: Kauf vs. Kredit vs. Leasing',
+    category: 'ihk',
+    tags: ['#WISO', '#Finanzierung', '#Kauf', '#Kredit', '#Leasing', '#AfA', '#TaxShield', '#Skonto'],
+    difficulty: 'Intermediate',
+    desc: 'Kaufmännische Gegenüberstellung von Barzahlung (mit Skonto), Bankdarlehen (Ratentilgung) und Operating Leasing inklusive AfA § 7 EStG Steuerersparnis.',
+    icon: Calculator,
+    badge: 'Neu',
+    color: '#10b981'
+  },
+  {
+    id: 'pki_certificate_lab',
+    title: 'X.509 PKI & Certificate Chain Validator Studio',
+    category: 'security',
+    tags: ['#PKI', '#X509', '#TLS', '#Certificates', '#TrustAnchor', '#SAN', '#OCSP', '#RFC5280'],
+    difficulty: 'Advanced',
+    desc: 'Kryptographische Vertrauensketten (Root CA -> Intermediate -> Leaf), Hostname-Matching (SAN), Gültigkeitszeiträume und OCSP/CRL Revocation-Prüfung.',
+    icon: Lock,
+    badge: 'Neu',
+    color: '#06b6d4'
+  },
   {
     id: 'sql_isolation_lab',
     title: 'SQL Transaction Isolation & ACID Studio',

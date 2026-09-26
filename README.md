@@ -3,13 +3,13 @@
 > 🌐 **Live-Webseite (Vercel):** [https://informatik-lernen.vercel.app](https://informatik-lernen.vercel.app)  
 > [![Vercel Deployment](https://img.shields.io/badge/Vercel-Deployed-black?style=flat&logo=vercel)](https://informatik-lernen.vercel.app) [![Status](https://img.shields.io/badge/Status-Online%20%26%20PWA%20Ready-success?style=flat)](https://informatik-lernen.vercel.app)
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), SQL Transaction Isolation & ACID Studio (Read Committed, Repeatable Read, SSI & Write Skew), DGUV Vorschrift 3 & VDE Elektro-Prüfstudio (R_PE, R_ISO, 30 mA RCD & USV), allen 5 IHK-Ausbildungsberufen im Prüfungssimulator (FIAE, FISI, FIDP, FIDV, IT-SE), SQL Window Functions & Analytics Studio (ROW_NUMBER, RANK, DENSE_RANK, NTILE, LEAD/LAG), ArgoCD Kubernetes GitOps & Cluster Drift Studio, Vektor-Mathematik & Embedding-Distanz Studio (Cosine Sim, L2 Euclidean & Manhattan), IHK Projektantrag & Zeitplan-Kollisions-Linter (80h FIAE / 40h FISI), JWT Algorithm Confusion Attack & None-Algorithm Defense Studio (RFC 7519 / RFC 7518 RS256 vs. HS256 Public Key Verification Bypass), Linux SELinux & AppArmor Mandatory Access Control (MAC) Studio, DNS Privacy Inspector (DoH & DoT vs. Port 53 Wire-Format RFC 8484/7858), IHK WISO Liquiditätsgrade (1., 2., 3. Grad / Cash, Quick, Current Ratio) & Net Working Capital (NWC / InsO § 17), RAG Semantic Caching & Vector Similarity Studio (Cosine-Threshold & Zero-Cost Cache Hits), DNSSEC Cryptographic Chain of Trust & RRSIG Validation Studio (RFC 4035), IHK Agile vs. Waterfall & Burndown Studio (AP2 Teil A), Linux Btrfs / ZFS Copy-on-Write & Snapshot Sandbox, OpenAPI 3.1 & JSON-Schema Contract Testing Studio, TLS 1.3 0-RTT Replay Attack & Anti-Replay Studio (RFC 8446 Early Data), IHK Risikoanalyse & 5x5 Risikomatrix (DIN EN 31010 / FMEA für AP2), eBPF Cilium Service Mesh & L7 Tracing Sandbox, PostgreSQL Index Types Deep Dive (B-Tree, GIN, GiST, BRIN), IHK Wirtschaftlichkeits-, Amortisations- & Make-or-Buy Rechner (AP2 Doku-Modul), Web Crypto API & FIDO2 Passkey Studio (WebAuthn), Linux Systemd Unit Lifecycle & Cgroups v2 Sandbox, WebAssembly 128-Bit SIMD & Sobel Convolution Matrix Studio, IHK Projekt-Gantt & Meilenstein-Editor (AP2 Zeitplanung 80h FIAE / 40h FISI), HTTP/3 & QUIC Protocol Inspector & UDP Packet Loss Recovery Simulator, IndexedDB Store Hydration & Redundanter Persistenz-Layer, IHK Präsentations-Stoppuhr & Folien-Gliederung (15 Min AP2 Teil A), Docker Compose Multi-Container Orchestrator (DAG & Network Isolation), Dynamic CI/CD GitHub Actions Workflow Simulator, Offline IndexedDB Storage Synchronizer, IHK Fachgespräch & Audio-Prüfungssimulator (Web Speech STT/TTS), Ansible Playbook & Idempotenz Studio, Web Worker & Hintergrund-Performance Concurrency Studio, IHK DIN 69900 CPM Netzplantechnik, OMG UML 2.5 Studio, Terraform & OpenTofu IaC Studio, IHK Nutzwertanalyse Studio (NWA), RAID Storage & Paritäts-Rechner, VLSM Subnet Splitter, IHK Projektantrags-Prüfer, OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer, Relationalem ERD Designer & 1NF–3NF Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer, Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), IHK Mündliche Ergänzungsprüfung (MEP) Simulator (2:1 Notenrechner & 15 Min Prüfungsfragen), WISO Finanzierungsvergleich (Kauf vs. Kredit vs. Leasing & AfA Tax Shield), X.509 PKI & Certificate Chain Validator Studio (Trust Anchor, SAN & OCSP), SQL Transaction Isolation & ACID Studio (Read Committed, Repeatable Read, SSI & Write Skew), DGUV Vorschrift 3 & VDE Elektro-Prüfstudio (R_PE, R_ISO, 30 mA RCD & USV), allen 5 IHK-Ausbildungsberufen im Prüfungssimulator (FIAE, FISI, FIDP, FIDV, IT-SE), SQL Window Functions & Analytics Studio (ROW_NUMBER, RANK, DENSE_RANK, NTILE, LEAD/LAG), ArgoCD Kubernetes GitOps & Cluster Drift Studio, Vektor-Mathematik & Embedding-Distanz Studio (Cosine Sim, L2 Euclidean & Manhattan), IHK Projektantrag & Zeitplan-Kollisions-Linter (80h FIAE / 40h FISI), JWT Algorithm Confusion Attack & None-Algorithm Defense Studio (RFC 7519 / RFC 7518 RS256 vs. HS256 Public Key Verification Bypass), Linux SELinux & AppArmor Mandatory Access Control (MAC) Studio, DNS Privacy Inspector (DoH & DoT vs. Port 53 Wire-Format RFC 8484/7858), IHK WISO Liquiditätsgrade (1., 2., 3. Grad / Cash, Quick, Current Ratio) & Net Working Capital (NWC / InsO § 17), RAG Semantic Caching & Vector Similarity Studio (Cosine-Threshold & Zero-Cost Cache Hits), DNSSEC Cryptographic Chain of Trust & RRSIG Validation Studio (RFC 4035), IHK Agile vs. Waterfall & Burndown Studio (AP2 Teil A), Linux Btrfs / ZFS Copy-on-Write & Snapshot Sandbox, OpenAPI 3.1 & JSON-Schema Contract Testing Studio, TLS 1.3 0-RTT Replay Attack & Anti-Replay Studio (RFC 8446 Early Data), IHK Risikoanalyse & 5x5 Risikomatrix (DIN EN 31010 / FMEA für AP2), eBPF Cilium Service Mesh & L7 Tracing Sandbox, PostgreSQL Index Types Deep Dive (B-Tree, GIN, GiST, BRIN), IHK Wirtschaftlichkeits-, Amortisations- & Make-or-Buy Rechner (AP2 Doku-Modul), Web Crypto API & FIDO2 Passkey Studio (WebAuthn), Linux Systemd Unit Lifecycle & Cgroups v2 Sandbox, WebAssembly 128-Bit SIMD & Sobel Convolution Matrix Studio, IHK Projekt-Gantt & Meilenstein-Editor (AP2 Zeitplanung 80h FIAE / 40h FISI), HTTP/3 & QUIC Protocol Inspector & UDP Packet Loss Recovery Simulator, IndexedDB Store Hydration & Redundanter Persistenz-Layer, IHK Präsentations-Stoppuhr & Folien-Gliederung (15 Min AP2 Teil A), Docker Compose Multi-Container Orchestrator (DAG & Network Isolation), Dynamic CI/CD GitHub Actions Workflow Simulator, Offline IndexedDB Storage Synchronizer, IHK Fachgespräch & Audio-Prüfungssimulator (Web Speech STT/TTS), Ansible Playbook & Idempotenz Studio, Web Worker & Hintergrund-Performance Concurrency Studio, IHK DIN 69900 CPM Netzplantechnik, OMG UML 2.5 Studio, Terraform & OpenTofu IaC Studio, IHK Nutzwertanalyse Studio (NWA), RAID Storage & Paritäts-Rechner, VLSM Subnet Splitter, IHK Projektantrags-Prüfer, OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer, Relationalem ERD Designer & 1NF–3NF Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer, Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.51.0)](#-hauptfunktionen--neue-features-v3510-sql-transaction-isolation-dguv-v3-elektrotechnik--ihk-ap2-berufsabdeckung-edition)
+- [Hauptfunktionen & Neue Features (v3.52.0)](#-hauptfunktionen--neue-features-v3520-ihk-mep-simulator-wiso-finanzierung--x509-pki-chain-validator-edition)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -85,9 +85,41 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Next-Gen Transport: HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx` & `http3QuicEngine.js`)**: Head-of-Line Blocking Eliminierung bei Paketverlust, Multi-Stream Übertragung über UDP, 0-RTT TLS 1.3 Session Resumption und Connection-ID (CID) Migration.
    - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation**, **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
----
+## ✨ Hauptfunktionen & Neue Features (v3.52.0: IHK MEP Simulator, WISO Finanzierung & X.509 PKI Chain Validator Edition)
 
-## ✨ Hauptfunktionen & Neue Features (v3.51.0: SQL Transaction Isolation, DGUV V3 Elektrotechnik & IHK AP2 Berufsabdeckung Edition)
+* **🎓 IHK Mündliche Ergänzungsprüfung (MEP) Simulator (`IhkMepSimulatorLab.jsx` & `src/utils/ihkMepEngine.js`)**:
+  * Didaktisches Prüfungs- und Notfall-Studio nach BBiG § 198 und AO 2020 für alle gefährdeten Prüflinge mit Note 5 (30–49 Punkte) in einem schriftlichen Prüfungsbereich.
+  * **Exakte 2:1 Gewichtung & Notenberechnung**:
+    * Dynamische Berechnung des kombinierten Prüfungsergebnisses: $\text{Gesamt} = \frac{2 \times \text{Schriftlich} + 1 \times \text{MEP}}{3}$.
+    * Automatische Mindestpunktzahl-Ermittlung zur Zielerreichung von genau 50 Punkten (Note 4 / Ausreichend).
+    * Mathematische Machbarkeitsprüfung (z.B. 40 Punkte schriftlich $\to$ mind. 70 Punkte in MEP nötig).
+  * **Interaktiver 15-Minuten Fragenkatalog mit Prüfer-Musterantworten**:
+    * **WiSo (Bereich 3)**: Kündigungsfristen nach BGB § 622 & KSchG, Skonto vs. Rabatt, GmbH vs. Einzelunternehmen.
+    * **AP2 Bereich 1 (Planen & Konzipieren)**: Lastenheft vs. Pflichtenheft, Nutzwertanalyse & K.O.-Kriterien.
+    * **AP2 Bereich 2 (Fachaufgabe)**: 3. Normalform (3NF) relationaler Datenbanken, IPv4 Subnetting & Broadcast-Grenzen.
+  * Belohnung mit 60 XP und "MEP Survivor"-Prüfungssiegel.
+
+* **💼 WISO Finanzierungsvergleich: Kauf vs. Kredit vs. Leasing (`WisoFinancingLab.jsx` & `src/utils/wisoFinancingEngine.js`)**:
+  * Kaufmännisches Entscheidungs-Studio nach offiziellem IHK-Standard für AP2 WISO & Kostenrechnung.
+  * **Gegenüberstellung von drei Finanzierungsarten**:
+    * **Sofortkauf mit Skonto**: Eigentum ab Tag 1, Skontoabzug (z. B. 2%), AfA-Abschreibung nach § 7 EStG.
+    * **Bankkredit (Ratendarlehen)**: Lineare Tilgung, degressive Zinsbelastung, Zinsen als Betriebsausgabe.
+    * **Operating Leasing**: Pay-as-you-earn, 100% sofortiger Betriebsausgabenabzug, Schonung der Liquidität (Off-Balance).
+  * Steuerliche Abzugseffekte (Tax Shield) über die AfA-Nutzungsdauer (3 Jahre für Server/PCs) mit 60 XP Belohnung.
+
+* **🔐 X.509 PKI & Certificate Chain Validator Studio (`PkiCertificateLab.jsx` & `src/utils/pkiCertificateEngine.js`)**:
+  * Didaktisches TLS/HTTPS- und Kryptographie-Studio nach RFC 5280 und RFC 6960 (OCSP).
+  * **Hierarchische Vertrauenskette (Chain of Trust)**:
+    * Root CA (Trust Anchor, Self-signed, `CA:TRUE`).
+    * Intermediate CA (Sub-CA zur Risikominimierung, `CA:TRUE`).
+    * End-Entity / Leaf-Zertifikat (Webserver).
+  * **Umfassende Sicherheits- und Validierungsprüfungen**:
+    * Hostname-Matching über Subject Alternative Names (SAN, Wildcards `*.domain.de`).
+    * Gültigkeitszeiträume (`notBefore` und `notAfter`).
+    * Widerrufsprüfung (CRL / OCSP Revocation Status).
+    * Simulation von Kettenbrüchen (Untrusted CA) und Zertifikatsabläufen mit 60 XP Belohnung.
+
+## ✨ Bisherige Hauptfunktionen (v3.51.0: SQL Transaction Isolation, DGUV V3 Elektrotechnik & IHK AP2 Berufsabdeckung)
 
 * **🛡️ SQL Transaction Isolation & ACID Studio (`SqlIsolationLab.jsx` & `src/utils/sqlIsolationEngine.js`)**:
   * Didaktisches Datenbank-Architektur- und Concurrency-Studio nach ANSI SQL-92 Standard (PostgreSQL MVCC, MySQL InnoDB, Oracle).
@@ -772,6 +804,9 @@ Informatik-lernen/
     │   │   ├── WisoLoanCollateralLab.jsx
     │   │   ├── SqlIsolationLab.jsx
     │   │   ├── DguvV3ElektronikLab.jsx
+    │   │   ├── IhkMepSimulatorLab.jsx
+    │   │   ├── WisoFinancingLab.jsx
+    │   │   ├── PkiCertificateLab.jsx
     │   │   └── WisoKalkulationLab.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
@@ -1030,7 +1065,13 @@ Informatik-lernen/
         ├── sqlIsolationEngine.js
         ├── sqlIsolationEngine.test.js
         ├── dguvV3ElektronikEngine.js
-        └── dguvV3ElektronikEngine.test.js
+        ├── dguvV3ElektronikEngine.test.js
+        ├── ihkMepEngine.js
+        ├── ihkMepEngine.test.js
+        ├── wisoFinancingEngine.js
+        ├── wisoFinancingEngine.test.js
+        ├── pkiCertificateEngine.js
+        └── pkiCertificateEngine.test.js
 ```
 
 ---
@@ -1087,6 +1128,21 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.52.0 (IHK Mündliche Ergänzungsprüfung MEP Simulator, WISO Finanzierung & X.509 PKI Chain Validator Edition)
+
+- **Neu**: `src/components/Content/IhkMepSimulatorLab.jsx` & `src/utils/ihkMepEngine.js` — IHK Mündliche Ergänzungsprüfung (MEP) Simulator: Didaktisches Prüfungs- und Notfall-Studio nach BBiG § 198 und Prüfungsordnung AO 2020 für gefährdete Prüflinge mit Note 5 (30–49 Punkte) in einem schriftlichen Prüfungsbereich.
+  - **Exakte 2:1 Notenberechnung**: Dynamische Formel $\text{Gesamt} = \frac{2 \times \text{Schriftlich} + 1 \times \text{MEP}}{3}$ mit automatischer Ermittlung der benötigten Mindestpunktzahl für genau 50 Punkte (Note 4 / Ausreichend) und K.O.-Prüfung bei Unmöglichkeit.
+  - **15-Minuten MEP-Fragensimulation**: Reale IHK-Fachfragen für WiSo (Kündigungsfristen BGB § 622, Skonto vs. Rabatt, GmbH vs. Einzelunternehmen), AP2 Bereich 1 (Lastenheft vs. Pflichtenheft, Nutzwertanalyse & K.O.-Kriterien) und AP2 Bereich 2 (3. Normalform 3NF, IPv4 Subnetting & Broadcast) inklusive ausführlicher Prüfer-Musterantworten und 60 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 3 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/WisoFinancingLab.jsx` & `src/utils/wisoFinancingEngine.js` — WISO Finanzierungsvergleich (Kauf vs. Kredit vs. Leasing): Didaktisches Investitions- und Finanzierungs-Studio für IHK AP2 WISO & Kostenrechnung.
+  - **Drei Finanzierungsmodelle im Live-Vergleich**: Sofortkauf mit Skontoabzug, Annuitäten-/Ratendarlehen mit degressiver Zinslast und Operating Leasing ohne Bilanzierungspflicht (Off-Balance-Finanzierung).
+  - **AfA- und Steuereffekte (Tax Shield)**: Berücksichtigung der linearen Abschreibung nach § 7 EStG (3 Jahre ND für IT-Hardware) und steuerlichen Abzugsfähigkeit von Zinsen und Leasingraten. Vollständig typgeprüft (`// @ts-check`) und mit Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/PkiCertificateLab.jsx` & `src/utils/pkiCertificateEngine.js` — X.509 PKI & Certificate Chain Validator Studio: Tiefgehende Netzwerksicherheits- und Kryptographie-Inspektion nach RFC 5280 und RFC 6960.
+  - **Hierarchische Vertrauenskette (Chain of Trust)**: Interaktive Inspektion von Root CA (Trust Anchor, Self-Signed, `CA:TRUE`), Intermediate CA und End-Entity Leaf-Zertifikat.
+  - **Validierungs-Engine**: Hostname-Matching (SAN-Prüfung inkl. Wildcards `*.domain.de`), Gültigkeitszeiträume (`notBefore` / `notAfter`), CRL/OCSP Widerrufsprüfung und Live-Simulation von Kettenbrüchen mit 60 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 4 Unit-Tests abgesichert.
+- **Routing & Integration**: Vollständige Registrierung aller 3 neuen Studios in `src/App.jsx` (Lazy Loading & `activeLabElement` Switch-Tabelle mit Routen `ihk_mep_simulator_lab`, `wiso_financing_lab` und `pki_certificate_lab`), `src/components/Content/LabsDashboard.jsx`, `src/components/Navigation/Navbar.jsx` und `src/components/Navigation/CommandPaletteModal.jsx`.
+- **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für alle 3 neuen Studios erweitert (66/66 Komponenten-Tests bestanden) und `allLabsSmoke.test.jsx` erfolgreich über alle 200 Studios durchlaufen.
+- **Test-Suite & Qualität**: **1029 bestandene Unit- & Integrationstests** in **143 Test-Dateien** (100% Erfolgsquote, +8 Tests!), **0 Oxlint-Fehler / 0 Warnungen** über 546 Quelldateien (`oxlint src --deny-warnings`), `tsc --noEmit` fehlerfrei, PWA Produktions-Build erfolgreich und alle `size-limit`-Vorgaben eingehalten (App-Shell 109.07 kB gzipped < 110 kB Limit).
 
 ### Version 3.51.0 (SQL Transaction Isolation, DGUV V3 Elektrotechnik & IHK AP2 Berufsabdeckung Edition)
 

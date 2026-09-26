@@ -70,6 +70,9 @@ import ArgoCdGitOpsLab from './Content/ArgoCdGitOpsLab';
 import VectorMathEmbeddingLab from './Content/VectorMathEmbeddingLab';
 import SqlIsolationLab from './Content/SqlIsolationLab';
 import DguvV3ElektronikLab from './Content/DguvV3ElektronikLab';
+import IhkMepSimulatorLab from './Content/IhkMepSimulatorLab';
+import WisoFinancingLab from './Content/WisoFinancingLab';
+import PkiCertificateLab from './Content/PkiCertificateLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -580,6 +583,30 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/DGUV Vorschrift 3/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert IhkMepSimulatorLab fehlerfrei', () => {
+    const { container } = render(
+      <IhkMepSimulatorLab onAwardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Mündliche Ergänzungsprüfung/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert WisoFinancingLab fehlerfrei', () => {
+    const { container } = render(
+      <WisoFinancingLab onAwardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Finanzierungsvergleich/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert PkiCertificateLab fehlerfrei', () => {
+    const { container } = render(
+      <PkiCertificateLab onAwardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Certificate Chain/i).length).toBeGreaterThan(0);
   });
 });
 

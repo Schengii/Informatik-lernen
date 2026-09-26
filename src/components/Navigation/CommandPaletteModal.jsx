@@ -6,7 +6,7 @@ import {
   Calculator, Globe, ShieldAlert, Brain, GitMerge,
   Lock, Activity, GitCommit, Network, Server, Code, Radio, Mic, Zap,
   Clock, GitPullRequest, Calendar, Key, HardDrive, FileCode, TrendingDown,
-  Cloud, Compass
+  Cloud, Compass, GraduationCap
 } from 'lucide-react';
 import { TOPICS } from '../../data/topicsData';
 import { GLOSSARY_TERMS } from '../../data/glossaryData';
@@ -27,6 +27,9 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-ihk-mep', title: 'IHK Mündliche Ergänzungsprüfung (MEP) Simulator (15 Min Notfallprüfung & 2:1 Notenrechner)', category: 'Prüfung', icon: GraduationCap, action: () => onNavigate('ihk_mep_simulator_lab') },
+    { id: 'view-wiso-financing', title: 'WISO Finanzierungsvergleich: Kauf vs. Kredit vs. Leasing (AfA § 7 EStG Tax Shield)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('wiso_financing_lab') },
+    { id: 'view-pki-certificate', title: 'X.509 PKI & Certificate Chain Validator Studio (Trust Anchor, SAN & OCSP Stapling)', category: 'Labs & Tools', icon: Lock, action: () => onNavigate('pki_certificate_lab') },
     { id: 'view-sql-isolation', title: 'SQL Transaction Isolation & ACID Studio (Read Committed, Repeatable Read, SSI & Write Skew)', category: 'Labs & Tools', icon: Database, action: () => onNavigate('sql_isolation_lab') },
     { id: 'view-dguv-v3', title: 'DGUV Vorschrift 3 & VDE Elektro-Prüfstudio (R_PE, R_ISO, RCD 30mA & USV-Dimensionierung)', category: 'Labs & Tools', icon: Zap, action: () => onNavigate('dguv_v3_lab') },
     { id: 'view-sql-window-functions', title: 'SQL Window Functions & Analytics Studio (ROW_NUMBER, RANK, DENSE_RANK, NTILE, LEAD/LAG)', category: 'Labs & Tools', icon: Database, action: () => onNavigate('sql_window_functions_lab') },

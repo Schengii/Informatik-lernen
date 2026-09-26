@@ -272,6 +272,10 @@ const VectorMathEmbeddingLab = lazy(() => import('./components/Content/VectorMat
 // v3.51.0 SQL Transaction Isolation & DGUV V3 Elektrotechnik Studios
 const SqlIsolationLab = lazy(() => import('./components/Content/SqlIsolationLab'));
 const DguvV3ElektronikLab = lazy(() => import('./components/Content/DguvV3ElektronikLab'));
+// v3.52.0 MEP Simulator, WISO Financing & PKI Chain Validator Studios
+const IhkMepSimulatorLab = lazy(() => import('./components/Content/IhkMepSimulatorLab'));
+const WisoFinancingLab = lazy(() => import('./components/Content/WisoFinancingLab'));
+const PkiCertificateLab = lazy(() => import('./components/Content/PkiCertificateLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -728,6 +732,12 @@ export default function App() {
         return <SqlIsolationLab onAwardXP={(xp, badge) => awardXP(xp, badge)} />;
       case activeTab === 'dguv_v3_lab' || activeTab === 'dguv_v3' || activeTab === 'itse_elektrotechnik_lab':
         return <DguvV3ElektronikLab onAwardXP={(xp, badge) => awardXP(xp, badge)} />;
+      case activeTab === 'ihk_mep_simulator_lab' || activeTab === 'ihk_mep' || activeTab === 'mep_simulator':
+        return <IhkMepSimulatorLab onAwardXP={(xp, badge) => awardXP(xp, badge)} />;
+      case activeTab === 'wiso_financing_lab' || activeTab === 'wiso_financing' || activeTab === 'leasing_vergleich':
+        return <WisoFinancingLab onAwardXP={(xp, badge) => awardXP(xp, badge)} />;
+      case activeTab === 'pki_certificate_lab' || activeTab === 'pki_certificate' || activeTab === 'tls_chain_validator':
+        return <PkiCertificateLab onAwardXP={(xp, badge) => awardXP(xp, badge)} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':
