@@ -269,6 +269,9 @@ const JwtConfusionLab = lazy(() => import('./components/Content/JwtConfusionLab'
 const SqlWindowFunctionsLab = lazy(() => import('./components/Content/SqlWindowFunctionsLab'));
 const ArgoCdGitOpsLab = lazy(() => import('./components/Content/ArgoCdGitOpsLab'));
 const VectorMathEmbeddingLab = lazy(() => import('./components/Content/VectorMathEmbeddingLab'));
+// v3.51.0 SQL Transaction Isolation & DGUV V3 Elektrotechnik Studios
+const SqlIsolationLab = lazy(() => import('./components/Content/SqlIsolationLab'));
+const DguvV3ElektronikLab = lazy(() => import('./components/Content/DguvV3ElektronikLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -721,6 +724,10 @@ export default function App() {
         return <ArgoCdGitOpsLab onRewardXP={(xp) => awardXP(xp, 'argocd_gitops_master')} />;
       case activeTab === 'vector_math_embedding_lab' || activeTab === 'vector_math' || activeTab === 'embedding_distance_lab':
         return <VectorMathEmbeddingLab onRewardXP={(xp) => awardXP(xp, 'vector_math_master')} />;
+      case activeTab === 'sql_isolation_lab' || activeTab === 'sql_isolation' || activeTab === 'acid_isolation_lab':
+        return <SqlIsolationLab onAwardXP={(xp, badge) => awardXP(xp, badge)} />;
+      case activeTab === 'dguv_v3_lab' || activeTab === 'dguv_v3' || activeTab === 'itse_elektrotechnik_lab':
+        return <DguvV3ElektronikLab onAwardXP={(xp, badge) => awardXP(xp, badge)} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':

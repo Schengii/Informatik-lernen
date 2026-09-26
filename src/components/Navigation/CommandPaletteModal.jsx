@@ -27,6 +27,8 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-sql-isolation', title: 'SQL Transaction Isolation & ACID Studio (Read Committed, Repeatable Read, SSI & Write Skew)', category: 'Labs & Tools', icon: Database, action: () => onNavigate('sql_isolation_lab') },
+    { id: 'view-dguv-v3', title: 'DGUV Vorschrift 3 & VDE Elektro-Prüfstudio (R_PE, R_ISO, RCD 30mA & USV-Dimensionierung)', category: 'Labs & Tools', icon: Zap, action: () => onNavigate('dguv_v3_lab') },
     { id: 'view-sql-window-functions', title: 'SQL Window Functions & Analytics Studio (ROW_NUMBER, RANK, DENSE_RANK, NTILE, LEAD/LAG)', category: 'Labs & Tools', icon: Database, action: () => onNavigate('sql_window_functions_lab') },
     { id: 'view-argocd-gitops', title: 'ArgoCD GitOps & Cluster Sync Studio (Git-to-Cluster Drift, Out-of-Sync & Self-Healing)', category: 'Labs & Tools', icon: Cloud, action: () => onNavigate('argocd_gitops_lab') },
     { id: 'view-vector-math-embedding', title: 'Vektor-Mathematik & Embedding-Distanz Studio (Cosine Sim, L2 Euclidean & Manhattan)', category: 'Labs & Tools', icon: Compass, action: () => onNavigate('vector_math_embedding_lab') },

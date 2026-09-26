@@ -3,13 +3,13 @@
 > 🌐 **Live-Webseite (Vercel):** [https://informatik-lernen.vercel.app](https://informatik-lernen.vercel.app)  
 > [![Vercel Deployment](https://img.shields.io/badge/Vercel-Deployed-black?style=flat&logo=vercel)](https://informatik-lernen.vercel.app) [![Status](https://img.shields.io/badge/Status-Online%20%26%20PWA%20Ready-success?style=flat)](https://informatik-lernen.vercel.app)
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), SQL Window Functions & Analytics Studio (ROW_NUMBER, RANK, DENSE_RANK, NTILE, LEAD/LAG), ArgoCD Kubernetes GitOps & Cluster Drift Studio, Vektor-Mathematik & Embedding-Distanz Studio (Cosine Sim, L2 Euclidean & Manhattan), IHK Projektantrag & Zeitplan-Kollisions-Linter (80h FIAE / 40h FISI), JWT Algorithm Confusion Attack & None-Algorithm Defense Studio (RFC 7519 / RFC 7518 RS256 vs. HS256 Public Key Verification Bypass), Linux SELinux & AppArmor Mandatory Access Control (MAC) Studio, DNS Privacy Inspector (DoH & DoT vs. Port 53 Wire-Format RFC 8484/7858), IHK WISO Liquiditätsgrade (1., 2., 3. Grad / Cash, Quick, Current Ratio) & Net Working Capital (NWC / InsO § 17), RAG Semantic Caching & Vector Similarity Studio (Cosine-Threshold & Zero-Cost Cache Hits), DNSSEC Cryptographic Chain of Trust & RRSIG Validation Studio (RFC 4035), IHK Agile vs. Waterfall & Burndown Studio (AP2 Teil A), Linux Btrfs / ZFS Copy-on-Write & Snapshot Sandbox, OpenAPI 3.1 & JSON-Schema Contract Testing Studio, TLS 1.3 0-RTT Replay Attack & Anti-Replay Studio (RFC 8446 Early Data), IHK Risikoanalyse & 5x5 Risikomatrix (DIN EN 31010 / FMEA für AP2), eBPF Cilium Service Mesh & L7 Tracing Sandbox, PostgreSQL Index Types Deep Dive (B-Tree, GIN, GiST, BRIN), IHK Wirtschaftlichkeits-, Amortisations- & Make-or-Buy Rechner (AP2 Doku-Modul), Web Crypto API & FIDO2 Passkey Studio (WebAuthn), Linux Systemd Unit Lifecycle & Cgroups v2 Sandbox, WebAssembly 128-Bit SIMD & Sobel Convolution Matrix Studio, IHK Projekt-Gantt & Meilenstein-Editor (AP2 Zeitplanung 80h FIAE / 40h FISI), HTTP/3 & QUIC Protocol Inspector & UDP Packet Loss Recovery Simulator, IndexedDB Store Hydration & Redundanter Persistenz-Layer, IHK Präsentations-Stoppuhr & Folien-Gliederung (15 Min AP2 Teil A), Docker Compose Multi-Container Orchestrator (DAG & Network Isolation), Dynamic CI/CD GitHub Actions Workflow Simulator, Offline IndexedDB Storage Synchronizer, IHK Fachgespräch & Audio-Prüfungssimulator (Web Speech STT/TTS), Ansible Playbook & Idempotenz Studio, Web Worker & Hintergrund-Performance Concurrency Studio, IHK DIN 69900 CPM Netzplantechnik, OMG UML 2.5 Studio, Terraform & OpenTofu IaC Studio, IHK Nutzwertanalyse Studio (NWA), RAID Storage & Paritäts-Rechner, VLSM Subnet Splitter, IHK Projektantrags-Prüfer, OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer, Relationalem ERD Designer & 1NF–3NF Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer, Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), SQL Transaction Isolation & ACID Studio (Read Committed, Repeatable Read, SSI & Write Skew), DGUV Vorschrift 3 & VDE Elektro-Prüfstudio (R_PE, R_ISO, 30 mA RCD & USV), allen 5 IHK-Ausbildungsberufen im Prüfungssimulator (FIAE, FISI, FIDP, FIDV, IT-SE), SQL Window Functions & Analytics Studio (ROW_NUMBER, RANK, DENSE_RANK, NTILE, LEAD/LAG), ArgoCD Kubernetes GitOps & Cluster Drift Studio, Vektor-Mathematik & Embedding-Distanz Studio (Cosine Sim, L2 Euclidean & Manhattan), IHK Projektantrag & Zeitplan-Kollisions-Linter (80h FIAE / 40h FISI), JWT Algorithm Confusion Attack & None-Algorithm Defense Studio (RFC 7519 / RFC 7518 RS256 vs. HS256 Public Key Verification Bypass), Linux SELinux & AppArmor Mandatory Access Control (MAC) Studio, DNS Privacy Inspector (DoH & DoT vs. Port 53 Wire-Format RFC 8484/7858), IHK WISO Liquiditätsgrade (1., 2., 3. Grad / Cash, Quick, Current Ratio) & Net Working Capital (NWC / InsO § 17), RAG Semantic Caching & Vector Similarity Studio (Cosine-Threshold & Zero-Cost Cache Hits), DNSSEC Cryptographic Chain of Trust & RRSIG Validation Studio (RFC 4035), IHK Agile vs. Waterfall & Burndown Studio (AP2 Teil A), Linux Btrfs / ZFS Copy-on-Write & Snapshot Sandbox, OpenAPI 3.1 & JSON-Schema Contract Testing Studio, TLS 1.3 0-RTT Replay Attack & Anti-Replay Studio (RFC 8446 Early Data), IHK Risikoanalyse & 5x5 Risikomatrix (DIN EN 31010 / FMEA für AP2), eBPF Cilium Service Mesh & L7 Tracing Sandbox, PostgreSQL Index Types Deep Dive (B-Tree, GIN, GiST, BRIN), IHK Wirtschaftlichkeits-, Amortisations- & Make-or-Buy Rechner (AP2 Doku-Modul), Web Crypto API & FIDO2 Passkey Studio (WebAuthn), Linux Systemd Unit Lifecycle & Cgroups v2 Sandbox, WebAssembly 128-Bit SIMD & Sobel Convolution Matrix Studio, IHK Projekt-Gantt & Meilenstein-Editor (AP2 Zeitplanung 80h FIAE / 40h FISI), HTTP/3 & QUIC Protocol Inspector & UDP Packet Loss Recovery Simulator, IndexedDB Store Hydration & Redundanter Persistenz-Layer, IHK Präsentations-Stoppuhr & Folien-Gliederung (15 Min AP2 Teil A), Docker Compose Multi-Container Orchestrator (DAG & Network Isolation), Dynamic CI/CD GitHub Actions Workflow Simulator, Offline IndexedDB Storage Synchronizer, IHK Fachgespräch & Audio-Prüfungssimulator (Web Speech STT/TTS), Ansible Playbook & Idempotenz Studio, Web Worker & Hintergrund-Performance Concurrency Studio, IHK DIN 69900 CPM Netzplantechnik, OMG UML 2.5 Studio, Terraform & OpenTofu IaC Studio, IHK Nutzwertanalyse Studio (NWA), RAID Storage & Paritäts-Rechner, VLSM Subnet Splitter, IHK Projektantrags-Prüfer, OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer, Relationalem ERD Designer & 1NF–3NF Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer, Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.50.0)](#-hauptfunktionen--neue-features-v3500-sql-window-functions-argocd-gitops-vektor-mathematik--ihk-antrags-linter-edition)
+- [Hauptfunktionen & Neue Features (v3.51.0)](#-hauptfunktionen--neue-features-v3510-sql-transaction-isolation-dguv-v3-elektrotechnik--ihk-ap2-berufsabdeckung-edition)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -87,7 +87,45 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 
 ---
 
-## ✨ Hauptfunktionen & Neue Features (v3.50.0: SQL Window Functions, ArgoCD GitOps, Vektor-Mathematik & IHK Antrags-Linter Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.51.0: SQL Transaction Isolation, DGUV V3 Elektrotechnik & IHK AP2 Berufsabdeckung Edition)
+
+* **🛡️ SQL Transaction Isolation & ACID Studio (`SqlIsolationLab.jsx` & `src/utils/sqlIsolationEngine.js`)**:
+  * Didaktisches Datenbank-Architektur- und Concurrency-Studio nach ANSI SQL-92 Standard (PostgreSQL MVCC, MySQL InnoDB, Oracle).
+  * **Interaktive Gegenüberstellung der 4 ANSI-SQL Isolationslevel**:
+    * **Read Uncommitted**: Maximale Concurrency, jedoch Risiko von Geisterdaten.
+    * **Read Committed (Standard in PostgreSQL)**: Statement-Level MVCC-Snapshots, verhindert Dirty Reads.
+    * **Repeatable Read**: Transaction-Level Snapshot Isolation, verhindert Non-Repeatable Reads und Phantom Reads.
+    * **Serializable (SSI / Serializable Snapshot Isolation)**: Strikteste Stufe mit SIREAD Locks und Dependency-Graph-Tracking, verhindert Write Skew.
+  * **Simulation aller 4 Transaktionsanomalien mit Step-by-Step Timeline**:
+    * **Dirty Read**: Lesen uncommitteter Daten nach späterem ROLLBACK.
+    * **Non-Repeatable Read (Fuzzy Read)**: Veränderte Werte bei wiederholtem SELECT auf dieselbe Zeile.
+    * **Phantom Read**: Neu aufgetauchte Zeilen bei wiederholten Bereichsabfragen (Range Queries).
+    * **Write Skew**: Parallele Schreiboperationen verletzen globale Integritätsregeln trotz Snapshot-Isolation.
+  * IHK-Prüfungsmatrix und 50 XP Belohnung bei Abschluss aller Szenarien.
+
+* **⚡ DGUV Vorschrift 3 & VDE Elektro-Prüfstudio (`DguvV3ElektronikLab.jsx` & `src/utils/dguvV3ElektronikEngine.js`)**:
+  * Praxisorientiertes IT-Infrastruktur- und Elektrotechnik-Studio für **IT-System-Elektroniker (ITSE AP2 Bereich 2)** und **Fachinformatiker Systemintegration (FISI Lernfeld 2)**.
+  * **Schutzklassen nach DIN EN 61140 (VDE 0140-1)**:
+    * Schutzklasse I (Schutzerdung $\color{amber}⏚$, Servernetzteile, Kaltgerätestecker).
+    * Schutzklasse II (Schutzisolierung $\color{amber}回$, Notebook-Netzteile, Eurostecker).
+    * Schutzklasse III (Schutzkleinspannung $\color{amber}⬖$, PoE bis 57V DC, SELV/PELV).
+  * **Geräteprüfung nach DIN VDE 0701-0702**:
+    * Schutzleiterwiderstand $R_{PE}$: Grenzwert max. $0,3\,\Omega$ (bis 5 m) $+ 0,1\,\Omega$ je weitere 7,5 m (max. $1,0\,\Omega$).
+    * Isolationswiderstand $R_{ISO}$: Mindestanforderung $\ge 1,0\,\text{M}\Omega$ (SK I) bzw. $\ge 2,0\,\text{M}\Omega$ (SK II).
+  * **RCD / FI Personenschutzprüfung nach DIN VDE 0100-410**:
+    * Bemessungsfehlerstrom $I_{\Delta n} = 30\,\text{mA}$ mit Auslösestrom-Toleranzbereich ($15\,\text{mA}$ bis $30\,\text{mA}$).
+    * Maximale Abschaltzeit $t_a \le 400\,\text{ms}$ im TN-Netz bzw. $t_a \le 200\,\text{ms}$ im TT-Netz.
+  * **RZ-USV Batteriedimensionierung & Notstrom-Autonomie**:
+    * Formel: $\text{Laufzeit} = \frac{\text{Kapazität (Ah)} \times \text{Spannung (V)} \times \eta}{\text{Serverlast (W)}} \times 60\,\text{Minuten}$ mit 60 XP Belohnung.
+
+* **🎓 Volle IHK AP2-Berufsabdeckung im Prüfungssimulator (`ExamSimulator.jsx` & `src/data/examData.js`)**:
+  * Vollständige Abdeckung aller 5 IT-Ausbildungsberufe nach offizieller Ausbildungsordnung (AO 2020):
+    * **FIAE**: Anwendungsentwicklung (Softwarearchitektur, OOP, Clean Code, SQL).
+    * **FISI**: Systemintegration (Routing, Subnetting, Firewalls, DNS/DHCP, Serverdienste).
+    * **FIDP (Neu)**: Daten- und Prozessanalyse (ETL/ELT-Pipelines, Data Lineage, Machine Learning, Governance).
+    * **FIDV (Neu)**: Digitale Vernetzung (Cyber-Physische Systeme, IIoT, MQTT, OPC UA, OT/IT-Sicherheit).
+    * **ITSE (Neu)**: IT-System-Elektroniker (DGUV Vorschrift 3, RCD-Abschaltung, Leitungsdimensionierung).
+  * Erweiterter Fragenkatalog (Fragen 26–31) mit detaillierten IHK-Musterlösungen und Begründungen.
 
 * **⚡ SQL Window Functions & Analytics Studio (`SqlWindowFunctionsLab.jsx` & `src/utils/sqlWindowFunctionsEngine.js`)**:
   * Didaktisches Modern Data Engineering- und SQL-Analytics-Studio nach ANSI SQL:2003 Standard (PostgreSQL, SQLite 3.25+, MySQL 8.0+).
@@ -732,6 +770,8 @@ Informatik-lernen/
     │   │   ├── WisoInterestCalculationsLab.jsx
     │   │   ├── WisoLaborLawLab.jsx
     │   │   ├── WisoLoanCollateralLab.jsx
+    │   │   ├── SqlIsolationLab.jsx
+    │   │   ├── DguvV3ElektronikLab.jsx
     │   │   └── WisoKalkulationLab.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
@@ -986,7 +1026,11 @@ Informatik-lernen/
         ├── wisoLaborLawEngine.js
         ├── wisoLaborLawEngine.test.js
         ├── wisoLoanCollateralEngine.js
-        └── wisoLoanCollateralEngine.test.js
+        ├── wisoLoanCollateralEngine.test.js
+        ├── sqlIsolationEngine.js
+        ├── sqlIsolationEngine.test.js
+        ├── dguvV3ElektronikEngine.js
+        └── dguvV3ElektronikEngine.test.js
 ```
 
 ---
@@ -1043,6 +1087,21 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.51.0 (SQL Transaction Isolation, DGUV V3 Elektrotechnik & IHK AP2 Berufsabdeckung Edition)
+
+- **Neu**: `src/components/Content/SqlIsolationLab.jsx` & `src/utils/sqlIsolationEngine.js` — SQL Transaction Isolation & ACID Studio: Interaktive Erforschung der 4 ANSI-SQL Isolationsstufen (Read Uncommitted, Read Committed, Repeatable Read, Serializable SSI) und dynamische Simulation von Dirty Reads, Non-Repeatable Reads, Phantom Reads und Write Skew inklusive technischer MVCC- und SIREAD-Erklärungen mit 50 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 5 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/DguvV3ElektronikLab.jsx` & `src/utils/dguvV3ElektronikEngine.js` — DGUV Vorschrift 3 & VDE Elektro-Prüfstudio: Prüfung elektrischer Schutzmaßnahmen für IT-System-Elektroniker (ITSE AP2) und Fachinformatiker (FISI LF 2). Schutzklassen I–III, Schutzleiterwiderstand $R_{PE}$ nach Leitungslänge ($0,3\,\Omega$ + $0,1\,\Omega$/7,5m), Isolationswiderstand $R_{ISO}$ ($1,0\,\text{M}\Omega$ / $2,0\,\text{M}\Omega$), RCD 30 mA Personenschutzprüfung ($t_a \le 400\,\text{ms}$ TN / $200\,\text{ms}$ TT) und USV-Batterieautonomie-Rechner mit 60 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 5 Unit-Tests abgesichert.
+- **Erweitert**: `src/components/Content/ExamSimulator.jsx` & `src/data/examData.js` — Volle IHK AP2-Berufsabdeckung nach Ausbildungsordnung 2020:
+  - Ergänzung der dedizierten Prüfungsmodi für **FIDP** (Daten- und Prozessanalyse), **FIDV** (Digitale Vernetzung) und **ITSE** (IT-System-Elektroniker).
+  - Neuer Fragenkatalog (Fragen 26–31) mit detaillierten IHK-Musterlösungen zu ELT vs. ETL, Data Lineage, MQTT QoS, OPC UA, DGUV Vorschrift 3 Grenzwerten und RCD-Personenschutz (30 mA).
+- **Typisierung & Engine-Härtung**:
+  - `src/utils/ihkProjectProposalEngine.js`: Absicherung gegen ungültige Berufs-Keys und Typisierung (`// @ts-check`).
+  - `src/utils/jwtConfusionEngine.js`: JSDoc Parameter-Typen (`base64UrlEncode`, `generateSimulatedSignature`, `forge*`).
+  - `src/utils/wisoCapitalValueEngine.js`: Typisierung von `npvFn` und `dynamicPaybackPeriod` (`tsc --noEmit` fehlerfrei).
+- **Routing & Integration**: Vollständige Registrierung beider neuer Studios in `src/App.jsx` (Lazy Loading & `activeLabElement` Switch-Tabelle mit Routen `sql_isolation_lab` und `dguv_v3_lab`), `src/components/Content/LabsDashboard.jsx`, `src/components/Navigation/Navbar.jsx` und `src/components/Navigation/CommandPaletteModal.jsx`.
+- **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für beide neuen Studios erweitert (63/63 Komponenten-Tests bestanden) und `allLabsSmoke.test.jsx` erfolgreich über alle 197 Studios durchlaufen.
+- **Test-Suite & Qualität**: **1021 bestandene Unit- & Integrationstests** in **140 Test-Dateien** (100% Erfolgsquote, +10 Tests!), **0 Oxlint-Fehler / 0 Warnungen** über 539 Quelldateien (`oxlint src --deny-warnings`), `tsc --noEmit` fehlerfrei, PWA Produktions-Build erfolgreich und alle `size-limit`-Vorgaben eingehalten.
 
 ### Version 3.50.0 (SQL Window Functions, ArgoCD GitOps, Vektor-Mathematik & IHK Antrags-Linter Edition)
 

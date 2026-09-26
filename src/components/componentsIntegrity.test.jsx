@@ -68,6 +68,8 @@ import JwtConfusionLab from './Content/JwtConfusionLab';
 import SqlWindowFunctionsLab from './Content/SqlWindowFunctionsLab';
 import ArgoCdGitOpsLab from './Content/ArgoCdGitOpsLab';
 import VectorMathEmbeddingLab from './Content/VectorMathEmbeddingLab';
+import SqlIsolationLab from './Content/SqlIsolationLab';
+import DguvV3ElektronikLab from './Content/DguvV3ElektronikLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -562,6 +564,22 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/Vektor-Mathematik/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert SqlIsolationLab fehlerfrei', () => {
+    const { container } = render(
+      <SqlIsolationLab onAwardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/SQL Transaction Isolation/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert DguvV3ElektronikLab fehlerfrei', () => {
+    const { container } = render(
+      <DguvV3ElektronikLab onAwardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/DGUV Vorschrift 3/i).length).toBeGreaterThan(0);
   });
 });
 

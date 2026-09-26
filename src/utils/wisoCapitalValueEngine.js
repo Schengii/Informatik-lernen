@@ -17,6 +17,7 @@ export function calculateInternalRateOfReturn(i0, cashflows, ln = 0) {
   if (i0 <= 0 || !cashflows || cashflows.length === 0) return null;
 
   // NPV-Funktion für Zinssatz r (als Dezimalzahl)
+  /** @param {number} r */
   const npvFn = (r) => {
     let sum = 0;
     for (let t = 1; t <= cashflows.length; t++) {
@@ -74,6 +75,7 @@ export function calculateNetPresentValue({
 
   let sumBarwerte = 0;
   let kumulierterBarwert = 0;
+  /** @type {number | null} */
   let dynamicPaybackPeriod = null; // Jahre bis kumulierter Barwert >= I0
 
   const cashflowDetails = cashflows.map((cfVal, idx) => {

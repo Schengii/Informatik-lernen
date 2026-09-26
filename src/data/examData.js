@@ -24,6 +24,30 @@ export const IHK_EXAM_MODES = [
     passingScore: 50
   },
   {
+    id: 'ap2_fidp',
+    title: 'IHK AP2: Fachinformatiker Daten- & Prozessanalyse (FIDP)',
+    description: 'Abschlussprüfung Teil 2: ETL-Strecken, Data Warehousing, Data Lineage, Machine Learning, DSGVO & Prozessoptimierung.',
+    durationMinutes: 90,
+    totalPoints: 100,
+    passingScore: 50
+  },
+  {
+    id: 'ap2_fidv',
+    title: 'IHK AP2: Fachinformatiker Digitale Vernetzung (FIDV)',
+    description: 'Abschlussprüfung Teil 2: Cyber-Physische Systeme, IIoT, MQTT/OPC UA, Edge Computing & industrielle Netzwerksicherheit.',
+    durationMinutes: 90,
+    totalPoints: 100,
+    passingScore: 50
+  },
+  {
+    id: 'ap2_itse',
+    title: 'IHK AP2: IT-System-Elektroniker/in (ITSE)',
+    description: 'Abschlussprüfung Teil 2: DGUV V3 Prüfungen, RCD/FI-Schutz, USV-Dimensionierung, elektrische Netzsicherheit & Sensorik.',
+    durationMinutes: 90,
+    totalPoints: 100,
+    passingScore: 50
+  },
+  {
     id: 'quick_mixed',
     title: '⚡ Quick-Check: Gemischte IT-Prüfungsfragen',
     description: 'Kompakte Trainings-Session über alle Themenbereiche zur schnellen Wissensabfrage.',
@@ -394,6 +418,92 @@ export const EXAM_QUESTIONS = [
     correct: 2,
     points: 10,
     explanation: 'Kreditzeitraum: 30 - 10 = 20 Tage. Skontosatz: 2 %. Formel für Jahreszinssatz: (2% / 20 Tage) * 360 Tage = 36% p.a. Skontoausnutzung ist extrem lukrativ!'
+  },
+  {
+    id: 26,
+    examType: 'ap2_fidp',
+    category: 'Datenanalyse & Pipelines',
+    difficulty: 'Azubi / IHK',
+    question: 'Was versteht man im Kontext moderner Data-Warehouse-Architekturen unter dem ELT-Verfahren im Vergleich zu klassischem ETL?',
+    options: [
+      'Transformation der Rohdaten erfolgt erst nach dem Laden direkt in der skalierbaren Ziel-Datenbank / Cloud DWH.',
+      'Daten werden vor dem Laden komplett im Quellsystem verschlüsselt und anonymisiert.',
+      'ELT ist veraltet und darf nach EU-DSGVO nicht mehr verwendet werden.',
+      'Beim ELT-Verfahren entfällt der Ladeschritt vollständig zugunsten von Streaming-Queues.'
+    ],
+    correct: 0,
+    points: 10,
+    explanation: 'Beim Extract-Load-Transform (ELT) werden Rohdaten zuerst unberührt ins Data Warehouse bzw. den Data Lake geladen. Die rechenintensive Transformation erfolgt flexibel direkt im Zielsystem per SQL oder DB-Engines.'
+  },
+  {
+    id: 27,
+    examType: 'ap2_fidp',
+    category: 'Data Lineage & Governance',
+    difficulty: 'Azubi / IHK',
+    question: 'Welches Kernziel verfolgt die Erfassung von "Data Lineage" in einem datengetriebenen Unternehmen?',
+    options: [
+      'Die kontinuierliche Komprimierung von Backup-Festplatten im SAN.',
+      'Die lückenlose Nachvollziehbarkeit des Ursprungs, der Transformationsschritte und des Lebenszyklus von Daten.',
+      'Die automatische Zuweisung von IP-Adressen an Analyse-Server per DHCP.',
+      'Die physische Absicherung der Serverracks gegen Überschwemmung.'
+    ],
+    correct: 1,
+    points: 10,
+    explanation: 'Data Lineage visualisiert und dokumentiert den Ursprung von Datensätzen und alle angewandten Transformationen – unverzichtbar für Audits, Compliance (DSGVO, BCBS 239) und Fehleranalysen.'
+  },
+  {
+    id: 28,
+    examType: 'ap2_fidv',
+    category: 'Industrielle Vernetzung & IIoT',
+    difficulty: 'Azubi / IHK',
+    question: 'Welches Protokoll zeichnet sich durch extrem geringen Overhead, Publish-Subscribe-Muster und QoS-Level (0, 1, 2) für ressourcenarme IoT-Sensoren aus?',
+    options: ['BGP-4', 'MQTT', 'LDAP', 'SNMPv3'],
+    correct: 1,
+    points: 10,
+    explanation: 'MQTT (Message Queuing Telemetry Transport) ist der weltweite Standard für IIoT und Telemetrie, basierend auf Pub/Sub mit 2-Byte-Header-Overhead und drei Servicequalitätsstufen (QoS 0/1/2).'
+  },
+  {
+    id: 29,
+    examType: 'ap2_fidv',
+    category: 'Cyber-Physische Systeme',
+    difficulty: 'Azubi / IHK',
+    question: 'Was ist der Hauptvorteil von OPC UA (Open Platform Communications Unified Architecture) in vernetzten Industrie-4.0-Fertigungsanlagen?',
+    options: [
+      'Es ersetzt das TCP/IP-Protokoll vollständig durch rein analoge Stromschleifen (4–20 mA).',
+      'Plattformunabhängige, semantische Informationsmodellierung mit integrierter Ende-zu-Ende-Sicherheit und Zertifikaten.',
+      'Es funktioniert ausschließlich auf Microsoft Windows NT Servern.',
+      'Es begrenzt die maximale Übertragungsrate auf 10 Mbit/s zur Vermeidung von Paketstaus.'
+    ],
+    correct: 1,
+    points: 10,
+    explanation: 'OPC UA bietet ein herstellerneutrales, semantisches Datenmodell und strikte Sicherheitsarchitektur (X.509-Zertifikate, Verschlüsselung) für die Konvergenz von OT (Operational Technology) und IT.'
+  },
+  {
+    id: 30,
+    examType: 'ap2_itse',
+    category: 'DGUV V3 & Schutzmaßnahmen',
+    difficulty: 'Azubi / IHK',
+    question: 'Welcher Grenzwert gilt gemäß DIN VDE 0701-0702 / DGUV Vorschrift 3 typischerweise für den Schutzleiterwiderstand (R_PE) von ortsveränderlichen elektrischen Geräten mit bis zu 5 m Zuleitung?',
+    options: [
+      'Maximal 0,3 Ω (bzw. 0,2 Ω nach neuerer Normfassung + 0,1 Ω je weitere 7,5 m)',
+      'Mindestens 2,0 MΩ',
+      'Exakt 10,0 Ω',
+      'Es gibt keinen Grenzwert, solange das Gerät startet'
+    ],
+    correct: 0,
+    points: 10,
+    explanation: 'Bei Schutzklasse I (Geräte mit Schutzleiter) muss der Schutzleiterwiderstand R_PE niederohmig sein: maximal 0,3 Ω (bzw. 0,2 Ω) für Leitungen bis 5 m, um im Fehlerfall den RCD/LS zuverlässig auszulösen.'
+  },
+  {
+    id: 31,
+    examType: 'ap2_itse',
+    category: 'Elektrische Sicherheit & RCD',
+    difficulty: 'Azubi / IHK',
+    question: 'Wie hoch ist der vorgeschriebene Bemessungsfehlerstrom (I_Δn) eines Fehlerstrom-Schutzschalters (RCD/FI) für den Personenschutz in Standard-Steckdosenstromkreisen bis 32 A?',
+    options: ['100 mA', '300 mA', '30 mA', '500 mA'],
+    correct: 2,
+    points: 10,
+    explanation: 'Nach DIN VDE 0100-410 ist für Steckdosenstromkreise zum Personenschutz ein RCD mit einem Bemessungsfehlerstrom von höchstens 30 mA (0,03 A) zwingend vorgeschrieben (Herzkammerflimmer-Schwelle).'
   }
 ];
 

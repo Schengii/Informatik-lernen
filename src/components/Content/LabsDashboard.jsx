@@ -3,6 +3,28 @@ import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Da
 
 export const LAB_MODULES = [
   {
+    id: 'sql_isolation_lab',
+    title: 'SQL Transaction Isolation & ACID Studio',
+    category: 'database',
+    tags: ['#SQL', '#ACID', '#IsolationLevels', '#Postgres', '#DirtyRead', '#RepeatableRead', '#Serializable', '#WriteSkew'],
+    difficulty: 'Advanced',
+    desc: 'ANSI SQL:1992 Isolationslevel (Read Committed, Repeatable Read, SSI): Interaktive Simulation von Dirty Reads, Non-Repeatable Reads, Phantom Reads und Write Skew.',
+    icon: Database,
+    badge: 'Neu',
+    color: '#6366f1'
+  },
+  {
+    id: 'dguv_v3_lab',
+    title: 'DGUV Vorschrift 3 & VDE Elektro-Prüfstudio',
+    category: 'ihk',
+    tags: ['#DGUV_V3', '#ITSE', '#FISI', '#Elektrotechnik', '#R_PE', '#R_ISO', '#RCD_FI', '#USV_Dimensionierung'],
+    difficulty: 'Intermediate',
+    desc: 'Elektrische Sicherheit nach DIN VDE 0701-0702 & 0100-410: Schutzklassen I–III, Schutzleiterwiderstand R_PE, Isolationswiderstand R_ISO, 30 mA RCD-Abschaltung und RZ-USV.',
+    icon: Zap,
+    badge: 'Neu',
+    color: '#eab308'
+  },
+  {
     id: 'sql_window_functions_lab',
     title: 'SQL Window Functions & Analytics Studio',
     category: 'database',

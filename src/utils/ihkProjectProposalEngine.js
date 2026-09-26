@@ -115,7 +115,10 @@ export function evaluateIhkProjectProposal({
   phases = DEFAULT_PROPOSAL_PHASES,
   checkedItems = ['chk_scope', 'chk_decision', 'chk_economic', 'chk_security', 'chk_handover']
 }) {
-  const occ = IHK_PROJECT_OCCUPATIONS[occupationId] || IHK_PROJECT_OCCUPATIONS.fiae;
+  const occKey = typeof occupationId === 'string' && occupationId in IHK_PROJECT_OCCUPATIONS
+    ? /** @type {keyof typeof IHK_PROJECT_OCCUPATIONS} */ (occupationId)
+    : 'fiae';
+  const occ = IHK_PROJECT_OCCUPATIONS[occKey];
   const totalHours = phases.reduce((sum, p) => sum + (Number(p.hours) || 0), 0);
   const isHoursExact = totalHours === occ.maxHours;
   const hoursDiff = totalHours - occ.maxHours;
@@ -133,7 +136,8 @@ export function evaluateIhkProjectProposal({
   const phaseAnalysis = phases.map(p => {
     const hours = Number(p.hours) || 0;
     const percent = totalHours > 0 ? Math.round((hours / totalHours) * 100) : 0;
-    const limits = occ.idealPhases[p.category];
+    // @ts-ignore
+    const limits = occ.idealPhases ? occ.idealPhases[p.category] : null;
 
     if (limits) {
       if (percent < limits.min) {

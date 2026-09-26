@@ -10,6 +10,7 @@
 
 /**
  * Basic Base64Url encoder/decoder
+ * @param {string} str
  */
 export function base64UrlEncode(str) {
   try {
@@ -27,6 +28,9 @@ export function base64UrlEncode(str) {
   }
 }
 
+/**
+ * @param {string} str
+ */
 export function base64UrlDecode(str) {
   try {
     let base64 = str.replace(/-/g, '+').replace(/_/g, '/');
@@ -47,6 +51,10 @@ export function base64UrlDecode(str) {
 /**
  * Pseudo HMAC SHA-256 Signature Generator for educational interactive simulation
  * Creates deterministic signatures based on header, payload and secret key
+ * @param {string} headerB64
+ * @param {string} payloadB64
+ * @param {string} key
+ * @param {string} [alg]
  */
 export function generateSimulatedSignature(headerB64, payloadB64, key, alg = 'HS256') {
   if (alg.toLowerCase() === 'none') {
@@ -216,6 +224,8 @@ export function verifyJwtToken(token, options = {}) {
 /**
  * Generates an exploit token for Algorithm Confusion
  * Changes role to admin, alg to HS256 and signs with public key
+ * @param {string} originalToken
+ * @param {string} [targetRole]
  */
 export function forgeAlgorithmConfusionToken(originalToken, targetRole = 'admin') {
   const parts = originalToken.split('.');
@@ -242,6 +252,8 @@ export function forgeAlgorithmConfusionToken(originalToken, targetRole = 'admin'
 
 /**
  * Generates an exploit token using "none" algorithm
+ * @param {string} originalToken
+ * @param {string} [targetRole]
  */
 export function forgeNoneAlgToken(originalToken, targetRole = 'admin') {
   const parts = originalToken.split('.');
