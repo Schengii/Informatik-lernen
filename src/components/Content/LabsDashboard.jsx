@@ -1,7 +1,29 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key, Lock, AlertTriangle, Globe, TrendingDown, HardDrive, FileCode, Brain, Activity, Radio, BarChart2, GraduationCap, Route, Scale, Building2 } from 'lucide-react';
+import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key, Lock, AlertTriangle, Globe, TrendingDown, HardDrive, FileCode, Brain, Activity, Radio, BarChart2, GraduationCap, Route, Scale, Building2, Users, KeyRound } from 'lucide-react';
 
 export const LAB_MODULES = [
+  {
+    id: 'wiso_personal_planung_lab',
+    title: 'IHK WISO Personalbedarfsplanung: Brutto & Netto Studio',
+    category: 'ihk',
+    tags: ['#WISO', '#Personalbedarf', '#Einsatzbedarf', '#Reservebedarf', '#Fluktuation', '#NettoBedarf', '#HR'],
+    difficulty: 'Intermediate',
+    desc: 'Kaufmännische Personalbedarfsermittlung: Arbeitszeit- und Kennzahlenmethode, Reservebedarf bei Ausfallquote sowie Netto-Einstellungsbedarf nach IHK-Prüfungsstandard.',
+    icon: Users,
+    badge: 'IHK Neu',
+    color: '#10b981'
+  },
+  {
+    id: 'oauth21_dpop_lab',
+    title: 'OAuth 2.1 & RFC 9449 DPoP Sender-Constrained Security Studio',
+    category: 'security',
+    tags: ['#OAuth21', '#DPoP', '#RFC9449', '#PKCE', '#Security', '#ZeroTrust', '#TokenBinding', '#ReplayDefense'],
+    difficulty: 'Advanced',
+    desc: 'Modernste Token-Sicherheit: Wegfall unsicherer Legacy-Flows (Implicit, Password), strikter PKCE-Zwang (S256) und kryptographische Tokenbindung mit Replay-Schutz.',
+    icon: KeyRound,
+    badge: 'Neu',
+    color: '#06b6d4'
+  },
   {
     id: 'wiso_company_forms_lab',
     title: 'IHK WISO Rechtsformen & Haftungs-Entscheidungsmatrix',

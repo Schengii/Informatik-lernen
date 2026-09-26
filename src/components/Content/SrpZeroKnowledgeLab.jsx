@@ -6,7 +6,6 @@ import {
   srpComputeSharedKey
 } from '../../utils/srpAuthEngine';
 import {
-  ShieldCheck,
   KeyRound,
   Lock,
   Award,
@@ -18,7 +17,7 @@ import {
 } from 'lucide-react';
 
 export default function SrpZeroKnowledgeLab({ onRewardXP }) {
-  const [username, setUsername] = useState('alice_dev');
+  const [username] = useState('alice_dev');
   const [password, setPassword] = useState('SecretIHK2026!');
   const [inputPassword, setInputPassword] = useState('SecretIHK2026!');
   const [clientASecret, setClientASecret] = useState(13n);

@@ -7,7 +7,6 @@ import {
   Zap,
   RefreshCw,
   Award,
-  ArrowRight,
   Database,
   Cpu
 } from 'lucide-react';

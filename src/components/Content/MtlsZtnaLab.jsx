@@ -10,8 +10,7 @@ import {
   Server,
   Network,
   CheckCircle2,
-  XCircle,
-  AlertTriangle
+  XCircle
 } from 'lucide-react';
 
 export default function MtlsZtnaLab({ onRewardXP }) {

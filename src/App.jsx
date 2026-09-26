@@ -286,6 +286,9 @@ const WisoContractBreachLab = lazy(() => import('./components/Content/WisoContra
 // v3.55.0 WISO Company Forms & mTLS Zero-Trust Mesh Studios
 const WisoCompanyFormsLab = lazy(() => import('./components/Content/WisoCompanyFormsLab'));
 const MtlsZtnaLab = lazy(() => import('./components/Content/MtlsZtnaLab'));
+// v3.56.0 WISO Personalbedarfsplanung & OAuth 2.1 RFC 9449 DPoP Security Studios
+const WisoPersonalPlanungLab = lazy(() => import('./components/Content/WisoPersonalPlanungLab'));
+const Oauth21DpopLab = lazy(() => import('./components/Content/Oauth21DpopLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -762,6 +765,10 @@ export default function App() {
         return <WisoCompanyFormsLab onRewardXP={(xp) => awardXP(xp, 'wiso_company_forms_master')} />;
       case activeTab === 'mtls_ztna_lab' || activeTab === 'mtls_ztna' || activeTab === 'zero_trust_mesh_lab':
         return <MtlsZtnaLab onRewardXP={(xp) => awardXP(xp, 'mtls_ztna_master')} />;
+      case activeTab === 'wiso_personal_planung_lab' || activeTab === 'wiso_personal_planung' || activeTab === 'personalbedarf_lab':
+        return <WisoPersonalPlanungLab onRewardXP={(xp) => awardXP(xp, 'wiso_personal_planung_master')} />;
+      case activeTab === 'oauth21_dpop_lab' || activeTab === 'oauth21_dpop' || activeTab === 'dpop_security_lab':
+        return <Oauth21DpopLab onRewardXP={(xp) => awardXP(xp, 'oauth21_dpop_master')} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':

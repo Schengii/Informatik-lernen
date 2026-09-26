@@ -7,11 +7,7 @@ import {
   Building2,
   Scale,
   Award,
-  Filter,
-  CheckCircle2,
-  Briefcase,
-  Users,
-  Coins
+  Filter
 } from 'lucide-react';
 
 export default function WisoCompanyFormsLab({ onRewardXP }) {

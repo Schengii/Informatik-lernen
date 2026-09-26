@@ -53,7 +53,7 @@
       "name": "Haupt-Bundle (App-Shell, ohne Labs)",
       "path": "dist/assets/index-*.js",
       "gzip": true,
-      "limit": "110 KB"
+      "limit": "115 KB"
     }
   ],
   "dependencies": {

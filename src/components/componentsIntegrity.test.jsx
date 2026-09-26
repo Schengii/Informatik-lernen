@@ -80,6 +80,8 @@ import SrpZeroKnowledgeLab from './Content/SrpZeroKnowledgeLab';
 import WisoContractBreachLab from './Content/WisoContractBreachLab';
 import WisoCompanyFormsLab from './Content/WisoCompanyFormsLab';
 import MtlsZtnaLab from './Content/MtlsZtnaLab';
+import WisoPersonalPlanungLab from './Content/WisoPersonalPlanungLab';
+import Oauth21DpopLab from './Content/Oauth21DpopLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -670,6 +672,22 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/Mutual TLS/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert WisoPersonalPlanungLab fehlerfrei', () => {
+    const { container } = render(
+      <WisoPersonalPlanungLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Personalbedarf/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert Oauth21DpopLab fehlerfrei', () => {
+    const { container } = render(
+      <Oauth21DpopLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/OAuth 2.1/i).length).toBeGreaterThan(0);
   });
 });
 

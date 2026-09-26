@@ -85,7 +85,31 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Next-Gen Transport: HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx` & `http3QuicEngine.js`)**: Head-of-Line Blocking Eliminierung bei Paketverlust, Multi-Stream Übertragung über UDP, 0-RTT TLS 1.3 Session Resumption und Connection-ID (CID) Migration.
    - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation**, **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
-## ✨ Hauptfunktionen & Neue Features (v3.55.0: IHK WISO Rechtsformen & Mutual TLS mTLS Zero-Trust Mesh Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.56.0: IHK WISO Personalbedarfsplanung & OAuth 2.1 RFC 9449 DPoP Edition)
+
+* **👥 IHK WISO Personalbedarfsplanung & HR-Kennzahlen Studio (`WisoPersonalPlanungLab.jsx` & `src/utils/wisoPersonalPlanungEngine.js`)**:
+  * Didaktisches HR- und Controlling-Studio für die IHK Abschlussprüfung (AP2 WISO).
+  * **Brutto- und Netto-Personalbedarfsermittlung**:
+    * **Einsatzbedarf & Reservebedarf**: Berechnung anhand von Jahresarbeitsmenge, verteilzeitbereinigter Arbeitszeit und statistischer Ausfallquote (Urlaub, Krankheit, Weiterbildung): $\text{Bruttobedarf} = \text{Einsatzbedarf} + \text{Reservebedarf}$.
+    * **Netto-Personalbedarf (Einstellungsbedarf)**: $\text{Netto} = \text{Bruttobedarf} - \text{zukünftiger Personalbestand} (\text{Ist-Bestand} - \text{Abgänge} + \text{Zugänge})$.
+  * **HR-Kennzahlen & Fluktuationsraten**:
+    * Fluktuationsrate nach ZVEI-Formel ($\frac{\text{Abgänge}}{\text{durchschnittlicher Bestand}} \times 100$) vs. BDA-Formel ($\frac{\text{Abgänge}}{\text{Anfangsbestand} + \text{Zugänge}} \times 100$).
+    * Krankenquote ($\frac{\text{Krankheitstage}}{\text{Soll-Arbeitstage}} \times 100$) mit 60 XP Belohnung.
+
+* **🛡️ OAuth 2.1 & RFC 9449 DPoP Sender-Constrained Security Studio (`Oauth21DpopLab.jsx` & `src/utils/oauth21DpopEngine.js`)**:
+  * Didaktisches Cloud- und API-Security-Studio nach den neuesten IETF OAuth 2.1 Drafts und RFC 9449.
+  * **Wegfall unsicherer Legacy-Flows**:
+    * Vollständiges Verbot des Implicit Grants (kein Access Token mehr im URL-Fragment `#access_token=...` gegen Referrer Leaks).
+    * Streichung von Resource Owner Password Credentials (ROPC) gegen Phishing und Passwort-Exposition.
+  * **Erzwungenes PKCE (RFC 7636)**:
+    * PKCE ist Pflicht für ausnahmslos alle Clients (auch Confidential Clients / Server-to-Server).
+    * Ausschließlich `code_challenge_method=S256` (SHA-256) zulässig (`plain` ist verboten).
+    * Striktes exaktes String-Matching für `redirect_uri` (keine Wildcards oder Pfad-Präfixe).
+  * **RFC 9449 DPoP Sender-Constrained Tokens**:
+    * Kryptographische Bindung von Access Tokens an ein privates Schlüsselpaar des Clients (Proof-of-Possession).
+    * Replay-Schutz via Nonce/JTI-Tracking, Zeitstempel-Validierung sowie HTTP-Methoden- und Ziel-URI-Bindung (`htm`, `htu`) mit 65 XP Belohnung.
+
+## ✨ Bisherige Hauptfunktionen (v3.55.0: IHK WISO Rechtsformen & Mutual TLS mTLS Zero-Trust Mesh Edition)
 
 * **🏢 IHK WISO Rechtsformen & Haftungs-Entscheidungsmatrix (`WisoCompanyFormsLab.jsx` & `src/utils/wisoCompanyFormsEngine.js`)**:
   * Didaktisches Rechtsformen- und Gründungs-Studio für die IHK Abschlussprüfung (AP2 WISO).
@@ -869,6 +893,8 @@ Informatik-lernen/
     │   │   ├── WisoContractBreachLab.jsx
     │   │   ├── WisoCompanyFormsLab.jsx
     │   │   ├── MtlsZtnaLab.jsx
+    │   │   ├── WisoPersonalPlanungLab.jsx
+    │   │   ├── Oauth21DpopLab.jsx
     │   │   └── WisoKalkulationLab.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
@@ -1149,7 +1175,11 @@ Informatik-lernen/
         ├── wisoCompanyFormsEngine.js
         ├── wisoCompanyFormsEngine.test.js
         ├── mtlsZtnaEngine.js
-        └── mtlsZtnaEngine.test.js
+        ├── mtlsZtnaEngine.test.js
+        ├── wisoPersonalPlanungEngine.js
+        ├── wisoPersonalPlanungEngine.test.js
+        ├── oauth21DpopEngine.js
+        └── oauth21DpopEngine.test.js
 ```
 
 ---
@@ -1206,6 +1236,23 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.56.0 (IHK WISO Personalbedarfsplanung & OAuth 2.1 RFC 9449 DPoP Security Edition)
+
+- **Neu**: `src/components/Content/WisoPersonalPlanungLab.jsx` & `src/utils/wisoPersonalPlanungEngine.js` — IHK WISO Personalbedarfsplanung & HR-Kennzahlen Studio:
+  - **Kaufmännische Personalbedarfsermittlung**:
+    - **Einsatzbedarf & Reservebedarf**: Ermittlung auf Basis der Jahresarbeitsmenge, verteilzeitbereinigten Arbeitszeit pro Mitarbeiter und Ausfallquote: $\text{Bruttobedarf} = \text{Einsatzbedarf} + \text{Reservebedarf}$.
+    - **Netto-Personalbedarf (Einstellungsbedarf)**: Gegenüberstellung von Bruttobedarf und fortgeschriebenem Personalbestand ($\text{Ist-Bestand} - \text{Abgänge} + \text{Zugänge}$) nach IHK-Standard.
+  - **HR-Kennzahlen & Fluktuations-Berechnung**:
+    - Fluktuationsrate nach ZVEI-Formel ($\frac{\text{Abgänge}}{\text{durchschnittlicher Bestand}} \times 100$) vs. BDA-Formel ($\frac{\text{Abgänge}}{\text{Anfangsbestand} + \text{Zugänge}} \times 100$).
+    - Krankenquote ($\frac{\text{Krankheitstage}}{\text{Soll-Arbeitstage}} \times 100$) mit 60 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 2 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/Oauth21DpopLab.jsx` & `src/utils/oauth21DpopEngine.js` — OAuth 2.1 & RFC 9449 DPoP Sender-Constrained Security Studio:
+  - **Wegfall unsicherer Legacy-Flows**: Vollständiges Verbot des Implicit Grants und ROPC (Resource Owner Password Credentials).
+  - **Erzwungenes PKCE (RFC 7636)**: Pflicht für alle Clients (auch Confidential Clients) mit verpflichtendem SHA-256 (`code_challenge_method=S256`) sowie striktes exaktes String-Matching für `redirect_uri`.
+  - **RFC 9449 DPoP Sender-Constrained Tokens**: Kryptographische Bindung von Tokens an ephemere Client-Schlüssel (`typ: dpop+jwt`), Replay-Schutz via Nonce/JTI-Tracking, Zeitstempel-Validierung und Bindung an HTTP-Methode (`htm`) und Ziel-URI (`htu`) mit 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 2 Unit-Tests abgesichert.
+- **Routing & Integration**: Vollständige Registrierung beider neuer Studios in `src/App.jsx` (Lazy Loading & `activeLabElement` Switch-Tabelle mit Routen `wiso_personal_planung_lab` und `oauth21_dpop_lab`), `src/components/Content/LabsDashboard.jsx`, `src/components/Navigation/CommandPaletteModal.jsx` und Navigation.
+- **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für beide neuen Studios erweitert (75/75 Komponenten-Tests bestanden) und `allLabsSmoke.test.jsx` erfolgreich über alle 209 Studios durchlaufen.
+- **Test-Suite & Qualität**: **1147 bestandene Unit- & Integrationstests** in **153 Test-Dateien** (100% Erfolgsquote, +4 neue Tests), **0 Oxlint-Fehler / 0 Warnungen** über 577 Quelldateien (`oxlint src --deny-warnings`), `tsc --noEmit` fehlerfrei, PWA Produktions-Build erfolgreich und alle `size-limit`-Vorgaben eingehalten (App-Shell 110.83 kB gzipped < 115 kB Limit).
 
 ### Version 3.55.0 (IHK WISO Rechtsformen & Mutual TLS mTLS Zero-Trust Mesh Edition)
 
