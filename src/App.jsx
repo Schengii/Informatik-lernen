@@ -280,6 +280,9 @@ const PkiCertificateLab = lazy(() => import('./components/Content/PkiCertificate
 const RoutingDijkstraLab = lazy(() => import('./components/Content/RoutingDijkstraLab'));
 const HttpCachingLab = lazy(() => import('./components/Content/HttpCachingLab'));
 const ExamReadinessLab = lazy(() => import('./components/Content/ExamReadinessLab'));
+// v3.54.0 SRP Zero-Knowledge & WISO Contract Breach Studios
+const SrpZeroKnowledgeLab = lazy(() => import('./components/Content/SrpZeroKnowledgeLab'));
+const WisoContractBreachLab = lazy(() => import('./components/Content/WisoContractBreachLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -748,6 +751,10 @@ export default function App() {
         return <HttpCachingLab onRewardXP={(xp) => awardXP(xp, 'http_caching_master')} />;
       case activeTab === 'exam_readiness_lab' || activeTab === 'exam_readiness' || activeTab === 'ihk_exam_roadmap':
         return <ExamReadinessLab onRewardXP={(xp) => awardXP(xp, 'exam_readiness_master')} />;
+      case activeTab === 'srp_zero_knowledge_lab' || activeTab === 'srp_auth' || activeTab === 'zero_knowledge_lab':
+        return <SrpZeroKnowledgeLab onRewardXP={(xp) => awardXP(xp, 'srp_zero_knowledge_master')} />;
+      case activeTab === 'wiso_contract_breach_lab' || activeTab === 'wiso_contract_breach' || activeTab === 'kaufvertragsstoerungen':
+        return <WisoContractBreachLab onRewardXP={(xp) => awardXP(xp, 'wiso_contract_breach_master')} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':

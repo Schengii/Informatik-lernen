@@ -76,6 +76,8 @@ import PkiCertificateLab from './Content/PkiCertificateLab';
 import RoutingDijkstraLab from './Content/RoutingDijkstraLab';
 import HttpCachingLab from './Content/HttpCachingLab';
 import ExamReadinessLab from './Content/ExamReadinessLab';
+import SrpZeroKnowledgeLab from './Content/SrpZeroKnowledgeLab';
+import WisoContractBreachLab from './Content/WisoContractBreachLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -634,6 +636,22 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/Countdown-Planer/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert SrpZeroKnowledgeLab fehlerfrei', () => {
+    const { container } = render(
+      <SrpZeroKnowledgeLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Zero-Knowledge/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert WisoContractBreachLab fehlerfrei', () => {
+    const { container } = render(
+      <WisoContractBreachLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Kaufvertragsstörungen/i).length).toBeGreaterThan(0);
   });
 });
 

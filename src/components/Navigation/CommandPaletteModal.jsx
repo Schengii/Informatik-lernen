@@ -6,7 +6,7 @@ import {
   Calculator, Globe, ShieldAlert, Brain, GitMerge,
   Lock, Activity, GitCommit, Network, Server, Code, Radio, Mic, Zap,
   Clock, GitPullRequest, Calendar, Key, HardDrive, FileCode, TrendingDown,
-  Cloud, Compass, GraduationCap, Route
+  Cloud, Compass, GraduationCap, Route, Scale
 } from 'lucide-react';
 import { TOPICS } from '../../data/topicsData';
 import { GLOSSARY_TERMS } from '../../data/glossaryData';
@@ -27,6 +27,8 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-srp-zero-knowledge', title: 'SRP-6a Zero-Knowledge Authentication Studio (RFC 5054 Handshake & Verifier)', category: 'Labs & Tools', icon: Lock, action: () => onNavigate('srp_zero_knowledge_lab') },
+    { id: 'view-wiso-contract-breach', title: 'IHK WISO Kaufvertragsstörungen & Sachmängelhaftung (BGB §§ 433–441 & HGB § 377)', category: 'Prüfung', icon: Scale, action: () => onNavigate('wiso_contract_breach_lab') },
     { id: 'view-routing-dijkstra', title: 'Routing-Algorithmen Studio: Dijkstra (SPF) & Spanning Tree (STP Loop Prevention)', category: 'Labs & Tools', icon: Route, action: () => onNavigate('routing_dijkstra_lab') },
     { id: 'view-http-caching', title: 'HTTP Caching Studio (RFC 9111 Cache-Control, ETag & 304 Not Modified)', category: 'Labs & Tools', icon: Zap, action: () => onNavigate('http_caching_lab') },
     { id: 'view-exam-readiness', title: 'Adaptiver IHK Prüfungspfad & Countdown-Planer (Readiness Score & Notenprognose)', category: 'Prüfung', icon: Calendar, action: () => onNavigate('exam_readiness_lab') },

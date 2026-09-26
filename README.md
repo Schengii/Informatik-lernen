@@ -85,7 +85,25 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Next-Gen Transport: HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx` & `http3QuicEngine.js`)**: Head-of-Line Blocking Eliminierung bei Paketverlust, Multi-Stream Übertragung über UDP, 0-RTT TLS 1.3 Session Resumption und Connection-ID (CID) Migration.
    - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation**, **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
-## ✨ Hauptfunktionen & Neue Features (v3.53.0: Routing Dijkstra & STP, RFC 9111 HTTP Caching & IHK Exam Readiness Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.54.0: SRP Zero-Knowledge Auth & WISO Kaufvertragsstörungen Edition)
+
+* **🔐 SRP-6a Zero-Knowledge Authentication Studio (`SrpZeroKnowledgeLab.jsx` & `src/utils/srpAuthEngine.js`)**:
+  * Didaktisches Kryptographie- und Authentifizierungs-Studio nach RFC 2945 & RFC 5054.
+  * **Passwortlose Netzwerkübertragung**:
+    * Mathematische Absicherung: Client und Server einigen sich über ephemere Schlüssel ($a, b$) und Public Keys ($A, B$) auf einen gemeinsamen symmetrischen Sitzungsschlüssel ($S$), ohne dass das Klartext-Passwort oder dessen Hash jemals übertragen werden.
+    * Server speichert ausschließlich Salt $s$ und Password Verifier $v = g^x \pmod N$.
+    * Integrierter Wire-Traffic-Sniffer zur Demonstration der Immunität gegen Eavesdropping und Wörterbuchangriffe mit 65 XP Belohnung.
+
+* **⚖️ IHK WISO Kaufvertragsstörungen & Sachmängelhaftung Studio (`WisoContractBreachLab.jsx` & `src/utils/wisoContractBreachEngine.js`)**:
+  * Vollständiges Wirtschafts- und Rechts-Studio für die IHK Abschlussprüfung (AP2 WISO).
+  * **Rügefristen nach HGB § 377 vs. BGB § 438**:
+    * Handelsrechtliche Untersuchungs- und Rügepflicht beim zweiseitigen Handelskauf (B2B): Offene Mängel müssen unverzüglich gerügt werden, andernfalls gilt die Ware als genehmigt.
+    * Schutz für Endverbraucher (B2C) mit 2 Jahren gesetzlicher Gewährleistung und Beweislastumkehr nach § 477 BGB.
+  * **Vorrang der Nacherfüllung (§ 439 BGB) & Sekundärrechte**:
+    * Nachbesserung vs. Nachlieferung.
+    * Freischaltung der nachrangigen Rechte (Minderung, Rücktritt, Schadensersatz) nach dem 2. fehlgeschlagenen Nachbesserungsversuch (§ 440 BGB) sowie Ausschluss des Rücktritts bei Bagatellmängeln (§ 323 Abs. 5 BGB) mit 60 XP Belohnung.
+
+## ✨ Bisherige Hauptfunktionen (v3.53.0: Routing Dijkstra & STP, RFC 9111 HTTP Caching & IHK Exam Readiness Edition)
 
 * **🌐 Routing-Algorithmen: Dijkstra (SPF) & Spanning Tree Protocol (STP IEEE 802.1D) (`RoutingDijkstraLab.jsx` & `src/utils/routingDijkstraEngine.js`)**:
   * Didaktisches Netzwerk-Routing- und Topologie-Studio nach OSPF- (RFC 2328) und IEEE 802.1D Standards.
@@ -834,6 +852,8 @@ Informatik-lernen/
     │   │   ├── RoutingDijkstraLab.jsx
     │   │   ├── HttpCachingLab.jsx
     │   │   ├── ExamReadinessLab.jsx
+    │   │   ├── SrpZeroKnowledgeLab.jsx
+    │   │   ├── WisoContractBreachLab.jsx
     │   │   └── WisoKalkulationLab.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
@@ -1106,7 +1126,11 @@ Informatik-lernen/
         ├── examReadinessEngine.js
         ├── examReadinessEngine.test.js
         ├── flashcardIoEngine.js
-        └── flashcardIoEngine.test.js
+        ├── flashcardIoEngine.test.js
+        ├── srpAuthEngine.js
+        ├── srpAuthEngine.test.js
+        ├── wisoContractBreachEngine.js
+        └── wisoContractBreachEngine.test.js
 ```
 
 ---
@@ -1163,6 +1187,18 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.54.0 (SRP-6a Zero-Knowledge Authentication & IHK WISO Kaufvertragsstörungen Edition)
+
+- **Neu**: `src/components/Content/SrpZeroKnowledgeLab.jsx` & `src/utils/srpAuthEngine.js` — SRP-6a Zero-Knowledge Authentication Studio (RFC 2945 / RFC 5054):
+  - **Kryptographisches Zero-Knowledge-Protokoll**: Mathematische Absicherung von Passwörtern ohne Übertragung von Klartext oder Hashes. Ephemere Geheimnisse ($a, b$), Public Keys ($A, B$), Password Verifier ($v = g^x \pmod N$) und beidseitiger Schlüsseltausch ($S = (B - k \cdot g^x)^{a + u \cdot x} \pmod N$).
+  - **Live-Protokollinspektor & Wire-Sniffer**: Visualisierung der über das Netzwerk gesendeten Parameter ($A$, $B$, $s$, $M_1$, $M_2$) und Demonstration der Resistenz gegen Eavesdropping und Offline-Wörterbuchangriffe mit 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 2 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/WisoContractBreachLab.jsx` & `src/utils/wisoContractBreachEngine.js` — IHK WISO Kaufvertragsstörungen & Sachmängelhaftung Studio:
+  - **Rügefristen nach HGB § 377 vs. BGB § 438**: Systematischer Vergleich von Handelskauf (B2B mit unverzüglicher Rügepflicht bei offenen Mängeln und drohendem Gewährleistungsverlust) vs. Verbrauchsgüterkauf (B2C mit 2 Jahren Gewährleistung und Beweislastumkehr).
+  - **Käuferrechte & Vorrang der Nacherfüllung (§ 439 BGB)**: Nachbesserung vs. Nachlieferung, Freischaltung nachrangiger Sekundärrechte (Minderung, Rücktritt, Schadensersatz) nach 2 fehlgeschlagenen Nachbesserungsversuchen (§ 440 BGB) sowie Ausschluss des Rücktritts bei Bagatellmängeln (§ 323 Abs. 5 BGB) mit 60 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 4 Unit-Tests abgesichert.
+- **Routing & Integration**: Vollständige Registrierung beider neuer Studios in `src/App.jsx` (Lazy Loading & `activeLabElement` Switch-Tabelle mit Routen `srp_zero_knowledge_lab` und `wiso_contract_breach_lab`), `src/components/Content/LabsDashboard.jsx`, `src/components/Navigation/CommandPaletteModal.jsx` und Navigation.
+- **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für beide neuen Studios erweitert (71/71 Komponenten-Tests bestanden) und `allLabsSmoke.test.jsx` erfolgreich über alle 205 Studios durchlaufen.
+- **Test-Suite & Qualität**: **1046 bestandene Unit- & Integrationstests** in **149 Test-Dateien** (100% Erfolgsquote, +6 neue Tests!), **0 Oxlint-Fehler / 0 Warnungen** über 557 Quelldateien (`oxlint src --deny-warnings`), `tsc --noEmit` fehlerfrei, PWA Produktions-Build erfolgreich und alle `size-limit`-Vorgaben eingehalten (App-Shell 111.32 kB gzipped).
 
 ### Version 3.53.0 (Routing Dijkstra & STP, RFC 9111 HTTP Caching & IHK Exam Readiness Edition)
 

@@ -1,7 +1,29 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key, Lock, AlertTriangle, Globe, TrendingDown, HardDrive, FileCode, Brain, Activity, Radio, BarChart2, GraduationCap, Route } from 'lucide-react';
+import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key, Lock, AlertTriangle, Globe, TrendingDown, HardDrive, FileCode, Brain, Activity, Radio, BarChart2, GraduationCap, Route, Scale } from 'lucide-react';
 
 export const LAB_MODULES = [
+  {
+    id: 'srp_zero_knowledge_lab',
+    title: 'SRP-6a Zero-Knowledge Authentication Studio (RFC 5054)',
+    category: 'security',
+    tags: ['#SRP', '#ZeroKnowledge', '#RFC5054', '#Authentication', '#DiffieHellman', '#Verifier', '#Salt'],
+    difficulty: 'Advanced',
+    desc: 'Kryptographische Authentifizierung ohne Passwortübertragung: Ephemere Schlüssel (a/b), Public Keys (A/B), Password Verifier (v) und beidseitiger Schlüsseltausch (S).',
+    icon: Lock,
+    badge: 'Neu',
+    color: '#6366f1'
+  },
+  {
+    id: 'wiso_contract_breach_lab',
+    title: 'IHK WISO Kaufvertragsstörungen & Sachmängelhaftung',
+    category: 'ihk',
+    tags: ['#WISO', '#BGB', '#HGB', '#Mängelrüge', '#Nacherfüllung', '#Minderung', '#Rücktritt', '#Kaufvertrag'],
+    difficulty: 'Intermediate',
+    desc: 'Rechtliche Fallsimulation nach BGB §§ 433–441 & HGB § 377: Rügefristen (B2B vs. B2C), Vorrang der Nacherfüllung und Sekundärrechte bei 2 Fehlversuchen.',
+    icon: Scale,
+    badge: 'IHK Neu',
+    color: '#10b981'
+  },
   {
     id: 'routing_dijkstra_lab',
     title: 'Routing-Algorithmen: Dijkstra (SPF) & Spanning Tree (STP)',
