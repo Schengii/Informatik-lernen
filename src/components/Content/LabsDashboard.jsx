@@ -1,7 +1,29 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key, Lock, AlertTriangle, Globe, TrendingDown, HardDrive, FileCode, Brain, Activity, Radio, BarChart2, GraduationCap, Route, Scale } from 'lucide-react';
+import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key, Lock, AlertTriangle, Globe, TrendingDown, HardDrive, FileCode, Brain, Activity, Radio, BarChart2, GraduationCap, Route, Scale, Building2 } from 'lucide-react';
 
 export const LAB_MODULES = [
+  {
+    id: 'wiso_company_forms_lab',
+    title: 'IHK WISO Rechtsformen & Haftungs-Entscheidungsmatrix',
+    category: 'ihk',
+    tags: ['#WISO', '#Rechtsformen', '#GmbH', '#UG', '#OHG', '#KG', '#Einzelunternehmen', '#Haftung', '#HRA', '#HRB'],
+    difficulty: 'Intermediate',
+    desc: 'Systematischer Vergleich von Einzelunternehmen, Personengesellschaften (GbR, OHG, KG) und Kapitalgesellschaften (UG, GmbH, AG) nach HGB, BGB und GmbHG.',
+    icon: Building2,
+    badge: 'IHK Neu',
+    color: '#10b981'
+  },
+  {
+    id: 'mtls_ztna_lab',
+    title: 'Mutual TLS (mTLS) & Zero-Trust Service-Mesh Studio',
+    category: 'security',
+    tags: ['#mTLS', '#ZeroTrust', '#RFC8446', '#TLS13', '#ClientCert', '#RBAC', '#ServiceMesh', '#Microservices'],
+    difficulty: 'Advanced',
+    desc: 'Gegenseitige Zertifikatsprüfung auf Transportschicht, CRL-Zertifikatssperren und feingranulare Zero-Trust RBAC-Zugriffskontrolle im Microservice-Mesh.',
+    icon: Lock,
+    badge: 'Neu',
+    color: '#06b6d4'
+  },
   {
     id: 'srp_zero_knowledge_lab',
     title: 'SRP-6a Zero-Knowledge Authentication Studio (RFC 5054)',

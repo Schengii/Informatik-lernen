@@ -78,6 +78,8 @@ import HttpCachingLab from './Content/HttpCachingLab';
 import ExamReadinessLab from './Content/ExamReadinessLab';
 import SrpZeroKnowledgeLab from './Content/SrpZeroKnowledgeLab';
 import WisoContractBreachLab from './Content/WisoContractBreachLab';
+import WisoCompanyFormsLab from './Content/WisoCompanyFormsLab';
+import MtlsZtnaLab from './Content/MtlsZtnaLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -652,6 +654,22 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/Kaufvertragsstörungen/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert WisoCompanyFormsLab fehlerfrei', () => {
+    const { container } = render(
+      <WisoCompanyFormsLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Rechtsformen/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert MtlsZtnaLab fehlerfrei', () => {
+    const { container } = render(
+      <MtlsZtnaLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Mutual TLS/i).length).toBeGreaterThan(0);
   });
 });
 

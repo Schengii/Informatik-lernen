@@ -85,7 +85,20 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Next-Gen Transport: HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx` & `http3QuicEngine.js`)**: Head-of-Line Blocking Eliminierung bei Paketverlust, Multi-Stream Übertragung über UDP, 0-RTT TLS 1.3 Session Resumption und Connection-ID (CID) Migration.
    - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation**, **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
-## ✨ Hauptfunktionen & Neue Features (v3.54.0: SRP Zero-Knowledge Auth & WISO Kaufvertragsstörungen Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.55.0: IHK WISO Rechtsformen & Mutual TLS mTLS Zero-Trust Mesh Edition)
+
+* **🏢 IHK WISO Rechtsformen & Haftungs-Entscheidungsmatrix (`WisoCompanyFormsLab.jsx` & `src/utils/wisoCompanyFormsEngine.js`)**:
+  * Didaktisches Rechtsformen- und Gründungs-Studio für die IHK Abschlussprüfung (AP2 WISO).
+  * **Systematischer Vergleich**: Einzelunternehmen (Kleingewerbe), e.K., GbR, OHG, KG, UG (haftungsbeschränkt), GmbH und AG.
+  * **Prüfungsrelevante Kriterien**: Mindeststammkapital (0 € vs. 1 € vs. 25.000 € vs. 50.000 €), Haftung (unbeschränkt persönlich mit Privatvermögen vs. beschränkt auf Gesellschaftsvermögen), Handelsregistereintrag (Abteilung A vs. Abteilung B; deklaratorisch vs. konstitutiv) und Vertretungsbefugnis.
+  * **Interaktive Gründungs-Entscheidungsmatrix**: Filtert passende Rechtsformen basierend auf Startkapital, Haftungswunsch, Alleingründung und reinen Kapitalgebern mit 60 XP Belohnung.
+
+* **🔒 Mutual TLS (mTLS) & Zero-Trust Service-Mesh Studio (`MtlsZtnaLab.jsx` & `src/utils/mtlsZtnaEngine.js`)**:
+  * Didaktisches Cloud-Native Cyber-Security-Studio nach RFC 8446 für Microservice-Kommunikation.
+  * **Gegenseitige Zertifikatsprüfung auf Transportschicht**: Server fordert `CertificateRequest`, Client weist Identität per X.509 Zertifikat nach.
+  * **Sicherheit & Richtlinienprüfung**: Erkennung ungültiger Aussteller (Untrusted Root CA), CRL/OCSP-Sperrlistenprüfung (HTTP 496 bei kompromittierten Services) und fein-granulares Zero-Trust Role-Based Access Control (RBAC, HTTP 403 bei unerlaubtem Endpunkt) mit 65 XP Belohnung.
+
+## ✨ Bisherige Hauptfunktionen (v3.54.0: SRP Zero-Knowledge Auth & WISO Kaufvertragsstörungen Edition)
 
 * **🔐 SRP-6a Zero-Knowledge Authentication Studio (`SrpZeroKnowledgeLab.jsx` & `src/utils/srpAuthEngine.js`)**:
   * Didaktisches Kryptographie- und Authentifizierungs-Studio nach RFC 2945 & RFC 5054.
@@ -854,6 +867,8 @@ Informatik-lernen/
     │   │   ├── ExamReadinessLab.jsx
     │   │   ├── SrpZeroKnowledgeLab.jsx
     │   │   ├── WisoContractBreachLab.jsx
+    │   │   ├── WisoCompanyFormsLab.jsx
+    │   │   ├── MtlsZtnaLab.jsx
     │   │   └── WisoKalkulationLab.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
@@ -1130,7 +1145,11 @@ Informatik-lernen/
         ├── srpAuthEngine.js
         ├── srpAuthEngine.test.js
         ├── wisoContractBreachEngine.js
-        └── wisoContractBreachEngine.test.js
+        ├── wisoContractBreachEngine.test.js
+        ├── wisoCompanyFormsEngine.js
+        ├── wisoCompanyFormsEngine.test.js
+        ├── mtlsZtnaEngine.js
+        └── mtlsZtnaEngine.test.js
 ```
 
 ---
@@ -1187,6 +1206,19 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.55.0 (IHK WISO Rechtsformen & Mutual TLS mTLS Zero-Trust Mesh Edition)
+
+- **Neu**: `src/components/Content/WisoCompanyFormsLab.jsx` & `src/utils/wisoCompanyFormsEngine.js` — IHK WISO Rechtsformen & Haftungs-Entscheidungsmatrix:
+  - **Umfassender Rechtsformvergleich**: Einzelunternehmen (Kleingewerbe), e.K., GbR, OHG, KG, UG (haftungsbeschränkt), GmbH und AG.
+  - **Prüfungsrelevante Kriterien**: Mindeststammkapital (0 € vs. 1 € vs. 25.000 € vs. 50.000 €), Haftung (unbeschränkt persönlich mit Privatvermögen vs. beschränkt auf Gesellschaftsvermögen), Handelsregistereintrag (Abteilung A vs. Abteilung B; deklaratorisch vs. konstitutiv) und Vertretungsbefugnis.
+  - **Interaktive Gründungs-Entscheidungsmatrix**: Filtert passende Rechtsformen basierend auf Startkapital, Haftungswunsch, Alleingründung und reinen Kapitalgebern mit 60 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 3 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/MtlsZtnaLab.jsx` & `src/utils/mtlsZtnaEngine.js` — Mutual TLS (mTLS) & Zero-Trust Service-Mesh Studio:
+  - **Gegenseitige Zertifikatsprüfung nach RFC 8446**: Server fordert `CertificateRequest`, Client weist Identität per X.509 Zertifikat nach.
+  - **Sicherheit & Richtlinienprüfung**: Erkennung ungültiger Aussteller (Untrusted Root CA), CRL/OCSP-Sperrlistenprüfung (HTTP 496 bei kompromittierten Services) und fein-granulares Zero-Trust Role-Based Access Control (RBAC, HTTP 403 bei unerlaubtem Endpunkt) mit 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 3 Unit-Tests abgesichert.
+- **Routing & Integration**: Vollständige Registrierung beider neuer Studios in `src/App.jsx` (Lazy Loading & `activeLabElement` Switch-Tabelle mit Routen `wiso_company_forms_lab` und `mtls_ztna_lab`), `src/components/Content/LabsDashboard.jsx`, `src/components/Navigation/CommandPaletteModal.jsx` und Navigation.
+- **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für beide neuen Studios erweitert (73/73 Komponenten-Tests bestanden) und `allLabsSmoke.test.jsx` erfolgreich über alle 207 Studios durchlaufen.
+- **Test-Suite & Qualität**: **1052 bestandene Unit- & Integrationstests** in **151 Test-Dateien** (100% Erfolgsquote, +6 neue Tests!), **0 Oxlint-Fehler / 0 Warnungen** über 561 Quelldateien (`oxlint src --deny-warnings`), `tsc --noEmit` fehlerfrei, PWA Produktions-Build erfolgreich und alle `size-limit`-Vorgaben eingehalten (App-Shell 111.56 kB gzipped).
 
 ### Version 3.54.0 (SRP-6a Zero-Knowledge Authentication & IHK WISO Kaufvertragsstörungen Edition)
 

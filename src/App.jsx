@@ -283,6 +283,9 @@ const ExamReadinessLab = lazy(() => import('./components/Content/ExamReadinessLa
 // v3.54.0 SRP Zero-Knowledge & WISO Contract Breach Studios
 const SrpZeroKnowledgeLab = lazy(() => import('./components/Content/SrpZeroKnowledgeLab'));
 const WisoContractBreachLab = lazy(() => import('./components/Content/WisoContractBreachLab'));
+// v3.55.0 WISO Company Forms & mTLS Zero-Trust Mesh Studios
+const WisoCompanyFormsLab = lazy(() => import('./components/Content/WisoCompanyFormsLab'));
+const MtlsZtnaLab = lazy(() => import('./components/Content/MtlsZtnaLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -755,6 +758,10 @@ export default function App() {
         return <SrpZeroKnowledgeLab onRewardXP={(xp) => awardXP(xp, 'srp_zero_knowledge_master')} />;
       case activeTab === 'wiso_contract_breach_lab' || activeTab === 'wiso_contract_breach' || activeTab === 'kaufvertragsstoerungen':
         return <WisoContractBreachLab onRewardXP={(xp) => awardXP(xp, 'wiso_contract_breach_master')} />;
+      case activeTab === 'wiso_company_forms_lab' || activeTab === 'wiso_company_forms' || activeTab === 'rechtsformen_lab':
+        return <WisoCompanyFormsLab onRewardXP={(xp) => awardXP(xp, 'wiso_company_forms_master')} />;
+      case activeTab === 'mtls_ztna_lab' || activeTab === 'mtls_ztna' || activeTab === 'zero_trust_mesh_lab':
+        return <MtlsZtnaLab onRewardXP={(xp) => awardXP(xp, 'mtls_ztna_master')} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':
