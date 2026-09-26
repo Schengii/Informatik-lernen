@@ -27,6 +27,10 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-cloud-iam-policy', title: 'Cloud IAM Policy Evaluator & Least-Privilege Linter (SCPs, Explicit Deny & Role Security)', category: 'Labs & Tools', icon: Lock, action: () => onNavigate('cloud_iam_policy_lab') },
+    { id: 'view-sre-slo-burn', title: 'Prometheus PromQL Alerting & SRE Error-Budget Burn Studio (Multi-Window Alerting)', category: 'Labs & Tools', icon: TrendingDown, action: () => onNavigate('sre_slo_burn_lab') },
+    { id: 'view-kafka-consumer-lag', title: 'Kafka Consumer Lag & Partition Rebalance Protocol Studio (Cooperative Sticky vs. Eager)', category: 'Labs & Tools', icon: Zap, action: () => onNavigate('kafka_consumer_lag_lab') },
+    { id: 'view-linux-auditd-ebpf', title: 'Linux Auditd & eBPF Syscall Tracepoint Security Studio (Kernel Auditing & RCE Threat Hunting)', category: 'Labs & Tools', icon: Activity, action: () => onNavigate('linux_auditd_ebpf_lab') },
     { id: 'view-ihk-proposal-pdf', title: 'IHK Projektantrag PDF- & Dokumentations-Generator (AP2 Teil A Zeitplan & TOMs)', category: 'Prüfung', icon: FileText, action: () => onNavigate('ihk_proposal_pdf_lab') },
     { id: 'view-bgp-anycast-ddos', title: 'BGP Anycast & DDoS Flow-Scrubber Studio (Edge PoPs, SYN-Cookies & Route Withdrawal)', category: 'Labs & Tools', icon: ShieldAlert, action: () => onNavigate('bgp_anycast_ddos_lab') },
     { id: 'view-wiso-personal-planung', title: 'IHK WISO Personalbedarfsplanung (Brutto- & Nettobedarf, Reserve- & Einsatzbedarf)', category: 'Prüfung', icon: Users, action: () => onNavigate('wiso_personal_planung_lab') },

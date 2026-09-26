@@ -3,13 +3,13 @@
 > 🌐 **Live-Webseite (Vercel):** [https://informatik-lernen.vercel.app](https://informatik-lernen.vercel.app)  
 > [![Vercel Deployment](https://img.shields.io/badge/Vercel-Deployed-black?style=flat&logo=vercel)](https://informatik-lernen.vercel.app) [![Status](https://img.shields.io/badge/Status-Online%20%26%20PWA%20Ready-success?style=flat)](https://informatik-lernen.vercel.app)
 
-Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), IHK Mündliche Ergänzungsprüfung (MEP) Simulator (2:1 Notenrechner & 15 Min Prüfungsfragen), WISO Finanzierungsvergleich (Kauf vs. Kredit vs. Leasing & AfA Tax Shield), X.509 PKI & Certificate Chain Validator Studio (Trust Anchor, SAN & OCSP), SQL Transaction Isolation & ACID Studio (Read Committed, Repeatable Read, SSI & Write Skew), DGUV Vorschrift 3 & VDE Elektro-Prüfstudio (R_PE, R_ISO, 30 mA RCD & USV), allen 5 IHK-Ausbildungsberufen im Prüfungssimulator (FIAE, FISI, FIDP, FIDV, IT-SE), SQL Window Functions & Analytics Studio (ROW_NUMBER, RANK, DENSE_RANK, NTILE, LEAD/LAG), ArgoCD Kubernetes GitOps & Cluster Drift Studio, Vektor-Mathematik & Embedding-Distanz Studio (Cosine Sim, L2 Euclidean & Manhattan), IHK Projektantrag & Zeitplan-Kollisions-Linter (80h FIAE / 40h FISI), JWT Algorithm Confusion Attack & None-Algorithm Defense Studio (RFC 7519 / RFC 7518 RS256 vs. HS256 Public Key Verification Bypass), Linux SELinux & AppArmor Mandatory Access Control (MAC) Studio, DNS Privacy Inspector (DoH & DoT vs. Port 53 Wire-Format RFC 8484/7858), IHK WISO Liquiditätsgrade (1., 2., 3. Grad / Cash, Quick, Current Ratio) & Net Working Capital (NWC / InsO § 17), RAG Semantic Caching & Vector Similarity Studio (Cosine-Threshold & Zero-Cost Cache Hits), DNSSEC Cryptographic Chain of Trust & RRSIG Validation Studio (RFC 4035), IHK Agile vs. Waterfall & Burndown Studio (AP2 Teil A), Linux Btrfs / ZFS Copy-on-Write & Snapshot Sandbox, OpenAPI 3.1 & JSON-Schema Contract Testing Studio, TLS 1.3 0-RTT Replay Attack & Anti-Replay Studio (RFC 8446 Early Data), IHK Risikoanalyse & 5x5 Risikomatrix (DIN EN 31010 / FMEA für AP2), eBPF Cilium Service Mesh & L7 Tracing Sandbox, PostgreSQL Index Types Deep Dive (B-Tree, GIN, GiST, BRIN), IHK Wirtschaftlichkeits-, Amortisations- & Make-or-Buy Rechner (AP2 Doku-Modul), Web Crypto API & FIDO2 Passkey Studio (WebAuthn), Linux Systemd Unit Lifecycle & Cgroups v2 Sandbox, WebAssembly 128-Bit SIMD & Sobel Convolution Matrix Studio, IHK Projekt-Gantt & Meilenstein-Editor (AP2 Zeitplanung 80h FIAE / 40h FISI), HTTP/3 & QUIC Protocol Inspector & UDP Packet Loss Recovery Simulator, IndexedDB Store Hydration & Redundanter Persistenz-Layer, IHK Präsentations-Stoppuhr & Folien-Gliederung (15 Min AP2 Teil A), Docker Compose Multi-Container Orchestrator (DAG & Network Isolation), Dynamic CI/CD GitHub Actions Workflow Simulator, Offline IndexedDB Storage Synchronizer, IHK Fachgespräch & Audio-Prüfungssimulator (Web Speech STT/TTS), Ansible Playbook & Idempotenz Studio, Web Worker & Hintergrund-Performance Concurrency Studio, IHK DIN 69900 CPM Netzplantechnik, OMG UML 2.5 Studio, Terraform & OpenTofu IaC Studio, IHK Nutzwertanalyse Studio (NWA), RAID Storage & Paritäts-Rechner, VLSM Subnet Splitter, IHK Projektantrags-Prüfer, OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer, Relationalem ERD Designer & 1NF–3NF Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer, Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
+Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik-Grundlagen für Einsteiger (ohne Vorkenntnisse), IHK Berufsschul-Lernfeldern (ausbildung-in-der-it.de LF 1 - 12b), Cloud IAM Policy Evaluator & Least-Privilege Linter (SCPs & Explicit Deny), Prometheus SRE Multi-Burn-Rate Alerting (Google SRE Workbook), Kafka Consumer Lag & Cooperative Sticky Rebalance Protocol, Linux Auditd & eBPF Syscall Tracepoint Security Studio, IHK Mündliche Ergänzungsprüfung (MEP) Simulator (2:1 Notenrechner & 15 Min Prüfungsfragen), WISO Finanzierungsvergleich (Kauf vs. Kredit vs. Leasing & AfA Tax Shield), X.509 PKI & Certificate Chain Validator Studio (Trust Anchor, SAN & OCSP), SQL Transaction Isolation & ACID Studio (Read Committed, Repeatable Read, SSI & Write Skew), DGUV Vorschrift 3 & VDE Elektro-Prüfstudio (R_PE, R_ISO, 30 mA RCD & USV), allen 5 IHK-Ausbildungsberufen im Prüfungssimulator (FIAE, FISI, FIDP, FIDV, IT-SE), SQL Window Functions & Analytics Studio (ROW_NUMBER, RANK, DENSE_RANK, NTILE, LEAD/LAG), ArgoCD Kubernetes GitOps & Cluster Drift Studio, Vektor-Mathematik & Embedding-Distanz Studio (Cosine Sim, L2 Euclidean & Manhattan), IHK Projektantrag & Zeitplan-Kollisions-Linter (80h FIAE / 40h FISI), JWT Algorithm Confusion Attack & None-Algorithm Defense Studio (RFC 7519 / RFC 7518 RS256 vs. HS256 Public Key Verification Bypass), Linux SELinux & AppArmor Mandatory Access Control (MAC) Studio, DNS Privacy Inspector (DoH & DoT vs. Port 53 Wire-Format RFC 8484/7858), IHK WISO Liquiditätsgrade (1., 2., 3. Grad / Cash, Quick, Current Ratio) & Net Working Capital (NWC / InsO § 17), RAG Semantic Caching & Vector Similarity Studio (Cosine-Threshold & Zero-Cost Cache Hits), DNSSEC Cryptographic Chain of Trust & RRSIG Validation Studio (RFC 4035), IHK Agile vs. Waterfall & Burndown Studio (AP2 Teil A), Linux Btrfs / ZFS Copy-on-Write & Snapshot Sandbox, OpenAPI 3.1 & JSON-Schema Contract Testing Studio, TLS 1.3 0-RTT Replay Attack & Anti-Replay Studio (RFC 8446 Early Data), IHK Risikoanalyse & 5x5 Risikomatrix (DIN EN 31010 / FMEA für AP2), eBPF Cilium Service Mesh & L7 Tracing Sandbox, PostgreSQL Index Types Deep Dive (B-Tree, GIN, GiST, BRIN), IHK Wirtschaftlichkeits-, Amortisations- & Make-or-Buy Rechner (AP2 Doku-Modul), Web Crypto API & FIDO2 Passkey Studio (WebAuthn), Linux Systemd Unit Lifecycle & Cgroups v2 Sandbox, WebAssembly 128-Bit SIMD & Sobel Convolution Matrix Studio, IHK Projekt-Gantt & Meilenstein-Editor (AP2 Zeitplanung 80h FIAE / 40h FISI), HTTP/3 & QUIC Protocol Inspector & UDP Packet Loss Recovery Simulator, IndexedDB Store Hydration & Redundanter Persistenz-Layer, IHK Präsentations-Stoppuhr & Folien-Gliederung (15 Min AP2 Teil A), Docker Compose Multi-Container Orchestrator (DAG & Network Isolation), Dynamic CI/CD GitHub Actions Workflow Simulator, Offline IndexedDB Storage Synchronizer, IHK Fachgespräch & Audio-Prüfungssimulator (Web Speech STT/TTS), Ansible Playbook & Idempotenz Studio, Web Worker & Hintergrund-Performance Concurrency Studio, IHK DIN 69900 CPM Netzplantechnik, OMG UML 2.5 Studio, Terraform & OpenTofu IaC Studio, IHK Nutzwertanalyse Studio (NWA), RAID Storage & Paritäts-Rechner, VLSM Subnet Splitter, IHK Projektantrags-Prüfer, OS Prozess-Scheduling & Bankier-Deadlock-Algorithmus, Web-Wireshark Packet Sniffer, Relationalem ERD Designer & 1NF–3NF Linter, Transformer Attention & LLM Sampling Studio, Cloud Architecture SLA & SPOF Canvas, IHK Noten- & MEP-Rechner (AO 2020), 19"-Server-Rack & USV/Klimarechner, ITIL 4 ITSM Service Desk Simulator, SuperMemo SM-2 Spaced Repetition Mastery, Developer Notizbuch & Markdown Vault, Scrum Sprint & Kanban Simulator, GraphQL Schema & Query Explorer, Bluetooth Low Energy (BLE) & GATT Sensor Studio, RegEx Railroad Diagramm Studio, REST API Webhook Inspector & Mock Server, Podcast Voice Quiz Studio, TCO & ROI Wirtschaftlichkeits-Simulator, Git 3-Way Merge Conflict Resolver, Custom Coding Challenge Creator, P2P Multiplayer / LAN Quiz-Duell Arena, SQLite & Relational In-Browser Database Sandbox, Live Coding Challenge Studio, WISO- & Handelskalkulations-Studio, IEEE-754 Gleitkomma & Zahlen-Lab, IPv6 & Routing-Table Simulator, OWASP Top 10 Live-Exploit Sandbox, Neural Network & BPE Tokenizer Studio, druckfertigem IHK Cheat-Sheet PDF-Generator, 365-Tage GitHub-Style Aktivitäts-Heatmap, Pomodoro-Fokus-Timer, Web-Audio SFX-Controller, W3Schools-Style Programmier-Masterclasses, Coursera Deep Learning, Praxis-Projekten, Advanced Prompt Engineering, OAuth2 & OpenID Connect, WebSockets, Performance Profiling, Kubernetes, Local RAG Vector AI, WebAssembly & Rust, Apache Kafka, Docker & Containerisierung, CI/CD, Cybersecurity Red vs Blue Team, 10+ Programmiersprachen, TDD Unit-Testing, i18n Mehrsprachigkeit, Systemarchitektur, Microservices, Design Patterns, Datenbanken, IT-Sicherheit, Logikschaltungen, Netzwerken, Big-O Komplexität, Karriere-Roadmaps, Boss-Battles, Code Typing Speedrun, PWA Offline-Support, Vokabeln und Quizzes – **geeignet für Menschen jeden Alters (ohne Vorwissen) bis hin zu IT-Auszubildenden und erfahrenen Senior-Programmierern**.
 
 ---
 
 ## 📋 Inhaltsverzeichnis
 - [Übersicht & Zielgruppen](#-übersicht--zielgruppen)
-- [Hauptfunktionen & Neue Features (v3.52.0)](#-hauptfunktionen--neue-features-v3520-ihk-mep-simulator-wiso-finanzierung--x509-pki-chain-validator-edition)
+- [Hauptfunktionen & Neue Features (v3.58.0)](#-hauptfunktionen--neue-features-v3580-cloud-iam-governance-sre-slo-burn-rate-kafka-rebalance--linux-auditd-ebpf-edition)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
 - [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
@@ -85,7 +85,42 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Next-Gen Transport: HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx` & `http3QuicEngine.js`)**: Head-of-Line Blocking Eliminierung bei Paketverlust, Multi-Stream Übertragung über UDP, 0-RTT TLS 1.3 Session Resumption und Connection-ID (CID) Migration.
    - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation**, **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
-## ✨ Hauptfunktionen & Neue Features (v3.57.0: IHK Projektantrag PDF-Generator & BGP Anycast DDoS Scrubber Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.58.0: Cloud IAM Governance, SRE SLO Burn-Rate, Kafka Rebalance & Linux Auditd eBPF Edition)
+
+* **🛡️ Cloud IAM Policy Evaluator & Least-Privilege Linter (`CloudIamPolicyLab.jsx` & `src/utils/cloudIamEngine.js`)**:
+  * Didaktisches Cloud-Governance- und Security-Studio für AWS- und Cloud-Infrastrukturen.
+  * **Hierarchische IAM-Entscheidungslogik**:
+    * Evaluation von Organization Service Control Policies (SCPs), Identity-basierten Rollen (Developer/Admin) und Resource-basierten Policies (S3 Bucket Policies).
+    * Strikte Priorisierung: **Explicit Deny** schlägt ausnahmslos jedes Allow. Fehlt ein Allow, greift das Standardverhalten **Implicit Deny**.
+  * **Automatisierter Least-Privilege Linter**:
+    * Erkennt überprivilegierte Wildcards (`*` auf `*`), unbeschränkte Service-Wildcards (`s3:*`, `ec2:*`) und destruktive Operationen (`DeleteBucket`, `TerminateInstances`) ohne Ressourcen-Eingrenzung mit 65 XP Belohnung.
+
+* **📈 Prometheus PromQL Alerting & SRE Error-Budget Burn Studio (`SreSloBurnLab.jsx` & `src/utils/sreSloBurnEngine.js`)**:
+  * Didaktisches Site Reliability Engineering (SRE) Studio nach dem Standard des Google SRE Workbooks (Kapitel 5: Alerting on SLOs).
+  * **Service Level Objectives (SLOs) & Error Budget**:
+    * Exakte Berechnung von erlaubter Fehlerrate ($1 - \text{SLO}$), verbrauchtem Fehlerbudget und verbleibenden Ausfällen über ein 30-Tage-Fenster.
+  * **Multi-Window Multi-Burn-Rate Alerting**:
+    * Parallele Auswertung von Short-Lookback (z.B. 5 Min) und Long-Lookback (z.B. 1 Stunde) Fenstern. Ein kritischer Pager-Alarm feuert nur dann, wenn beide Fenster den Schwellenwert (z.B. 14.4x) überschreiten.
+    * Verhindert Fehlalarme bei transienten Spikes und generiert produktionsfertige Prometheus Alerting Rule YAMLs mit 65 XP Belohnung.
+
+* **⚡ Kafka Consumer Lag & Partition Rebalance Protocol Studio (`KafkaConsumerLagLab.jsx` & `src/utils/kafkaConsumerLagEngine.js`)**:
+  * Didaktisches Distributed Event Streaming Studio für Apache Kafka Cluster.
+  * **Echtzeit Lag-Überwachung**:
+    * Berechnung von Consumer Lag je Partition: $\text{Lag} = \text{Log End Offset (LEO)} - \text{Current Committed Offset}$.
+    * Klassifizierung in Normal, Elevated und Critical bei Verarbeitungsstau.
+  * **Rebalance-Protokolle im Live-Vergleich**:
+    * **Eager Protocol (Legacy)**: Vollständige Stop-the-World Pause für die gesamte Consumer Group (mehrere Sekunden Downtime).
+    * **Cooperative Sticky Protocol (Kafka $\ge$ 2.4)**: Inkrementelle Übergabe betroffener Partitionen ohne Unterbrechung gesunder Consumer mit 65 XP Belohnung.
+
+* **🐧 Linux Auditd & eBPF Syscall Tracepoint Security Studio (`LinuxAuditdEbpfLab.jsx` & `src/utils/linuxAuditdEbpfEngine.js`)**:
+  * Didaktisches Linux Kernel Security- und Threat-Hunting-Studio nach BSI IT-Grundschutz und CIS Benchmarks.
+  * **Syscall-Überwachung auf Kernel-Ebene**:
+    * Echtzeit-Inspektion sensitiver Systemaufrufe (`execve`, `connect`, `openat`, `setuid`).
+    * Erkennung von Remote Code Execution (RCE Reverse Shells durch Webserver-Nutzer `www-data`), unerlaubtem Passwortzugriff (`/etc/shadow`) und SELinux AVC-Denials.
+  * **Auditd-Regelsyntax**:
+    * Interaktive Verknüpfung von Audit-Regeln (`-w /etc/shadow -p wa -k identity_tampering`, `-a always,exit -F arch=b64 -S execve`) mit Sicherheitsvorfällen inklusive produktionsreifem `/etc/audit/rules.d/audit.rules` Template mit 65 XP Belohnung.
+
+## ✨ Bisherige Hauptfunktionen (v3.57.0: IHK Projektantrag PDF-Generator & BGP Anycast DDoS Scrubber Edition)
 
 * **📄 IHK Projektantrag PDF- & Dokumentations-Generator (`IhkProposalPdfLab.jsx` & `src/utils/ihkProposalExporterEngine.js`)**:
   * Offizielles Prüfungs- und Dokumentations-Studio für die IHK Abschlussprüfung (AP2 Teil A Projektarbeit nach AO 2020).
@@ -917,6 +952,10 @@ Informatik-lernen/
     │   │   ├── Oauth21DpopLab.jsx
     │   │   ├── IhkProposalPdfLab.jsx
     │   │   ├── BgpAnycastDdosLab.jsx
+    │   │   ├── CloudIamPolicyLab.jsx
+    │   │   ├── SreSloBurnLab.jsx
+    │   │   ├── KafkaConsumerLagLab.jsx
+    │   │   ├── LinuxAuditdEbpfLab.jsx
     │   │   └── WisoKalkulationLab.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
@@ -1205,7 +1244,15 @@ Informatik-lernen/
         ├── ihkProposalExporterEngine.js
         ├── ihkProposalExporterEngine.test.js
         ├── ddosScrubberEngine.js
-        └── ddosScrubberEngine.test.js
+        ├── ddosScrubberEngine.test.js
+        ├── cloudIamEngine.js
+        ├── cloudIamEngine.test.js
+        ├── sreSloBurnEngine.js
+        ├── sreSloBurnEngine.test.js
+        ├── kafkaConsumerLagEngine.js
+        ├── kafkaConsumerLagEngine.test.js
+        ├── linuxAuditdEbpfEngine.js
+        └── linuxAuditdEbpfEngine.test.js
 ```
 
 ---
@@ -1262,6 +1309,24 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.58.0 (Cloud IAM Governance, SRE SLO Burn-Rate, Kafka Rebalance & Linux Auditd eBPF Edition)
+
+- **Neu**: `src/components/Content/CloudIamPolicyLab.jsx` & `src/utils/cloudIamEngine.js` — Cloud IAM Policy Evaluator & Least-Privilege Linter:
+  - **Hierarchische Entscheidungslogik**: SCPs (Service Control Policies), Identity- und Resource-Policies mit striktem Explicit Deny Vorrang und Default Implicit Deny.
+  - **Automatischer Least-Privilege Linter**: Erkennt gefährliche Full-Admin Wildcards (`*` auf `*`), unbeschränkte Service-Aktionen und destruktive Operationen ohne Ressourcen-Grenzen mit 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 5 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/SreSloBurnLab.jsx` & `src/utils/sreSloBurnEngine.js` — Prometheus PromQL Alerting & SRE Error-Budget Burn Studio:
+  - **SRE SLO & Error Budget**: Exakte Berechnung von Ziel- vs. Ist-Verfügbarkeit, Fehlerraten und verbleibenden Ausfällen.
+  - **Multi-Window Multi-Burn-Rate Alerting**: Zeitgleiche Auswertung von Short- (z.B. 5 Min) und Long-Lookback (z.B. 1 Stunde) Fenstern nach dem Google SRE Workbook zur Verhinderung von Pager-Müdigkeit sowie produktionsreife Prometheus Alerting Rule YAMLs mit 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 4 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/KafkaConsumerLagLab.jsx` & `src/utils/kafkaConsumerLagEngine.js` — Kafka Consumer Lag & Partition Rebalance Protocol Studio:
+  - **Echtzeit Lag-Monitoring**: Log End Offset (LEO), Committed Offsets und Partitions-Lag mit Schwellenwert-Status (Normal, Elevated, Critical).
+  - **Rebalance-Simulation**: Gegenüberstellung von Eager (Stop-the-World) mit Cooperative Sticky Rebalancing (Zero Stop-the-World inkrementelle Übergabe) mit 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 3 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/LinuxAuditdEbpfLab.jsx` & `src/utils/linuxAuditdEbpfEngine.js` — Linux Auditd & eBPF Syscall Tracepoint Security Studio:
+  - **Kernel-Syscall Threat Hunting**: Überwachung sensitiver Aufrufe (`execve`, `connect`, `openat`, `setuid`), Erkennung von RCE Reverse Shells durch Webserver-User `www-data`, `/etc/shadow` Zugriffen und SELinux AVC-Denials.
+  - **Auditd Rule Syntax**: Interaktive Zuordnung von Audit-Filtern (`-w /etc/shadow`, `-a always,exit -F arch=b64 -S execve`) zu Vorfällen inklusive `/etc/audit/rules.d/audit.rules` Hardening Template mit 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 3 Unit-Tests abgesichert.
+- **Routing & Integration**: Vollständige Registrierung aller 4 neuen Studios in `src/App.jsx` (Lazy Loading & `activeLabElement` Switch-Tabelle mit Routen `cloud_iam_policy_lab`, `sre_slo_burn_lab`, `kafka_consumer_lag_lab` und `linux_auditd_ebpf_lab`), `src/components/Content/LabsDashboard.jsx`, `src/components/Navigation/CommandPaletteModal.jsx` und Navigation.
+- **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für alle 4 neuen Studios erweitert (81/81 Komponenten-Tests bestanden) und `allLabsSmoke.test.jsx` erfolgreich über alle 215 Studios durchlaufen.
+- **Test-Suite & Qualität**: **1177 bestandene Unit- & Integrationstests** in **159 Test-Dateien** (100% Erfolgsquote, +15 neue Tests), **0 Oxlint-Fehler / 0 Warnungen** über 595 Quelldateien (`oxlint src --deny-warnings`), `tsc --noEmit` fehlerfrei, PWA Produktions-Build erfolgreich und alle `size-limit`-Vorgaben eingehalten.
 
 ### Version 3.57.0 (IHK Projektantrag PDF-Generator & BGP Anycast DDoS Scrubber Edition)
 

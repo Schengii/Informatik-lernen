@@ -84,6 +84,10 @@ import WisoPersonalPlanungLab from './Content/WisoPersonalPlanungLab';
 import Oauth21DpopLab from './Content/Oauth21DpopLab';
 import IhkProposalPdfLab from './Content/IhkProposalPdfLab';
 import BgpAnycastDdosLab from './Content/BgpAnycastDdosLab';
+import CloudIamPolicyLab from './Content/CloudIamPolicyLab';
+import SreSloBurnLab from './Content/SreSloBurnLab';
+import KafkaConsumerLagLab from './Content/KafkaConsumerLagLab';
+import LinuxAuditdEbpfLab from './Content/LinuxAuditdEbpfLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -706,6 +710,38 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/BGP Anycast/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert CloudIamPolicyLab fehlerfrei', () => {
+    const { container } = render(
+      <CloudIamPolicyLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Cloud IAM/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert SreSloBurnLab fehlerfrei', () => {
+    const { container } = render(
+      <SreSloBurnLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Prometheus/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert KafkaConsumerLagLab fehlerfrei', () => {
+    const { container } = render(
+      <KafkaConsumerLagLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Kafka Consumer Lag/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert LinuxAuditdEbpfLab fehlerfrei', () => {
+    const { container } = render(
+      <LinuxAuditdEbpfLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Linux Auditd/i).length).toBeGreaterThan(0);
   });
 });
 

@@ -292,6 +292,11 @@ const Oauth21DpopLab = lazy(() => import('./components/Content/Oauth21DpopLab'))
 // v3.57.0 IHK Proposal Exporter & BGP Anycast DDoS Scrubber Studios
 const IhkProposalPdfLab = lazy(() => import('./components/Content/IhkProposalPdfLab'));
 const BgpAnycastDdosLab = lazy(() => import('./components/Content/BgpAnycastDdosLab'));
+// v3.58.0 Cloud IAM, SRE SLO Burn, Kafka Consumer Lag & Linux Auditd eBPF Studios
+const CloudIamPolicyLab = lazy(() => import('./components/Content/CloudIamPolicyLab'));
+const SreSloBurnLab = lazy(() => import('./components/Content/SreSloBurnLab'));
+const KafkaConsumerLagLab = lazy(() => import('./components/Content/KafkaConsumerLagLab'));
+const LinuxAuditdEbpfLab = lazy(() => import('./components/Content/LinuxAuditdEbpfLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -776,6 +781,14 @@ export default function App() {
         return <IhkProposalPdfLab onRewardXP={(xp) => awardXP(xp, 'ihk_proposal_pdf_master')} />;
       case activeTab === 'bgp_anycast_ddos_lab' || activeTab === 'bgp_anycast_ddos' || activeTab === 'ddos_scrubber_lab':
         return <BgpAnycastDdosLab onRewardXP={(xp) => awardXP(xp, 'bgp_anycast_ddos_master')} />;
+      case activeTab === 'cloud_iam_policy_lab' || activeTab === 'cloud_iam' || activeTab === 'iam_policy_lab':
+        return <CloudIamPolicyLab onRewardXP={(xp) => awardXP(xp, 'cloud_iam_governance_master')} />;
+      case activeTab === 'sre_slo_burn_lab' || activeTab === 'sre_slo_burn' || activeTab === 'burn_rate_lab':
+        return <SreSloBurnLab onRewardXP={(xp) => awardXP(xp, 'sre_slo_burn_master')} />;
+      case activeTab === 'kafka_consumer_lag_lab' || activeTab === 'kafka_consumer_lag' || activeTab === 'kafka_lag_lab':
+        return <KafkaConsumerLagLab onRewardXP={(xp) => awardXP(xp, 'kafka_consumer_lag_master')} />;
+      case activeTab === 'linux_auditd_ebpf_lab' || activeTab === 'linux_auditd' || activeTab === 'auditd_ebpf_lab':
+        return <LinuxAuditdEbpfLab onRewardXP={(xp) => awardXP(xp, 'linux_auditd_ebpf_master')} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':

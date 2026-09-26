@@ -3,6 +3,50 @@ import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Da
 
 export const LAB_MODULES = [
   {
+    id: 'cloud_iam_policy_lab',
+    title: 'Cloud IAM Policy Evaluator & Least-Privilege Linter',
+    category: 'security',
+    tags: ['#IAM', '#AWS', '#CloudSecurity', '#LeastPrivilege', '#SCP', '#ExplicitDeny', '#Policies', '#ZeroTrust'],
+    difficulty: 'Advanced',
+    desc: 'Auswertung von Organization SCPs, Identity- und Resource-Policies mit striktem Explicit Deny Vorrang sowie automatischem Linter für überprivilegierte Administrator-Rechte.',
+    icon: Lock,
+    badge: 'Neu',
+    color: '#6366f1'
+  },
+  {
+    id: 'sre_slo_burn_lab',
+    title: 'Prometheus PromQL Alerting & SRE Error-Budget Burn Studio',
+    category: 'cloud',
+    tags: ['#SRE', '#SLO', '#ErrorBudget', '#BurnRate', '#Prometheus', '#PromQL', '#GoogleSRE', '#Alerting'],
+    difficulty: 'Advanced',
+    desc: 'SLO-Verfügbarkeitsberechnung und Multi-Window Multi-Burn-Rate Alerting nach Google SRE Workbook zur Vermeidung von Pager-Müdigkeit inklusive fertiger YAML-Manifeste.',
+    icon: TrendingDown,
+    badge: 'Neu',
+    color: '#f43f5e'
+  },
+  {
+    id: 'kafka_consumer_lag_lab',
+    title: 'Kafka Consumer Lag & Partition Rebalance Protocol Studio',
+    category: 'cloud',
+    tags: ['#Kafka', '#ConsumerLag', '#Rebalance', '#CooperativeSticky', '#StopTheWorld', '#LEO', '#Offsets'],
+    difficulty: 'Advanced',
+    desc: 'Echtzeit-Tracking von Consumer Lag, Partition-Assignor-Strategien und Gegenüberstellung von Eager (Stop-the-World) vs. Cooperative Sticky Rebalancing.',
+    icon: Zap,
+    badge: 'Neu',
+    color: '#06b6d4'
+  },
+  {
+    id: 'linux_auditd_ebpf_lab',
+    title: 'Linux Auditd & eBPF Syscall Tracepoint Security Studio',
+    category: 'security',
+    tags: ['#Linux', '#Auditd', '#eBPF', '#Syscalls', '#execve', '#ThreatHunting', '#SELinux', '#Hardening'],
+    difficulty: 'Advanced',
+    desc: 'Kernel-Level Threat Hunting: Erkennung von RCE-Reverse-Shells, Privilege Escalation und Passwort-Tampering via Auditd-Regeln und eBPF Syscall-Filtern.',
+    icon: Activity,
+    badge: 'Neu',
+    color: '#ef4444'
+  },
+  {
     id: 'ihk_proposal_pdf_lab',
     title: 'IHK Projektantrag PDF- & Dokumentations-Generator',
     category: 'ihk',
