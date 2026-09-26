@@ -27,6 +27,8 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-ihk-proposal-pdf', title: 'IHK Projektantrag PDF- & Dokumentations-Generator (AP2 Teil A Zeitplan & TOMs)', category: 'Prüfung', icon: FileText, action: () => onNavigate('ihk_proposal_pdf_lab') },
+    { id: 'view-bgp-anycast-ddos', title: 'BGP Anycast & DDoS Flow-Scrubber Studio (Edge PoPs, SYN-Cookies & Route Withdrawal)', category: 'Labs & Tools', icon: ShieldAlert, action: () => onNavigate('bgp_anycast_ddos_lab') },
     { id: 'view-wiso-personal-planung', title: 'IHK WISO Personalbedarfsplanung (Brutto- & Nettobedarf, Reserve- & Einsatzbedarf)', category: 'Prüfung', icon: Users, action: () => onNavigate('wiso_personal_planung_lab') },
     { id: 'view-oauth21-dpop', title: 'OAuth 2.1 & RFC 9449 DPoP Sender-Constrained Security Studio (PKCE S256 & Replay Protection)', category: 'Labs & Tools', icon: KeyRound, action: () => onNavigate('oauth21_dpop_lab') },
     { id: 'view-wiso-company-forms', title: 'IHK WISO Rechtsformen & Haftung (GmbH, UG, OHG, KG & Einzelunternehmen)', category: 'Prüfung', icon: Building2, action: () => onNavigate('wiso_company_forms_lab') },

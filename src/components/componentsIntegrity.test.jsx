@@ -82,6 +82,8 @@ import WisoCompanyFormsLab from './Content/WisoCompanyFormsLab';
 import MtlsZtnaLab from './Content/MtlsZtnaLab';
 import WisoPersonalPlanungLab from './Content/WisoPersonalPlanungLab';
 import Oauth21DpopLab from './Content/Oauth21DpopLab';
+import IhkProposalPdfLab from './Content/IhkProposalPdfLab';
+import BgpAnycastDdosLab from './Content/BgpAnycastDdosLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -688,6 +690,22 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/OAuth 2.1/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert IhkProposalPdfLab fehlerfrei', () => {
+    const { container } = render(
+      <IhkProposalPdfLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/IHK Projektantrag/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert BgpAnycastDdosLab fehlerfrei', () => {
+    const { container } = render(
+      <BgpAnycastDdosLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/BGP Anycast/i).length).toBeGreaterThan(0);
   });
 });
 

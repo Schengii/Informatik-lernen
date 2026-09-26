@@ -85,7 +85,27 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Next-Gen Transport: HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx` & `http3QuicEngine.js`)**: Head-of-Line Blocking Eliminierung bei Paketverlust, Multi-Stream Übertragung über UDP, 0-RTT TLS 1.3 Session Resumption und Connection-ID (CID) Migration.
    - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation**, **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
-## ✨ Hauptfunktionen & Neue Features (v3.56.0: IHK WISO Personalbedarfsplanung & OAuth 2.1 RFC 9449 DPoP Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.57.0: IHK Projektantrag PDF-Generator & BGP Anycast DDoS Scrubber Edition)
+
+* **📄 IHK Projektantrag PDF- & Dokumentations-Generator (`IhkProposalPdfLab.jsx` & `src/utils/ihkProposalExporterEngine.js`)**:
+  * Offizielles Prüfungs- und Dokumentations-Studio für die IHK Abschlussprüfung (AP2 Teil A Projektarbeit nach AO 2020).
+  * **Strukturierte Projektantragserstellung**:
+    * Antrags-Stammdaten mit automatischer Erkennung des Ausbildungsberufs (FIAE 80h, FISI 40h, FIDP 80h, IT-SE 40h).
+    * Phasenplanung mit prozentualer Budgetierung (Analyse, Entwurf, Umsetzung, Qualitätssicherung, Dokumentation).
+    * Integration technischer und organisatorischer Maßnahmen nach Art. 32 DSGVO (TOMs) sowie Wirtschaftlichkeits- und Amortisationsnachweis.
+  * **1-Klick A4-PDF- & Markdown-Export**:
+    * Generiert druckfertige, hochauflösende PDF-Dokumente mit offiziellem IHK-Rahmen, Unterschriftsfeldern und Tabellenlayouts via `jsPDF` sowie formatierten Markdown-Quelltext mit 60 XP Belohnung.
+
+* **🌐 BGP Anycast & DDoS Flow-Scrubber Studio (`BgpAnycastDdosLab.jsx` & `src/utils/ddosScrubberEngine.js`)**:
+  * Didaktisches Netzwerk- und Cyber-Security-Studio für globale Ingress-Verkehrsverteilung und DDoS-Abwehr.
+  * **Weltweite Edge-PoP Ingress-Simulation**:
+    * Globale Points of Presence in Frankfurt (FRA-01), Amsterdam (AMS-01), New York (NYC-01) und Tokio (TYO-01) mit Anycast IP-Ankündigung.
+    * Live-Simulation von Multi-Vektor-Angriffen: TCP SYN Floods (L4), DNS/NTP UDP Amplification (L3/L4) und HTTP GET/POST Floods (L7).
+  * **Automatisierte Abwehrmaßnahmen & Failover**:
+    * Linux Kernel SYN-Cookies (`tcp_syncookies=1`) und FlowSpec-basierte Rate-Limiter.
+    * Automatischer BGP Route Withdrawal bei Standortüberlastung: Traffic weicht nahtlos und unterbrechungsfrei auf benachbarte Anycast-Standorte aus mit 65 XP Belohnung.
+
+## ✨ Bisherige Hauptfunktionen (v3.56.0: IHK WISO Personalbedarfsplanung & OAuth 2.1 RFC 9449 DPoP Edition)
 
 * **👥 IHK WISO Personalbedarfsplanung & HR-Kennzahlen Studio (`WisoPersonalPlanungLab.jsx` & `src/utils/wisoPersonalPlanungEngine.js`)**:
   * Didaktisches HR- und Controlling-Studio für die IHK Abschlussprüfung (AP2 WISO).
@@ -895,6 +915,8 @@ Informatik-lernen/
     │   │   ├── MtlsZtnaLab.jsx
     │   │   ├── WisoPersonalPlanungLab.jsx
     │   │   ├── Oauth21DpopLab.jsx
+    │   │   ├── IhkProposalPdfLab.jsx
+    │   │   ├── BgpAnycastDdosLab.jsx
     │   │   └── WisoKalkulationLab.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
@@ -1179,7 +1201,11 @@ Informatik-lernen/
         ├── wisoPersonalPlanungEngine.js
         ├── wisoPersonalPlanungEngine.test.js
         ├── oauth21DpopEngine.js
-        └── oauth21DpopEngine.test.js
+        ├── oauth21DpopEngine.test.js
+        ├── ihkProposalExporterEngine.js
+        ├── ihkProposalExporterEngine.test.js
+        ├── ddosScrubberEngine.js
+        └── ddosScrubberEngine.test.js
 ```
 
 ---
@@ -1236,6 +1262,18 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.57.0 (IHK Projektantrag PDF-Generator & BGP Anycast DDoS Scrubber Edition)
+
+- **Neu**: `src/components/Content/IhkProposalPdfLab.jsx` & `src/utils/ihkProposalExporterEngine.js` — IHK Projektantrag PDF- & Dokumentations-Generator (AP2 Teil A):
+  - **Prüfungskonforme Antragsgenerierung**: Vollständige Erfassung von Projekttitel, Problemstellung, Zielsetzung, Phasenbudgetierung (FIAE 80h, FISI 40h, FIDP 80h, IT-SE 40h) und Art. 32 DSGVO TOMs.
+  - **1-Klick A4-PDF- & Markdown-Export**: Clientseitige Generierung eines offiziellen IHK-Antragsformulars mit Rahmen, Kopfdaten, Phasentabelle und Unterschriftszeilen via `jsPDF` sowie formatiertem Markdown mit 60 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 2 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/BgpAnycastDdosLab.jsx` & `src/utils/ddosScrubberEngine.js` — BGP Anycast & DDoS Flow-Scrubber Studio:
+  - **Globale Ingress-Simulation**: Multi-PoP Anycast-Topologie (Frankfurt, Amsterdam, New York, Tokio) mit L3/L4/L7 DDoS-Angriffen (SYN Floods, UDP Amplification, HTTP Floods).
+  - **Automatisierte Scrubbing-Pipeline**: Linux Kernel SYN-Cookies (`tcp_syncookies=1`), FlowSpec Token-Bucket Rate-Limiting und BGP Route Withdrawal bei Standortüberlastung mit nahtlosem Anycast-Traffic-Shifting und 65 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 3 Unit-Tests abgesichert.
+- **Routing & Integration**: Vollständige Registrierung beider neuer Studios in `src/App.jsx` (Lazy Loading & `activeLabElement` Switch-Tabelle mit Routen `ihk_proposal_pdf_lab` und `bgp_anycast_ddos_lab`), `src/components/Content/LabsDashboard.jsx`, `src/components/Navigation/CommandPaletteModal.jsx` und Navigation.
+- **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für beide neuen Studios erweitert (77/77 Komponenten-Tests bestanden) und `allLabsSmoke.test.jsx` erfolgreich über alle 211 Studios durchlaufen.
+- **Test-Suite & Qualität**: **1162 bestandene Unit- & Integrationstests** in **155 Test-Dateien** (100% Erfolgsquote, +15 neue Tests), **0 Oxlint-Fehler / 0 Warnungen** über 583 Quelldateien (`oxlint src --deny-warnings`), `tsc --noEmit` fehlerfrei, PWA Produktions-Build erfolgreich und alle `size-limit`-Vorgaben eingehalten (App-Shell 111.11 kB gzipped < 115 kB Limit).
 
 ### Version 3.56.0 (IHK WISO Personalbedarfsplanung & OAuth 2.1 RFC 9449 DPoP Security Edition)
 

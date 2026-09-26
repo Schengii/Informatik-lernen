@@ -1,7 +1,29 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key, Lock, AlertTriangle, Globe, TrendingDown, HardDrive, FileCode, Brain, Activity, Radio, BarChart2, GraduationCap, Route, Scale, Building2, Users, KeyRound } from 'lucide-react';
+import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key, Lock, AlertTriangle, Globe, TrendingDown, HardDrive, FileCode, Brain, Activity, Radio, BarChart2, GraduationCap, Route, Scale, Building2, Users, KeyRound, FileText, ShieldAlert } from 'lucide-react';
 
 export const LAB_MODULES = [
+  {
+    id: 'ihk_proposal_pdf_lab',
+    title: 'IHK Projektantrag PDF- & Dokumentations-Generator',
+    category: 'ihk',
+    tags: ['#IHK', '#Projektantrag', '#PDF', '#AO2020', '#FIAE', '#FISI', '#DSGVO', '#Zeitplan', '#AP2'],
+    difficulty: 'Intermediate',
+    desc: 'Offizieller Antrag auf Zulassung zur Projektarbeit (AP2 Teil A): Detaillierte Zeit- & Phasenplanung, DSGVO Art. 32 TOMs, Wirtschaftlichkeit & 1-Klick A4-PDF-Export.',
+    icon: FileText,
+    badge: 'IHK Neu',
+    color: '#f59e0b'
+  },
+  {
+    id: 'bgp_anycast_ddos_lab',
+    title: 'BGP Anycast & DDoS Flow-Scrubber Studio',
+    category: 'network',
+    tags: ['#BGP', '#Anycast', '#DDoS', '#Scrubber', '#SYN_Cookies', '#FlowSpec', '#EdgePoP', '#Failover'],
+    difficulty: 'Advanced',
+    desc: 'Weltweite Ingress-Verkehrsverteilung über Edge-PoPs (Frankfurt, Amsterdam, New York, Tokio), SYN-Cookies, FlowSpec-Filterung und BGP Anycast Route-Withdrawal.',
+    icon: ShieldAlert,
+    badge: 'Neu',
+    color: '#f43f5e'
+  },
   {
     id: 'wiso_personal_planung_lab',
     title: 'IHK WISO Personalbedarfsplanung: Brutto & Netto Studio',

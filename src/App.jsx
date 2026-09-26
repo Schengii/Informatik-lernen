@@ -289,6 +289,9 @@ const MtlsZtnaLab = lazy(() => import('./components/Content/MtlsZtnaLab'));
 // v3.56.0 WISO Personalbedarfsplanung & OAuth 2.1 RFC 9449 DPoP Security Studios
 const WisoPersonalPlanungLab = lazy(() => import('./components/Content/WisoPersonalPlanungLab'));
 const Oauth21DpopLab = lazy(() => import('./components/Content/Oauth21DpopLab'));
+// v3.57.0 IHK Proposal Exporter & BGP Anycast DDoS Scrubber Studios
+const IhkProposalPdfLab = lazy(() => import('./components/Content/IhkProposalPdfLab'));
+const BgpAnycastDdosLab = lazy(() => import('./components/Content/BgpAnycastDdosLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -769,6 +772,10 @@ export default function App() {
         return <WisoPersonalPlanungLab onRewardXP={(xp) => awardXP(xp, 'wiso_personal_planung_master')} />;
       case activeTab === 'oauth21_dpop_lab' || activeTab === 'oauth21_dpop' || activeTab === 'dpop_security_lab':
         return <Oauth21DpopLab onRewardXP={(xp) => awardXP(xp, 'oauth21_dpop_master')} />;
+      case activeTab === 'ihk_proposal_pdf_lab' || activeTab === 'ihk_proposal_pdf' || activeTab === 'projektantrag_pdf':
+        return <IhkProposalPdfLab onRewardXP={(xp) => awardXP(xp, 'ihk_proposal_pdf_master')} />;
+      case activeTab === 'bgp_anycast_ddos_lab' || activeTab === 'bgp_anycast_ddos' || activeTab === 'ddos_scrubber_lab':
+        return <BgpAnycastDdosLab onRewardXP={(xp) => awardXP(xp, 'bgp_anycast_ddos_master')} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':
