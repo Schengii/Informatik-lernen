@@ -1,7 +1,40 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key, Lock, AlertTriangle, Globe, TrendingDown, HardDrive, FileCode, Brain, Activity, Radio, BarChart2, GraduationCap } from 'lucide-react';
+import { Search, Sparkles, Play, Award, Layers, Terminal, Shield, Cpu, Cloud, Database, Network, Code2, GitCommit, Server, Mic, Zap, Clock, GitPullRequest, Calendar, Calculator, Key, Lock, AlertTriangle, Globe, TrendingDown, HardDrive, FileCode, Brain, Activity, Radio, BarChart2, GraduationCap, Route } from 'lucide-react';
 
 export const LAB_MODULES = [
+  {
+    id: 'routing_dijkstra_lab',
+    title: 'Routing-Algorithmen: Dijkstra (SPF) & Spanning Tree (STP)',
+    category: 'network',
+    tags: ['#OSPF', '#Dijkstra', '#STP', '#IEEE802_1D', '#ShortestPath', '#LoopPrevention', '#BridgeID'],
+    difficulty: 'Advanced',
+    desc: 'Interaktive Simulation von OSPF Shortest Path First (Dijkstra) und Spanning Tree Protocol (STP) zur Verhinderung von Switching-Loops und Broadcast-Storms.',
+    icon: Route,
+    badge: 'Neu',
+    color: '#06b6d4'
+  },
+  {
+    id: 'http_caching_lab',
+    title: 'HTTP Caching Studio (RFC 9111): Cache-Control & ETag 304',
+    category: 'network',
+    tags: ['#HTTP', '#Caching', '#RFC9111', '#ETag', '#304NotModified', '#maxAge', '#noCache', '#noStore'],
+    difficulty: 'Intermediate',
+    desc: 'Browser- und Reverse-Proxy Caching nach RFC 9111: max-age, no-cache vs. no-store, bedingte Anfragen mit If-None-Match und 0-Byte 304 Revalidierung.',
+    icon: Zap,
+    badge: 'Neu',
+    color: '#eab308'
+  },
+  {
+    id: 'exam_readiness_lab',
+    title: 'Adaptiver IHK Prüfungspfad & Countdown-Planer',
+    category: 'ihk',
+    tags: ['#IHK', '#Countdown', '#Readiness', '#AO2020', '#Notenprognose', '#SchwachstellenAudit'],
+    difficulty: 'Intermediate',
+    desc: 'Echtzeit-Prüfungsbereitschaftsanalyse mit Tagen bis zum nächsten IHK-Termin, gewichteter Notenprognose (AP1/AP2/WiSo) und Handlungsempfehlungen.',
+    icon: Calendar,
+    badge: 'IHK Neu',
+    color: '#10b981'
+  },
   {
     id: 'ihk_mep_simulator_lab',
     title: 'IHK Mündliche Ergänzungsprüfung (MEP) Simulator',

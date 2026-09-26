@@ -6,7 +6,7 @@ import {
   Calculator, Globe, ShieldAlert, Brain, GitMerge,
   Lock, Activity, GitCommit, Network, Server, Code, Radio, Mic, Zap,
   Clock, GitPullRequest, Calendar, Key, HardDrive, FileCode, TrendingDown,
-  Cloud, Compass, GraduationCap
+  Cloud, Compass, GraduationCap, Route
 } from 'lucide-react';
 import { TOPICS } from '../../data/topicsData';
 import { GLOSSARY_TERMS } from '../../data/glossaryData';
@@ -27,6 +27,9 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   // Schnell-Befehle & Navigationselemente
   const staticActions = [
     { id: 'view-home', title: 'Übersicht / Startseite', category: 'Navigation', icon: BookOpen, action: () => onNavigate('dashboard') },
+    { id: 'view-routing-dijkstra', title: 'Routing-Algorithmen Studio: Dijkstra (SPF) & Spanning Tree (STP Loop Prevention)', category: 'Labs & Tools', icon: Route, action: () => onNavigate('routing_dijkstra_lab') },
+    { id: 'view-http-caching', title: 'HTTP Caching Studio (RFC 9111 Cache-Control, ETag & 304 Not Modified)', category: 'Labs & Tools', icon: Zap, action: () => onNavigate('http_caching_lab') },
+    { id: 'view-exam-readiness', title: 'Adaptiver IHK Prüfungspfad & Countdown-Planer (Readiness Score & Notenprognose)', category: 'Prüfung', icon: Calendar, action: () => onNavigate('exam_readiness_lab') },
     { id: 'view-ihk-mep', title: 'IHK Mündliche Ergänzungsprüfung (MEP) Simulator (15 Min Notfallprüfung & 2:1 Notenrechner)', category: 'Prüfung', icon: GraduationCap, action: () => onNavigate('ihk_mep_simulator_lab') },
     { id: 'view-wiso-financing', title: 'WISO Finanzierungsvergleich: Kauf vs. Kredit vs. Leasing (AfA § 7 EStG Tax Shield)', category: 'Prüfung', icon: Calculator, action: () => onNavigate('wiso_financing_lab') },
     { id: 'view-pki-certificate', title: 'X.509 PKI & Certificate Chain Validator Studio (Trust Anchor, SAN & OCSP Stapling)', category: 'Labs & Tools', icon: Lock, action: () => onNavigate('pki_certificate_lab') },

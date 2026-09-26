@@ -85,7 +85,31 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Next-Gen Transport: HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx` & `http3QuicEngine.js`)**: Head-of-Line Blocking Eliminierung bei Paketverlust, Multi-Stream Übertragung über UDP, 0-RTT TLS 1.3 Session Resumption und Connection-ID (CID) Migration.
    - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation**, **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
-## ✨ Hauptfunktionen & Neue Features (v3.52.0: IHK MEP Simulator, WISO Finanzierung & X.509 PKI Chain Validator Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.53.0: Routing Dijkstra & STP, RFC 9111 HTTP Caching & IHK Exam Readiness Edition)
+
+* **🌐 Routing-Algorithmen: Dijkstra (SPF) & Spanning Tree Protocol (STP IEEE 802.1D) (`RoutingDijkstraLab.jsx` & `src/utils/routingDijkstraEngine.js`)**:
+  * Didaktisches Netzwerk-Routing- und Topologie-Studio nach OSPF- (RFC 2328) und IEEE 802.1D Standards.
+  * **Dijkstra OSPF Shortest Path First (SPF)**:
+    * Interaktive Schritt-für-Schritt-Relaxation unbesuchter Knoten, Pfad-Rekonstruktion und kumulierte Metrik-Berechnung auf einer dynamischen SVG-Netzwerktopologie.
+  * **Spanning Tree Loop Prevention**:
+    * Automatische Wahl der Root Bridge (Bridge-ID: Priorität + MAC-Adresse), Root-Ports und Discarding/Blocking von redundanten Links zur Eliminierung zerstörerischer Broadcast-Storms und Switching-Loops mit 60 XP Belohnung.
+
+* **⚡ RFC 9111 HTTP Caching Studio: Cache-Control & ETag 304 (`HttpCachingLab.jsx` & `src/utils/httpCachingEngine.js`)**:
+  * Didaktisches Web-Performance-, API- und Gateway-Caching-Studio nach dem aktuellen RFC 9111 Standard.
+  * **Direktiven & Freshness-Lebenszyklen**:
+    * `max-age`, `no-cache` (Revalidierung erzwingen) vs. `no-store` (Speicherung untersagt).
+    * Bedingte Anfragen (`If-None-Match` vs. `ETag`) mit Demonstration des 0-Byte-Payload HTTP 304 Not Modified Transfers zur Schonung von Bandbreite und Server-Ressourcen mit 60 XP Belohnung.
+
+* **🎯 Adaptiver IHK Prüfungspfad & Countdown-Planer (`ExamReadinessLab.jsx` & `src/utils/examReadinessEngine.js`)**:
+  * Intelligentes Controlling-Studio für die Abschlussprüfung nach Ausbildungsordnung AO 2020.
+  * **Prüfungs-Countdown & Notenprognose**:
+    * Verbleibende Tage bis zum nächsten Prüfungstermin (Sommer / Winter).
+    * Gewichteter Readiness-Score (0–100%) über alle IHK-Bereiche (AP1 20%, AP2 B1 10%, AP2 B2 10%, WiSo 10%, Projekt/Fachgespräch 50%), dynamische Notenprognose und gezielte Empfehlungen zur Behebung individueller Wissenslücken mit 60 XP Belohnung.
+
+* **🗂️ Anki & CSV Lernkarten-Export (`FlashcardsModal.jsx` & `src/utils/flashcardIoEngine.js`)**:
+  * 1-Klick-Export aller integrierten IHK-Spaced-Repetition-Lernkarten im tabulatorgetrennten Anki TSV-Format (`.txt`) oder als standardisiertes CSV (`.csv`) für Excel und mobile Karteikarten-Apps.
+
+## ✨ Bisherige Hauptfunktionen (v3.52.0: IHK MEP Simulator, WISO Finanzierung & X.509 PKI Chain Validator Edition)
 
 * **🎓 IHK Mündliche Ergänzungsprüfung (MEP) Simulator (`IhkMepSimulatorLab.jsx` & `src/utils/ihkMepEngine.js`)**:
   * Didaktisches Prüfungs- und Notfall-Studio nach BBiG § 198 und AO 2020 für alle gefährdeten Prüflinge mit Note 5 (30–49 Punkte) in einem schriftlichen Prüfungsbereich.
@@ -807,6 +831,9 @@ Informatik-lernen/
     │   │   ├── IhkMepSimulatorLab.jsx
     │   │   ├── WisoFinancingLab.jsx
     │   │   ├── PkiCertificateLab.jsx
+    │   │   ├── RoutingDijkstraLab.jsx
+    │   │   ├── HttpCachingLab.jsx
+    │   │   ├── ExamReadinessLab.jsx
     │   │   └── WisoKalkulationLab.jsx
     │   ├── Footer/
     │   │   └── DsgvoFooterModal.jsx
@@ -1071,7 +1098,15 @@ Informatik-lernen/
         ├── wisoFinancingEngine.js
         ├── wisoFinancingEngine.test.js
         ├── pkiCertificateEngine.js
-        └── pkiCertificateEngine.test.js
+        ├── pkiCertificateEngine.test.js
+        ├── routingDijkstraEngine.js
+        ├── routingDijkstraEngine.test.js
+        ├── httpCachingEngine.js
+        ├── httpCachingEngine.test.js
+        ├── examReadinessEngine.js
+        ├── examReadinessEngine.test.js
+        ├── flashcardIoEngine.js
+        └── flashcardIoEngine.test.js
 ```
 
 ---
@@ -1128,6 +1163,23 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.53.0 (Routing Dijkstra & STP, RFC 9111 HTTP Caching & IHK Exam Readiness Edition)
+
+- **Neu**: `src/components/Content/RoutingDijkstraLab.jsx` & `src/utils/routingDijkstraEngine.js` — Routing-Algorithmen Studio (Dijkstra SPF & Spanning Tree Protocol STP IEEE 802.1D):
+  - **Dijkstra OSPF Shortest Path First**: Schritt-für-Schritt SPF-Berechnung auf Adjazenzmatrizen mit visualisierter Relaxation, Pfad-Rekonstruktion, Metrik-Kosten und dynamischer SVG-Netzwerktopologie mit 60 XP Belohnung.
+  - **Spanning Tree Loop Prevention**: Root-Bridge-Wahl (niedrigste Priorität / MAC Tie-Breaker), Root-Port-Ermittlung und automatische Deaktivierung redundanter Kanten (Discarding/Blocking) zur Verhinderung katastrophaler Switching-Loops. Vollständig typgeprüft (`// @ts-check`) und mit 3 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/HttpCachingLab.jsx` & `src/utils/httpCachingEngine.js` — RFC 9111 HTTP Caching & Conditional Requests Studio:
+  - Interaktive Steuerung von `max-age`, `no-cache`, `no-store` und ETag-Revalidierung.
+  - Simulation bedingter Anfragen (`If-None-Match`), 0-Byte-Payload HTTP 304 Not Modified Antworten und Browser Memory Cache Hits (0ms) mit 60 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 3 Unit-Tests abgesichert.
+- **Neu**: `src/components/Content/ExamReadinessLab.jsx` & `src/utils/examReadinessEngine.js` — Adaptiver IHK Prüfungspfad & Countdown-Planer:
+  - Automatischer Countdown bis zum nächsten offiziellen IHK-Prüfungstermin (Mai/November).
+  - Dynamischer Readiness-Score (0–100%) über alle IHK-Prüfungsbereiche (AP1 20%, AP2 B1 10%, AP2 B2 10%, WiSo 10%, Projekt/Fachgespräch 50%), Notenprognose und gezielte Empfehlungen für Schwachstellen mit 60 XP Belohnung. Vollständig typgeprüft (`// @ts-check`) und mit 2 Unit-Tests abgesichert.
+- **Neu**: Anki & CSV Flashcard Export Engine (`src/utils/flashcardIoEngine.js` & `src/components/Gamification/FlashcardsModal.jsx`):
+  - Ermöglicht den 1-Klick-Export aller integrierten IHK-Lernkarten als Anki TSV-Deck (`.txt`) oder normiertes CSV (`.csv`) für Excel und mobile Karteikarten-Apps. Vollständig typgeprüft (`// @ts-check`) und mit 3 Unit-Tests abgesichert.
+- **Routing & Integration**: Vollständige Registrierung aller 3 neuen Studios in `src/App.jsx` (Lazy Loading & `activeLabElement` Switch-Tabelle mit Routen `routing_dijkstra_lab`, `http_caching_lab` und `exam_readiness_lab`), `src/components/Content/LabsDashboard.jsx`, `src/components/Navigation/CommandPaletteModal.jsx` und Navigation.
+- **Smoke Tests & Komponenten-Integrität**: `src/components/componentsIntegrity.test.jsx` um Smoke-Tests für alle 3 neuen Studios erweitert (69/69 Komponenten-Tests bestanden) und `allLabsSmoke.test.jsx` erfolgreich über alle 203 Studios durchlaufen.
+- **Test-Suite & Qualität**: **1040 bestandene Unit- & Integrationstests** in **147 Test-Dateien** (100% Erfolgsquote, +11 neue Tests!), **0 Oxlint-Fehler / 0 Warnungen** über 553 Quelldateien (`oxlint src --deny-warnings`), `tsc --noEmit` fehlerfrei, PWA Produktions-Build erfolgreich und alle `size-limit`-Vorgaben eingehalten (App-Shell 111.01 kB gzipped).
 
 ### Version 3.52.0 (IHK Mündliche Ergänzungsprüfung MEP Simulator, WISO Finanzierung & X.509 PKI Chain Validator Edition)
 

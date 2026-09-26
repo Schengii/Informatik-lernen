@@ -276,6 +276,10 @@ const DguvV3ElektronikLab = lazy(() => import('./components/Content/DguvV3Elektr
 const IhkMepSimulatorLab = lazy(() => import('./components/Content/IhkMepSimulatorLab'));
 const WisoFinancingLab = lazy(() => import('./components/Content/WisoFinancingLab'));
 const PkiCertificateLab = lazy(() => import('./components/Content/PkiCertificateLab'));
+// v3.53.0 Routing Dijkstra/STP, HTTP Caching & Exam Readiness Roadmap Studios
+const RoutingDijkstraLab = lazy(() => import('./components/Content/RoutingDijkstraLab'));
+const HttpCachingLab = lazy(() => import('./components/Content/HttpCachingLab'));
+const ExamReadinessLab = lazy(() => import('./components/Content/ExamReadinessLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -738,6 +742,12 @@ export default function App() {
         return <WisoFinancingLab onAwardXP={(xp, badge) => awardXP(xp, badge)} />;
       case activeTab === 'pki_certificate_lab' || activeTab === 'pki_certificate' || activeTab === 'tls_chain_validator':
         return <PkiCertificateLab onAwardXP={(xp, badge) => awardXP(xp, badge)} />;
+      case activeTab === 'routing_dijkstra_lab' || activeTab === 'routing_dijkstra' || activeTab === 'dijkstra_stp_lab':
+        return <RoutingDijkstraLab onRewardXP={(xp) => awardXP(xp, 'dijkstra_stp_master')} />;
+      case activeTab === 'http_caching_lab' || activeTab === 'http_caching' || activeTab === 'rfc9111_cache_lab':
+        return <HttpCachingLab onRewardXP={(xp) => awardXP(xp, 'http_caching_master')} />;
+      case activeTab === 'exam_readiness_lab' || activeTab === 'exam_readiness' || activeTab === 'ihk_exam_roadmap':
+        return <ExamReadinessLab onRewardXP={(xp) => awardXP(xp, 'exam_readiness_master')} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':

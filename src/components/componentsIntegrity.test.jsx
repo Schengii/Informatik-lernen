@@ -73,6 +73,9 @@ import DguvV3ElektronikLab from './Content/DguvV3ElektronikLab';
 import IhkMepSimulatorLab from './Content/IhkMepSimulatorLab';
 import WisoFinancingLab from './Content/WisoFinancingLab';
 import PkiCertificateLab from './Content/PkiCertificateLab';
+import RoutingDijkstraLab from './Content/RoutingDijkstraLab';
+import HttpCachingLab from './Content/HttpCachingLab';
+import ExamReadinessLab from './Content/ExamReadinessLab';
 
 describe('Component Integrity & Smoke Tests', () => {
   it('rendert CommandPaletteModal ohne ReferenceError (alle Lucide Icons importiert)', () => {
@@ -607,6 +610,30 @@ describe('Component Integrity & Smoke Tests', () => {
     );
     expect(container).toBeDefined();
     expect(screen.getAllByText(/Certificate Chain/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert RoutingDijkstraLab fehlerfrei', () => {
+    const { container } = render(
+      <RoutingDijkstraLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Dijkstra/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert HttpCachingLab fehlerfrei', () => {
+    const { container } = render(
+      <HttpCachingLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/HTTP Caching/i).length).toBeGreaterThan(0);
+  });
+
+  it('rendert ExamReadinessLab fehlerfrei', () => {
+    const { container } = render(
+      <ExamReadinessLab onRewardXP={() => {}} />
+    );
+    expect(container).toBeDefined();
+    expect(screen.getAllByText(/Countdown-Planer/i).length).toBeGreaterThan(0);
   });
 });
 
