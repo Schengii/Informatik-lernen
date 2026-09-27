@@ -12,7 +12,6 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 - [Hauptfunktionen & Neue Features (v3.59.0)](#-hauptfunktionen--neue-features-v3590-k8s-gateway-api-wiso-break-even-stufe-2--dnssec-rollover-edition)
 - [Barrierefreiheit & Inklusion](#-barrierefreiheit--inklusion)
 - [Ordnerstruktur](#-ordnerstruktur)
-- [Dateiinhalt & Komponentenübersicht](#-dateiinhalt--komponentenübersicht)
 - [Funktionsweise](#-funktionsweise)
 - [DSGVO & Datenschutz](#-dsgvo--datenschutz)
 - [Anleitung (Installation & Ausführung)](#-anleitung-installation--ausführung)
@@ -1348,6 +1347,19 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.59.1 (Repository Cleanup, Architecture & Vault Backup Edition)
+
+- **Aufräumarbeiten & Bereinigung**:
+  - Unnötige Migrationsskripte im Root-Verzeichnis entfernt (`addFramer.cjs`, `refactor.cjs`).
+  - Nicht versionierte Build- & Dev-Artefakte bereinigt (`dev-dist/` entfernt, `.gitignore` ergänzt).
+  - Inhaltsverzeichnis und Markdown-Referenzen synchronisiert.
+- **Obsidian Vault Backup**:
+  - Vollständiges, aktuelles Backup aller zentralen Architektur-, Konfigurations- und Dokumentationsdateien (`README.md`, `CLAUDE.md`, `_Projektuebersicht.md`, `package.json`, `vercel.json`, `vite.config.js`, `.gitignore`, `.claudeignore`) in `C:\Users\sche-\Desktop\Obsidian\01 Projects\Informatik-lernen\` synchronisiert.
+- **Code-Qualität & Testabdeckung**:
+  - 100% Erfolgsquote: 1222 bestandene Unit- und Integrationstests in 162 Testdateien.
+  - 0 Oxlint-Fehler / 0 Warnungen über 604 Quelldateien.
+  - TypeScript-Typecheck (`tsc --noEmit`) und Vite-Produktions-Build fehlerfrei.
 
 ### Version 3.59.0 (Kubernetes Gateway API, IHK WISO Deckungsbeitrag Stufe 2 & DNSSEC Key Rollover Edition)
 
