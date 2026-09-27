@@ -53,11 +53,12 @@
       "name": "Haupt-Bundle (App-Shell, ohne Labs)",
       "path": "dist/assets/index-*.js",
       "gzip": true,
-      "limit": "115 KB"
+      "limit": "105 KB"
     }
   ],
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
+    "@sentry/react": "^11.0.0",
     "@vercel/analytics": "^2.0.1",
     "alasql": "^4.17.3",
     "canvas-confetti": "^1.9.4",

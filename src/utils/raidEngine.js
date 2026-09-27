@@ -1,8 +1,55 @@
+// @ts-check
 /**
  * IHK RAID Storage & Parity Calculation Engine
  * Prüfungsrelevante Berechnung für FISI, ITSE & AP1 nach AO 2020
  */
 
+/**
+ * @typedef {object} RaidLevelInfo
+ * @property {string} name
+ * @property {number} minDisks
+ * @property {string} faultToleranceDescription
+ * @property {number} writePenalty
+ * @property {(n: number) => number} readMultiplier
+ * @property {(n: number) => number} writeMultiplier
+ *
+ * @typedef {object} RaidStorageInput
+ * @property {number} [raidLevel]
+ * @property {number} [diskCount]
+ * @property {number} [diskSizeTB]
+ * @property {number} [rebuildSpeedMBs]
+ * @property {number} [ureRate]
+ *
+ * @typedef {object} DiskBlock
+ * @property {string} label
+ * @property {boolean} isParity
+ *
+ * @typedef {object} DiskMatrixEntry
+ * @property {number} diskId
+ * @property {string} name
+ * @property {DiskBlock[]} blocks
+ *
+ * @typedef {object} RaidStorageResult
+ * @property {number} raidLevel
+ * @property {string} name
+ * @property {number} minDisks
+ * @property {number} numDisks
+ * @property {number} diskSizeTB
+ * @property {number} rawCapacityTB
+ * @property {number} usableCapacityTB
+ * @property {number} parityCapacityTB
+ * @property {number} efficiencyPercent
+ * @property {number} redundancyPercent
+ * @property {number} maxFailedDisks
+ * @property {string} faultToleranceDescription
+ * @property {number} writePenalty
+ * @property {number} rebuildHours
+ * @property {number} urePercent
+ * @property {boolean} isUreRiskHigh
+ * @property {DiskMatrixEntry[]} diskMatrix
+ */
+
+/** @type {Record<number, RaidLevelInfo>} */
 export const RAID_LEVELS = {
   0: {
     name: 'RAID 0 (Striping)',
@@ -56,6 +103,8 @@ export const RAID_LEVELS = {
 
 /**
  * Berechnet Kapazitäten, Redundanz und Kennzahlen für eine RAID-Konfiguration
+ * @param {RaidStorageInput} input
+ * @returns {RaidStorageResult}
  */
 export function calculateRaidStorage({
   raidLevel = 5,
@@ -153,11 +202,15 @@ export function calculateRaidStorage({
 
 /**
  * Erzeugt die visuelle Blockverteilung (Striping & Parity Layout)
+ * @param {number} level
+ * @param {number} numDisks
+ * @returns {DiskMatrixEntry[]}
  */
 function generateDiskBlockMatrix(level, numDisks) {
   const disks = Array.from({ length: numDisks }, (_, i) => ({
     diskId: i + 1,
     name: `Festplatte HDD ${i + 1}`,
+    /** @type {DiskBlock[]} */
     blocks: []
   }));
 

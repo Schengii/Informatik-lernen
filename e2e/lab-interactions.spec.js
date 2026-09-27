@@ -50,3 +50,26 @@ test('JWT-Sicherheitslücken: "alg: none" Angriff wird bei aktiver Verteidigung 
   await page.getByRole('button', { name: 'AKTIV' }).click();
   await expect(page.getByText('Angriff erfolgreich!')).toBeVisible();
 });
+
+// Wissen/Lückentext/Videos/Projekte wurden von statischen App.jsx-Imports auf
+// React.lazy() umgestellt (siehe App.jsx), um das Haupt-Bundle unter das
+// size-limit-Budget zu bringen. Diese Tests stellen sicher, dass die
+// Suspense-Grenzen korrekt greifen und jeder Tab weiterhin fehlerfrei rendert.
+for (const { tab, headingPattern } of [
+  { tab: 'lueckentext', headingPattern: /Interaktive Lückentexte/i },
+  { tab: 'videos', headingPattern: /Video-Tutorial Studio/i },
+  { tab: 'projekte', headingPattern: /Praxis-Mikroprojekte/i }
+]) {
+  test(`Lazy-geladener Tab "${tab}" rendert ohne unbehandelte Fehler`, async ({ page }) => {
+    const consoleErrors = [];
+    page.on('console', (msg) => {
+      if (msg.type() === 'error') consoleErrors.push(msg.text());
+    });
+    page.on('pageerror', (err) => consoleErrors.push(err.message));
+
+    await page.goto(`/${tab}`);
+
+    await expect(page.getByRole('heading', { name: headingPattern })).toBeVisible();
+    expect(consoleErrors, `Unerwartete Konsolen-/Laufzeitfehler im Tab "${tab}": ${consoleErrors.join('\n')}`).toEqual([]);
+  });
+}

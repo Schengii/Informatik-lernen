@@ -4,14 +4,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useStore } from './store/useStore';
 import Navbar from './components/Navigation/Navbar';
 import MobileNav from './components/Navigation/MobileNav';
-import TopicReader from './components/Content/TopicReader';
-import ClozeTester from './components/Content/ClozeTester';
-import VideoHub from './components/Content/VideoHub';
-import ProjectViewer from './components/Projects/ProjectViewer';
 import DsgvoFooterModal from './components/Footer/DsgvoFooterModal';
 import DifficultyFilterBar from './components/Navigation/DifficultyFilterBar';
-import ExamSimulator from './components/Content/ExamSimulator';
 const SkillMatrixWidget = lazy(() => import('./components/Gamification/SkillMatrixWidget'));
+// Nur beim Betreten des jeweiligen Tabs benötigt (Wissen, Lückentext, Videos,
+// Projekte, Prüfungssimulator) - nicht Teil des Dashboard-Erstladepfads, den
+// die meisten Nutzer sehen. Lazy Loading hält das Haupt-Bundle unter Budget.
+const TopicReader = lazy(() => import('./components/Content/TopicReader'));
+const ClozeTester = lazy(() => import('./components/Content/ClozeTester'));
+const VideoHub = lazy(() => import('./components/Content/VideoHub'));
+const ProjectViewer = lazy(() => import('./components/Projects/ProjectViewer'));
+const ExamSimulator = lazy(() => import('./components/Content/ExamSimulator'));
 import DailyChallengeWidget from './components/Gamification/DailyChallengeWidget';
 import SkillTreeWidget from './components/Gamification/SkillTreeWidget';
 import ActivityHeatmapWidget from './components/Gamification/ActivityHeatmapWidget';
@@ -978,12 +981,14 @@ export default function App() {
             {activeTab === 'wissen' && (
               <div>
                 {selectedTopicId ? (
-                  <TopicReader
-                    topicId={selectedTopicId}
-                    onBack={() => setSelectedTopicId(null)}
-                    onCompleteTopic={handleCompleteTopic}
-                    isCompleted={userState.completedTopics.includes(selectedTopicId)}
-                  />
+                  <Suspense fallback={<LabLoadingFallback />}>
+                    <TopicReader
+                      topicId={selectedTopicId}
+                      onBack={() => setSelectedTopicId(null)}
+                      onCompleteTopic={handleCompleteTopic}
+                      isCompleted={userState.completedTopics.includes(selectedTopicId)}
+                    />
+                  </Suspense>
                 ) : (
                   <div>
                     <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-main)' }}>
@@ -1082,17 +1087,23 @@ export default function App() {
 
             {/* LÜCKENTEXT */}
             {activeTab === 'lueckentext' && (
-              <ClozeTester userState={userState} onCompleteCloze={(_id, xp) => awardXP(xp, 'cloze_wizard')} />
+              <Suspense fallback={<LabLoadingFallback />}>
+                <ClozeTester userState={userState} onCompleteCloze={(_id, xp) => awardXP(xp, 'cloze_wizard')} />
+              </Suspense>
             )}
 
             {/* VIDEOS */}
             {activeTab === 'videos' && (
-              <VideoHub onCompleteVideo={(_id, xp) => awardXP(xp)} />
+              <Suspense fallback={<LabLoadingFallback />}>
+                <VideoHub onCompleteVideo={(_id, xp) => awardXP(xp)} />
+              </Suspense>
             )}
 
             {/* PROJEKTE */}
             {activeTab === 'projekte' && (
-              <ProjectViewer onCompleteProject={(_id, xp) => awardXP(xp)} />
+              <Suspense fallback={<LabLoadingFallback />}>
+                <ProjectViewer onCompleteProject={(_id, xp) => awardXP(xp)} />
+              </Suspense>
             )}
           </ErrorBoundary>
           </motion.div>

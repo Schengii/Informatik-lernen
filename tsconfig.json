@@ -11,7 +11,8 @@
     "skipLibCheck": true,
     "strict": true,
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "types": ["vite/client"]
   },
   "include": ["src/**/*"]
 }

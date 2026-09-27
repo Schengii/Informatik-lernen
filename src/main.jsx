@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { Analytics } from '@vercel/analytics/react'
 import './styles/global.css'
 import App from './App.jsx'
+import { initErrorMonitoring } from './utils/errorMonitoring.js'
 
 if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost')) {
   window.addEventListener('load', () => {
@@ -27,6 +28,10 @@ const isLocalhost = typeof window !== 'undefined' && (
   window.location.hostname === '127.0.0.1' ||
   window.location.hostname === '[::1]'
 );
+
+if (!isLocalhost) {
+  initErrorMonitoring();
+}
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

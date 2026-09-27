@@ -1,5 +1,6 @@
 import React from 'react';
 import { AlertTriangle, RefreshCw, Home } from 'lucide-react';
+import { captureException } from '../utils/errorMonitoring.js';
 
 /**
  * Globale Error Boundary für das Content-/Lab-Rendering.
@@ -40,6 +41,10 @@ class ErrorBoundary extends React.Component {
     // In der Konsole protokollieren, damit Fehler in einzelnen Labs während
     // der Entwicklung weiterhin sichtbar sind (kein "silent swallow").
     console.error('[ErrorBoundary] Unbehandelter Fehler in einem Modul:', error, errorInfo);
+    // Meldet den Fehler zusätzlich an Sentry (No-Op ohne konfigurierte
+    // VITE_SENTRY_DSN, siehe src/utils/errorMonitoring.js), damit Abstürze
+    // einzelner Labs bei echten Nutzern auf der Live-Seite sichtbar werden.
+    captureException(error, { componentStack: errorInfo?.componentStack, resetKey: this.props.resetKey });
     if (typeof this.props.onError === 'function') {
       this.props.onError(error, errorInfo);
     }
