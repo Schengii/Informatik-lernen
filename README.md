@@ -1354,10 +1354,13 @@ npm run build
   - Unnötige Migrationsskripte im Root-Verzeichnis entfernt (`addFramer.cjs`, `refactor.cjs`).
   - Nicht versionierte Build- & Dev-Artefakte bereinigt (`dev-dist/` entfernt, `.gitignore` ergänzt).
   - Inhaltsverzeichnis und Markdown-Referenzen synchronisiert.
+- **CI/CD & E2E-Stabilität**:
+  - Vercel Analytics in `src/main.jsx` für Nicht-Produktions-/Localhost-Umgebungen deaktiviert (`!isLocalhost && <Analytics />`), um 404-Netzwerkfehler im lokalen Vite Preview Server (`/_vercel/insights/script.js`) und damit fehlschlagende Playwright Smoke Tests in GitHub Actions CI zu verhindern.
+  - `e2e/pwa-offline.spec.js` mit `test.describe.serial` isoliert, wodurch alle 8 E2E- und A11y-Tests parallel und reproduzierbar grün durchlaufen.
 - **Obsidian Vault Backup**:
   - Vollständiges, aktuelles Backup aller zentralen Architektur-, Konfigurations- und Dokumentationsdateien (`README.md`, `CLAUDE.md`, `_Projektuebersicht.md`, `package.json`, `vercel.json`, `vite.config.js`, `.gitignore`, `.claudeignore`) in `C:\Users\sche-\Desktop\Obsidian\01 Projects\Informatik-lernen\` synchronisiert.
 - **Code-Qualität & Testabdeckung**:
-  - 100% Erfolgsquote: 1222 bestandene Unit- und Integrationstests in 162 Testdateien.
+  - 100% Erfolgsquote: 1222 bestandene Unit- und Integrationstests in 162 Testdateien sowie 8/8 bestandene Playwright E2E-Tests.
   - 0 Oxlint-Fehler / 0 Warnungen über 604 Quelldateien.
   - TypeScript-Typecheck (`tsc --noEmit`) und Vite-Produktions-Build fehlerfrei.
 

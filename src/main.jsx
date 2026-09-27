@@ -22,11 +22,17 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
   });
 }
 
+const isLocalhost = typeof window !== 'undefined' && (
+  window.location.hostname === 'localhost' ||
+  window.location.hostname === '127.0.0.1' ||
+  window.location.hostname === '[::1]'
+);
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <App />
-      <Analytics />
+      {!isLocalhost && <Analytics />}
     </BrowserRouter>
   </StrictMode>,
 )

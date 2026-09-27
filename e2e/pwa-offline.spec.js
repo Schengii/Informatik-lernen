@@ -6,21 +6,21 @@ import { test, expect } from '@playwright/test';
 // Service Worker über einen echten Seitenaufruf, geht dann in einen
 // simulierten Offline-Modus und prüft, dass die App weiterhin aus dem Cache
 // bedient wird statt eine Browser-Offline-Fehlerseite zu zeigen.
+test.describe.serial('PWA Offline & Service Worker Suite', () => {
+  test('Service Worker registriert sich und cached die App-Shell', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.getByRole('heading', { name: /Willkommen zurück/i })).toBeVisible();
 
-test('Service Worker registriert sich und cached die App-Shell', async ({ page }) => {
-  await page.goto('/');
-  await expect(page.getByRole('heading', { name: /Willkommen zurück/i })).toBeVisible();
+    const swReady = await page.evaluate(async () => {
+      if (!('serviceWorker' in navigator)) return false;
+      const registration = await navigator.serviceWorker.ready;
+      return !!registration.active;
+    });
 
-  const swReady = await page.evaluate(async () => {
-    if (!('serviceWorker' in navigator)) return false;
-    const registration = await navigator.serviceWorker.ready;
-    return !!registration.active;
+    expect(swReady).toBe(true);
   });
 
-  expect(swReady).toBe(true);
-});
-
-test('App bleibt nach einem Reload im Offline-Modus nutzbar (Service-Worker-Cache)', async ({ page, context }) => {
+  test('App bleibt nach einem Reload im Offline-Modus nutzbar (Service-Worker-Cache)', async ({ page, context }) => {
   // Erster Aufruf: Service Worker installieren und die App-Shell precachen lassen.
   await page.goto('/');
   await expect(page.getByRole('heading', { name: /Willkommen zurück/i })).toBeVisible();
@@ -43,4 +43,5 @@ test('App bleibt nach einem Reload im Offline-Modus nutzbar (Service-Worker-Cach
   } finally {
     await context.setOffline(false);
   }
+});
 });
