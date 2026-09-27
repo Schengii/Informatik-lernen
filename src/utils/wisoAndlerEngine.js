@@ -1,9 +1,34 @@
+// @ts-check
 /**
  * IHK WISO Andler'sche Formel (Optimale Bestellmenge) Engine
  * Calculates economic order quantity (EOQ / x_opt), order frequency (n_opt),
  * order interval (t_opt), and cost breakdown (ordering costs vs. holding costs).
  */
 
+/**
+ * @typedef {object} AndlerOrderInput
+ * @property {number} [jahresbedarf]
+ * @property {number} [bestellfixeKosten]
+ * @property {number} [einstandspreis]
+ * @property {number} [lagerkostensatzPercent]
+ *
+ * @typedef {object} AndlerOrderResult
+ * @property {number} jahresbedarf
+ * @property {number} bestellfixeKosten
+ * @property {number} einstandspreis
+ * @property {number} lagerkostensatzPercent
+ * @property {number} xOpt
+ * @property {number} nOpt
+ * @property {number} tOptDays
+ * @property {number} bestellkosten
+ * @property {number} lagerkosten
+ * @property {number} gesamtkosten
+ */
+
+/**
+ * @param {AndlerOrderInput} input
+ * @returns {AndlerOrderResult}
+ */
 export function calculateAndlerOptimalOrder({
   jahresbedarf = 10000,
   bestellfixeKosten = 50.0,

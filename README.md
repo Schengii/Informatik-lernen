@@ -1348,6 +1348,17 @@ npm run build
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
+### Version 3.59.2 (Engine-Typisierung, Coverage-Gate, E2E-Interaktionstests & CI-Hardening Edition)
+
+- **Graduelle Typisierung sicherheitskritischer Engines** (`// @ts-check`, siehe CLAUDE.md Punkt 8): 14 weitere Geld-, Prüfungs- und Sicherheits-Engines vollständig mit JSDoc-Typen abgesichert — `wisoAbcXyzEngine.js`, `wisoAndlerEngine.js`, `wisoContributionMarginEngine.js`, `wisoDunningEngine.js`, `wisoInterestCalculationsEngine.js`, `wisoLoanCollateralEngine.js`, `ihkPresentationTimerEngine.js`, `jwtAttackEngine.js`, `zkpCryptoEngine.js`, `dnssecValidationEngine.js` und `tlsHandshakeEngine.js` sowie `webAuthnEngine.js` vollständig auf `@ts-check` migriert (vorher nur teilweise typgeprüft).
+- **Coverage-Gate für Engines**: `vite.config.js` setzt jetzt harte Mindest-Testabdeckungs-Schwellenwerte (`coverage.thresholds` für `src/utils/**/*Engine.js`: 85% Lines, 70% Branches, 90% Functions), sodass neue oder geänderte Berechnungs-Engines nicht mehr ungetestet einsickern können, ohne bestehende CI-Läufe zu blockieren.
+- **Neue E2E-Interaktionstests**: `e2e/lab-interactions.spec.js` ergänzt die bisherigen Smoke-Tests um echte Nutzerinteraktionen in 3 repräsentativen Lab-Kategorien (RAID-Rechner, WISO-Deckungsbeitrag, JWT-Sicherheitslücken-Studio) — verifiziert, dass eine reale Bedienung (Regler, Buttons, Toggles) das berechnete Ergebnis im Browser tatsächlich korrekt verändert, statt nur den Render-Erfolg zu prüfen.
+- **CI/CD-Hardening** (`.github/workflows/ci.yml`):
+  - Playwright-Browser-Binaries werden jetzt per `actions/cache` zwischengespeichert (Cache-Key aus `@playwright/test`-Version), was wiederholte volle Chromium-Downloads in jedem CI-Lauf vermeidet.
+  - Neuer `bundle-size-report` Job kommentiert bei Pull Requests automatisch den Bundle-Size-Trend (Vorher/Nachher pro Chunk) direkt im PR (`andresz1/size-limit-action`), zusätzlich zum bereits bestehenden hart gatenden `size-limit`-Check.
+- **Dependency-Housekeeping**: Ungenutzte `pyodide`-Abhängigkeit entfernt (war nur als Kommentar-Referenz im Python-WASM-Lab vorhanden, das tatsächlich einen reinen JS-Python-Interpreter-Fallback nutzt — kein einziger echter Import im gesamten Quellcode). `npm audit fix` behebt 3 von 4 transitiven Dev-Dependency-Schwachstellen (dompurify via monaco-editor, fast-uri, js-yaml); die verbleibende `image-size`-Schwachstelle steckt in einem React-Native-spezifischen Codepfad von `alasql`s optionalen Dependencies, der im Browser-Bundle nie ausgeführt wird, und wird bewusst nicht per Force-Fix (Breaking-Change-Risiko für das SQL-Sandbox-Lab) behoben.
+- **Test-Suite & Qualität**: **1222 bestandene Unit-Tests** in **162 Testdateien** weiterhin 100% grün, **11/11 bestandene Playwright E2E-Tests** (8 bestehende + 3 neue Interaktionstests), `oxlint src --deny-warnings` und `tsc --noEmit` fehlerfrei, Produktions-Build & alle `size-limit`-Vorgaben eingehalten.
+
 ### Version 3.59.1 (Repository Cleanup, Architecture & Vault Backup Edition)
 
 - **Aufräumarbeiten & Bereinigung**:

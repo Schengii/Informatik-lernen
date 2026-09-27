@@ -72,7 +72,18 @@ export default defineConfig({
         'src/**/*.test.{js,jsx}',
         'src/main.jsx',
         'src/assets/**'
-      ]
+      ],
+      // Engines enthalten die Prüfungs-, Geld- und Sicherheitsberechnungen des
+      // Projekts (siehe CLAUDE.md Punkt 8) - hier gilt ein hartes Mindestmaß,
+      // knapp unter dem aktuellen Ist-Stand, damit neue Engines nicht
+      // ungetestet einsickern können, ohne bestehende Ausreißer zu blockieren.
+      thresholds: {
+        'src/utils/**/*Engine.js': {
+          lines: 85,
+          branches: 70,
+          functions: 90
+        }
+      }
     }
   }
 })
