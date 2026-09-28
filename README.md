@@ -84,7 +84,31 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Next-Gen Transport: HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx` & `http3QuicEngine.js`)**: Head-of-Line Blocking Eliminierung bei Paketverlust, Multi-Stream Übertragung über UDP, 0-RTT TLS 1.3 Session Resumption und Connection-ID (CID) Migration.
    - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation**, **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
-## ✨ Hauptfunktionen & Neue Features (v3.59.0: K8s Gateway API, WISO Break-Even Stufe 2 & DNSSEC Rollover Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.60.0: IHK WISO Doppelte Buchführung & BAB Kostenstellenrechnung Edition)
+
+* **📒 IHK WISO Doppelte Buchführung (T-Konten & Buchungssätze) (`WisoBookkeepingLab.jsx` & `src/utils/wisoBookkeepingEngine.js`)**:
+  * Didaktisches Buchführungs-Studio nach offiziellem IHK-Prüfungsstandard für AP2 WISO (SKR03-Kontenrahmen).
+  * **T-Konten-Visualizer mit Buchungsregeln**:
+    * Interaktive Darstellung von Aktiv-, Passiv-, Aufwands- und Ertragskonten mit Soll/Haben-Prinzip.
+    * Erklärtexte zu jeder Buchungsregel (Zugänge/Abgänge, Entstehung/Korrekturbuchung).
+  * **Interaktiver Buchungssatz-Builder**:
+    * 7 IHK-typische Buchungsszenarien: Wareneinkauf auf Ziel, Begleichen der Verbindlichkeit, Warenverkauf, Kundenzahlung, Lohnzahlung, AfA-Abschreibung, Mietzahlung.
+    * Echtzeit-Validierung (Soll-Konto ≠ Haben-Konto, Betrag > 0, gültige Konten-IDs).
+  * **Jahresabschluss (GuV & Schlussbilanz)**:
+    * Automatische Berechnung von Erträgen, Aufwendungen und Betriebsergebnis (Gewinn/Verlust) aus den gebuchten Geschäftsvorfällen mit 65 XP Belohnung.
+
+* **🧮 IHK WISO Betriebsabrechnungsbogen BAB & Zuschlagskalkulation (`WisoBabLab.jsx` & `src/utils/wisoBabEngine.js`)**:
+  * Didaktisches Kostenstellenrechnungs-Studio nach offiziellem IHK-Prüfungsstandard für AP2 WISO.
+  * **Grafischer BAB mit Kostenverteilung**:
+    * 5 Kostenarten (Hilfslöhne, Gehälter, Miete, Abschreibungen, Sonstige) werden per Verteilschlüssel auf die 4 Hauptkostenstellen (Material, Fertigung, Verwaltung, Vertrieb) umgelegt.
+    * Interaktive Anpassung von Materialeinzelkosten (MEK) und Fertigungseinzelkosten (FEK).
+  * **Automatische Zuschlagssatzberechnung**:
+    * MGK-Satz = Materialgemeinkosten / MEK × 100, FGK-Satz = Fertigungsgemeinkosten / FEK × 100.
+    * VwGK-Satz und VtrGK-Satz auf Herstellkostenbasis.
+  * **Zuschlagskalkulation Schritt für Schritt**:
+    * Vollständige Kalkulation von MEK + MGK + FEK + FGK = Herstellkosten → + VwGK + VtrGK = Selbstkosten → + Gewinnzuschlag = Angebotspreis mit 65 XP Belohnung.
+
+## ✨ Bisherige Hauptfunktionen (v3.59.0: K8s Gateway API, WISO Break-Even Stufe 2 & DNSSEC Rollover Edition)
 
 * **☸️ Kubernetes Gateway API & Envoy Traffic Splitting Studio (`K8sGatewayApiLab.jsx` & `src/utils/k8sGatewayApiEngine.js`)**:
   * Didaktisches Cloud-Native-, Service-Mesh- und Ingress-Architektur-Studio nach dem offiziellen Kubernetes Gateway API Standard (`gateway.networking.k8s.io/v1`).

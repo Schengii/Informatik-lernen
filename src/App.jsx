@@ -304,6 +304,9 @@ const LinuxAuditdEbpfLab = lazy(() => import('./components/Content/LinuxAuditdEb
 const K8sGatewayApiLab = lazy(() => import('./components/Content/K8sGatewayApiLab'));
 const WisoBreakEvenLab = lazy(() => import('./components/Content/WisoBreakEvenLab'));
 const DnssecRolloverLab = lazy(() => import('./components/Content/DnssecRolloverLab'));
+// v3.60.0 IHK WISO Doppelte Buchführung & BAB Kostenstellenrechnung
+const WisoBookkeepingLab = lazy(() => import('./components/Content/WisoBookkeepingLab'));
+const WisoBabLab = lazy(() => import('./components/Content/WisoBabLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -802,6 +805,10 @@ export default function App() {
         return <WisoBreakEvenLab onRewardXP={(xp) => awardXP(xp, 'wiso_break_even_master')} />;
       case activeTab === 'dnssec_rollover_lab' || activeTab === 'dnssec_rollover' || activeTab === 'dnssec_lab':
         return <DnssecRolloverLab onRewardXP={(xp) => awardXP(xp, 'dnssec_rollover_master')} />;
+      case activeTab === 'wiso_bookkeeping_lab' || activeTab === 'wiso_buchfuehrung' || activeTab === 'bookkeeping_lab':
+        return <WisoBookkeepingLab onXPGain={(xp, badge) => awardXP(xp, badge || 'wiso_bookkeeping_master')} />;
+      case activeTab === 'wiso_bab_lab' || activeTab === 'wiso_bab' || activeTab === 'bab_lab':
+        return <WisoBabLab onXPGain={(xp, badge) => awardXP(xp, badge || 'wiso_bab_master')} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':
