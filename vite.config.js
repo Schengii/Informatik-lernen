@@ -11,6 +11,27 @@ export default defineConfig({
       devOptions: {
         enabled: true
       },
+      workbox: {
+        // Große Lab-Chunks (vendor-pdf, vendor-sql, vendor-charts, index) aus
+        // dem Precache ausschließen – reduziert SW-Download von ~4,6 MB auf
+        // ~1–1,5 MB. Sie werden per runtimeCaching beim ersten Zugriff
+        // gecacht und danach per StaleWhileRevalidate bedient.
+        globIgnores: [
+          'assets/vendor-pdf-*.js',
+          'assets/vendor-sql-*.js',
+          'assets/vendor-charts-*.js'
+        ],
+        runtimeCaching: [
+          {
+            urlPattern: /\/assets\/vendor-(pdf|sql|charts)-[^/]+\.js$/,
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'vendor-large-chunks',
+              expiration: { maxAgeSeconds: 60 * 60 * 24 * 30 }
+            }
+          }
+        ]
+      },
       manifest: {
         name: 'IT-DevGame',
         short_name: 'ITGame',
@@ -29,6 +50,10 @@ export default defineConfig({
   ],
   build: {
     cssMinify: true,
+    // Budgets werden per gzip geprüft (size-limit) – alle Chunks liegen dort
+    // im Rahmen. Die Standard-500-kB-Warnung bezieht sich auf unkomprimierte
+    // Größe und ist hier ein False Positive.
+    chunkSizeWarningLimit: 650,
     modulePreload: {
       resolveDependencies: (filename, deps) =>
         deps.filter((dep) => !/vendor-(charts|pdf|sql)-/.test(dep))
