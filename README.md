@@ -1386,6 +1386,15 @@ npm run build
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
+### Version 3.62.0 (SEO, Social Sharing, Loading Skeleton & Typecheck-Fix Edition)
+
+- **Open Graph & Twitter Card Meta-Tags**: `index.html` verwendet jetzt eine korrekte `og:image`-PNG-URL (`/og-image.png`, 1200×630), `og:url`, `og:image:width/height/type`, `og:locale: de_DE` sowie `twitter:card: summary_large_image`. Vorher wurde `/favicon.svg` als `og:image` genutzt, was von Twitter/X, Discord und LinkedIn nicht unterstützt wird.
+- **OG-Image Generator**: `public/og-image.png` (138 KB, 1200×630 PNG) wird über `scripts/generate-og-image.js` (Playwright) aus `scripts/og-image-template.html` erzeugt — dunkles Design mit IT-DevGame-Logo, IHK-Standard-Badge, Topic-Tags und Statistiken.
+- **Crawler-Unterstützung (robots.txt & sitemap.xml)**: `public/robots.txt` (neu) erlaubt alle Bots und verweist auf die Sitemap. `public/sitemap.xml` (neu) listet 130+ URLs aller Lab-Routen (`/{labId}`) mit priorisierten `<priority>`-Werten für Google Search Console & Bing Webmaster Tools.
+- **Loading Skeleton**: `index.html` enthält jetzt ein inline-CSS-Skeleton (`#app-skeleton`) mit einer animierten Navbar + Hero-Area + Card-Grid-Shimmer-Darstellung, die sofort beim HTML-Laden erscheint und per `MutationObserver` automatisch ausgeblendet wird, sobald React den ersten DOM-Node in `#root` rendert (8s Fallback-Timeout). Verbessert die wahrgenommene Performance (FCP) erheblich, ohne den Bundle-Code zu ändern.
+- **TypeScript-Bugfixes**: `src/utils/wisoBookkeepingEngine.js` — `KONTENRAHMEN` erhält `/** @type {Konto[]} */`-Annotation, um den `TS2322`-Fehler (`string` nicht zuweisbar zu `KontoTyp`) zu beheben. `src/utils/wisoPaymentEngine.js` — `IHK_ZAHLUNGSAUFGABEN`-`@type` um optionale Felder (`skontoProzent?`, `zahlungsziel?`, `skontofrist?`, `nennwert?`, `diskontsatz?`, `laufzeitTage?`) erweitert, um `TS2353` für task-spezifische Objekte zu beheben. `npm run typecheck` läuft fehlerfrei.
+- **Test-Suite & Qualität**: **1286 bestandene Unit-Tests** in **165 Test-Dateien** (100% Erfolgsquote), `oxlint src` fehlerfrei, `tsc --noEmit` fehlerfrei.
+
 ### Version 3.59.3 (Fehlerüberwachung, Bundle-Diät & weitere Engine-Typisierung Edition)
 
 - **Optionale Produktions-Fehlerüberwachung (Sentry)**: `src/utils/errorMonitoring.js` (neu) initialisiert Sentry per dynamischem `import()` ausschließlich, wenn `VITE_SENTRY_DSN` gesetzt ist (`.env.example` dokumentiert die Variable) — ohne DSN bleibt der Code ein reiner No-Op und wird von Vite/Rolldown per statischer `import.meta.env`-Auswertung komplett aus dem Produktions-Build herausgeschnitten (verifiziert: 0 Bytes zusätzlich im `dist/`-Output). `ErrorBoundary.jsx` meldet abgefangene Lab-Abstürze jetzt zusätzlich zum bisherigen `console.error` an Sentry, sodass Fehler bei echten Nutzern auf der Live-Seite erstmals sichtbar werden. `tsconfig.json` ergänzt `types: ["vite/client"]` für korrekte `import.meta.env`-Typisierung.

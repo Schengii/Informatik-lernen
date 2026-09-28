@@ -149,7 +149,7 @@ export const PREISNACHLAESSE = [
 
 /**
  * IHK-typische Übungsaufgaben zum Zahlungsverkehr
- * @type {Array<{id: string, titel: string, aufgabe: string, hinweis: string, loesung: string, typ: string}>}
+ * @type {Array<{id: string, titel: string, aufgabe: string, hinweis: string, loesung: string, typ: string, skontoProzent?: number, zahlungsziel?: number, skontofrist?: number, nennwert?: number, diskontsatz?: number, laufzeitTage?: number}>}
  */
 export const IHK_ZAHLUNGSAUFGABEN = [
   {

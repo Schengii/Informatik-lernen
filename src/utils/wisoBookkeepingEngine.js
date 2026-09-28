@@ -12,7 +12,7 @@
  * @typedef {{kontoid: string, seite: 'soll' | 'haben', betrag: number, beschreibung: string}} TKontoBuchung
  */
 
-/** Vereinfachter SKR03-Kontenrahmen (IHK-relevant) */
+/** @type {Konto[]} Vereinfachter SKR03-Kontenrahmen (IHK-relevant) */
 export const KONTENRAHMEN = [
   // Aktivkonten (Bilanz linke Seite)
   { id: '0100', name: 'Betriebs- und Geschäftsausstattung (BGA)', typ: 'aktiv' },
