@@ -307,6 +307,8 @@ const DnssecRolloverLab = lazy(() => import('./components/Content/DnssecRollover
 // v3.60.0 IHK WISO Doppelte Buchführung & BAB Kostenstellenrechnung
 const WisoBookkeepingLab = lazy(() => import('./components/Content/WisoBookkeepingLab'));
 const WisoBabLab = lazy(() => import('./components/Content/WisoBabLab'));
+// v3.61.0 IHK WISO Zahlungsverkehr (SEPA, Wechsel, Skonto/Rabatt/Bonus)
+const WisoPaymentMethodsLab = lazy(() => import('./components/Content/WisoPaymentMethodsLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -809,6 +811,8 @@ export default function App() {
         return <WisoBookkeepingLab onXPGain={(xp, badge) => awardXP(xp, badge || 'wiso_bookkeeping_master')} />;
       case activeTab === 'wiso_bab_lab' || activeTab === 'wiso_bab' || activeTab === 'bab_lab':
         return <WisoBabLab onXPGain={(xp, badge) => awardXP(xp, badge || 'wiso_bab_master')} />;
+      case activeTab === 'wiso_payment_lab' || activeTab === 'wiso_zahlungsverkehr' || activeTab === 'payment_lab':
+        return <WisoPaymentMethodsLab onXPGain={(xp, badge) => awardXP(xp, badge || 'wiso_payment_master')} />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':

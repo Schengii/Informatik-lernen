@@ -5,7 +5,7 @@ tags:
   - tech/react
   - domain/ihk-ausbildung
   - status/active
-version: v3.60.0
+version: v3.61.0
 date: 2026-09-28
 ---
 
@@ -20,15 +20,16 @@ date: 2026-09-28
 
 ---
 
-## 🎯 Wichtige Meilensteine (Version 3.60.0)
-1. **IHK WISO Doppelte Buchführung – T-Konten & Buchungssätze (`WisoBookkeepingLab.jsx` & `wisoBookkeepingEngine.js`)**: Didaktisches Buchführungs-Studio nach SKR03. T-Konten-Visualizer mit Soll/Haben-Buchungsregeln, interaktiver Buchungssatz-Builder (7 IHK-typische Szenarien: Wareneinkauf, Lohnzahlung, AfA, ...), Echtzeit-Validierung und Jahresabschluss (GuV & Schlussbilanz) mit 65 XP Belohnung.
-2. **IHK WISO Betriebsabrechnungsbogen (BAB) & Zuschlagskalkulation (`WisoBabLab.jsx` & `wisoBabEngine.js`)**: Grafischer BAB mit 5 Kostenarten auf 4 Kostenstellen (Material, Fertigung, Verwaltung, Vertrieb), automatische Zuschlagssatz-Berechnung (MGK%, FGK%, VwGK%, VtrGK%) und vollständige Zuschlagskalkulation mit Angebotspreis-Ermittlung mit 65 XP Belohnung.
-3. **Kubernetes Gateway API & Envoy Traffic Splitting Studio (`K8sGatewayApiLab.jsx` & `k8sGatewayApiEngine.js`)**: Didaktisches Cloud-Native- und Ingress-Architektur-Studio (`gateway.networking.k8s.io/v1`). Gewichtetes Canary Traffic Splitting (80/20), Header-Matching (`X-Canary: beta`), Traffic Shadowing (Mirroring), 1000-Request Live-Simulation und 1-Klick YAML-Export mit 65 XP Belohnung.
+## 🎯 Wichtige Meilensteine (Version 3.61.0)
+1. **IHK WISO Zahlungsverkehr (`WisoPaymentMethodsLab.jsx` & `wisoPaymentEngine.js`)**: SEPA-Überweisung, SEPA-Lastschrift (Mandatsrecht, Vorlaufzeiten, Widerspruch), Wechsel (Diskontierung), Skonto-Effektivzins-Rechner, Wechseldiskont-Rechner, Skonto vs. Rabatt vs. Bonus mit 60 XP Belohnung.
+2. **Globales Lab-Styling-System**: Neues CSS-Design-System in `global.css` für alle modernen Labs — `.lab-container`, `.lab-header`, `.lab-tabs`, `.info-box`, `.xp-badge`, vollständige WISO-Lab-Styles, responsive Design für Mobile.
+3. **IHK WISO Doppelte Buchführung (`WisoBookkeepingLab.jsx` & `wisoBookkeepingEngine.js`)**: T-Konten-Visualizer, interaktiver Buchungssatz-Builder (7 IHK-Szenarien), Jahresabschluss (GuV & Schlussbilanz) mit 65 XP.
+4. **IHK WISO BAB & Zuschlagskalkulation (`WisoBabLab.jsx` & `wisoBabEngine.js`)**: Grafischer BAB, Zuschlagssatz-Berechnung (MGK/FGK/VwGK/VtrGK), vollständige Kalkulation bis Angebotspreis mit 65 XP.
 
 ---
 
 ## 📊 Aktuelle Test- & Qualitätsmetriken (v3.60.0)
-- **Unit- & Integrationstests**: 1264 bestandene Tests in 164 Test-Dateien (100% Erfolgsquote, +42 neue Tests)
+- **Unit- & Integrationstests**: 1286 bestandene Tests in 165 Test-Dateien (100% Erfolgsquote, +22 neue Tests)
 - **Code-Qualität**: 0 Oxlint Fehler / 0 Warnungen über 604 Quelldateien, `tsc --noEmit` fehlerfrei
 - **Build**: Vite 8 & PWA Offline Service Worker (247 Precache-Einträge)
 - **Performance & Limits**: Alle Chunks innerhalb der Size-Limits (App-Shell 113.07 KB gzipped < 115 KB Limit)

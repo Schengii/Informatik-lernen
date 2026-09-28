@@ -84,7 +84,21 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Next-Gen Transport: HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx` & `http3QuicEngine.js`)**: Head-of-Line Blocking Eliminierung bei Paketverlust, Multi-Stream Übertragung über UDP, 0-RTT TLS 1.3 Session Resumption und Connection-ID (CID) Migration.
    - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation**, **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
-## ✨ Hauptfunktionen & Neue Features (v3.60.0: IHK WISO Doppelte Buchführung & BAB Kostenstellenrechnung Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.61.0: IHK WISO Zahlungsverkehr, Styling-System & Responsive Design)
+
+* **💳 IHK WISO Zahlungsverkehr (`WisoPaymentMethodsLab.jsx` & `src/utils/wisoPaymentEngine.js`)**:
+  * Vollständiges Zahlungsverkehrs-Studio für IHK AP2 WISO — 5 Zahlungsarten (SEPA-Überweisung, SEPA-Lastschrift, Wechsel, Scheck, Nachnahme) mit Merkmalen, Risikobewertung und IHK-Prüfungsschwerpunkten.
+  * **Interaktiver Skonto-Effektivzins-Rechner**: Formel `(S% / (100−S%)) × (360 / (ZZ−SF)) × 100`, automatische Empfehlung Skonto vs. Kontokorrent.
+  * **Wechseldiskont-Rechner**: Diskontbetrag, Auszahlungsbetrag, Effektivzins mit Schritt-für-Schritt-Schema.
+  * **SEPA-Mandat Prüfungswissen**: Pflichtangaben, CORE-Vorlaufzeiten (5 KT Ersteinzug / 2 KT Folge), Widerspruchsrecht (8 Wochen / 13 Monate).
+  * **Skonto vs. Rabatt vs. Bonus**: Klare Abgrenzung nach Zeitpunkt und steuerlicher Wirkung (§ 17 UStG).
+  * **5 IHK-typische Übungsaufgaben** mit Musterlösungen · 60 XP Belohnung.
+* **🎨 Globales Lab-Styling-System (`src/styles/global.css`)**:
+  * Neues Design-System für alle modernen Labs: `.lab-container`, `.lab-header`, `.lab-tabs`, `.lab-tab`, `.info-box`, `.xp-badge`, `.btn-ghost`, `.progress-bar`.
+  * Vollständige CSS-Definitionen für WisoBookkeepingLab (T-Konten, Buchungssätze, GuV/Bilanz) und WisoBabLab (BAB-Tabelle, Zuschlagssatz-Karten, Kalkulationsschema).
+  * Responsive: Mobile-optimierte Layouts für Buchungssatz-Builder, BAB-Tabelle (horizontales Scrolling) und Übungsaufgaben-Navigation.
+
+## ✨ Hauptfunktionen (v3.60.0: IHK WISO Doppelte Buchführung & BAB Kostenstellenrechnung Edition)
 
 * **📒 IHK WISO Doppelte Buchführung (T-Konten & Buchungssätze) (`WisoBookkeepingLab.jsx` & `src/utils/wisoBookkeepingEngine.js`)**:
   * Didaktisches Buchführungs-Studio nach offiziellem IHK-Prüfungsstandard für AP2 WISO (SKR03-Kontenrahmen).
