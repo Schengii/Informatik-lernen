@@ -1386,6 +1386,12 @@ npm run build
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
+### Version 3.63.0 (Vollständige JSDoc-Typisierung aller Engine-Dateien Edition)
+
+- **`// @ts-check` + JSDoc für alle 51 Engine-Dateien**: Alle `src/utils/*Engine.js`-Dateien wurden mit `// @ts-check` und präzisen JSDoc-Annotationen (`@param`, `@returns`, `@typedef`, `/** @type {…} */`) versehen. Damit prüft `tsc --noEmit` nun alle Engines auf Typkorrektheit — ohne bestehende Logik zu verändern.
+- **Behobene Fehlertypen**: TS7006 (impliziter `any`-Parameter in Callbacks/Lambdas), TS7053 (String-Indizierung auf `{}`-Objekte), TS7034/7005 (implizit typisierte `any[]`-Arrays), TS2322 (Null-Narrowing), TS2339 (Eigenschaft auf `Object`-Typ), TS2345 (`never[]` bei leeren Arrays).
+- **Null Regressions**: `npm run typecheck` 0 Fehler, alle **1286 Tests** in **165 Test-Dateien** weiterhin bestanden (100%).
+
 ### Version 3.62.1 (PWA Precache-Optimierung & Build-Cleanup Edition)
 
 - **PWA Precache-Größe reduziert**: `vite.config.js` schließt die drei größten Vendor-Chunks (`vendor-pdf`, `vendor-sql`, `vendor-charts`) per `workbox.globIgnores` aus dem Service-Worker-Precache aus. Der initiale SW-Download sinkt dadurch von **4671 KiB auf ~3199 KiB (−1,5 MB)**. Die ausgeschlossenen Chunks werden über eine `runtimeCaching`-Regel mit `StaleWhileRevalidate`-Strategie (30-Tage-Expiry, Cache-Name `vendor-large-chunks`) beim ersten Zugriff gecacht und danach offline bereitgestellt — kein Funktionsverlust, nur kein blockierendes Precache-Download mehr.

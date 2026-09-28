@@ -1,3 +1,4 @@
+// @ts-check
 /**
  * Linux BGP Routing & Anycast Engine (FRRouting / BIRD)
  * Simulates Autonomous Systems (AS), eBGP/iBGP peerings, BGP path selection attributes

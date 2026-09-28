@@ -1,3 +1,4 @@
+// @ts-check
 /**
  * Coding Challenges Engine
  * In-browser test runner for LeetCode/Exercism style code challenges.
@@ -92,6 +93,10 @@ export const CODING_CHALLENGES = [
   }
 ];
 
+/**
+ * @param {string} codeString
+ * @param {any} challengeId
+ */
 export function runChallengeCode(codeString, challengeId) {
   const challenge = CODING_CHALLENGES.find(c => c.id === challengeId);
   if (!challenge) {
@@ -120,7 +125,8 @@ export function runChallengeCode(codeString, challengeId) {
       try {
         actualOutput = userFunction(...JSON.parse(JSON.stringify(tc.input)));
       } catch (err) {
-        error = err.message || String(err);
+        const typedErr = /** @type {any} */ (err);
+        error = typedErr.message || String(typedErr);
         allPassed = false;
       }
 
@@ -145,9 +151,10 @@ export function runChallengeCode(codeString, challengeId) {
       testResults
     };
   } catch (compileErr) {
+    const typedCompileErr = /** @type {any} */ (compileErr);
     return {
       success: false,
-      error: compileErr.message || String(compileErr),
+      error: typedCompileErr.message || String(typedCompileErr),
       testResults: []
     };
   }

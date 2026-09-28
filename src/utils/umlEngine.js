@@ -1,3 +1,4 @@
+// @ts-check
 /**
  * UML Studio Engine (Sequenz- & Aktivitätsdiagramme nach OMG UML 2.5)
  * IHK Standard für Anwendungsentwicklung & Systemintegration (AP1 & AP2)
@@ -41,6 +42,7 @@ export const DEFAULT_ACTIVITY_STEPS = [
 
 /**
  * Generiert Mermaid.js Sequenzdiagramm Code
+ * @param {{ participants?: any[], messages?: any[], title?: string }} param0
  */
 export function generateMermaidSequence({ participants = [], messages = [], title = 'IHK Sequenzdiagramm' }) {
   const lines = ['sequenceDiagram', `  title: ${title}`, `  autonumber`];
@@ -65,6 +67,7 @@ export function generateMermaidSequence({ participants = [], messages = [], titl
 
 /**
  * Validiert Sequenzdiagramm auf Vollständigkeit & IHK-Konformität
+ * @param {{ participants?: any[], messages?: any[] }} param0
  */
 export function validateSequenceDiagram({ participants = [], messages = [] }) {
   const issues = [];
@@ -119,6 +122,7 @@ export function validateSequenceDiagram({ participants = [], messages = [] }) {
 
 /**
  * Generiert Mermaid.js Flussdiagramm für Aktivitätsdiagramme
+ * @param {{ steps?: any[] }} param0
  */
 export function generateMermaidActivity({ steps = [] }) {
   const lines = ['flowchart TD'];

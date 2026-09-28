@@ -1,3 +1,4 @@
+// @ts-check
 /**
  * Transformer Attention, Softmax & LLM Inference Sampling Engine
  */
@@ -12,6 +13,8 @@ export const SAMPLE_SENTENCES = [
 
 /**
  * Computes simulated Scaled Dot-Product Attention weights for token pairs
+ * @param {string[]} tokens
+ * @param {number} [headSeed]
  */
 export function calculateAttentionMatrix(tokens, headSeed = 1) {
   const cacheKey = `${headSeed}_${tokens.join('|')}`;
@@ -67,6 +70,10 @@ export function calculateAttentionMatrix(tokens, headSeed = 1) {
 
 /**
  * Calculates next-token sampling distribution with Temperature, Top-K, Top-P
+ * @param {Array<{token: string, logit: number}>} candidateTokens
+ * @param {number} [temperature]
+ * @param {number} [topK]
+ * @param {number} [topP]
  */
 export function sampleNextTokenDistribution(candidateTokens, temperature = 0.7, topK = 5, topP = 0.9) {
   const temp = Math.max(0.01, temperature);

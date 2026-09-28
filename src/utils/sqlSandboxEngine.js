@@ -1,3 +1,4 @@
+// @ts-check
 import alasql from 'alasql';
 
 /**
@@ -5,6 +6,7 @@ import alasql from 'alasql';
  * Provides in-memory SQL execution, Schema introspection and table seed data.
  */
 
+/** @type {Record<string, string>} */
 export const INITIAL_SQL_SEEDS = {
   ecommerce: `
 CREATE TABLE customers (
@@ -64,6 +66,7 @@ export class SqlSandboxInstance {
     this.executeMultiple(sql);
   }
 
+  /** @param {string} query */
   execute(query) {
     try {
       alasql(`USE ${this.dbName};`);
@@ -88,20 +91,22 @@ export class SqlSandboxInstance {
         raw: result
       };
     } catch (error) {
+      const e = /** @type {Error} */ (error);
       return {
         success: false,
-        error: error.message || String(error),
+        error: e.message || String(e),
         rows: [],
         rowCount: 0
       };
     }
   }
 
+  /** @param {string} sqlScript */
   executeMultiple(sqlScript) {
     const statements = sqlScript
       .split(';')
-      .map(s => s.trim())
-      .filter(s => s.length > 0);
+      .map(/** @param {string} s */ s => s.trim())
+      .filter(/** @param {string} s */ s => s.length > 0);
 
     const results = [];
     for (const stmt of statements) {
@@ -117,13 +122,13 @@ export class SqlSandboxInstance {
       const schema = {};
 
       if (Array.isArray(tables)) {
-        tables.forEach(t => {
+        tables.forEach(/** @param {any} t */ t => {
           const tableName = t.tableid;
           const sample = alasql(`SELECT * FROM ${tableName} LIMIT 1`);
           const countRes = alasql(`SELECT COUNT(*) AS c FROM ${tableName}`);
-          const columns = sample && sample.length > 0 ? Object.keys(sample[0]) : [];
-          const totalRows = countRes && countRes[0] ? countRes[0].c : 0;
-          schema[tableName] = {
+          const columns = sample && (/** @type {any} */ (sample)).length > 0 ? Object.keys((/** @type {any} */ (sample))[0]) : [];
+          const totalRows = countRes && (/** @type {any} */ (countRes))[0] ? (/** @type {any} */ (countRes))[0].c : 0;
+          /** @type {Record<string, any>} */ (schema)[tableName] = {
             columns,
             totalRows
           };
@@ -135,6 +140,7 @@ export class SqlSandboxInstance {
     }
   }
 
+  /** @param {any[]} rows */
   exportToCsv(rows = []) {
     if (!rows || rows.length === 0) return '';
     const headers = Object.keys(rows[0]);
