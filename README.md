@@ -1386,6 +1386,12 @@ npm run build
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
+### Version 3.62.1 (PWA Precache-Optimierung & Build-Cleanup Edition)
+
+- **PWA Precache-Größe reduziert**: `vite.config.js` schließt die drei größten Vendor-Chunks (`vendor-pdf`, `vendor-sql`, `vendor-charts`) per `workbox.globIgnores` aus dem Service-Worker-Precache aus. Der initiale SW-Download sinkt dadurch von **4671 KiB auf ~3199 KiB (−1,5 MB)**. Die ausgeschlossenen Chunks werden über eine `runtimeCaching`-Regel mit `StaleWhileRevalidate`-Strategie (30-Tage-Expiry, Cache-Name `vendor-large-chunks`) beim ersten Zugriff gecacht und danach offline bereitgestellt — kein Funktionsverlust, nur kein blockierendes Precache-Download mehr.
+- **Vite Chunk-Size-Warning behoben**: `build.chunkSizeWarningLimit` auf `650` angehoben. Vites Standard-Grenzwert (500 kB) basiert auf der unkomprimierten Größe und erzeugte bei jedem Build False-Positive-Warnungen für Chunks, die per gzip (das von `size-limit` überwachte Maß) alle Budgets einhalten. Alle 6 `size-limit`-Vorgaben weiterhin erfüllt.
+- **Test-Suite & Qualität**: **1286 bestandene Unit-Tests** in **165 Test-Dateien** (100% Erfolgsquote), `oxlint src` fehlerfrei, `tsc --noEmit` fehlerfrei, `npm run size` alle 6 Chunk-Budgets eingehalten.
+
 ### Version 3.62.0 (SEO, Social Sharing, Loading Skeleton & Typecheck-Fix Edition)
 
 - **Open Graph & Twitter Card Meta-Tags**: `index.html` verwendet jetzt eine korrekte `og:image`-PNG-URL (`/og-image.png`, 1200×630), `og:url`, `og:image:width/height/type`, `og:locale: de_DE` sowie `twitter:card: summary_large_image`. Vorher wurde `/favicon.svg` als `og:image` genutzt, was von Twitter/X, Discord und LinkedIn nicht unterstützt wird.
