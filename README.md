@@ -1083,6 +1083,7 @@ Informatik-lernen/
     │   ├── glossaryData.js
     │   ├── k8sData.js
     │   ├── kafkaData.js
+    │   ├── labModulesData.js
     │   ├── languageData.js
     │   ├── lernfelderData.js
     │   ├── nextGenLabs.test.js
@@ -1385,6 +1386,14 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.64.0 (App-Shell Bundle-Diät & Command-Palette-Suche Edition)
+
+- **Alle Modals in `ModalContainer.jsx` lazy geladen**: `RoleSelectionModal`, `BadgesModal`, `GlossaryModal`, `FlashcardsModal`, `BackupModal`, `VocabularyTrainerModal`, `DeploymentGuideModal`, `CommandPaletteModal` und `AudioSettingsModal` nutzen jetzt `React.lazy()` (zuvor nur `CertificateModal`). Zwei davon (`VocabularyTrainerModal`, `DeploymentGuideModal`) waren bereits fälschlich in `<Suspense>` gewrappt, aber statisch importiert — der Code-Split griff also nie. `CommandPaletteModal` und `AudioSettingsModal` waren zudem dauerhaft gemountet statt nur bei geöffnetem Modal.
+- **Haupt-Bundle (App-Shell) −25% gzip**: 95,5 kB → 71,2 kB gzipped, gegen das `size-limit`-Budget von 105 kB steigt der Puffer damit von ~9% auf ~32%.
+- **Command Palette (Strg+K) findet jetzt alle 220+ Labs**: Bisher durchsuchte `CommandPaletteModal` nur die 14 Wissens-Themen (`topicsData.js`) sowie Glossarbegriffe — die individuellen Lab-Module aus `LabsDashboard.jsx` (z. B. „RAID Storage & Paritäts-Rechner“) waren nicht per Name auffindbar. Die `LAB_MODULES`-Datenliste wurde nach `src/data/labModulesData.js` ausgelagert (folgt damit demselben Datei-Muster wie `topicsData.js`/`glossaryData.js`) und wird jetzt sowohl von `LabsDashboard.jsx` als auch von `CommandPaletteModal.jsx` importiert, ohne das App-Shell-Bundle zu vergrößern (Datei wird nur in lazy geladenen Chunks referenziert).
+- **Dependency-Cleanup**: Ungenutztes `use-sound` entfernt (0 Importe im gesamten `src`), `npm audit fix` behebt eine moderate `undici`-Schwachstelle (transitive Dev-Dependency).
+- **Keine Regressionen**: Alle **1286 Tests** in **165 Test-Dateien** weiterhin bestanden, `oxlint`, `tsc --noEmit` und alle 6 `size-limit`-Budgets fehlerfrei/eingehalten.
 
 ### Version 3.63.0 (Vollständige JSDoc-Typisierung aller Engine-Dateien Edition)
 

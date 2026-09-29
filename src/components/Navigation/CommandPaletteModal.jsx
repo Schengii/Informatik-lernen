@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { TOPICS } from '../../data/topicsData';
 import { GLOSSARY_TERMS } from '../../data/glossaryData';
+import { LAB_MODULES } from '../../data/labModulesData';
 
 export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpenModal }) {
   const [search, setSearch] = useState('');
@@ -246,11 +247,22 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
     action: () => onOpenModal('glossary', g.term)
   }));
 
-  const allItems = [...staticActions, ...topicItems, ...glossaryMatches];
+  // Alle interaktiven Labs matchen (bisher nicht durchsuchbar - nur die 14
+  // Wissens-Themen wurden erfasst, nicht die 220+ Labs aus LabsDashboard)
+  const labItems = LAB_MODULES.map(m => ({
+    id: `lab-${m.id}`,
+    title: m.title,
+    category: 'Interaktive Labs',
+    icon: m.icon || Terminal,
+    description: `${m.desc || ''} ${(m.tags || []).join(' ')}`,
+    action: () => onNavigate(m.id)
+  }));
 
-  const filteredItems = search.trim() === '' 
-    ? staticActions 
-    : allItems.filter(item => 
+  const allItems = [...staticActions, ...topicItems, ...labItems, ...glossaryMatches];
+
+  const filteredItems = search.trim() === ''
+    ? staticActions
+    : allItems.filter(item =>
         item.title.toLowerCase().includes(search.toLowerCase()) ||
         item.category.toLowerCase().includes(search.toLowerCase()) ||
         (item.description && item.description.toLowerCase().includes(search.toLowerCase()))
