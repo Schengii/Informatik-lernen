@@ -84,25 +84,26 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Next-Gen Transport: HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx` & `http3QuicEngine.js`)**: Head-of-Line Blocking Eliminierung bei Paketverlust, Multi-Stream Übertragung über UDP, 0-RTT TLS 1.3 Session Resumption und Connection-ID (CID) Migration.
    - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation**, **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
-## ✨ Hauptfunktionen & Neue Features (v3.65.0: IHK Übertragungszeit-Simulator, Prüfungs-Countdown & Clipboard-Sync)
+## ✨ Hauptfunktionen & Neue Features (v3.66.0: IHK Netzplan-Drill & DSFA-Praxisfälle Edition)
 
+* **🔀 IHK Netzplan Prüfungs-Drill (`CpmNetworkLab.jsx` & `src/utils/cpmEngine.js`)**:
+  * Didaktischer Trainingsmodus nach DIN 69900 (Metra-Potenzial-Methode): Azubis tragen Vorwärts- (FAZ, FEZ), Rückwärtsrechnung (SAZ, SEZ) sowie Gesamt- und Freie Puffer (GP, FP) direkt in die 6-Felder-Knoten ein.
+  * Interaktive Sofortprüfung aller Eingabefelder mit dynamischer Ampel-Farbgebung (Grün/Rot) und detailliertem Lösungsvergleich.
+  * 100%-Abschluss belohnt mit **+50 XP** und "Netzplan-Meister"-Status.
+* **🛡️ IHK DSFA / Art. 35 DSGVO Klausurfälle (`IhkDpiaLab.jsx` & `src/utils/ihkDpiaEngine.js`)**:
+  * 3 realitätsnahe Prüfungsszenarien für IT-Sicherheit & Datenschutz:
+    1. **Interner KI-Copilot & LLM-Assistent**: Schutz vor PII-Datenlecks, Prompt-Injection und unzulässiger Arbeitnehmerüberwachung (BetrVG § 87).
+    2. **Biometrische Serverraum-Videoüberwachung**: Zutrittskontrolle vs. Grundrechte, Art. 9 Schutz biometrischer Hash-Templates.
+    3. **US-Cloud-Migration Kundendaten**: Risiken nach CLOUD Act, Standardvertragsklauseln (SCC) und Customer-Managed Keys (CMEK).
+  * Vollautomatischer 1-Klick Markdown-Export des DSFA-Berichts für den Anhang der IHK-Projektdokumentation.
 * **⚡ IHK Übertragungszeit- & Bandbreiten-Simulator (`IhkTransferTimeLab.jsx` & `src/utils/transferTimeEngine.js`)**:
   * Didaktisches Netzwerk- & Datentransfer-Studio nach IHK-Prüfungsstandard für AP1 und AP2.
-  * **Binär (IEC) vs. Dezimal (SI) Präfixe**:
-    * Exakte Differenzierung zwischen kB/MB/GB/TB (Basis 10, $10^3, 10^6, 10^9$) und KiB/MiB/GiB/TiB (Basis 2, $2^{10}, 2^{20}, 2^{30}$).
-    * Aufdeckung typischer IHK-Fallen: Bit (Bandbreite) vs. Byte (Dateigröße) mit automatischer Umrechnung (1 Byte = 8 Bit).
-  * **Protokoll-Overhead & Rechenweg-Generator**:
-    * Dynamischer Schieberegler für Protokoll-Overhead (0–30%, typisch 5–10% für Ethernet-Frames, IP-Header und TCP-ACKs).
-    * Generierung der lückenlosen IHK-Musterlösung in 5 transparenten Rechenschritten.
-  * **IHK-Prüfungsszenarien & Fallen-Quiz**:
-    * Vorkonfigurierte Aufgaben (Rechenzentrums-Backup 450 GiB via 1 Gbit/s, OS-Image-Rollout 35 GB via 100 Mbit/s, Cloud-Sync 120 GB via VDSL Upload).
-    * Interaktives 3-Fragen IHK-Fallen-Quiz mit Sofort-Feedback und 50 XP Belohnung.
+  * **Binär (IEC) vs. Dezimal (SI) Präfixe**: Exakte Differenzierung zwischen kB/MB/GB/TB ($10^3, 10^6, 10^9$) und KiB/MiB/GiB/TiB ($2^{10}, 2^{20}, 2^{30}$).
+  * **Protokoll-Overhead & Rechenweg-Generator**: Dynamischer Schieberegler (0–30%) und transparenter 5-Schritte Rechenweg mit 50 XP Belohnung.
 * **🎯 IHK Prüfungs-Countdown & T-Minus Sprint (`ExamCountdownWidget.jsx`)**:
-  * Dynamischer Countdown auf die offiziellen IHK-Prüfungstermine (AP1 Frühjahr im März, AP2 Sommer im Mai, AP2 Winter im November) direkt im Dashboard.
-  * Automatische Berechnung der verbleibenden Tage ("T-Minus X Tage") mit Warnfarbe bei $<30$ Tagen.
-  * Personalisierte "Power-Sprint"-Empfehlungen für priorisierte Kernmodule (Übertragungszeit, Netzplan, Zahlungsverkehr, Prüfungssimulation).
+  * Dynamischer Countdown auf offizielle IHK-Prüfungstermine (AP1 Frühjahr, AP2 Sommer/Winter) mit personalisierten Sprint-Empfehlungen.
 * **📋 Cross-Device Zwischenablage-Sync (`BackupModal.jsx`)**:
-  * 1-Klick-Synchronisation des kompletten Lernfortschritts zwischen Smartphone, Arbeits-PC und Heimrechner via Clipboard (Copy/Paste) neben dem regulären JSON-Datei-Export.
+  * 1-Klick-Synchronisation des kompletten Lernfortschritts via Zwischenablage-Copy/Paste.
 
 ## ✨ Bisherige Hauptfunktionen (v3.61.0: IHK WISO Zahlungsverkehr, Styling-System & Responsive Design)
 
@@ -1414,6 +1415,23 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.66.0 (IHK Netzplan-Drill & DSFA-Praxisfälle Edition)
+
+- **Neu: IHK Netzplan Prüfungs-Drill (`CpmNetworkLab.jsx`)**:
+  - Interaktiver Prüfungs-Trainingsmodus nach DIN 69900 (Metra-Potenzial-Methode).
+  - Azubis tragen FAZ, FEZ, SAZ, SEZ, GP und FP selbstständig in die Vorgangsknoten ein.
+  - Dynamische Prüfungsfunktion mit Echtzeit-Trefferquote, Fehler-Hervorhebung und automatischer XP-Vergabe (+50 XP).
+- **Neu: IHK DSFA / Art. 35 DSGVO Klausurfälle (`IhkDpiaLab.jsx` & `src/utils/ihkDpiaEngine.js`)**:
+  - Reale Klausur- und Prüfungsfälle für Datenschutz und IT-Sicherheit integriert:
+    1. Interner KI-Copilot & LLM-Assistent (PII-Leakage, BetrVG § 87).
+    2. Biometrische Videoüberwachung des Serverraums (Art. 9 DSGVO, Zutrittskontrolle).
+    3. US-Cloud-Migration der Kundendatenbank (CLOUD Act, SCC & CMEK).
+  - Schnellauswahl der Szenarien lädt automatisch alle zugehörigen Risiken, Kriterien und Abhilfemaßnahmen.
+- **Test-Suite & Qualität**:
+  - **1298 bestandene Tests** in **166 Test-Dateien** (100% Erfolgsquote, +5 neue Tests).
+  - 0 Oxlint-Fehler, 0 Warnungen über 619 Quelldateien.
+  - `tsc --noEmit` fehlerfrei, Produktions-Build und alle `size-limit`-Vorgaben eingehalten (App-Shell 72.48 KB gzipped).
 
 ### Version 3.65.0 (IHK Übertragungszeit-Simulator, Prüfungs-Countdown & Cross-Device Sync Edition)
 

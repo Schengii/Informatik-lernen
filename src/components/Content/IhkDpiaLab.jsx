@@ -4,7 +4,7 @@ import {
   Download, Award, Scale, Check
 } from 'lucide-react';
 import { 
-  DPIA_CRITERIA, DEFAULT_DPIA_RISKS, 
+  DPIA_CRITERIA, DEFAULT_DPIA_RISKS, IHK_DPIA_SCENARIOS,
   evaluateDpiaThreshold, calculateRiskScores, generateDpiaMarkdownDoc 
 } from '../../utils/ihkDpiaEngine';
 import { useStore } from '../../store/useStore';
@@ -14,9 +14,16 @@ export default function IhkDpiaLab({ onRewardXP }) {
   const { awardXP } = useStore();
   const [projectTitle, setProjectTitle] = useState('Einführung WebAuthn & Zero-Trust IAM');
   const [selectedCriteria, setSelectedCriteria] = useState(['crit_eval_scoring', 'crit_special_categories']);
-  const [risks] = useState(DEFAULT_DPIA_RISKS);
+  const [risks, setRisks] = useState(DEFAULT_DPIA_RISKS);
   const [activeTab, setActiveTab] = useState('threshold'); // 'threshold' | 'risks' | 'preview'
   const [solved, setSolved] = useState(false);
+
+  const handleSelectScenario = (scenario) => {
+    setProjectTitle(scenario.title);
+    setSelectedCriteria(scenario.criteria);
+    setRisks(scenario.risks);
+    triggerHaptic('SUCCESS');
+  };
 
   const threshold = useMemo(() => evaluateDpiaThreshold(selectedCriteria), [selectedCriteria]);
   const evaluatedRisks = useMemo(() => calculateRiskScores(risks), [risks]);
@@ -80,6 +87,21 @@ export default function IhkDpiaLab({ onRewardXP }) {
           <Award size={16} />
           {solved ? 'DSFA Mastery Freigeschaltet (+60 XP)' : 'DSFA Audit abschließen'}
         </button>
+      </div>
+
+      {/* IHK-Prüfungsszenarien Schnellauswahl */}
+      <div style={{ marginBottom: '16px', display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
+        <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-muted)' }}>IHK-Klausurfälle:</span>
+        {IHK_DPIA_SCENARIOS.map((sc) => (
+          <button
+            key={sc.id}
+            className={`btn ${projectTitle === sc.title ? 'btn-primary' : 'btn-secondary'} btn-sm`}
+            style={{ fontSize: '0.8rem', padding: '4px 10px' }}
+            onClick={() => handleSelectScenario(sc)}
+          >
+            {sc.id === 'ai_copilot' ? '🤖 KI-Copilot' : sc.id === 'cctv_server_room' ? '📹 Serverraum-Video' : '☁️ US-Cloud-Migration'}
+          </button>
+        ))}
       </div>
 
       {/* Project Title Input */}

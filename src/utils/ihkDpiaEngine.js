@@ -95,6 +95,86 @@ export const DEFAULT_DPIA_RISKS = [
 ];
 
 /**
+ * Typische IHK-Prüfungsszenarien (AP1 & AP2 IT-Sicherheit / Datenschutz)
+ */
+export const IHK_DPIA_SCENARIOS = [
+  {
+    id: 'ai_copilot',
+    title: 'Einführung eines internen KI-Copilots & LLM-Assistenten',
+    description: 'Entwickler und Kundensupport-Mitarbeiter nutzen ein LLM, das auf internen Tickets, Code-Repositories und Kundenchats trainiert wird. Risiko von Datenabfluss und unzulässigem Arbeitnehmer-Profiling.',
+    criteria: ['crit_eval_scoring', 'crit_vulnerable_subjects', 'crit_innovative_tech'],
+    risks: [
+      {
+        id: 'risk_ai_leak',
+        category: 'Vertraulichkeit & Zweckbindung',
+        description: 'Mitarbeiter geben unbemerkt schützenswerte Kundendaten (PII) oder API-Keys in den KI-Prompt ein.',
+        impact: 5,
+        likelihood: 4,
+        mitigation: 'Lokales Self-Hosted LLM (z. B. vLLM im eigenen RZ), strikte PII-Anonymisierungs-Filter (Data Loss Prevention) vor Inferenz.',
+        residualImpact: 2,
+        residualLikelihood: 1
+      },
+      {
+        id: 'risk_ai_performance_mon',
+        category: 'Arbeitnehmerüberwachung',
+        description: 'Prompts und Antwortzeiten der Mitarbeiter werden zur verdeckten Leistungsbewertung herangezogen.',
+        impact: 4,
+        likelihood: 3,
+        mitigation: 'Betriebsvereinbarung nach BetrVG § 87, Pseudonymisierung von User-IDs in Telemetriedaten, Verbot von Leistungsschnittstellen.',
+        residualImpact: 2,
+        residualLikelihood: 1
+      }
+    ]
+  },
+  {
+    id: 'cctv_server_room',
+    title: 'Biometrische Videoüberwachung des Serverraums & Rechenzentrums',
+    description: 'Zur Erfüllung von ISO 27001 Zutrittskontroll-Anforderungen soll der Serverraum mit Gesichtserkennung und 24/7-Kameraüberwachung ausgestattet werden.',
+    criteria: ['crit_systematic_mon', 'crit_special_categories', 'crit_vulnerable_subjects'],
+    risks: [
+      {
+        id: 'risk_biometric_misuse',
+        category: 'Besondere Kategorien (Art. 9)',
+        description: 'Biometrische Gesichtsdaten von IT-Mitarbeitern und externen Dienstleistern könnten kompromittiert oder zweckentfremdet werden.',
+        impact: 5,
+        likelihood: 2,
+        mitigation: 'Keine Speicherung von Rohbildern; lediglich irreversible Hash-Templates auf getrennten Hardware-Security-Modules (HSM).',
+        residualImpact: 2,
+        residualLikelihood: 1
+      },
+      {
+        id: 'risk_permanent_monitoring',
+        category: 'Verhältnismäßigkeit & Dauerüberwachung',
+        description: 'Mitarbeiter im Arbeitsbereich werden durchgehend optisch erfasst und empfinden Überwachungsdruck.',
+        impact: 4,
+        likelihood: 4,
+        mitigation: 'Kameraerfassung nur an Schleusentüren und Notausgängen, Verpixelung von Arbeitsplätzen, Löschung nach maximal 72 Stunden.',
+        residualImpact: 1,
+        residualLikelihood: 1
+      }
+    ]
+  },
+  {
+    id: 'us_cloud_migration',
+    title: 'Migration der Kundendatenbank zu einem US-Hyperscaler (AVV & Drittlandstransfer)',
+    description: 'Migration von 500.000 europäischen Kundendaten in eine Cloud eines US-Anbieters nach Wegfall des Privacy Shield / unter Berücksichtigung des EU-US DPF.',
+    criteria: ['crit_large_scale', 'crit_denial_service'],
+    risks: [
+      {
+        id: 'risk_third_country_access',
+        category: 'Drittlandstransfer & CLOUD Act',
+        description: 'Zugriff US-amerikanischer Sicherheitsbehörden auf Kundendaten ohne richterlichen Beschluss nach US-Recht.',
+        impact: 4,
+        likelihood: 3,
+        mitigation: 'EU-Only Region Hosting (Frankfurt), Customer-Managed Encryption Keys (CMEK) mit externem Key-Broker außerhalb der Cloud, Standardvertragsklauseln (SCC) + TIA.',
+        residualImpact: 2,
+        residualLikelihood: 1
+      }
+    ]
+  }
+];
+
+/**
  * Bewertet den Schwellenwert für eine DSFA nach Art. 35 Abs. 1 & 3 DSGVO.
  * Faustregel nach den Richtlinien des EDSA (Europäischer Datenschutzausschuss):
  * Erfüllt ein Projekt >= 2 Kriterien, ist eine DSFA zwingend erforderlich!

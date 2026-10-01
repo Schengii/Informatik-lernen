@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   DEFAULT_DPIA_RISKS,
+  IHK_DPIA_SCENARIOS,
   evaluateDpiaThreshold,
   calculateRiskScores,
   generateDpiaMarkdownDoc
@@ -52,5 +53,25 @@ describe('ihkDpiaEngine (Art. 35 DSGVO)', () => {
     expect(md).toContain('DSFA verpflichtend durchgeführt');
     expect(md).toContain('| Kategorie / Risiko |');
     expect(md).toContain('Art. 36 DSGVO');
+  });
+
+  it('validiert die IHK-Prüfungsszenarien und deren Kriterien & Risiken', () => {
+    expect(IHK_DPIA_SCENARIOS.length).toBeGreaterThanOrEqual(3);
+
+    IHK_DPIA_SCENARIOS.forEach(sc => {
+      expect(sc.id).toBeDefined();
+      expect(sc.title).toBeDefined();
+      expect(sc.criteria.length).toBeGreaterThan(0);
+      expect(sc.risks.length).toBeGreaterThan(0);
+
+      const thresh = evaluateDpiaThreshold(sc.criteria);
+      expect(thresh.isDpiaRequired).toBe(true);
+
+      const calculated = calculateRiskScores(sc.risks);
+      calculated.forEach(r => {
+        expect(r.rawScore).toBeGreaterThan(0);
+        expect(r.residualScore).toBeLessThanOrEqual(r.rawScore);
+      });
+    });
   });
 });
