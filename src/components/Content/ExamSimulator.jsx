@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { EXAM_QUESTIONS, IHK_EXAM_MODES, getIhkGrade } from '../../data/examData';
 import { Timer, CheckCircle2, XCircle, RefreshCw, Play, Pause, FileCheck2 } from 'lucide-react';
 
-export default function ExamSimulator({ onCompleteExam }) {
+export default function ExamSimulator({ onCompleteExam, onRecordResults }) {
   const [activeModeId, setActiveModeId] = useState('ap1');
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -33,6 +33,11 @@ export default function ExamSimulator({ onCompleteExam }) {
       }
     });
 
+    // Unbeantwortete Fragen zählen als Fehler und landen im Fehlerjournal
+    if (onRecordResults) {
+      onRecordResults(filteredQuestions.map((q, idx) => ({ id: q.id, correct: selectedAnswers[idx] === q.correct })));
+    }
+
     const percent = Math.round((earnedPoints / maxPoints) * 100);
     const gradeInfo = getIhkGrade(percent);
 
@@ -52,7 +57,7 @@ export default function ExamSimulator({ onCompleteExam }) {
     if (percent >= 50 && onCompleteExam) {
       onCompleteExam(percent, percent >= 80 ? 150 : 80);
     }
-  }, [filteredQuestions, selectedAnswers, onCompleteExam]);
+  }, [filteredQuestions, selectedAnswers, onCompleteExam, onRecordResults]);
 
   useEffect(() => {
     setTimeLeft(currentMode.durationMinutes * 60);

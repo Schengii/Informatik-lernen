@@ -4,6 +4,7 @@ import {
   berechneHilfskostenumlage,
   berechneBab,
   berechneZuschlagskalkulation,
+  berechneBab2Kostenueberdeckung,
   IHK_BAB_BEISPIEL,
   KOSTENSTELLEN,
 } from './wisoBabEngine';
@@ -113,4 +114,34 @@ describe('wisoBabEngine', () => {
       }
     });
   });
+
+  describe('berechneBab2Kostenueberdeckung', () => {
+    it('berechnet Kostenüberdeckung und -unterdeckung pro Kostenstelle korrekt', () => {
+      const bab = berechneBab(IHK_BAB_BEISPIEL);
+      const res = berechneBab2Kostenueberdeckung({
+        istKostenstellenSummen: bab.kostenstellenSummen,
+        materialeinzelkosten: IHK_BAB_BEISPIEL.materialeinzelkosten,
+        fertigungseinzelkosten: IHK_BAB_BEISPIEL.fertigungseinzelkosten,
+        herstellkosten: bab.herstellkosten,
+        normalZuschlagssaetze: {
+          mgkSatz: 25.0,
+          fgkSatz: 10.0,
+          vwgkSatz: 15.0,
+          vtrgkSatz: 10.0,
+        },
+      });
+
+      expect(res.auswertung).toHaveLength(4);
+      const mat = res.auswertung.find((a) => a.kostenstelle === 'Material');
+      expect(mat?.normalGemeinkosten).toBe(IHK_BAB_BEISPIEL.materialeinzelkosten * 0.25);
+      expect(mat?.differenz).toBeGreaterThan(0);
+      expect(mat?.status).toBe('Überdeckung');
+
+      const fert = res.auswertung.find((a) => a.kostenstelle === 'Fertigung');
+      expect(fert?.status).toBe('Unterdeckung');
+      expect(typeof res.gesamtDifferenz).toBe('number');
+      expect(['Überdeckung', 'Unterdeckung', 'Ausgeglichen']).toContain(res.gesamtStatus);
+    });
+  });
 });
+

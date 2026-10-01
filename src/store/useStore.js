@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { loadUserState, saveUserState, hasStoredUserState, initialProfileState, calculateLevel, recordDailyActivity } from '../utils/storage';
 import { hydrateUserStateFromIndexedDb } from '../utils/indexedDbStoreMiddleware';
 import { soundManager } from '../utils/audioSystem';
+import { applyAnswerResults } from '../utils/mistakeJournalEngine';
 
 export const useStore = create((set) => {
   const initialUser = loadUserState();
@@ -178,6 +179,17 @@ export const useStore = create((set) => {
           [cardId]: srsResult
         };
         const updatedState = { ...prev, srsFlashcards: updatedSrs };
+        saveUserState(updatedState);
+        return { userState: updatedState };
+      });
+    },
+
+    // Fehlerjournal: results = [{ id, correct }] aus Prüfung/Wiederholung
+    recordMistakeResults: (results) => {
+      if (!Array.isArray(results) || results.length === 0) return;
+      set((state) => {
+        const prev = state.userState;
+        const updatedState = { ...prev, mistakeJournal: applyAnswerResults(prev.mistakeJournal, results) };
         saveUserState(updatedState);
         return { userState: updatedState };
       });

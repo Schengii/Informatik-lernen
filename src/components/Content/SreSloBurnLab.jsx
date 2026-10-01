@@ -13,6 +13,8 @@ import {
   calculateErrorBudget,
   evaluateBurnAlerts,
   generatePromqlBurnAlertYaml,
+  simulatePromqlAlertRule,
+  IHK_PROMQL_EXAM_SCENARIOS,
   STANDARD_SRE_BURN_WINDOWS
 } from '../../utils/sreSloBurnEngine';
 import { useStore } from '../../store/useStore';
@@ -20,6 +22,14 @@ import { useStore } from '../../store/useStore';
 export default function SreSloBurnLab({ onRewardXP }) {
   const { awardXP } = useStore();
   const [completed, setCompleted] = useState(false);
+  const [activeTab, setActiveTab] = useState('burn_rate');
+
+  // PromQL Rule Evaluator State
+  const [selectedScenarioIdx, setSelectedScenarioIdx] = useState(0);
+  const currentScenario = IHK_PROMQL_EXAM_SCENARIOS[selectedScenarioIdx];
+  const [ruleCurrentValue, setRuleCurrentValue] = useState(0.85); // > 0.5 threshold
+  const [ruleActiveDuration, setRuleActiveDuration] = useState(120); // 120s vs 300s for
+  const [ruleXpVergeben, setRuleXpVergeben] = useState(false);
 
   // SLO Configuration
   const [serviceName] = useState('PaymentGateway');
@@ -41,6 +51,18 @@ export default function SreSloBurnLab({ onRewardXP }) {
 
   const alerts = evaluateBurnAlerts(burnRateShort, burnRateLong, STANDARD_SRE_BURN_WINDOWS);
   const promqlYaml = generatePromqlBurnAlertYaml(serviceName, targetPercent);
+
+  const ruleEvaluation = simulatePromqlAlertRule({
+    alertName: currentScenario.alertName,
+    expr: currentScenario.expr,
+    currentValue: ruleCurrentValue,
+    threshold: currentScenario.threshold,
+    operator: currentScenario.operator,
+    forDurationSec: currentScenario.forDurationSec,
+    activeDurationSec: ruleActiveDuration,
+    labels: currentScenario.labels,
+    annotations: currentScenario.annotations,
+  });
 
   const handleSimulateCriticalIncident = () => {
     setBurnRateShort(16.5);
@@ -89,23 +111,48 @@ export default function SreSloBurnLab({ onRewardXP }) {
             </p>
           </div>
 
-          <div>
+          <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
             {completed && (
               <span className="badge badge-emerald" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                 <Award size={16} /> +65 XP erhalten
+              </span>
+            )}
+            {ruleXpVergeben && (
+              <span className="badge badge-teal" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                <Award size={16} /> +45 XP PromQL-Tester
               </span>
             )}
           </div>
         </div>
       </div>
 
-      {/* Grid: Metrics Dashboard & Simulator */}
-      <div className="grid-responsive" style={{ gap: '20px', marginBottom: '24px' }}>
-        {/* Left: Error Budget State */}
-        <div className="glass-panel" style={{ padding: '22px' }}>
-          <h2 style={{ fontSize: '1.15rem', fontWeight: '700', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Percent size={18} style={{ color: 'var(--accent-teal)' }} /> SLO &amp; Error Budget Status (30 Tage)
-          </h2>
+      {/* Tabs */}
+      <div className="lab-tabs" style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+        <button
+          type="button"
+          className={`lab-tab ${activeTab === 'burn_rate' ? 'active' : ''}`}
+          onClick={() => setActiveTab('burn_rate')}
+        >
+          SRE Error-Budget &amp; Burn-Rate
+        </button>
+        <button
+          type="button"
+          className={`lab-tab ${activeTab === 'promql_tester' ? 'active' : ''}`}
+          onClick={() => setActiveTab('promql_tester')}
+        >
+          PromQL Alert Rule Evaluator (for / pending / firing)
+        </button>
+      </div>
+
+      {activeTab === 'burn_rate' && (
+        <>
+          {/* Grid: Metrics Dashboard & Simulator */}
+          <div className="grid-responsive" style={{ gap: '20px', marginBottom: '24px' }}>
+            {/* Left: Error Budget State */}
+            <div className="glass-panel" style={{ padding: '22px' }}>
+              <h2 style={{ fontSize: '1.15rem', fontWeight: '700', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Percent size={18} style={{ color: 'var(--accent-teal)' }} /> SLO &amp; Error Budget Status (30 Tage)
+              </h2>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '12px', marginBottom: '16px' }}>
             <div style={{ padding: '12px', borderRadius: '8px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)' }}>
@@ -214,6 +261,171 @@ export default function SreSloBurnLab({ onRewardXP }) {
           </pre>
         </div>
       </div>
+      </>
+      )}
+
+      {activeTab === 'promql_tester' && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          {/* Scenario Selector */}
+          <div className="glass-panel" style={{ padding: '22px' }}>
+            <h2 style={{ fontSize: '1.15rem', fontWeight: '700', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <FileCode size={18} style={{ color: 'var(--accent-teal)' }} /> Prometheus Alert Rule Szenario wählen
+            </h2>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '16px' }}>
+              {IHK_PROMQL_EXAM_SCENARIOS.map((sc, idx) => (
+                <button
+                  key={sc.id}
+                  type="button"
+                  className={selectedScenarioIdx === idx ? 'btn-primary' : 'btn-secondary'}
+                  onClick={() => {
+                    setSelectedScenarioIdx(idx);
+                    setRuleCurrentValue(sc.threshold * 1.5);
+                    setRuleActiveDuration(60);
+                  }}
+                  style={{ fontSize: '0.85rem', padding: '8px 14px' }}
+                >
+                  {sc.alertName} ({sc.operator} {sc.threshold}{sc.unit})
+                </button>
+              ))}
+            </div>
+
+            <div style={{ padding: '14px', borderRadius: '8px', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)', marginBottom: '16px' }}>
+              <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '4px' }}>PromQL Expression:</div>
+              <code style={{ fontSize: '0.9rem', color: 'var(--accent-teal)' }}>{currentScenario.expr}</code>
+            </div>
+
+            {/* Interactive Sliders */}
+            <div className="grid-responsive" style={{ gap: '20px', marginBottom: '16px' }}>
+              <div>
+                <label style={{ fontSize: '0.85rem', fontWeight: '600', color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>
+                  Gemessener Ist-Wert (Value): <strong>{ruleCurrentValue} {currentScenario.unit}</strong> (Schwelle: {currentScenario.threshold})
+                </label>
+                <input
+                  type="range"
+                  min="0"
+                  max={currentScenario.threshold * 3}
+                  step={currentScenario.threshold > 1 ? '1' : '0.05'}
+                  value={ruleCurrentValue}
+                  onChange={(e) => setRuleCurrentValue(Number(e.target.value))}
+                  style={{ width: '100%' }}
+                />
+              </div>
+
+              <div>
+                <label style={{ fontSize: '0.85rem', fontWeight: '600', color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>
+                  Bedingung aktiv seit (Active Duration): <strong>{ruleActiveDuration}s</strong> (for: {currentScenario.forDurationSec}s)
+                </label>
+                <input
+                  type="range"
+                  min="0"
+                  max={currentScenario.forDurationSec * 1.5}
+                  step="10"
+                  value={ruleActiveDuration}
+                  onChange={(e) => setRuleActiveDuration(Number(e.target.value))}
+                  style={{ width: '100%' }}
+                />
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+              <button
+                type="button"
+                className="btn-secondary"
+                onClick={() => {
+                  setRuleCurrentValue(currentScenario.threshold * 0.5);
+                  setRuleActiveDuration(0);
+                }}
+                style={{ fontSize: '0.85rem' }}
+              >
+                1. Inactive State testen
+              </button>
+              <button
+                type="button"
+                className="btn-secondary"
+                onClick={() => {
+                  setRuleCurrentValue(currentScenario.threshold * 1.6);
+                  setRuleActiveDuration(Math.floor(currentScenario.forDurationSec * 0.5));
+                }}
+                style={{ fontSize: '0.85rem' }}
+              >
+                2. Pending State testen
+              </button>
+              <button
+                type="button"
+                className="btn-primary"
+                onClick={() => {
+                  setRuleCurrentValue(currentScenario.threshold * 1.8);
+                  setRuleActiveDuration(currentScenario.forDurationSec + 60);
+                  if (!ruleXpVergeben) {
+                    const xpFn = onRewardXP || awardXP;
+                    xpFn?.(45, 'PromQL Alert State Evaluator');
+                    setRuleXpVergeben(true);
+                  }
+                }}
+                style={{ fontSize: '0.85rem' }}
+              >
+                3. Firing State auslösen (+45 XP)
+              </button>
+            </div>
+          </div>
+
+          {/* Evaluation Result Card */}
+          <div className="glass-panel" style={{ padding: '22px' }}>
+            <h2 style={{ fontSize: '1.15rem', fontWeight: '700', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Activity size={18} style={{ color: 'var(--accent-teal)' }} /> Alert State Machine Auswertung
+            </h2>
+
+            <div
+              style={{
+                padding: '18px',
+                borderRadius: '10px',
+                background:
+                  ruleEvaluation.state === 'FIRING'
+                    ? 'rgba(239, 68, 68, 0.15)'
+                    : ruleEvaluation.state === 'PENDING'
+                    ? 'rgba(245, 158, 11, 0.15)'
+                    : 'rgba(16, 185, 129, 0.15)',
+                border: `1px solid ${
+                  ruleEvaluation.state === 'FIRING'
+                    ? 'var(--accent-rose)'
+                    : ruleEvaluation.state === 'PENDING'
+                    ? 'var(--accent-amber)'
+                    : 'var(--accent-emerald)'
+                }`,
+                marginBottom: '16px',
+              }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                <strong style={{ fontSize: '1.1rem', color: 'var(--text-main)' }}>
+                  Alert: {ruleEvaluation.alertName}
+                </strong>
+                <span
+                  className={`badge ${
+                    ruleEvaluation.state === 'FIRING'
+                      ? 'badge-rose'
+                      : ruleEvaluation.state === 'PENDING'
+                      ? 'badge-amber'
+                      : 'badge-emerald'
+                  }`}
+                  style={{ fontSize: '0.85rem', fontWeight: 'bold' }}
+                >
+                  Status: {ruleEvaluation.state}
+                </span>
+              </div>
+              <p style={{ margin: '0 0 10px 0', fontSize: '0.9rem', color: 'var(--text-main)' }}>
+                {ruleEvaluation.evaluationMessage}
+              </p>
+              <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                <strong>Summary:</strong> {ruleEvaluation.formattedSummary}
+              </div>
+              <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: '4px' }}>
+                <strong>Description:</strong> {ruleEvaluation.formattedDescription}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
+

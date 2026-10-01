@@ -180,3 +180,122 @@ export function generatePromqlBurnAlertYaml(serviceName, targetPercent) {
           summary: "Mittlere SLO Error-Budget Verbrennungsrate (6x) in Service ${serviceName}"
           description: "5% des monatlichen Fehlerbudgets wurden innerhalb von 6 Stunden verbrannt."`;
 }
+
+/**
+ * @typedef {'INACTIVE' | 'PENDING' | 'FIRING'} AlertState
+ *
+ * @typedef {{
+ *   alertName: string;
+ *   expr: string;
+ *   currentValue: number;
+ *   threshold: number;
+ *   operator: '>' | '>=' | '<' | '<=';
+ *   forDurationSec: number;
+ *   activeDurationSec: number;
+ *   labels: Record<string, string>;
+ *   annotations: Record<string, string>;
+ * }} PromqlAlertRuleInput
+ *
+ * @typedef {{
+ *   alertName: string;
+ *   state: AlertState;
+ *   isConditionMet: boolean;
+ *   formattedSummary: string;
+ *   formattedDescription: string;
+ *   evaluationMessage: string;
+ * }} PromqlAlertRuleEvaluation
+ */
+
+/**
+ * Evaluates a PromQL alerting rule against current value and duration,
+ * simulating the Prometheus engine (Inactive -> Pending -> Firing).
+ *
+ * @param {PromqlAlertRuleInput} input
+ * @returns {PromqlAlertRuleEvaluation}
+ */
+export function simulatePromqlAlertRule(input) {
+  let isConditionMet = false;
+  switch (input.operator) {
+    case '>':
+      isConditionMet = input.currentValue > input.threshold;
+      break;
+    case '>=':
+      isConditionMet = input.currentValue >= input.threshold;
+      break;
+    case '<':
+      isConditionMet = input.currentValue < input.threshold;
+      break;
+    case '<=':
+      isConditionMet = input.currentValue <= input.threshold;
+      break;
+    default:
+      isConditionMet = input.currentValue > input.threshold;
+  }
+
+  /** @type {AlertState} */
+  let state = 'INACTIVE';
+  let evaluationMessage = '';
+
+  if (!isConditionMet) {
+    state = 'INACTIVE';
+    evaluationMessage = `Bedingung nicht erfüllt (${input.currentValue} ${input.operator} ${input.threshold} ist false). Alert bleibt inaktiv.`;
+  } else if (input.activeDurationSec < input.forDurationSec) {
+    state = 'PENDING';
+    const remainingSec = input.forDurationSec - input.activeDurationSec;
+    evaluationMessage = `Bedingung erfüllt (${input.currentValue} ${input.operator} ${input.threshold}), aber for-Dauer (${input.forDurationSec}s) noch nicht erreicht (aktiv seit ${input.activeDurationSec}s, noch ${remainingSec}s verbleibend). Alert ist PENDING.`;
+  } else {
+    state = 'FIRING';
+    evaluationMessage = `Bedingung erfüllt und for-Dauer (${input.forDurationSec}s) überschritten! Alert feuert (FIRING) und benachrichtigt den Alertmanager.`;
+  }
+
+  // Template placeholders replacement like {{$value}}
+  const replacePlaceholders = (/** @type {string} */ text) => {
+    let result = text.replace(/\{\{\s*\$value\s*\}\}/g, String(input.currentValue));
+    for (const [key, val] of Object.entries(input.labels)) {
+      result = result.replace(new RegExp(`\\{\\{\\s*\\$labels\\.${key}\\s*\\}\\}`, 'g'), val);
+    }
+    return result;
+  };
+
+  return {
+    alertName: input.alertName,
+    state,
+    isConditionMet,
+    formattedSummary: replacePlaceholders(input.annotations.summary || input.alertName),
+    formattedDescription: replacePlaceholders(input.annotations.description || ''),
+    evaluationMessage,
+  };
+}
+
+/** Vorkonfigurierte Prometheus Alerting-Szenarien für didaktische Demos */
+export const IHK_PROMQL_EXAM_SCENARIOS = [
+  {
+    id: 'api_high_latency',
+    alertName: 'ApiLatencyHigh',
+    expr: 'histogram_quantile(0.99, sum(rate(http_request_duration_seconds_bucket[5m])) by (le)) > 0.5',
+    threshold: 0.5,
+    operator: '>',
+    forDurationSec: 300, // 5m
+    unit: 's',
+    labels: { severity: 'warning', service: 'checkout-api', team: 'backend' },
+    annotations: {
+      summary: 'Hohe API-Latenz auf {{ $labels.service }}',
+      description: 'P99 Latenz liegt aktuell bei {{ $value }}s (Grenzwert: 0.5s).'
+    }
+  },
+  {
+    id: 'disk_space_critical',
+    alertName: 'HostDiskSpaceFillingUp',
+    expr: 'node_filesystem_free_bytes / node_filesystem_size_bytes < 0.10',
+    threshold: 0.10,
+    operator: '<',
+    forDurationSec: 600, // 10m
+    unit: '%',
+    labels: { severity: 'critical', instance: 'prod-db-node-01', mountpoint: '/var/lib/postgresql' },
+    annotations: {
+      summary: 'Kritisch geringer Festplattenspeicher auf {{ $labels.instance }}',
+      description: 'Freier Speicherplatz auf {{ $labels.mountpoint }} ist unter 10% gefallen: {{ $value }}.'
+    }
+  }
+];
+

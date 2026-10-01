@@ -1,10 +1,13 @@
 import React, { useState, useMemo } from 'react';
-import { Calculator, Info, ChevronRight, Award } from 'lucide-react';
+import { Calculator, Info, ChevronRight, Award, HelpCircle } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import {
   berechneBab,
   berechneZuschlagskalkulation,
+  berechneBab2Kostenueberdeckung,
   IHK_BAB_BEISPIEL,
+  IHK_NORMAL_ZUSCHLAGSSAETZE,
+  IHK_BAB_DRILL_QUESTIONS,
   KOSTENSTELLEN,
   ZUSCHLAGSAETZE_ERLAEUTERUNG,
 } from '../../utils/wisoBabEngine';
@@ -20,6 +23,17 @@ export default function WisoBabLab({ onXPGain }) {
   const [mek, setMek] = useState(IHK_BAB_BEISPIEL.materialeinzelkosten);
   const [fek, setFek] = useState(IHK_BAB_BEISPIEL.fertigungseinzelkosten);
 
+  // BAB II Normalkosten-Zuschlagssätze
+  const [normalMgk, setNormalMgk] = useState(IHK_NORMAL_ZUSCHLAGSSAETZE.mgkSatz);
+  const [normalFgk, setNormalFgk] = useState(IHK_NORMAL_ZUSCHLAGSSAETZE.fgkSatz);
+  const [normalVwgk, setNormalVwgk] = useState(IHK_NORMAL_ZUSCHLAGSSAETZE.vwgkSatz);
+  const [normalVtrgk, setNormalVtrgk] = useState(IHK_NORMAL_ZUSCHLAGSSAETZE.vtrgkSatz);
+
+  // Drill State
+  const [drillAnswers, setDrillAnswers] = useState({});
+  const [drillSubmitted, setDrillSubmitted] = useState(false);
+  const [drillXpVergeben, setDrillXpVergeben] = useState(false);
+
   // Zuschlagskalkulation
   const [kalkmek, setKalkmek] = useState(200);
   const [kalkfek, setKalkfek] = useState(300);
@@ -33,6 +47,22 @@ export default function WisoBabLab({ onXPGain }) {
       return null;
     }
   }, [mek, fek]);
+
+  const bab2Ergebnis = useMemo(() => {
+    if (!babErgebnis) return null;
+    return berechneBab2Kostenueberdeckung({
+      istKostenstellenSummen: babErgebnis.kostenstellenSummen,
+      materialeinzelkosten: mek,
+      fertigungseinzelkosten: fek,
+      herstellkosten: babErgebnis.herstellkosten,
+      normalZuschlagssaetze: {
+        mgkSatz: normalMgk,
+        fgkSatz: normalFgk,
+        vwgkSatz: normalVwgk,
+        vtrgkSatz: normalVtrgk,
+      },
+    });
+  }, [babErgebnis, mek, fek, normalMgk, normalFgk, normalVwgk, normalVtrgk]);
 
   const kalkErgebnis = useMemo(() => {
     if (!babErgebnis) return null;
@@ -56,6 +86,19 @@ export default function WisoBabLab({ onXPGain }) {
     }
   };
 
+  const handleDrillSubmit = () => {
+    setDrillSubmitted(true);
+    const score = IHK_BAB_DRILL_QUESTIONS.reduce(
+      (acc, q) => acc + (drillAnswers[q.id] === q.richtigIndex ? 1 : 0),
+      0
+    );
+    if (score === IHK_BAB_DRILL_QUESTIONS.length && !drillXpVergeben) {
+      const xpFn = onXPGain || addXP;
+      xpFn?.(40, 'IHK WISO BAB-Meister Drill');
+      setDrillXpVergeben(true);
+    }
+  };
+
   const fmt = (n) => typeof n === 'number' ? n.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : '—';
 
   return (
@@ -63,16 +106,23 @@ export default function WisoBabLab({ onXPGain }) {
       <div className="lab-header">
         <Calculator size={28} className="lab-icon" />
         <div>
-          <h2>IHK WISO Betriebsabrechnungsbogen (BAB)</h2>
-          <p className="lab-subtitle">Kostenstellenrechnung · Zuschlagssätze · Zuschlagskalkulation — IHK AP2 Standard</p>
+          <h2>IHK WISO Betriebsabrechnungsbogen (BAB) &amp; BAB II</h2>
+          <p className="lab-subtitle">Kostenstellenrechnung · Normalkosten vs. Istkosten · Kostenüberdeckung · IHK AP2 Standard</p>
         </div>
         {xpVergeben && <div className="xp-badge"><Award size={16} /> +{XP_REWARD} XP</div>}
+        {drillXpVergeben && <div className="xp-badge" style={{ background: 'var(--accent-emerald)' }}><Award size={16} /> +40 XP Drill</div>}
       </div>
 
       <div className="lab-tabs">
-        {['bab', 'zuschlaege', 'kalkulation'].map((tab) => (
-          <button key={tab} className={`lab-tab${aktivesTab === tab ? ' active' : ''}`} onClick={() => setAktivesTab(tab)}>
-            {tab === 'bab' ? 'BAB-Übersicht' : tab === 'zuschlaege' ? 'Zuschlagssätze' : 'Zuschlagskalkulation'}
+        {[
+          { id: 'bab', label: 'BAB-Übersicht (Ist)' },
+          { id: 'zuschlaege', label: 'Zuschlagssätze' },
+          { id: 'bab2', label: 'BAB II (Normal vs. Ist)' },
+          { id: 'kalkulation', label: 'Zuschlagskalkulation' },
+          { id: 'drill', label: 'IHK-Prüfungs-Drill' },
+        ].map((tab) => (
+          <button key={tab.id} className={`lab-tab${aktivesTab === tab.id ? ' active' : ''}`} onClick={() => setAktivesTab(tab.id)}>
+            {tab.label}
           </button>
         ))}
       </div>
@@ -205,6 +255,200 @@ export default function WisoBabLab({ onXPGain }) {
             <button className="btn-primary" onClick={handleKalkXP} disabled={kalkuliertXp}>
               {kalkuliertXp ? <><Award size={16} /> +{XP_REWARD} XP verdient!</> : <><ChevronRight size={16} /> Aufgabe abschließen & {XP_REWARD} XP verdienen</>}
             </button>
+          </div>
+        </div>
+      )}
+
+      {aktivesTab === 'bab2' && bab2Ergebnis && babErgebnis && (
+        <div className="bab2-panel">
+          <div className="info-box">
+            <Info size={16} />
+            <span>
+              Im <strong>BAB II (Normalkostenrechnung)</strong> werden die auf Normalbasis (Erfahrungswerte) vorkalkulierten
+              Gemeinkosten mit den tatsächlichen Ist-Gemeinkosten verglichen.
+              Eine <strong>Überdeckung</strong> entsteht, wenn Normal-GK &gt; Ist-GK (Kostenersparnis).
+              Eine <strong>Unterdeckung</strong> entsteht, wenn Normal-GK &lt; Ist-GK (Kostenüberschreitung).
+            </span>
+          </div>
+
+          <div className="kalk-inputs-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '12px', marginBottom: '20px' }}>
+            <label>
+              Normal-MGK (%)
+              <input type="number" step="0.5" value={normalMgk} onChange={(e) => setNormalMgk(Number(e.target.value))} />
+            </label>
+            <label>
+              Normal-FGK (%)
+              <input type="number" step="0.5" value={normalFgk} onChange={(e) => setNormalFgk(Number(e.target.value))} />
+            </label>
+            <label>
+              Normal-VwGK (%)
+              <input type="number" step="0.5" value={normalVwgk} onChange={(e) => setNormalVwgk(Number(e.target.value))} />
+            </label>
+            <label>
+              Normal-VtrGK (%)
+              <input type="number" step="0.5" value={normalVtrgk} onChange={(e) => setNormalVtrgk(Number(e.target.value))} />
+            </label>
+          </div>
+
+          <div className="bab-table-wrapper" style={{ overflowX: 'auto', marginBottom: '20px' }}>
+            <table className="bab-table">
+              <thead>
+                <tr>
+                  <th>Kostenstelle</th>
+                  <th>Ist-Gemeinkosten (€)</th>
+                  <th>Normal-Zuschlag (%)</th>
+                  <th>Bezugsbasis (€)</th>
+                  <th>Normal-Gemeinkosten (€)</th>
+                  <th>Differenz (€)</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {bab2Ergebnis.auswertung.map((row) => (
+                  <tr key={row.kostenstelle}>
+                    <td><strong>{row.kostenstelle}</strong></td>
+                    <td className="betrag-cell">{fmt(row.istGemeinkosten)}</td>
+                    <td className="betrag-cell">{row.normalZuschlagssatz.toFixed(1)} %</td>
+                    <td className="betrag-cell">{fmt(row.bezugsbasis)}</td>
+                    <td className="betrag-cell">{fmt(row.normalGemeinkosten)}</td>
+                    <td className="betrag-cell" style={{ color: row.differenz >= 0 ? 'var(--accent-emerald, #10b981)' : 'var(--accent-rose, #ef4444)', fontWeight: 'bold' }}>
+                      {row.differenz >= 0 ? `+${fmt(row.differenz)}` : fmt(row.differenz)}
+                    </td>
+                    <td>
+                      <span className={`badge ${row.status === 'Überdeckung' ? 'badge-emerald' : row.status === 'Unterdeckung' ? 'badge-rose' : 'badge-slate'}`}>
+                        {row.status}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+                <tr className="summen-row">
+                  <td><strong>Gesamtergebnis BAB II</strong></td>
+                  <td className="betrag-cell"><strong>{fmt(bab2Ergebnis.auswertung.reduce((s, r) => s + r.istGemeinkosten, 0))}</strong></td>
+                  <td>—</td>
+                  <td>—</td>
+                  <td className="betrag-cell"><strong>{fmt(bab2Ergebnis.auswertung.reduce((s, r) => s + r.normalGemeinkosten, 0))}</strong></td>
+                  <td className="betrag-cell" style={{ color: bab2Ergebnis.gesamtDifferenz >= 0 ? 'var(--accent-emerald, #10b981)' : 'var(--accent-rose, #ef4444)', fontWeight: 'bold' }}>
+                    {bab2Ergebnis.gesamtDifferenz >= 0 ? `+${fmt(bab2Ergebnis.gesamtDifferenz)}` : fmt(bab2Ergebnis.gesamtDifferenz)}
+                  </td>
+                  <td>
+                    <span className={`badge ${bab2Ergebnis.gesamtStatus === 'Überdeckung' ? 'badge-emerald' : 'badge-rose'}`}>
+                      Gesamt: {bab2Ergebnis.gesamtStatus}
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      {aktivesTab === 'drill' && (
+        <div className="drill-panel">
+          <div className="info-box">
+            <HelpCircle size={16} />
+            <span>
+              <strong>IHK-Prüfungs-Drill BAB &amp; Kostenstellenrechnung:</strong> Teste dein Wissen zu Bezugsbasen,
+              Normalkostenrechnung und BAB-II-Über-/Unterdeckungen für die IHK AP2 Abschlussprüfung.
+            </span>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '16px' }}>
+            {IHK_BAB_DRILL_QUESTIONS.map((q, qIdx) => {
+              const isCorrect = drillAnswers[q.id] === q.richtigIndex;
+              return (
+                <div
+                  key={q.id}
+                  style={{
+                    padding: '18px',
+                    borderRadius: '10px',
+                    background: 'var(--bg-secondary, #1e293b)',
+                    border: '1px solid var(--border-color, #334155)',
+                  }}
+                >
+                  <h4 style={{ margin: '0 0 12px 0', fontSize: '1rem', color: 'var(--text-main, #f8fafc)' }}>
+                    {qIdx + 1}. {q.frage}
+                  </h4>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    {q.optionen.map((opt, oIdx) => {
+                      const optSelected = drillAnswers[q.id] === oIdx;
+                      let btnBg = 'var(--bg-surface, #0f172a)';
+                      let border = '1px solid var(--border-color, #334155)';
+                      if (drillSubmitted) {
+                        if (oIdx === q.richtigIndex) {
+                          btnBg = 'rgba(16, 185, 129, 0.2)';
+                          border = '1px solid #10b981';
+                        } else if (optSelected) {
+                          btnBg = 'rgba(239, 68, 68, 0.2)';
+                          border = '1px solid #ef4444';
+                        }
+                      } else if (optSelected) {
+                        btnBg = 'rgba(59, 130, 246, 0.2)';
+                        border = '1px solid #3b82f6';
+                      }
+
+                      return (
+                        <button
+                          key={oIdx}
+                          type="button"
+                          onClick={() => !drillSubmitted && setDrillAnswers((prev) => ({ ...prev, [q.id]: oIdx }))}
+                          disabled={drillSubmitted}
+                          style={{
+                            textAlign: 'left',
+                            padding: '10px 14px',
+                            borderRadius: '8px',
+                            background: btnBg,
+                            border,
+                            color: 'var(--text-main, #f8fafc)',
+                            cursor: drillSubmitted ? 'default' : 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '10px',
+                          }}
+                        >
+                          <span style={{ fontWeight: 'bold', width: '22px' }}>
+                            {String.fromCharCode(65 + oIdx)})
+                          </span>
+                          <span>{opt}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {drillSubmitted && (
+                    <div style={{ marginTop: '12px', fontSize: '0.85rem', color: isCorrect ? '#10b981' : '#f87171' }}>
+                      <p style={{ margin: '4px 0', fontWeight: 'bold' }}>
+                        {isCorrect ? '✓ Richtig!' : '✗ Falsch!'}
+                      </p>
+                      <p style={{ margin: 0, color: 'var(--text-muted, #94a3b8)' }}>{q.erklaerung}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+
+            <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginTop: '8px' }}>
+              {!drillSubmitted ? (
+                <button
+                  type="button"
+                  className="btn-primary"
+                  onClick={handleDrillSubmit}
+                  disabled={Object.keys(drillAnswers).length < IHK_BAB_DRILL_QUESTIONS.length}
+                >
+                  Antworten prüfen &amp; +40 XP sichern
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className="btn-secondary"
+                  onClick={() => {
+                    setDrillSubmitted(false);
+                    setDrillAnswers({});
+                  }}
+                >
+                  Drill wiederholen
+                </button>
+              )}
+            </div>
           </div>
         </div>
       )}

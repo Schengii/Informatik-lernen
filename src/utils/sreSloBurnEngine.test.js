@@ -4,6 +4,7 @@ import {
   calculateCurrentBurnRate,
   evaluateBurnAlerts,
   generatePromqlBurnAlertYaml,
+  simulatePromqlAlertRule,
   STANDARD_SRE_BURN_WINDOWS
 } from './sreSloBurnEngine';
 
@@ -52,4 +53,49 @@ describe('sreSloBurnEngine', () => {
     expect(yaml).toContain('HighErrorBudgetBurnPage');
     expect(yaml).toContain('sum(rate(http_requests_total{job="PaymentGateway"');
   });
+
+  it('simulates PromQL Alert transitions (INACTIVE -> PENDING -> FIRING) with templating', () => {
+    const ruleBase = {
+      alertName: 'ApiLatencyHigh',
+      expr: 'p99 > 0.5',
+      threshold: 0.5,
+      operator: /** @type {const} */ ('>'),
+      forDurationSec: 300,
+      labels: { service: 'checkout-api' },
+      annotations: {
+        summary: 'Latency on {{ $labels.service }}',
+        description: 'Value is {{ $value }}s'
+      }
+    };
+
+    // 1. Condition not met
+    const inactive = simulatePromqlAlertRule({
+      ...ruleBase,
+      currentValue: 0.2,
+      activeDurationSec: 100
+    });
+    expect(inactive.state).toBe('INACTIVE');
+    expect(inactive.isConditionMet).toBe(false);
+
+    // 2. Condition met, but activeDuration < forDuration -> PENDING
+    const pending = simulatePromqlAlertRule({
+      ...ruleBase,
+      currentValue: 0.8,
+      activeDurationSec: 120
+    });
+    expect(pending.state).toBe('PENDING');
+    expect(pending.isConditionMet).toBe(true);
+    expect(pending.formattedSummary).toBe('Latency on checkout-api');
+    expect(pending.formattedDescription).toBe('Value is 0.8s');
+
+    // 3. Condition met and activeDuration >= forDuration -> FIRING
+    const firing = simulatePromqlAlertRule({
+      ...ruleBase,
+      currentValue: 0.8,
+      activeDurationSec: 350
+    });
+    expect(firing.state).toBe('FIRING');
+    expect(firing.evaluationMessage).toContain('Alert feuert (FIRING)');
+  });
 });
+

@@ -84,7 +84,24 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Next-Gen Transport: HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx` & `http3QuicEngine.js`)**: Head-of-Line Blocking Eliminierung bei Paketverlust, Multi-Stream Übertragung über UDP, 0-RTT TLS 1.3 Session Resumption und Connection-ID (CID) Migration.
    - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation**, **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
-## ✨ Hauptfunktionen & Neue Features (v3.69.0: IHK WISO Kündigungsfristen-Kalenderrechner & IPv6 Subnetting Studio Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.70.0: RFC 793 TCP State Machine, PromQL Evaluator & WISO BAB II Edition)
+
+* **🌐 RFC 793 TCP Connection State Machine & 3-Way Handshake Studio (`TcpStateMachineLab.jsx` & `src/utils/tcpStateMachineEngine.js`)**:
+  * Didaktisches Transport-Layer- und Protokoll-Studio nach RFC 793 Standard.
+  * **Vollständiger Zustandsautomat für Client & Server**:
+    * Modellierung aller Zustände: `CLOSED`, `LISTEN`, `SYN_SENT`, `SYN_RECEIVED`, `ESTABLISHED`, `FIN_WAIT_1`, `FIN_WAIT_2`, `TIME_WAIT` (2MSL), `CLOSE_WAIT` und `LAST_ACK`.
+  * **Interaktive Szenarien & Manuelle Paket-Injektion**:
+    * 1-Klick **3-Way Handshake** (SYN &rarr; SYN-ACK &rarr; ACK) und **4-Way Teardown** (FIN &rarr; ACK &rarr; FIN &rarr; ACK mit 2MSL TIME_WAIT).
+    * Manuelle Injektion von SYN, ACK, PSH+ACK (Nutzdaten) und RST (Sofortiger Verbindungsabbruch) mit Lösungs-Trace und **+55 XP**.
+* **🔔 Prometheus Alertmanager & PromQL Alert Rule Evaluator Studio (`SreSloBurnLab.jsx` & `src/utils/sreSloBurnEngine.js`)**:
+  * Didaktische Simulation der Prometheus Alert State Machine (`INACTIVE` &rarr; `PENDING` &rarr; `FIRING`).
+  * Live-Evaluation der `for`-Wartezeit mit dynamischem Zeitzähler, threshold-Vergleich und automatischer Auflösung von Label- & Value-Templates (`{{ $value }}`, `{{ $labels.service }}`) mit **+45 XP**.
+* **🧮 IHK WISO BAB II & Zuschlagskalkulation Prüfungs-Drill (`WisoBabLab.jsx` & `src/utils/wisoBabEngine.js`)**:
+  * Normalkosten- vs. Istkosten-Vergleich im Betriebsabrechnungsbogen II.
+  * Ermittlung von Kostenüberdeckung (positiv) und Kostenunterdeckung (negativ) pro Kostenstelle (Material, Fertigung, Verwaltung, Vertrieb).
+  * Interaktiver IHK-Prüfungs-Drill mit Sofort-Feedback und **+40 XP**.
+
+## ✨ Bisherige Hauptfunktionen (v3.69.0: IHK WISO Kündigungsfristen-Kalenderrechner & IPv6 Subnetting Studio Edition)
 
 * **📅 IHK WISO Arbeitsrecht & Kündigungsfristen-Kalenderrechner (`WisoLaborLawLab.jsx` & `src/utils/wisoLaborLawEngine.js`)**:
   * Didaktisches Arbeitsrecht- & Fristen-Studio nach BGB § 622 und KSchG § 4.
@@ -1456,6 +1473,38 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.71.0 (Qualitäts-, Barrierefreiheits- & Bugfix-Edition)
+
+- **Bugfix (kritisch): Lade-Skeleton blockierte die gesamte App** (`index.html`): Das Inline-Skript stand vor `<div id="root">`, `getElementById('root')` lieferte `null` und das Skeleton (`position: fixed; z-index: 9999`) wurde nie entfernt – es überdeckte die App dauerhaft und fing alle Klicks ab. Skript steht jetzt hinter `#root`; E2E-Regressionstest in `e2e/smoke.spec.js`.
+- **Bugfix: Streak war nie aktiv** (`src/utils/storage.js`): `userState.streak` blieb immer 1, gekaufte Streak-Freezes (100 XP) wurden nie verbraucht. Neu: `updateStreak` (Folgetag +1, verpasste Tage verbrauchen Freezes, sonst Reset) inkl. DST-sicherer `daysBetweenDateKeys`.
+- **Bugfix: Tageswechsel in UTC statt Ortszeit**: `getTodayDateKey()`/Heatmap nutzten `toISOString()` – Aktivität zwischen 0 und 2 Uhr (MEZ/MESZ) wurde dem Vortag zugerechnet. Jetzt lokale Datumsschlüssel (`toLocalDateKey`).
+- **Bugfix: 8 tote Dashboard-Einträge** (`bigo`, `gitvisual`, `k8s`, `pkce`, `pythonwasm`, `ragai`, `regexmaster`, `sqldungeon`) führten auf Tabs ohne Handler. Aliase in `App.jsx` ergänzt; `sqldungeon` öffnet den Games-Tab mit SQL Dungeon.
+- **Neu: Fehlerjournal** (`src/utils/mistakeJournalEngine.js`, `MistakeReviewWidget.jsx`): Falsch beantwortete Prüfungsfragen (inkl. unbeantwortete) wandern mit Intervallen 1→3→7→14→30 Tage ins Journal; 3 richtige Antworten in Folge = gemeistert. Dashboard-Widget mit Wiederholungs-Mini-Quiz (lazy geladen, Haupt-Bundle unverändert).
+- **Neu: Lab-Registry** (`src/data/labRegistry.js`): datengetriebene Alternative zu `lazy`-Import + `case` in `App.jsx` (Pilot: TCP-, Transfer-Time-, WISO-Payment-Lab). Konsistenztests in `src/data/labModulesData.test.js` (eindeutige IDs, Pflichtfelder, jeder Dashboard-Eintrag hat eine Route).
+- **Barrierefreiheit**: `src/utils/a11yAutoLabel.js` benennt unbeschriftete Steuerelemente (Slider, Selects, Icon-Buttons) zur Laufzeit aus dem Kontext; neuer Test `allLabsA11y.test.jsx` prüft ALLE Labs mit axe-core (vorher 128 Labs / 495 Verstöße, jetzt 0), `e2e/accessibility.spec.js` auditiert zusätzlich 6 Labs im echten Browser. Kontrastprobleme (`color-contrast`) bleiben bewusst als Design-Schuld ausgeklammert.
+- **Qualität & CI**: Lighthouse-CI (`lighthouserc.json`, CI-Job `lighthouse`; lokal: Performance 98 / A11y 98 / Best Practices 100 / SEO 100), globale Coverage-Untergrenze, Lerninhalte-Integritätstests (`contentIntegrity.test.js`), `// @ts-check` für `wisoCalculations`, `tcoCalculations`, `sm2Algorithm`, `srsAlgorithm`, `ieee754`.
+- **Test-Suite & Qualität**:
+  - **1582 bestandene Tests** in **174 Test-Dateien**, 21+4 E2E-Tests (Playwright) grün; Route-Sweep über 403 Routen ohne JS-Fehler/ErrorBoundary.
+  - 0 Oxlint-Warnungen (`lint:ci`), `tsc --noEmit` fehlerfrei, alle `size-limit`-Budgets eingehalten (Hauptbundle 75.9 KB gzipped < 105 KB).
+
+### Version 3.70.0 (RFC 793 TCP State Machine, PromQL Evaluator & WISO BAB II Edition)
+
+- **Neu: RFC 793 TCP Connection State Machine & 3-Way Handshake Studio (`TcpStateMachineLab.jsx` & `src/utils/tcpStateMachineEngine.js`)**:
+  - Vollständiger Zustandsautomat für Client & Server (`CLOSED`, `LISTEN`, `SYN_SENT`, `SYN_RECEIVED`, `ESTABLISHED`, `FIN_WAIT_1`, `FIN_WAIT_2`, `TIME_WAIT` 2MSL, `CLOSE_WAIT`, `LAST_ACK`).
+  - Interaktive Ausführung von 3-Way Handshake, 4-Way Teardown, Datenübertragung mit PSH+ACK und RST-Injektion inklusive Paket-Verlaufs-Trace mit +55 XP.
+  - Vollständig typgeprüft (`// @ts-check`) und mit 4 isolierten Unit-Tests abgesichert.
+- **Neu: Prometheus Alertmanager & PromQL Alert Rule Evaluator Studio (`SreSloBurnLab.jsx` & `src/utils/sreSloBurnEngine.js`)**:
+  - Didaktische Simulation der Prometheus Alert State Transitions (`INACTIVE` &rarr; `PENDING` &rarr; `FIRING`).
+  - Interaktive Prüfung der `for`-Dauer mit Zeitzähler und automatischem Templating von `{{ $value }}` und `{{ $labels.service }}` mit +45 XP.
+- **Neu: IHK WISO BAB II & Zuschlagskalkulation Prüfungs-Drill (`WisoBabLab.jsx` & `src/utils/wisoBabEngine.js`)**:
+  - Betriebsabrechnungsbogen II: Gegenüberstellung von Normal-Gemeinkosten und Ist-Gemeinkosten mit Berechnung von Kostenüberdeckung / Kostenunterdeckung pro Kostenstelle.
+  - Interaktiver Prüfungs-Drill mit 3 IHK-Multiple-Choice-Fragen, didaktischer Erklärung und +40 XP Belohnung.
+- **Test-Suite & Qualität**:
+  - **1313 bestandene Tests** in **167 Test-Dateien** (100% Erfolgsquote, +10 neue Tests).
+  - 223 Labs Smoke-Tests fehlerfrei absolviert (`allLabsSmoke.test.jsx`).
+  - 0 Oxlint-Fehler, 0 Warnungen über 623 Quelldateien, `tsc --noEmit` fehlerfrei.
+  - Alle `size-limit`-Budgets eingehalten (Hauptbundle 72.48 KB gzipped < 105 KB Limit).
 
 ### Version 3.69.0 (IHK WISO Kündigungsfristen-Kalenderrechner & IPv6 Subnetting Studio Edition)
 

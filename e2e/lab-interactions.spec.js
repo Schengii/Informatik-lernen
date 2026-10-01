@@ -73,3 +73,21 @@ for (const { tab, headingPattern } of [
     expect(consoleErrors, `Unerwartete Konsolen-/Laufzeitfehler im Tab "${tab}": ${consoleErrors.join('\n')}`).toEqual([]);
   });
 }
+
+// Regression: Diese Dashboard-Einträge verwiesen früher auf Tab-IDs ohne Handler
+// (Klick -> leere Seite). `src/data/labModulesData.test.js` prüft das statisch;
+// hier wird der echte Klickpfad inkl. Sonderfall SQL Dungeon (Games-Tab) geprüft.
+for (const { search, expected } of [
+  { search: 'Kubernetes Pods & Ingress', expected: /Kubernetes Cluster/i },
+  { search: 'Visual Git Branching', expected: /Git Branching/i },
+  { search: 'OAuth2 PKCE', expected: /PKCE/i },
+  { search: 'SQL Dungeon', expected: /SQL/i }
+]) {
+  test(`Lab-Dashboard: "${search}" öffnet ein sichtbares Lab`, async ({ page }) => {
+    await page.goto('/labs');
+    await page.getByPlaceholder(/Suche nach Tags/i).fill(search);
+    await page.getByRole('button', { name: /Laboratorium Starten/i }).first().click();
+    await expect(page.locator('main h1, main h2').filter({ hasText: expected }).first()).toBeVisible({ timeout: 10000 });
+    await expect(page.getByText('Dieses Modul ist abgestürzt')).toHaveCount(0);
+  });
+}

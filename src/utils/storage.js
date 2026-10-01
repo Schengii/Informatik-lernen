@@ -18,6 +18,8 @@ import { syncUserStateToIndexedDb } from './indexedDbStoreMiddleware';
  * @property {number} level
  * @property {number} streak
  * @property {number} streakFreezes
+ * @property {string} [lastActiveDate] Letzter aktiver Tag (YYYY-MM-DD, lokale Zeit)
+ * @property {Record<string, unknown>} [mistakeJournal]
  * @property {Record<string, unknown>} srsFlashcards
  * @property {string[]} completedTopics
  * @property {string[]} completedGames
@@ -39,7 +41,9 @@ export const initialProfileState = {
   level: 1,
   streak: 1,
   streakFreezes: 0,
+  lastActiveDate: '', // letzter Tag mit Aktivität (lokal), Basis der Streak-Berechnung
   srsFlashcards: {}, // { [cardId]: { repetitions, interval, easeFactor, dueDate } }
+  mistakeJournal: {}, // { [questionId]: { wrongCount, streak, interval, dueDate, lastSeen } } - siehe mistakeJournalEngine
   completedTopics: [],
   completedGames: [],
   completedCloze: [],
@@ -50,8 +54,61 @@ export const initialProfileState = {
   soundSettings: { volume: 0.5, isMuted: false }
 };
 
-export const getTodayDateKey = () => {
-  return new Date().toISOString().slice(0, 10);
+/**
+ * Lokaler Datumsschlüssel YYYY-MM-DD. (toISOString() wäre UTC: für Nutzer in
+ * Deutschland würde Aktivität zwischen 0 und 2 Uhr dem Vortag zugerechnet.)
+ * @param {Date} date
+ * @returns {string}
+ */
+export const toLocalDateKey = (date) => {
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  const d = String(date.getDate()).padStart(2, '0');
+  return `${date.getFullYear()}-${m}-${d}`;
+};
+
+/** @returns {string} */
+export const getTodayDateKey = () => toLocalDateKey(new Date());
+
+/**
+ * Kalendertage zwischen zwei Datumsschlüsseln (YYYY-MM-DD). Rechnet über UTC-Mitternacht,
+ * damit Sommer-/Winterzeit-Umstellungen keine 23/25-Stunden-Tage erzeugen.
+ * @param {string} fromKey
+ * @param {string} toKey
+ * @returns {number}
+ */
+export const daysBetweenDateKeys = (fromKey, toKey) => {
+  const toUtc = (/** @type {string} */ key) => {
+    const [y, m, d] = key.split('-').map(Number);
+    return Date.UTC(y, m - 1, d);
+  };
+  return Math.round((toUtc(toKey) - toUtc(fromKey)) / 86400000);
+};
+
+/**
+ * Aktualisiert Streak und Streak-Freezes für Aktivität am Tag `todayKey`.
+ * - erster Tag oder gleicher Tag: Streak bleibt (mind. 1)
+ * - Folgetag: Streak + 1
+ * - Lücke von n verpassten Tagen: pro verpasstem Tag wird ein Streak-Freeze
+ *   verbraucht; reichen sie nicht, startet der Streak bei 1 neu (Freezes bleiben erhalten).
+ * @param {UserState} state
+ * @param {string} todayKey
+ * @returns {UserState}
+ */
+export const updateStreak = (state, todayKey) => {
+  const last = state.lastActiveDate;
+  if (!last) {
+    return { ...state, streak: Math.max(1, state.streak || 1), lastActiveDate: todayKey };
+  }
+  const gap = daysBetweenDateKeys(last, todayKey);
+  if (gap <= 0) return state.lastActiveDate === todayKey ? state : { ...state, lastActiveDate: todayKey };
+  if (gap === 1) return { ...state, streak: (state.streak || 1) + 1, lastActiveDate: todayKey };
+
+  const missed = gap - 1;
+  const freezes = state.streakFreezes || 0;
+  if (freezes >= missed) {
+    return { ...state, streak: (state.streak || 1) + 1, streakFreezes: freezes - missed, lastActiveDate: todayKey };
+  }
+  return { ...state, streak: 1, lastActiveDate: todayKey };
 };
 
 /**
@@ -69,10 +126,10 @@ export const recordDailyActivity = (state, xpGained = 0) => {
     xp: current.xp + xpGained
   };
 
-  return {
+  return updateStreak({
     ...state,
     activityHistory: history
-  };
+  }, dateKey);
 };
 
 /** @returns {UserState} */

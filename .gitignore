@@ -31,3 +31,6 @@ playwright/.cache
 *.njsproj
 *.sln
 *.sw?
+
+# Lighthouse CI
+.lighthouseci

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useStore } from './store/useStore';
@@ -86,6 +86,8 @@ const WasmCompilerPlaygroundLab = lazy(() => import('./components/Content/WasmCo
 // Neue Labs, Simulatoren & Kampagnen Hub
 const DataStructuresLab = lazy(() => import('./components/Content/DataStructuresLab'));
 const CiCdWorkflowLab = lazy(() => import('./components/Content/CiCdWorkflowLab'));
+// Lazy: zieht examData (Fragenkatalog) nicht in den Haupt-Chunk
+const MistakeReviewWidget = lazy(() => import('./components/Gamification/MistakeReviewWidget'));
 const LabsDashboard = lazy(() => import('./components/Content/LabsDashboard'));
 const IhkOralExamSimulator = lazy(() => import('./components/Content/IhkOralExamSimulator'));
 const SqlJoinVisualizerLab = lazy(() => import('./components/Content/SqlJoinVisualizerLab'));
@@ -309,9 +311,8 @@ const DnssecRolloverLab = lazy(() => import('./components/Content/DnssecRollover
 const WisoBookkeepingLab = lazy(() => import('./components/Content/WisoBookkeepingLab'));
 const WisoBabLab = lazy(() => import('./components/Content/WisoBabLab'));
 // v3.61.0 IHK WISO Zahlungsverkehr (SEPA, Wechsel, Skonto/Rabatt/Bonus)
-const WisoPaymentMethodsLab = lazy(() => import('./components/Content/WisoPaymentMethodsLab'));
-// v3.62.0 IHK Bandbreiten- & Übertragungszeit-Simulator (Dezimal/Binär, Overhead)
-const IhkTransferTimeLab = lazy(() => import('./components/Content/IhkTransferTimeLab'));
+import { LAB_REGISTRY, buildRegistryIndex } from './data/labRegistry';
+import { observeAutoLabels } from './utils/a11yAutoLabel';
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -326,9 +327,14 @@ const LabLoadingFallback = () => (
   </div>
 );
 
+// Registry-Labs einmalig lazy wrappen (Modul-Ebene, damit die Komponenten-Identität stabil bleibt)
+const LAB_REGISTRY_INDEX = buildRegistryIndex(
+  LAB_REGISTRY.map((entry) => ({ ...entry, Component: lazy(entry.load) }))
+);
+
 export default function App() {
   const { 
-    userState, handleSelectRole, awardXP, handleCompleteTopic, refreshStateFromStorage,
+    userState, handleSelectRole, awardXP, handleCompleteTopic, refreshStateFromStorage, recordMistakeResults,
     theme, setTheme, fontSize, setFontSize,
     isDyslexic, setIsDyslexic, isColorblind, setIsColorblind,
     isHighContrast, setIsHighContrast,
@@ -409,6 +415,11 @@ export default function App() {
   // strukturell ausgeschlossen. Komplexere Tabs (Dashboard, Wissen, Games,
   // Lückentext, Videos, Projekte) bleiben bewusst als eigene JSX-Blöcke
   // weiter unten erhalten, da sie mehr als ein einzelnes Lab rendern.
+  // A11y-Sicherheitsnetz: unbeschriftete Steuerelemente in Labs bekommen einen
+  // aus dem Kontext abgeleiteten aria-label (siehe utils/a11yAutoLabel.js).
+  const mainRef = useRef(null);
+  useEffect(() => observeAutoLabels(mainRef.current), []);
+
   const activeLabElement = (() => {
     switch (true) {
       case activeTab === 'wiso_kalkulation':
@@ -470,7 +481,15 @@ export default function App() {
       case activeTab === 'labs':
         return (
           <LabsDashboard
-            onSelectLab={(labId) => setActiveTab(labId)}
+            onSelectLab={(labId) => {
+              // 'sqldungeon' ist kein eigener Tab, sondern ein Spiel im Games-Tab
+              if (labId === 'sqldungeon') {
+                setActiveGameId('sql');
+                setActiveTab('games');
+                return;
+              }
+              setActiveTab(labId);
+            }}
             userState={userState}
           />
         );
@@ -486,7 +505,7 @@ export default function App() {
         return <IhkOralExamSimulator onRewardXP={(xp) => awardXP(xp, 'oral_exam_master')} />;
       case activeTab === 'sql_joins':
         return <SqlJoinVisualizerLab onRewardXP={(xp) => awardXP(xp, 'sql_join_master')} />;
-      case activeTab === 'git_graph_lab':
+      case activeTab === 'git_graph_lab' || activeTab === 'gitvisual':
         return <GitBranchGraphLab onRewardXP={(xp) => awardXP(xp, 'git_graph_master')} />;
       case activeTab === 'cpu_architecture_lab':
         return <CpuArchitectureLab onRewardXP={(xp) => awardXP(xp, 'cpu_master')} />;
@@ -504,7 +523,7 @@ export default function App() {
         return <GitLab onRewardXP={(xp) => awardXP(xp, 'git_master')} />;
       case activeTab === 'algo_lab':
         return <AlgoPlaygroundLab onRewardXP={(xp) => awardXP(xp, 'algo_master')} />;
-      case activeTab === 'python_wasm':
+      case activeTab === 'python_wasm' || activeTab === 'pythonwasm':
         return <PythonWasmLab onRewardXP={(xp) => awardXP(xp, 'python_wasm_master')} />;
       case activeTab === 'packet_tracer':
         return <PacketTracerLab onRewardXP={(xp) => awardXP(xp, 'packet_tracer_master')} />;
@@ -524,13 +543,13 @@ export default function App() {
         return <DockerComposeLab onRewardXP={(xp) => awardXP(xp, 'docker_compose_master')} />;
       case activeTab === 'system_design':
         return <SystemDesignLab onRewardXP={(xp) => awardXP(xp, 'system_design_master')} />;
-      case activeTab === 'regex_master':
+      case activeTab === 'regex_master' || activeTab === 'regexmaster':
         return <RegexMasterLab onRewardXP={(xp) => awardXP(xp, 'regex_master')} />;
       case activeTab === 'websocket_protocol':
         return <WebSocketProtocolLab onRewardXP={(xp) => awardXP(xp, 'websocket_protocol_master')} />;
       case activeTab === 'vector_search':
         return <VectorSearchLab onRewardXP={(xp) => awardXP(xp, 'vector_search_master')} />;
-      case activeTab === 'bigo_benchmark':
+      case activeTab === 'bigo_benchmark' || activeTab === 'bigo':
         return <BigOBenchmarkLab onRewardXP={(xp) => awardXP(xp, 'bigo_benchmark_master')} />;
       case activeTab === 'wasm_rust_studio':
         return <WasmRustLab onRewardXP={(xp) => awardXP(xp, 'wasm_rust_master')} />;
@@ -576,15 +595,15 @@ export default function App() {
         return <PerformanceProfilingLab />;
       case activeTab === 'kubernetes':
         return <KubernetesLab />;
-      case activeTab === 'rag_ai':
+      case activeTab === 'rag_ai' || activeTab === 'ragai':
         return <RagAiSimulator />;
       case activeTab === 'wasm_compiler':
         return <WasmCompilerPlaygroundLab />;
       case activeTab === 'zkp_crypto':
         return <ZkpCryptoVisualizerLab />;
-      case activeTab === 'oauth_pkce_studio' || activeTab === 'oauth_pkce':
+      case activeTab === 'oauth_pkce_studio' || activeTab === 'oauth_pkce' || activeTab === 'pkce':
         return <OauthPkceStudioLab />;
-      case activeTab === 'k8s_cluster_studio' || activeTab === 'k8s_cluster':
+      case activeTab === 'k8s_cluster_studio' || activeTab === 'k8s_cluster' || activeTab === 'k8s':
         return <KubernetesClusterStudioLab />;
       case activeTab === 'webrtc_peer_studio' || activeTab === 'webrtc_peer':
         return <WebRtcPeerStudioLab />;
@@ -814,10 +833,6 @@ export default function App() {
         return <WisoBookkeepingLab onXPGain={(xp, badge) => awardXP(xp, badge || 'wiso_bookkeeping_master')} />;
       case activeTab === 'wiso_bab_lab' || activeTab === 'wiso_bab' || activeTab === 'bab_lab':
         return <WisoBabLab onXPGain={(xp, badge) => awardXP(xp, badge || 'wiso_bab_master')} />;
-      case activeTab === 'wiso_payment_lab' || activeTab === 'wiso_zahlungsverkehr' || activeTab === 'payment_lab':
-        return <WisoPaymentMethodsLab onXPGain={(xp, badge) => awardXP(xp, badge || 'wiso_payment_master')} />;
-      case activeTab === 'transfer_time_lab' || activeTab === 'ihk_transfer_time_lab' || activeTab === 'bandbreite_rechner':
-        return <IhkTransferTimeLab />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':
@@ -857,9 +872,21 @@ export default function App() {
       case activeTab === 'app_workshop':
         return <AppWorkshop onCompleteWorkshop={(xp) => awardXP(xp, 'app_builder')} />;
       case activeTab === 'exam':
-        return <ExamSimulator onCompleteExam={(_score, xp) => awardXP(xp, 'exam_passed')} />;
-      default:
-        return null;
+        return <ExamSimulator onCompleteExam={(_score, xp) => awardXP(xp, 'exam_passed')} onRecordResults={recordMistakeResults} />;
+      default: {
+        // Labs aus der zentralen Registry (src/data/labRegistry.js)
+        const entry = LAB_REGISTRY_INDEX.get(activeTab);
+        if (!entry) return null;
+        const RegistryLab = entry.Component;
+        const xpProps = {};
+        if (entry.xp) {
+          const { prop, badge, withBadgeArg } = entry.xp;
+          xpProps[prop] = withBadgeArg
+            ? (xp, b) => awardXP(xp, b || badge)
+            : (xp) => awardXP(xp, badge);
+        }
+        return <RegistryLab {...xpProps} />;
+      }
     }
   })();
 
@@ -902,7 +929,7 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main style={{ flex: 1, maxWidth: '1280px', width: '100%', margin: '0 auto', padding: '24px 20px 40px 20px', position: 'relative' }}>
+      <main ref={mainRef} style={{ flex: 1, maxWidth: '1280px', width: '100%', margin: '0 auto', padding: '24px 20px 40px 20px', position: 'relative' }}>
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -973,6 +1000,11 @@ export default function App() {
 
                 {/* IHK Prüfungs-Countdown & T-Minus Sprint */}
                 <ExamCountdownWidget setActiveTab={setActiveTab} />
+
+                {/* Fehlerjournal: fällige Wiederholungen */}
+                <Suspense fallback={null}>
+                  <MistakeReviewWidget />
+                </Suspense>
 
                 {/* Daily Challenge Widget */}
                 <DailyChallengeWidget onCompleteChallenge={(xp) => awardXP(xp, 'daily_master')} />

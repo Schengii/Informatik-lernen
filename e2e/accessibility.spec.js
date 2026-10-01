@@ -63,3 +63,17 @@ test('Command Palette (Ctrl+K) hat keine kritischen/schwerwiegenden A11y-Verstö
   await expect(page.getByPlaceholder(/Suche Themen/i)).toBeVisible();
   await assertNoSeriousA11yViolations(page, 'in der Command Palette');
 });
+
+// Stichprobe über typische Lab-Kategorien (Netzwerk, WISO-Rechner, Storage,
+// Security, Lab-Übersicht). Die jsdom-Abdeckung ALLER Labs liefert
+// src/components/allLabsA11y.test.jsx; hier laufen zusätzlich die
+// browserabhängigen Regeln (Fokus, Sichtbarkeit) gegen den echten Build.
+for (const route of ['labs', 'tcp_state_machine_lab', 'raid_calculator_lab', 'wiso_kalkulation', 'ipv6_routing_lab', 'owasp_exploit_lab']) {
+  test(`Lab /${route} hat keine kritischen/schwerwiegenden A11y-Verstöße`, async ({ page }) => {
+    await page.goto(`/${route}`);
+    await expect(page.locator('main')).toBeVisible();
+    // Lazy-Chunk abwarten: Lade-Fallback muss verschwunden sein
+    await page.waitForLoadState('networkidle');
+    await assertNoSeriousA11yViolations(page, `im Lab /${route}`);
+  });
+}

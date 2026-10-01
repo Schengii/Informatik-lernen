@@ -1,3 +1,4 @@
+// @ts-check
 /**
  * WISO Calculations Utility
  * Handelskalkulation, Deckungsbeitrag, Break-Even-Point & Netzplantechnik (CPM)
@@ -192,14 +193,30 @@ export function calculateDeckungsbeitrag({
   };
 }
 
+/**
+ * @typedef {object} NetzplanNodeInput
+ * @property {string} id
+ * @property {number|string} dauer
+ * @property {string[]} [vorgaenger]
+ *
+ * @typedef {NetzplanNodeInput & { dauer: number, vorgaenger: string[], nachfolger: string[], faz: number, fez: number, saz: number, sez: number, gp: number, fp: number, isKritisch: boolean }} NetzplanNode
+ */
+
+/**
+ * Netzplantechnik (CPM): Vorwärts-/Rückwärtsrechnung mit FAZ/FEZ/SAZ/SEZ,
+ * Gesamtpuffer (GP), freiem Puffer (FP) und kritischem Pfad.
+ * @param {NetzplanNodeInput[]} [nodes]
+ * @returns {{ projektdauer: number, nodes: NetzplanNode[] }}
+ */
 export function calculateNetzplan(nodes = []) {
+  /** @type {Record<string, NetzplanNode>} */
   const nodeMap = {};
   nodes.forEach(n => {
     nodeMap[n.id] = {
       ...n,
       dauer: Number(n.dauer),
       vorgaenger: Array.isArray(n.vorgaenger) ? n.vorgaenger : [],
-      nachfolger: [],
+      nachfolger: /** @type {string[]} */ ([]),
       faz: 0,
       fez: 0,
       saz: 0,
@@ -221,7 +238,7 @@ export function calculateNetzplan(nodes = []) {
   const visited = new Set();
   const forwardQueue = Object.values(nodeMap).filter(n => n.vorgaenger.length === 0);
 
-  const calculateForward = (nodeId) => {
+  const calculateForward = (/** @type {string} */ nodeId) => {
     const node = nodeMap[nodeId];
     if (!node) return;
     if (node.vorgaenger.length === 0) {
@@ -256,7 +273,7 @@ export function calculateNetzplan(nodes = []) {
   const backwardQueue = Object.values(nodeMap).filter(n => n.nachfolger.length === 0);
   const backwardVisited = new Set();
 
-  const calculateBackward = (nodeId) => {
+  const calculateBackward = (/** @type {string} */ nodeId) => {
     const node = nodeMap[nodeId];
     if (!node) return;
 

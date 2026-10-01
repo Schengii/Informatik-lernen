@@ -76,6 +76,35 @@ jobs:
           path: playwright-report/
           retention-days: 14
 
+  lighthouse:
+    # Lighthouse-CI gegen den Produktions-Build: A11y < 0.9 bricht den Build
+    # (meta-viewport/Zoom-Blocker eingeschlossen); Performance/SEO/Best-Practices
+    # warnen nur. Konfiguration: lighthouserc.json
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Production build
+        run: npm run build
+
+      - name: Lighthouse CI
+        run: npx --yes @lhci/cli@0.15.x autorun
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-report
+          path: .lighthouseci/
+          retention-days: 14
+
   bundle-size-report:
     # Kommentiert den Bundle-Size-Trend (Vorher/Nachher pro Chunk) direkt in
     # den PR, damit schleichendes Wachstum sichtbar wird, bevor ein

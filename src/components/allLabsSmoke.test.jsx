@@ -26,7 +26,7 @@ afterEach(() => {
 // `eager: true` lädt synchron zur Testzeit, sodass wir keine Promises pro Test
 // jonglieren müssen und Import-Fehler (z. B. kaputte Lucide-Icon-Imports)
 // sofort als Testfehler sichtbar werden.
-const labModules = import.meta.glob('./Content/*.jsx', { eager: true });
+const labModules = import.meta.glob(['./Content/*.jsx', '!./Content/*.test.jsx'], { eager: true });
 
 // Generische No-Op-Props, die die in Content/*.jsx real vorkommenden
 // Prop-Signaturen abdecken (siehe Analyse: onRewardXP, isOpen/onClose,

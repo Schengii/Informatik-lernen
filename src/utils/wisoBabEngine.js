@@ -196,3 +196,133 @@ export const ZUSCHLAGSAETZE_ERLAEUTERUNG = {
   vwgkSatz: 'Verwaltungsgemeinkosten-Zuschlag (VwGK%) = Verwaltungsgemeinkosten / Herstellkosten × 100',
   vtrgkSatz: 'Vertriebsgemeinkosten-Zuschlag (VtrGK%) = Vertriebsgemeinkosten / Herstellkosten × 100',
 };
+
+/**
+ * @typedef {{
+ *   kostenstelle: string;
+ *   istGemeinkosten: number;
+ *   normalZuschlagssatz: number;
+ *   bezugsbasis: number;
+ *   normalGemeinkosten: number;
+ *   differenz: number;
+ *   status: 'Überdeckung' | 'Unterdeckung' | 'Ausgeglichen';
+ * }} Bab2KostenstellenAuswertung
+ */
+
+/**
+ * Berechnet BAB II Kostenüberdeckung / -unterdeckung (Normalkosten vs. Istkosten).
+ * Formel: Normal-Gemeinkosten = Bezugsbasis * (Normal-Zuschlagssatz / 100)
+ * Kostenüberdeckung (positiv) = Normal-GK > Ist-GK
+ * Kostenunterdeckung (negativ) = Normal-GK < Ist-GK
+ *
+ * @param {{
+ *   istKostenstellenSummen: Record<string, number>;
+ *   materialeinzelkosten: number;
+ *   fertigungseinzelkosten: number;
+ *   herstellkosten: number;
+ *   normalZuschlagssaetze: { mgkSatz: number; fgkSatz: number; vwgkSatz: number; vtrgkSatz: number };
+ * }} params
+ * @returns {{
+ *   auswertung: Bab2KostenstellenAuswertung[];
+ *   gesamtDifferenz: number;
+ *   gesamtStatus: 'Überdeckung' | 'Unterdeckung' | 'Ausgeglichen';
+ * }}
+ */
+export function berechneBab2Kostenueberdeckung({
+  istKostenstellenSummen,
+  materialeinzelkosten,
+  fertigungseinzelkosten,
+  herstellkosten,
+  normalZuschlagssaetze,
+}) {
+  /** @type {Array<{ ks: string; basis: number; normalSatz: number }>} */
+  const konfiguration = [
+    { ks: 'Material', basis: materialeinzelkosten, normalSatz: normalZuschlagssaetze.mgkSatz },
+    { ks: 'Fertigung', basis: fertigungseinzelkosten, normalSatz: normalZuschlagssaetze.fgkSatz },
+    { ks: 'Verwaltung', basis: herstellkosten, normalSatz: normalZuschlagssaetze.vwgkSatz },
+    { ks: 'Vertrieb', basis: herstellkosten, normalSatz: normalZuschlagssaetze.vtrgkSatz },
+  ];
+
+  /** @type {Bab2KostenstellenAuswertung[]} */
+  const auswertung = konfiguration.map(({ ks, basis, normalSatz }) => {
+    const istGemeinkosten = istKostenstellenSummen[ks] || 0;
+    const normalGemeinkosten = Math.round(((basis * normalSatz) / 100) * 100) / 100;
+    const differenz = Math.round((normalGemeinkosten - istGemeinkosten) * 100) / 100;
+    
+    /** @type {'Überdeckung' | 'Unterdeckung' | 'Ausgeglichen'} */
+    let status = 'Ausgeglichen';
+    if (differenz > 0) status = 'Überdeckung';
+    else if (differenz < 0) status = 'Unterdeckung';
+
+    return {
+      kostenstelle: ks,
+      istGemeinkosten,
+      normalZuschlagssatz: normalSatz,
+      bezugsbasis: basis,
+      normalGemeinkosten,
+      differenz,
+      status,
+    };
+  });
+
+  const gesamtDifferenz = Math.round(auswertung.reduce((sum, item) => sum + item.differenz, 0) * 100) / 100;
+  /** @type {'Überdeckung' | 'Unterdeckung' | 'Ausgeglichen'} */
+  let gesamtStatus = 'Ausgeglichen';
+  if (gesamtDifferenz > 0) gesamtStatus = 'Überdeckung';
+  else if (gesamtDifferenz < 0) gesamtStatus = 'Unterdeckung';
+
+  return {
+    auswertung,
+    gesamtDifferenz,
+    gesamtStatus,
+  };
+}
+
+/** Vordefinierte IHK Normal-Zuschlagssätze für Übungsaufgaben */
+export const IHK_NORMAL_ZUSCHLAGSSAETZE = {
+  mgkSatz: 18.0, // Normal 18%
+  fgkSatz: 35.0, // Normal 35%
+  vwgkSatz: 12.0, // Normal 12%
+  vtrgkSatz: 8.0,  // Normal 8%
+};
+
+/** IHK WISO BAB-Prüfungs-Drill Multiple-Choice-Fragen */
+export const IHK_BAB_DRILL_QUESTIONS = [
+  {
+    id: 'bab_q1',
+    frage: 'Welche Bezugsgröße dient im BAB standardmäßig zur Berechnung des Materialgemeinkostenzuschlagssatzes (MGK%)?',
+    optionen: [
+      'Fertigungseinzelkosten (FEK)',
+      'Materialeinzelkosten (MEK)',
+      'Herstellkosten (HK)',
+      'Selbstkosten (SK)'
+    ],
+    richtigIndex: 1,
+    erklaerung: 'Der MGK-Zuschlagssatz bezieht sich immer prozentual auf die Materialeinzelkosten (MEK): MGK% = (Materialgemeinkosten / MEK) * 100.'
+  },
+  {
+    id: 'bab_q2',
+    frage: 'Was bedeutet eine Kostenüberdeckung im BAB II (Normalkostenrechnung)?',
+    optionen: [
+      'Die tatsächlichen Ist-Kosten waren höher als die vorkalkulierten Normal-Kosten (Verlust).',
+      'Die verrechneten Normal-Gemeinkosten übersteigen die tatsächlich angefallenen Ist-Gemeinkosten (Kostenersparnis/Gewinn).',
+      'Der Vertriebsgemeinkostenzuschlag wurde doppelt berechnet.',
+      'Die Herstellkosten sind geringer als die Materialeinzelkosten.'
+    ],
+    richtigIndex: 1,
+    erklaerung: 'Eine Kostenüberdeckung liegt vor, wenn die auf Normalbasis verrechneten Gemeinkosten größer sind als die tatsächlichen Istkosten (Normal-GK > Ist-GK). Es wurde vorsichtiger bzw. höher kalkuliert als verbraucht.'
+  },
+  {
+    id: 'bab_q3',
+    frage: 'Auf welche gemeinsame Bezugsbasis beziehen sich Verwaltungsgemeinkosten (VwGK) und Vertriebsgemeinkosten (VtrGK)?',
+    optionen: [
+      'Materialeinzelkosten + Fertigungseinzelkosten',
+      'Herstellkosten der Erzeugung (MEK + MGK + FEK + FGK)',
+      'Selbstkosten des Umsatzes',
+      'Nettoverkaufserlöse'
+    ],
+    richtigIndex: 1,
+    erklaerung: 'Verwaltung und Vertrieb beziehen sich im BAB stets auf die Herstellkosten: VwGK% = (VwGK / HK) * 100 und VtrGK% = (VtrGK / HK) * 100.'
+  }
+];
+

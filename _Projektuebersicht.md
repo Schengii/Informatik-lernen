@@ -5,7 +5,7 @@ tags:
   - tech/react
   - domain/ihk-ausbildung
   - status/active
-version: v3.69.0
+version: v3.71.0
 date: 2026-10-01
 ---
 
@@ -20,26 +20,29 @@ date: 2026-10-01
 
 ---
 
-## 🎯 Wichtige Meilensteine (Version 3.69.0)
-1. **IHK WISO Arbeitsrecht & Kündigungsfristen-Kalenderrechner (`WisoLaborLawLab.jsx` & `src/utils/wisoLaborLawEngine.js`)**:
-   - Exakte kalendarische Berechnung des Wirksamkeitsdatums der Kündigung nach BGB § 622 (Probezeit, Grundkündigungsfrist zum 15. oder Monatsende, gestaffelte Fristen nach Betriebszugehörigkeit bis 20 Jahre).
-   - Berechnung der gesetzlichen 3-Wochen-Klagefrist nach § 4 KSchG zur Einreichung der Kündigungsschutzklage beim Arbeitsgericht ausgehend vom Zugang (§ 130 BGB).
-2. **IPv6 Subnetting & Nibble-Boundary Studio (`Ipv6RoutingLab.jsx` & `src/utils/ipv6Routing.js`)**:
-   - Didaktisches Subnetz-Planungs-Studio für IPv6: Berechnung von Subnetz-Anzahlen ($2^n$), Einhaltung von Hex-Nibble-Boundaries (Schrittweiten von 4 Bit wie `/48`, `/52`, `/56`, `/60`, `/64`), RFC 4862 SLAAC-Konformität (/64) und P2P Point-to-Point Links (/126, /127 nach RFC 6164).
-   - Interaktive Adress-Tabelle mit Subnetz-Präfixen und Hex-Darstellung.
-3. **IHK UML 2.5 Klassendiagramm-Prüfungs-Drill (`UmlDiagramLab.jsx` & `src/utils/umlEngine.js`)**: Neuer interaktiver Tab für Klassendiagramme mit automatischem Mermaid.js Class Diagram Export und IHK-Prüfungs-Drill zu Sichtbarkeits-Modifikatoren (`+`, `-`, `#`, `~`), Beziehungstypen (Komposition `*--` vs. Aggregation `o--`) sowie Multiplizitäten/Kardinalitäten (`1` zu `0..*`) mit +20 XP pro Frage.
-4. **IHK WISO Rückwärts- & Differenzkalkulation (`WisoKalkulationLab.jsx` & `src/utils/wisoCalculations.js`)**:
-   - *Rückwärtskalkulation*: Exakte Berechnung des maximal erlaubten Listeneinkaufspreises (LEP) ausgehend vom Marktpreis unter Berücksichtigung von Kundenkonditionen, Gewinn- und Handlungskostenzuschlag.
-   - *Differenzkalkulation*: Ermittlung des realisierbaren Gewinns und Gewinnsatzes bei fix vorgegebenem Einkaufs- und Verkaufspreis mit Rentabilitäts-Status (Rentabel vs. Verlustgeschäft).
-5. **IHK SQL-Abfrage-Tuning & Composite-Index-Drill (`SqlQueryOptimizerLab.jsx`)**: Erweiterung um realistische 3,5-Mio.-Zeilen-Abfragen, Schalten von Verbundindizes (`idx_orders_cust_created`), Index Only Scan ohne Heap-Zugriff und Prüfungs-Drill mit 50 XP Belohnung.
-6. **Adaptiver Schwächen-Trainer im Prüfungs-Countdown (`ExamCountdownWidget.jsx`)**: Anbindung an die `examReadinessEngine.js` zur dynamischen Berechnung des Gesamtbereitschafts-Scores, IHK-Notenprognose und Schwächen-Hervorhebung.
+## 🎯 Wichtige Meilensteine (Version 3.70.0)
+1. **RFC 793 TCP Connection State Machine & 3-Way Handshake Studio (`TcpStateMachineLab.jsx` & `src/utils/tcpStateMachineEngine.js`)**:
+   - Vollständiger Zustandsautomat für Client & Server: `CLOSED`, `LISTEN`, `SYN_SENT`, `SYN_RECEIVED`, `ESTABLISHED`, `FIN_WAIT_1`, `FIN_WAIT_2`, `TIME_WAIT` (2MSL), `CLOSE_WAIT` und `LAST_ACK`.
+   - Interaktive 1-Klick-Szenarien für 3-Way Handshake (SYN &rarr; SYN-ACK &rarr; ACK) und 4-Way Teardown (FIN &rarr; ACK &rarr; FIN &rarr; ACK mit TIME_WAIT) sowie manuelle Flag-Injektion (SYN, ACK, PSH, FIN, RST).
+   - Detaillierter Paketverlauf mit Sequenz- und Acknowledgment-Nummern-Fortschreibung (+55 XP).
+2. **Prometheus Alertmanager & PromQL Alert Rule Evaluator Studio (`SreSloBurnLab.jsx` & `src/utils/sreSloBurnEngine.js`)**:
+   - Didaktische Simulation der Prometheus Alert State Machine (`INACTIVE` &rarr; `PENDING` &rarr; `FIRING`).
+   - Dynamische `for`-Dauer-Prüfung mit Zeitzähler und Templating-Auflösung von `{{ $value }}` und `{{ $labels.service }}` (+45 XP).
+3. **IHK WISO BAB II & Zuschlagskalkulation Prüfungs-Drill (`WisoBabLab.jsx` & `src/utils/wisoBabEngine.js`)**:
+   - Betriebsabrechnungsbogen II: Gegenüberstellung von Normal-Gemeinkosten und Ist-Gemeinkosten mit Berechnung von Kostenüberdeckung (positiv) und Kostenunterdeckung (negativ) pro Kostenstelle (Material, Fertigung, Verwaltung, Vertrieb).
+   - Neuer IHK-Prüfungs-Drill mit Multiple-Choice-Fragen zu Bezugsbasen und Zuschlagssätzen mit +40 XP.
+4. **IHK WISO Arbeitsrecht & Kündigungsfristen-Kalenderrechner (`WisoLaborLawLab.jsx` & `src/utils/wisoLaborLawEngine.js`)**:
+   - Exakte kalendarische Berechnung des Wirksamkeitsdatums der Kündigung nach BGB § 622 und 3-Wochen-Klagefrist (§ 4 KSchG).
+5. **IPv6 Subnetting & Nibble-Boundary Studio (`Ipv6RoutingLab.jsx` & `src/utils/ipv6Routing.js`)**:
+   - Subnetz-Planungs-Studio für IPv6: Nibble-Boundaries (4-Bit-Grenzen `/48`, `/52`, `/56`, `/60`, `/64`), SLAAC-Konformität und P2P-Links.
+6. **IHK UML 2.5 Klassendiagramm-Prüfungs-Drill (`UmlDiagramLab.jsx` & `src/utils/umlEngine.js`)**: Sichtbarkeiten, Komposition vs. Aggregation und Kardinalitäten.
 
 ---
 
-## 📊 Aktuelle Test- & Qualitätsmetriken (v3.69.0)
-- **Unit- & Integrationstests**: 1303 bestandene Tests in 166 Test-Dateien (100% Erfolgsquote, +10 neue Tests)
-- **Code-Qualität**: 0 Oxlint Fehler / 0 Warnungen über 619 Quelldateien, `tsc --noEmit` fehlerfrei
+## 📊 Aktuelle Test- & Qualitätsmetriken (v3.71.0)
+- **Unit- & Integrationstests**: 1582 bestandene Tests in 174 Test-Dateien (100% Erfolgsquote), 25 E2E-Tests
+- **Code-Qualität**: 0 Oxlint Fehler / 0 Warnungen über 623 Quelldateien, `tsc --noEmit` fehlerfrei
 - **Build**: Vite & PWA Offline Service Worker (265 Precache-Einträge)
-- **Performance & Limits**: Alle Chunks innerhalb der Size-Limits (App-Shell 72.48 KB gzipped < 105 KB Limit)
+- **Performance & Limits**: Alle Chunks innerhalb der Size-Limits (App-Shell 75.9 KB gzipped < 105 KB Limit); Lighthouse: Perf 98 / A11y 98 / BP 100 / SEO 100
 - **Vercel-Deployment**: Produktionsreife `vercel.json` mit SPA-Rewrites, Asset-Caching & Security-Headern
-- **A11y**: WCAG 2.1 Konformität (Reduced Motion Support, barrierefreie Labels)
+- **A11y**: WCAG 2.1 Konformität (Reduced Motion Support, automatische Labels + axe-core-Test über alle Labs)

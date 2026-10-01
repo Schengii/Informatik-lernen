@@ -2,6 +2,17 @@ import { Activity, AlertTriangle, Award, BarChart2, Brain, Building2, Calculator
 
 export const LAB_MODULES = [
   {
+    id: 'tcp_state_machine_lab',
+    title: 'TCP Connection State Machine & 3-Way Handshake Studio',
+    category: 'network',
+    tags: ['#TCP', '#RFC793', '#Handshake', '#SYN', '#ACK', '#FIN', '#TIME_WAIT', '#Netzwerk', '#TransportLayer'],
+    difficulty: 'Intermediate',
+    desc: 'Interaktiver RFC 793 Zustandsautomat: 3-Way Handshake (SYN -> SYN-ACK -> ACK), Datenfluss mit PSH/ACK, 4-Way Teardown (FIN -> ACK -> FIN -> ACK) und TIME_WAIT 2MSL Timer.',
+    icon: Network,
+    badge: 'Neu',
+    color: '#06b6d4'
+  },
+  {
     id: 'k8s_gateway_api_lab',
     title: 'Kubernetes Gateway API & Envoy Traffic Splitting Studio',
     category: 'cloud',

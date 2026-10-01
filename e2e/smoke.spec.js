@@ -76,3 +76,10 @@ test('Ctrl+K öffnet die Command Palette zur Modul-Suche', async ({ page }) => {
   await page.keyboard.press('Escape');
   await expect(page.getByPlaceholder(/Suche Themen/i)).toBeHidden();
 });
+
+test('Lade-Skeleton wird nach dem App-Start entfernt und blockiert keine Klicks', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: /Willkommen zurück/i })).toBeVisible();
+  // Skeleton blendet aus (350 ms) und wird aus dem DOM entfernt
+  await expect(page.locator('#app-skeleton')).toHaveCount(0, { timeout: 3000 });
+});
