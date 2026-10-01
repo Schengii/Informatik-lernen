@@ -84,7 +84,27 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Next-Gen Transport: HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx` & `http3QuicEngine.js`)**: Head-of-Line Blocking Eliminierung bei Paketverlust, Multi-Stream Übertragung über UDP, 0-RTT TLS 1.3 Session Resumption und Connection-ID (CID) Migration.
    - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation**, **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
-## ✨ Hauptfunktionen & Neue Features (v3.61.0: IHK WISO Zahlungsverkehr, Styling-System & Responsive Design)
+## ✨ Hauptfunktionen & Neue Features (v3.65.0: IHK Übertragungszeit-Simulator, Prüfungs-Countdown & Clipboard-Sync)
+
+* **⚡ IHK Übertragungszeit- & Bandbreiten-Simulator (`IhkTransferTimeLab.jsx` & `src/utils/transferTimeEngine.js`)**:
+  * Didaktisches Netzwerk- & Datentransfer-Studio nach IHK-Prüfungsstandard für AP1 und AP2.
+  * **Binär (IEC) vs. Dezimal (SI) Präfixe**:
+    * Exakte Differenzierung zwischen kB/MB/GB/TB (Basis 10, $10^3, 10^6, 10^9$) und KiB/MiB/GiB/TiB (Basis 2, $2^{10}, 2^{20}, 2^{30}$).
+    * Aufdeckung typischer IHK-Fallen: Bit (Bandbreite) vs. Byte (Dateigröße) mit automatischer Umrechnung (1 Byte = 8 Bit).
+  * **Protokoll-Overhead & Rechenweg-Generator**:
+    * Dynamischer Schieberegler für Protokoll-Overhead (0–30%, typisch 5–10% für Ethernet-Frames, IP-Header und TCP-ACKs).
+    * Generierung der lückenlosen IHK-Musterlösung in 5 transparenten Rechenschritten.
+  * **IHK-Prüfungsszenarien & Fallen-Quiz**:
+    * Vorkonfigurierte Aufgaben (Rechenzentrums-Backup 450 GiB via 1 Gbit/s, OS-Image-Rollout 35 GB via 100 Mbit/s, Cloud-Sync 120 GB via VDSL Upload).
+    * Interaktives 3-Fragen IHK-Fallen-Quiz mit Sofort-Feedback und 50 XP Belohnung.
+* **🎯 IHK Prüfungs-Countdown & T-Minus Sprint (`ExamCountdownWidget.jsx`)**:
+  * Dynamischer Countdown auf die offiziellen IHK-Prüfungstermine (AP1 Frühjahr im März, AP2 Sommer im Mai, AP2 Winter im November) direkt im Dashboard.
+  * Automatische Berechnung der verbleibenden Tage ("T-Minus X Tage") mit Warnfarbe bei $<30$ Tagen.
+  * Personalisierte "Power-Sprint"-Empfehlungen für priorisierte Kernmodule (Übertragungszeit, Netzplan, Zahlungsverkehr, Prüfungssimulation).
+* **📋 Cross-Device Zwischenablage-Sync (`BackupModal.jsx`)**:
+  * 1-Klick-Synchronisation des kompletten Lernfortschritts zwischen Smartphone, Arbeits-PC und Heimrechner via Clipboard (Copy/Paste) neben dem regulären JSON-Datei-Export.
+
+## ✨ Bisherige Hauptfunktionen (v3.61.0: IHK WISO Zahlungsverkehr, Styling-System & Responsive Design)
 
 * **💳 IHK WISO Zahlungsverkehr (`WisoPaymentMethodsLab.jsx` & `src/utils/wisoPaymentEngine.js`)**:
   * Vollständiges Zahlungsverkehrs-Studio für IHK AP2 WISO — 5 Zahlungsarten (SEPA-Überweisung, SEPA-Lastschrift, Wechsel, Scheck, Nachnahme) mit Merkmalen, Risikobewertung und IHK-Prüfungsschwerpunkten.
@@ -1329,7 +1349,15 @@ Informatik-lernen/
         ├── wisoBreakEvenEngine.js
         ├── wisoBreakEvenEngine.test.js
         ├── dnssecRolloverEngine.js
-        └── dnssecRolloverEngine.test.js
+        ├── dnssecRolloverEngine.test.js
+        ├── wisoBookkeepingEngine.js
+        ├── wisoBookkeepingEngine.test.js
+        ├── wisoBabEngine.js
+        ├── wisoBabEngine.test.js
+        ├── wisoPaymentEngine.js
+        ├── wisoPaymentEngine.test.js
+        ├── transferTimeEngine.js
+        └── transferTimeEngine.test.js
 ```
 
 ---
@@ -1386,6 +1414,28 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.65.0 (IHK Übertragungszeit-Simulator, Prüfungs-Countdown & Cross-Device Sync Edition)
+
+- **Neu: IHK Übertragungszeit- & Bandbreiten-Simulator (`IhkTransferTimeLab.jsx` & `src/utils/transferTimeEngine.js`)**:
+  - Exakte Umrechnung von Datenmengen (Dezimal kB/MB/GB vs. Binär KiB/MiB/GiB), Datenübertragungsraten (kbit/s, Mbit/s, Gbit/s) und automatische Berücksichtigung des Protokoll-Overheads (0–30%).
+  - Lückenloser, didaktischer Rechenweg mit 5 IHK-konformen Schritten (Byte, Bit, Overhead, Bandbreite, Zeit).
+  - Vorkonfigurierte Prüfungs-Szenarien (SAN-Backup, OS-Rollout, Cloud-Sync) sowie ein 3-Fragen IHK-Fallen-Quiz mit 50 XP Belohnung.
+  - Vollständig typgeprüft (`// @ts-check`) und mit 7 isolierten Unit-Tests abgesichert.
+- **Neu: IHK Prüfungs-Countdown & T-Minus Sprint (`ExamCountdownWidget.jsx`)**:
+  - Interaktives Dashboard-Widget zur Terminplanung (AP1 Frühjahr im März, AP2 Sommer im Mai, AP2 Winter im November).
+  - Anzeige verbleibender Tage mit visueller Alarmierung bei $<30$ Tagen.
+  - Priorisierte Modul-Empfehlungen für tägliche Power-Lerneinheiten.
+- **Erweitert: Cross-Device Clipboard-Sync (`BackupModal.jsx`)**:
+  - Schnelle Übertragung des kompletten Lernfortschritts zwischen Smartphone und Desktop über Zwischenablage-Copy/Paste.
+- **Routing & Navigation**:
+  - Registrierung in `App.jsx` (`lazy()`-Import, Route `transfer_time_lab` & `ihk_transfer_time_lab`).
+  - Neue Schnellzugriffskarte im `DashboardQuickAccessGrid.jsx`.
+- **Test-Suite & Qualität**:
+  - **1293 bestandene Tests** in **166 Test-Dateien** (100% Erfolgsquote, +7 neue Tests).
+  - Smoke-Test für alle 222 Labs erfolgreich (`allLabsSmoke.test.jsx`).
+  - 0 Oxlint-Fehler, 0 Warnungen über 619 Quelldateien.
+  - `tsc --noEmit` fehlerfrei, Vite-Produktions-Build und alle `size-limit`-Vorgaben eingehalten (App-Shell 72.47 KB gzipped).
 
 ### Version 3.64.0 (App-Shell Bundle-Diät & Command-Palette-Suche Edition)
 

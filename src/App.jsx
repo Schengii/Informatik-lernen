@@ -16,6 +16,7 @@ const VideoHub = lazy(() => import('./components/Content/VideoHub'));
 const ProjectViewer = lazy(() => import('./components/Projects/ProjectViewer'));
 const ExamSimulator = lazy(() => import('./components/Content/ExamSimulator'));
 import DailyChallengeWidget from './components/Gamification/DailyChallengeWidget';
+import ExamCountdownWidget from './components/Gamification/ExamCountdownWidget';
 import SkillTreeWidget from './components/Gamification/SkillTreeWidget';
 import ActivityHeatmapWidget from './components/Gamification/ActivityHeatmapWidget';
 import PomodoroTimerWidget from './components/Navigation/PomodoroTimerWidget';
@@ -309,6 +310,8 @@ const WisoBookkeepingLab = lazy(() => import('./components/Content/WisoBookkeepi
 const WisoBabLab = lazy(() => import('./components/Content/WisoBabLab'));
 // v3.61.0 IHK WISO Zahlungsverkehr (SEPA, Wechsel, Skonto/Rabatt/Bonus)
 const WisoPaymentMethodsLab = lazy(() => import('./components/Content/WisoPaymentMethodsLab'));
+// v3.62.0 IHK Bandbreiten- & Übertragungszeit-Simulator (Dezimal/Binär, Overhead)
+const IhkTransferTimeLab = lazy(() => import('./components/Content/IhkTransferTimeLab'));
 import DashboardQuickAccessGrid from './components/Content/DashboardQuickAccessGrid';
 
 import { USER_ROLES } from './data/userProfiles';
@@ -813,6 +816,8 @@ export default function App() {
         return <WisoBabLab onXPGain={(xp, badge) => awardXP(xp, badge || 'wiso_bab_master')} />;
       case activeTab === 'wiso_payment_lab' || activeTab === 'wiso_zahlungsverkehr' || activeTab === 'payment_lab':
         return <WisoPaymentMethodsLab onXPGain={(xp, badge) => awardXP(xp, badge || 'wiso_payment_master')} />;
+      case activeTab === 'transfer_time_lab' || activeTab === 'ihk_transfer_time_lab' || activeTab === 'bandbreite_rechner':
+        return <IhkTransferTimeLab />;
       case activeTab === 'kafka':
         return <KafkaEventLab />;
       case activeTab === 'docker':
@@ -965,6 +970,9 @@ export default function App() {
 
                 {/* 365-Tage GitHub-Style Aktivitäts-Heatmap */}
                 <ActivityHeatmapWidget />
+
+                {/* IHK Prüfungs-Countdown & T-Minus Sprint */}
+                <ExamCountdownWidget setActiveTab={setActiveTab} />
 
                 {/* Daily Challenge Widget */}
                 <DailyChallengeWidget onCompleteChallenge={(xp) => awardXP(xp, 'daily_master')} />
