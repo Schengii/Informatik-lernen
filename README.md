@@ -84,8 +84,19 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Next-Gen Transport: HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx` & `http3QuicEngine.js`)**: Head-of-Line Blocking Eliminierung bei Paketverlust, Multi-Stream Übertragung über UDP, 0-RTT TLS 1.3 Session Resumption und Connection-ID (CID) Migration.
    - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation**, **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
-## ✨ Hauptfunktionen & Neue Features (v3.66.0: IHK Netzplan-Drill & DSFA-Praxisfälle Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.67.0: IHK SQL-Index-Tuning-Drill & Adaptiver Prüfungs-Radar Edition)
 
+* **⚡ IHK SQL-Abfrage-Tuning & Composite-Index-Drill (`SqlQueryOptimizerLab.jsx`)**:
+  * Didaktisches Datenbank-Performance- und Optimierungs-Studio nach offiziellem IHK-Prüfungsstandard für AP2 Fachinformatiker.
+  * **Großtabellen-Query (3,5 Mio. Zeilen)**: Filterung nach Kunde (`customer_id = 48291`) und Datumsbereich (`created_at >= '2026-01-01'`) mit absteigender Sortierung (`ORDER BY created_at DESC`).
+  * **Composite B-Tree Index (`CREATE INDEX idx ON orders(customer_id, created_at DESC)`)**:
+    * Reduziert Abfragekosten von 48.900 Cost-Units auf 8 Cost-Units ($\sim 99,98\%$ Kostensenkung).
+    * Beseitigt teure Heap-Zugriffe und speicherintensive In-Memory Disk Sorts via **Index Only Scan**.
+  * **Interaktiver IHK Multiple-Choice Prüfungs-Drill**: Sofortprüfung des Datenbankarchitektur-Wissens mit didaktischer Begründung und **+50 XP** Belohnung.
+* **🎯 Adaptiver Schwächen-Trainer im IHK-Prüfungs-Countdown (`ExamCountdownWidget.jsx`)**:
+  * Direkte Anbindung an die mathematische `examReadinessEngine.js`.
+  * Dynamische Synthese der absolvierten Module in die offiziellen Prüfungsdomänen (AP1, AP2.1, AP2.2, WiSo, Projekt/Fachgespräch).
+  * Anzeige des prozentualen IHK-Bereitschaftsgrades, der aktuellen IHK-Notenprognose (Note 1 bis 5) und automatischer Warnung bei priorisiertem Trainingsbedarf.
 * **🔀 IHK Netzplan Prüfungs-Drill (`CpmNetworkLab.jsx` & `src/utils/cpmEngine.js`)**:
   * Didaktischer Trainingsmodus nach DIN 69900 (Metra-Potenzial-Methode): Azubis tragen Vorwärts- (FAZ, FEZ), Rückwärtsrechnung (SAZ, SEZ) sowie Gesamt- und Freie Puffer (GP, FP) direkt in die 6-Felder-Knoten ein.
   * Interaktive Sofortprüfung aller Eingabefelder mit dynamischer Ampel-Farbgebung (Grün/Rot) und detailliertem Lösungsvergleich.
@@ -100,8 +111,6 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
   * Didaktisches Netzwerk- & Datentransfer-Studio nach IHK-Prüfungsstandard für AP1 und AP2.
   * **Binär (IEC) vs. Dezimal (SI) Präfixe**: Exakte Differenzierung zwischen kB/MB/GB/TB ($10^3, 10^6, 10^9$) und KiB/MiB/GiB/TiB ($2^{10}, 2^{20}, 2^{30}$).
   * **Protokoll-Overhead & Rechenweg-Generator**: Dynamischer Schieberegler (0–30%) und transparenter 5-Schritte Rechenweg mit 50 XP Belohnung.
-* **🎯 IHK Prüfungs-Countdown & T-Minus Sprint (`ExamCountdownWidget.jsx`)**:
-  * Dynamischer Countdown auf offizielle IHK-Prüfungstermine (AP1 Frühjahr, AP2 Sommer/Winter) mit personalisierten Sprint-Empfehlungen.
 * **📋 Cross-Device Zwischenablage-Sync (`BackupModal.jsx`)**:
   * 1-Klick-Synchronisation des kompletten Lernfortschritts via Zwischenablage-Copy/Paste.
 
@@ -1415,6 +1424,22 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.67.0 (IHK SQL-Index-Tuning-Drill & Adaptiver Prüfungs-Radar Edition)
+
+- **Neu: IHK SQL-Abfrage-Tuning & Composite-Index-Drill (`SqlQueryOptimizerLab.jsx`)**:
+  - Großtabellen-Szenario mit 3,5 Mio. Zeilen (`orders`-Tabelle mit Filterung auf `customer_id` und Datums-Bereichsabfrage sortiert nach `created_at DESC`).
+  - Interaktives Umschalten von Indizes: Demonstration des Wechsels von `Seq Scan with Temp Table Sort` (48.900 Cost-Units, 720ms) zu `Index Only Scan on idx_orders_cust_created` (8 Cost-Units, 1.4ms).
+  - Neuer interaktiver IHK-Prüfungs-Drill zu Indexierungs-Architektur und Sort-Vermeidung mit Multiple-Choice-Auswahl, didaktischer Begründung und +50 XP Belohnung.
+- **Neu: Adaptiver Schwächen-Trainer im IHK-Prüfungs-Countdown (`ExamCountdownWidget.jsx`)**:
+  - Nahtlose Anbindung an die mathematische `examReadinessEngine.js`.
+  - Aggregation des individuellen Lernfortschritts über alle KMK-Lernfelder und IHK-Prüfungsbereiche (AP1, AP2 Teil 1, AP2 Teil 2, WiSo, Fachgespräch).
+  - Anzeige des prozentualen Gesamtbereitschaftswertes, der IHK-Notenprognose sowie gezielte Warnungen bei identifizierten Defiziten.
+- **Test-Suite & Qualität**:
+  - **1298 bestandene Tests** in **166 Test-Dateien** (100% Erfolgsquote).
+  - Vollständiger 222-Labs Smoke-Test (`allLabsSmoke.test.jsx`) fehlerfrei absolviert.
+  - 0 Oxlint-Fehler, 0 Warnungen über 619 Quelldateien, `tsc --noEmit` fehlerfrei.
+  - Alle `size-limit`-Budgets eingehalten (Hauptbundle 72.48 KB gzipped).
 
 ### Version 3.66.0 (IHK Netzplan-Drill & DSFA-Praxisfälle Edition)
 

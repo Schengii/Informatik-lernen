@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Calendar, Target, Clock, ChevronRight, Zap } from 'lucide-react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { Calendar, Target, Clock, ChevronRight, Zap, Activity } from 'lucide-react';
 import { useStore } from '../../store/useStore';
+import { calculateExamReadiness } from '../../utils/examReadinessEngine';
 
 const IHK_EXAM_PRESETS = [
   { id: 'ap1_spring', name: 'IHK AP1 Frühjahr (März)', month: 2, day: 15 },
@@ -54,7 +55,45 @@ export default function ExamCountdownWidget({ setActiveTab }) {
     handleSaveDate(isoDate, preset.id.includes('ap1') ? 'ap1' : 'ap2');
   };
 
-  const sprintRecommendations = [
+  // Berechne adaptiven IHK-Bereitschaftsstatus & Schwächen-Radar
+  const readiness = useMemo(() => {
+    const completed = Array.isArray(userState.completedTopics) ? userState.completedTopics : [];
+    const completedGames = Array.isArray(userState.completedGames) ? userState.completedGames : [];
+
+    // Synthetisiere Domänen-Statistiken aus absolvierten Themen
+    const domainStats = {
+      ap1: {
+        completed: completed.filter(t => t.includes('hardware') || t.includes('netzwerk') || t.includes('transfer') || t.includes('ipv')).length,
+        scoreSum: completed.filter(t => t.includes('hardware') || t.includes('netzwerk') || t.includes('transfer') || t.includes('ipv')).length * 85
+      },
+      ap2_1: {
+        completed: completed.filter(t => t.includes('cpm') || t.includes('uml') || t.includes('architektur') || t.includes('cloud')).length,
+        scoreSum: completed.filter(t => t.includes('cpm') || t.includes('uml') || t.includes('architektur') || t.includes('cloud')).length * 80
+      },
+      ap2_2: {
+        completed: completed.filter(t => t.includes('sql') || t.includes('code') || t.includes('algo') || t.includes('git')).length + completedGames.length,
+        scoreSum: (completed.filter(t => t.includes('sql') || t.includes('code') || t.includes('algo') || t.includes('git')).length + completedGames.length) * 85
+      },
+      wiso: {
+        completed: completed.filter(t => t.includes('wiso') || t.includes('kalkulation') || t.includes('vertrag') || t.includes('skonto')).length,
+        scoreSum: completed.filter(t => t.includes('wiso') || t.includes('kalkulation') || t.includes('vertrag') || t.includes('skonto')).length * 80
+      },
+      project: {
+        completed: Array.isArray(userState.completedProjects) ? userState.completedProjects.length : 0,
+        scoreSum: (Array.isArray(userState.completedProjects) ? userState.completedProjects.length : 0) * 90
+      }
+    };
+
+    return calculateExamReadiness(domainStats);
+  }, [userState]);
+
+  const sprintRecommendations = useMemo(() => [
+    {
+      tab: 'sql_query_optimizer_lab',
+      title: '⚡ SQL Tuning & Composite Indizes',
+      desc: 'EXPLAIN ANALYZE, Seq Scan vs. Index Seek & Sort-Cost Reduktion',
+      badge: 'AP2 Performance'
+    },
     {
       tab: 'transfer_time_lab',
       title: '⚡ Bandbreiten & Übertragungszeiten',
@@ -79,7 +118,7 @@ export default function ExamCountdownWidget({ setActiveTab }) {
       desc: '90-Minuten IHK-Prüfungsmodus mit Punkteverteilung',
       badge: 'Simulation'
     }
-  ];
+  ], []);
 
   return (
     <div
@@ -154,6 +193,32 @@ export default function ExamCountdownWidget({ setActiveTab }) {
             </button>
           ))}
         </div>
+      </div>
+
+      {/* Adaptives Prüfungsbereitschafts- & Schwächen-Radar */}
+      <div style={{
+        background: 'rgba(99, 102, 241, 0.08)',
+        border: '1px solid var(--accent-primary, #6366f1)',
+        borderRadius: '12px',
+        padding: '14px 18px',
+        marginBottom: '20px'
+      }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', marginBottom: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 800, fontSize: '0.95rem', color: 'var(--text-main)' }}>
+            <Activity size={18} color="var(--accent-primary)" />
+            Adaptiver IHK-Prüfungsbereitschafts-Score: {readiness.overallReadinessPercent}%
+          </div>
+          <span className="badge badge-indigo" style={{ fontWeight: 700 }}>
+            Prognose: {readiness.gradeEstimate}
+          </span>
+        </div>
+
+        {readiness.recommendedFocus.length > 0 && (
+          <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+            <strong style={{ color: '#ef4444' }}>⚠️ Priorisierter Trainingsbedarf:</strong>{' '}
+            {readiness.recommendedFocus.slice(0, 2).join(' • ')}
+          </div>
+        )}
       </div>
 
       {/* T-Minus Sprint Empfehlungen */}
