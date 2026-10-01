@@ -37,7 +37,7 @@ date: 2026-10-01
 ---
 
 ## 📊 Aktuelle Test- & Qualitätsmetriken (v3.69.0)
-- **Unit- & Integrationstests**: 1311 bestandene Tests in 166 Test-Dateien (100% Erfolgsquote, +10 neue Tests)
+- **Unit- & Integrationstests**: 1303 bestandene Tests in 166 Test-Dateien (100% Erfolgsquote, +10 neue Tests)
 - **Code-Qualität**: 0 Oxlint Fehler / 0 Warnungen über 619 Quelldateien, `tsc --noEmit` fehlerfrei
 - **Build**: Vite & PWA Offline Service Worker (265 Precache-Einträge)
 - **Performance & Limits**: Alle Chunks innerhalb der Size-Limits (App-Shell 72.48 KB gzipped < 105 KB Limit)

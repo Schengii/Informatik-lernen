@@ -1468,7 +1468,7 @@ npm run build
   - Berechnung der Subnetzanzahl ($2^{\Delta \text{prefix}}$), Prüfung der Nibble-Konformität (4-Bit-Grenzen `/48`, `/52`, `/56`, `/60`, `/64`), RFC 4862 SLAAC-Verifikation sowie P2P-Unterstützung (/126, /127).
   - Interaktive Tabelle der ersten Subnetz-Präfixe mit visueller Hex-Unterteilung.
 - **Test-Suite & Qualität**:
-  - **1311 bestandene Tests** in **166 Test-Dateien** (100% Erfolgsquote, +10 neue Tests).
+  - **1303 bestandene Tests** in **166 Test-Dateien** (100% Erfolgsquote, +10 neue Tests).
   - 222 Labs Smoke-Tests fehlerfrei absolviert (`allLabsSmoke.test.jsx`).
   - 0 Oxlint-Fehler, 0 Warnungen über 619 Quelldateien, `tsc --noEmit` fehlerfrei.
   - Alle `size-limit`-Budgets eingehalten (Hauptbundle 72.48 KB gzipped < 105 KB Limit).
