@@ -84,8 +84,23 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Next-Gen Transport: HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx` & `http3QuicEngine.js`)**: Head-of-Line Blocking Eliminierung bei Paketverlust, Multi-Stream Übertragung über UDP, 0-RTT TLS 1.3 Session Resumption und Connection-ID (CID) Migration.
    - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation**, **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
-## ✨ Hauptfunktionen & Neue Features (v3.67.0: IHK SQL-Index-Tuning-Drill & Adaptiver Prüfungs-Radar Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.68.0: IHK UML-Klassendiagramm-Drill & WISO Rückwärtskalkulation Edition)
 
+* **🏛️ IHK UML 2.5 Klassendiagramm-Prüfungs-Drill (`UmlDiagramLab.jsx` & `src/utils/umlEngine.js`)**:
+  * Didaktisches Modellierungs- und Prüfungs-Studio für Anwendungsentwickler (FIAE) und Systemintegratoren (FISI).
+  * **Klassendiagramm-Mermaid-Generator**: Vollständige Syntax-Generierung für Klassen, Attribute, Methoden und typisierte Rückgabewerte.
+  * **Interaktiver IHK-Prüfungs-Drill**:
+    * **Sichtbarkeits-Modifikatoren**: Unterscheidung von `-` (Private), `+` (Public), `#` (Protected) und `~` (Package/Default).
+    * **Beziehungstypen**: Exakte Abgrenzung von **Komposition** (`*--`, ausgefüllte Raute, existenzielle Abhängigkeit / Teile sterben mit dem Ganzen) vs. **Aggregation** (`o--`, leere Raute, Teile überleben unabhängig).
+    * **Multiplizitäten & Kardinalitäten**: IHK-Standard-Zuordnung von `1`, `0..1`, `1..*` und `0..*` mit **+20 XP pro Frage**.
+* **💶 IHK WISO Rückwärts- & Differenzkalkulation (`WisoKalkulationLab.jsx` & `src/utils/wisoCalculations.js`)**:
+  * Didaktisches Handelskalkulations-Studio nach offiziellem IHK-Prüfungsstandard für AP1/AP2 und WiSo.
+  * **Rückwärtskalkulation (Maximaler LEP)**:
+    * Ermittelt den maximal zulässigen Listeneinkaufspreis (LEP), den der Einkäufer beim Lieferanten akzeptieren darf, wenn der Marktpreis (Brutto-/Nettoverkaufspreis) durch den Wettbewerb fix vorgegeben ist.
+    * Kaskadenberechnung rückwärts über Umsatzsteuer, Kundenrabatt, Kundenskonto, Gewinnzuschlag, Handlungskostenzuschlag, Bezugskosten, Lieferskonto und Lieferantenrabatt.
+  * **Differenzkalkulation (Gewinnsatz-Prüfung)**:
+    * Berechnet den verbleibenden Gewinnbetrag und Gewinnsatz in Prozent, wenn sowohl der Einkaufs- als auch der Verkaufspreis starr vorgegeben sind.
+    * Automatische Rentabilitäts-Ampel (Grün für rentables Geschäft, Rot für Verlustgeschäft).
 * **⚡ IHK SQL-Abfrage-Tuning & Composite-Index-Drill (`SqlQueryOptimizerLab.jsx`)**:
   * Didaktisches Datenbank-Performance- und Optimierungs-Studio nach offiziellem IHK-Prüfungsstandard für AP2 Fachinformatiker.
   * **Großtabellen-Query (3,5 Mio. Zeilen)**: Filterung nach Kunde (`customer_id = 48291`) und Datumsbereich (`created_at >= '2026-01-01'`) mit absteigender Sortierung (`ORDER BY created_at DESC`).
@@ -1424,6 +1439,20 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.68.0 (IHK UML-Klassendiagramm-Drill & WISO Rückwärtskalkulation Edition)
+
+- **Neu: IHK UML 2.5 Klassendiagramm-Prüfungs-Drill (`UmlDiagramLab.jsx` & `src/utils/umlEngine.js`)**:
+  - Neuer Tab "Klassendiagramm & IHK-Drill" mit automatischem Mermaid.js Quellcode-Export.
+  - Prüfungsfragen zu Sichtbarkeiten (`+`, `-`, `#`, `~`), Beziehungstypen (Komposition vs. Aggregation vs. Assoziation) und Multiplizitäten (`1` zu `0..*`) mit Sofort-Feedback und +20 XP pro Frage.
+- **Neu: IHK WISO Rückwärts- & Differenzkalkulation (`WisoKalkulationLab.jsx` & `src/utils/wisoCalculations.js`)**:
+  - *Rückwärtskalkulation*: Ermittlung des maximal zulässigen Listeneinkaufspreises (LEP) ausgehend vom Marktpreis.
+  - *Differenzkalkulation*: Ermittlung des realisierbaren Gewinns und Gewinnsatzes bei starren Markt-Einkaufs- und Verkaufspreisen inklusive Rentabilitäts-Status.
+- **Test-Suite & Qualität**:
+  - **1301 bestandene Tests** in **166 Test-Dateien** (100% Erfolgsquote, +3 neue Tests).
+  - 222 Labs Smoke-Tests fehlerfrei absolviert.
+  - 0 Oxlint-Fehler, 0 Warnungen über 619 Quelldateien, `tsc --noEmit` fehlerfrei.
+  - Alle `size-limit`-Budgets eingehalten (Hauptbundle 72.48 KB gzipped).
 
 ### Version 3.67.0 (IHK SQL-Index-Tuning-Drill & Adaptiver Prüfungs-Radar Edition)
 
