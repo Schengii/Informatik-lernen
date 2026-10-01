@@ -84,7 +84,24 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Next-Gen Transport: HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx` & `http3QuicEngine.js`)**: Head-of-Line Blocking Eliminierung bei Paketverlust, Multi-Stream Übertragung über UDP, 0-RTT TLS 1.3 Session Resumption und Connection-ID (CID) Migration.
    - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation**, **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
-## ✨ Hauptfunktionen & Neue Features (v3.68.0: IHK UML-Klassendiagramm-Drill & WISO Rückwärtskalkulation Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.69.0: IHK WISO Kündigungsfristen-Kalenderrechner & IPv6 Subnetting Studio Edition)
+
+* **📅 IHK WISO Arbeitsrecht & Kündigungsfristen-Kalenderrechner (`WisoLaborLawLab.jsx` & `src/utils/wisoLaborLawEngine.js`)**:
+  * Didaktisches Arbeitsrecht- & Fristen-Studio nach BGB § 622 und KSchG § 4.
+  * **Exakte kalendarische Datumsberechnung**:
+    * Berücksichtigt das konkrete Zugangsdatum der Kündigung (§ 130 BGB).
+    * Unterscheidung zwischen Arbeitnehmer-Kündigung (stets Grundkündigungsfrist zum 15. oder Monatsende), Probezeit (2 Wochen zu jedem beliebigen Tag) und arbeitgeberseitigen Kündigungen mit gestaffelten Fristen nach Betriebszugehörigkeit (1 Monat bis 7 Monate jeweils zum Monatsende).
+  * **3-Wochen-Klagefrist nach § 4 KSchG**:
+    * Automatische Ermittlung des exakten Stichtags für die Einreichung einer Kündigungsschutzklage beim Arbeitsgericht (3 Wochen ab Zugang).
+* **🌐 IPv6 Subnetting & Nibble-Boundary Studio (`Ipv6RoutingLab.jsx` & `src/utils/ipv6Routing.js`)**:
+  * Didaktisches IPv6-Planungs-Studio nach RFC 4291, RFC 4862 (SLAAC) und RFC 6164 (P2P-Inter-Router Links).
+  * **Nibble-Boundary Validierung**:
+    * Veranschaulicht den Vorteil von Präfixlängen auf Hexadezimal-Nibble-Grenzen (4-Bit-Schritte: `/48`, `/52`, `/56`, `/60`, `/64`), bei denen Subnetze direkt an Hexadezimalstellen abgelesen werden können, gegenüber Non-Nibble Grenzen.
+  * **Interaktive Subnetz-Kaskadierung & Adress-Tabelle**:
+    * Berechnung der Anzahl erzeugter Subnetze ($2^{\Delta \text{prefix}}$) und Vorschau der ersten Präfix-Allokationen (z.B. `/48` ISP-Zuteilung aufgeteilt in `/64` Kunden-Subnetze).
+    * SLAAC-Konformitätswarnung bei Präfixen $\ne /64$.
+
+## ✨ Bisherige Hauptfunktionen (v3.68.0: IHK UML-Klassendiagramm-Drill & WISO Rückwärtskalkulation Edition)
 
 * **🏛️ IHK UML 2.5 Klassendiagramm-Prüfungs-Drill (`UmlDiagramLab.jsx` & `src/utils/umlEngine.js`)**:
   * Didaktisches Modellierungs- und Prüfungs-Studio für Anwendungsentwickler (FIAE) und Systemintegratoren (FISI).
@@ -1439,6 +1456,22 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.69.0 (IHK WISO Kündigungsfristen-Kalenderrechner & IPv6 Subnetting Studio Edition)
+
+- **Neu: IHK WISO Arbeitsrecht & Kündigungsfristen-Kalenderrechner (`WisoLaborLawLab.jsx` & `src/utils/wisoLaborLawEngine.js`)**:
+  - Exakte kalendarische Datumsberechnung für das Wirksamkeitsdatum der Kündigung nach BGB § 622 ausgehend vom Zugangsdatum (§ 130 BGB).
+  - Berücksichtigung von Arbeitnehmerkündigungen (4 Wochen zum 15. oder Monatsende), Probezeit (2 Wochen taggenau) und 7 arbeitgeberseitigen Betriebszugehörigkeitsstufen (1 Monat bis 7 Monate zum Monatsende).
+  - Automatische Berechnung der 3-Wochen-Klagefrist nach § 4 KSchG für die Erhebung der Kündigungsschutzklage beim Arbeitsgericht.
+- **Neu: IPv6 Subnetting & Nibble-Boundary Studio (`Ipv6RoutingLab.jsx` & `src/utils/ipv6Routing.js`)**:
+  - Interaktiver Tab für Subnetz-Kaskadierung und Hex-Nibble-Boundary-Inspektion.
+  - Berechnung der Subnetzanzahl ($2^{\Delta \text{prefix}}$), Prüfung der Nibble-Konformität (4-Bit-Grenzen `/48`, `/52`, `/56`, `/60`, `/64`), RFC 4862 SLAAC-Verifikation sowie P2P-Unterstützung (/126, /127).
+  - Interaktive Tabelle der ersten Subnetz-Präfixe mit visueller Hex-Unterteilung.
+- **Test-Suite & Qualität**:
+  - **1311 bestandene Tests** in **166 Test-Dateien** (100% Erfolgsquote, +10 neue Tests).
+  - 222 Labs Smoke-Tests fehlerfrei absolviert (`allLabsSmoke.test.jsx`).
+  - 0 Oxlint-Fehler, 0 Warnungen über 619 Quelldateien, `tsc --noEmit` fehlerfrei.
+  - Alle `size-limit`-Budgets eingehalten (Hauptbundle 72.48 KB gzipped < 105 KB Limit).
 
 ### Version 3.68.0 (IHK UML-Klassendiagramm-Drill & WISO Rückwärtskalkulation Edition)
 

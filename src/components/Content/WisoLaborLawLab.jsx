@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Scale, Calendar, AlertCircle, ShieldAlert, CheckCircle, Calculator, Info, Award, Clock } from 'lucide-react';
-import { calculateNoticePeriod, evaluateProtection } from '../../utils/wisoLaborLawEngine';
+import { calculateNoticePeriod, evaluateProtection, calculateTerminationCalendarDate } from '../../utils/wisoLaborLawEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';
 
@@ -11,6 +11,7 @@ export default function WisoLaborLawLab({ onRewardXP }) {
   const [yearsInCompany, setYearsInCompany] = useState(3);
   const [isInProbation, setIsInProbation] = useState(false);
   const [isInitiatedByEmployee, setIsInitiatedByEmployee] = useState(false);
+  const [receiptDateStr, setReceiptDateStr] = useState(() => new Date().toISOString().slice(0, 10));
 
   // State für KSchG & Schutzprüfung
   const [employeeCount, setEmployeeCount] = useState(25);
@@ -26,6 +27,10 @@ export default function WisoLaborLawLab({ onRewardXP }) {
   const noticeResult = useMemo(() => {
     return calculateNoticePeriod(yearsInCompany, isInProbation, isInitiatedByEmployee);
   }, [yearsInCompany, isInProbation, isInitiatedByEmployee]);
+
+  const calendarResult = useMemo(() => {
+    return calculateTerminationCalendarDate(receiptDateStr, yearsInCompany, isInProbation, isInitiatedByEmployee);
+  }, [receiptDateStr, yearsInCompany, isInProbation, isInitiatedByEmployee]);
 
   const protectionResult = useMemo(() => {
     return evaluateProtection({
@@ -169,6 +174,26 @@ export default function WisoLaborLawLab({ onRewardXP }) {
               </div>
             )}
 
+            <div style={{ marginTop: '20px' }}>
+              <label style={{ fontSize: '0.9rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: 'var(--text-main)' }}>
+                <Calendar size={16} /> Datum des Kündigungszugangs (§ 130 BGB):
+              </label>
+              <input
+                type="date"
+                value={receiptDateStr}
+                onChange={(e) => setReceiptDateStr(e.target.value)}
+                style={{
+                  width: '100%',
+                  padding: '8px 12px',
+                  borderRadius: '8px',
+                  border: '1px solid var(--border-color)',
+                  background: 'var(--bg-card)',
+                  color: 'var(--text-main)',
+                  fontWeight: 600
+                }}
+              />
+            </div>
+
             <div style={{ marginTop: '24px', padding: '12px', background: 'rgba(99, 102, 241, 0.08)', borderRadius: '8px', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
               <strong>Hinweis IHK WISO:</strong> Während der Probezeit beträgt die Frist immer 2 Wochen zu jedem Tag. Bei Kündigung durch den AN gilt stets die 4-Wochen-Frist zum 15. oder Monatsende, sofern vertraglich nicht die längeren AG-Fristen vereinbart wurden.
             </div>
@@ -195,6 +220,18 @@ export default function WisoLaborLawLab({ onRewardXP }) {
                   <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Rechtsgrundlage:</span>
                   <strong style={{ color: 'var(--accent-primary)', fontSize: '0.88rem' }}>{noticeResult.legalBasis}</strong>
                 </div>
+                {calendarResult.isValid && (
+                  <>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px', background: 'rgba(99, 102, 241, 0.12)', border: '1px solid var(--accent-primary)', borderRadius: '8px' }}>
+                      <span style={{ color: 'var(--text-main)', fontWeight: 700, fontSize: '0.9rem' }}>📅 Letzter Arbeitstag (Beendigung):</span>
+                      <strong style={{ color: 'var(--accent-primary)', fontSize: '1.05rem' }}>{calendarResult.terminationDateFormatted}</strong>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px', background: 'rgba(239, 68, 68, 0.08)', border: '1px solid #ef4444', borderRadius: '8px' }}>
+                      <span style={{ color: '#ef4444', fontWeight: 700, fontSize: '0.88rem' }}>⚖️ 3-Wochen-Klagefrist (§ 4 KSchG):</span>
+                      <strong style={{ color: '#ef4444', fontSize: '0.95rem' }}>bis {calendarResult.lawsuitDeadlineFormatted}</strong>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
 

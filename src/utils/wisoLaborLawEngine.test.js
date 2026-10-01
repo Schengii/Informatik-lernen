@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { calculateNoticePeriod, evaluateProtection } from './wisoLaborLawEngine';
+import { calculateNoticePeriod, evaluateProtection, calculateTerminationCalendarDate } from './wisoLaborLawEngine';
 
 describe('wisoLaborLawEngine', () => {
   it('berechnet Probezeit-Kündigungsfrist (2 Wochen zu jedem Tag)', () => {
@@ -61,5 +61,20 @@ describe('wisoLaborLawEngine', () => {
       isApprenticeAfterProbation: false
     });
     expect(small.hasGeneralProtection).toBe(false);
+  });
+
+  it('berechnet das kalendarische Beendigungsdatum und die 3-Wochen-Klagefrist korrekt', () => {
+    // Probezeit: 1. März 2026 + 14 Tage -> 15. März 2026
+    const resProbation = calculateTerminationCalendarDate('2026-03-01', 0, true, false);
+    expect(resProbation.isValid).toBe(true);
+    expect(resProbation.terminationDateISO).toBe('2026-03-15');
+    expect(resProbation.lawsuitDeadlineFormatted).toContain('22.3.2026');
+
+    // 5 Jahre Betriebszugehörigkeit: 2 Monate zum Monatsende.
+    // Kündigungszugang am 10. Mai 2026 -> Frist 2 Monate -> Ende Juli 2026
+    const resSenior = calculateTerminationCalendarDate('2026-05-10', 5, false, false);
+    expect(resSenior.isValid).toBe(true);
+    expect(resSenior.terminationDateISO).toBe('2026-07-31');
+    expect(resSenior.period.termMonths).toBe(2);
   });
 });

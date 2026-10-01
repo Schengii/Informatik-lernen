@@ -173,3 +173,81 @@ export function evaluateProtection({
     summary
   };
 }
+
+/**
+ * Berechnet das exakte kalendarische Beendigungsdatum und die 3-Wochen-Klagefrist (§ 4 KSchG)
+ * ausgehend vom Datum des Zugangs der Kündigung (§ 130 BGB).
+ * @param {string | Date} receiptDateStr - Datum des Zugangs (ISO 'YYYY-MM-DD' oder Date)
+ * @param {number} yearsInCompany
+ * @param {boolean} isInProbation
+ * @param {boolean} isInitiatedByEmployee
+ */
+export function calculateTerminationCalendarDate(
+  receiptDateStr,
+  yearsInCompany = 0,
+  isInProbation = false,
+  isInitiatedByEmployee = false
+) {
+  const receipt = new Date(receiptDateStr);
+  if (isNaN(receipt.getTime())) {
+    return {
+      isValid: false,
+      terminationDateStr: '',
+      lawsuitDeadlineStr: '',
+      explanation: 'Ungültiges Zugangsdatum'
+    };
+  }
+
+  const period = calculateNoticePeriod(yearsInCompany, isInProbation, isInitiatedByEmployee);
+
+  // 1. Probezeit: 2 Wochen (14 Tage) ab Zugangstag (§ 187 Abs. 1 BGB Fristbeginn Tag nach Zugang)
+  let terminationDate = new Date(receipt);
+  if (isInProbation) {
+    terminationDate.setDate(terminationDate.getDate() + 14);
+  } else if (period.termWeeks === 4) {
+    // 4 Wochen zum 15. oder Monatsende
+    // Mindestens 28 Tage ab Zugang
+    const earliest = new Date(receipt);
+    earliest.setDate(earliest.getDate() + 28);
+
+    // Finde den nächsten zulässigen Kündigungstermin (15. oder letzter Tag des Monats)
+    let candidate = new Date(earliest.getFullYear(), earliest.getMonth(), 15);
+    if (candidate < earliest) {
+      // Wenn der 15. des Monats bereits verstrichen ist -> letzter Tag des Monats
+      candidate = new Date(earliest.getFullYear(), earliest.getMonth() + 1, 0);
+      if (candidate < earliest) {
+        // Nächster Monat 15.
+        candidate = new Date(earliest.getFullYear(), earliest.getMonth() + 1, 15);
+      }
+    }
+    terminationDate = candidate;
+  } else {
+    // period.termMonths Monate zum Ende eines Kalendermonats
+    // Frist beginnt am Folgetag und läuft X volle Monate zum Monatsletzten
+    const months = period.termMonths;
+    // Ende des Monats: receipt.getMonth() + months + 1, Tag 0
+    terminationDate = new Date(receipt.getFullYear(), receipt.getMonth() + months + 1, 0);
+  }
+
+  // 3-Wochen-Klagefrist nach § 4 KSchG (21 Tage ab Zugang)
+  const lawsuitDeadline = new Date(receipt);
+  lawsuitDeadline.setDate(lawsuitDeadline.getDate() + 21);
+
+  /** @param {Date} d */
+  const formatLocalISO = (d) => {
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
+  };
+
+  return {
+    isValid: true,
+    receiptDateFormatted: receipt.toLocaleDateString('de-DE'),
+    terminationDateFormatted: terminationDate.toLocaleDateString('de-DE'),
+    terminationDateISO: formatLocalISO(terminationDate),
+    lawsuitDeadlineFormatted: lawsuitDeadline.toLocaleDateString('de-DE'),
+    period,
+    explanation: `Bei Zugang am ${receipt.toLocaleDateString('de-DE')} endet das Arbeitsverhältnis mit der Frist von ${period.summary} am ${terminationDate.toLocaleDateString('de-DE')}. Eine Kündigungsschutzklage nach § 4 KSchG muss spätestens bis zum ${lawsuitDeadline.toLocaleDateString('de-DE')} beim Arbeitsgericht erhoben werden.`
+  };
+}
