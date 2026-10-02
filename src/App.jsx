@@ -23,6 +23,7 @@ import PomodoroTimerWidget from './components/Navigation/PomodoroTimerWidget';
 import PwaUpdateToast from './components/Navigation/PwaUpdateToast';
 import ModalContainer from './components/Navigation/ModalContainer';
 import ErrorBoundary from './components/ErrorBoundary';
+import NotFoundView from './components/NotFoundView';
 
 // Lazy Loaded Games & Labs for Maximum Initial Load Speed & Low Bundle Size
 const SqlDungeon = lazy(() => import('./components/Games/SqlDungeon'));
@@ -320,6 +321,11 @@ import { TOPICS } from './data/topicsData';
 
 import { BookOpen, Sparkles, ArrowRight, CheckCircle, Sprout, Compass } from 'lucide-react';
 
+// Tabs, die nicht über die `activeLabElement`-Tabelle laufen, sondern als
+// eigene JSX-Blöcke weiter unten gerendert werden. Alles, was weder hier noch
+// in der Tabelle vorkommt, ist eine unbekannte URL und zeigt die 404-Ansicht.
+const STANDALONE_TABS = ['dashboard', 'wissen', 'games', 'lueckentext', 'videos', 'projekte'];
+
 const LabLoadingFallback = () => (
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '300px', gap: '16px' }}>
     <div style={{ width: '40px', height: '40px', border: '3px solid rgba(99, 102, 241, 0.2)', borderTop: '3px solid var(--accent-primary)', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
@@ -355,7 +361,8 @@ export default function App() {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const activeTab = location.pathname === '/' ? 'dashboard' : location.pathname.substring(1);
+  // Führende/abschließende Slashes entfernen, damit auch `/labs/` das Lab öffnet.
+  const activeTab = location.pathname.replace(/^\/+|\/+$/g, '') || 'dashboard';
   const setActiveTab = (tab) => navigate(`/${tab}`);
 
   // Global Ctrl + K / Cmd + K Keydown Shortcut Listener
@@ -890,6 +897,8 @@ export default function App() {
     }
   })();
 
+  const isUnknownTab = !activeLabElement && !STANDALONE_TABS.includes(activeTab);
+
   const currentRole = USER_ROLES[userState.role] || USER_ROLES.anfaenger;
 
   // Filter Topics by Difficulty
@@ -1026,6 +1035,14 @@ export default function App() {
               <Suspense fallback={<LabLoadingFallback />}>
                 {activeLabElement}
               </Suspense>
+            )}
+
+            {isUnknownTab && (
+              <NotFoundView
+                path={location.pathname}
+                onGoHome={() => setActiveTab('dashboard')}
+                onOpenSearch={() => setIsCommandPaletteOpen(true)}
+              />
             )}
 
             {/* WISSEN & FACHKUNDE */}

@@ -11,7 +11,7 @@ Entwickler- und KI-Leitfaden für das Projekt **Informatik-lernen (IT-DevGame)**
 ## 🛠️ Tech-Stack & Kerntechnologien
 
 - **Frontend-Framework**: React 19 (Hooks, Context, Zustand Store, React.lazy Code-Splitting)
-- **Bundler & Build**: Vite 7 mit Rolldown-Engine & `@vite-pwa` Service Worker
+- **Bundler & Build**: Vite 8 mit Rolldown-Engine & `@vite-pwa` Service Worker
 - **Styling**: Vanilla CSS Design-System mit CSS-Variablen (`src/styles/global.css`), Glassmorphism, Dark Mode & WCAG 2.1 A11y (Reduced Motion)
 - **Icons**: `lucide-react`
 - **State Management**: Zustand (`src/store/useStore.js`) mit LocalStorage Persistenz & XP/Level/Streak Gamification
@@ -21,6 +21,8 @@ Entwickler- und KI-Leitfaden für das Projekt **Informatik-lernen (IT-DevGame)**
 ---
 
 ## 🚀 Häufige Entwickler-Befehle
+
+Voraussetzung: Node >=22.18.0 (`engines` in package.json). CI-Workflow: `.github/workflows/ci.yml`.
 
 ```bash
 # Entwicklungsserver starten (Standard-Port http://localhost:5173)
@@ -37,6 +39,9 @@ npm run size
 
 # End-to-End Smoke-Tests gegen den Produktions-Build (Playwright)
 npm run e2e
+
+# Typprüfung der mit `// @ts-check` markierten Dateien
+npm run typecheck
 
 # Einzelnen Test ausführen
 npx vitest run src/utils/nwaEngine.test.js
@@ -79,6 +84,10 @@ Voraussetzung: Node >= 22.18. CI-Reihenfolge: `lint:ci` → `typecheck` → `tes
    - `src/components/allLabsSmoke.test.jsx` rendert automatisch JEDE Datei in `src/components/Content/*.jsx` (via `import.meta.glob`) mit generischen No-Op-Props. Ein neues Lab wird also ohne weiteres Zutun mitgetestet — nur bei echten Sonderfällen (z. B. Komponenten, die zwingend echtes Netzwerk/WebAssembly/Web-Worker beim Mount brauchen) muss es explizit in `KNOWN_UNSUITABLE_FOR_JSDOM_SMOKE` eingetragen und dort begründet werden.
 8. **Graduelle Typisierung sicherheitskritischer Engines**:
    - `checkJs` ist projektweit deaktiviert (`tsconfig.json`), sodass bestehender Code nicht plötzlich hunderte Typfehler wirft. Eine Datei wird gezielt typgeprüft, indem `// @ts-check` als erste Zeile ergänzt und die Funktionen mit JSDoc (`@param`/`@returns`/`@typedef`) versehen werden — siehe `src/utils/ihkGradeCalculations.js`, `src/utils/nwaEngine.js` und `src/utils/storage.js` als Referenzmuster. `npm run typecheck` (`tsc --noEmit`) prüft nur die so markierten Dateien und läuft in CI. Neue oder geänderte Engines mit realem Fehlerrisiko (Noten-/Geld-/Sicherheitsberechnungen) sollten nach diesem Muster typisiert werden.
+9. **Nutzercode nur in der Sandbox ausführen**:
+   - Vom Nutzer eingegebener oder importierter JavaScript-Code wird nie per `new Function`/`eval` im Haupt-Thread ausgeführt, sondern über `runInSandbox` bzw. `runTestCasesInSandbox` aus `src/utils/sandboxRunner.js` (Web Worker mit Zeitlimit, ohne Zugriff auf DOM, Speicher und Netzwerk). In Unit-Tests gibt es keinen Worker: dort `{ createWorker: createInlineSandboxWorker }` aus `src/utils/sandboxTestUtils.js` übergeben; das echte Worker-Verhalten prüft `e2e/sandbox-and-settings.spec.js`.
+10. **Anzeige-Einstellungen**:
+   - Theme und Barrierefreiheits-Optionen liegen getrennt vom Spielstand unter `informatik_game_ui_prefs_v1` (`src/utils/uiPreferences.js`). Neue Einstellungen dieser Art im Store über `setUiPreference` setzen, damit sie einen Reload überstehen.
 
 ---
 

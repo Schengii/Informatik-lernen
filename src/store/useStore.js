@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { loadUserState, saveUserState, hasStoredUserState, initialProfileState, calculateLevel, recordDailyActivity } from '../utils/storage';
 import { hydrateUserStateFromIndexedDb } from '../utils/indexedDbStoreMiddleware';
+import { loadUiPreferences, saveUiPreferences } from '../utils/uiPreferences';
 import { soundManager } from '../utils/audioSystem';
 import { applyAnswerResults } from '../utils/mistakeJournalEngine';
 
@@ -10,6 +11,15 @@ export const useStore = create((set) => {
     soundManager.setVolume(initialUser.soundSettings.volume ?? 0.5);
     soundManager.setMuted(initialUser.soundSettings.isMuted ?? false);
   }
+
+  const initialUiPreferences = loadUiPreferences();
+
+  // Anzeige-/Barrierefreiheits-Einstellung setzen UND persistieren, damit
+  // sie einen Reload überlebt (siehe utils/uiPreferences.js).
+  const setUiPreference = (patch) => {
+    saveUiPreferences(patch);
+    set(patch);
+  };
 
   // Notfall-Hydration: localStorage kann gelöscht werden (manuell, durch den
   // Browser bei Speicherdruck, oder bei Überschreitung des 5-MB-Quotas) ohne
@@ -39,12 +49,7 @@ export const useStore = create((set) => {
     userState: initialUser,
     
     // Theme & Accessibility State
-    theme: 'light',
-    fontSize: 100,
-    isDyslexic: false,
-    isColorblind: false,
-    isHighContrast: false,
-    isReducedMotion: false,
+    ...initialUiPreferences,
     difficultyFilter: 'all',
 
     // Sound State
@@ -52,12 +57,12 @@ export const useStore = create((set) => {
     isSoundMuted: initialUser.soundSettings?.isMuted ?? false,
 
     // Actions
-    setTheme: (theme) => set({ theme }),
-    setFontSize: (fontSize) => set({ fontSize }),
-    setIsDyslexic: (isDyslexic) => set({ isDyslexic }),
-    setIsColorblind: (isColorblind) => set({ isColorblind }),
-    setIsHighContrast: (isHighContrast) => set({ isHighContrast }),
-    setIsReducedMotion: (isReducedMotion) => set({ isReducedMotion }),
+    setTheme: (theme) => setUiPreference({ theme }),
+    setFontSize: (fontSize) => setUiPreference({ fontSize }),
+    setIsDyslexic: (isDyslexic) => setUiPreference({ isDyslexic }),
+    setIsColorblind: (isColorblind) => setUiPreference({ isColorblind }),
+    setIsHighContrast: (isHighContrast) => setUiPreference({ isHighContrast }),
+    setIsReducedMotion: (isReducedMotion) => setUiPreference({ isReducedMotion }),
     setDifficultyFilter: (difficultyFilter) => set({ difficultyFilter }),
 
     setSoundVolume: (vol) => {

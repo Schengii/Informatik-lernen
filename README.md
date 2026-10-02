@@ -888,6 +888,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 * **WCAG 2.1 Mobile Zoom Compliance**: Volle Barrierefreiheit auf Mobilgeräten ohne blockierende Viewport-Skalierungsbegrenzungen.
 * **Vorlesefunktion (Text-to-Speech)**: Audio-Steuerung zum Vorlesen aller Lerneinheiten.
 * **Schriftgrößen-Skalierung**: Stufenlose Anpassung (A- / 100% / A+).
+* **Einstellungen bleiben erhalten**: Theme, Schriftgröße und alle Barrierefreiheits-Optionen werden lokal gespeichert und überstehen einen Reload. Ohne eigene Auswahl folgt die App den Systemvorgaben (`prefers-color-scheme`, `prefers-reduced-motion`).
 * **100% DSGVO-konform**: Keine Tracking-Cookies, alle Daten verbleiben rein lokal im `localStorage`.
 
 ---
@@ -908,15 +909,23 @@ Informatik-lernen/
 ├── README.md
 ├── vercel.json
 ├── vite.config.js
-├── public/
-│   ├── manifest.json
-│   └── sw.js
+├── e2e/
+│   ├── accessibility.spec.js
+│   ├── pwa-offline.spec.js
+│   ├── sandbox-and-settings.spec.js
+│   └── smoke.spec.js
+├── public/                  (Manifest & Service Worker erzeugt vite-plugin-pwa beim Build)
+│   ├── favicon.svg
+│   └── icons.svg
 └── src/
     ├── App.css
     ├── App.jsx
+    ├── App.routing.test.jsx
     ├── main.jsx
     ├── components/
     │   ├── componentsIntegrity.test.jsx
+    │   ├── ErrorBoundary.jsx
+    │   ├── NotFoundView.jsx
     │   ├── Content/
     │   │   ├── AgileScrumSimulatorLab.jsx
     │   │   ├── AiBusinessMasterclass.jsx
@@ -1307,6 +1316,11 @@ Informatik-lernen/
         ├── raidEngine.test.js
         ├── regexParserEngine.js
         ├── regexParserEngine.test.js
+        ├── sandbox.worker.js
+        ├── sandboxEvaluator.js
+        ├── sandboxRunner.js
+        ├── sandboxRunner.test.js
+        ├── sandboxTestUtils.js
         ├── scrumEngine.js
         ├── scrumEngine.test.js
         ├── serviceMeshEngine.js
@@ -1329,6 +1343,8 @@ Informatik-lernen/
         ├── tlsReplayEngine.test.js
         ├── transformerAttentionEngine.js
         ├── transformerAttentionEngine.test.js
+        ├── uiPreferences.js
+        ├── uiPreferences.test.js
         ├── umlEngine.js
         ├── umlEngine.test.js
         ├── voiceQuizEngine.js
@@ -1431,6 +1447,8 @@ Informatik-lernen/
    * Vollständiger Service-Worker-Precache aller 126 Anwendungs-Chunks für 100% Offline-Nutzung.
 4. **Vite 8 & Rolldown Bundle Splitting**:
    * Aufteilung in logische Chunks (`vendor-react`, `vendor-ui`, `vendor-charts-pdf`) für Ladezeiten unter 1 Sekunde.
+5. **Code-Sandbox für Nutzercode (`sandboxRunner.js` & `sandbox.worker.js`)**:
+   * Code aus den Coding-Labs (Live Coding Challenges, Custom Challenges, Monaco Studio, TDD-Lab) läuft in einem Web Worker statt im Haupt-Thread. Eine Endlosschleife wird nach 3 Sekunden hart beendet, ohne den Tab einzufrieren, und der Code hat keinen Zugriff auf DOM, `localStorage`, IndexedDB oder Netzwerk. Steht kein Worker zur Verfügung, wird der Code nicht ausgeführt (kein Rückfall auf den Haupt-Thread).
 
 ---
 
@@ -1473,6 +1491,23 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.72.0 (Code-Sandbox, 404-Ansicht, persistente Anzeige-Einstellungen & PWA-Aufräumen)
+
+- **Sicherheit**: Nutzercode läuft nicht mehr per `new Function` im Haupt-Thread, sondern in einem Web Worker mit Zeitlimit.
+  - **Neu**: `src/utils/sandboxRunner.js` (`runInSandbox`, `runTestCasesInSandbox`), `src/utils/sandbox.worker.js` und `src/utils/sandboxEvaluator.js`. Eine Endlosschleife wird nach 3 Sekunden per `worker.terminate()` beendet, statt den Tab einzufrieren. Im Worker gibt es weder DOM noch `localStorage`; IndexedDB, Cache Storage, `fetch`, `XMLHttpRequest`, `WebSocket` und verwandte Schnittstellen werden vor der Ausführung gesperrt. Kann kein Worker erzeugt werden, wird der Code nicht ausgeführt.
+  - **Umgestellt**: `src/utils/codingChallengesEngine.js` (`runChallengeCode` ist jetzt `async`), `LiveCodingChallengeStudio.jsx`, `CustomChallengeCreatorLab.jsx`, `MonacoStudioLab.jsx` und `TddUnitTestLab.jsx`. Die Ausführen-Buttons sind während eines Laufs deaktiviert; Zeitüberschreitungen werden als eigene Meldung angezeigt.
+  - **Einschränkung**: Die Sandbox ist eine Härtung, keine vollständige Isolation — ein dynamisches `import()` lässt sich im Worker nicht unterbinden.
+- **Neu**: `src/components/NotFoundView.jsx` — unbekannte URLs zeigen eine 404-Ansicht mit „Zum Dashboard“ und „Modul suchen“ statt eines leeren Inhaltsbereichs. `src/App.jsx` toleriert außerdem einen abschließenden Slash (`/nwa_scoring_lab/`).
+- **Neu**: `src/utils/uiPreferences.js` — Theme, Schriftgröße, Dyslexie-, Farbenblindheits-, Kontrast- und Reduced-Motion-Modus werden unter `informatik_game_ui_prefs_v1` gespeichert und überstehen einen Reload (`src/store/useStore.js`). Ohne eigene Auswahl gelten `prefers-color-scheme` und `prefers-reduced-motion` des Systems.
+- **Aufgeräumt (PWA)**: `public/sw.js` und `public/manifest.json` entfernt (der Build überschrieb den Service Worker ohnehin, das Manifest war nicht verlinkt und verwies auf ein fehlendes `favicon.ico`). `vite.config.js` setzt `injectRegister: false`, sodass der Service Worker nur noch einmal in `src/main.jsx` registriert wird. `dev-dist/` steht in `.gitignore` und ist nicht mehr versioniert.
+- **Behoben**: `src/components/Navigation/PwaUpdateToast.jsx` zeigte beim allerersten Besuch fälschlich „Update verfügbar“; der Hinweis erscheint jetzt nur, wenn zuvor bereits ein Service Worker aktiv war.
+- **Fehlerüberwachung**: `src/utils/errorMonitoring.js` sichert den optionalen dynamischen Import von `@sentry/react` gegen statische Vite-Auflösung und TypeScript-Typkonflikte ab.
+- **Tests**: `src/utils/sandboxRunner.test.js`, `src/utils/uiPreferences.test.js` und `e2e/sandbox-and-settings.spec.js` (echter Browser: Worker-Ausführung, Abbruch einer Endlosschleife, gesperrte Schnittstellen, 404-Ansicht, Einstellungs-Persistenz) neu; `src/App.routing.test.jsx`, `src/store/useStore.test.js` und `src/utils/codingChallengesEngine.test.js` erweitert. `src/utils/sandboxTestUtils.js` stellt für Unit-Tests einen Worker-Ersatz bereit.
+- **Test-Suite & Qualität**:
+  - **1609 bestandene Tests** in **176 Test-Dateien** (100% Erfolgsquote, +27 Tests).
+  - 0 Oxlint-Warnungen (`lint:ci`), `tsc --noEmit` fehlerfrei, Produktions-Build fehlerfrei.
+  - Alle `size-limit`-Budgets eingehalten (Hauptbundle 76.55 KB gzipped < 105 KB Limit).
 
 ### Version 3.71.0 (Qualitäts-, Barrierefreiheits- & Bugfix-Edition)
 

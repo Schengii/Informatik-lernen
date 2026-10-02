@@ -10,7 +10,7 @@
  * Bundle-Budget (siehe README "Fehlerüberwachung (Sentry)").
  */
 
-/** @type {typeof import('@sentry/react') | null} */
+/** @type {any} */
 let sentryModule = null;
 let initAttempted = false;
 
@@ -33,7 +33,8 @@ export async function initErrorMonitoring() {
   if (!dsn) return;
 
   try {
-    const Sentry = await import('@sentry/react');
+    const pkg = '@sentry/react';
+    const Sentry = await import(/* @vite-ignore */ pkg);
     Sentry.init({
       dsn,
       environment: import.meta.env?.MODE || 'production',
