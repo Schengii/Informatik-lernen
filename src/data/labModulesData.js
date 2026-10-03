@@ -1,6 +1,39 @@
-import { Activity, AlertTriangle, Award, BarChart2, Brain, Building2, Calculator, Calendar, Clock, Cloud, Code2, Cpu, Database, FileCode, FileText, GitCommit, GitPullRequest, Globe, GraduationCap, HardDrive, Key, KeyRound, Layers, Lock, Mic, Network, Radio, Route, Scale, Search, Server, Shield, ShieldAlert, Terminal, TrendingDown, Users, Zap } from 'lucide-react';
+import { Activity, AlertTriangle, Award, BarChart2, Brain, Bug, Building2, Calculator, Calendar, Clock, Cloud, Code2, Cpu, Database, FileCode, FileText, GitCommit, GitPullRequest, Globe, GraduationCap, HardDrive, Key, KeyRound, Layers, Lock, Mic, Network, Radio, Route, Scale, Search, Server, Shield, ShieldAlert, Terminal, TrendingDown, Users, Zap } from 'lucide-react';
 
 export const LAB_MODULES = [
+  {
+    id: 'dhcp_dora_lab',
+    title: 'RFC 2131 DHCP DORA & Relay-Agent Studio',
+    category: 'network',
+    tags: ['#DHCP', '#RFC2131', '#DORA', '#RelayAgent', '#GIADDR', '#UDP67', '#UDP68', '#LeaseTime', '#Netzwerk'],
+    difficulty: 'Intermediate',
+    desc: '4-Way DORA Handshake (Discover -> Offer -> Request -> Ack), Lease-Time Lifecycle (T1 50% Renewal & T2 87.5% Rebind) und GIADDR Relay Agent Routing.',
+    icon: Network,
+    badge: 'IHK Neu',
+    color: '#0ea5e9'
+  },
+  {
+    id: 'testverfahren_lab',
+    title: 'IHK Software-Testverfahren & Grenzwertanalyse Studio',
+    category: 'fiae',
+    tags: ['#FIAE', '#Testing', '#Äquivalenzklassen', '#Grenzwerte', '#McCabe', '#ISTQB', '#C0', '#C1', '#CleanCode', '#IHKPrüfung'],
+    difficulty: 'Intermediate',
+    desc: 'Black-Box Äquivalenzklassenbildung (GÄK & UÄK), 6-Punkte Grenzwertanalyse (min-1, min, max+1) und McCabe Kontrollfluss-Komplexität (M = E - N + 2P).',
+    icon: Bug,
+    badge: 'IHK Neu',
+    color: '#6366f1'
+  },
+  {
+    id: 'wiso_angebotsvergleich_lab',
+    title: 'IHK WISO Angebotsvergleich & Skontorechner Studio',
+    category: 'wiso',
+    tags: ['#WISO', '#Angebotsvergleich', '#Skonto', '#Lieferantenkredit', '#Kontokorrentkredit', '#Effektivzins', '#Bezugspreis', '#IHKPrüfung'],
+    difficulty: 'Intermediate',
+    desc: 'Kaufmännischer Angebotsvergleich (LEP -> Rabatt -> ZEP -> Skonto -> BEP -> Bezugskosten -> Bezugspreis), effektiver Lieferantenzins (p_eff) vs. Kontokorrentkredit und Nutzwert-Matrix.',
+    icon: Scale,
+    badge: 'IHK Neu',
+    color: '#10b981'
+  },
   {
     id: 'tcp_state_machine_lab',
     title: 'TCP Connection State Machine & 3-Way Handshake Studio',

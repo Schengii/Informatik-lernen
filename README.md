@@ -84,7 +84,32 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Next-Gen Transport: HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx` & `http3QuicEngine.js`)**: Head-of-Line Blocking Eliminierung bei Paketverlust, Multi-Stream Übertragung über UDP, 0-RTT TLS 1.3 Session Resumption und Connection-ID (CID) Migration.
    - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation**, **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
-## ✨ Hauptfunktionen & Neue Features (v3.70.0: RFC 793 TCP State Machine, PromQL Evaluator & WISO BAB II Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.72.0: RFC 2131 DHCP DORA, Software-Testverfahren & WISO Angebotsvergleich Edition)
+
+* **🌐 RFC 2131 DHCP DORA & Relay-Agent Studio (`DhcpDoraLab.jsx` & `src/utils/dhcpDoraEngine.js`)**:
+  * Didaktisches Netzwerkprotokoll- & Adresszuweisungs-Studio nach RFC 2131 Standard.
+  * **Vollständiger Zustandsautomat**: `INIT`, `SELECTING`, `REQUESTING`, `BOUND`, `RENEWING`, `REBINDING`.
+  * **Interaktiver 4-Way DORA Handshake**:
+    * Schrittweise oder automatische 1-Klick-Ausführung von Discover (Broadcast `255.255.255.255:67`), Offer, Request und Ack mit Wireshark-ähnlicher Paket-Dissektion (XID, CIADDR, YIADDR, GIADDR, DHCP-Optionen 53, 1, 3, 6, 51, 58, 59).
+    * **Lease-Lifecycle & Timer**: Visuelle Timeline für T1 (50% Renewal per Unicast an leasing Server), T2 (87.5% Rebind per Broadcast) und DHCP-Release.
+    * **DHCP Relay Agent (GIADDR)**: Simulation gerouteter DHCP-Pakete über Subnetzgrenzen hinweg an zentrale DHCP-Server (+55 XP).
+* **🧪 IHK Software-Testverfahren & Grenzwertanalyse Studio (`TestverfahrenLab.jsx` & `src/utils/testverfahrenEngine.js`)**:
+  * Offizielles Prüfungs-Studio für Black-Box- und White-Box-Testverfahren nach ISTQB- & IHK-Ausbildungsrahmenplan (AP2 FIAE).
+  * **Äquivalenzklassenbildung (ÄKB)**: Systematische Ermittlung von gültigen Äquivalenzklassen (GÄK) und ungültigen Äquivalenzklassen (UÄKs) inklusive interaktivem Live-Eingabetester für typische IHK-Szenarien (Altersgrenzen, Rabattstaffeln, Passwörter).
+  * **6-Punkte Grenzwertanalyse**: Automatisierte Berechnung von $min-1, min, min+1, max-1, max, max+1$ mit Status- und Fehlerfall-Erklärung.
+  * **McCabe Zyklomatische Komplexität ($M = E - N + 2P$)**: Interaktiver Kontrollflussgraphen-Rechner mit Risikoeinstufung (Clean Code) und Überdeckungsmetriken für Anweisungsüberdeckung (C0), Zweigüberdeckung (C1) und Pfadüberdeckung (C2) (+55 XP).
+* **⚖️ IHK WISO Angebotsvergleich & Skontorechner Studio (`WisoAngebotsvergleichLab.jsx` & `src/utils/wisoAngebotsvergleichEngine.js`)**:
+  * Kaufmännisches Standard-Prüfungsmodul für IHK AP1 und WISO Abschlussprüfungen.
+  * **Lieferantenkredit vs. Kontokorrentkredit**:
+    * Exakte Berechnung des effektiven Jahreszinssatzes nach IHK-Formel: $p_{\text{eff}} = \frac{\text{Skontosatz} \times 360}{\text{Zahlungsziel} - \text{Skontofrist}}$.
+    * Gegenüberstellung von Skontovorteil und Bankkreditzinsen mit Ersparnisberechnung in Euro und IHK-Musterentscheidungsbegründung.
+  * **Quantitativer Angebotsvergleich**: Vollständiges Kalkulationsschema (Listeneinkaufspreis $\rightarrow$ Rabatt $\rightarrow$ Zieleinkaufspreis $\rightarrow$ Skonto $\rightarrow$ Bareinkaufspreis $\rightarrow$ Bezugskosten $\rightarrow$ Bezugspreis) mit 2-Anbieter-Gegenüberstellung.
+  * **Qualitativer Angebotsvergleich**: Gewichtete Nutzwertanalyse (Scoring-Matrix) für weiche Kriterien (+55 XP).
+* **🔄 Multi-Tab Synchronisation & Smart Study Radar**:
+  * Tab-übergreifender State-Sync via BroadcastChannel (`it_devgame_sync`) und Storage-Event für konsistente XP, Level und Streaks.
+  * Aktualisiertes `LabsDashboard.jsx` mit erweiterten Kategorien (WISO, FIAE, Netzwerke).
+
+## ✨ Bisherige Hauptfunktionen (v3.70.0: RFC 793 TCP State Machine, PromQL Evaluator & WISO BAB II Edition)
 
 * **🌐 RFC 793 TCP Connection State Machine & 3-Way Handshake Studio (`TcpStateMachineLab.jsx` & `src/utils/tcpStateMachineEngine.js`)**:
   * Didaktisches Transport-Layer- und Protokoll-Studio nach RFC 793 Standard.
@@ -1473,6 +1498,34 @@ npm run build
 ---
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
+
+### Version 3.72.0 (RFC 2131 DHCP DORA, Software-Testverfahren & WISO Angebotsvergleich Edition)
+
+- **Neu: RFC 2131 DHCP DORA & Relay-Agent Studio (`DhcpDoraLab.jsx` & `src/utils/dhcpDoraEngine.js`)**:
+  - Vollständiger Zustandsautomat für DHCP-Clients (`INIT`, `SELECTING`, `REQUESTING`, `BOUND`, `RENEWING`, `REBINDING`).
+  - Interaktiver 4-Way DORA Handshake (Discover -> Offer -> Request -> Ack) mit Wireshark-ähnlicher Paket-Dissektion (XID, CIADDR, YIADDR, GIADDR, DHCP-Optionen 53, 1, 3, 6, 51, 58, 59).
+  - Lease-Time-Management mit visueller Timeline: T1 (50% Renewal per Unicast an Server), T2 (87.5% Rebind per Broadcast) und DHCP Release.
+  - Simulation von DHCP Relay Agents (`GIADDR`) zur Weiterleitung über Subnetz- und Router-Grenzen hinweg (+55 XP).
+  - 100% typgeprüft mit `// @ts-check` und JSDoc sowie 7 isolierten Unit-Tests.
+- **Neu: IHK Software-Testverfahren & Grenzwertanalyse Studio (`TestverfahrenLab.jsx` & `src/utils/testverfahrenEngine.js`)**:
+  - Black-Box-Äquivalenzklassenbildung (GÄK & UÄKs) mit Live-Eingabetester für typische IHK-Prüfungsszenarien (Altersgrenzen, Rabattstaffeln, Passwörter).
+  - 6-Punkte Grenzwertanalyse ($min-1, min, min+1, max-1, max, max+1$) mit Status- und Fehlerfall-Erklärung.
+  - McCabe Zyklomatische Komplexität ($M = E - N + 2P$) mit Risikoklassifizierung (Clean Code) und Kontrollfluss-Überdeckungsmetriken (C0, C1, C2) (+55 XP).
+  - 100% typgeprüft mit `// @ts-check` und JSDoc sowie 6 isolierten Unit-Tests.
+- **Neu: IHK WISO Angebotsvergleich & Skontorechner Studio (`WisoAngebotsvergleichLab.jsx` & `src/utils/wisoAngebotsvergleichEngine.js`)**:
+  - Quantitativer Angebotsvergleich mit vollständigem kaufmännischen Kalkulationsschema (Listeneinkaufspreis $\rightarrow$ Rabatt $\rightarrow$ Zieleinkaufspreis $\rightarrow$ Skonto $\rightarrow$ Bareinkaufspreis $\rightarrow$ Bezugskosten $\rightarrow$ Bezugspreis) mit interaktiver 2-Anbieter-Gegenüberstellung.
+  - Skonto vs. Kontokorrentkredit: Exakte Berechnung des effektiven Jahreszinssatzes ($p_{\text{eff}} = \frac{\text{Skontosatz} \times 360}{\text{Zahlungsziel} - \text{Skontofrist}}$), Gegenüberstellung mit dem Bankkreditzins, Ersparnisberechnung in Euro und IHK-Musterentscheidungsbegründung.
+  - Qualitativer Angebotsvergleich: Scoring-Matrix mit Gewichtung und Nutzwertanalyse (+55 XP).
+  - 100% typgeprüft mit `// @ts-check` und JSDoc sowie 6 isolierten Unit-Tests.
+- **Neu: Multi-Tab Synchronisation & Smart Study Radar**:
+  - Multi-Tab State-Sync via BroadcastChannel (`it_devgame_sync`) und Storage Event in `src/store/useStore.js` für nahtlos synchronisierte XP, Level und Badges.
+  - Aktualisiertes `LabsDashboard.jsx` mit erweiterten Kategorien (WISO, FIAE, Netzwerke) und Überarbeitung der Bestandsangaben (>220 Labs).
+- **Test-Suite & Qualität**:
+  - **1607 bestandene Tests** in **177 Test-Dateien** (100% Erfolgsquote, +25 neue Tests).
+  - 225 Labs A11y-Tests (axe-core) fehlerfrei absolviert (`allLabsA11y.test.jsx`).
+  - 226 Labs Smoke-Tests fehlerfrei absolviert (`allLabsSmoke.test.jsx`).
+  - 0 Oxlint-Fehler, 0 Warnungen über 642 Quelldateien, `tsc --noEmit` fehlerfrei.
+  - Alle `size-limit`-Budgets eingehalten (Hauptbundle 76.22 KB gzipped < 105 KB Limit).
 
 ### Version 3.71.0 (Qualitäts-, Barrierefreiheits- & Bugfix-Edition)
 

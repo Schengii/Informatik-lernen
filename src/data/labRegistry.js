@@ -11,6 +11,21 @@
 //            und Standard-Badge. `withBadgeArg` = Lab ruft onXPGain(xp, badge)
 export const LAB_REGISTRY = [
   {
+    tabs: ['dhcp_dora_lab', 'dhcp_dora', 'dhcp_lab', 'dora_handshake_lab'],
+    load: () => import('../components/Content/DhcpDoraLab'),
+    xp: { prop: 'onRewardXP', badge: 'dhcp_dora_master' }
+  },
+  {
+    tabs: ['testverfahren_lab', 'testverfahren', 'aequivalenzklassen_lab', 'grenzwertanalyse_lab'],
+    load: () => import('../components/Content/TestverfahrenLab'),
+    xp: { prop: 'onRewardXP', badge: 'testverfahren_master' }
+  },
+  {
+    tabs: ['wiso_angebotsvergleich_lab', 'wiso_angebotsvergleich', 'angebotsvergleich_lab', 'skonto_rechner'],
+    load: () => import('../components/Content/WisoAngebotsvergleichLab'),
+    xp: { prop: 'onRewardXP', badge: 'wiso_angebotsvergleich_master' }
+  },
+  {
     tabs: ['tcp_state_machine_lab', 'tcp_state_machine', 'tcp_handshake_lab'],
     load: () => import('../components/Content/TcpStateMachineLab'),
     xp: { prop: 'onRewardXP', badge: 'tcp_state_machine_master' }

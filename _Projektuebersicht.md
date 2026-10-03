@@ -5,8 +5,8 @@ tags:
   - tech/react
   - domain/ihk-ausbildung
   - status/active
-version: v3.71.0
-date: 2026-10-01
+version: v3.72.0
+date: 2026-10-03
 ---
 
 # 💻 Informatik-lernen (IT-DevGame) - Projektübersicht
@@ -20,29 +20,28 @@ date: 2026-10-01
 
 ---
 
-## 🎯 Wichtige Meilensteine (Version 3.70.0)
-1. **RFC 793 TCP Connection State Machine & 3-Way Handshake Studio (`TcpStateMachineLab.jsx` & `src/utils/tcpStateMachineEngine.js`)**:
-   - Vollständiger Zustandsautomat für Client & Server: `CLOSED`, `LISTEN`, `SYN_SENT`, `SYN_RECEIVED`, `ESTABLISHED`, `FIN_WAIT_1`, `FIN_WAIT_2`, `TIME_WAIT` (2MSL), `CLOSE_WAIT` und `LAST_ACK`.
-   - Interaktive 1-Klick-Szenarien für 3-Way Handshake (SYN &rarr; SYN-ACK &rarr; ACK) und 4-Way Teardown (FIN &rarr; ACK &rarr; FIN &rarr; ACK mit TIME_WAIT) sowie manuelle Flag-Injektion (SYN, ACK, PSH, FIN, RST).
-   - Detaillierter Paketverlauf mit Sequenz- und Acknowledgment-Nummern-Fortschreibung (+55 XP).
-2. **Prometheus Alertmanager & PromQL Alert Rule Evaluator Studio (`SreSloBurnLab.jsx` & `src/utils/sreSloBurnEngine.js`)**:
-   - Didaktische Simulation der Prometheus Alert State Machine (`INACTIVE` &rarr; `PENDING` &rarr; `FIRING`).
-   - Dynamische `for`-Dauer-Prüfung mit Zeitzähler und Templating-Auflösung von `{{ $value }}` und `{{ $labels.service }}` (+45 XP).
-3. **IHK WISO BAB II & Zuschlagskalkulation Prüfungs-Drill (`WisoBabLab.jsx` & `src/utils/wisoBabEngine.js`)**:
-   - Betriebsabrechnungsbogen II: Gegenüberstellung von Normal-Gemeinkosten und Ist-Gemeinkosten mit Berechnung von Kostenüberdeckung (positiv) und Kostenunterdeckung (negativ) pro Kostenstelle (Material, Fertigung, Verwaltung, Vertrieb).
-   - Neuer IHK-Prüfungs-Drill mit Multiple-Choice-Fragen zu Bezugsbasen und Zuschlagssätzen mit +40 XP.
-4. **IHK WISO Arbeitsrecht & Kündigungsfristen-Kalenderrechner (`WisoLaborLawLab.jsx` & `src/utils/wisoLaborLawEngine.js`)**:
-   - Exakte kalendarische Berechnung des Wirksamkeitsdatums der Kündigung nach BGB § 622 und 3-Wochen-Klagefrist (§ 4 KSchG).
-5. **IPv6 Subnetting & Nibble-Boundary Studio (`Ipv6RoutingLab.jsx` & `src/utils/ipv6Routing.js`)**:
-   - Subnetz-Planungs-Studio für IPv6: Nibble-Boundaries (4-Bit-Grenzen `/48`, `/52`, `/56`, `/60`, `/64`), SLAAC-Konformität und P2P-Links.
-6. **IHK UML 2.5 Klassendiagramm-Prüfungs-Drill (`UmlDiagramLab.jsx` & `src/utils/umlEngine.js`)**: Sichtbarkeiten, Komposition vs. Aggregation und Kardinalitäten.
+## 🎯 Wichtige Meilensteine (Version 3.72.0)
+1. **RFC 2131 DHCP DORA & Relay-Agent Studio (`DhcpDoraLab.jsx` & `src/utils/dhcpDoraEngine.js`)**:
+   - Vollständiger DORA-Zustandsautomat: `INIT`, `SELECTING`, `REQUESTING`, `BOUND`, `RENEWING`, `REBINDING`.
+   - Interaktiver 4-Way Handshake (Discover -> Offer -> Request -> Ack), Lease-Timeline (T1 50% Renewal per Unicast, T2 87.5% Rebind per Broadcast) und Relay Agent Weiterleitung über Subnetzgrenzen mit `GIADDR` (+55 XP).
+2. **IHK Software-Testverfahren & Grenzwertanalyse Studio (`TestverfahrenLab.jsx` & `src/utils/testverfahrenEngine.js`)**:
+   - Black-Box-Äquivalenzklassenbildung (GÄK & UÄKs) mit Live-Eingabetester für Prüfungs-Szenarien.
+   - 6-Punkte Grenzwertanalyse ($min-1, min, min+1, max-1, max, max+1$).
+   - McCabe Zyklomatische Komplexität ($M = E - N + 2P$) mit Risikoklassifizierung und Kontrollfluss-Überdeckungsmetriken (C0, C1, C2) (+55 XP).
+3. **IHK WISO Angebotsvergleich & Skontorechner Studio (`WisoAngebotsvergleichLab.jsx` & `src/utils/wisoAngebotsvergleichEngine.js`)**:
+   - Quantitativer Angebotsvergleich mit vollständigem Kalkulationsschema (LEP -> Rabatt -> ZEP -> Skonto -> BEP -> Bezugskosten -> Bezugspreis / Einstandspreis).
+   - Skonto vs. Kontokorrentkredit: Exakte Berechnung des effektiven Lieferantenzinses ($p_{\text{eff}} = \frac{\text{Skontosatz} \times 360}{\text{Zahlungsziel} - \text{Skontofrist}}$), Gegenüberstellung mit Bankkreditzins und IHK-Entscheidungsbegründung.
+   - Qualitativer Angebotsvergleich mit Scoring-Nutzwertmatrix (+55 XP).
+4. **Multi-Tab Synchronisation & Smart Study Radar**:
+   - Multi-Tab State-Sync via BroadcastChannel (`it_devgame_sync`) und Storage Event.
+   - Erweiterte Kategorien und aktualisierte Übersicht im `LabsDashboard.jsx`.
 
 ---
 
-## 📊 Aktuelle Test- & Qualitätsmetriken (v3.71.0)
-- **Unit- & Integrationstests**: 1582 bestandene Tests in 174 Test-Dateien (100% Erfolgsquote), 25 E2E-Tests
-- **Code-Qualität**: 0 Oxlint Fehler / 0 Warnungen über 623 Quelldateien, `tsc --noEmit` fehlerfrei
-- **Build**: Vite & PWA Offline Service Worker (265 Precache-Einträge)
-- **Performance & Limits**: Alle Chunks innerhalb der Size-Limits (App-Shell 75.9 KB gzipped < 105 KB Limit); Lighthouse: Perf 98 / A11y 98 / BP 100 / SEO 100
+## 📊 Aktuelle Test- & Qualitätsmetriken (v3.72.0)
+- **Unit- & Integrationstests**: 1607 bestandene Tests in 177 Test-Dateien (100% Erfolgsquote), 25 E2E-Tests
+- **Code-Qualität**: 0 Oxlint Fehler / 0 Warnungen über 642 Quelldateien, `tsc --noEmit` fehlerfrei
+- **Build**: Vite 8 & PWA Offline Service Worker (271 Precache-Einträge)
+- **Performance & Limits**: Alle Chunks innerhalb der Size-Limits (App-Shell 76.2 KB gzipped < 105 KB Limit); Lighthouse: Perf 98 / A11y 98 / BP 100 / SEO 100
 - **Vercel-Deployment**: Produktionsreife `vercel.json` mit SPA-Rewrites, Asset-Caching & Security-Headern
 - **A11y**: WCAG 2.1 Konformität (Reduced Motion Support, automatische Labels + axe-core-Test über alle Labs)

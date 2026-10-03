@@ -219,3 +219,26 @@ export const useStore = create((set) => {
     }
   };
 });
+
+// Multi-Tab Synchronisation: Aktualisiert offene Tabs bei Änderungen in anderen Fenstern
+if (typeof window !== 'undefined') {
+  window.addEventListener('storage', (e) => {
+    if (e.key === 'it_devgame_user_state') {
+      useStore.getState().refreshStateFromStorage();
+    }
+  });
+
+  if (typeof BroadcastChannel !== 'undefined') {
+    try {
+      const syncChannel = new BroadcastChannel('it_devgame_sync');
+      syncChannel.onmessage = (event) => {
+        if (event.data?.type === 'SYNC_STATE' && event.data.state) {
+          useStore.setState({ userState: event.data.state });
+        }
+      };
+    } catch {
+      // Safe no-op in restricted iframe/environment
+    }
+  }
+}
+

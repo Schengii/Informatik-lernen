@@ -9,6 +9,9 @@ export default function LabsDashboard({ onSelectLab }) {
   const categories = [
     { id: 'all', name: 'Alle Labs' },
     { id: 'ihk', name: '🎓 IHK Prüfung & Karriere' },
+    { id: 'wiso', name: '💼 WISO & Wirtschaft' },
+    { id: 'fiae', name: '💻 Anwendungsentwicklung' },
+    { id: 'network', name: '🌐 Netzwerke & Protokolle' },
     { id: 'algorithms', name: 'Algorithmen & Datenstrukturen' },
     { id: 'devops', name: 'DevOps & Git' },
     { id: 'cloud', name: 'Cloud & Container' },
@@ -40,7 +43,7 @@ export default function LabsDashboard({ onSelectLab }) {
           🧪 Interaktive Laboratorien & Simulatoren Hub
         </h2>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-          Erkunde über 25 spezialisierte IT-Simulatoren – von Datenstrukturen und Kubernetes bis hin zu RAG Vector AI und Git-Branching.
+          Erkunde über 220 spezialisierte IT-Simulatoren und Labs nach offiziellem IHK-Standard (AO 2020) – von Software-Testverfahren und RFC 2131 DHCP bis hin zu WISO-Kalkulationen und eBPF.
         </p>
       </div>
 
