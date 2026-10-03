@@ -8,6 +8,11 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
+      // Die Registrierung übernimmt src/main.jsx selbst (dort hängt auch das
+      // `pwa-update-available`-Event für den Update-Toast dran) - ohne diesen
+      // Schalter würde das Plugin zusätzlich ein eigenes registerSW.js
+      // ausliefern und denselben Service Worker ein zweites Mal registrieren.
+      injectRegister: false,
       devOptions: {
         enabled: true
       },

@@ -32,16 +32,22 @@ date: 2026-10-03
    - Quantitativer Angebotsvergleich mit vollständigem Kalkulationsschema (LEP -> Rabatt -> ZEP -> Skonto -> BEP -> Bezugskosten -> Bezugspreis / Einstandspreis).
    - Skonto vs. Kontokorrentkredit: Exakte Berechnung des effektiven Lieferantenzinses ($p_{\text{eff}} = \frac{\text{Skontosatz} \times 360}{\text{Zahlungsziel} - \text{Skontofrist}}$), Gegenüberstellung mit Bankkreditzins und IHK-Entscheidungsbegründung.
    - Qualitativer Angebotsvergleich mit Scoring-Nutzwertmatrix (+55 XP).
-4. **Multi-Tab Synchronisation & Smart Study Radar**:
-   - Multi-Tab State-Sync via BroadcastChannel (`it_devgame_sync`) und Storage Event.
-   - Erweiterte Kategorien und aktualisierte Übersicht im `LabsDashboard.jsx`.
+4. **Web Worker Code-Sandbox (`src/utils/sandboxRunner.js`, `sandbox.worker.js`)**:
+   - Sichere Code-Ausführung mit 3-Sekunden-Timeout gegen Endlosschleifen via `worker.terminate()`.
+   - Vollständige Abschottung von DOM, LocalStorage, IndexedDB, Fetch und WebSockets.
+5. **404-Not-Found-Ansicht & Routen-Toleranz (`src/components/NotFoundView.jsx`)**:
+   - Benutzerfreundliche 404-Seite mit Schnellsuche und Rückkehr zum Dashboard; Trailing-Slash-Unterstützung.
+6. **Persistente Anzeige-Einstellungen (`src/utils/uiPreferences.js`) & Multi-Tab-Synchronisation**:
+   - Speicherung von Theme, Font-Size und A11y-Modi (Dyslexie, Kontrast, Reduced Motion) und Multi-Tab State-Sync via BroadcastChannel (`it_devgame_sync`).
+7. **PWA-Bereinigung & Service-Worker-Optimierung**:
+   - Bereinigung veralteter Manifest-/SW-Dateien, Single-Point-Registrierung und Behebung des falschen Erstbesuch-Update-Toasts.
 
 ---
 
 ## 📊 Aktuelle Test- & Qualitätsmetriken (v3.72.0)
-- **Unit- & Integrationstests**: 1607 bestandene Tests in 177 Test-Dateien (100% Erfolgsquote), 25 E2E-Tests
-- **Code-Qualität**: 0 Oxlint Fehler / 0 Warnungen über 642 Quelldateien, `tsc --noEmit` fehlerfrei
+- **Unit- & Integrationstests**: 1634 bestandene Tests in 179 Test-Dateien (100% Erfolgsquote), 25 E2E-Tests
+- **Code-Qualität**: 0 Oxlint Fehler / 0 Warnungen über 644 Quelldateien, `tsc --noEmit` fehlerfrei
 - **Build**: Vite 8 & PWA Offline Service Worker (271 Precache-Einträge)
-- **Performance & Limits**: Alle Chunks innerhalb der Size-Limits (App-Shell 76.2 KB gzipped < 105 KB Limit); Lighthouse: Perf 98 / A11y 98 / BP 100 / SEO 100
+- **Performance & Limits**: Alle Chunks innerhalb der Size-Limits (App-Shell 76.55 KB gzipped < 105 KB Limit); Lighthouse: Perf 98 / A11y 98 / BP 100 / SEO 100
 - **Vercel-Deployment**: Produktionsreife `vercel.json` mit SPA-Rewrites, Asset-Caching & Security-Headern
 - **A11y**: WCAG 2.1 Konformität (Reduced Motion Support, automatische Labels + axe-core-Test über alle Labs)

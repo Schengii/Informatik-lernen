@@ -9,15 +9,23 @@ export default function PwaUpdateToast() {
     const handleUpdate = () => setShowToast(true);
     window.addEventListener('pwa-update-available', handleUpdate);
 
-    // Prüft Service Worker Controller-Wechsel
+    // Prüft Service Worker Controller-Wechsel. Beim allerersten Besuch gibt
+    // es noch keinen Controller - dort löst `clients.claim()` ebenfalls ein
+    // `controllerchange` aus, das aber kein Update ist und keinen Toast
+    // zeigen darf.
+    const hadController = 'serviceWorker' in navigator && !!navigator.serviceWorker.controller;
+    const handleControllerChange = () => {
+      if (hadController) setShowToast(true);
+    };
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.addEventListener('controllerchange', () => {
-        setShowToast(true);
-      });
+      navigator.serviceWorker.addEventListener('controllerchange', handleControllerChange);
     }
 
     return () => {
       window.removeEventListener('pwa-update-available', handleUpdate);
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.removeEventListener('controllerchange', handleControllerChange);
+      }
     };
   }, []);
 

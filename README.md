@@ -84,7 +84,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Next-Gen Transport: HTTP/3 & QUIC Protocol Inspector (`Http3QuicLab.jsx` & `http3QuicEngine.js`)**: Head-of-Line Blocking Eliminierung bei Paketverlust, Multi-Stream Übertragung über UDP, 0-RTT TLS 1.3 Session Resumption und Connection-ID (CID) Migration.
    - **OWASP Top 10 Live-Exploit Sandbox** (XSS, SQLi, CSRF, IDOR), **Deep Learning Neural Network Forward-Propagation**, **Byte-Pair Encoding (BPE) Tokenizer**, OAuth2 PKCE & JWT Claims Decoding, WebSockets HTTP 101 Handshake, V8 Performance & Memory Leak Profiling, Kubernetes Deployments & RAG Vector AI Pipelines.
 
-## ✨ Hauptfunktionen & Neue Features (v3.72.0: RFC 2131 DHCP DORA, Software-Testverfahren & WISO Angebotsvergleich Edition)
+## ✨ Hauptfunktionen & Neue Features (v3.72.0: RFC 2131 DHCP DORA, Software-Testverfahren, WISO Angebotsvergleich, Web Worker Sandbox & UI-Präferenzen Edition)
 
 * **🌐 RFC 2131 DHCP DORA & Relay-Agent Studio (`DhcpDoraLab.jsx` & `src/utils/dhcpDoraEngine.js`)**:
   * Didaktisches Netzwerkprotokoll- & Adresszuweisungs-Studio nach RFC 2131 Standard.
@@ -105,6 +105,12 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
     * Gegenüberstellung von Skontovorteil und Bankkreditzinsen mit Ersparnisberechnung in Euro und IHK-Musterentscheidungsbegründung.
   * **Quantitativer Angebotsvergleich**: Vollständiges Kalkulationsschema (Listeneinkaufspreis $\rightarrow$ Rabatt $\rightarrow$ Zieleinkaufspreis $\rightarrow$ Skonto $\rightarrow$ Bareinkaufspreis $\rightarrow$ Bezugskosten $\rightarrow$ Bezugspreis) mit 2-Anbieter-Gegenüberstellung.
   * **Qualitativer Angebotsvergleich**: Gewichtete Nutzwertanalyse (Scoring-Matrix) für weiche Kriterien (+55 XP).
+* **🛡️ Web Worker Code-Sandbox & Härtung (`sandboxRunner.js`, `sandbox.worker.js`)**:
+  * Sichere Code-Ausführung in dedizierten Web Workern mit 3s Timeout-Schutz gegen Endlosschleifen.
+  * Blockierung gefährlicher Web-Schnittstellen (`fetch`, `localStorage`, `WebSocket`, `IndexedDB`) im Worker.
+* **🧭 404 Not Found View & Persistente UI-Präferenzen (`NotFoundView.jsx`, `uiPreferences.js`)**:
+  * Übersichtliche 404-Fehlerseite mit Quick-Navigation und Trailing-Slash-Support in allen URLs.
+  * Persistente Speicherung von Theme-, Schriftgrößen- und Accessibility-Einstellungen (Dyslexie, Reduced-Motion, Kontrast).
 * **🔄 Multi-Tab Synchronisation & Smart Study Radar**:
   * Tab-übergreifender State-Sync via BroadcastChannel (`it_devgame_sync`) und Storage-Event für konsistente XP, Level und Streaks.
   * Aktualisiertes `LabsDashboard.jsx` mit erweiterten Kategorien (WISO, FIAE, Netzwerke).
@@ -913,6 +919,7 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 * **WCAG 2.1 Mobile Zoom Compliance**: Volle Barrierefreiheit auf Mobilgeräten ohne blockierende Viewport-Skalierungsbegrenzungen.
 * **Vorlesefunktion (Text-to-Speech)**: Audio-Steuerung zum Vorlesen aller Lerneinheiten.
 * **Schriftgrößen-Skalierung**: Stufenlose Anpassung (A- / 100% / A+).
+* **Einstellungen bleiben erhalten**: Theme, Schriftgröße und alle Barrierefreiheits-Optionen werden lokal gespeichert und überstehen einen Reload. Ohne eigene Auswahl folgt die App den Systemvorgaben (`prefers-color-scheme`, `prefers-reduced-motion`).
 * **100% DSGVO-konform**: Keine Tracking-Cookies, alle Daten verbleiben rein lokal im `localStorage`.
 
 ---
@@ -933,15 +940,23 @@ Informatik-lernen/
 ├── README.md
 ├── vercel.json
 ├── vite.config.js
-├── public/
-│   ├── manifest.json
-│   └── sw.js
+├── e2e/
+│   ├── accessibility.spec.js
+│   ├── pwa-offline.spec.js
+│   ├── sandbox-and-settings.spec.js
+│   └── smoke.spec.js
+├── public/                  (Manifest & Service Worker erzeugt vite-plugin-pwa beim Build)
+│   ├── favicon.svg
+│   └── icons.svg
 └── src/
     ├── App.css
     ├── App.jsx
+    ├── App.routing.test.jsx
     ├── main.jsx
     ├── components/
     │   ├── componentsIntegrity.test.jsx
+    │   ├── ErrorBoundary.jsx
+    │   ├── NotFoundView.jsx
     │   ├── Content/
     │   │   ├── AgileScrumSimulatorLab.jsx
     │   │   ├── AiBusinessMasterclass.jsx
@@ -1332,6 +1347,11 @@ Informatik-lernen/
         ├── raidEngine.test.js
         ├── regexParserEngine.js
         ├── regexParserEngine.test.js
+        ├── sandbox.worker.js
+        ├── sandboxEvaluator.js
+        ├── sandboxRunner.js
+        ├── sandboxRunner.test.js
+        ├── sandboxTestUtils.js
         ├── scrumEngine.js
         ├── scrumEngine.test.js
         ├── serviceMeshEngine.js
@@ -1354,6 +1374,8 @@ Informatik-lernen/
         ├── tlsReplayEngine.test.js
         ├── transformerAttentionEngine.js
         ├── transformerAttentionEngine.test.js
+        ├── uiPreferences.js
+        ├── uiPreferences.test.js
         ├── umlEngine.js
         ├── umlEngine.test.js
         ├── voiceQuizEngine.js
@@ -1456,6 +1478,8 @@ Informatik-lernen/
    * Vollständiger Service-Worker-Precache aller 126 Anwendungs-Chunks für 100% Offline-Nutzung.
 4. **Vite 8 & Rolldown Bundle Splitting**:
    * Aufteilung in logische Chunks (`vendor-react`, `vendor-ui`, `vendor-charts-pdf`) für Ladezeiten unter 1 Sekunde.
+5. **Code-Sandbox für Nutzercode (`sandboxRunner.js` & `sandbox.worker.js`)**:
+   * Code aus den Coding-Labs (Live Coding Challenges, Custom Challenges, Monaco Studio, TDD-Lab) läuft in einem Web Worker statt im Haupt-Thread. Eine Endlosschleife wird nach 3 Sekunden hart beendet, ohne den Tab einzufrieren, und der Code hat keinen Zugriff auf DOM, `localStorage`, IndexedDB oder Netzwerk. Steht kein Worker zur Verfügung, wird der Code nicht ausgeführt (kein Rückfall auf den Haupt-Thread).
 
 ---
 
@@ -1499,7 +1523,7 @@ npm run build
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
-### Version 3.72.0 (RFC 2131 DHCP DORA, Software-Testverfahren & WISO Angebotsvergleich Edition)
+### Version 3.72.0 (RFC 2131 DHCP DORA, Software-Testverfahren, WISO Angebotsvergleich, Web Worker Code-Sandbox & UI-Präferenzen Edition)
 
 - **Neu: RFC 2131 DHCP DORA & Relay-Agent Studio (`DhcpDoraLab.jsx` & `src/utils/dhcpDoraEngine.js`)**:
   - Vollständiger Zustandsautomat für DHCP-Clients (`INIT`, `SELECTING`, `REQUESTING`, `BOUND`, `RENEWING`, `REBINDING`).
@@ -1517,15 +1541,27 @@ npm run build
   - Skonto vs. Kontokorrentkredit: Exakte Berechnung des effektiven Jahreszinssatzes ($p_{\text{eff}} = \frac{\text{Skontosatz} \times 360}{\text{Zahlungsziel} - \text{Skontofrist}}$), Gegenüberstellung mit dem Bankkreditzins, Ersparnisberechnung in Euro und IHK-Musterentscheidungsbegründung.
   - Qualitativer Angebotsvergleich: Scoring-Matrix mit Gewichtung und Nutzwertanalyse (+55 XP).
   - 100% typgeprüft mit `// @ts-check` und JSDoc sowie 6 isolierten Unit-Tests.
+- **Sicherheit & Code-Sandbox (Web Worker)**:
+  - Nutzercode läuft nicht mehr per `new Function` im Haupt-Thread, sondern isoliert in einem Web Worker mit 3s Zeitlimit (`src/utils/sandboxRunner.js`, `src/utils/sandbox.worker.js`, `src/utils/sandboxEvaluator.js`).
+  - Schutz vor Freezing bei Endlosschleifen via automatischem `worker.terminate()`. Im Worker sind gefährliche Schnittstellen (`fetch`, `localStorage`, `WebSocket`, `IndexedDB`) gesperrt.
+  - Umgestellt: `codingChallengesEngine.js` (jetzt async), `LiveCodingChallengeStudio.jsx`, `CustomChallengeCreatorLab.jsx`, `MonacoStudioLab.jsx` und `TddUnitTestLab.jsx`.
+- **Neu: 404 Not Found View & Robustes Routing (`NotFoundView.jsx`)**:
+  - Unbekannte Routen zeigen eine ansprechende 404-Ansicht mit Navigation zum Dashboard und Modulsuche statt eines leeren Inhaltsbereichs. Toleranz gegenüber abschließendem Slash in URLs.
+- **Neu: Persistente UI-Präferenzen & Barrierefreiheit (`src/utils/uiPreferences.js`)**:
+  - Theme, Schriftgröße, Dyslexie-, Farbenblindheits-, Kontrast- und Reduced-Motion-Modus werden unter `informatik_game_ui_prefs_v1` gespeichert und überstehen Reloads.
 - **Neu: Multi-Tab Synchronisation & Smart Study Radar**:
   - Multi-Tab State-Sync via BroadcastChannel (`it_devgame_sync`) und Storage Event in `src/store/useStore.js` für nahtlos synchronisierte XP, Level und Badges.
-  - Aktualisiertes `LabsDashboard.jsx` mit erweiterten Kategorien (WISO, FIAE, Netzwerke) und Überarbeitung der Bestandsangaben (>220 Labs).
+  - Aktualisiertes `LabsDashboard.jsx` mit erweiterten Kategorien (WISO, FIAE, Netzwerke).
+- **Aufgeräumt (PWA) & Fehlerüberwachung**:
+  - Bereinigung redundanter Manifest- und Service-Worker-Dateien; Vermeidung von doppelter SW-Registrierung in `vite.config.js`.
+  - PWA-Update-Toast erscheint nur dann, wenn zuvor bereits ein aktiver Service Worker existierte.
+  - Dynamischer Import von `@sentry/react` in `src/utils/errorMonitoring.js` gegen Typ- und Build-Konflikte abgesichert.
 - **Test-Suite & Qualität**:
-  - **1607 bestandene Tests** in **177 Test-Dateien** (100% Erfolgsquote, +25 neue Tests).
+  - **1634 bestandene Tests** in **179 Test-Dateien** (100% Erfolgsquote).
   - 225 Labs A11y-Tests (axe-core) fehlerfrei absolviert (`allLabsA11y.test.jsx`).
   - 226 Labs Smoke-Tests fehlerfrei absolviert (`allLabsSmoke.test.jsx`).
-  - 0 Oxlint-Fehler, 0 Warnungen über 642 Quelldateien, `tsc --noEmit` fehlerfrei.
-  - Alle `size-limit`-Budgets eingehalten (Hauptbundle 76.22 KB gzipped < 105 KB Limit).
+  - 0 Oxlint-Warnungen (`lint:ci`) über 650 Quelldateien, `tsc --noEmit` fehlerfrei.
+  - Alle `size-limit`-Budgets eingehalten (Hauptbundle 76.9 KB gzipped < 105 KB Limit, Vendor React 55.98 KB < 70 KB, Vendor UI 57.81 KB < 70 KB).
 
 ### Version 3.71.0 (Qualitäts-, Barrierefreiheits- & Bugfix-Edition)
 

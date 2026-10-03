@@ -6,6 +6,9 @@ import './styles/global.css'
 import App from './App.jsx'
 import { initErrorMonitoring } from './utils/errorMonitoring.js'
 
+// /sw.js wird von vite-plugin-pwa (Workbox, `generateSW`) erzeugt - im Build
+// nach dist/, im Dev-Server nach dev-dist/. Es gibt bewusst keine
+// handgeschriebene public/sw.js mehr.
 if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost')) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js').then((registration) => {

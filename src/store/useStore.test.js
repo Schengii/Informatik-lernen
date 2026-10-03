@@ -2,6 +2,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { useStore } from './useStore';
 import { initialProfileState, toLocalDateKey } from '../utils/storage';
+import { loadUiPreferences } from '../utils/uiPreferences';
 
 describe('useStore Zustand Store', () => {
   beforeEach(() => {
@@ -41,6 +42,16 @@ describe('useStore Zustand Store', () => {
 
     setDifficultyFilter('junior');
     expect(useStore.getState().difficultyFilter).toBe('junior');
+  });
+
+  it('persists theme & accessibility options so they survive a reload', () => {
+    const { setTheme, setFontSize, setIsReducedMotion } = useStore.getState();
+
+    setTheme('dark');
+    setFontSize(120);
+    setIsReducedMotion(true);
+
+    expect(loadUiPreferences()).toMatchObject({ theme: 'dark', fontSize: 120, isReducedMotion: true });
   });
 
   it('awards XP and increases level properly', () => {
