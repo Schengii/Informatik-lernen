@@ -15,8 +15,10 @@ date: 2026-10-03
 
 ## 📂 Verlinkte Hauptdateien im Vault
 - [[README|📖 Projektdokumentation & Feature-Guide]]
-- [[CLAUDE|🛠️ Entwickler- & KI-Leitfaden (CLAUDE.md)]]
-- `.gitignore` & `.claudeignore`
+- [[CHANGELOG|📝 Versions- & Änderungshistorie (CHANGELOG.md)]]
+- [[CLAUDE|🛠️ Entwickler- & KI-Leitfaden für Claude (CLAUDE.md)]]
+- [[GEMINI|🤖 Entwickler- & KI-Leitfaden für Gemini & Antigravity (GEMINI.md)]]
+- `.gitignore`, `.gitattributes` & `.claudeignore`
 
 ---
 
@@ -41,6 +43,9 @@ date: 2026-10-03
    - Speicherung von Theme, Font-Size und A11y-Modi (Dyslexie, Kontrast, Reduced Motion) und Multi-Tab State-Sync via BroadcastChannel (`it_devgame_sync`).
 7. **PWA-Bereinigung & Service-Worker-Optimierung**:
    - Bereinigung veralteter Manifest-/SW-Dateien, Single-Point-Registrierung und Behebung des falschen Erstbesuch-Update-Toasts.
+8. **KI-, Tooling- & Entwickler-Infrastruktur (Claude, Gemini & GitHub)**:
+   - `CHANGELOG.md` nach Keep a Changelog Standard, `GEMINI.md` als Leitfaden für Google Antigravity & Gemini.
+   - `.gitattributes` für LF-Normalisierung, GitHub PR-/Issue-Templates (`.github/`), Dependabot und `.vscode/`.
 
 ---
 

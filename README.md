@@ -930,10 +930,26 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
 Informatik-lernen/
 ├── .agents/
 │   └── AGENTS.md
+├── .claude/
+│   └── settings.json
 ├── .claudeignore
+├── .gitattributes
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   └── feature_lab_request.md
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   ├── dependabot.yml
+│   └── workflows/
+│       └── ci.yml
 ├── .gitignore
 ├── .oxlintrc.json
+├── .vscode/
+│   ├── extensions.json
+│   └── settings.json
+├── CHANGELOG.md
 ├── CLAUDE.md
+├── GEMINI.md
 ├── index.html
 ├── package.json
 ├── package-lock.json
@@ -996,6 +1012,7 @@ Informatik-lernen/
     │   │   ├── DataStructuresLab.jsx
     │   │   ├── DeploymentGuideModal.jsx
     │   │   ├── DesignPatternsLab.jsx
+    │   │   ├── DhcpDoraLab.jsx
     │   │   ├── DnsHttpLifecycleLab.jsx
     │   │   ├── DnssecValidationLab.jsx
     │   │   ├── DockerComposeLab.jsx
@@ -1090,6 +1107,7 @@ Informatik-lernen/
     │   │   ├── SystemdServiceLab.jsx
     │   │   ├── TcoRoiCalculatorLab.jsx
     │   │   ├── TddUnitTestLab.jsx
+    │   │   ├── TestverfahrenLab.jsx
     │   │   ├── TlsReplayLab.jsx
     │   │   ├── TerraformLab.jsx
     │   │   ├── ToolingSetupGuide.jsx
@@ -1115,6 +1133,7 @@ Informatik-lernen/
     │   │   ├── WebhookInspectorLab.jsx
     │   │   ├── WireguardZtnaLab.jsx
     │   │   ├── WisoAbcXyzLab.jsx
+    │   │   ├── WisoAngebotsvergleichLab.jsx
     │   │   ├── WisoAndlerLab.jsx
     │   │   ├── WisoCapitalValueLab.jsx
     │   │   ├── WisoContributionMarginLab.jsx
@@ -1254,6 +1273,8 @@ Informatik-lernen/
         ├── dataLineageEtlEngine.test.js
         ├── dockerComposeEngine.js
         ├── dockerComposeEngine.test.js
+        ├── dhcpDoraEngine.js
+        ├── dhcpDoraEngine.test.js
         ├── dnssecValidationEngine.js
         ├── dnssecValidationEngine.test.js
         ├── ebpfCiliumEngine.js
@@ -1366,6 +1387,8 @@ Informatik-lernen/
         ├── storage.test.js
         ├── systemdServiceEngine.js
         ├── systemdServiceEngine.test.js
+        ├── testverfahrenEngine.js
+        ├── testverfahrenEngine.test.js
         ├── tcoCalculations.js
         ├── tcoCalculations.test.js
         ├── terraformEngine.js
@@ -1394,6 +1417,8 @@ Informatik-lernen/
         ├── wireguardZtnaEngine.test.js
         ├── wisoAbcXyzEngine.js
         ├── wisoAbcXyzEngine.test.js
+        ├── wisoAngebotsvergleichEngine.js
+        ├── wisoAngebotsvergleichEngine.test.js
         ├── wisoAndlerEngine.js
         ├── wisoAndlerEngine.test.js
         ├── wisoCalculations.js
@@ -1552,6 +1577,13 @@ npm run build
 - **Neu: Multi-Tab Synchronisation & Smart Study Radar**:
   - Multi-Tab State-Sync via BroadcastChannel (`it_devgame_sync`) und Storage Event in `src/store/useStore.js` für nahtlos synchronisierte XP, Level und Badges.
   - Aktualisiertes `LabsDashboard.jsx` mit erweiterten Kategorien (WISO, FIAE, Netzwerke).
+- **Neu: KI-, Tooling- & Entwickler-Infrastruktur (Claude, Gemini & GitHub)**:
+  - `CHANGELOG.md` nach Keep a Changelog Standard zur lückenlosen Versionierung aller Meilensteine.
+  - `GEMINI.md` als umfassende Richtlinie für Google Gemini und Antigravity IDE (Architektur, Engines, Registrierung, A11y).
+  - Aktualisierte Entwickler-Leitfäden in `CLAUDE.md` und `.agents/AGENTS.md`.
+  - `.gitattributes` für automatische LF-Normalisierung gegen zeilenendungsbedingte Git-Konflikte (Windows/Linux/macOS).
+  - GitHub Workflow-Unterstützung: `.github/PULL_REQUEST_TEMPLATE.md`, `.github/ISSUE_TEMPLATE/` (Bug Report & Lab Request) und `.github/dependabot.yml` für automatisierte Sicherheits- und Versionsupdates.
+  - `.vscode/settings.json` und `.vscode/extensions.json` für konsistente Editor-Standards und empfohlene Extensions (Oxlint, Vitest, Playwright).
 - **Aufgeräumt (PWA) & Fehlerüberwachung**:
   - Bereinigung redundanter Manifest- und Service-Worker-Dateien; Vermeidung von doppelter SW-Registrierung in `vite.config.js`.
   - PWA-Update-Toast erscheint nur dann, wenn zuvor bereits ein aktiver Service Worker existierte.

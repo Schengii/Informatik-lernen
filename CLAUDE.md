@@ -76,8 +76,8 @@ Voraussetzung: Node >= 22.18. CI-Reihenfolge: `lint:ci` → `typecheck` → `tes
 4. **Barrierefreiheit (Accessibility & A11y)**:
    - Respektiere Nutzer-Präferenzen für reduzierte Bewegung (`prefers-reduced-motion` und `body.reduced-motion`).
    - Keine Viewport-Zoom-Blocker (`user-scalable=no` verboten).
-5. **README-Wartungsregel** (auch `_Projektuebersicht.md` wird bei neuen Labs gepflegt, siehe Git-Historie):
-   - Wann immer Dateien hinzugefügt, verändert oder entfernt werden, muss `README.md` aktualisiert und die Änderungshistorie fortgeführt werden.
+5. **README- & CHANGELOG-Wartungsregel** (auch `_Projektuebersicht.md` wird bei neuen Labs gepflegt, siehe Git-Historie):
+   - Wann immer Dateien hinzugefügt, verändert oder entfernt werden, müssen `README.md` und `CHANGELOG.md` aktualisiert und die Änderungshistorie fortgeführt werden.
 6. **Fehlerisolation (Error Boundaries)**:
    - Der gesamte Tab-Content-Bereich in `App.jsx` sowie jedes Modal in `ModalContainer.jsx` sind bereits mit `src/components/ErrorBoundary.jsx` umschlossen. Neue Labs benötigen dafür KEINE eigene Boundary — ein Absturz in einem Lab zeigt automatisch eine lokale Fallback-UI statt die gesamte App zum Absturz zu bringen.
 7. **Smoke-Test-Abdeckung für neue Labs**:
