@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle2, Award, Code2, GitBranch, Bug, Layers, Activity } from 'lucide-react';
+import { Award, Code2, GitBranch, Bug, Layers, Activity } from 'lucide-react';
 import {
   ermittleAequivalenzklassen,
   ermittleGrenzwerte,
@@ -9,6 +9,7 @@ import {
 } from '../../utils/testverfahrenEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';
+import IhkDrillPanel from '../Shared/IhkDrillPanel';
 
 export default function TestverfahrenLab({ onRewardXP }) {
   const { awardXP } = useStore();
@@ -83,22 +84,8 @@ export default function TestverfahrenLab({ onRewardXP }) {
   const mccabeRes = berechneMcCabeKomplexitaet(graphParams);
   const covRes = berechneTestabdeckung(covParams);
 
-  // 3. Drill State
-  const [drillAnswers, setDrillAnswers] = useState({});
-  const [showDrillFeedback, setShowDrillFeedback] = useState(false);
-
-  const handleDrillSelect = (qId, optionIdx) => {
-    if (showDrillFeedback) return;
-    setDrillAnswers((prev) => ({ ...prev, [qId]: optionIdx }));
-    triggerHaptic('LIGHT');
-  };
-
-  const handleCheckDrill = () => {
-    setShowDrillFeedback(true);
-    const correctCount = TESTVERFAHREN_DRILL_QUESTIONS.filter(
-      (q) => drillAnswers[q.id] === q.korrektIndex
-    ).length;
-
+  // 3. Drill
+  const handleEvaluateDrill = (correctCount) => {
     if (correctCount >= 3 && !xpClaimed) {
       setXpClaimed(true);
       triggerHaptic('SUCCESS');
@@ -107,12 +94,6 @@ export default function TestverfahrenLab({ onRewardXP }) {
     } else {
       triggerHaptic(correctCount >= 2 ? 'SUCCESS' : 'WARNING');
     }
-  };
-
-  const handleResetDrill = () => {
-    setDrillAnswers({});
-    setShowDrillFeedback(false);
-    triggerHaptic('MEDIUM');
   };
 
   return (
@@ -560,137 +541,15 @@ export default function TestverfahrenLab({ onRewardXP }) {
 
       {/* TAB 3: IHK PRÜFUNGS-DRILL */}
       {activeTab === 'drill' && (
-        <div style={{
-          background: 'var(--bg-card, #1e293b)',
-          padding: '1.5rem',
-          borderRadius: '1rem',
-          border: '1px solid var(--border-color, #334155)'
-        }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
-            <div>
-              <h2 style={{ fontSize: '1.2rem', fontWeight: 600, margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Award size={22} color="#6366f1" />
-                IHK Prüfungs-Drill: Software-Testverfahren & Metriken
-              </h2>
-              <p style={{ margin: '0.25rem 0 0 0', color: 'var(--text-muted, #94a3b8)', fontSize: '0.85rem' }}>
-                Beantworte mindestens 3 von 4 Fragen korrekt zur Freischaltung von <strong>+55 XP</strong>.
-              </p>
-            </div>
-            {xpClaimed && (
-              <span style={{ background: '#10b981', color: '#fff', padding: '0.35rem 0.75rem', borderRadius: '1rem', fontWeight: 600, fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                <CheckCircle2 size={16} /> +55 XP Erhalten!
-              </span>
-            )}
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '1.5rem' }}>
-            {TESTVERFAHREN_DRILL_QUESTIONS.map((q, qIndex) => {
-              const selectedIdx = drillAnswers[q.id];
-              return (
-                <div
-                  key={q.id}
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.02)',
-                    padding: '1.25rem',
-                    borderRadius: '0.75rem',
-                    border: '1px solid var(--border-color, #334155)'
-                  }}
-                >
-                  <div style={{ fontWeight: 600, fontSize: '0.95rem', marginBottom: '0.75rem' }}>
-                    {qIndex + 1}. {q.frage}
-                  </div>
-
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.5rem' }}>
-                    {q.optionen.map((opt, optIdx) => {
-                      const isSelected = selectedIdx === optIdx;
-                      let btnBg = 'rgba(255, 255, 255, 0.03)';
-                      let btnBorder = '1px solid var(--border-color, #334155)';
-
-                      if (showDrillFeedback) {
-                        if (optIdx === q.korrektIndex) {
-                          btnBg = 'rgba(16, 185, 129, 0.2)';
-                          btnBorder = '1px solid #10b981';
-                        } else if (isSelected) {
-                          btnBg = 'rgba(239, 68, 68, 0.2)';
-                          btnBorder = '1px solid #ef4444';
-                        }
-                      } else if (isSelected) {
-                        btnBg = 'rgba(99, 102, 241, 0.2)';
-                        btnBorder = '1px solid #6366f1';
-                      }
-
-                      return (
-                        <button
-                          key={optIdx}
-                          onClick={() => handleDrillSelect(q.id, optIdx)}
-                          style={{
-                            textAlign: 'left',
-                            padding: '0.65rem 1rem',
-                            borderRadius: '0.5rem',
-                            background: btnBg,
-                            border: btnBorder,
-                            color: 'inherit',
-                            cursor: showDrillFeedback ? 'default' : 'pointer',
-                            fontSize: '0.85rem',
-                            transition: 'all 0.15s ease'
-                          }}
-                        >
-                          {String.fromCharCode(65 + optIdx)}) {opt}
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  {showDrillFeedback && (
-                    <div style={{ marginTop: '0.75rem', padding: '0.75rem', borderRadius: '0.5rem', background: 'rgba(255, 255, 255, 0.05)', fontSize: '0.85rem' }}>
-                      <strong style={{ color: selectedIdx === q.korrektIndex ? '#10b981' : '#f59e0b' }}>
-                        {selectedIdx === q.korrektIndex ? '✓ Richtig!' : '✗ Lösung & Erklärung:'}
-                      </strong>{' '}
-                      {q.erklaerung}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-
-          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-            {!showDrillFeedback ? (
-              <button
-                onClick={handleCheckDrill}
-                disabled={Object.keys(drillAnswers).length < TESTVERFAHREN_DRILL_QUESTIONS.length}
-                style={{
-                  padding: '0.6rem 1.25rem',
-                  borderRadius: '0.5rem',
-                  border: 'none',
-                  background: Object.keys(drillAnswers).length < TESTVERFAHREN_DRILL_QUESTIONS.length ? 'var(--border-color, #334155)' : '#6366f1',
-                  color: '#fff',
-                  fontWeight: 600,
-                  cursor: Object.keys(drillAnswers).length < TESTVERFAHREN_DRILL_QUESTIONS.length ? 'not-allowed' : 'pointer',
-                  fontSize: '0.9rem'
-                }}
-              >
-                Antworten prüfen & XP sichern
-              </button>
-            ) : (
-              <button
-                onClick={handleResetDrill}
-                style={{
-                  padding: '0.6rem 1.25rem',
-                  borderRadius: '0.5rem',
-                  border: '1px solid var(--border-color, #334155)',
-                  background: 'transparent',
-                  color: 'inherit',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  fontSize: '0.9rem'
-                }}
-              >
-                Drill wiederholen
-              </button>
-            )}
-          </div>
-        </div>
+        <IhkDrillPanel
+          title="IHK Prüfungs-Drill: Software-Testverfahren & Metriken"
+          questions={TESTVERFAHREN_DRILL_QUESTIONS}
+          accentColor="#6366f1"
+          selectedBg="rgba(99, 102, 241, 0.2)"
+          selectedBorderColor="#6366f1"
+          xpClaimed={xpClaimed}
+          onEvaluate={handleEvaluateDrill}
+        />
       )}
     </div>
   );

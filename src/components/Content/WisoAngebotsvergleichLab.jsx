@@ -8,6 +8,7 @@ import {
 } from '../../utils/wisoAngebotsvergleichEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';
+import IhkDrillPanel from '../Shared/IhkDrillPanel';
 
 export default function WisoAngebotsvergleichLab({ onRewardXP }) {
   const { awardXP } = useStore();
@@ -75,22 +76,8 @@ export default function WisoAngebotsvergleichLab({ onRewardXP }) {
     bewertungen: qualScores
   });
 
-  // 4. Drill State
-  const [drillAnswers, setDrillAnswers] = useState({});
-  const [showDrillFeedback, setShowDrillFeedback] = useState(false);
-
-  const handleDrillSelect = (qId, optionIdx) => {
-    if (showDrillFeedback) return;
-    setDrillAnswers((prev) => ({ ...prev, [qId]: optionIdx }));
-    triggerHaptic('LIGHT');
-  };
-
-  const handleCheckDrill = () => {
-    setShowDrillFeedback(true);
-    const correctCount = WISO_ANGEBOTSVERGLEICH_DRILL.filter(
-      (q) => drillAnswers[q.id] === q.korrektIndex
-    ).length;
-
+  // 4. Drill
+  const handleEvaluateDrill = (correctCount) => {
     if (correctCount >= 3 && !xpClaimed) {
       setXpClaimed(true);
       triggerHaptic('SUCCESS');
@@ -99,12 +86,6 @@ export default function WisoAngebotsvergleichLab({ onRewardXP }) {
     } else {
       triggerHaptic(correctCount >= 2 ? 'SUCCESS' : 'WARNING');
     }
-  };
-
-  const handleResetDrill = () => {
-    setDrillAnswers({});
-    setShowDrillFeedback(false);
-    triggerHaptic('MEDIUM');
   };
 
   return (
@@ -397,177 +378,20 @@ export default function WisoAngebotsvergleichLab({ onRewardXP }) {
           </h2>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
-            {/* Anbieter A */}
-            <div style={{
-              background: 'rgba(255, 255, 255, 0.02)',
-              padding: '1.25rem',
-              borderRadius: '0.75rem',
-              border: resA.bezugspreis <= resB.bezugspreis ? '2px solid #10b981' : '1px solid var(--border-color, #334155)'
-            }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                <h3 style={{ margin: 0, fontSize: '1.1rem', color: '#3b82f6' }}>{angebotA.anbieterName}</h3>
-                {resA.bezugspreis <= resB.bezugspreis && (
-                  <span style={{ background: '#10b981', color: '#fff', fontSize: '0.75rem', padding: '0.2rem 0.5rem', borderRadius: '1rem', fontWeight: 700 }}>
-                    GÜNSTIGSTER
-                  </span>
-                )}
-              </div>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.9rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span>Listeneinkaufspreis:</span>
-                  <input
-                    type="number"
-                    value={angebotA.listeneinkaufspreis}
-                    onChange={(e) => setAngebotA({ ...angebotA, listeneinkaufspreis: Number(e.target.value) })}
-                    style={{ width: '100px', textAlign: 'right', padding: '0.2rem', borderRadius: '0.3rem', border: '1px solid var(--border-color, #334155)' }}
-                  />
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#ef4444' }}>
-                  <span>- Lieferantenrabatt:</span>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                    <input
-                      type="number"
-                      value={angebotA.rabattProzent}
-                      onChange={(e) => setAngebotA({ ...angebotA, rabattProzent: Number(e.target.value) })}
-                      style={{ width: '45px', textAlign: 'right', padding: '0.2rem', borderRadius: '0.3rem', border: '1px solid var(--border-color, #334155)' }}
-                    />
-                    <span>% (-{resA.rabattBetrag.toFixed(2)} €)</span>
-                  </div>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 600, borderTop: '1px solid var(--border-color, #334155)', paddingTop: '0.35rem' }}>
-                  <span>= Zieleinkaufspreis:</span>
-                  <span>{resA.zieleinkaufspreis.toFixed(2)} €</span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#ef4444' }}>
-                  <span>- Lieferantenskonto:</span>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                    <input
-                      type="number"
-                      value={angebotA.skontoProzent}
-                      onChange={(e) => setAngebotA({ ...angebotA, skontoProzent: Number(e.target.value) })}
-                      style={{ width: '45px', textAlign: 'right', padding: '0.2rem', borderRadius: '0.3rem', border: '1px solid var(--border-color, #334155)' }}
-                    />
-                    <span>% (-{resA.skontoBetrag.toFixed(2)} €)</span>
-                  </div>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 600, borderTop: '1px solid var(--border-color, #334155)', paddingTop: '0.35rem' }}>
-                  <span>= Bareinkaufspreis:</span>
-                  <span>{resA.bareinkaufspreis.toFixed(2)} €</span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#10b981' }}>
-                  <span>+ Bezugskosten:</span>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                    <span>+</span>
-                    <input
-                      type="number"
-                      value={angebotA.bezugskosten}
-                      onChange={(e) => setAngebotA({ ...angebotA, bezugskosten: Number(e.target.value) })}
-                      style={{ width: '70px', textAlign: 'right', padding: '0.2rem', borderRadius: '0.3rem', border: '1px solid var(--border-color, #334155)' }}
-                    />
-                    <span>€</span>
-                  </div>
-                </div>
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  fontWeight: 700,
-                  fontSize: '1.1rem',
-                  borderTop: '2px solid var(--border-color, #334155)',
-                  paddingTop: '0.5rem',
-                  color: resA.bezugspreis <= resB.bezugspreis ? '#10b981' : 'inherit'
-                }}>
-                  <span>= Bezugspreis (Einstandspreis):</span>
-                  <span>{resA.bezugspreis.toFixed(2)} €</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Anbieter B */}
-            <div style={{
-              background: 'rgba(255, 255, 255, 0.02)',
-              padding: '1.25rem',
-              borderRadius: '0.75rem',
-              border: resB.bezugspreis < resA.bezugspreis ? '2px solid #10b981' : '1px solid var(--border-color, #334155)'
-            }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                <h3 style={{ margin: 0, fontSize: '1.1rem', color: '#8b5cf6' }}>{angebotB.anbieterName}</h3>
-                {resB.bezugspreis < resA.bezugspreis && (
-                  <span style={{ background: '#10b981', color: '#fff', fontSize: '0.75rem', padding: '0.2rem 0.5rem', borderRadius: '1rem', fontWeight: 700 }}>
-                    GÜNSTIGSTER
-                  </span>
-                )}
-              </div>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.9rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span>Listeneinkaufspreis:</span>
-                  <input
-                    type="number"
-                    value={angebotB.listeneinkaufspreis}
-                    onChange={(e) => setAngebotB({ ...angebotB, listeneinkaufspreis: Number(e.target.value) })}
-                    style={{ width: '100px', textAlign: 'right', padding: '0.2rem', borderRadius: '0.3rem', border: '1px solid var(--border-color, #334155)' }}
-                  />
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#ef4444' }}>
-                  <span>- Lieferantenrabatt:</span>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                    <input
-                      type="number"
-                      value={angebotB.rabattProzent}
-                      onChange={(e) => setAngebotB({ ...angebotB, rabattProzent: Number(e.target.value) })}
-                      style={{ width: '45px', textAlign: 'right', padding: '0.2rem', borderRadius: '0.3rem', border: '1px solid var(--border-color, #334155)' }}
-                    />
-                    <span>% (-{resB.rabattBetrag.toFixed(2)} €)</span>
-                  </div>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 600, borderTop: '1px solid var(--border-color, #334155)', paddingTop: '0.35rem' }}>
-                  <span>= Zieleinkaufspreis:</span>
-                  <span>{resB.zieleinkaufspreis.toFixed(2)} €</span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#ef4444' }}>
-                  <span>- Lieferantenskonto:</span>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                    <input
-                      type="number"
-                      value={angebotB.skontoProzent}
-                      onChange={(e) => setAngebotB({ ...angebotB, skontoProzent: Number(e.target.value) })}
-                      style={{ width: '45px', textAlign: 'right', padding: '0.2rem', borderRadius: '0.3rem', border: '1px solid var(--border-color, #334155)' }}
-                    />
-                    <span>% (-{resB.skontoBetrag.toFixed(2)} €)</span>
-                  </div>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 600, borderTop: '1px solid var(--border-color, #334155)', paddingTop: '0.35rem' }}>
-                  <span>= Bareinkaufspreis:</span>
-                  <span>{resB.bareinkaufspreis.toFixed(2)} €</span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#10b981' }}>
-                  <span>+ Bezugskosten:</span>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                    <span>+</span>
-                    <input
-                      type="number"
-                      value={angebotB.bezugskosten}
-                      onChange={(e) => setAngebotB({ ...angebotB, bezugskosten: Number(e.target.value) })}
-                      style={{ width: '70px', textAlign: 'right', padding: '0.2rem', borderRadius: '0.3rem', border: '1px solid var(--border-color, #334155)' }}
-                    />
-                    <span>€</span>
-                  </div>
-                </div>
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  fontWeight: 700,
-                  fontSize: '1.1rem',
-                  borderTop: '2px solid var(--border-color, #334155)',
-                  paddingTop: '0.5rem',
-                  color: resB.bezugspreis < resA.bezugspreis ? '#10b981' : 'inherit'
-                }}>
-                  <span>= Bezugspreis (Einstandspreis):</span>
-                  <span>{resB.bezugspreis.toFixed(2)} €</span>
-                </div>
-              </div>
-            </div>
+            <AngebotKalkulation
+              angebot={angebotA}
+              ergebnis={resA}
+              onChange={setAngebotA}
+              titelFarbe="#3b82f6"
+              istGuenstigster={resA.bezugspreis <= resB.bezugspreis}
+            />
+            <AngebotKalkulation
+              angebot={angebotB}
+              ergebnis={resB}
+              onChange={setAngebotB}
+              titelFarbe="#8b5cf6"
+              istGuenstigster={resB.bezugspreis < resA.bezugspreis}
+            />
           </div>
 
           <div style={{
@@ -692,138 +516,104 @@ export default function WisoAngebotsvergleichLab({ onRewardXP }) {
 
       {/* TAB 4: IHK PRÜFUNGS-DRILL */}
       {activeTab === 'drill' && (
-        <div style={{
-          background: 'var(--bg-card, #1e293b)',
-          padding: '1.5rem',
-          borderRadius: '1rem',
-          border: '1px solid var(--border-color, #334155)'
-        }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
-            <div>
-              <h2 style={{ fontSize: '1.2rem', fontWeight: 600, margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Award size={22} color="#10b981" />
-                IHK Prüfungs-Drill: WISO & Beschaffung
-              </h2>
-              <p style={{ margin: '0.25rem 0 0 0', color: 'var(--text-muted, #94a3b8)', fontSize: '0.85rem' }}>
-                Beantworte mindestens 3 von 4 Fragen korrekt zur Freischaltung von <strong>+55 XP</strong>.
-              </p>
-            </div>
-            {xpClaimed && (
-              <span style={{ background: '#10b981', color: '#fff', padding: '0.35rem 0.75rem', borderRadius: '1rem', fontWeight: 600, fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                <CheckCircle2 size={16} /> +55 XP Erhalten!
-              </span>
-            )}
-          </div>
+        <IhkDrillPanel
+          title="IHK Prüfungs-Drill: WISO & Beschaffung"
+          questions={WISO_ANGEBOTSVERGLEICH_DRILL}
+          accentColor="#10b981"
+          selectedBg="rgba(59, 130, 246, 0.2)"
+          selectedBorderColor="#3b82f6"
+          xpClaimed={xpClaimed}
+          onEvaluate={handleEvaluateDrill}
+        />
+      )}
+    </div>
+  );
+}
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '1.5rem' }}>
-            {WISO_ANGEBOTSVERGLEICH_DRILL.map((q, qIndex) => {
-              const selectedIdx = drillAnswers[q.id];
-              return (
-                <div
-                  key={q.id}
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.02)',
-                    padding: '1.25rem',
-                    borderRadius: '0.75rem',
-                    border: '1px solid var(--border-color, #334155)'
-                  }}
-                >
-                  <div style={{ fontWeight: 600, fontSize: '0.95rem', marginBottom: '0.75rem' }}>
-                    {qIndex + 1}. {q.frage}
-                  </div>
+const zahlenfeld = (breite) => ({
+  width: breite,
+  textAlign: 'right',
+  padding: '0.2rem',
+  borderRadius: '0.3rem',
+  border: '1px solid var(--border-color, #334155)'
+});
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.5rem' }}>
-                    {q.optionen.map((opt, optIdx) => {
-                      const isSelected = selectedIdx === optIdx;
-                      let btnBg = 'rgba(255, 255, 255, 0.03)';
-                      let btnBorder = '1px solid var(--border-color, #334155)';
+const zwischensumme = {
+  display: 'flex',
+  justifyContent: 'space-between',
+  fontWeight: 600,
+  borderTop: '1px solid var(--border-color, #334155)',
+  paddingTop: '0.35rem'
+};
 
-                      if (showDrillFeedback) {
-                        if (optIdx === q.korrektIndex) {
-                          btnBg = 'rgba(16, 185, 129, 0.2)';
-                          btnBorder = '1px solid #10b981';
-                        } else if (isSelected) {
-                          btnBg = 'rgba(239, 68, 68, 0.2)';
-                          btnBorder = '1px solid #ef4444';
-                        }
-                      } else if (isSelected) {
-                        btnBg = 'rgba(59, 130, 246, 0.2)';
-                        btnBorder = '1px solid #3b82f6';
-                      }
+/** Kalkulationsschema eines Anbieters: LEP → ZEP → BEP → Bezugspreis. */
+function AngebotKalkulation({ angebot, ergebnis, onChange, titelFarbe, istGuenstigster }) {
+  const setFeld = (feld) => (e) => onChange({ ...angebot, [feld]: Number(e.target.value) });
 
-                      return (
-                        <button
-                          key={optIdx}
-                          onClick={() => handleDrillSelect(q.id, optIdx)}
-                          style={{
-                            textAlign: 'left',
-                            padding: '0.65rem 1rem',
-                            borderRadius: '0.5rem',
-                            background: btnBg,
-                            border: btnBorder,
-                            color: 'inherit',
-                            cursor: showDrillFeedback ? 'default' : 'pointer',
-                            fontSize: '0.85rem',
-                            transition: 'all 0.15s ease'
-                          }}
-                        >
-                          {String.fromCharCode(65 + optIdx)}) {opt}
-                        </button>
-                      );
-                    })}
-                  </div>
+  return (
+    <div style={{
+      background: 'rgba(255, 255, 255, 0.02)',
+      padding: '1.25rem',
+      borderRadius: '0.75rem',
+      border: istGuenstigster ? '2px solid #10b981' : '1px solid var(--border-color, #334155)'
+    }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+        <h3 style={{ margin: 0, fontSize: '1.1rem', color: titelFarbe }}>{angebot.anbieterName}</h3>
+        {istGuenstigster && (
+          <span style={{ background: '#10b981', color: '#fff', fontSize: '0.75rem', padding: '0.2rem 0.5rem', borderRadius: '1rem', fontWeight: 700 }}>
+            GÜNSTIGSTER
+          </span>
+        )}
+      </div>
 
-                  {showDrillFeedback && (
-                    <div style={{ marginTop: '0.75rem', padding: '0.75rem', borderRadius: '0.5rem', background: 'rgba(255, 255, 255, 0.05)', fontSize: '0.85rem' }}>
-                      <strong style={{ color: selectedIdx === q.korrektIndex ? '#10b981' : '#f59e0b' }}>
-                        {selectedIdx === q.korrektIndex ? '✓ Richtig!' : '✗ Lösung & Erklärung:'}
-                      </strong>{' '}
-                      {q.erklaerung}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-
-          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-            {!showDrillFeedback ? (
-              <button
-                onClick={handleCheckDrill}
-                disabled={Object.keys(drillAnswers).length < WISO_ANGEBOTSVERGLEICH_DRILL.length}
-                style={{
-                  padding: '0.6rem 1.25rem',
-                  borderRadius: '0.5rem',
-                  border: 'none',
-                  background: Object.keys(drillAnswers).length < WISO_ANGEBOTSVERGLEICH_DRILL.length ? 'var(--border-color, #334155)' : '#10b981',
-                  color: '#fff',
-                  fontWeight: 600,
-                  cursor: Object.keys(drillAnswers).length < WISO_ANGEBOTSVERGLEICH_DRILL.length ? 'not-allowed' : 'pointer',
-                  fontSize: '0.9rem'
-                }}
-              >
-                Antworten prüfen & XP sichern
-              </button>
-            ) : (
-              <button
-                onClick={handleResetDrill}
-                style={{
-                  padding: '0.6rem 1.25rem',
-                  borderRadius: '0.5rem',
-                  border: '1px solid var(--border-color, #334155)',
-                  background: 'transparent',
-                  color: 'inherit',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  fontSize: '0.9rem'
-                }}
-              >
-                Drill wiederholen
-              </button>
-            )}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.9rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <span>Listeneinkaufspreis:</span>
+          <input type="number" value={angebot.listeneinkaufspreis} onChange={setFeld('listeneinkaufspreis')} style={zahlenfeld('100px')} />
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#ef4444' }}>
+          <span>- Lieferantenrabatt:</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+            <input type="number" value={angebot.rabattProzent} onChange={setFeld('rabattProzent')} style={zahlenfeld('45px')} />
+            <span>% (-{ergebnis.rabattBetrag.toFixed(2)} €)</span>
           </div>
         </div>
-      )}
+        <div style={zwischensumme}>
+          <span>= Zieleinkaufspreis:</span>
+          <span>{ergebnis.zieleinkaufspreis.toFixed(2)} €</span>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#ef4444' }}>
+          <span>- Lieferantenskonto:</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+            <input type="number" value={angebot.skontoProzent} onChange={setFeld('skontoProzent')} style={zahlenfeld('45px')} />
+            <span>% (-{ergebnis.skontoBetrag.toFixed(2)} €)</span>
+          </div>
+        </div>
+        <div style={zwischensumme}>
+          <span>= Bareinkaufspreis:</span>
+          <span>{ergebnis.bareinkaufspreis.toFixed(2)} €</span>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#10b981' }}>
+          <span>+ Bezugskosten:</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+            <span>+</span>
+            <input type="number" value={angebot.bezugskosten} onChange={setFeld('bezugskosten')} style={zahlenfeld('70px')} />
+            <span>€</span>
+          </div>
+        </div>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          fontWeight: 700,
+          fontSize: '1.1rem',
+          borderTop: '2px solid var(--border-color, #334155)',
+          paddingTop: '0.5rem',
+          color: istGuenstigster ? '#10b981' : 'inherit'
+        }}>
+          <span>= Bezugspreis (Einstandspreis):</span>
+          <span>{ergebnis.bezugspreis.toFixed(2)} €</span>
+        </div>
+      </div>
     </div>
   );
 }

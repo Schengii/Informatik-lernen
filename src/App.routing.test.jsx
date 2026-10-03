@@ -6,16 +6,14 @@
 //
 // Ergänzt `allLabsSmoke.test.jsx` (rendert jede Content-Komponente ISOLIERT
 // mit generischen No-Op-Props) um die eine Sache, die dieser Test NICHT
-// abdeckt: dass App.jsx die Lab-Routing-Tabelle (`activeLabElement`) korrekt
-// verdrahtet - richtige Komponente pro Tab-ID, keine doppelten/schattierten
-// `case`-Zweige, keine verwaisten Tab-IDs. Genau diese Verdrahtung wurde beim
-// Umbau der ~150 einzelnen `{activeTab === 'x' && (...)}`-Blöcke in eine
-// Switch-Tabelle mechanisch aus dem Original übernommen; dieser Test ist das
-// Sicherheitsnetz dafür UND für jede zukünftige Änderung an der Tabelle.
+// abdeckt: dass App.jsx das Lab-Routing (`activeLabElement` + Lab-Registry)
+// korrekt verdrahtet - richtige Komponente pro Tab-ID, keine verwaisten
+// Tab-IDs. Die Verdrahtung wurde zweimal mechanisch umgebaut (Einzelblöcke ->
+// Switch-Tabelle -> `src/data/labRegistry.js`); dieser Test ist das
+// Sicherheitsnetz dafür UND für jede zukünftige Änderung.
 //
-// Die Tab-ID-Liste wird direkt aus dem App.jsx-Quelltext extrahiert (statt
-// hier hartkodiert zu werden), damit der Test automatisch mitwächst, wenn
-// neue Tabs/Aliase ergänzt werden.
+// Die Tab-ID-Liste wird aus dem App.jsx-Quelltext und der Registry abgeleitet
+// (statt hier hartkodiert zu werden), damit der Test automatisch mitwächst.
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import React from 'react';
@@ -23,6 +21,7 @@ import { describe, it, expect, afterEach, vi } from 'vitest';
 import { render, cleanup, screen, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import App from './App.jsx';
+import { LAB_REGISTRY } from './data/labRegistry';
 
 afterEach(() => {
   cleanup();
@@ -37,9 +36,11 @@ const appSource = readFileSync(join(process.cwd(), 'src', 'App.jsx'), 'utf8')
   .split('\n')
   .filter((line) => !line.trimStart().startsWith('//'))
   .join('\n');
-const allTabIds = [...new Set(
-  [...appSource.matchAll(/activeTab === '([\w]+)'/g)].map((m) => m[1])
-)];
+const allTabIds = [...new Set([
+  ...[...appSource.matchAll(/activeTab === '([\w]+)'/g)].map((m) => m[1]),
+  // Die meisten Labs werden über die zentrale Registry geroutet
+  ...LAB_REGISTRY.flatMap((entry) => entry.tabs)
+])];
 
 describe('App.jsx Routing: jeder bekannte Tab lädt ohne unbehandelten Fehler', () => {
   it('hat Tab-IDs aus dem Quelltext extrahiert (Regex-Extraktion funktioniert)', () => {

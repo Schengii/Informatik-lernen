@@ -36,281 +36,71 @@ const CliTerminalLab = lazy(() => import('./components/Games/CliTerminalLab'));
 const BossBattleGame = lazy(() => import('./components/Games/BossBattleGame'));
 const CodeTypingSpeedrun = lazy(() => import('./components/Games/CodeTypingSpeedrun'));
 
-const LanguageAcademy = lazy(() => import('./components/Content/LanguageAcademy'));
-const AiPromptLab = lazy(() => import('./components/Content/AiPromptLab'));
-const ToolingSetupGuide = lazy(() => import('./components/Content/ToolingSetupGuide'));
-const AppWorkshop = lazy(() => import('./components/Content/AppWorkshop'));
-const KnowledgeQuizArena = lazy(() => import('./components/Content/KnowledgeQuizArena'));
 const CareerRoadmap = lazy(() => import('./components/Content/CareerRoadmap'));
-const BigOVisualizer = lazy(() => import('./components/Content/BigOVisualizer'));
-const ArchitectureVisualizer = lazy(() => import('./components/Content/ArchitectureVisualizer'));
-const DesignPatternsLab = lazy(() => import('./components/Content/DesignPatternsLab'));
-const TddUnitTestLab = lazy(() => import('./components/Content/TddUnitTestLab'));
-const WebComponentsHub = lazy(() => import('./components/Content/WebComponentsHub'));
-const FisiLernfelderHub = lazy(() => import('./components/Content/FisiLernfelderHub'));
-const AiBusinessMasterclass = lazy(() => import('./components/Content/AiBusinessMasterclass'));
-const ItPodcastHub = lazy(() => import('./components/Content/ItPodcastHub'));
 
-const DockerLab = lazy(() => import('./components/Content/DockerLab'));
-const CloudDevOpsLab = lazy(() => import('./components/Content/CloudDevOpsLab'));
-const RedBlueTeamLab = lazy(() => import('./components/Content/RedBlueTeamLab'));
-const ApiBenchStudio = lazy(() => import('./components/Content/ApiBenchStudio'));
 
-const KubernetesLab = lazy(() => import('./components/Content/KubernetesLab'));
-const RagAiSimulator = lazy(() => import('./components/Content/RagAiSimulator'));
-const WasmRustLab = lazy(() => import('./components/Content/WasmRustLab'));
-const KafkaEventLab = lazy(() => import('./components/Content/KafkaEventLab'));
 
-const OauthOidcLab = lazy(() => import('./components/Content/OauthOidcLab'));
-const WebSocketsLab = lazy(() => import('./components/Content/WebSocketsLab'));
-const PerformanceProfilingLab = lazy(() => import('./components/Content/PerformanceProfilingLab'));
-const AnfaengerGuideHub = lazy(() => import('./components/Content/AnfaengerGuideHub'));
-const SubnettingLab = lazy(() => import('./components/Content/SubnettingLab'));
-const GitLab = lazy(() => import('./components/Content/GitLab'));
-const AlgoPlaygroundLab = lazy(() => import('./components/Content/AlgoPlaygroundLab'));
-const PythonWasmLab = lazy(() => import('./components/Content/PythonWasmLab'));
-const PacketTracerLab = lazy(() => import('./components/Content/PacketTracerLab'));
-const LeitnerFlashcardLab = lazy(() => import('./components/Content/LeitnerFlashcardLab'));
-const MonacoStudioLab = lazy(() => import('./components/Content/MonacoStudioLab'));
-const CloudDesignerLab = lazy(() => import('./components/Content/CloudDesignerLab'));
-const ApiMockStudioLab = lazy(() => import('./components/Content/ApiMockStudioLab'));
-const CtfChallengeLab = lazy(() => import('./components/Content/CtfChallengeLab'));
-const CiCdPipelineLab = lazy(() => import('./components/Content/CiCdPipelineLab'));
-const DockerComposeLab = lazy(() => import('./components/Content/DockerComposeLab'));
-const SystemDesignLab = lazy(() => import('./components/Content/SystemDesignLab'));
-const RegexMasterLab = lazy(() => import('./components/Content/RegexMasterLab'));
-const WebSocketProtocolLab = lazy(() => import('./components/Content/WebSocketProtocolLab'));
-const VectorSearchLab = lazy(() => import('./components/Content/VectorSearchLab'));
-const BigOBenchmarkLab = lazy(() => import('./components/Content/BigOBenchmarkLab'));
-const WasmCompilerPlaygroundLab = lazy(() => import('./components/Content/WasmCompilerPlaygroundLab'));
 
 // Neue Labs, Simulatoren & Kampagnen Hub
-const DataStructuresLab = lazy(() => import('./components/Content/DataStructuresLab'));
-const CiCdWorkflowLab = lazy(() => import('./components/Content/CiCdWorkflowLab'));
 // Lazy: zieht examData (Fragenkatalog) nicht in den Haupt-Chunk
 const MistakeReviewWidget = lazy(() => import('./components/Gamification/MistakeReviewWidget'));
 const LabsDashboard = lazy(() => import('./components/Content/LabsDashboard'));
-const IhkOralExamSimulator = lazy(() => import('./components/Content/IhkOralExamSimulator'));
-const SqlJoinVisualizerLab = lazy(() => import('./components/Content/SqlJoinVisualizerLab'));
 const CampaignQuestHub = lazy(() => import('./components/Content/CampaignQuestHub'));
-const GitBranchGraphLab = lazy(() => import('./components/Content/GitBranchGraphLab'));
-const CpuArchitectureLab = lazy(() => import('./components/Content/CpuArchitectureLab'));
-const SqlQueryOptimizerLab = lazy(() => import('./components/Content/SqlQueryOptimizerLab'));
 
 // Next-Gen High-Value Labs & Generatoren
-const CodeExecutionDebuggerLab = lazy(() => import('./components/Content/CodeExecutionDebuggerLab'));
-const IhkProjectDocumentationGenerator = lazy(() => import('./components/Content/IhkProjectDocumentationGenerator'));
-const CleanCodeReviewLab = lazy(() => import('./components/Content/CleanCodeReviewLab'));
-const DnsHttpLifecycleLab = lazy(() => import('./components/Content/DnsHttpLifecycleLab'));
-const SqlTransactionLab = lazy(() => import('./components/Content/SqlTransactionLab'));
-const CiCdMatrixLinterLab = lazy(() => import('./components/Content/CiCdMatrixLinterLab'));
-const PostgresExplainVisualizerLab = lazy(() => import('./components/Content/PostgresExplainVisualizerLab'));
-const WebRtcSignalingLab = lazy(() => import('./components/Content/WebRtcSignalingLab'));
-const GraphqlResolverLab = lazy(() => import('./components/Content/GraphqlResolverLab'));
-const LinuxPermissionsLab = lazy(() => import('./components/Content/LinuxPermissionsLab'));
-const CryptoKeygenLab = lazy(() => import('./components/Content/CryptoKeygenLab'));
-const RedisCachingLab = lazy(() => import('./components/Content/RedisCachingLab'));
-const CircuitBreakerLab = lazy(() => import('./components/Content/CircuitBreakerLab'));
-const K8sCniOverlayLab = lazy(() => import('./components/Content/K8sCniOverlayLab'));
-const JwksRotationLab = lazy(() => import('./components/Content/JwksRotationLab'));
-const PostgresMvccLab = lazy(() => import('./components/Content/PostgresMvccLab'));
-const Http3QuicLab = lazy(() => import('./components/Content/Http3QuicLab'));
 
 // Brandneue Fach-Labs & PDF-Spickzettel Generator
-const WisoKalkulationLab = lazy(() => import('./components/Content/WisoKalkulationLab'));
-const Ieee754FloatingPointLab = lazy(() => import('./components/Content/Ieee754FloatingPointLab'));
-const Ipv6RoutingLab = lazy(() => import('./components/Content/Ipv6RoutingLab'));
-const OwaspExploitLab = lazy(() => import('./components/Content/OwaspExploitLab'));
-const NeuralNetVisualizerLab = lazy(() => import('./components/Content/NeuralNetVisualizerLab'));
-const IhkCheatSheetPdfGenerator = lazy(() => import('./components/Content/IhkCheatSheetPdfGenerator'));
 
 // Next-Gen Multiplayer & Coding Studios
-const P2pQuizDuellLab = lazy(() => import('./components/Content/P2pQuizDuellLab'));
-const SqliteWasmStudioLab = lazy(() => import('./components/Content/SqliteWasmStudioLab'));
-const LiveCodingChallengeStudio = lazy(() => import('./components/Content/LiveCodingChallengeStudio'));
-const CustomChallengeCreatorLab = lazy(() => import('./components/Content/CustomChallengeCreatorLab'));
-const GitMergeConflictLab = lazy(() => import('./components/Content/GitMergeConflictLab'));
-const TcoRoiCalculatorLab = lazy(() => import('./components/Content/TcoRoiCalculatorLab'));
-const RegexRailroadVisualizerLab = lazy(() => import('./components/Content/RegexRailroadVisualizerLab'));
-const WebhookInspectorLab = lazy(() => import('./components/Content/WebhookInspectorLab'));
-const VoiceQuizStudioLab = lazy(() => import('./components/Content/VoiceQuizStudioLab'));
-const AgileScrumSimulatorLab = lazy(() => import('./components/Content/AgileScrumSimulatorLab'));
-const GraphqlExplorerStudioLab = lazy(() => import('./components/Content/GraphqlExplorerStudioLab'));
-const BleSensorSimulatorLab = lazy(() => import('./components/Content/BleSensorSimulatorLab'));
 
 // v3.8.0 Flagship Simulatoren, Architecture & IHK Power Studios
-const OsProcessSchedulerLab = lazy(() => import('./components/Content/OsProcessSchedulerLab'));
-const PacketSnifferLab = lazy(() => import('./components/Content/PacketSnifferLab'));
-const ErdDesignerLab = lazy(() => import('./components/Content/ErdDesignerLab'));
-const TransformerAttentionLab = lazy(() => import('./components/Content/TransformerAttentionLab'));
-const CloudArchitectureCanvasLab = lazy(() => import('./components/Content/CloudArchitectureCanvasLab'));
-const IhkGradeCalculatorLab = lazy(() => import('./components/Content/IhkGradeCalculatorLab'));
-const RackConfiguratorLab = lazy(() => import('./components/Content/RackConfiguratorLab'));
-const ItsmSimulatorLab = lazy(() => import('./components/Content/ItsmSimulatorLab'));
-const Sm2SpacedRepetitionLab = lazy(() => import('./components/Content/Sm2SpacedRepetitionLab'));
-const PersonalNotebookLab = lazy(() => import('./components/Content/PersonalNotebookLab'));
 
 // v3.9.0 Cryptography & WebAssembly
-const ZkpCryptoVisualizerLab = lazy(() => import('./components/Content/ZkpCryptoVisualizerLab'));
 
 // v3.10.0 Next-Gen OAuth PKCE, K8s Topology & WebRTC Mesh Studios
-const OauthPkceStudioLab = lazy(() => import('./components/Content/OauthPkceStudioLab'));
-const KubernetesClusterStudioLab = lazy(() => import('./components/Content/KubernetesClusterStudioLab'));
-const WebRtcPeerStudioLab = lazy(() => import('./components/Content/WebRtcPeerStudioLab'));
 
 // v3.11.0 Next-Gen Memory, Pool, Dunning & Service Mesh
-const LinuxMemoryLab = lazy(() => import('./components/Content/LinuxMemoryLab'));
-const PostgresPoolLab = lazy(() => import('./components/Content/PostgresPoolLab'));
-const WisoDunningLab = lazy(() => import('./components/Content/WisoDunningLab'));
-const ServiceMeshLab = lazy(() => import('./components/Content/ServiceMeshLab'));
 
 // v3.12.0 Next-Gen Container, Contribution Margin & Token Exchange
-const LinuxContainerLab = lazy(() => import('./components/Content/LinuxContainerLab'));
-const WisoContributionMarginLab = lazy(() => import('./components/Content/WisoContributionMarginLab'));
-const OauthTokenExchangeLab = lazy(() => import('./components/Content/OauthTokenExchangeLab'));
 
 // v3.13.0 Next-Gen eBPF, Postgres Flamegraph, ABC/XYZ & WireGuard ZTNA
-const EbpfXdpLab = lazy(() => import('./components/Content/EbpfXdpLab'));
-const PostgresFlamegraphLab = lazy(() => import('./components/Content/PostgresFlamegraphLab'));
-const WisoAbcXyzLab = lazy(() => import('./components/Content/WisoAbcXyzLab'));
-const WireguardZtnaLab = lazy(() => import('./components/Content/WireguardZtnaLab'));
 
 // v3.14.0 Next-Gen PromQL, Event-Sourcing, Loan & SFU
-const PromqlAlertLab = lazy(() => import('./components/Content/PromqlAlertLab'));
-const EventSourcingLab = lazy(() => import('./components/Content/EventSourcingLab'));
-const WisoLoanCollateralLab = lazy(() => import('./components/Content/WisoLoanCollateralLab'));
-const WebrtcSfuLab = lazy(() => import('./components/Content/WebrtcSfuLab'));
 
 // v3.15.0 Next-Gen BPFtrace, Postgres WAL, Andler & OpenTelemetry
-const BpftraceLab = lazy(() => import('./components/Content/BpftraceLab'));
-const PostgresWalLab = lazy(() => import('./components/Content/PostgresWalLab'));
-const WisoAndlerLab = lazy(() => import('./components/Content/WisoAndlerLab'));
-const OpentelemetryTracingLab = lazy(() => import('./components/Content/OpentelemetryTracingLab'));
 
 // v3.16.0 Next-Gen VXLAN, Partitioning, Interest & Kafka Rebalance
-const LinuxBridgeVxlanLab = lazy(() => import('./components/Content/LinuxBridgeVxlanLab'));
-const PostgresPartitioningLab = lazy(() => import('./components/Content/PostgresPartitioningLab'));
-const WisoInterestCalculationsLab = lazy(() => import('./components/Content/WisoInterestCalculationsLab'));
-const KafkaRebalanceLab = lazy(() => import('./components/Content/KafkaRebalanceLab'));
 
 // v3.17.0 Next-Gen BGP Anycast, Postgres Fulltext, NPV & gRPC Protobuf
-const BgpAnycastLab = lazy(() => import('./components/Content/BgpAnycastLab'));
-const TlsHandshakeLab = lazy(() => import('./components/Content/TlsHandshakeLab'));
-const JwtAttackLab = lazy(() => import('./components/Content/JwtAttackLab'));
-const CorsPitfallsLab = lazy(() => import('./components/Content/CorsPitfallsLab'));
-const PostgresFulltextLab = lazy(() => import('./components/Content/PostgresFulltextLab'));
-const WisoCapitalValueLab = lazy(() => import('./components/Content/WisoCapitalValueLab'));
-const GrpcProtobufLab = lazy(() => import('./components/Content/GrpcProtobufLab'));
 
 // v3.18.0 IHK Power Labs: NWA, RAID, VLSM & Projektantrag
-const NwaScoringLab = lazy(() => import('./components/Content/NwaScoringLab'));
-const RaidCalculatorLab = lazy(() => import('./components/Content/RaidCalculatorLab'));
-const VlsmSubnetLab = lazy(() => import('./components/Content/VlsmSubnetLab'));
-const IhkProjectProposalLab = lazy(() => import('./components/Content/IhkProjectProposalLab'));
 // v3.30.0 IHK CPM, UML & IaC Studios
-const CpmNetworkLab = lazy(() => import('./components/Content/CpmNetworkLab'));
-const UmlDiagramLab = lazy(() => import('./components/Content/UmlDiagramLab'));
-const TerraformLab = lazy(() => import('./components/Content/TerraformLab'));
 // v3.31.0 IHK Audio Fachgespräch, Ansible & Web Worker
-const IhkOralDefenseStudioLab = lazy(() => import('./components/Content/IhkOralDefenseStudioLab'));
-const AnsiblePlaybookLab = lazy(() => import('./components/Content/AnsiblePlaybookLab'));
-const ComputationWorkerLab = lazy(() => import('./components/Content/ComputationWorkerLab'));
 // v3.32.0 IHK Präsentations-Timer & GitHub Actions CI/CD
-const IhkPresentationTimerLab = lazy(() => import('./components/Content/IhkPresentationTimerLab'));
-const GithubActionsWorkflowLab = lazy(() => import('./components/Content/GithubActionsWorkflowLab'));
 // v3.33.0 IHK Projekt-Gantt & WebAssembly SIMD Studio
-const IhkProjectGanttLab = lazy(() => import('./components/Content/IhkProjectGanttLab'));
-const WasmSimdStudioLab = lazy(() => import('./components/Content/WasmSimdStudioLab'));
 // v3.34.0 IHK Wirtschaftlichkeit, WebAuthn Passkeys & Systemd Cgroups
-const IhkWirtschaftlichkeitLab = lazy(() => import('./components/Content/IhkWirtschaftlichkeitLab'));
-const WebAuthnPasskeyLab = lazy(() => import('./components/Content/WebAuthnPasskeyLab'));
-const SystemdServiceLab = lazy(() => import('./components/Content/SystemdServiceLab'));
 // v3.35.0 TLS 1.3 Replay, IHK Risikoanalyse, eBPF Cilium & Postgres Index Types
-const TlsReplayLab = lazy(() => import('./components/Content/TlsReplayLab'));
-const IhkRiskAnalysisLab = lazy(() => import('./components/Content/IhkRiskAnalysisLab'));
-const EbpfCiliumLab = lazy(() => import('./components/Content/EbpfCiliumLab'));
-const PostgresIndexTypesLab = lazy(() => import('./components/Content/PostgresIndexTypesLab'));
 // v3.36.0 DNSSEC, IHK Burndown, Linux Btrfs CoW & OpenAPI Contract
-const DnssecValidationLab = lazy(() => import('./components/Content/DnssecValidationLab'));
-const IhkAgileBurndownLab = lazy(() => import('./components/Content/IhkAgileBurndownLab'));
-const LinuxCowSnapshotLab = lazy(() => import('./components/Content/LinuxCowSnapshotLab'));
-const OpenApiContractLab = lazy(() => import('./components/Content/OpenApiContractLab'));
-const DataLineageEtlLab = lazy(() => import('./components/Content/DataLineageEtlLab'));
-const IhkTomCatalogLab = lazy(() => import('./components/Content/IhkTomCatalogLab'));
-const WisoLaborLawLab = lazy(() => import('./components/Content/WisoLaborLawLab'));
-const IhkDpiaLab = lazy(() => import('./components/Content/IhkDpiaLab'));
 // v3.43.0 Flagship Labs: BSI IT-Grundschutz, IPv6 SLAAC NDP, WISO Payroll, Study Plan & Certificate
-const BsiGrundschutzLab = lazy(() => import('./components/Content/BsiGrundschutzLab'));
-const Ipv6NdpLab = lazy(() => import('./components/Content/Ipv6NdpLab'));
-const WisoPayrollLab = lazy(() => import('./components/Content/WisoPayrollLab'));
 const IhkStudyPlanLab = lazy(() => import('./components/Content/IhkStudyPlanLab'));
-const IhkCertificatePdfLab = lazy(() => import('./components/Content/IhkCertificatePdfLab'));
 // v3.44.0 Clean Architecture, Linux NetNS, Multi-Contribution Margin & IHK Weakness Audit
-const CleanArchLab = lazy(() => import('./components/Content/CleanArchLab'));
-const LinuxNetNsLab = lazy(() => import('./components/Content/LinuxNetNsLab'));
-const WisoMultiContributionLab = lazy(() => import('./components/Content/WisoMultiContributionLab'));
 const IhkWeaknessAuditLab = lazy(() => import('./components/Content/IhkWeaknessAuditLab'));
 // v3.45.0 OAuth Revocation, RAID 6 Galois, SQLite Worker & Zuschlagskalkulation
-const OauthRevocationIntrospectionLab = lazy(() => import('./components/Content/OauthRevocationIntrospectionLab'));
-const Raid6GaloisLab = lazy(() => import('./components/Content/Raid6GaloisLab'));
-const SqliteWorkerStudioLab = lazy(() => import('./components/Content/SqliteWorkerStudioLab'));
-const WisoZuschlagskalkulationLab = lazy(() => import('./components/Content/WisoZuschlagskalkulationLab'));
 // v3.46.0 Linux Capabilities, BGP Path Selection, Maschinenstundensatz & LLM RAG Chunking
-const LinuxCapSeccompLab = lazy(() => import('./components/Content/LinuxCapSeccompLab'));
-const BgpPathSelectionLab = lazy(() => import('./components/Content/BgpPathSelectionLab'));
-const WisoMaschinenstundensatzLab = lazy(() => import('./components/Content/WisoMaschinenstundensatzLab'));
-const LlmRagChunkingLab = lazy(() => import('./components/Content/LlmRagChunkingLab'));
 // v3.47.0 Linux PSI Cgroups, NWA Sensitivity, WebRTC ICE & WISO Leverage
-const LinuxPsiCgroupLab = lazy(() => import('./components/Content/LinuxPsiCgroupLab'));
-const NwaSensitivityLab = lazy(() => import('./components/Content/NwaSensitivityLab'));
-const WebrtcIceGatheringLab = lazy(() => import('./components/Content/WebrtcIceGatheringLab'));
-const WisoRentabilitaetLeverageLab = lazy(() => import('./components/Content/WisoRentabilitaetLeverageLab'));
 // v3.48.0 Linux MAC/SELinux, DNS Privacy, WISO Liquiditaet & RAG Semantic Cache
-const LinuxMacSelinuxLab = lazy(() => import('./components/Content/LinuxMacSelinuxLab'));
-const DnsPrivacyLab = lazy(() => import('./components/Content/DnsPrivacyLab'));
-const WisoLiquiditaetLab = lazy(() => import('./components/Content/WisoLiquiditaetLab'));
-const RagSemanticCacheLab = lazy(() => import('./components/Content/RagSemanticCacheLab'));
 // v3.49.0 JWT Algorithm Confusion & Security Studio
-const JwtConfusionLab = lazy(() => import('./components/Content/JwtConfusionLab'));
 // v3.50.0 Window Functions, ArgoCD GitOps & Vector Math Studios
-const SqlWindowFunctionsLab = lazy(() => import('./components/Content/SqlWindowFunctionsLab'));
-const ArgoCdGitOpsLab = lazy(() => import('./components/Content/ArgoCdGitOpsLab'));
-const VectorMathEmbeddingLab = lazy(() => import('./components/Content/VectorMathEmbeddingLab'));
 // v3.51.0 SQL Transaction Isolation & DGUV V3 Elektrotechnik Studios
-const SqlIsolationLab = lazy(() => import('./components/Content/SqlIsolationLab'));
-const DguvV3ElektronikLab = lazy(() => import('./components/Content/DguvV3ElektronikLab'));
 // v3.52.0 MEP Simulator, WISO Financing & PKI Chain Validator Studios
-const IhkMepSimulatorLab = lazy(() => import('./components/Content/IhkMepSimulatorLab'));
-const WisoFinancingLab = lazy(() => import('./components/Content/WisoFinancingLab'));
-const PkiCertificateLab = lazy(() => import('./components/Content/PkiCertificateLab'));
 // v3.53.0 Routing Dijkstra/STP, HTTP Caching & Exam Readiness Roadmap Studios
-const RoutingDijkstraLab = lazy(() => import('./components/Content/RoutingDijkstraLab'));
-const HttpCachingLab = lazy(() => import('./components/Content/HttpCachingLab'));
-const ExamReadinessLab = lazy(() => import('./components/Content/ExamReadinessLab'));
 // v3.54.0 SRP Zero-Knowledge & WISO Contract Breach Studios
-const SrpZeroKnowledgeLab = lazy(() => import('./components/Content/SrpZeroKnowledgeLab'));
-const WisoContractBreachLab = lazy(() => import('./components/Content/WisoContractBreachLab'));
 // v3.55.0 WISO Company Forms & mTLS Zero-Trust Mesh Studios
-const WisoCompanyFormsLab = lazy(() => import('./components/Content/WisoCompanyFormsLab'));
-const MtlsZtnaLab = lazy(() => import('./components/Content/MtlsZtnaLab'));
 // v3.56.0 WISO Personalbedarfsplanung & OAuth 2.1 RFC 9449 DPoP Security Studios
-const WisoPersonalPlanungLab = lazy(() => import('./components/Content/WisoPersonalPlanungLab'));
-const Oauth21DpopLab = lazy(() => import('./components/Content/Oauth21DpopLab'));
 // v3.57.0 IHK Proposal Exporter & BGP Anycast DDoS Scrubber Studios
-const IhkProposalPdfLab = lazy(() => import('./components/Content/IhkProposalPdfLab'));
-const BgpAnycastDdosLab = lazy(() => import('./components/Content/BgpAnycastDdosLab'));
 // v3.58.0 Cloud IAM, SRE SLO Burn, Kafka Consumer Lag & Linux Auditd eBPF Studios
-const CloudIamPolicyLab = lazy(() => import('./components/Content/CloudIamPolicyLab'));
-const SreSloBurnLab = lazy(() => import('./components/Content/SreSloBurnLab'));
-const KafkaConsumerLagLab = lazy(() => import('./components/Content/KafkaConsumerLagLab'));
-const LinuxAuditdEbpfLab = lazy(() => import('./components/Content/LinuxAuditdEbpfLab'));
 // v3.59.0 K8s Gateway API, WISO Break-Even Stufe 2 & DNSSEC Rollover Studios
-const K8sGatewayApiLab = lazy(() => import('./components/Content/K8sGatewayApiLab'));
-const WisoBreakEvenLab = lazy(() => import('./components/Content/WisoBreakEvenLab'));
-const DnssecRolloverLab = lazy(() => import('./components/Content/DnssecRolloverLab'));
 // v3.60.0 IHK WISO Doppelte Buchführung & BAB Kostenstellenrechnung
-const WisoBookkeepingLab = lazy(() => import('./components/Content/WisoBookkeepingLab'));
-const WisoBabLab = lazy(() => import('./components/Content/WisoBabLab'));
 // v3.61.0 IHK WISO Zahlungsverkehr (SEPA, Wechsel, Skonto/Rabatt/Bonus)
 import { LAB_REGISTRY, buildRegistryIndex } from './data/labRegistry';
 import { observeAutoLabels } from './utils/a11yAutoLabel';
@@ -429,62 +219,6 @@ export default function App() {
 
   const activeLabElement = (() => {
     switch (true) {
-      case activeTab === 'wiso_kalkulation':
-        return <WisoKalkulationLab />;
-      case activeTab === 'ieee754_lab':
-        return <Ieee754FloatingPointLab />;
-      case activeTab === 'ipv6_routing_lab':
-        return <Ipv6RoutingLab />;
-      case activeTab === 'owasp_exploit_lab':
-        return <OwaspExploitLab />;
-      case activeTab === 'neural_net_lab':
-        return <NeuralNetVisualizerLab />;
-      case activeTab === 'cheat_sheets':
-        return <IhkCheatSheetPdfGenerator />;
-      case activeTab === 'p2p_duell':
-        return <P2pQuizDuellLab />;
-      case activeTab === 'sqlite_studio':
-        return <SqliteWasmStudioLab />;
-      case activeTab === 'coding_challenges':
-        return <LiveCodingChallengeStudio />;
-      case activeTab === 'custom_challenges':
-        return <CustomChallengeCreatorLab />;
-      case activeTab === 'git_conflict_lab':
-        return <GitMergeConflictLab />;
-      case activeTab === 'tco_roi_lab':
-        return <TcoRoiCalculatorLab />;
-      case activeTab === 'regex_railroad':
-        return <RegexRailroadVisualizerLab />;
-      case activeTab === 'webhook_inspector':
-        return <WebhookInspectorLab />;
-      case activeTab === 'voice_quiz':
-        return <VoiceQuizStudioLab />;
-      case activeTab === 'scrum_simulator':
-        return <AgileScrumSimulatorLab />;
-      case activeTab === 'graphql_explorer':
-        return <GraphqlExplorerStudioLab />;
-      case activeTab === 'ble_sensor':
-        return <BleSensorSimulatorLab />;
-      case activeTab === 'os_scheduler':
-        return <OsProcessSchedulerLab />;
-      case activeTab === 'packet_sniffer':
-        return <PacketSnifferLab />;
-      case activeTab === 'erd_designer':
-        return <ErdDesignerLab />;
-      case activeTab === 'transformer_attention':
-        return <TransformerAttentionLab />;
-      case activeTab === 'cloud_canvas':
-        return <CloudArchitectureCanvasLab />;
-      case activeTab === 'ihk_grade_calculator':
-        return <IhkGradeCalculatorLab />;
-      case activeTab === 'rack_configurator':
-        return <RackConfiguratorLab />;
-      case activeTab === 'itsm_simulator':
-        return <ItsmSimulatorLab />;
-      case activeTab === 'sm2_spaced_repetition':
-        return <Sm2SpacedRepetitionLab />;
-      case activeTab === 'personal_notebook':
-        return <PersonalNotebookLab />;
       case activeTab === 'labs':
         return (
           <LabsDashboard
@@ -508,376 +242,12 @@ export default function App() {
             onRewardXP={(xp) => awardXP(xp, 'campaign_step')}
           />
         );
-      case activeTab === 'oral_exam':
-        return <IhkOralExamSimulator onRewardXP={(xp) => awardXP(xp, 'oral_exam_master')} />;
-      case activeTab === 'sql_joins':
-        return <SqlJoinVisualizerLab onRewardXP={(xp) => awardXP(xp, 'sql_join_master')} />;
-      case activeTab === 'git_graph_lab' || activeTab === 'gitvisual':
-        return <GitBranchGraphLab onRewardXP={(xp) => awardXP(xp, 'git_graph_master')} />;
-      case activeTab === 'cpu_architecture_lab':
-        return <CpuArchitectureLab onRewardXP={(xp) => awardXP(xp, 'cpu_master')} />;
-      case activeTab === 'sql_optimizer_lab':
-        return <SqlQueryOptimizerLab onRewardXP={(xp) => awardXP(xp, 'sql_optimizer_master')} />;
-      case activeTab === 'datastructures':
-        return <DataStructuresLab onRewardXP={(xp) => awardXP(xp, 'trees_graphs_master')} />;
-      case activeTab === 'cicd_workflow':
-        return <CiCdWorkflowLab onRewardXP={(xp) => awardXP(xp, 'cicd_workflow_master')} />;
-      case activeTab === 'anfaenger_guide':
-        return <AnfaengerGuideHub />;
-      case activeTab === 'subnetting':
-        return <SubnettingLab onRewardXP={(xp) => awardXP(xp, 'subnetting_master')} />;
-      case activeTab === 'git_lab':
-        return <GitLab onRewardXP={(xp) => awardXP(xp, 'git_master')} />;
-      case activeTab === 'algo_lab':
-        return <AlgoPlaygroundLab onRewardXP={(xp) => awardXP(xp, 'algo_master')} />;
-      case activeTab === 'python_wasm' || activeTab === 'pythonwasm':
-        return <PythonWasmLab onRewardXP={(xp) => awardXP(xp, 'python_wasm_master')} />;
-      case activeTab === 'packet_tracer':
-        return <PacketTracerLab onRewardXP={(xp) => awardXP(xp, 'packet_tracer_master')} />;
-      case activeTab === 'leitner':
-        return <LeitnerFlashcardLab onRewardXP={(xp) => awardXP(xp, 'leitner_master')} />;
-      case activeTab === 'monaco_studio':
-        return <MonacoStudioLab onRewardXP={(xp) => awardXP(xp, 'monaco_master')} />;
-      case activeTab === 'cloud_designer':
-        return <CloudDesignerLab onRewardXP={(xp) => awardXP(xp, 'cloud_designer_master')} />;
-      case activeTab === 'api_mock_studio':
-        return <ApiMockStudioLab onRewardXP={(xp) => awardXP(xp, 'api_mock_master')} />;
-      case activeTab === 'ctf_lab':
-        return <CtfChallengeLab onRewardXP={(xp) => awardXP(xp, 'ctf_master')} />;
-      case activeTab === 'cicd_pipeline':
-        return <CiCdPipelineLab onRewardXP={(xp) => awardXP(xp, 'cicd_master')} />;
-      case activeTab === 'docker_compose':
-        return <DockerComposeLab onRewardXP={(xp) => awardXP(xp, 'docker_compose_master')} />;
-      case activeTab === 'system_design':
-        return <SystemDesignLab onRewardXP={(xp) => awardXP(xp, 'system_design_master')} />;
-      case activeTab === 'regex_master' || activeTab === 'regexmaster':
-        return <RegexMasterLab onRewardXP={(xp) => awardXP(xp, 'regex_master')} />;
-      case activeTab === 'websocket_protocol':
-        return <WebSocketProtocolLab onRewardXP={(xp) => awardXP(xp, 'websocket_protocol_master')} />;
-      case activeTab === 'vector_search':
-        return <VectorSearchLab onRewardXP={(xp) => awardXP(xp, 'vector_search_master')} />;
-      case activeTab === 'bigo_benchmark' || activeTab === 'bigo':
-        return <BigOBenchmarkLab onRewardXP={(xp) => awardXP(xp, 'bigo_benchmark_master')} />;
-      case activeTab === 'wasm_rust_studio':
-        return <WasmRustLab onRewardXP={(xp) => awardXP(xp, 'wasm_rust_master')} />;
-      case activeTab === 'jwks_rotation_lab':
-        return <JwksRotationLab />;
-      case activeTab === 'postgres_mvcc_lab':
-        return <PostgresMvccLab />;
-      case activeTab === 'http3_quic_lab':
-        return <Http3QuicLab />;
-      case activeTab === 'redis_caching_lab':
-        return <RedisCachingLab />;
-      case activeTab === 'circuit_breaker_lab':
-        return <CircuitBreakerLab />;
-      case activeTab === 'k8s_cni_lab':
-        return <K8sCniOverlayLab />;
-      case activeTab === 'graphql_resolver_lab':
-        return <GraphqlResolverLab />;
-      case activeTab === 'linux_permissions_lab':
-        return <LinuxPermissionsLab />;
-      case activeTab === 'crypto_keygen_lab':
-        return <CryptoKeygenLab />;
-      case activeTab === 'cicd_matrix_lab':
-        return <CiCdMatrixLinterLab />;
-      case activeTab === 'postgres_explain_lab':
-        return <PostgresExplainVisualizerLab />;
-      case activeTab === 'webrtc_signaling_lab':
-        return <WebRtcSignalingLab />;
-      case activeTab === 'code_debugger_lab':
-        return <CodeExecutionDebuggerLab />;
-      case activeTab === 'clean_code_lab':
-        return <CleanCodeReviewLab />;
-      case activeTab === 'dns_http_lab':
-        return <DnsHttpLifecycleLab />;
-      case activeTab === 'sql_transaction_lab':
-        return <SqlTransactionLab />;
-      case activeTab === 'ihk_doc_generator':
-        return <IhkProjectDocumentationGenerator />;
-      case activeTab === 'oauth' || activeTab === 'oauth_oidc':
-        return <OauthOidcLab />;
-      case activeTab === 'websockets':
-        return <WebSocketsLab />;
-      case activeTab === 'perf_lab':
-        return <PerformanceProfilingLab />;
-      case activeTab === 'kubernetes':
-        return <KubernetesLab />;
-      case activeTab === 'rag_ai' || activeTab === 'ragai':
-        return <RagAiSimulator />;
-      case activeTab === 'wasm_compiler':
-        return <WasmCompilerPlaygroundLab />;
-      case activeTab === 'zkp_crypto':
-        return <ZkpCryptoVisualizerLab />;
-      case activeTab === 'oauth_pkce_studio' || activeTab === 'oauth_pkce' || activeTab === 'pkce':
-        return <OauthPkceStudioLab />;
-      case activeTab === 'k8s_cluster_studio' || activeTab === 'k8s_cluster' || activeTab === 'k8s':
-        return <KubernetesClusterStudioLab />;
-      case activeTab === 'webrtc_peer_studio' || activeTab === 'webrtc_peer':
-        return <WebRtcPeerStudioLab />;
-      case activeTab === 'linux_memory_lab':
-        return <LinuxMemoryLab onRewardXP={(xp) => awardXP(xp, 'linux_memory_master')} />;
-      case activeTab === 'postgres_pool_lab':
-        return <PostgresPoolLab onRewardXP={(xp) => awardXP(xp, 'postgres_pool_master')} />;
-      case activeTab === 'wiso_dunning_lab':
-        return <WisoDunningLab onRewardXP={(xp) => awardXP(xp, 'wiso_dunning_master')} />;
-      case activeTab === 'service_mesh_lab':
-        return <ServiceMeshLab onRewardXP={(xp) => awardXP(xp, 'service_mesh_master')} />;
-      case activeTab === 'linux_container_lab':
-        return <LinuxContainerLab onRewardXP={(xp) => awardXP(xp, 'linux_container_master')} />;
-      case activeTab === 'wiso_contribution_margin':
-        return <WisoContributionMarginLab onRewardXP={(xp) => awardXP(xp, 'wiso_contribution_margin_master')} />;
-      case activeTab === 'oauth_token_exchange_lab':
-        return <OauthTokenExchangeLab onRewardXP={(xp) => awardXP(xp, 'oauth_token_exchange_master')} />;
-      case activeTab === 'ebpf_xdp_lab':
-        return <EbpfXdpLab onRewardXP={(xp) => awardXP(xp, 'ebpf_xdp_master')} />;
-      case activeTab === 'postgres_flamegraph_lab':
-        return <PostgresFlamegraphLab onRewardXP={(xp) => awardXP(xp, 'postgres_flamegraph_master')} />;
-      case activeTab === 'wiso_abc_xyz':
-        return <WisoAbcXyzLab onRewardXP={(xp) => awardXP(xp, 'wiso_abc_xyz_master')} />;
-      case activeTab === 'wireguard_ztna_lab':
-        return <WireguardZtnaLab onRewardXP={(xp) => awardXP(xp, 'wireguard_ztna_master')} />;
-      case activeTab === 'promql_alert_lab':
-        return <PromqlAlertLab onRewardXP={(xp) => awardXP(xp, 'promql_alert_master')} />;
-      case activeTab === 'event_sourcing_lab':
-        return <EventSourcingLab onRewardXP={(xp) => awardXP(xp, 'event_sourcing_master')} />;
-      case activeTab === 'wiso_loan_collateral':
-        return <WisoLoanCollateralLab onRewardXP={(xp) => awardXP(xp, 'wiso_loan_collateral_master')} />;
-      case activeTab === 'webrtc_sfu_lab':
-        return <WebrtcSfuLab onRewardXP={(xp) => awardXP(xp, 'webrtc_sfu_master')} />;
-      case activeTab === 'bpftrace_lab':
-        return <BpftraceLab onRewardXP={(xp) => awardXP(xp, 'bpftrace_master')} />;
-      case activeTab === 'postgres_wal_lab':
-        return <PostgresWalLab onRewardXP={(xp) => awardXP(xp, 'postgres_wal_master')} />;
-      case activeTab === 'wiso_andler':
-        return <WisoAndlerLab onRewardXP={(xp) => awardXP(xp, 'wiso_andler_master')} />;
-      case activeTab === 'opentelemetry_tracing_lab':
-        return <OpentelemetryTracingLab onRewardXP={(xp) => awardXP(xp, 'opentelemetry_tracing_master')} />;
-      case activeTab === 'linux_bridge_vxlan_lab':
-        return <LinuxBridgeVxlanLab onRewardXP={(xp) => awardXP(xp, 'linux_bridge_vxlan_master')} />;
-      case activeTab === 'postgres_partitioning_lab':
-        return <PostgresPartitioningLab onRewardXP={(xp) => awardXP(xp, 'postgres_partitioning_master')} />;
-      case activeTab === 'wiso_interest':
-        return <WisoInterestCalculationsLab onRewardXP={(xp) => awardXP(xp, 'wiso_interest_master')} />;
-      case activeTab === 'kafka_rebalance_lab':
-        return <KafkaRebalanceLab onRewardXP={(xp) => awardXP(xp, 'kafka_rebalance_master')} />;
-      case activeTab === 'bgp_anycast_lab':
-        return <BgpAnycastLab onRewardXP={(xp) => awardXP(xp, 'bgp_anycast_master')} />;
-      case activeTab === 'tls_handshake_lab':
-        return <TlsHandshakeLab onRewardXP={(xp) => awardXP(xp, 'tls_handshake_master')} />;
-      case activeTab === 'jwt_attack_lab':
-        return <JwtAttackLab onRewardXP={(xp) => awardXP(xp, 'jwt_attack_defender')} />;
-      case activeTab === 'cors_pitfalls_lab':
-        return <CorsPitfallsLab onRewardXP={(xp) => awardXP(xp, 'cors_defender')} />;
-      case activeTab === 'postgres_fulltext_lab':
-        return <PostgresFulltextLab onRewardXP={(xp) => awardXP(xp, 'postgres_fulltext_master')} />;
-      case activeTab === 'wiso_capital_value':
-        return <WisoCapitalValueLab onRewardXP={(xp) => awardXP(xp, 'wiso_capital_value_master')} />;
-      case activeTab === 'grpc_protobuf_lab':
-        return <GrpcProtobufLab onRewardXP={(xp) => awardXP(xp, 'grpc_protobuf_master')} />;
-      case activeTab === 'nwa_scoring_lab' || activeTab === 'nwa_scoring':
-        return <NwaScoringLab onRewardXP={(xp) => awardXP(xp, 'nwa_master')} />;
-      case activeTab === 'raid_calculator_lab' || activeTab === 'raid_calculator':
-        return <RaidCalculatorLab onRewardXP={(xp) => awardXP(xp, 'raid_master')} />;
-      case activeTab === 'vlsm_subnet_lab' || activeTab === 'vlsm_subnet':
-        return <VlsmSubnetLab onRewardXP={(xp) => awardXP(xp, 'vlsm_master')} />;
-      case activeTab === 'ihk_project_proposal_lab' || activeTab === 'ihk_project_proposal':
-        return <IhkProjectProposalLab onRewardXP={(xp) => awardXP(xp, 'ihk_proposal_master')} />;
-      case activeTab === 'cpm_network_lab' || activeTab === 'cpm_network':
-        return <CpmNetworkLab onRewardXP={(xp) => awardXP(xp, 'cpm_master')} />;
-      case activeTab === 'uml_diagram_lab' || activeTab === 'uml_diagram':
-        return <UmlDiagramLab onRewardXP={(xp) => awardXP(xp, 'uml_master')} />;
-      case activeTab === 'terraform_lab' || activeTab === 'terraform':
-        return <TerraformLab onRewardXP={(xp) => awardXP(xp, 'terraform_master')} />;
-      case activeTab === 'oral_defense_studio' || activeTab === 'oral_defense':
-        return <IhkOralDefenseStudioLab onRewardXP={(xp) => awardXP(xp, 'oral_defense_master')} />;
-      case activeTab === 'ansible_playbook_lab' || activeTab === 'ansible_playbook':
-        return <AnsiblePlaybookLab onRewardXP={(xp) => awardXP(xp, 'ansible_master')} />;
-      case activeTab === 'computation_worker_lab' || activeTab === 'computation_worker':
-        return <ComputationWorkerLab onRewardXP={(xp) => awardXP(xp, 'worker_master')} />;
-      case activeTab === 'presentation_timer_lab' || activeTab === 'presentation_timer' || activeTab === 'ihk_presentation_timer':
-        return <IhkPresentationTimerLab onRewardXP={(xp) => awardXP(xp, 'presentation_master')} />;
-      case activeTab === 'github_actions_lab' || activeTab === 'github_actions' || activeTab === 'github_actions_workflow_lab':
-        return <GithubActionsWorkflowLab onRewardXP={(xp) => awardXP(xp, 'github_actions_master')} />;
-      case activeTab === 'ihk_project_gantt_lab' || activeTab === 'ihk_project_gantt' || activeTab === 'ihk_gantt':
-        return <IhkProjectGanttLab onRewardXP={(xp) => awardXP(xp, 'ihk_gantt_master')} />;
-      case activeTab === 'wasm_simd_studio_lab' || activeTab === 'wasm_simd_studio' || activeTab === 'wasm_simd':
-        return <WasmSimdStudioLab onRewardXP={(xp) => awardXP(xp, 'wasm_simd_master')} />;
-      case activeTab === 'ihk_wirtschaftlichkeit_lab' || activeTab === 'ihk_wirtschaftlichkeit' || activeTab === 'amortisation_lab':
-        return <IhkWirtschaftlichkeitLab onRewardXP={(xp) => awardXP(xp, 'ihk_wirtschaftlichkeit_master')} />;
-      case activeTab === 'webauthn_passkey_lab' || activeTab === 'webauthn_passkey' || activeTab === 'passkey_lab':
-        return <WebAuthnPasskeyLab onRewardXP={(xp) => awardXP(xp, 'passkey_master')} />;
-      case activeTab === 'systemd_service_lab' || activeTab === 'systemd_service' || activeTab === 'systemd_lab':
-        return <SystemdServiceLab onRewardXP={(xp) => awardXP(xp, 'systemd_master')} />;
-      case activeTab === 'tls_replay_lab' || activeTab === 'tls_replay' || activeTab === '0rtt_replay_lab':
-        return <TlsReplayLab onRewardXP={(xp) => awardXP(xp, 'tls_replay_master')} />;
-      case activeTab === 'ihk_risk_analysis_lab' || activeTab === 'ihk_risk_analysis' || activeTab === 'risikoanalyse_lab':
-        return <IhkRiskAnalysisLab onRewardXP={(xp) => awardXP(xp, 'ihk_risk_master')} />;
-      case activeTab === 'ebpf_cilium_lab' || activeTab === 'ebpf_cilium' || activeTab === 'cilium_mesh_lab':
-        return <EbpfCiliumLab onRewardXP={(xp) => awardXP(xp, 'cilium_master')} />;
-      case activeTab === 'postgres_index_types_lab' || activeTab === 'postgres_index_types' || activeTab === 'postgres_index_lab':
-        return <PostgresIndexTypesLab onRewardXP={(xp) => awardXP(xp, 'postgres_index_master')} />;
-      case activeTab === 'dnssec_validation_lab' || activeTab === 'dnssec_validation' || activeTab === 'dnssec_lab':
-        return <DnssecValidationLab onRewardXP={(xp) => awardXP(xp, 'dnssec_master')} />;
-      case activeTab === 'ihk_burndown_lab' || activeTab === 'ihk_burndown' || activeTab === 'agile_burndown_lab':
-        return <IhkAgileBurndownLab onRewardXP={(xp) => awardXP(xp, 'ihk_burndown_master')} />;
-      case activeTab === 'linux_cow_snapshot_lab' || activeTab === 'linux_cow_snapshot' || activeTab === 'btrfs_cow_lab':
-        return <LinuxCowSnapshotLab onRewardXP={(xp) => awardXP(xp, 'linux_cow_master')} />;
-      case activeTab === 'openapi_contract_lab' || activeTab === 'openapi_contract' || activeTab === 'openapi_lab':
-        return <OpenApiContractLab onRewardXP={(xp) => awardXP(xp, 'openapi_contract_master')} />;
-      case activeTab === 'data_lineage_etl_lab' || activeTab === 'data_lineage_etl' || activeTab === 'etl_lab':
-        return <DataLineageEtlLab onRewardXP={(xp) => awardXP(xp, 'etl_data_lineage_master')} />;
-      case activeTab === 'ihk_tom_catalog_lab' || activeTab === 'ihk_tom_catalog' || activeTab === 'tom_catalog_lab' || activeTab === 'dsgvo_tom':
-        return <IhkTomCatalogLab onRewardXP={(xp) => awardXP(xp, 'ihk_dsgvo_tom_master')} />;
-      case activeTab === 'wiso_labor_law_lab' || activeTab === 'wiso_labor_law' || activeTab === 'arbeitsrecht_lab' || activeTab === 'kuendigungsschutz_lab':
-        return <WisoLaborLawLab onRewardXP={(xp) => awardXP(xp, 'wiso_labor_law_master')} />;
-      case activeTab === 'ihk_dpia_lab' || activeTab === 'ihk_dpia' || activeTab === 'dpia_lab' || activeTab === 'dsfa_lab':
-        return <IhkDpiaLab onRewardXP={(xp) => awardXP(xp, 'ihk_dpia_master')} />;
-      case activeTab === 'bsi_grundschutz_lab' || activeTab === 'bsi_grundschutz' || activeTab === 'nis2_lab':
-        return <BsiGrundschutzLab onRewardXP={(xp) => awardXP(xp, 'bsi_grundschutz_master')} />;
-      case activeTab === 'ipv6_ndp_lab' || activeTab === 'ipv6_ndp' || activeTab === 'slaac_lab':
-        return <Ipv6NdpLab onRewardXP={(xp) => awardXP(xp, 'ipv6_ndp_master')} />;
-      case activeTab === 'wiso_payroll_lab' || activeTab === 'wiso_payroll' || activeTab === 'gehalt_lab':
-        return <WisoPayrollLab onRewardXP={(xp) => awardXP(xp, 'wiso_payroll_master')} />;
       case activeTab === 'ihk_study_plan_lab' || activeTab === 'ihk_study_plan' || activeTab === 'pruefungsplaner':
         return <IhkStudyPlanLab onNavigateTab={(tab) => setActiveTab(tab)} onRewardXP={(xp) => awardXP(xp, 'study_plan_master')} />;
-      case activeTab === 'ihk_certificate_pdf_lab' || activeTab === 'ihk_certificate' || activeTab === 'lernpass':
-        return <IhkCertificatePdfLab onRewardXP={(xp) => awardXP(xp, 'certificate_pdf_master')} />;
-      case activeTab === 'clean_arch_lab' || activeTab === 'clean_arch' || activeTab === 'hexagonal_arch':
-        return <CleanArchLab onRewardXP={(xp) => awardXP(xp, 'clean_arch_master')} />;
-      case activeTab === 'linux_netns_lab' || activeTab === 'linux_netns' || activeTab === 'netns_studio':
-        return <LinuxNetNsLab onRewardXP={(xp) => awardXP(xp, 'netns_master')} />;
-      case activeTab === 'wiso_multi_contribution_lab' || activeTab === 'wiso_multi_contribution' || activeTab === 'deckungsbeitrag_mehrstufig':
-        return <WisoMultiContributionLab onRewardXP={(xp) => awardXP(xp, 'multi_contribution_master')} />;
       case activeTab === 'ihk_weakness_audit_lab' || activeTab === 'ihk_weakness_audit' || activeTab === 'schwachstellen_audit':
         return <IhkWeaknessAuditLab onNavigateTab={(tab) => setActiveTab(tab)} onRewardXP={(xp) => awardXP(xp, 'weakness_audit_master')} />;
-      case activeTab === 'oauth_revocation_lab' || activeTab === 'oauth_revocation' || activeTab === 'token_revocation':
-        return <OauthRevocationIntrospectionLab onRewardXP={(xp) => awardXP(xp, 'oauth_revocation_master')} />;
-      case activeTab === 'raid6_galois_lab' || activeTab === 'raid6_galois' || activeTab === 'raid6_dual_parity':
-        return <Raid6GaloisLab onRewardXP={(xp) => awardXP(xp, 'raid6_galois_master')} />;
-      case activeTab === 'sqlite_worker_lab' || activeTab === 'sqlite_worker' || activeTab === 'sqlite_worker_studio':
-        return <SqliteWorkerStudioLab onRewardXP={(xp) => awardXP(xp, 'sqlite_worker_master')} />;
-      case activeTab === 'wiso_zuschlagskalkulation_lab' || activeTab === 'wiso_zuschlagskalkulation' || activeTab === 'zuschlagskalkulation':
-        return <WisoZuschlagskalkulationLab onRewardXP={(xp) => awardXP(xp, 'zuschlagskalkulation_master')} />;
-      case activeTab === 'linux_cap_seccomp_lab' || activeTab === 'linux_cap_seccomp' || activeTab === 'seccomp_lab':
-        return <LinuxCapSeccompLab onRewardXP={(xp) => awardXP(xp, 'seccomp_master')} />;
-      case activeTab === 'bgp_path_selection_lab' || activeTab === 'bgp_path_selection' || activeTab === 'bgp_path_lab':
-        return <BgpPathSelectionLab onRewardXP={(xp) => awardXP(xp, 'bgp_selection_master')} />;
-      case activeTab === 'wiso_maschinenstundensatz_lab' || activeTab === 'wiso_maschinenstundensatz' || activeTab === 'maschinenstundensatz':
-        return <WisoMaschinenstundensatzLab onRewardXP={(xp) => awardXP(xp, 'maschinenstundensatz_master')} />;
-      case activeTab === 'llm_rag_chunking_lab' || activeTab === 'llm_rag_chunking' || activeTab === 'rag_chunking':
-        return <LlmRagChunkingLab onRewardXP={(xp) => awardXP(xp, 'rag_chunking_master')} />;
-      case activeTab === 'linux_psi_cgroup_lab' || activeTab === 'linux_psi_cgroup' || activeTab === 'psi_lab':
-        return <LinuxPsiCgroupLab onRewardXP={(xp) => awardXP(xp, 'linux_psi_master')} />;
-      case activeTab === 'nwa_sensitivity_lab' || activeTab === 'nwa_sensitivity' || activeTab === 'nwa_monte_carlo':
-        return <NwaSensitivityLab onRewardXP={(xp) => awardXP(xp, 'nwa_sensitivity_master')} />;
-      case activeTab === 'webrtc_ice_gathering_lab' || activeTab === 'webrtc_ice_gathering' || activeTab === 'ice_gathering_lab':
-        return <WebrtcIceGatheringLab onRewardXP={(xp) => awardXP(xp, 'webrtc_ice_master')} />;
-      case activeTab === 'wiso_rentabilitaet_leverage_lab' || activeTab === 'wiso_rentabilitaet_leverage' || activeTab === 'leverage_effekt':
-        return <WisoRentabilitaetLeverageLab onRewardXP={(xp) => awardXP(xp, 'wiso_leverage_master')} />;
-      case activeTab === 'linux_mac_selinux_lab' || activeTab === 'linux_mac_selinux' || activeTab === 'selinux_lab':
-        return <LinuxMacSelinuxLab onRewardXP={(xp) => awardXP(xp, 'selinux_master')} />;
-      case activeTab === 'dns_privacy_lab' || activeTab === 'dns_privacy' || activeTab === 'doh_dot_lab':
-        return <DnsPrivacyLab onRewardXP={(xp) => awardXP(xp, 'dns_privacy_master')} />;
-      case activeTab === 'wiso_liquiditaet_lab' || activeTab === 'wiso_liquiditaet' || activeTab === 'liquiditaet_lab':
-        return <WisoLiquiditaetLab onRewardXP={(xp) => awardXP(xp, 'wiso_liquiditaet_master')} />;
-      case activeTab === 'rag_semantic_cache_lab' || activeTab === 'rag_semantic_cache' || activeTab === 'semantic_cache_lab':
-        return <RagSemanticCacheLab onRewardXP={(xp) => awardXP(xp, 'semantic_cache_master')} />;
-      case activeTab === 'jwt_confusion_lab' || activeTab === 'jwt_confusion' || activeTab === 'jwt_security':
-        return <JwtConfusionLab onRewardXP={(xp) => awardXP(xp, 'jwt_confusion_master')} />;
-      case activeTab === 'sql_window_functions_lab' || activeTab === 'sql_window_functions' || activeTab === 'window_functions':
-        return <SqlWindowFunctionsLab onRewardXP={(xp) => awardXP(xp, 'sql_window_functions_master')} />;
-      case activeTab === 'argocd_gitops_lab' || activeTab === 'argocd_gitops' || activeTab === 'gitops_lab':
-        return <ArgoCdGitOpsLab onRewardXP={(xp) => awardXP(xp, 'argocd_gitops_master')} />;
-      case activeTab === 'vector_math_embedding_lab' || activeTab === 'vector_math' || activeTab === 'embedding_distance_lab':
-        return <VectorMathEmbeddingLab onRewardXP={(xp) => awardXP(xp, 'vector_math_master')} />;
-      case activeTab === 'sql_isolation_lab' || activeTab === 'sql_isolation' || activeTab === 'acid_isolation_lab':
-        return <SqlIsolationLab onAwardXP={(xp, badge) => awardXP(xp, badge)} />;
-      case activeTab === 'dguv_v3_lab' || activeTab === 'dguv_v3' || activeTab === 'itse_elektrotechnik_lab':
-        return <DguvV3ElektronikLab onAwardXP={(xp, badge) => awardXP(xp, badge)} />;
-      case activeTab === 'ihk_mep_simulator_lab' || activeTab === 'ihk_mep' || activeTab === 'mep_simulator':
-        return <IhkMepSimulatorLab onAwardXP={(xp, badge) => awardXP(xp, badge)} />;
-      case activeTab === 'wiso_financing_lab' || activeTab === 'wiso_financing' || activeTab === 'leasing_vergleich':
-        return <WisoFinancingLab onAwardXP={(xp, badge) => awardXP(xp, badge)} />;
-      case activeTab === 'pki_certificate_lab' || activeTab === 'pki_certificate' || activeTab === 'tls_chain_validator':
-        return <PkiCertificateLab onAwardXP={(xp, badge) => awardXP(xp, badge)} />;
-      case activeTab === 'routing_dijkstra_lab' || activeTab === 'routing_dijkstra' || activeTab === 'dijkstra_stp_lab':
-        return <RoutingDijkstraLab onRewardXP={(xp) => awardXP(xp, 'dijkstra_stp_master')} />;
-      case activeTab === 'http_caching_lab' || activeTab === 'http_caching' || activeTab === 'rfc9111_cache_lab':
-        return <HttpCachingLab onRewardXP={(xp) => awardXP(xp, 'http_caching_master')} />;
-      case activeTab === 'exam_readiness_lab' || activeTab === 'exam_readiness' || activeTab === 'ihk_exam_roadmap':
-        return <ExamReadinessLab onRewardXP={(xp) => awardXP(xp, 'exam_readiness_master')} />;
-      case activeTab === 'srp_zero_knowledge_lab' || activeTab === 'srp_auth' || activeTab === 'zero_knowledge_lab':
-        return <SrpZeroKnowledgeLab onRewardXP={(xp) => awardXP(xp, 'srp_zero_knowledge_master')} />;
-      case activeTab === 'wiso_contract_breach_lab' || activeTab === 'wiso_contract_breach' || activeTab === 'kaufvertragsstoerungen':
-        return <WisoContractBreachLab onRewardXP={(xp) => awardXP(xp, 'wiso_contract_breach_master')} />;
-      case activeTab === 'wiso_company_forms_lab' || activeTab === 'wiso_company_forms' || activeTab === 'rechtsformen_lab':
-        return <WisoCompanyFormsLab onRewardXP={(xp) => awardXP(xp, 'wiso_company_forms_master')} />;
-      case activeTab === 'mtls_ztna_lab' || activeTab === 'mtls_ztna' || activeTab === 'zero_trust_mesh_lab':
-        return <MtlsZtnaLab onRewardXP={(xp) => awardXP(xp, 'mtls_ztna_master')} />;
-      case activeTab === 'wiso_personal_planung_lab' || activeTab === 'wiso_personal_planung' || activeTab === 'personalbedarf_lab':
-        return <WisoPersonalPlanungLab onRewardXP={(xp) => awardXP(xp, 'wiso_personal_planung_master')} />;
-      case activeTab === 'oauth21_dpop_lab' || activeTab === 'oauth21_dpop' || activeTab === 'dpop_security_lab':
-        return <Oauth21DpopLab onRewardXP={(xp) => awardXP(xp, 'oauth21_dpop_master')} />;
-      case activeTab === 'ihk_proposal_pdf_lab' || activeTab === 'ihk_proposal_pdf' || activeTab === 'projektantrag_pdf':
-        return <IhkProposalPdfLab onRewardXP={(xp) => awardXP(xp, 'ihk_proposal_pdf_master')} />;
-      case activeTab === 'bgp_anycast_ddos_lab' || activeTab === 'bgp_anycast_ddos' || activeTab === 'ddos_scrubber_lab':
-        return <BgpAnycastDdosLab onRewardXP={(xp) => awardXP(xp, 'bgp_anycast_ddos_master')} />;
-      case activeTab === 'cloud_iam_policy_lab' || activeTab === 'cloud_iam' || activeTab === 'iam_policy_lab':
-        return <CloudIamPolicyLab onRewardXP={(xp) => awardXP(xp, 'cloud_iam_governance_master')} />;
-      case activeTab === 'sre_slo_burn_lab' || activeTab === 'sre_slo_burn' || activeTab === 'burn_rate_lab':
-        return <SreSloBurnLab onRewardXP={(xp) => awardXP(xp, 'sre_slo_burn_master')} />;
-      case activeTab === 'kafka_consumer_lag_lab' || activeTab === 'kafka_consumer_lag' || activeTab === 'kafka_lag_lab':
-        return <KafkaConsumerLagLab onRewardXP={(xp) => awardXP(xp, 'kafka_consumer_lag_master')} />;
-      case activeTab === 'linux_auditd_ebpf_lab' || activeTab === 'linux_auditd' || activeTab === 'auditd_ebpf_lab':
-        return <LinuxAuditdEbpfLab onRewardXP={(xp) => awardXP(xp, 'linux_auditd_ebpf_master')} />;
-      case activeTab === 'k8s_gateway_api_lab' || activeTab === 'k8s_gateway_api' || activeTab === 'gateway_api_lab':
-        return <K8sGatewayApiLab onRewardXP={(xp) => awardXP(xp, 'k8s_gateway_api_master')} />;
-      case activeTab === 'wiso_break_even_lab' || activeTab === 'wiso_break_even' || activeTab === 'break_even_lab':
-        return <WisoBreakEvenLab onRewardXP={(xp) => awardXP(xp, 'wiso_break_even_master')} />;
-      case activeTab === 'dnssec_rollover_lab' || activeTab === 'dnssec_rollover' || activeTab === 'dnssec_lab':
-        return <DnssecRolloverLab onRewardXP={(xp) => awardXP(xp, 'dnssec_rollover_master')} />;
-      case activeTab === 'wiso_bookkeeping_lab' || activeTab === 'wiso_buchfuehrung' || activeTab === 'bookkeeping_lab':
-        return <WisoBookkeepingLab onXPGain={(xp, badge) => awardXP(xp, badge || 'wiso_bookkeeping_master')} />;
-      case activeTab === 'wiso_bab_lab' || activeTab === 'wiso_bab' || activeTab === 'bab_lab':
-        return <WisoBabLab onXPGain={(xp, badge) => awardXP(xp, badge || 'wiso_bab_master')} />;
-      case activeTab === 'kafka':
-        return <KafkaEventLab />;
-      case activeTab === 'docker':
-        return <DockerLab />;
-      case activeTab === 'cloud_devops':
-        return <CloudDevOpsLab />;
-      case activeTab === 'security_lab_v2':
-        return <RedBlueTeamLab />;
-      case activeTab === 'api_studio':
-        return <ApiBenchStudio />;
-      case activeTab === 'ai_business':
-        return <AiBusinessMasterclass />;
-      case activeTab === 'podcast':
-        return <ItPodcastHub />;
-      case activeTab === 'lernfelder':
-        return <FisiLernfelderHub />;
-      case activeTab === 'web_components':
-        return <WebComponentsHub />;
-      case activeTab === 'tdd':
-        return <TddUnitTestLab onRewardXP={(xp) => awardXP(xp, 'tdd_master')} />;
-      case activeTab === 'architecture':
-        return <ArchitectureVisualizer />;
-      case activeTab === 'design_patterns':
-        return <DesignPatternsLab />;
       case activeTab === 'roadmaps':
         return <CareerRoadmap userState={userState} />;
-      case activeTab === 'big_o':
-        return <BigOVisualizer />;
-      case activeTab === 'quiz_arena':
-        return <KnowledgeQuizArena onRewardXP={(xp) => awardXP(xp, 'quiz_master')} />;
-      case activeTab === 'languages':
-        return <LanguageAcademy />;
-      case activeTab === 'ai':
-        return <AiPromptLab />;
-      case activeTab === 'tooling':
-        return <ToolingSetupGuide />;
-      case activeTab === 'app_workshop':
-        return <AppWorkshop onCompleteWorkshop={(xp) => awardXP(xp, 'app_builder')} />;
       case activeTab === 'exam':
         return <ExamSimulator onCompleteExam={(_score, xp) => awardXP(xp, 'exam_passed')} onRecordResults={recordMistakeResults} />;
       default: {

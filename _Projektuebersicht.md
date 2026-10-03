@@ -50,7 +50,7 @@ date: 2026-10-03
 ---
 
 ## 📊 Aktuelle Test- & Qualitätsmetriken (v3.72.0)
-- **Unit- & Integrationstests**: 1634 bestandene Tests in 179 Test-Dateien (100% Erfolgsquote), 25 E2E-Tests
+- **Unit- & Integrationstests**: 1699 bestandene Tests in 183 Test-Dateien (100% Erfolgsquote), 33 E2E-Tests; Lab-Routing vollständig über `src/data/labRegistry.js`
 - **Code-Qualität**: 0 Oxlint Fehler / 0 Warnungen über 644 Quelldateien, `tsc --noEmit` fehlerfrei
 - **Build**: Vite 8 & PWA Offline Service Worker (271 Precache-Einträge)
 - **Performance & Limits**: Alle Chunks innerhalb der Size-Limits (App-Shell 76.55 KB gzipped < 105 KB Limit); Lighthouse: Perf 98 / A11y 98 / BP 100 / SEO 100

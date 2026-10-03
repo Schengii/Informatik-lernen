@@ -1548,6 +1548,14 @@ npm run build
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
+### Unveröffentlicht (Qualitäts- & Architektur-Edition)
+
+- **Lab-Registry vollständig**: 210 Labs aus der Switch-Tabelle in `src/data/labRegistry.js` migriert; `App.jsx` von 1222 auf 592 Zeilen. Neue Labs brauchen keinen Eingriff in `App.jsx` mehr.
+- **Sentry-Fix**: `src/utils/errorMonitoring.js` lädt `@sentry/react` jetzt über einen statischen Pfad im dynamischen `import()` – vorher konnte der Browser das Modul bei gesetzter DSN nicht auflösen.
+- **Interaktionstests** für `WisoAngebotsvergleichLab`, `WisoKalkulationLab`, `TestverfahrenLab` und `DhcpDoraLab` (44 Tests).
+- **Gemeinsamer Prüfungsdrill** `src/components/Shared/IhkDrillPanel.jsx` ersetzt drei identische Kopien.
+- **Keine Regressionen**: Alle **1699 Tests** in **183 Test-Dateien** bestanden, `oxlint --deny-warnings`, `tsc --noEmit`, Build und alle 6 `size-limit`-Budgets fehlerfrei (Haupt-Bundle 75,99 KB gzip).
+
 ### Version 3.72.0 (RFC 2131 DHCP DORA, Software-Testverfahren, WISO Angebotsvergleich, Web Worker Code-Sandbox & UI-Präferenzen Edition)
 
 - **Neu: RFC 2131 DHCP DORA & Relay-Agent Studio (`DhcpDoraLab.jsx` & `src/utils/dhcpDoraEngine.js`)**:

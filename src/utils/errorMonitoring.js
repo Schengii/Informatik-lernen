@@ -33,8 +33,11 @@ export async function initErrorMonitoring() {
   if (!dsn) return;
 
   try {
-    const pkg = '@sentry/react';
-    const Sentry = await import(/* @vite-ignore */ pkg);
+    // Statischer Pfad im import() ist Pflicht: Nur dann löst Vite das Paket
+    // auf und legt einen eigenen Chunk an. Ein Variablen-Pfad mit
+    // `@vite-ignore` landete wörtlich als `import("@sentry/react")` im
+    // Bundle, den der Browser nicht auflösen kann - Sentry startete nie.
+    const Sentry = await import('@sentry/react');
     Sentry.init({
       dsn,
       environment: import.meta.env?.MODE || 'production',

@@ -45,12 +45,13 @@ describe('LAB_REGISTRY', () => {
     expect(clash).toEqual([]);
   });
 
+  // Über 200 Lab-Module: parallel laden, sonst reicht das Standard-Timeout nicht.
   it('lädt für jeden Eintrag eine Default-Komponente', async () => {
-    for (const entry of LAB_REGISTRY) {
-      const mod = await entry.load();
-      expect(typeof mod.default, entry.tabs[0]).toMatch(/function|object/);
-    }
-  });
+    const modules = await Promise.all(LAB_REGISTRY.map((entry) => entry.load()));
+    modules.forEach((mod, i) => {
+      expect(typeof mod.default, LAB_REGISTRY[i].tabs[0]).toMatch(/function|object/);
+    });
+  }, 60000);
 
   it('lehnt doppelte Tabs ab', () => {
     const e = { tabs: ['a'], load: () => null };

@@ -9,10 +9,19 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unveröffentlicht]
 
+### Hinzugefügt (Added)
+- **Interaktionstests für die vier größten IHK-Rechenlabs** (44 Tests): `WisoAngebotsvergleichLab`, `WisoKalkulationLab`, `TestverfahrenLab` und `DhcpDoraLab` prüfen jetzt Bedienung, angezeigte Rechenergebnisse (Skonto-Effektivzins, Kalkulationsschema, Nutzwert, Netzplan, Äquivalenzklassen, McCabe, DORA-Zustände) und einmalige XP-Vergabe. Bisher wurden diese Labs nur gerendert (Smoke/axe).
+- **`src/components/Shared/IhkDrillPanel.jsx`**: gemeinsamer IHK-Prüfungsdrill (Multiple Choice, Auswertung, Wiederholen) für DHCP-, Testverfahren- und Angebotsvergleich-Lab; ersetzt drei identische Kopien.
+
 ### Geändert (Changed)
+- **Lab-Routing vollständig auf `src/data/labRegistry.js` umgestellt**: 210 Labs aus der `activeLabElement`-Switch-Tabelle in die Registry migriert; `App.jsx` schrumpft von 1222 auf 592 Zeilen (210 `lazy`-Imports entfallen). In `App.jsx` bleiben nur Tabs, die App-Zustand brauchen (Labs-Übersicht, Kampagne, Lernplan, Schwachstellen-Audit, Roadmap, Prüfungssimulator).
+- `App.routing.test.jsx` rendert jetzt zusätzlich alle Registry-Tab-IDs (vorher waren die Registry-Labs von diesem Test nicht abgedeckt); der Registry-Ladetest lädt die Module parallel.
+- `WisoAngebotsvergleichLab`: doppelter Anbieter-Block als lokale Komponente `AngebotKalkulation` zusammengefasst.
 - Dev-Abhängigkeiten gemeinsam aktualisiert: `vitest` + `@vitest/coverage-v8` auf 5.0.2, `size-limit` + `@size-limit/file` auf 14.1.0. `engines.node` auf `>=22.19.0` angehoben (Anforderung von size-limit 14). Lint, Typecheck, 1634 Tests, Coverage, Build und Size-Check bestanden.
 
 ### Behoben (Fixed)
+- **Sentry startete nie** (`src/utils/errorMonitoring.js`): Der Import über einen Variablen-Pfad mit `@vite-ignore` landete mit gesetzter `VITE_SENTRY_DSN` wörtlich als `import("@sentry/react")` im Bundle, den der Browser nicht auflösen kann. Jetzt statischer Pfad im dynamischen `import()` – Sentry wird als eigener Chunk geladen; ohne DSN bleibt der Code weiterhin komplett aus dem Build entfernt.
+- **Toter Alias `dnssec_lab`**: war sowohl dem DNSSEC-Validation- als auch dem DNSSEC-Rollover-Lab zugeordnet; die Rollover-Zuordnung war nie erreichbar und wurde entfernt (`dnssec_lab` öffnet wie bisher das Validation-Lab).
 - **Vercel-Preview-Deployments schlugen fehl** (`.github/dependabot.yml`): Dependabot bumpte `@vitest/coverage-v8` bzw. `size-limit` / `@size-limit/file` einzeln, wodurch `npm ci` an Peer-Dependency-Konflikten (`ERESOLVE`) scheiterte. Die Gruppe `lint-and-test` erfasst nun auch `@vitest/*`, neue Gruppe `size-limit` bündelt `size-limit` und `@size-limit/*`.
 
 ---
