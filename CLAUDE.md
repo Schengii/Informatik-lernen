@@ -15,14 +15,14 @@ Entwickler- und KI-Leitfaden für das Projekt **Informatik-lernen (IT-DevGame)**
 - **Styling**: Vanilla CSS Design-System mit CSS-Variablen (`src/styles/global.css`), Glassmorphism, Dark Mode & WCAG 2.1 A11y (Reduced Motion)
 - **Icons**: `lucide-react`
 - **State Management**: Zustand (`src/store/useStore.js`) mit LocalStorage Persistenz & XP/Level/Streak Gamification
-- **Testing**: Vitest 4 mit `@testing-library/react` und jsdom
+- **Testing**: Vitest 5 mit `@testing-library/react` und jsdom
 - **Linting**: Oxlint (`oxlint src`) für ultraschnelle statische Codeanalyse
 
 ---
 
 ## 🚀 Häufige Entwickler-Befehle
 
-Voraussetzung: Node >=22.18.0 (`engines` in package.json). CI-Workflow: `.github/workflows/ci.yml`.
+Voraussetzung: Node >=22.19.0 (`engines` in package.json). CI-Workflow: `.github/workflows/ci.yml`.
 
 ```bash
 # Entwicklungsserver starten (Standard-Port http://localhost:5173)
@@ -59,7 +59,7 @@ npm run build
 npm run preview
 ```
 
-Voraussetzung: Node >= 22.18. CI-Reihenfolge: `lint:ci` → `typecheck` → `test` → `test:coverage` → `build` → `size` → `e2e`.
+Voraussetzung: Node >= 22.19. CI-Reihenfolge: `lint:ci` → `typecheck` → `test` → `test:coverage` → `build` → `size` → `e2e`.
 
 ---
 

@@ -10,9 +10,14 @@ updates:
       lint-and-test:
         patterns:
           - "vitest*"
+          - "@vitest/*"
           - "@testing-library/*"
           - "oxlint*"
           - "@playwright/*"
+      size-limit:
+        patterns:
+          - "size-limit"
+          - "@size-limit/*"
       vendor:
         patterns:
           - "react*"

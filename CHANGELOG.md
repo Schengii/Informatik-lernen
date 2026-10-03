@@ -7,6 +7,16 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ---
 
+## [Unveröffentlicht]
+
+### Geändert (Changed)
+- Dev-Abhängigkeiten gemeinsam aktualisiert: `vitest` + `@vitest/coverage-v8` auf 5.0.2, `size-limit` + `@size-limit/file` auf 14.1.0. `engines.node` auf `>=22.19.0` angehoben (Anforderung von size-limit 14). Lint, Typecheck, 1634 Tests, Coverage, Build und Size-Check bestanden.
+
+### Behoben (Fixed)
+- **Vercel-Preview-Deployments schlugen fehl** (`.github/dependabot.yml`): Dependabot bumpte `@vitest/coverage-v8` bzw. `size-limit` / `@size-limit/file` einzeln, wodurch `npm ci` an Peer-Dependency-Konflikten (`ERESOLVE`) scheiterte. Die Gruppe `lint-and-test` erfasst nun auch `@vitest/*`, neue Gruppe `size-limit` bündelt `size-limit` und `@size-limit/*`.
+
+---
+
 ## [3.72.0] - 2026-10-03
 
 ### Hinzugefügt (Added)

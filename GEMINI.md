@@ -15,7 +15,7 @@ Entwickler- und KI-Leitfaden für das Projekt **Informatik-lernen (IT-DevGame)**
 - **Styling**: Vanilla CSS Design-System (`src/styles/global.css`), CSS Custom Properties, Glassmorphism, Dark Mode & WCAG 2.1 A11y (Reduced Motion)
 - **Icons**: `lucide-react`
 - **State Management**: Zustand (`src/store/useStore.js`) mit LocalStorage-Persistenz & BroadcastChannel Multi-Tab Synchronisation
-- **Testing**: Vitest 4 mit `@testing-library/react` und jsdom
+- **Testing**: Vitest 5 mit `@testing-library/react` und jsdom
 - **Linting**: Oxlint (`oxlint src`) für ultraschnelle statische Analyse
 - **Type Checking**: TypeScript (`tsc --noEmit`) mit selektivem `// @ts-check` und JSDoc
 
@@ -23,7 +23,7 @@ Entwickler- und KI-Leitfaden für das Projekt **Informatik-lernen (IT-DevGame)**
 
 ## 🚀 Häufige Entwickler-Befehle
 
-Voraussetzung: Node >=22.18.0 (`engines` in `package.json`).
+Voraussetzung: Node >=22.19.0 (`engines` in `package.json`).
 
 ```bash
 # Entwicklungsserver starten (Standard-Port http://localhost:5173)
