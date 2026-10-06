@@ -9,6 +9,33 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unveröffentlicht]
 
+## [3.73.0] - 2026-10-06
+
+### Hinzugefügt (Added)
+- **5 Neue IHK-Kern-Labs & Simulatoren**:
+  - `src/components/Content/StruktogrammLab.jsx` & `src/utils/struktogrammEngine.js`: DIN 66261 Nassi-Shneiderman Struktogramm Studio mit interaktiver Symboldarstellung (Sequenz, IF-THEN-ELSE, WHILE, FOR), Variablen-Tracing-Player und IHK-Prüfungsdrill.
+  - `src/components/Content/DatabaseNormalizationLab.jsx` & `src/utils/databaseNormalizationEngine.js`: Relationale Datenbank-Normalisierung & Anomalien Studio mit stufenweiser Dekomposition (1NF, 2NF, 3NF), Live-Demonstration von Insert-, Update- und Delete-Anomalien und Prüfungsdrill.
+  - `src/components/Content/NatPatSimulatorLab.jsx` & `src/utils/natPatEngine.js`: IPv4 NAT/PAT Simulator mit RFC 1918 Analyzer, dynamischer Port Address Translation, Connection Tracking Table Inspection und animiertem Paketfluss.
+  - `src/components/Content/VlanTrunkingLab.jsx` & `src/utils/vlanTrunkingEngine.js`: IEEE 802.1Q VLAN Trunking Studio mit Bit-genauer 4-Byte Tag Dissektion (TPID, PCP, DEI, VID), Access/Trunk Switching Simulation und Router-on-a-Stick Cisco IOS Konfigurationsgenerator.
+  - `src/components/Content/UsvCalculatorLab.jsx` & `src/utils/usvCalculationsEngine.js`: USV-Dimensionierung & Rechenzentrums-Energie Studio mit Wirk-/Schein-/Blindleistungs-Berechnung ($\cos\varphi$), Autonomiezeit-Rechner mit Peukert-/Wirkungsgrad-Modell, PUE-Metriken und USV-Topologien (VFD, VI, VFI).
+- **Registrierung & Routing**:
+  - Alle 5 neuen Module nahtlos in `src/data/labRegistry.js` und `src/data/labModulesData.js` mit Tags, Beschreibungen und Icons registriert.
+  - Alle 5 Labs über direkte URLs/Tabs (`struktogramm_lab`, `db_normalization_lab`, `nat_pat_lab`, `vlan_trunking_lab`, `usv_calculator_lab`) erreichbar.
+- **IHK Prüfungs-Simulator Erweiterung**:
+  - 20 neue praxisorientierte IHK-Prüfungsfragen zu Kerninhalten (Struktogramme, Normalformen, NAT/PAT, VLAN, USV/PUE) in `src/data/examData.js` hinzugefügt (Pool von 31 auf 51 Fragen erweitert).
+  - Lesezeichen-Funktion ("Bookmark/Merken") zum Markieren kniffliger Fragen für spätere Durchsicht.
+  - Filter-Buttons im Simulator (Alle, Markiert, Offen).
+  - Detaillierte Ergebnis-Aufschlüsselung nach IHK-Wissensgebieten und Themenbereichen.
+- **Labs-Dashboard & Berichtsheft-Generator**:
+  - Berufsfeld-Filterbar in `src/components/Content/LabsDashboard.jsx` (Alle, AP1 Kern, FIAE, FISI, IT-SE, WISO).
+  - Integrierter 1-Klick IHK-Berichtsheft Wochennachweis Generator für Azubis mit formatiertem Text-Export.
+- **Entwicklungs-Tooling**:
+  - Neuer npm-Befehl `"test:fast": "vitest run --isolate=false"` für ultraschnelle (~14s) lokale Testläufe von 191+ Testdateien.
+  - 10 neue isolierte Unit- und UI-Testdateien (`struktogrammEngine.test.js`, `StruktogrammLab.test.jsx`, `databaseNormalizationEngine.test.js`, `DatabaseNormalizationLab.test.jsx`, `natPatEngine.test.js`, `NatPatSimulatorLab.test.jsx`, `vlanTrunkingEngine.test.js`, `VlanTrunkingLab.test.jsx`, `usvCalculationsEngine.test.js`, `UsvCalculatorLab.test.jsx`, `ExamSimulator.test.jsx`).
+
+### Behoben (Fixed)
+- Behebung ungenutzter Importe und Parameter zur Einhaltung strenger `oxlint` CI-Regeln (`npm run lint:ci` mit 0 Fehlern und 0 Warnungen).
+
 ### Hinzugefügt (Added)
 - **Interaktionstests für die vier größten IHK-Rechenlabs** (44 Tests): `WisoAngebotsvergleichLab`, `WisoKalkulationLab`, `TestverfahrenLab` und `DhcpDoraLab` prüfen jetzt Bedienung, angezeigte Rechenergebnisse (Skonto-Effektivzins, Kalkulationsschema, Nutzwert, Netzplan, Äquivalenzklassen, McCabe, DORA-Zustände) und einmalige XP-Vergabe. Bisher wurden diese Labs nur gerendert (Smoke/axe).
 - **`src/components/Shared/IhkDrillPanel.jsx`**: gemeinsamer IHK-Prüfungsdrill (Multiple Choice, Auswertung, Wiederholen) für DHCP-, Testverfahren- und Angebotsvergleich-Lab; ersetzt drei identische Kopien.

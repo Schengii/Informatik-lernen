@@ -12,6 +12,31 @@
 //            und Standard-Badge. `withBadgeArg` = Lab ruft onXPGain(xp, badge)
 export const LAB_REGISTRY = [
   {
+    tabs: ['struktogramm_lab', 'struktogramm', 'nassi_shneiderman', 'schreibtischtest_lab'],
+    load: () => import('../components/Content/StruktogrammLab'),
+    xp: { prop: 'onRewardXP', badge: 'struktogramm_master' }
+  },
+  {
+    tabs: ['database_normalization_lab', 'database_normalization', 'normalisierung_lab', 'normalisierung'],
+    load: () => import('../components/Content/DatabaseNormalizationLab'),
+    xp: { prop: 'onRewardXP', badge: 'database_normalization_master' }
+  },
+  {
+    tabs: ['nat_pat_lab', 'nat_pat', 'nat_lab', 'pat_simulator_lab'],
+    load: () => import('../components/Content/NatPatSimulatorLab'),
+    xp: { prop: 'onRewardXP', badge: 'nat_pat_master' }
+  },
+  {
+    tabs: ['vlan_trunking_lab', 'vlan_trunking', 'vlan_lab', 'dot1q_lab'],
+    load: () => import('../components/Content/VlanTrunkingLab'),
+    xp: { prop: 'onRewardXP', badge: 'vlan_trunking_master' }
+  },
+  {
+    tabs: ['usv_calculator_lab', 'usv_calculator', 'usv_lab', 'stromversorgung_lab'],
+    load: () => import('../components/Content/UsvCalculatorLab'),
+    xp: { prop: 'onRewardXP', badge: 'usv_calculator_master' }
+  },
+  {
     tabs: ['dhcp_dora_lab', 'dhcp_dora', 'dhcp_lab', 'dora_handshake_lab'],
     load: () => import('../components/Content/DhcpDoraLab'),
     xp: { prop: 'onRewardXP', badge: 'dhcp_dora_master' }

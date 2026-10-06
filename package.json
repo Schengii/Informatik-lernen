@@ -13,6 +13,7 @@
     "lint:ci": "oxlint src --deny-warnings",
     "preview": "vite preview",
     "test": "vitest run",
+    "test:fast": "vitest run --exclude=\"**/*A11y*.test.jsx\" --exclude=\"**/*.routing.test.jsx\"",
     "test:coverage": "vitest run --coverage",
     "size": "size-limit",
     "e2e": "playwright test",

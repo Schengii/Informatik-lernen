@@ -1,6 +1,61 @@
-import { Activity, AlertTriangle, Award, BarChart2, Brain, Bug, Building2, Calculator, Calendar, Clock, Cloud, Code2, Cpu, Database, FileCode, FileText, GitCommit, GitPullRequest, Globe, GraduationCap, HardDrive, Key, KeyRound, Layers, Lock, Mic, Network, Radio, Route, Scale, Search, Server, Shield, ShieldAlert, Terminal, TrendingDown, Users, Zap } from 'lucide-react';
+import { Activity, AlertTriangle, Award, BarChart2, Brain, Bug, Building2, Calculator, Calendar, Clock, Cloud, Code2, Cpu, Database, FileCode, FileText, GitCommit, GitFork, GitPullRequest, Globe, GraduationCap, HardDrive, Key, KeyRound, Layers, Lock, Mic, Network, Radio, Route, Scale, Search, Server, Shield, ShieldAlert, Terminal, TrendingDown, Users, Zap } from 'lucide-react';
 
 export const LAB_MODULES = [
+  {
+    id: 'struktogramm_lab',
+    title: 'DIN 66261 Nassi-Shneiderman Struktogramm & Schreibtischtest Studio',
+    category: 'fiae',
+    tags: ['#DIN66261', '#Struktogramm', '#Schreibtischtest', '#TraceTable', '#Algorithmen', '#AP1', '#FIAE', '#IHKPrüfung'],
+    difficulty: 'Intermediate',
+    desc: 'Interaktiver DIN 66261 Visualisierer: Sequenz, Verzweigung (IF/CASE), kopf- & fußgesteuerte Schleifen sowie schrittweiser Schreibtischtest (Trace-Tabelle) mit Variablenverfolgung.',
+    icon: GitFork,
+    badge: 'IHK Neu',
+    color: '#6366f1'
+  },
+  {
+    id: 'database_normalization_lab',
+    title: 'IHK Relationales Datenbank-Normalisierungs-Studio (1. NF, 2. NF, 3. NF)',
+    category: 'fiae',
+    tags: ['#Normalisierung', '#1NF', '#2NF', '#3NF', '#Datenbanken', '#SQL', '#Anomalien', '#ERD', '#IHKPrüfung'],
+    difficulty: 'Intermediate',
+    desc: 'Schrittweise Überführung unnormalisierter Relationen bis zur 3. NF: Atomarisierung, Beseitigung partieller & transitiver Abhängigkeiten und interaktiver INSERT/UPDATE/DELETE Anomalien-Simulator.',
+    icon: Database,
+    badge: 'IHK Neu',
+    color: '#10b981'
+  },
+  {
+    id: 'nat_pat_lab',
+    title: 'RFC 3022 / RFC 2663 NAT, PAT & Port-Forwarding Studio',
+    category: 'network',
+    tags: ['#NAT', '#PAT', '#PortOverload', '#SNAT', '#DNAT', '#RFC1918', '#Netzwerk', '#FISI', '#IHKPrüfung'],
+    difficulty: 'Intermediate',
+    desc: 'Header-Transformation im Router: Inside Local zu Inside Global, dynamische PAT-Portvergabe, Live NAT Translation Table und RFC 1918 Adressraum-Prüfung.',
+    icon: Network,
+    badge: 'IHK Neu',
+    color: '#0ea5e9'
+  },
+  {
+    id: 'vlan_trunking_lab',
+    title: 'IEEE 802.1Q VLAN, Trunking & Router-on-a-Stick Studio',
+    category: 'network',
+    tags: ['#VLAN', '#8021Q', '#Trunking', '#NativeVLAN', '#RouterOnAStick', '#Subinterfaces', '#Switching', '#FISI'],
+    difficulty: 'Intermediate',
+    desc: '4-Byte 802.1Q Tag-Bitfeldrechner (TPID 0x8100, PCP QoS, DEI, 12-Bit VID), Access- vs. Trunk-Port-Simulation und Cisco Router-on-a-Stick CLI-Konfigurationsgenerator.',
+    icon: Route,
+    badge: 'IHK Neu',
+    color: '#8b5cf6'
+  },
+  {
+    id: 'usv_calculator_lab',
+    title: 'IHK USV-Dimensionierung & Stromversorgungs-Studio',
+    category: 'hardware',
+    tags: ['#USV', '#DINEN62040', '#Wirkleistung', '#Scheinleistung', '#CosPhi', '#Autonomiezeit', '#PUE', '#ITSE', '#FISI'],
+    difficulty: 'Intermediate',
+    desc: 'Berechnung von Wirk- & Scheinleistung (W / VA) mit cos φ, Autonomiezeit-Kalkulation im Akkubetrieb, DIN EN 62040-3 USV-Typen (VFD, VI, VFI) und Rechenzentrums-PUE-Metrik.',
+    icon: Zap,
+    badge: 'IHK Neu',
+    color: '#eab308'
+  },
   {
     id: 'dhcp_dora_lab',
     title: 'RFC 2131 DHCP DORA & Relay-Agent Studio',

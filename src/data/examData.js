@@ -504,6 +504,316 @@ export const EXAM_QUESTIONS = [
     correct: 2,
     points: 10,
     explanation: 'Nach DIN VDE 0100-410 ist für Steckdosenstromkreise zum Personenschutz ein RCD mit einem Bemessungsfehlerstrom von höchstens 30 mA (0,03 A) zwingend vorgeschrieben (Herzkammerflimmer-Schwelle).'
+  },
+  {
+    id: 32,
+    examType: 'ap1',
+    category: 'Algorithmen & Struktogramme',
+    difficulty: 'Azubi / IHK',
+    question: 'Welches Merkmal kennzeichnet eine kopfgesteuerte Schleife (WHILE) im Nassi-Shneiderman Struktogramm nach DIN 66261?',
+    options: [
+      'Der Schleifenrumpf wird immer mindestens einmal durchlaufen.',
+      'Die Bedingung wird vor dem ersten Durchlauf geprüft; ist sie falsch, wird der Rumpf 0-mal ausgeführt.',
+      'Sie darf nur ganzzahlige Zählvariablen enthalten.',
+      'Sie kann nicht mit IF-Verzweigungen kombiniert werden.'
+    ],
+    correct: 1,
+    points: 10,
+    explanation: 'Bei kopfgesteuerten Schleifen (WHILE) wird die Abbruch-/Fortsetzungsbedingung vor dem Schleifenrumpf geprüft. Ist sie initial false, wird der Rumpf nie (0-mal) ausgeführt.'
+  },
+  {
+    id: 33,
+    examType: 'ap1',
+    category: 'Projektmanagement & Netzplan',
+    difficulty: 'Azubi / IHK',
+    question: 'Wie berechnet sich der Gesamtpuffer (GP) eines Vorgangs in der Netzplantechnik (CPM)?',
+    options: [
+      'GP = Spätester Endzeitpunkt (SEZ) - Frühester Endzeitpunkt (FEZ)',
+      'GP = Frühester Anfangszeitpunkt (FAZ) + Dauer',
+      'GP = Frühester Endzeitpunkt (FEZ) - Spätester Anfangszeitpunkt (SAZ)',
+      'GP = Dauer / 2'
+    ],
+    correct: 0,
+    points: 10,
+    explanation: 'Gesamtpuffer GP = SEZ - FEZ bzw. SAZ - FAZ. Gibt an, um wie viele Zeiteinheiten sich ein Vorgang verzögern darf, ohne den Projektendtermin zu verschieben.'
+  },
+  {
+    id: 34,
+    examType: 'ap1',
+    category: 'WISO & Handelskalkulation',
+    difficulty: 'Azubi / IHK',
+    question: 'In welcher Reihenfolge erfolgt die Vorwärtskalkulation des Einstandspreises (Bezugspreises)?',
+    options: [
+      'Listeneinkaufspreis - Skonto = Zieleinkaufspreis - Rabatt = Bareinkaufspreis + Bezugskosten',
+      'Listeneinkaufspreis - Lieferantenrabatt = Zieleinkaufspreis - Lieferskonto = Bareinkaufspreis + Bezugskosten = Bezugspreis',
+      'Listeneinkaufspreis + Handlungskosten = Selbstkostenpreis + Gewinn',
+      'Listeneinkaufspreis + Bezugskosten - Rabatt - Skonto = Einstandspreis'
+    ],
+    correct: 1,
+    points: 10,
+    explanation: 'Kalkulationsschema: Listeneinkaufspreis (LEP) minus Rabatt = Zieleinkaufspreis (ZEP) minus Skonto = Bareinkaufspreis (BEP) plus Bezugskosten (Fracht, Verpackung, Versicherung) = Bezugspreis / Einstandspreis.'
+  },
+  {
+    id: 35,
+    examType: 'ap2_fiae',
+    category: 'Software-Architektur & Clean Code',
+    difficulty: 'Azubi / IHK',
+    question: 'Was besagt das Single-Responsibility-Prinzip (SRP) aus den SOLID-Entwurfsprinzipien?',
+    options: [
+      'Eine Klasse darf maximal eine einzige Methode besitzen.',
+      'Eine Klasse sollte nur genau einen Grund für eine Änderung haben (nur eine fachliche Verantwortung).',
+      'Jede Datenbanktabelle darf nur einen einzigen Fremdschlüssel referenzieren.',
+      'Alle Variablen müssen privat deklariert sein.'
+    ],
+    correct: 1,
+    points: 10,
+    explanation: 'Das SRP fordert: "A class should have one, and only one, reason to change." Eine Klasse ist für genau einen Aspekt/eine Funktionalität verantwortlich (z. B. Trennung von Geschäftslogik und Daten-Export).'
+  },
+  {
+    id: 36,
+    examType: 'ap2_fiae',
+    category: 'Datenbanken & Normalisierung',
+    difficulty: 'Azubi / IHK',
+    question: 'Eine Tabelle besitzt den zusammengesetzten Primärschlüssel (BestellNr, ArtikelNr). Die Spalte ArtikelBezeichnung hängt nur von ArtikelNr ab. Welche Normalform ist hier verletzt?',
+    options: [
+      '1. Normalform',
+      '2. Normalform',
+      '3. Normalform',
+      'Keine, das ist zulässig'
+    ],
+    correct: 1,
+    points: 10,
+    explanation: 'Die 2. Normalform verlangt, dass jedes Nichtschlüsselattribut voll funktional vom GESAMTEN Primärschlüssel abhängt. Da ArtikelBezeichnung nur vom Teilschlüssel ArtikelNr abhängt (partielle Abhängigkeit), liegt eine 2NF-Verletzung vor.'
+  },
+  {
+    id: 37,
+    examType: 'ap2_fiae',
+    category: 'Design Patterns & OOP',
+    difficulty: 'Azubi / IHK',
+    question: 'Welches GoF-Entwurfsmuster (Design Pattern) eignet sich ideal, um mehrere Komponenten automatisch über Zustandsänderungen eines Subjekts zu benachrichtigen (1:n Abhängigkeit)?',
+    options: [
+      'Singleton Pattern',
+      'Observer Pattern (Beobachter-Muster)',
+      'Adapter Pattern',
+      'Strategy Pattern'
+    ],
+    correct: 1,
+    points: 10,
+    explanation: 'Das Observer Pattern definiert eine 1-zu-n-Abhängigkeit zwischen Objekten, sodass bei der Änderung eines Objekts alle abhängigen Beobachter automatisch benachrichtigt und aktualisiert werden (z. B. Event-Handling in GUI-Frameworks).'
+  },
+  {
+    id: 38,
+    examType: 'ap2_fiae',
+    category: 'Software-Testing',
+    difficulty: 'Azubi / IHK',
+    question: 'Ein System verarbeitet Eingaben von 10 bis 100. Welche Testfall-Werte bilden die vollständige 6-Punkte-Grenzwertanalyse?',
+    options: [
+      '0, 10, 50, 100, 150',
+      '9, 10, 11, 99, 100, 101',
+      '10, 50, 100',
+      '8, 9, 10, 100, 101, 102'
+    ],
+    correct: 1,
+    points: 10,
+    explanation: '6-Punkte-Grenzwertanalyse: min-1 (9), min (10), min+1 (11) sowie max-1 (99), max (100) und max+1 (101).'
+  },
+  {
+    id: 39,
+    examType: 'ap2_fisi',
+    category: 'Netzwerke & VLAN',
+    difficulty: 'Azubi / IHK',
+    question: 'Wie viele Bytes umfasst der IEEE 802.1Q Header und welches Protokoll-Identifikationsfeld (TPID) kennzeichnet einen getaggten Ethernet-Frame?',
+    options: [
+      '2 Bytes mit TPID 0x0800',
+      '4 Bytes mit TPID 0x8100',
+      '8 Bytes mit TPID 0x88CC',
+      '6 Bytes mit TPID 0x0806'
+    ],
+    correct: 1,
+    points: 10,
+    explanation: 'Der 802.1Q Tag ist 4 Bytes groß. Die ersten 2 Bytes bilden den TPID mit dem festen Hexadezimalwert 0x8100, gefolgt von 3 Bit PCP (QoS), 1 Bit DEI und 12 Bit VID (VLAN ID).'
+  },
+  {
+    id: 40,
+    examType: 'ap2_fisi',
+    category: 'Netzwerkdienste & DHCP',
+    difficulty: 'Azubi / IHK',
+    question: 'In welcher Reihenfolge verläuft der 4-Way DHCP Handshake (DORA) und welche UDP-Ports werden standardmäßig genutzt?',
+    options: [
+      'Discover, Offer, Request, Acknowledge (Server UDP 67, Client UDP 68)',
+      'Request, Discover, Offer, Ack (Server TCP 80, Client TCP 443)',
+      'Offer, Discover, Request, Ack (Server UDP 53, Client UDP 53)',
+      'Data, Order, Response, Accept (Server UDP 123, Client UDP 123)'
+    ],
+    correct: 0,
+    points: 10,
+    explanation: 'DHCP DORA: DHCPDiscover (Client Broadcast) -> DHCPOffer (Server Unicast/Broadcast) -> DHCPRequest (Client) -> DHCPAck (Server). Server hört auf UDP 67, Client auf UDP 68.'
+  },
+  {
+    id: 41,
+    examType: 'ap2_fisi',
+    category: 'Netzwerke & NAT/PAT',
+    difficulty: 'Azubi / IHK',
+    question: 'Was versteht man unter PAT (Port Address Translation / NAT Overload)?',
+    options: [
+      'Die feste 1:1 Zuordnung einer privaten IP zu einer öffentlichen IP ohne Portänderung.',
+      'Die Übersetzung vieler interner privater IPs auf eine einzige öffentliche IP mittels dynamischer TCP/UDP Quellport-Zuordnung.',
+      'Die Verschlüsselung von IP-Paketen auf Schicht 3 via IPsec.',
+      'Die automatische Zuweisung von IPv6 Interface Identifiern via EUI-64.'
+    ],
+    correct: 1,
+    points: 10,
+    explanation: 'PAT (Port Address Translation / Overload) ermöglicht hunderten Rechnern im LAN das gleichzeitige Surfen über eine einzige öffentliche IP-Adresse, indem der Router für jeden Socket einen eindeutigen Port vergibt.'
+  },
+  {
+    id: 42,
+    examType: 'ap2_fisi',
+    category: 'Routing & Hochverfügbarkeit',
+    difficulty: 'Azubi / IHK',
+    question: 'Welcher CLI-Befehl auf einem Cisco-Router-Subinterface (z.B. g0/0.10) aktiviert die 802.1Q Kapselung für das VLAN 10 ("Router-on-a-Stick")?',
+    options: [
+      'switchport mode trunk vlan 10',
+      'encapsulation dot1Q 10',
+      'vlan tagging 10 enable',
+      'ip route vlan 10 255.255.255.0'
+    ],
+    correct: 1,
+    points: 10,
+    explanation: 'Der Befehl "encapsulation dot1Q <vlan-id>" weist dem logischen Subinterface das entsprechende 802.1Q VLAN-Tag zu, damit der Router getaggte Frames verarbeiten kann.'
+  },
+  {
+    id: 43,
+    examType: 'ap2_itse',
+    category: 'USV & Stromversorgung',
+    difficulty: 'Azubi / IHK',
+    question: 'Welche USV-Topologie nach DIN EN 62040-3 arbeitet nach dem Dauerwandler-Prinzip und garantiert 0 ms Umschaltzeit bei Netzausfall?',
+    options: [
+      'VFD (Offline / Standby USV)',
+      'VI (Line-Interactive USV)',
+      'VFI (Online / Doppelwandler-USV)',
+      'Schukostecker-Bypass'
+    ],
+    correct: 2,
+    points: 10,
+    explanation: 'VFI (Voltage and Frequency Independent) USVs wandeln Netzspannung permanent in Gleichspannung und über den Wechselrichter wieder in Wechselspannung um. Dadurch existiert keinerlei Umschaltverzögerung (0 ms).'
+  },
+  {
+    id: 44,
+    examType: 'ap2_itse',
+    category: 'Elektrotechnik & Leistung',
+    difficulty: 'Azubi / IHK',
+    question: 'Ein Servernetzteil nimmt eine Wirkleistung von P = 600 Watt bei einem Leistungsfaktor cos φ = 0,75 auf. Wie hoch ist die aufgenommene Scheinleistung S?',
+    options: ['450 VA', '600 VA', '800 VA', '1.000 VA'],
+    correct: 2,
+    points: 10,
+    explanation: 'Formel: S = P / cos φ = 600 W / 0,75 = 800 VA.'
+  },
+  {
+    id: 45,
+    examType: 'ap2_fidp',
+    category: 'Data Engineering & ETL',
+    difficulty: 'Azubi / IHK',
+    question: 'Was ist der Hauptunterschied zwischen traditionellem ETL (Extract-Transform-Load) und modernem ELT in Cloud Data Warehouses (z. B. Snowflake, BigQuery)?',
+    options: [
+      'Bei ELT werden Rohdaten direkt in das Warehouse geladen und erst dort mit der Rechenleistung der Cloud-Datenbank transformiert.',
+      'ETL kann keine relationalen Datenbanken verarbeiten.',
+      'ELT löscht Rohdaten vor der Transformation, um Speicherplatz zu sparen.',
+      'Bei ELT werden Daten ausschließlich per E-Mail übertragen.'
+    ],
+    correct: 0,
+    points: 10,
+    explanation: 'Bei ELT (Extract-Load-Transform) werden unstrukturierte/strukturierte Rohdaten direkt in den Data Lake/Warehouse geladen und on-demand mithilfe der massiven Skalierbarkeit der Cloud-Datenbank transformiert.'
+  },
+  {
+    id: 46,
+    examType: 'ap2_fidp',
+    category: 'Datenqualität & DSGVO',
+    difficulty: 'Azubi / IHK',
+    question: 'Welcher Grundsatz der DSGVO (Art. 5) verlangt, dass personenbezogene Daten "auf das für die Zwecke der Verarbeitung notwendige Maß beschränkt sein müssen"?',
+    options: [
+      'Zweckbindung',
+      'Datenminimierung (Datenvermeidung und Sparsamkeit)',
+      'Richtigkeit',
+      'Integrität und Vertraulichkeit'
+    ],
+    correct: 1,
+    points: 10,
+    explanation: 'Der Grundsatz der Datenminimierung (Art. 5 Abs. 1 lit. c DSGVO) besagt, dass Daten dem Zweck angemessen und erheblich sowie auf das für die Zwecke der Verarbeitung notwendige Maß beschränkt sein müssen.'
+  },
+  {
+    id: 47,
+    examType: 'ap2_fidv',
+    category: 'IIoT & CPS',
+    difficulty: 'Azubi / IHK',
+    question: 'Welches MQTT QoS (Quality of Service) Level stellt sicher, dass eine Sensornachricht garantiert genau einmal ("exactly once") beim Broker/Empfänger ankommt?',
+    options: [
+      'QoS 0 (At most once / Best Effort)',
+      'QoS 1 (At least once / Mindestens einmal)',
+      'QoS 2 (Exactly once / Genau einmal)',
+      'QoS 3 (Infinite loop)'
+    ],
+    correct: 2,
+    points: 10,
+    explanation: 'QoS 2 ist das höchste MQTT-Zustellungslevel mit einem 4-Way-Handshake (PUBLISH -> PUBREC -> PUBREL -> PUBCOMP), das Duplikate und Nachrichtenverluste zuverlässig ausschließt.'
+  },
+  {
+    id: 48,
+    examType: 'ap2_fidv',
+    category: 'Industrienetze & Edge',
+    difficulty: 'Azubi / IHK',
+    question: 'Welcher entscheidende Vorteil zeichnet das industrielle Kommunikationsprotokoll OPC UA gegenüber klassischem Modbus aus?',
+    options: [
+      'OPC UA ist herstellerunabhängig, plattformneutral, unterstützt semantische Informationsmodelle und integrierte Ende-zu-Ende Verschlüsselung.',
+      'OPC UA benötigt keine IP-Adressen und funktioniert nur über serielle RS-232 Kabel.',
+      'Modbus bietet mehr Verschlüsselungsmechanismen als OPC UA.',
+      'OPC UA kann nur maximal 8 Sensoren gleichzeitig ansteuern.'
+    ],
+    correct: 0,
+    points: 10,
+    explanation: 'OPC UA (Open Platform Communications Unified Architecture) ist der weltweite Standard für Industrie 4.0: plattformunabhängig, semantisch typisiert und von Haus aus mit robuster Zertifikats- und Verschlüsselungssicherheit (X.509) ausgestattet.'
+  },
+  {
+    id: 49,
+    examType: 'ap1',
+    category: 'IT-Sicherheit & Kryptographie',
+    difficulty: 'Azubi / IHK',
+    question: 'Alice möchte Bob eine vertrauliche Nachricht senden. Mit welchem kryptographischen Schlüssel muss Alice die Nachricht in einem asymmetrischen Kryptosystem verschlüsseln?',
+    options: [
+      'Mit ihrem eigenen privaten Schlüssel (Alice Private Key)',
+      'Mit Bobs öffentlichem Schlüssel (Bob Public Key)',
+      'Mit ihrem eigenen öffentlichen Schlüssel (Alice Public Key)',
+      'Mit einem gemeinsamen Pre-Shared Key (PSK)'
+    ],
+    correct: 1,
+    points: 10,
+    explanation: 'Zur vertraulichen Verschlüsselung wird stets der öffentliche Schlüssel des Empfängers (Bob Public Key) genutzt. Nur der Empfänger kann die Nachricht mit seinem dazugehörigen geheimen privaten Schlüssel (Bob Private Key) entschlüsseln.'
+  },
+  {
+    id: 50,
+    examType: 'ap1',
+    category: 'Speichersysteme & RAID',
+    difficulty: 'Azubi / IHK',
+    question: 'Ein Server wird mit einem RAID 5 Verbund aus vier Festplatten mit jeweils 2 Terabyte Kapazität ausgestattet. Wie viel nutzbare Speicherkapazität steht zur Verfügung?',
+    options: ['2 Terabyte', '4 Terabyte', '6 Terabyte', '8 Terabyte'],
+    correct: 2,
+    points: 10,
+    explanation: 'Bei RAID 5 wird die Kapazität einer Festplatte für Paritätsdaten reserviert: Nutzbare Kapazität = (n - 1) * Kapazität = (4 - 1) * 2 TB = 3 * 2 TB = 6 TB.'
+  },
+  {
+    id: 51,
+    examType: 'ap1',
+    category: 'Datenschutz & TOMs',
+    difficulty: 'Azubi / IHK',
+    question: 'Welche der folgenden Maßnahmen zählt zu den "Zutrittskontrollen" im Sinne der technisch-organisatorischen Maßnahmen (TOMs)?',
+    options: [
+      'Passwortkomplexitätsregeln für Benutzerkonten',
+      'Elektronische Chipkarten-Schließanlage und Wachpersonal am Eingang des Rechenzentrums',
+      'Rollen- und Rechtevergabe im ERP-System',
+      'Verschlüsselung der Festplatten mit BitLocker'
+    ],
+    correct: 1,
+    points: 10,
+    explanation: 'Zutrittskontrolle verhindert den physischen Zutritt unbefugter Personen zu Verarbeitungsanlagen (z. B. Schließanlagen, Zäune, Pförtner). Zugangskontrolle regelt den Login am System, Zugriffskontrolle die Datenberechtigungen.'
   }
 ];
 

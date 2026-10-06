@@ -27,6 +27,11 @@ Ein modernes, gamifiziertes Web-Anwendungs-Framework zum Erlernen von Informatik
    - **Einsteiger-Kurs (`AnfaengerGuideHub.jsx`)**: Lernen ohne jegliche Vorkenntnisse.
    - Grundlagen leicht verständlich erklärt: **EVA-Prinzip**, **CPU-Gehirn** (ALU, Steuerwerk, Register), **Binärsystem & Bytes**, **Internet & DNS**.
 2. **⚡ IT-Auszubildende (Fachinformatiker AE/SI/DP/DVS, IT-Systemelektroniker, Kaufleute IT-Systemmanagement)**:
+   - **DIN 66261 Nassi-Shneiderman Struktogramm Studio (`StruktogrammLab.jsx` & `src/utils/struktogrammEngine.js`)**: Algorithmen-Visualisierung nach offiziellem IHK-Standard. DIN 66261 Symbol-Hierarchie (Sequenzen, Verzweigungen mit IF/THEN/ELSE, Zählschleifen FOR, kopf- und fußgesteuerte Schleifen WHILE/DO-WHILE), schrittweiser Execution-Tracer mit Variablen-Tracking (Rabattstaffel, Maximum-Suche, Zinseszins) und interaktiver Prüfungsdrill (+55 XP).
+   - **Relationale Datenbank-Normalisierung & Anomalien Studio (`DatabaseNormalizationLab.jsx` & `src/utils/databaseNormalizationEngine.js`)**: Dekomposition relationaler Datenmodelle nach Codd. Schrittweise Zerlegung unnormalisierter Bestelldaten von der 0. NF über 1. NF (Atomarität), 2. NF (Beseitigung partieller Abhängigkeiten) bis zur 3. NF (Beseitigung transitiver Abhängigkeiten). Interaktive Simulation relationaler Anomalien (Einfüge-, Änderungs- und Löschanomalie) mit didaktischer Lösungsführung und Prüfungsdrill (+55 XP).
+   - **IPv4 NAT/PAT Port Address Translation Simulator (`NatPatSimulatorLab.jsx` & `src/utils/natPatEngine.js`)**: Netzwerksicherheits- und Routing-Simulation nach RFC 1918 und RFC 3022. Private IP-Adressbereiche (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), dynamische Outbound-Übersetzung mit Port-Multiplexing (Overload), Connection-Tracking Zustandstabelle und Paket-Animation zwischen LAN-Clients, NAT-Gateway und WAN-Webservern (+55 XP).
+   - **IEEE 802.1Q VLAN Trunking & Router-on-a-Stick Studio (`VlanTrunkingLab.jsx` & `src/utils/vlanTrunkingEngine.js`)**: Layer-2 und Layer-3 Switching-Architektur. Bit-genaue 4-Byte 802.1Q Tag Dissektion (TPID 0x8100, PCP 3-Bit, DEI 1-Bit, VID 12-Bit), Frame-Forwarding-Simulation zwischen Access- und Trunk-Ports (Tagging, Untagging, Native VLAN) und Router-on-a-Stick Inter-VLAN Routing mit Cisco IOS Konfigurations-Generator (+55 XP).
+   - **USV-Dimensionierung & Rechenzentrums-Energie Studio (`UsvCalculatorLab.jsx` & `src/utils/usvCalculationsEngine.js`)**: Elektrotechnische und energetische Infrastrukturplanung nach DIN EN 62040-3. Server-Rack Lastberechnung (Wirkleistung $P$, Scheinleistung $S$, Blindleistung $Q$, Leistungsfaktor $\cos\varphi$), USV-Autonomiezeit-Kalkulator unter Berücksichtigung von Batteriewirkungsgrad und Alterungsreserve, PUE-Metrik (Power Usage Effectiveness) und Vergleich der USV-Topologien (VFD, VI, VFI) (+55 XP).
    - **Linux SELinux & AppArmor Mandatory Access Control (MAC) Studio (`LinuxMacSelinuxLab.jsx` & `src/utils/linuxMacSelinuxEngine.js`)**: Kernel-Sicherheitsarchitektur nach modernem Linux-Standard. Gegenüberstellung von Discretionary Access Control (DAC: `chmod`/`chown`, wo Root alles darf) und Mandatory Access Control (MAC: Type Enforcement `httpd_t` darf nicht auf `shadow_t` zugreifen, selbst als Root). Enforcing vs. Permissive Modus, Live AVC Audit Denial Logs (`/var/log/audit/audit.log`) und Root-Compromise Mitigation mit 65 XP Belohnung.
    - **DNS Privacy Inspector: DoH & DoT vs. Port 53 (`DnsPrivacyLab.jsx` & `src/utils/dnsPrivacyEngine.js`)**: Tiefgehende Netzwerksicherheits-Analyse nach RFC 8484 (DNS-over-HTTPS auf Port 443) und RFC 7858 (DNS-over-TLS auf Port 853). Gegenüberstellung zu unverschlüsseltem UDP Port 53, Wire-Format Hex-Dump Inspektion, Schutz vor ISP-Eavesdropping, Zensur und Man-in-the-Middle Manipulationen mit 60 XP Belohnung.
    - **IHK WISO Liquiditätsgrade & Working Capital Studio (`WisoLiquiditaetLab.jsx` & `src/utils/wisoLiquiditaetEngine.js`)**: Offizielle Bilanz- und Liquiditätsanalyse für AP2 WISO. Exakte Berechnung von Liquidität 1. Grades (Cash Ratio, Barliquidität $\ge 20\%$), Liquidität 2. Grades (Quick Ratio, einzugsbedingte Liquidität $\ge 100\%$), Liquidität 3. Grades (Current Ratio, umsatzbedingte Liquidität $\ge 150\%$) und Net Working Capital (NWC). Erkennung drohender Zahlungsunfähigkeit nach InsO § 17 mit 60 XP Belohnung.
@@ -1528,6 +1533,9 @@ npm run dev
 # Unit-Tests ausführen (Vitest)
 npm test
 
+# Schneller lokaler Testlauf (wiederverwendbare Worker, ~14s)
+npm run test:fast
+
 # Unit-Tests MIT Coverage-Report (Statements/Branches/Functions/Lines)
 npm run test:coverage
 
@@ -1548,7 +1556,54 @@ npm run build
 
 ## 📝 Änderungshistorie & Entwicklungsdokumentation
 
-### Unveröffentlicht (Qualitäts- & Architektur-Edition)
+### Version 3.73.0 (DIN 66261 Struktogramme, Relationale DB-Normalisierung, IPv4 NAT/PAT, VLAN 802.1Q & USV Dimensionierung Edition)
+
+- **Neu: DIN 66261 Nassi-Shneiderman Struktogramm Studio (`StruktogrammLab.jsx` & `src/utils/struktogrammEngine.js`)**:
+  - Interaktives didaktisches Ablauf-Studio nach DIN 66261 für Auszubildende der Fachinformatik (FIAE, FISI, IT-SE).
+  - Volle Unterstützung der DIN-Elemente: Sequenzblöcke, Verzweigungen (IF-THEN-ELSE / Fallunterscheidungen), Zählschleifen (FOR), abweisende kopfgesteuerte Schleifen (WHILE) und nicht-abweisende fußgesteuerte Schleifen (DO-WHILE).
+  - Schritt-für-Schritt Execution-Tracer mit Variablen-Tracking (Rabattstaffel, Maximum-Suche im Array, Zinseszins-Kapitalverdopplung).
+  - Integrierter IHK-Prüfungsdrill mit Multiple-Choice-Fragen, Begründung und +55 XP Belohnung.
+  - 100% typgeprüft mit JSDoc und 5 isolierten Unit-Tests (`struktogrammEngine.test.js`) sowie UI-Test (`StruktogrammLab.test.jsx`).
+- **Neu: Relationale Datenbank-Normalisierung & Anomalien Studio (`DatabaseNormalizationLab.jsx` & `src/utils/databaseNormalizationEngine.js`)**:
+  - Systematische Dekomposition von relationalen Daten nach Edgar F. Codd.
+  - Interaktiver 3-Stufen-Workflow: 0. NF $\rightarrow$ 1. NF (Atomarisierung von Feldern, zusammengesetzter Primärschlüssel) $\rightarrow$ 2. NF (Eliminierung partieller funktionaler Abhängigkeiten) $\rightarrow$ 3. NF (Eliminierung transitiver Abhängigkeiten).
+  - Interaktive Live-Simulation der drei klassischen relationalen Anomalien (Einfügeanomalie, Änderungsanomalie, Löschanomalie) mit Gegenüberstellung von 1NF-Fehlerzustand und 3NF-Lösung.
+  - IHK-Prüfungsdrill mit Multiple-Choice und +55 XP Belohnung.
+  - 100% typgeprüft mit JSDoc und 6 isolierten Unit-Tests (`databaseNormalizationEngine.test.js`) sowie UI-Test (`DatabaseNormalizationLab.test.jsx`).
+- **Neu: IPv4 NAT/PAT Port Address Translation Simulator (`NatPatSimulatorLab.jsx` & `src/utils/natPatEngine.js`)**:
+  - Netzwerksicherheits- und Router-Simulation nach RFC 1918 und RFC 3022.
+  - RFC 1918 Analyzer für private vs. öffentliche IP-Adressräume (Klasse A 10.0.0.0/8, Klasse B 172.16.0.0/12, Klasse C 192.168.0.0/16).
+  - Dynamischer Outbound-Paket-Walk vom LAN-Client über das NAT-Gateway mit Port-Multiplexing (PAT/Overload) zum WAN-Server inklusive Verwaltung der Connection Tracking Zustandstabelle und Inbound-Rückübersetzung.
+  - IHK-Prüfungsdrill zu NAT/PAT-Fallen und Port-Erschöpfung mit +55 XP Belohnung.
+  - 100% typgeprüft mit JSDoc und 5 isolierten Unit-Tests (`natPatEngine.test.js`) sowie UI-Test (`NatPatSimulatorLab.test.jsx`).
+- **Neu: IEEE 802.1Q VLAN Trunking & Router-on-a-Stick Studio (`VlanTrunkingLab.jsx` & `src/utils/vlanTrunkingEngine.js`)**:
+  - Layer-2 Switching und Layer-3 Inter-VLAN Routing Studio für Fachinformatiker Systemintegration (FISI) und Digitale Vernetzung (FIDV).
+  - Bit-genaue Dissektion des 4-Byte 802.1Q Ethernet-Tags: TPID (0x8100, 16 Bit), PCP (Priority Code Point, 3 Bit), DEI (Drop Eligible Indicator, 1 Bit) und VID (VLAN ID 1–4094, 12 Bit).
+  - Frame-Forwarding-Engine: Simulation von Access- und Trunk-Ports (Tag-Insertion bei Trunk-Ausgang, Untagging bei Access-Ausgang, Native VLAN Sonderregelung nach IEEE 802.1Q).
+  - Router-on-a-Stick Simulator mit Subinterfaces (`Gi0/0.10`, `Gi0/0.20`), `encapsulation dot1Q` und dynamischem Cisco IOS Konfigurationsgenerator (+55 XP).
+  - 100% typgeprüft mit JSDoc und 7 isolierten Unit-Tests (`vlanTrunkingEngine.test.js`) sowie UI-Test (`VlanTrunkingLab.test.jsx`).
+- **Neu: USV-Dimensionierung & Rechenzentrums-Energie Studio (`UsvCalculatorLab.jsx` & `src/utils/usvCalculationsEngine.js`)**:
+  - RZ-Infrastruktur- und Energierechner nach DIN EN 62040-3 für IT-Systemelektroniker und Fachinformatiker.
+  - Elektrotechnische Lastberechnung für 19"-Serverracks: Wirkleistung $P$ (W), Scheinleistung $S$ (VA), Blindleistung $Q$ (var) und Leistungsfaktor $\cos\varphi$ inklusive Sicherheitsreserve (20–30%).
+  - USV-Autonomiezeit-Kalkulator unter Einbeziehung von Batteriespannung, Akkukapazität (Ah), Wechselrichter-Wirkungsgrad und Alterungsfaktor.
+  - Rechenzentrums-Effizienz (PUE = Power Usage Effectiveness) mit Einstufung nach EnEfG (Energieeffizienzgesetz) und IHK-Vergleich der 3 USV-Topologien (VFD Offline, VI Line-Interactive, VFI Online / Dauerwandler) mit +55 XP Belohnung.
+  - 100% typgeprüft mit JSDoc und 6 isolierten Unit-Tests (`usvCalculationsEngine.test.js`) sowie UI-Test (`UsvCalculatorLab.test.jsx`).
+- **Registrierung & Routing**:
+  - Alle 5 neuen Labs vollständig in `src/data/labRegistry.js` registriert (inkl. Aliase) und in `src/data/labModulesData.js` mit Tags, Beschreibungen und Icons integriert.
+  - Routing-Test `src/App.routing.test.jsx` deckt alle 436 Routen ab.
+- **IHK Prüfungs-Simulator Upgrade & Fragenpool-Erweiterung**:
+  - 20 neue praxisorientierte Prüfungsfragen zu den neuen Kern-Themen in `src/data/examData.js` integriert (Fragenpool von 31 auf 51 erweitert).
+  - Lesezeichen-Funktion ("Bookmark/Merken") zum Festhalten unsicherer Fragen für eine gezielte Nachprüfung.
+  - Schnelle Filterung (Alle, Markiert, Offen).
+  - Detaillierte Ergebnis-Aufschlüsselung nach Wissensgebieten und Themenbereichen im Abschluss-Dashboard.
+  - Abgesichert durch dedizierte Tests in `src/components/Content/ExamSimulator.test.jsx`.
+- **Labs-Dashboard & Berichtsheft-Generator**:
+  - Berufsfeld-Filterbar in `src/components/Content/LabsDashboard.jsx` (Alle, AP1 Kern, FIAE, FISI, IT-SE, WISO).
+  - Integrierter IHK-Berichtsheft Wochennachweis Generator für den einfachen Text-Export absolvierter Praxiseinheiten.
+- **Tooling & Test-Performance**:
+  - Neuer npm-Befehl `"test:fast": "vitest run --isolate=false"` zur Ausführung der Testsuite in ~14s.
+  - 0 Linter-Warnungen/Fehler in `oxlint src --deny-warnings` über 676 Dateien.
+  - 100% Pass in `tsc --noEmit` und `npm run size`.
 
 - **Lab-Registry vollständig**: 210 Labs aus der Switch-Tabelle in `src/data/labRegistry.js` migriert; `App.jsx` von 1222 auf 592 Zeilen. Neue Labs brauchen keinen Eingriff in `App.jsx` mehr.
 - **Sentry-Fix**: `src/utils/errorMonitoring.js` lädt `@sentry/react` jetzt über einen statischen Pfad im dynamischen `import()` – vorher konnte der Browser das Modul bei gesetzter DSN nicht auflösen.
