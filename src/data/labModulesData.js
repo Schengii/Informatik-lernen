@@ -2,6 +2,50 @@ import { Activity, AlertTriangle, Award, BarChart2, Brain, Bug, Building2, Calcu
 
 export const LAB_MODULES = [
   {
+    id: 'stp_protocol_lab',
+    title: 'IEEE 802.1D / 802.1w Spanning Tree Protocol (STP & RSTP) Studio',
+    category: 'network',
+    tags: ['#STP', '#RSTP', '#8021D', '#8021w', '#RootBridge', '#PortRoles', '#BridgeID', '#FISI', '#AP1', '#IHKPrüfung'],
+    difficulty: 'Intermediate',
+    desc: 'Root-Bridge-Wahl (Priority + MAC), Pfadkosten (10G/1G/100M), Port-Rollen (Root, Designated, Alternate), Loop-Auflösung und STP (30-50s) vs. RSTP (<1s) Konvergenzvergleich.',
+    icon: Network,
+    badge: 'IHK Neu',
+    color: '#4338ca'
+  },
+  {
+    id: 'bpmn_process_lab',
+    title: 'OMG BPMN 2.0 Geschäftsprozessmodellierung & Swimlanes Studio',
+    category: 'fiae',
+    tags: ['#BPMN20', '#Geschäftsprozesse', '#Swimlanes', '#Gateways', '#XOR', '#AND', '#FIDP', '#ITSM', '#FIAE', '#IHKPrüfung'],
+    difficulty: 'Intermediate',
+    desc: 'Standardkonforme Geschäftsprozesse: Startereignisse, Endereignisse, Tasks, Gateways (XOR/AND/OR), Swimlanes, Token-Simulation und IHK-Konformitäts-Linter.',
+    icon: Layers,
+    badge: 'IHK Neu',
+    color: '#0f766e'
+  },
+  {
+    id: 'backup_strategy_lab',
+    title: 'IHK Backup-Strategien & Disaster Recovery Studio (3-2-1 & GFS)',
+    category: 'hardware',
+    tags: ['#Backup', '#DisasterRecovery', '#GFS', '#Generationenprinzip', '#Vollbackup', '#Differential', '#Incremental', '#RTO', '#RPO', '#321Regel', '#FISI'],
+    difficulty: 'Intermediate',
+    desc: 'Voll- vs. Diff- vs. Inkrementelle Sicherung, Großvater-Vater-Sohn 20-Medien-Rotationsrechner, RTO/RPO Ausfallschadenkalkulation und 3-2-1-1-0 Ransomware-Resilienz-Audit.',
+    icon: HardDrive,
+    badge: 'IHK Neu',
+    color: '#b45309'
+  },
+  {
+    id: 'wiso_sachmaengel_lab',
+    title: 'IHK WISO Sachmängelhaftung & Gewährleistung Studio',
+    category: 'wiso',
+    tags: ['#WISO', '#Sachmängel', '#Gewährleistung', '#BGB434', '#HGB377', '#Nacherfüllung', '#Rücktritt', '#Minderung', '#Beweislastumkehr', '#AP2'],
+    difficulty: 'Intermediate',
+    desc: 'Mangelarten nach BGB § 434 (Beschaffenheit, Montage, Aliud, Mindermenge), vorrangige Nacherfüllung (§ 439) vs. Rücktritt/Minderung und kaufmännische Rügepflicht nach HGB § 377.',
+    icon: Scale,
+    badge: 'IHK Neu',
+    color: '#d97706'
+  },
+  {
     id: 'struktogramm_lab',
     title: 'DIN 66261 Nassi-Shneiderman Struktogramm & Schreibtischtest Studio',
     category: 'fiae',

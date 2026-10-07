@@ -9,6 +9,24 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unveröffentlicht]
 
+## [3.74.0] - 2026-10-07
+
+### Hinzugefügt (Added)
+- **4 Neue IHK-Kern-Labs & Simulatoren**:
+  - `src/components/Content/StpProtocolLab.jsx` & `src/utils/stpProtocolEngine.js`: IEEE 802.1D / 802.1w Spanning Tree Protocol (STP & RSTP) Studio mit Root-Bridge-Wahl (Priority + MAC), Pfadkosten (10G=2, 1G=4, 100M=19, 10M=100), Port-Rollen (Root Port, Designated Port, Alternate/Blocking Port), Loop-Erkennung, Link-Failure & Konvergenzzeitvergleich (STP 30-50s vs. RSTP <1s Proposal/Agreement), Cisco IOS CLI-Konfigurationsgenerator und IHK-Prüfungsdrill (+55 XP).
+  - `src/components/Content/BpmnProcessLab.jsx` & `src/utils/bpmnProcessEngine.js`: OMG BPMN 2.0 Geschäftsprozessmodellierung & Swimlanes Studio für FIDP, Kaufleute IT-Systemmanagement und FIAE mit Startereignissen, Endereignissen, Tasks, Gateways (Exklusiv XOR, Parallel AND, Inklusiv OR), Pools & Swimlanes, interaktivem Token-Simulations-Tracer und IHK-Konformitäts-Linter (+55 XP).
+  - `src/components/Content/BackupStrategyLab.jsx` & `src/utils/backupStrategyEngine.js`: IHK Backup-Strategien & Disaster Recovery Studio mit interaktivem Speicherbedarfs- & Restore-Ketten-Kalkulator (Voll- vs. Differenzielle vs. Inkrementelle Sicherung), Großvater-Vater-Sohn 20-Medien-Rotationsrechner, BSI 200-4 RTO/RPO Business Impact Ausfallkostenrechner und 3-2-1-1-0 Ransomware-Resilienz-Audit (+55 XP).
+  - `src/components/Content/WisoSachmaengelLab.jsx` & `src/utils/wisoSachmaengelEngine.js`: IHK WISO Sachmängelhaftung & Gewährleistung Studio mit interaktivem Mangelarten-Katalog (§ 434/435 BGB: Beschaffenheit, Montage, IKEA-Klausel, Aliud, Mindermenge, Rechtsmangel), vorrangigem Nacherfüllungs-Prüfer (§ 439), nachrangigen Rechten (Rücktritt, Minderung, Schadensersatz), beiderseitigem Handelskauf (HGB § 377 unverzügliche Rügepflicht & Genehmigungsfiktion) vs. Verbrauchsgüterkauf (BGB § 477 Beweislastumkehr 1 Jahr) und IHK-Prüfungsdrill (+55 XP).
+- **Registrierung & Routing**:
+  - Alle 4 neuen Labs nahtlos in `src/data/labRegistry.js` und `src/data/labModulesData.js` mit Tags, Beschreibungen, Icons und Direkt-Tabs (`stp_protocol_lab`, `bpmn_process_lab`, `backup_strategy_lab`, `wiso_sachmaengel_lab`) registriert.
+- **Test-Suite & Entwicklungs-Qualität**:
+  - 4 neue isolierte Unit-Test-Suiten (`stpProtocolEngine.test.js`, `bpmnProcessEngine.test.js`, `backupStrategyEngine.test.js`, `wisoSachmaengelEngine.test.js`) mit 18 neuen Tests.
+  - Vollständige Test-Suite auf 196 Test-Dateien und 1135 Tests erweitert (100% bestanden).
+  - Alle 235 Lab-Komponenten in `allLabsSmoke.test.jsx` und 234 axe-core Accessibility-Tests (WCAG 2.1 AA) erfolgreich validiert.
+  - `npm run lint:ci` (oxlint) 0 Warnungen und 0 Fehler.
+  - `npm run typecheck` (tsc --noEmit) 0 Fehler.
+  - `npm run size` (size-limit) alle Bundles innerhalb der Grenzwerte (< 105 KB App Shell).
+
 ## [3.73.0] - 2026-10-06
 
 ### Hinzugefügt (Added)

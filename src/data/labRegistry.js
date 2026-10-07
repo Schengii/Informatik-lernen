@@ -12,6 +12,26 @@
 //            und Standard-Badge. `withBadgeArg` = Lab ruft onXPGain(xp, badge)
 export const LAB_REGISTRY = [
   {
+    tabs: ['stp_protocol_lab', 'stp_lab', 'rstp_lab', 'spanning_tree_lab'],
+    load: () => import('../components/Content/StpProtocolLab'),
+    xp: { prop: 'onRewardXP', badge: 'stp_rstp_master' }
+  },
+  {
+    tabs: ['bpmn_process_lab', 'bpmn_lab', 'bpmn_studio', 'geschaeftsprozess_lab'],
+    load: () => import('../components/Content/BpmnProcessLab'),
+    xp: { prop: 'onRewardXP', badge: 'bpmn_process_master' }
+  },
+  {
+    tabs: ['backup_strategy_lab', 'backup_lab', 'disaster_recovery_lab', 'gfs_backup_lab'],
+    load: () => import('../components/Content/BackupStrategyLab'),
+    xp: { prop: 'onRewardXP', badge: 'backup_disaster_recovery_master' }
+  },
+  {
+    tabs: ['wiso_sachmaengel_lab', 'sachmaengel_lab', 'gewaehrleistung_lab', 'ruegepflicht_lab'],
+    load: () => import('../components/Content/WisoSachmaengelLab'),
+    xp: { prop: 'onRewardXP', badge: 'wiso_sachmaengel_master' }
+  },
+  {
     tabs: ['struktogramm_lab', 'struktogramm', 'nassi_shneiderman', 'schreibtischtest_lab'],
     load: () => import('../components/Content/StruktogrammLab'),
     xp: { prop: 'onRewardXP', badge: 'struktogramm_master' }
