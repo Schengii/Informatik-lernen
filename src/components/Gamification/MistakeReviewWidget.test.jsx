@@ -62,3 +62,23 @@ describe('MistakeReviewWidget', () => {
     expect(useStore.getState().userState).toBe(before);
   });
 });
+
+describe('MistakeReviewWidget mit Lab-Drill-Fragen', () => {
+  it('wiederholt eine Drill-Frage inklusive Erklärung', async () => {
+    const { DRILL_QUESTIONS } = await import('../../data/drillQuestions');
+    const D = DRILL_QUESTIONS[0];
+    setJournal({ [D.id]: { wrongCount: 1, streak: 0, interval: 1, dueDate: yesterday(), lastSeen: '' } });
+    render(<MistakeReviewWidget />);
+    fireEvent.click(screen.getByRole('button', { name: /Jetzt wiederholen/i }));
+    expect(screen.getByText(D.question)).toBeTruthy();
+    fireEvent.click(screen.getByRole('button', { name: D.options[D.correct] }));
+    expect(screen.getByText(D.explanation)).toBeTruthy();
+    expect(useStore.getState().userState.mistakeJournal[D.id].streak).toBe(1);
+  });
+
+  it('zählt Journal-Einträge ohne auffindbare Frage nicht mit', () => {
+    setJournal({ unbekannte_frage_id: { wrongCount: 1, streak: 0, interval: 1, dueDate: yesterday(), lastSeen: '' } });
+    const { container } = render(<MistakeReviewWidget />);
+    expect(container.firstChild).toBeNull();
+  });
+});

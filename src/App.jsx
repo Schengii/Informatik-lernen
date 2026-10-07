@@ -130,7 +130,7 @@ const LAB_REGISTRY_INDEX = buildRegistryIndex(
 
 export default function App() {
   const { 
-    userState, handleSelectRole, awardXP, handleCompleteTopic, refreshStateFromStorage, recordMistakeResults,
+    userState, handleSelectRole, awardXP, handleCompleteTopic, refreshStateFromStorage, recordMistakeResults, recordLabVisit, recordLabCompletion,
     theme, setTheme, fontSize, setFontSize,
     isDyslexic, setIsDyslexic, isColorblind, setIsColorblind,
     isHighContrast, setIsHighContrast,
@@ -154,6 +154,13 @@ export default function App() {
   // Führende/abschließende Slashes entfernen, damit auch `/labs/` das Lab öffnet.
   const activeTab = location.pathname.replace(/^\/+|\/+$/g, '') || 'dashboard';
   const setActiveTab = (tab) => navigate(`/${tab}`);
+
+  // Lab-Fortschritt: jeder Aufruf eines Registry-Labs zählt als Besuch
+  // (Schlüssel = erste Tab-ID des Registry-Eintrags, auch bei Alias-Routen).
+  useEffect(() => {
+    const entry = LAB_REGISTRY_INDEX.get(activeTab);
+    if (entry) recordLabVisit(entry.tabs[0]);
+  }, [activeTab, recordLabVisit]);
 
   // Global Ctrl + K / Cmd + K Keydown Shortcut Listener
   useEffect(() => {
@@ -258,9 +265,10 @@ export default function App() {
         const xpProps = {};
         if (entry.xp) {
           const { prop, badge, withBadgeArg } = entry.xp;
+          const labKey = entry.tabs[0];
           xpProps[prop] = withBadgeArg
-            ? (xp, b) => awardXP(xp, b || badge)
-            : (xp) => awardXP(xp, badge);
+            ? (xp, b) => { recordLabCompletion(labKey); return awardXP(xp, b || badge); }
+            : (xp) => { recordLabCompletion(labKey); return awardXP(xp, badge); };
         }
         return <RegistryLab {...xpProps} />;
       }

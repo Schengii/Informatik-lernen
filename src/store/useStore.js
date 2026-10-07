@@ -1,9 +1,10 @@
 import { create } from 'zustand';
-import { loadUserState, saveUserState, hasStoredUserState, initialProfileState, calculateLevel, recordDailyActivity } from '../utils/storage';
+import { loadUserState, saveUserState, hasStoredUserState, initialProfileState, calculateLevel, recordDailyActivity, getTodayDateKey } from '../utils/storage';
 import { hydrateUserStateFromIndexedDb } from '../utils/indexedDbStoreMiddleware';
 import { loadUiPreferences, saveUiPreferences } from '../utils/uiPreferences';
 import { soundManager } from '../utils/audioSystem';
 import { applyAnswerResults } from '../utils/mistakeJournalEngine';
+import { recordVisit, recordCompletion } from '../utils/labProgressEngine';
 
 export const useStore = create((set) => {
   const initialUser = loadUserState();
@@ -195,6 +196,29 @@ export const useStore = create((set) => {
       set((state) => {
         const prev = state.userState;
         const updatedState = { ...prev, mistakeJournal: applyAnswerResults(prev.mistakeJournal, results) };
+        saveUserState(updatedState);
+        return { userState: updatedState };
+      });
+    },
+
+    // Lab-Fortschritt: Besuch beim Öffnen, Abschluss bei XP-Belohnung des Labs
+    recordLabVisit: (labKey) => {
+      if (!labKey) return;
+      set((state) => {
+        const prev = state.userState;
+        const updatedState = { ...prev, labProgress: recordVisit(prev.labProgress, labKey, getTodayDateKey()) };
+        saveUserState(updatedState);
+        return { userState: updatedState };
+      });
+    },
+
+    recordLabCompletion: (labKey) => {
+      if (!labKey) return;
+      set((state) => {
+        const prev = state.userState;
+        const labProgress = recordCompletion(prev.labProgress, labKey, getTodayDateKey());
+        if (labProgress === (prev.labProgress || {}) && prev.labProgress) return { userState: prev };
+        const updatedState = { ...prev, labProgress };
         saveUserState(updatedState);
         return { userState: updatedState };
       });

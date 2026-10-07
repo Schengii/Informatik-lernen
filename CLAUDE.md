@@ -99,7 +99,11 @@ Ein Lab besteht aus vier zusammenhängenden Stellen (sonst ist es nicht erreichb
 3. Ein Eintrag in `src/data/labRegistry.js` (`tabs`, `load`, optional `xp`) – kein Eingriff in `App.jsx` nötig. In `activeLabElement` (`App.jsx`) stehen nur noch die wenigen Tabs, die App-Zustand brauchen (Navigation, `userState`, Fehlerjournal). Jede Tab-ID darf nur einmal vorkommen – `buildRegistryIndex` wirft sonst, `App.routing.test.jsx` rendert jede Registry-Tab-ID.
 4. `src/data/labModulesData.js` – Eintrag in `LAB_MODULES` (`id` = Tab-ID; Quelle für `LabsDashboard` und `CommandPaletteModal`). Neue Einträge stehen am Listenanfang.
 
-Danach: `README.md` + `_Projektuebersicht.md` aktualisieren; Smoke-Test (`allLabsSmoke.test.jsx`) und A11y-Test (`allLabsA11y.test.jsx`, axe-core) greifen automatisch. `labModulesData.test.js` schlägt fehl, wenn ein `LAB_MODULES`-Eintrag keine Route hat.
+Abkürzung: `npm run new-lab -- <PascalName> "<Titel>" [category] [difficulty]` (`scripts/new-lab.js`) legt Engine, Test, Komponente und die Einträge aus 3. und 4. an. `docs/LABS.md` wird mit `npm run docs:labs` aus `LAB_MODULES` erzeugt (die README enthält keine Lab-Liste mehr).
+
+Danach: `CHANGELOG.md` + `_Projektuebersicht.md` (und bei Bedarf `README.md`) aktualisieren; Smoke-Test (`allLabsSmoke.test.jsx`) und A11y-Test (`allLabsA11y.test.jsx`, axe-core) greifen automatisch. `labModulesData.test.js` schlägt fehl, wenn ein `LAB_MODULES`-Eintrag keine Route hat.
+
+Prüfungsdrills: Fragen im Format `{ id, frage, optionen, korrektIndex, erklaerung }` in der Engine ablegen (IDs global eindeutig), in `src/data/drillQuestions.js` eintragen und im Lab per `IhkDrillPanel` (mit XP) oder `Shared/LabDrillSection` (ohne XP) einbinden – falsche Antworten landen dann automatisch im Fehlerjournal. Lab-Fortschritt (`labProgress`) wird in `App.jsx` automatisch erfasst, kein Eingriff im Lab nötig.
 
 Achtung: Beide Glob-Tests laden `Content/*.jsx` und schließen `*.test.jsx` aus – Komponententests für Labs dürfen daneben liegen (`Content/XyzLab.test.jsx`, Muster: `TcpStateMachineLab.test.jsx`). Wiederverwendbare Bausteine, die kein eigenständiges Lab sind (z. B. `IhkDrillPanel` für den IHK-Multiple-Choice-Drill), gehören nach `src/components/Shared/`, nicht nach `Content/`.
 

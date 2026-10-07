@@ -1,7 +1,7 @@
 {
   "name": "informatiker-game",
   "private": true,
-  "version": "0.0.0",
+  "version": "3.75.0",
   "type": "module",
   "engines": {
     "node": ">=22.19.0"
@@ -17,7 +17,9 @@
     "test:coverage": "vitest run --coverage",
     "size": "size-limit",
     "e2e": "playwright test",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "new-lab": "node scripts/new-lab.js",
+    "docs:labs": "node scripts/gen-lab-list.js"
   },
   "size-limit": [
     {

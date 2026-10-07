@@ -261,3 +261,50 @@ function generateDiskBlockMatrix(level, numDisks) {
 
   return disks;
 }
+
+/**
+ * IHK-Prüfungsdrill für das RAID-Lab (Format wie `IhkDrillPanel`).
+ * Rechenbeispiele sind in raidDrill.test.js gegen `calculateRaidStorage` abgesichert.
+ */
+export const RAID_DRILL_QUESTIONS = [
+  {
+    id: 'raid_1',
+    frage: 'Ein RAID 5 besteht aus 4 Festplatten mit je 4 TB. Wie groß ist die nutzbare Kapazität?',
+    optionen: ['16 TB', '12 TB', '8 TB', '4 TB'],
+    korrektIndex: 1,
+    erklaerung: 'RAID 5 verbraucht die Kapazität einer Platte für verteilte Parität: (n − 1) × Plattengröße = 3 × 4 TB = 12 TB.'
+  },
+  {
+    id: 'raid_2',
+    frage: 'Wie viele beliebige Festplattenausfälle übersteht ein RAID 6 maximal ohne Datenverlust?',
+    optionen: ['Keinen', 'Einen', 'Zwei', 'Drei'],
+    korrektIndex: 2,
+    erklaerung: 'RAID 6 speichert zwei unabhängige Paritäten (doppelte Parität) und toleriert deshalb den Ausfall von zwei beliebigen Platten.'
+  },
+  {
+    id: 'raid_3',
+    frage: 'Ein RAID 10 besteht aus 6 Festplatten mit je 2 TB. Wie groß ist die nutzbare Kapazität?',
+    optionen: ['12 TB', '8 TB', '6 TB', '4 TB'],
+    korrektIndex: 2,
+    erklaerung: 'RAID 10 spiegelt Paare und verteilt die Daten darüber (Striping): Nutzbar ist die Hälfte der Rohkapazität, also 6 × 2 TB / 2 = 6 TB.'
+  },
+  {
+    id: 'raid_4',
+    frage: 'Welcher RAID-Level bietet keinerlei Redundanz?',
+    optionen: ['RAID 0', 'RAID 1', 'RAID 5', 'RAID 6'],
+    korrektIndex: 0,
+    erklaerung: 'RAID 0 (Striping) verteilt Daten nur zur Leistungssteigerung. Fällt eine Platte aus, ist der gesamte Verbund verloren.'
+  },
+  {
+    id: 'raid_5',
+    frage: 'Warum ersetzt ein RAID-Verbund kein Backup?',
+    optionen: [
+      'RAID ist zu langsam für Sicherungen',
+      'RAID schützt nur vor Plattenausfall, nicht vor Löschen, Verschlüsselungstrojanern oder Brand',
+      'RAID speichert nur Metadaten',
+      'RAID funktioniert nur mit Bandlaufwerken'
+    ],
+    korrektIndex: 1,
+    erklaerung: 'Gelöschte oder verschlüsselte Daten werden sofort auf alle Platten übernommen. Ein Backup (z. B. nach der 3-2-1-Regel) ist ein getrennter, zeitversetzter Datenbestand.'
+  }
+];

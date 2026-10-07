@@ -65,3 +65,48 @@ export function calculateLiquiditaetAndWorkingCapital(params) {
     statusL3: liquiditaet3 >= 150 ? 'OPTIMAL' : 'MÄSSIG'
   };
 }
+
+/**
+ * IHK-Prüfungsdrill für das Liquiditäts-Lab (Format wie `IhkDrillPanel`).
+ * Rechenbeispiele sind in wisoLiquiditaetDrill.test.js gegen die Engine abgesichert.
+ */
+export const LIQUIDITAET_DRILL_QUESTIONS = [
+  {
+    id: 'liq_1',
+    frage: 'Welche Positionen stehen im Zähler der Liquidität 2. Grades (einzugsbedingte Liquidität)?',
+    optionen: [
+      'Nur die flüssigen Mittel',
+      'Flüssige Mittel und kurzfristige Forderungen',
+      'Das gesamte Umlaufvermögen einschließlich Vorräten',
+      'Das Anlagevermögen'
+    ],
+    korrektIndex: 1,
+    erklaerung: 'Liquidität 2. Grades = (flüssige Mittel + kurzfristige Forderungen) / kurzfristige Verbindlichkeiten. Vorräte kommen erst bei der Liquidität 3. Grades hinzu.'
+  },
+  {
+    id: 'liq_2',
+    frage: 'Flüssige Mittel: 40.000 €; kurzfristige Verbindlichkeiten: 160.000 €. Wie hoch ist die Liquidität 1. Grades?',
+    optionen: ['4 %', '25 %', '40 %', '400 %'],
+    korrektIndex: 1,
+    erklaerung: '40.000 € / 160.000 € = 0,25 = 25 %. Der Richtwert von mindestens 20 % ist erfüllt.'
+  },
+  {
+    id: 'liq_3',
+    frage: 'Flüssige Mittel 50.000 €, kurzfristige Forderungen 100.000 €, Vorräte 150.000 €, kurzfristige Verbindlichkeiten 200.000 €. Wie hoch ist die Liquidität 3. Grades?',
+    optionen: ['75 %', '100 %', '150 %', '200 %'],
+    korrektIndex: 2,
+    erklaerung: 'Umlaufvermögen = 50.000 + 100.000 + 150.000 = 300.000 €. 300.000 € / 200.000 € = 1,5 = 150 % – der Richtwert (mindestens 150 %) ist genau erreicht.'
+  },
+  {
+    id: 'liq_4',
+    frage: 'Die Liquidität 2. Grades eines Unternehmens beträgt 80 %. Wie ist das zu bewerten?',
+    optionen: [
+      'Unkritisch, weil der Wert über 20 % liegt',
+      'Der Richtwert von 100 % ist unterschritten: Die kurzfristigen Verbindlichkeiten sind nicht durch flüssige Mittel und Forderungen gedeckt',
+      'Gut, weil unter 100 % das Eigenkapital geschont wird',
+      'Nicht bewertbar ohne Kenntnis des Anlagevermögens'
+    ],
+    korrektIndex: 1,
+    erklaerung: 'Unter 100 % reichen Zahlungsmittel und Forderungen nicht, um die kurzfristigen Schulden zu begleichen. Es droht Zahlungsunfähigkeit (§ 17 InsO); Gegenmaßnahmen sind z. B. Forderungsmanagement oder Kreditlinien.'
+  }
+];

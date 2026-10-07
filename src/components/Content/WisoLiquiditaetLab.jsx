@@ -3,7 +3,8 @@ import {
   Calculator, Award, Check, 
   AlertCircle, ShieldCheck, CheckCircle
 } from 'lucide-react';
-import { calculateLiquiditaetAndWorkingCapital } from '../../utils/wisoLiquiditaetEngine';
+import { calculateLiquiditaetAndWorkingCapital, LIQUIDITAET_DRILL_QUESTIONS } from '../../utils/wisoLiquiditaetEngine';
+import LabDrillSection from '../Shared/LabDrillSection';
 import { useStore } from '../../store/useStore';
 
 export default function WisoLiquiditaetLab() {
@@ -224,6 +225,8 @@ export default function WisoLiquiditaetLab() {
           </div>
         </div>
       </div>
+
+      <LabDrillSection title="IHK Prüfungs-Drill: Liquiditätsgrade" questions={LIQUIDITAET_DRILL_QUESTIONS} accentColor="#14b8a6" />
     </div>
   );
 }

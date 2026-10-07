@@ -20,6 +20,7 @@ import { syncUserStateToIndexedDb } from './indexedDbStoreMiddleware';
  * @property {number} streakFreezes
  * @property {string} [lastActiveDate] Letzter aktiver Tag (YYYY-MM-DD, lokale Zeit)
  * @property {Record<string, unknown>} [mistakeJournal]
+ * @property {Record<string, import('./labProgressEngine').LabProgressEntry>} [labProgress] Lab-Besuche/-Abschlüsse je Registry-Tab
  * @property {Record<string, unknown>} srsFlashcards
  * @property {string[]} completedTopics
  * @property {string[]} completedGames
@@ -44,6 +45,7 @@ export const initialProfileState = {
   lastActiveDate: '', // letzter Tag mit Aktivität (lokal), Basis der Streak-Berechnung
   srsFlashcards: {}, // { [cardId]: { repetitions, interval, easeFactor, dueDate } }
   mistakeJournal: {}, // { [questionId]: { wrongCount, streak, interval, dueDate, lastSeen } } - siehe mistakeJournalEngine
+  labProgress: {}, // { [labKey]: { visits, lastVisit, completed, completedOn } } - siehe labProgressEngine
   completedTopics: [],
   completedGames: [],
   completedCloze: [],
@@ -244,6 +246,8 @@ export const flushUserState = () => {
 
 export const exportUserDataJSON = () => {
   try {
+    // Ausstehendes, gebündeltes Schreiben zuerst sichern, damit der Export den aktuellen Stand enthält.
+    flushPendingWrite();
     const state = loadUserState();
     const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(state, null, 2));
     const downloadAnchor = document.createElement('a');
@@ -257,18 +261,70 @@ export const exportUserDataJSON = () => {
   }
 };
 
+const isPlainObject = (/** @type {unknown} */ v) => typeof v === 'object' && v !== null && !Array.isArray(v);
+const isStringArray = (/** @type {unknown} */ v) => Array.isArray(v) && v.every((x) => typeof x === 'string');
+const isFiniteNumber = (/** @type {unknown} */ v) => typeof v === 'number' && Number.isFinite(v);
+const UNSAFE_KEYS = new Set(['__proto__', 'constructor', 'prototype']);
+
+/** Typprüfungen je bekanntem Feld des Spielstands; passt der Typ nicht, gilt der Standardwert. */
+/** @type {Record<string, (v: unknown) => boolean>} */
+const FIELD_VALIDATORS = {
+  role: (v) => typeof v === 'string',
+  userName: (v) => typeof v === 'string',
+  lastActiveDate: (v) => typeof v === 'string',
+  xp: (v) => isFiniteNumber(v) && /** @type {number} */ (v) >= 0,
+  level: (v) => isFiniteNumber(v) && /** @type {number} */ (v) >= 1,
+  streak: (v) => isFiniteNumber(v) && /** @type {number} */ (v) >= 0,
+  streakFreezes: (v) => isFiniteNumber(v) && /** @type {number} */ (v) >= 0,
+  completedTopics: isStringArray,
+  completedGames: isStringArray,
+  completedCloze: isStringArray,
+  completedProjects: isStringArray,
+  unlockedBadges: isStringArray,
+  srsFlashcards: isPlainObject,
+  mistakeJournal: isPlainObject,
+  labProgress: isPlainObject,
+  savedCodeSnippets: isPlainObject,
+  activityHistory: isPlainObject,
+  soundSettings: isPlainObject
+};
+
+/**
+ * Bereinigt einen importierten Spielstand: Felder mit falschem Typ fallen auf den
+ * Standardwert zurück, das Level wird aus den XP neu berechnet, unbekannte Felder
+ * bleiben erhalten (außer gefährlichen Schlüsseln). Gibt `null` zurück, wenn die
+ * Daten kein Spielstand sind (kein Objekt oder kein einziges bekanntes Feld) –
+ * so überschreibt eine fremde JSON-Datei nie den vorhandenen Fortschritt.
+ * @param {unknown} parsed
+ * @returns {UserState | null}
+ */
+export const sanitizeImportedState = (parsed) => {
+  if (!isPlainObject(parsed)) return null;
+  const input = /** @type {Record<string, unknown>} */ (parsed);
+  if (!Object.keys(FIELD_VALIDATORS).some((key) => key in input)) return null;
+
+  /** @type {Record<string, unknown>} */
+  const result = { ...initialProfileState };
+  for (const [key, value] of Object.entries(input)) {
+    if (UNSAFE_KEYS.has(key)) continue;
+    const validate = FIELD_VALIDATORS[key];
+    if (validate && !validate(value)) continue;
+    result[key] = value;
+  }
+  result.level = calculateLevel(/** @type {number} */ (result.xp));
+  return /** @type {UserState} */ (result);
+};
+
 /**
  * @param {string} jsonString
  * @returns {boolean}
  */
 export const importUserDataJSON = (jsonString) => {
   try {
-    const parsed = JSON.parse(jsonString);
-    if (typeof parsed === 'object' && parsed !== null) {
-      saveUserState({ ...initialProfileState, ...parsed }, { immediate: true });
-      return true;
-    }
-    return false;
+    const sanitized = sanitizeImportedState(JSON.parse(jsonString));
+    if (!sanitized) return false;
+    saveUserState(sanitized, { immediate: true });
+    return true;
   } catch (e) {
     console.error('Failed to import user data:', e);
     return false;

@@ -2,24 +2,31 @@ import React, { useMemo, useState } from 'react';
 import { RotateCcw, CheckCircle2, XCircle } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { EXAM_QUESTIONS } from '../../data/examData';
+import { DRILL_QUESTIONS } from '../../data/drillQuestions';
 import { getDueMistakeIds, summarizeJournal } from '../../utils/mistakeJournalEngine';
 
 // Dashboard-Widget "Fehlerjournal": zeigt, wie viele früher falsch beantwortete
 // Prüfungsfragen heute zur Wiederholung fällig sind, und startet ein
 // Mini-Quiz mit genau diesen Fragen. Antworten fließen zurück ins Journal.
-const QUESTIONS_BY_ID = new Map(EXAM_QUESTIONS.map((q) => [String(q.id), q]));
+// Prüfungssimulator- und Lab-Drill-Fragen (IDs sind global eindeutig, siehe drillQuestions.test.js)
+const QUESTIONS_BY_ID = new Map([...EXAM_QUESTIONS, ...DRILL_QUESTIONS].map((q) => [String(q.id), q]));
 
 export default function MistakeReviewWidget() {
-  const journal = useStore((s) => s.userState.mistakeJournal);
+  const rawJournal = useStore((s) => s.userState.mistakeJournal);
   const recordMistakeResults = useStore((s) => s.recordMistakeResults);
 
   const [session, setSession] = useState(null); // { ids: string[], index: number, picked: number|null }
 
+  // Einträge ohne auffindbare Frage (z. B. Lab-Drill nicht registriert, Katalog geändert) nicht mitzählen
+  const journal = useMemo(
+    () => Object.fromEntries(Object.entries(rawJournal || {}).filter(([id]) => QUESTIONS_BY_ID.has(id))),
+    [rawJournal]
+  );
   const summary = useMemo(() => summarizeJournal(journal), [journal]);
 
   // Journal-Einträge ohne passende Frage (z. B. Fragenkatalog geändert) überspringen
   const startReview = () => {
-    const ids = getDueMistakeIds(journal).filter((id) => QUESTIONS_BY_ID.has(id));
+    const ids = getDueMistakeIds(journal);
     if (ids.length > 0) setSession({ ids, index: 0, picked: null });
   };
 
@@ -74,6 +81,7 @@ export default function MistakeReviewWidget() {
                 ? 'Richtig! Die Frage kommt später in größerem Abstand wieder.'
                 : 'Leider falsch – die Frage kommt morgen erneut.'}
             </p>
+            {question.explanation && <p style={{ marginBottom: '8px', color: 'var(--text-muted)' }}>{question.explanation}</p>}
             <button type="button" className="btn btn-primary btn-sm" onClick={next}>
               {session.index + 1 >= session.ids.length ? 'Fertig' : 'Nächste Frage'}
             </button>

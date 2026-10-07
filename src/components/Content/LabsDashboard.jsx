@@ -1,8 +1,14 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Sparkles, Play, FileText, Check, Copy, X, GraduationCap, Briefcase, Network, Code2, Wrench } from 'lucide-react';
+import { Search, Sparkles, Play, FileText, Check, Copy, X, GraduationCap, Briefcase, Network, Code2, Wrench, CheckCircle2, Compass } from 'lucide-react';
 import { LAB_MODULES } from '../../data/labModulesData';
+import { buildRegistryIndex } from '../../data/labRegistry';
+import { matchesCareer, summarizeLabProgress, recommendNextLabs } from '../../utils/labProgressEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';
+
+// Fortschritt wird je Registry-Eintrag (erste Tab-ID) gespeichert; Aliase zeigen auf denselben Schlüssel.
+const REGISTRY_INDEX = buildRegistryIndex();
+const resolveLabKey = (id) => REGISTRY_INDEX.get(id)?.tabs[0] ?? id;
 
 export default function LabsDashboard({ onSelectLab }) {
   const { userState } = useStore();
@@ -43,22 +49,21 @@ export default function LabsDashboard({ onSelectLab }) {
       
       const matchesCat = selectedCategory === 'all' || lab.category === selectedCategory;
 
-      let matchesCareer = true;
-      if (careerFilter === 'ap1') {
-        matchesCareer = lab.tags.some(t => /ap1|ihk|netzwerk|sql|wiso|hardware/i.test(t)) || lab.badge?.includes('IHK');
-      } else if (careerFilter === 'fiae') {
-        matchesCareer = lab.category === 'fiae' || lab.category === 'algorithms' || lab.category === 'databases' || lab.tags.some(t => /fiae|code|sql|uml/i.test(t));
-      } else if (careerFilter === 'fisi') {
-        matchesCareer = lab.category === 'network' || lab.category === 'devops' || lab.category === 'cloud' || lab.tags.some(t => /fisi|cisco|routing|vlan|dhcp|linux|usv/i.test(t));
-      } else if (careerFilter === 'itse') {
-        matchesCareer = lab.category === 'hardware' || lab.tags.some(t => /itse|usv|dguv|elektro|strom/i.test(t));
-      } else if (careerFilter === 'wiso') {
-        matchesCareer = lab.category === 'wiso' || lab.tags.some(t => /wiso|kalkulation|bbig|vertrag|skonto/i.test(t));
-      }
+      const matchesCareerFilter = matchesCareer(lab, careerFilter);
 
-      return matchesSearch && matchesCat && matchesCareer;
+      return matchesSearch && matchesCat && matchesCareerFilter;
     });
   }, [searchTerm, selectedCategory, careerFilter]);
+
+  const labProgress = userState?.labProgress;
+  const progressSummary = useMemo(
+    () => summarizeLabProgress(LAB_MODULES, labProgress, resolveLabKey),
+    [labProgress]
+  );
+  const nextLabs = useMemo(
+    () => recommendNextLabs(LAB_MODULES, { careerId: careerFilter, progress: labProgress, resolveKey: resolveLabKey, limit: 3 }),
+    [careerFilter, labProgress]
+  );
 
   // Generierung des Textes für das Ausbildungsberichtsheft
   const generateBerichtsheftText = () => {
@@ -117,6 +122,52 @@ Die Zusammenhänge zwischen Protokollheadern, kaufmännischen Formeln und Progra
           <FileText size={16} /> Berichtsheft-Nachweis
         </button>
       </div>
+
+      {/* Lernfortschritt & empfohlene nächste Schritte */}
+      <section aria-label="Lernfortschritt in den Labs" style={{ marginBottom: '20px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '12px', flexWrap: 'wrap', marginBottom: '6px' }}>
+          <strong style={{ color: 'var(--text-main)' }}>Dein Lab-Fortschritt</strong>
+          <span style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>
+            {progressSummary.done} von {progressSummary.total} Labs abgeschlossen ({progressSummary.percent} %)
+          </span>
+        </div>
+        <div
+          role="progressbar"
+          aria-label="Abgeschlossene Labs"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={progressSummary.percent}
+          style={{ height: '8px', borderRadius: '999px', background: 'var(--border-color)', overflow: 'hidden' }}
+        >
+          <div style={{ width: `${progressSummary.percent}%`, height: '100%', background: 'var(--accent-primary, #6366f1)' }} />
+        </div>
+
+        {nextLabs.length > 0 && (
+          <div style={{ marginTop: '14px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '8px' }}>
+              <Compass size={15} /> Empfohlene nächste Schritte{careerFilter !== 'all' ? ' für deinen Berufsfilter' : ''}
+            </div>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+              {nextLabs.map((lab) => {
+                const Icon = lab.icon;
+                return (
+                  <button
+                    key={lab.id}
+                    type="button"
+                    className="btn btn-outline"
+                    onClick={() => { triggerHaptic('LIGHT'); onSelectLab(lab.id); }}
+                    style={{ gap: '8px', textAlign: 'left', padding: '8px 14px', borderRadius: '10px' }}
+                  >
+                    <Icon size={16} color={lab.color} aria-hidden="true" />
+                    <span>{lab.title}</span>
+                    <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>{lab.difficulty}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </section>
 
       {/* Berufsbild-Filterleiste */}
       <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '8px', marginBottom: '16px', borderBottom: '1px solid var(--border-color, #334155)' }}>
@@ -184,6 +235,7 @@ Die Zusammenhänge zwischen Protokollheadern, kaufmännischen Formeln und Progra
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px' }}>
         {filteredLabs.map((lab) => {
           const Icon = lab.icon;
+          const progress = labProgress?.[resolveLabKey(lab.id)];
           return (
             <div
               key={lab.id}
@@ -204,11 +256,18 @@ Die Zusammenhänge zwischen Protokollheadern, kaufmännischen Formeln und Progra
                   <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: `${lab.color}20`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Icon size={22} color={lab.color} />
                   </div>
-                  {lab.badge && (
-                    <span className="badge badge-emerald" style={{ fontSize: '0.7rem' }}>
-                      {lab.badge}
-                    </span>
-                  )}
+                  <div style={{ display: 'flex', gap: '6px', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
+                    {progress?.completed && (
+                      <span className="badge badge-emerald" style={{ fontSize: '0.7rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                        <CheckCircle2 size={12} aria-hidden="true" /> Abgeschlossen
+                      </span>
+                    )}
+                    {lab.badge && (
+                      <span className="badge badge-emerald" style={{ fontSize: '0.7rem' }}>
+                        {lab.badge}
+                      </span>
+                    )}
+                  </div>
                 </div>
 
                 <h3 style={{ fontSize: '1.15rem', fontWeight: '800', margin: '0 0 8px 0', color: 'var(--text-main)' }}>

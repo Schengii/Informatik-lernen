@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Download, Upload, ShieldCheck, X, CheckCircle2, AlertCircle } from 'lucide-react';
-import { exportUserDataJSON, importUserDataJSON } from '../../utils/storage';
+import { exportUserDataJSON, importUserDataJSON, flushUserState, loadUserState } from '../../utils/storage';
 
 export default function BackupModal({ isOpen, onClose, onStateRestored }) {
   const [importStatus, setImportStatus] = useState(null);
@@ -107,8 +107,8 @@ export default function BackupModal({ isOpen, onClose, onStateRestored }) {
               className="btn btn-secondary"
               style={{ flex: 1, fontSize: '0.85rem', padding: '8px' }}
               onClick={() => {
-                const state = JSON.stringify(exportUserDataJSON ? JSON.parse(localStorage.getItem('informatik_game_state_v1') || '{}') : {});
-                navigator.clipboard.writeText(state);
+                flushUserState(); // ausstehendes, gebündeltes Schreiben vorher sichern
+                navigator.clipboard.writeText(JSON.stringify(loadUserState()));
                 setImportStatus({ success: true, text: 'Backup-Code in Zwischenablage kopiert!' });
               }}
             >

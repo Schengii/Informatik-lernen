@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Award, CheckCircle2 } from 'lucide-react';
 import { triggerHaptic } from '../../utils/haptics';
+import { useStore } from '../../store/useStore';
 
 /**
  * Multiple-Choice-Prüfungsdrill im IHK-Stil, wie ihn mehrere Labs als
@@ -15,9 +16,15 @@ import { triggerHaptic } from '../../utils/haptics';
  * @param {string} props.selectedBg - Hintergrund der gewählten Option vor der Auswertung
  * @param {string} props.selectedBorderColor - Rahmenfarbe der gewählten Option vor der Auswertung
  * @param {boolean} props.xpClaimed - zeigt das "+55 XP Erhalten!"-Badge
+ * @param {number|null} [props.xpAmount] - XP-Belohnung für den Hinweistext (Standard 55); `null` für Labs, deren XP anderweitig vergeben werden – dann entfallen alle XP-Hinweise
  * @param {(correctCount: number) => void} props.onEvaluate - wird beim Prüfen mit der Anzahl richtiger Antworten aufgerufen
+ *
+ * Jede Auswertung wird zusätzlich ins Fehlerjournal geschrieben (Store-Aktion
+ * `recordMistakeResults`). Damit die Fragen dort wiederholt werden können, müssen sie
+ * in `src/data/drillQuestions.js` eingetragen sein; unbekannte IDs ignoriert das Widget.
  */
-export default function IhkDrillPanel({ title, questions, accentColor, selectedBg, selectedBorderColor, xpClaimed, onEvaluate }) {
+export default function IhkDrillPanel({ title, questions, accentColor, selectedBg, selectedBorderColor, xpClaimed, onEvaluate, xpAmount = 55 }) {
+  const recordMistakeResults = useStore((s) => s.recordMistakeResults);
   const [drillAnswers, setDrillAnswers] = useState({});
   const [showDrillFeedback, setShowDrillFeedback] = useState(false);
   const allAnswered = Object.keys(drillAnswers).length >= questions.length;
@@ -30,6 +37,8 @@ export default function IhkDrillPanel({ title, questions, accentColor, selectedB
 
   const handleCheckDrill = () => {
     setShowDrillFeedback(true);
+    // Falsche Antworten kommen ins Fehlerjournal (Wiederholung über das Dashboard-Widget)
+    recordMistakeResults?.(questions.map((q) => ({ id: q.id, correct: drillAnswers[q.id] === q.korrektIndex })));
     onEvaluate(questions.filter((q) => drillAnswers[q.id] === q.korrektIndex).length);
   };
 
@@ -53,12 +62,14 @@ export default function IhkDrillPanel({ title, questions, accentColor, selectedB
             {title}
           </h2>
           <p style={{ margin: '0.25rem 0 0 0', color: 'var(--text-muted, #94a3b8)', fontSize: '0.85rem' }}>
-            Beantworte mindestens 3 von {questions.length} Fragen korrekt zur Freischaltung von <strong>+55 XP</strong>.
+            {xpAmount === null
+              ? `Teste dein Wissen mit ${questions.length} Fragen im IHK-Stil. Falsche Antworten kommen ins Fehlerjournal.`
+              : <>Beantworte mindestens 3 von {questions.length} Fragen korrekt zur Freischaltung von <strong>+{xpAmount} XP</strong>.</>}
           </p>
         </div>
-        {xpClaimed && (
+        {xpAmount !== null && xpClaimed && (
           <span style={{ background: '#10b981', color: '#fff', padding: '0.35rem 0.75rem', borderRadius: '1rem', fontWeight: 600, fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-            <CheckCircle2 size={16} /> +55 XP Erhalten!
+            <CheckCircle2 size={16} /> +{xpAmount} XP Erhalten!
           </span>
         )}
       </div>
@@ -150,7 +161,7 @@ export default function IhkDrillPanel({ title, questions, accentColor, selectedB
               fontSize: '0.9rem'
             }}
           >
-            Antworten prüfen & XP sichern
+            {xpAmount === null ? 'Antworten prüfen' : 'Antworten prüfen & XP sichern'}
           </button>
         ) : (
           <button

@@ -9,6 +9,22 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unveröffentlicht]
 
+## [3.75.0] - 2026-10-07
+
+### Hinzugefügt (Added)
+- Lab-Fortschritt: `labProgressEngine.js` (+ Tests) und Store-Aktionen `recordLabVisit`/`recordLabCompletion`. Besuche und Abschlüsse je Lab werden im Spielstand (`labProgress`) gespeichert.
+- `LabsDashboard`: Fortschrittsbalken, „Empfohlene nächste Schritte“ (je Berufsfilter, einfach → schwer, begonnene zuerst) und „Abgeschlossen“-Marker auf den Lab-Karten. Der Berufsfilter nutzt jetzt `matchesCareer` aus der Engine.
+- `npm run new-lab`: Scaffold für neue Labs (Engine, Test, Komponente und Einträge in `labRegistry.js`/`labModulesData.js`).
+- `npm run docs:labs`: erzeugt `docs/LABS.md` automatisch aus `labModulesData.js`.
+
+### Geändert (Changed)
+- Coverage-Schwellen in `vite.config.js` auf den Ist-Stand angehoben (Statements 56→60, Branches 48→52, Functions 39→45, Lines 58→62 %).
+- Lab-Prüfungsdrills (`IhkDrillPanel`) schreiben ihre Auswertung ins Fehlerjournal. Die Drill-Fragen sind in `src/data/drillQuestions.js` registriert, sodass das Dashboard-Widget sie wiederholen kann (inkl. Erklärung); Journal-Einträge ohne auffindbare Frage werden nicht mehr mitgezählt. Neues optionales Prop `xpAmount` (`null` = keine XP-Hinweise).
+- Neue geteilte Komponente `Shared/LabDrillSection` (einklappbarer Drill ohne XP-Hinweise, rendert die Fragen erst beim Aufklappen).
+- Neue Drills für `RaidCalculatorLab` (5 Fragen) und `WisoLiquiditaetLab` (4 Fragen); die Rechenbeispiele sind per Test gegen die jeweilige Engine abgesichert.
+- Backup-Import robuster: `sanitizeImportedState` prüft Typen je Feld, berechnet das Level aus den XP neu und lehnt fremde JSON-Dateien, Arrays und leere Objekte ab, statt den Fortschritt mit Standardwerten zu überschreiben. Der Export und das Kopieren in die Zwischenablage sichern vorher ein ausstehendes, gebündeltes Schreiben (Tests: `storageImport.test.js`, `BackupModal.test.jsx`).- `README.md` von ca. 2100 auf wenige Dutzend Zeilen verschlankt; die bisherige Fassung liegt unverändert in `docs/README-Archiv.md`.
+- `package.json`-Version von `0.0.0` auf `3.75.0` synchronisiert.
+
 ## [3.74.0] - 2026-10-07
 
 ### Hinzugefügt (Added)
