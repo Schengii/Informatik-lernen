@@ -18,9 +18,11 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 - `npm run docs:labs`: erzeugt `docs/LABS.md` automatisch aus `labModulesData.js`.
 
 ### Geändert (Changed)
+- Lab-Dashboard listet jetzt alle 229 Labs (vorher 143): 86 Labs, die nur über Navbar/Command-Palette erreichbar waren, haben Einträge in `LAB_MODULES` (Titel/Beschreibung aus der Navbar, Kategorie per Schlüsselwort – bei Gelegenheit nachschärfen). Neuer Test in `labModulesData.test.js`: Jedes Registry-Lab muss im Dashboard gelistet sein.
 - Coverage-Schwellen in `vite.config.js` auf den Ist-Stand angehoben (Statements 56→60, Branches 48→52, Functions 39→45, Lines 58→62 %).
 - Lab-Prüfungsdrills (`IhkDrillPanel`) schreiben ihre Auswertung ins Fehlerjournal. Die Drill-Fragen sind in `src/data/drillQuestions.js` registriert, sodass das Dashboard-Widget sie wiederholen kann (inkl. Erklärung); Journal-Einträge ohne auffindbare Frage werden nicht mehr mitgezählt. Neues optionales Prop `xpAmount` (`null` = keine XP-Hinweise).
 - Neue geteilte Komponente `Shared/LabDrillSection` (einklappbarer Drill ohne XP-Hinweise, rendert die Fragen erst beim Aufklappen).
+- Weitere Drills für `WisoAndlerLab` (Optimale Bestellmenge) und `WisoContributionMarginLab` (Deckungsbeitrag/BEP), je 5 Fragen, per Test gegen die Engines abgesichert.
 - Neue Drills für `RaidCalculatorLab` (5 Fragen) und `WisoLiquiditaetLab` (4 Fragen); die Rechenbeispiele sind per Test gegen die jeweilige Engine abgesichert.
 - Backup-Import robuster: `sanitizeImportedState` prüft Typen je Feld, berechnet das Level aus den XP neu und lehnt fremde JSON-Dateien, Arrays und leere Objekte ab, statt den Fortschritt mit Standardwerten zu überschreiben. Der Export und das Kopieren in die Zwischenablage sichern vorher ein ausstehendes, gebündeltes Schreiben (Tests: `storageImport.test.js`, `BackupModal.test.jsx`).- `README.md` von ca. 2100 auf wenige Dutzend Zeilen verschlankt; die bisherige Fassung liegt unverändert in `docs/README-Archiv.md`.
 - `package.json`-Version von `0.0.0` auf `3.75.0` synchronisiert.

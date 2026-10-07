@@ -2,17 +2,21 @@
 
 > Automatisch erzeugt aus `src/data/labModulesData.js` mit `npm run docs:labs` – nicht von Hand bearbeiten.
 
-**143 Labs** in 16 Kategorien.
+**229 Labs** in 16 Kategorien.
 
-## ai (3)
+## ai (7)
 
 | Tab-ID | Titel | Level | Beschreibung |
 |---|---|---|---|
 | `vector_math_embedding_lab` | Vektor-Mathematik & Embedding-Distanz Studio | Intermediate | Mathematisches Fundament von Vektordatenbanken: Cosine-Similarity, Euklidische L2-Distanz, Manhattan L1-Abstand und Skalarprodukt. |
 | `rag_semantic_cache_lab` | RAG Semantic Cache & Vector Similarity Studio | Advanced | Vektor-Ähnlichkeits-Caching mit Cosine-Similarity Schwellenwert. Schnelle Index-Lookups (<10ms) sparen teure LLM-Inferenz und Token-Kosten. |
 | `ragai` | Local RAG Vector AI Simulator | Advanced | Retrieval Augmented Generation mit Cosine Similarity & Chunking interaktiv testen. |
+| `transformer_attention` | Transformer Attention & LLM Studio | Intermediate | Self-Attention Heatmap, Softmax & ReAct Agent |
+| `vector_search` | Vektorsuche (Local RAG) | Intermediate | Ähnlichkeitssuche über Embeddings, die Grundlage von RAG-Pipelines. |
+| `ai_business` | AI & Deep Learning Masterclass | Intermediate | CNNs, Transformers, RAG & Prompting |
+| `ai` | Advanced Prompt Engineering Lab | Intermediate | Prompts gezielt entwerfen, testen und verbessern. |
 
-## algorithms (6)
+## algorithms (10)
 
 | Tab-ID | Titel | Level | Beschreibung |
 |---|---|---|---|
@@ -22,6 +26,10 @@
 | `datastructures` | Data Structures Tree & Graph Lab | Intermediate | Binäre Suchbäume (Inorder, Preorder, Postorder) und Dijkstra-Wegfinder visualisieren. |
 | `regexmaster` | RegEx Master Interactive Lab | Intermediate | Reguläre Ausdrücke live testen, E-Mail- & IPv4-Regex-Quests meistern. |
 | `bigo` | Big-O Algorithm Benchmark Lab | Intermediate | Vergleiche O(1), O(log n), O(n), O(n²) und O(2^n) mit dynamischen Diagrammen. |
+| `os_scheduler` | OS Process Scheduler & Deadlock | Intermediate | FCFS, SJF, Round Robin & Bankier-Algorithmus |
+| `algo_lab` | Algorithmen Step-Visualisierer | Intermediate | Sortier- & Suchalgorithmen Schritt für Schritt |
+| `perf_lab` | Performance Profiling Lab | Intermediate | V8 Garbage Collection & Memory-Leak-Analyse |
+| `big_o` | Big-O Komplexitäts-Visualizer | Intermediate | Laufzeitverhalten bei wachsender Eingabegröße |
 
 ## architecture (3)
 
@@ -31,7 +39,7 @@
 | `raid6_galois_lab` | RAID 6 Dual-Parity & Galois Field GF(2^8) Studio | Expert | Mathematische P (XOR) & Q (GF 2^8) Paritätsberechnung und simultane Rekonstruktion zweier Ausfälle. |
 | `clean_arch_lab` | Clean Architecture & Hexagonal Ports/Adapters | Advanced | Interaktiver Architektur-Linter nach Robert C. Martin: Dependency Rule, Domänen-Entkopplung & Ports. |
 
-## cloud (14)
+## cloud (26)
 
 | Tab-ID | Titel | Level | Beschreibung |
 |---|---|---|---|
@@ -49,6 +57,18 @@
 | `webrtc_signaling_lab` | WebRTC P2P & SDP Signaling Lab | Advanced | SDP Offer/Answer Handshake, NAT Traversal & RTCDataChannel Chat. |
 | `dns_http_lab` | DNS & HTTP/TLS Lifecycle Inspector | Intermediate | Verfolge den Web-Request von Resolver & TLD bis zum TLS Handshake. |
 | `k8s` | Kubernetes Pods & Ingress Studio | Advanced | Verwalte Deployments, Pod-Replikationen, Services und Ingress Controller. |
+| `cloud_canvas` | Cloud Architecture SLA & SPOF Canvas | Intermediate | Cloud Architecture SLA & SPOF Canvas |
+| `cloud_designer` | Cloud Infrastructure Designer | Intermediate | Architektur-Canvas & Terraform-Code-Export |
+| `docker_compose` | Docker Compose Studio | Intermediate | Multi-Container-Anwendungen mit Docker Compose beschreiben und starten. |
+| `system_design` | System Design & Load Balancer | Intermediate | Skalierung, Caching & Balancing-Strategien |
+| `wasm_rust_studio` | WebAssembly & Rust Compiler | Intermediate | Rust zu Wasm kompilieren & ausführen |
+| `kubernetes` | Kubernetes Pods & Cluster | Intermediate | Deployments, ReplicaSets & Ingress |
+| `wasm_compiler` | WebAssembly Compiler Playground | Intermediate | C/Rust In-Browser Kompilierung & Hex-Inspektor |
+| `linux_memory_lab` | Linux Virtual Memory & Page Fault Studio (TLB & OOM Score) | Intermediate | Linux Virtual Memory & Page Fault Studio (TLB & OOM Score) |
+| `service_mesh_lab` | Service Mesh mTLS & Envoy Sidecar Studio (SPIFFE & Canary) | Intermediate | Service Mesh mTLS & Envoy Sidecar Studio (SPIFFE & Canary) |
+| `linux_container_lab` | Linux Namespaces & Cgroups v2 | Intermediate | PID/NET Isolation, cpu.max & OOM-Kill |
+| `bpftrace_lab` | Linux BPFtrace Dynamic Tracing | Advanced | Kernel Kprobes, Tracepoints & Syscalls |
+| `docker` | Docker & Container Lab | Intermediate | Dockerfile, Container & Port-Mapping |
 
 ## code (10)
 
@@ -73,7 +93,7 @@
 | `sql_window_functions_lab` | SQL Window Functions & Analytics Studio | Advanced | Analytische SQL-Fensterfunktionen nach ANSI SQL:2003: ROW_NUMBER(), RANK(), DENSE_RANK(), NTILE(), LEAD/LAG und kumulierende Summen. |
 | `postgres_index_types_lab` | PostgreSQL Index Types Deep Dive | Advanced | Vergleiche B-Tree, GIN, GiST und BRIN Indizes hinsichtlich Speicherbedarf & Abfrage-Speedup. |
 
-## databases (8)
+## databases (15)
 
 | Tab-ID | Titel | Level | Beschreibung |
 |---|---|---|---|
@@ -85,8 +105,15 @@
 | `sql_optimizer_lab` | SQL Query Optimizer & EXPLAIN ANALYZE | Intermediate | Vergleiche Full Table Scans vs. B-Tree Index Scans und reduziere Abfrage-Kosten. |
 | `sql_joins` | SQL JOINs & Venn-Diagramm Builder | Beginner | Visuelle In-Memory Simulation von INNER, LEFT, RIGHT & FULL JOINs. |
 | `sqldungeon` | SQL Dungeon Crawler | Beginner | Löse SQL-Rätsel mit echten Queries (SELECT, JOIN, WHERE) um Räume zu durchqueren. |
+| `erd_designer` | Relational ERD & 3NF Normalform-Linter | Intermediate | Entity Relationships, 1NF-3NF Audit & SQL DDL |
+| `postgres_pool_lab` | PostgreSQL Connection Pooling & SQL Isolation Studio (PgBouncer) | Intermediate | PostgreSQL Connection Pooling & SQL Isolation Studio (PgBouncer) |
+| `postgres_flamegraph_lab` | PostgreSQL EXPLAIN FlameGraph | Advanced | Buffer Cache Hits, Seq Scan & Tree Latency |
+| `postgres_wal_lab` | PostgreSQL WAL & Replication Lag | Advanced | LSN Offsets, Streaming & PITR |
+| `postgres_partitioning_lab` | PostgreSQL Partitioning & Pruning | Intermediate | Range, List & Hash Partitioning DDL |
+| `postgres_fulltext_lab` | PostgreSQL Full-Text Search | Intermediate | tsvector, tsquery & ts_rank Scoring |
+| `data_lineage_etl` | ETL Pipeline & Data Lineage Studio | Intermediate | FIDP/FIAE Datenintegration, DWH & Schema-Drift Audit |
 
-## devops (9)
+## devops (18)
 
 | Tab-ID | Titel | Level | Beschreibung |
 |---|---|---|---|
@@ -99,8 +126,17 @@
 | `git_graph_lab` | Git Branching & Rebase Graph Visualizer | Beginner | Visueller interaktiver Commit-Graph mit Branch-Pointern, Merges & interaktivem Terminal. |
 | `cicd_workflow` | CI/CD Workflow Pipeline Builder | Intermediate | Visueller Stufen- & Job-Builder für automatische Builds, Unit Tests & Kubernetes Deployment. |
 | `gitvisual` | Visual Git Branching & Merge Lab | Beginner | Echtzeit-Visualisierung von Commits, Branches, Checkouts und Merge-Konflikten. |
+| `git_lab` | Git-Lab | Intermediate | Git-Workflows üben: Commits, Branches, Merge und Rebase. |
+| `cicd_pipeline` | CI/CD Pipeline Builder | Intermediate | GitHub-Actions-Stages & YAML-Export |
+| `promql_alert_lab` | Prometheus PromQL & Alerting | Intermediate | p95 Latency, Error-Rate & Rule YAMLs |
+| `event_sourcing_lab` | Event-Sourcing & CQRS Studio | Intermediate | Append-Only Event Log & Read-Model |
+| `opentelemetry_tracing_lab` | OpenTelemetry Distributed Tracing | Intermediate | W3C traceparent & Waterfall Spans |
+| `kafka_rebalance_lab` | Kafka Partition Rebalance Studio | Intermediate | Eager vs. Cooperative Sticky Rebalancing |
+| `kafka` | Apache Kafka Event-Architektur | Intermediate | Producers, Topics & Consumer Groups |
+| `cloud_devops` | Cloud & DevOps Praxis | Intermediate | Cloud- und DevOps-Grundlagen: Pipelines, Deployment und Betrieb. |
+| `tooling` | Entwickler-Setup-Guide | Beginner | VS Code, Git & Docker einrichten |
 
-## fiae (4)
+## fiae (14)
 
 | Tab-ID | Titel | Level | Beschreibung |
 |---|---|---|---|
@@ -108,8 +144,18 @@
 | `struktogramm_lab` | DIN 66261 Nassi-Shneiderman Struktogramm & Schreibtischtest Studio | Intermediate | Interaktiver DIN 66261 Visualisierer: Sequenz, Verzweigung (IF/CASE), kopf- & fußgesteuerte Schleifen sowie schrittweiser Schreibtischtest (Trace-Tabelle) mit Variablenverfolgung. |
 | `database_normalization_lab` | IHK Relationales Datenbank-Normalisierungs-Studio (1. NF, 2. NF, 3. NF) | Intermediate | Schrittweise Überführung unnormalisierter Relationen bis zur 3. NF: Atomarisierung, Beseitigung partieller & transitiver Abhängigkeiten und interaktiver INSERT/UPDATE/DELETE Anomalien-Simulator. |
 | `testverfahren_lab` | IHK Software-Testverfahren & Grenzwertanalyse Studio | Intermediate | Black-Box Äquivalenzklassenbildung (GÄK & UÄK), 6-Punkte Grenzwertanalyse (min-1, min, max+1) und McCabe Kontrollfluss-Komplexität (M = E - N + 2P). |
+| `personal_notebook` | Developer Notizbuch & Vault | Intermediate | Markdown-Notizen, Code-Snippets & Export |
+| `anfaenger_guide` | Einsteiger Kurs ohne Vorwissen | Beginner | EVA-Prinzip, CPU, Binärlogik & Web |
+| `monaco_studio` | Monaco Code Studio | Intermediate | VS-Code-Editor direkt im Browser |
+| `api_mock_studio` | API Mock Studio | Intermediate | REST-Endpunkte mocken und Anfragen testen. |
+| `web_components` | Web Components Masterclass | Intermediate | Custom Elements, Shadow DOM & Lit.dev |
+| `tdd` | TDD & Unit-Testing Lab | Intermediate | Test-Driven Development: Tests zuerst schreiben, dann implementieren. |
+| `architecture` | Systemarchitektur & Microservices | Intermediate | Clean Architecture, Scalability & Caching |
+| `design_patterns` | Design Patterns Lab | Intermediate | Singleton, Observer, Factory & Strategy |
+| `languages` | Programmiersprachen Academy | Intermediate | Python, JavaScript, TypeScript, Java, C# |
+| `app_workshop` | App-Workshop: Task-Manager | Intermediate | Eigene Web- & Mobile-App von A bis Z bauen |
 
-## hardware (6)
+## hardware (7)
 
 | Tab-ID | Titel | Level | Beschreibung |
 |---|---|---|---|
@@ -119,8 +165,9 @@
 | `linux_cow_snapshot_lab` | Linux Btrfs/ZFS Copy-on-Write Sandbox | Advanced | Block-Level Refcounts, atomare 0-Byte-Snapshots, Write-Deltas, Rollbacks und Bit-Rot Self-Healing. |
 | `ble_sensor` | BLE & GATT Sensor Simulator | Intermediate | Simuliere GATT Server, Bluetooth-Services und Sensor-Telemetriedaten. |
 | `cpu_architecture_lab` | Von-Neumann CPU & Register-Simulator | Beginner | Taktzyklen (Fetch, Decode, Execute), Register (PC, AC, IR, MAR) & RAM-Matrix live simulieren. |
+| `rack_configurator` | 19" Rack- & USV/Klimarechner | Intermediate | 42HE Schrank, USV-Laufzeit & BTU/h Kühlung |
 
-## ihk (39)
+## ihk (46)
 
 | Tab-ID | Titel | Level | Beschreibung |
 |---|---|---|---|
@@ -163,6 +210,13 @@
 | `cheat_sheets` | IHK Spickzettel & PDF-Generator | Beginner | Druckfertige DIN A4 PDF-Zusammenfassungen für IHK-Klausuren & AP1/AP2. |
 | `ihk_doc_generator` | IHK Projektantrag- & Doku-Generator | Intermediate | 80h/40h Zeitplanung, Amortisations-ROI Rechner & Markdown Export. |
 | `oral_exam` | IHK AP2 Fachgesprächs-Simulator | Intermediate | Simuliere 15 Min. Projektpräsentation & 15 Min. Prüfer-Fachgespräch für FIAE & FISI. |
+| `ihk_grade_calculator` | IHK Noten- & MEP-Rechner (AO 2020) | Intermediate | Exakte Gewichtung AP1/AP2 & Ergänzungsprüfung |
+| `itsm_simulator` | ITIL 4 ITSM & Service Desk Studio | Intermediate | Incident Queue, SLA-Matrix & CAB Risk Score |
+| `sm2_spaced_repetition` | SuperMemo SM-2 Spaced Repetition | Intermediate | Karteikarten & Ebbinghaus-Vergessenskurven |
+| `leitner` | Leitner Karteikarten-System | Intermediate | Spaced Repetition mit 5 Lernboxen |
+| `podcast` | IHK Fachinformatiker Podcast | Intermediate | Datenschutz, Encodings & Stefan Macke Tipps |
+| `lernfelder` | IHK Lernfelder 1 - 12b | Intermediate | Offizieller Rahmenlehrplan Berufsschule |
+| `quiz_arena` | IHK Knowledge Quiz Arena | Intermediate | Schnelligkeits-Quiz & Leaderboard |
 
 ## linux (3)
 
@@ -172,7 +226,7 @@
 | `linux_psi_cgroup_lab` | Linux Cgroups v2 & PSI Pressure Stall Studio | Advanced | CPU, Memory & I/O Pressure Stalls (some vs. full), CFS-Throttling und OOM-Killer Vermeidung für Kubernetes Pods. |
 | `linux_cap_seccomp_lab` | Linux Capabilities & Seccomp BPF Sandbox | Advanced | Principle of Least Privilege: CAP_NET_BIND_SERVICE, CAP_SYS_ADMIN, Syscall-Filtering & SECCOMP_RET_KILL. |
 
-## network (14)
+## network (27)
 
 | Tab-ID | Titel | Level | Beschreibung |
 |---|---|---|---|
@@ -190,8 +244,21 @@
 | `linux_netns_lab` | Linux Network Namespaces, veth & Bridge Studio | Advanced | Container-Netzwerkgrundlagen: Virtual Ethernet Pairs, br0 Switching & iptables MASQUERADE. |
 | `ipv6_ndp_lab` | IPv6 SLAAC, DHCPv6 & NDP Inspector | Advanced | RFC 4861 Neighbor Discovery Protocol, invertiertes EUI-64 u/l Bit & RFC 8981 Privacy Extensions Simulation. |
 | `vlsm_subnet` | VLSM Subnet Splitter & IP-Planer | Intermediate | Hierarchische IPv4-Subnetzaufteilung nach Host-Bedarf ohne Adressraum-Verschwendung. |
+| `transfer_time_lab` | IHK Übertragungszeit- & Bandbreiten-Rechner | Intermediate | Dateigröße, Bandbreite und Übertragungsdauer berechnen (Bit/Byte, Protokoll-Overhead). |
+| `packet_sniffer` | Web-Wireshark Packet Sniffer | Intermediate | Frame Dissection, Hex Dump & Display Filter |
+| `subnetting` | Subnetting-Trainer (IPv4) | Intermediate | Subnetzmasken, Netz-/Broadcast-Adressen und Hostbereiche berechnen und üben. |
+| `packet_tracer` | Network Packet Tracer | Intermediate | Route Visualizer & Ping-Simulation |
+| `websocket_protocol` | WebSockets & Real-Time Protokoll | Intermediate | Handshake, Frames & Ping/Pong |
+| `websockets` | WebSockets Grundlagen | Beginner | HTTP-101-Handshake & TCP-Duplex-Verbindung |
+| `webrtc_peer_studio` | WebRTC P2P & DataChannel Studio | Intermediate | SDP Offer/Answer, STUN/TURN & Live Impairment Chat |
+| `ebpf_xdp_lab` | Linux eBPF & XDP Packet Filter | Advanced | Kernel Verifier, XDP_DROP & JIT Engine |
+| `webrtc_sfu_lab` | WebRTC Media Server (SFU/MCU) | Intermediate | Simulcast Routing vs. P2P-Mesh |
+| `linux_bridge_vxlan_lab` | Linux Bridge & VXLAN Overlay | Intermediate | veth-Paare, br0 FDB & UDP 4789 Tunnel |
+| `bgp_anycast_lab` | Linux BGP Routing & Anycast | Advanced | eBGP/iBGP Peering, AS-Path & Anycast IP |
+| `grpc_protobuf_lab` | gRPC Protocol Buffers Studio | Intermediate | Proto3 Schema, Wire Varints & HTTP/2 |
+| `api_studio` | REST vs GraphQL API Studio | Intermediate | Endpunkte testen & HTTP-Status-Codes live |
 
-## security (17)
+## security (26)
 
 | Tab-ID | Titel | Level | Beschreibung |
 |---|---|---|---|
@@ -212,6 +279,15 @@
 | `crypto_keygen_lab` | RSA & Diffie-Hellman Crypto Lab | Advanced | Mathematische RSA Primzahl-Schlüsselpaar-Generierung und Chiffrierung. |
 | `clean_code_lab` | Clean Code & Security Review Arena | Intermediate | Finde kritische Sicherheitslücken, N+1 Queries & Memory Leaks im Code. |
 | `pkce` | OAuth2 PKCE & OIDC Identity Studio | Advanced | Proof Key for Code Exchange Key-Generierung, Code-Austausch & JWT Decoding. |
+| `ctf_lab` | Cybersecurity CTF Quest | Intermediate | XSS, SQL-Injection & Command Injection |
+| `oauth_oidc` | OAuth2 & OpenID Connect | Intermediate | Authorization Code Flow mit PKCE & JWT |
+| `zkp_crypto` | ZKP & Kryptographie Visualizer | Advanced | Elliptische Kurven & Zero-Knowledge Proofs |
+| `oauth_token_exchange_lab` | OAuth 2.0 Token Exchange Studio | Intermediate | RFC 8693 Delegation, Actor Claim & JWT |
+| `wireguard_ztna_lab` | WireGuard VPN & Zero-Trust ZTNA | Intermediate | 1-RTT NoiseIK & Cryptokey Routing |
+| `tls_handshake_lab` | TLS 1.3 Handshake Studio | Intermediate | 1-RTT Full Handshake & 0-RTT Session Resumption |
+| `jwt_attack_lab` | JWT Sicherheitslücken Studio | Intermediate | alg:none Fälschung, Secret-Bruteforce & kid-Injection |
+| `cors_pitfalls_lab` | CORS Fehlkonfigurationen Studio | Intermediate | Origin-Reflection, Regex-Bypass & Wildcard-Konflikt |
+| `security_lab_v2` | Red vs Blue Team Simulator | Intermediate | Angriffs- & Verteidigungsszenarien |
 
 ## tools (1)
 
@@ -219,10 +295,20 @@
 |---|---|---|---|
 | `sqlite_worker_lab` | SQLite Web Worker Sandbox (Zero-Jank Query Engine) | Intermediate | Asynchrone Auslagerung rechenintensiver SQL-Abfragen und Aggregationen in einen Hintergrund-Thread. |
 
-## wiso (3)
+## wiso (13)
 
 | Tab-ID | Titel | Level | Beschreibung |
 |---|---|---|---|
 | `wiso_sachmaengel_lab` | IHK WISO Sachmängelhaftung & Gewährleistung Studio | Intermediate | Mangelarten nach BGB § 434 (Beschaffenheit, Montage, Aliud, Mindermenge), vorrangige Nacherfüllung (§ 439) vs. Rücktritt/Minderung und kaufmännische Rügepflicht nach HGB § 377. |
 | `wiso_angebotsvergleich_lab` | IHK WISO Angebotsvergleich & Skontorechner Studio | Intermediate | Kaufmännischer Angebotsvergleich (LEP -> Rabatt -> ZEP -> Skonto -> BEP -> Bezugskosten -> Bezugspreis), effektiver Lieferantenzins (p_eff) vs. Kontokorrentkredit und Nutzwert-Matrix. |
 | `wiso_break_even_lab` | IHK WISO Deckungsbeitrag Stufe 2 & Break-Even-Point Solver | Intermediate | Mehrstufige Deckungsbeitragsrechnung (DB I & DB II), Erzeugnis- und Unternehmensfixkosten, optimales Produktionsprogramm bei Engpässen und interaktive Break-Even-Kalkulation. |
+| `wiso_payment_lab` | IHK WISO Zahlungsverkehr (SEPA-Überweisung, SEPA-Lastschrift, Wechsel & Skonto-Effektivzins) | Intermediate | Zahlungsverkehr: SEPA-Überweisung, SEPA-Lastschrift, Wechsel und Skonto-Effektivzins. |
+| `wiso_dunning_lab` | IHK Skonto-Effektivzins & Mahnwesen Studio (BGB § 288) | Intermediate | Skonto-Effektivzins und Mahnwesen nach BGB § 288. |
+| `wiso_contribution_margin` | IHK Deckungsbeitrag & BEP Studio | Intermediate | Stück-DB, Break-Even & mehrstufige Fixkosten |
+| `wiso_abc_xyz` | IHK ABC- & XYZ-Materialanalyse | Intermediate | Kumulativ-Werte & 3x3 Beschaffungsmatrix |
+| `wiso_loan_collateral` | IHK Darlehensarten & Kredite | Intermediate | Annuität vs. Rate & Realsicherheiten |
+| `wiso_andler` | IHK Optimale Bestellmenge (Andler) | Intermediate | Losgröße x_opt, Intervalle & Kostenkurve |
+| `wiso_interest` | IHK Zinsrechnung & Zinseszins | Intermediate | Deutsche Methode 30/360 & Aufzinsung |
+| `wiso_capital_value` | IHK Kapitalwertmethode (NPV) | Intermediate | Dynamische Investitionsrechnung & Barwert |
+| `wiso_bookkeeping_lab` | IHK WISO Doppelte Buchführung (T-Konten, Buchungssätze SKR03, GuV & Bilanz) | Intermediate | Doppelte Buchführung: T-Konten, Buchungssätze (SKR03), GuV und Bilanz. |
+| `wiso_bab_lab` | IHK WISO Betriebsabrechnungsbogen BAB (Kostenstellenrechnung, Zuschlagssätze & Kalkulation) | Intermediate | Betriebsabrechnungsbogen: Kostenstellenrechnung, Zuschlagssätze und Kalkulation. |

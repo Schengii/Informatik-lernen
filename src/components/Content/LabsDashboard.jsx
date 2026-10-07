@@ -248,7 +248,10 @@ Die Zusammenhänge zwischen Protokollheadern, kaufmännischen Formeln und Progra
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 transition: 'all 0.2s',
-                boxShadow: 'var(--shadow-sm)'
+                boxShadow: 'var(--shadow-sm)',
+                // 229 Karten: Offscreen-Karten nicht rendern (Scroll-/Ladezeit)
+                contentVisibility: 'auto',
+                containIntrinsicSize: 'auto 380px'
               }}
             >
               <div>

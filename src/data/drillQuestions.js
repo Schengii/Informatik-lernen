@@ -11,6 +11,8 @@ import { VLAN_DRILL_QUESTIONS } from '../utils/vlanTrunkingEngine';
 import { WISO_ANGEBOTSVERGLEICH_DRILL } from '../utils/wisoAngebotsvergleichEngine';
 import { RAID_DRILL_QUESTIONS } from '../utils/raidEngine';
 import { LIQUIDITAET_DRILL_QUESTIONS } from '../utils/wisoLiquiditaetEngine';
+import { ANDLER_DRILL_QUESTIONS } from '../utils/wisoAndlerEngine';
+import { CONTRIBUTION_MARGIN_DRILL_QUESTIONS } from '../utils/wisoContributionMarginEngine';
 
 const SOURCES = [
   NORMALIZATION_DRILL_QUESTIONS,
@@ -22,7 +24,9 @@ const SOURCES = [
   VLAN_DRILL_QUESTIONS,
   WISO_ANGEBOTSVERGLEICH_DRILL,
   RAID_DRILL_QUESTIONS,
-  LIQUIDITAET_DRILL_QUESTIONS
+  LIQUIDITAET_DRILL_QUESTIONS,
+  ANDLER_DRILL_QUESTIONS,
+  CONTRIBUTION_MARGIN_DRILL_QUESTIONS
 ];
 
 /** @type {Array<{ id: string, question: string, options: string[], correct: number, explanation: string }>} */

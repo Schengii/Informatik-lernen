@@ -32,6 +32,12 @@ describe('LAB_MODULES Datenintegrität', () => {
     }
   });
 
+  it('listet jedes Registry-Lab im Dashboard (sonst fehlt es in Suche, Filter und Fortschritt)', () => {
+    const ids = new Set(LAB_MODULES.map((l) => l.id));
+    const unlisted = LAB_REGISTRY.filter((e) => !e.tabs.some((t) => ids.has(t))).map((e) => e.tabs[0]);
+    expect(unlisted).toEqual([]);
+  });
+
   it('verweist nur auf Tabs, die in App.jsx gerendert werden', () => {
     const dead = LAB_MODULES.map((l) => l.id).filter((id) => !ROUTED_TABS.has(id) && !SPECIAL_ROUTES.has(id));
     expect(dead).toEqual([]);

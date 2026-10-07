@@ -1565,5 +1565,868 @@ export const LAB_MODULES = [
     desc: 'Vergleiche O(1), O(log n), O(n), O(n²) und O(2^n) mit dynamischen Diagrammen.',
     icon: Cpu,
     color: '#ef4444'
+  },
+  // Ab hier: automatisch aus Navbar/Command-Palette abgeleitet (Titel, Beschreibung, Kategorie per Schlüsselwort).
+  // Kategorie, Tags und Schwierigkeit bei Gelegenheit je Lab nachschärfen.
+  {
+    id: 'transfer_time_lab',
+    title: 'IHK Übertragungszeit- & Bandbreiten-Rechner',
+    category: 'network',
+    tags: ['#Bandbreite', '#Übertragungszeit', '#AP1', '#NETWORK'],
+    difficulty: 'Intermediate',
+    desc: 'Dateigröße, Bandbreite und Übertragungsdauer berechnen (Bit/Byte, Protokoll-Overhead).',
+    icon: Zap,
+    color: '#0369a1'
+  },
+  {
+    id: 'wiso_payment_lab',
+    title: 'IHK WISO Zahlungsverkehr (SEPA-Überweisung, SEPA-Lastschrift, Wechsel & Skonto-Effektivzins)',
+    category: 'wiso',
+    tags: ['#WISO', '#Zahlungsverkehr', '#SEPA', '#Überweisung', '#Lastschrift', '#WISO'],
+    difficulty: 'Intermediate',
+    desc: 'Zahlungsverkehr: SEPA-Überweisung, SEPA-Lastschrift, Wechsel und Skonto-Effektivzins.',
+    icon: Zap,
+    color: '#d97706'
+  },
+  {
+    id: 'os_scheduler',
+    title: 'OS Process Scheduler & Deadlock',
+    category: 'algorithms',
+    tags: ['#Process', '#Scheduler', '#Deadlock', '#ALGORITHMS'],
+    difficulty: 'Intermediate',
+    desc: 'FCFS, SJF, Round Robin & Bankier-Algorithmus',
+    icon: Zap,
+    color: '#6d28d9'
+  },
+  {
+    id: 'packet_sniffer',
+    title: 'Web-Wireshark Packet Sniffer',
+    category: 'network',
+    tags: ['#Wireshark', '#Packet', '#Sniffer', '#NETWORK'],
+    difficulty: 'Intermediate',
+    desc: 'Frame Dissection, Hex Dump & Display Filter',
+    icon: Zap,
+    color: '#0369a1'
+  },
+  {
+    id: 'erd_designer',
+    title: 'Relational ERD & 3NF Normalform-Linter',
+    category: 'databases',
+    tags: ['#Relational', '#Normalform', '#Linter', '#DATABASES'],
+    difficulty: 'Intermediate',
+    desc: 'Entity Relationships, 1NF-3NF Audit & SQL DDL',
+    icon: Zap,
+    color: '#0f766e'
+  },
+  {
+    id: 'transformer_attention',
+    title: 'Transformer Attention & LLM Studio',
+    category: 'ai',
+    tags: ['#Transformer', '#Attention', '#AI'],
+    difficulty: 'Intermediate',
+    desc: 'Self-Attention Heatmap, Softmax & ReAct Agent',
+    icon: Zap,
+    color: '#7c3aed'
+  },
+  {
+    id: 'cloud_canvas',
+    title: 'Cloud Architecture SLA & SPOF Canvas',
+    category: 'cloud',
+    tags: ['#Cloud', '#Architecture', '#SPOF', '#Canvas', '#CLOUD'],
+    difficulty: 'Intermediate',
+    desc: 'Cloud Architecture SLA & SPOF Canvas',
+    icon: Zap,
+    color: '#2563eb'
+  },
+  {
+    id: 'ihk_grade_calculator',
+    title: 'IHK Noten- & MEP-Rechner (AO 2020)',
+    category: 'ihk',
+    tags: ['#Noten', '#2020', '#WISO'],
+    difficulty: 'Intermediate',
+    desc: 'Exakte Gewichtung AP1/AP2 & Ergänzungsprüfung',
+    icon: Zap,
+    color: '#4338ca'
+  },
+  {
+    id: 'rack_configurator',
+    title: '19" Rack- & USV/Klimarechner',
+    category: 'hardware',
+    tags: ['#Rack', '#Klimarechner', '#HARDWARE'],
+    difficulty: 'Intermediate',
+    desc: '42HE Schrank, USV-Laufzeit & BTU/h Kühlung',
+    icon: Zap,
+    color: '#b45309'
+  },
+  {
+    id: 'itsm_simulator',
+    title: 'ITIL 4 ITSM & Service Desk Studio',
+    category: 'ihk',
+    tags: ['#ITIL', '#ITSM', '#ServiceDesk', '#IHK'],
+    difficulty: 'Intermediate',
+    desc: 'Incident Queue, SLA-Matrix & CAB Risk Score',
+    icon: Zap,
+    color: '#4338ca'
+  },
+  {
+    id: 'sm2_spaced_repetition',
+    title: 'SuperMemo SM-2 Spaced Repetition',
+    category: 'ihk',
+    tags: ['#SM2', '#SpacedRepetition', '#Lernen', '#IHK'],
+    difficulty: 'Intermediate',
+    desc: 'Karteikarten & Ebbinghaus-Vergessenskurven',
+    icon: Zap,
+    color: '#4338ca'
+  },
+  {
+    id: 'personal_notebook',
+    title: 'Developer Notizbuch & Vault',
+    category: 'fiae',
+    tags: ['#Notizbuch', '#Markdown', '#Vault', '#FIAE'],
+    difficulty: 'Intermediate',
+    desc: 'Markdown-Notizen, Code-Snippets & Export',
+    icon: Zap,
+    color: '#6366f1'
+  },
+  {
+    id: 'anfaenger_guide',
+    title: 'Einsteiger Kurs ohne Vorwissen',
+    category: 'fiae',
+    tags: ['#Einsteiger', '#Grundlagen', '#CPU', '#Binär', '#FIAE'],
+    difficulty: 'Beginner',
+    desc: 'EVA-Prinzip, CPU, Binärlogik & Web',
+    icon: Zap,
+    color: '#6366f1'
+  },
+  {
+    id: 'subnetting',
+    title: 'Subnetting-Trainer (IPv4)',
+    category: 'network',
+    tags: ['#Subnetting', '#IPv4', '#CIDR', '#AP1', '#NETWORK'],
+    difficulty: 'Intermediate',
+    desc: 'Subnetzmasken, Netz-/Broadcast-Adressen und Hostbereiche berechnen und üben.',
+    icon: Zap,
+    color: '#0369a1'
+  },
+  {
+    id: 'git_lab',
+    title: 'Git-Lab',
+    category: 'devops',
+    tags: ['#Git', '#Branching', '#Merge', '#DEVOPS'],
+    difficulty: 'Intermediate',
+    desc: 'Git-Workflows üben: Commits, Branches, Merge und Rebase.',
+    icon: Zap,
+    color: '#15803d'
+  },
+  {
+    id: 'algo_lab',
+    title: 'Algorithmen Step-Visualisierer',
+    category: 'algorithms',
+    tags: ['#Algorithmen', '#Step', '#Visualisierer', '#ALGORITHMS'],
+    difficulty: 'Intermediate',
+    desc: 'Sortier- & Suchalgorithmen Schritt für Schritt',
+    icon: Zap,
+    color: '#6d28d9'
+  },
+  {
+    id: 'packet_tracer',
+    title: 'Network Packet Tracer',
+    category: 'network',
+    tags: ['#Network', '#Packet', '#Tracer', '#NETWORK'],
+    difficulty: 'Intermediate',
+    desc: 'Route Visualizer & Ping-Simulation',
+    icon: Zap,
+    color: '#0369a1'
+  },
+  {
+    id: 'leitner',
+    title: 'Leitner Karteikarten-System',
+    category: 'ihk',
+    tags: ['#Leitner', '#Karteikarten', '#Lernen', '#IHK'],
+    difficulty: 'Intermediate',
+    desc: 'Spaced Repetition mit 5 Lernboxen',
+    icon: Zap,
+    color: '#4338ca'
+  },
+  {
+    id: 'monaco_studio',
+    title: 'Monaco Code Studio',
+    category: 'fiae',
+    tags: ['#Monaco', '#Code', '#FIAE'],
+    difficulty: 'Intermediate',
+    desc: 'VS-Code-Editor direkt im Browser',
+    icon: Zap,
+    color: '#6366f1'
+  },
+  {
+    id: 'cloud_designer',
+    title: 'Cloud Infrastructure Designer',
+    category: 'cloud',
+    tags: ['#Cloud', '#Infrastructure', '#Designer', '#CLOUD'],
+    difficulty: 'Intermediate',
+    desc: 'Architektur-Canvas & Terraform-Code-Export',
+    icon: Zap,
+    color: '#2563eb'
+  },
+  {
+    id: 'api_mock_studio',
+    title: 'API Mock Studio',
+    category: 'fiae',
+    tags: ['#API', '#Mock', '#REST', '#FIAE'],
+    difficulty: 'Intermediate',
+    desc: 'REST-Endpunkte mocken und Anfragen testen.',
+    icon: Zap,
+    color: '#6366f1'
+  },
+  {
+    id: 'ctf_lab',
+    title: 'Cybersecurity CTF Quest',
+    category: 'security',
+    tags: ['#Cybersecurity', '#Quest', '#SECURITY'],
+    difficulty: 'Intermediate',
+    desc: 'XSS, SQL-Injection & Command Injection',
+    icon: Zap,
+    color: '#be123c'
+  },
+  {
+    id: 'cicd_pipeline',
+    title: 'CI/CD Pipeline Builder',
+    category: 'devops',
+    tags: ['#Pipeline', '#Builder', '#DEVOPS'],
+    difficulty: 'Intermediate',
+    desc: 'GitHub-Actions-Stages & YAML-Export',
+    icon: Zap,
+    color: '#15803d'
+  },
+  {
+    id: 'docker_compose',
+    title: 'Docker Compose Studio',
+    category: 'cloud',
+    tags: ['#Docker', '#Compose', '#Container', '#CLOUD'],
+    difficulty: 'Intermediate',
+    desc: 'Multi-Container-Anwendungen mit Docker Compose beschreiben und starten.',
+    icon: Zap,
+    color: '#2563eb'
+  },
+  {
+    id: 'system_design',
+    title: 'System Design & Load Balancer',
+    category: 'cloud',
+    tags: ['#System', '#Design', '#Load', '#Balancer', '#CLOUD'],
+    difficulty: 'Intermediate',
+    desc: 'Skalierung, Caching & Balancing-Strategien',
+    icon: Zap,
+    color: '#2563eb'
+  },
+  {
+    id: 'websocket_protocol',
+    title: 'WebSockets & Real-Time Protokoll',
+    category: 'network',
+    tags: ['#WebSockets', '#Real', '#Time', '#Protokoll', '#NETWORK'],
+    difficulty: 'Intermediate',
+    desc: 'Handshake, Frames & Ping/Pong',
+    icon: Zap,
+    color: '#0369a1'
+  },
+  {
+    id: 'vector_search',
+    title: 'Vektorsuche (Local RAG)',
+    category: 'ai',
+    tags: ['#Vektorsuche', '#Embeddings', '#RAG', '#AI'],
+    difficulty: 'Intermediate',
+    desc: 'Ähnlichkeitssuche über Embeddings, die Grundlage von RAG-Pipelines.',
+    icon: Zap,
+    color: '#7c3aed'
+  },
+  {
+    id: 'wasm_rust_studio',
+    title: 'WebAssembly & Rust Compiler',
+    category: 'cloud',
+    tags: ['#WebAssembly', '#Rust', '#Compiler', '#CLOUD'],
+    difficulty: 'Intermediate',
+    desc: 'Rust zu Wasm kompilieren & ausführen',
+    icon: Zap,
+    color: '#2563eb'
+  },
+  {
+    id: 'oauth_oidc',
+    title: 'OAuth2 & OpenID Connect',
+    category: 'security',
+    tags: ['#OAuth2', '#OpenID', '#Connect', '#SECURITY'],
+    difficulty: 'Intermediate',
+    desc: 'Authorization Code Flow mit PKCE & JWT',
+    icon: Zap,
+    color: '#be123c'
+  },
+  {
+    id: 'websockets',
+    title: 'WebSockets Grundlagen',
+    category: 'network',
+    tags: ['#WebSockets', '#Grundlagen', '#NETWORK'],
+    difficulty: 'Beginner',
+    desc: 'HTTP-101-Handshake & TCP-Duplex-Verbindung',
+    icon: Zap,
+    color: '#0369a1'
+  },
+  {
+    id: 'perf_lab',
+    title: 'Performance Profiling Lab',
+    category: 'algorithms',
+    tags: ['#Performance', '#Profiling', '#Memory', '#ALGORITHMS'],
+    difficulty: 'Intermediate',
+    desc: 'V8 Garbage Collection & Memory-Leak-Analyse',
+    icon: Zap,
+    color: '#6d28d9'
+  },
+  {
+    id: 'kubernetes',
+    title: 'Kubernetes Pods & Cluster',
+    category: 'cloud',
+    tags: ['#Kubernetes', '#Pods', '#Cluster', '#CLOUD'],
+    difficulty: 'Intermediate',
+    desc: 'Deployments, ReplicaSets & Ingress',
+    icon: Zap,
+    color: '#2563eb'
+  },
+  {
+    id: 'wasm_compiler',
+    title: 'WebAssembly Compiler Playground',
+    category: 'cloud',
+    tags: ['#WebAssembly', '#Compiler', '#Playground', '#CLOUD'],
+    difficulty: 'Intermediate',
+    desc: 'C/Rust In-Browser Kompilierung & Hex-Inspektor',
+    icon: Zap,
+    color: '#2563eb'
+  },
+  {
+    id: 'zkp_crypto',
+    title: 'ZKP & Kryptographie Visualizer',
+    category: 'security',
+    tags: ['#Kryptographie', '#Visualizer', '#SECURITY'],
+    difficulty: 'Advanced',
+    desc: 'Elliptische Kurven & Zero-Knowledge Proofs',
+    icon: Zap,
+    color: '#be123c'
+  },
+  {
+    id: 'webrtc_peer_studio',
+    title: 'WebRTC P2P & DataChannel Studio',
+    category: 'network',
+    tags: ['#WebRTC', '#DataChannel', '#NETWORK'],
+    difficulty: 'Intermediate',
+    desc: 'SDP Offer/Answer, STUN/TURN & Live Impairment Chat',
+    icon: Zap,
+    color: '#0369a1'
+  },
+  {
+    id: 'linux_memory_lab',
+    title: 'Linux Virtual Memory & Page Fault Studio (TLB & OOM Score)',
+    category: 'cloud',
+    tags: ['#Linux', '#Memory', '#PageFault', '#TLB', '#CLOUD'],
+    difficulty: 'Intermediate',
+    desc: 'Linux Virtual Memory & Page Fault Studio (TLB & OOM Score)',
+    icon: Zap,
+    color: '#2563eb'
+  },
+  {
+    id: 'postgres_pool_lab',
+    title: 'PostgreSQL Connection Pooling & SQL Isolation Studio (PgBouncer)',
+    category: 'databases',
+    tags: ['#PostgreSQL', '#Connection', '#Pooling', '#Isolation', '#PgBouncer', '#DATABASES'],
+    difficulty: 'Intermediate',
+    desc: 'PostgreSQL Connection Pooling & SQL Isolation Studio (PgBouncer)',
+    icon: Zap,
+    color: '#0f766e'
+  },
+  {
+    id: 'wiso_dunning_lab',
+    title: 'IHK Skonto-Effektivzins & Mahnwesen Studio (BGB § 288)',
+    category: 'wiso',
+    tags: ['#Skonto', '#Effektivzins', '#Mahnwesen', '#WISO'],
+    difficulty: 'Intermediate',
+    desc: 'Skonto-Effektivzins und Mahnwesen nach BGB § 288.',
+    icon: Zap,
+    color: '#d97706'
+  },
+  {
+    id: 'service_mesh_lab',
+    title: 'Service Mesh mTLS & Envoy Sidecar Studio (SPIFFE & Canary)',
+    category: 'cloud',
+    tags: ['#ServiceMesh', '#mTLS', '#Envoy', '#CLOUD'],
+    difficulty: 'Intermediate',
+    desc: 'Service Mesh mTLS & Envoy Sidecar Studio (SPIFFE & Canary)',
+    icon: Zap,
+    color: '#2563eb'
+  },
+  {
+    id: 'linux_container_lab',
+    title: 'Linux Namespaces & Cgroups v2',
+    category: 'cloud',
+    tags: ['#Linux', '#Namespaces', '#Cgroups', '#CLOUD'],
+    difficulty: 'Intermediate',
+    desc: 'PID/NET Isolation, cpu.max & OOM-Kill',
+    icon: Zap,
+    color: '#2563eb'
+  },
+  {
+    id: 'wiso_contribution_margin',
+    title: 'IHK Deckungsbeitrag & BEP Studio',
+    category: 'wiso',
+    tags: ['#Deckungsbeitrag', '#WISO'],
+    difficulty: 'Intermediate',
+    desc: 'Stück-DB, Break-Even & mehrstufige Fixkosten',
+    icon: Zap,
+    color: '#d97706'
+  },
+  {
+    id: 'oauth_token_exchange_lab',
+    title: 'OAuth 2.0 Token Exchange Studio',
+    category: 'security',
+    tags: ['#OAuth', '#Token', '#Exchange', '#SECURITY'],
+    difficulty: 'Intermediate',
+    desc: 'RFC 8693 Delegation, Actor Claim & JWT',
+    icon: Zap,
+    color: '#be123c'
+  },
+  {
+    id: 'ebpf_xdp_lab',
+    title: 'Linux eBPF & XDP Packet Filter',
+    category: 'network',
+    tags: ['#Linux', '#eBPF', '#Packet', '#Filter', '#NETWORK'],
+    difficulty: 'Advanced',
+    desc: 'Kernel Verifier, XDP_DROP & JIT Engine',
+    icon: Zap,
+    color: '#0369a1'
+  },
+  {
+    id: 'postgres_flamegraph_lab',
+    title: 'PostgreSQL EXPLAIN FlameGraph',
+    category: 'databases',
+    tags: ['#PostgreSQL', '#EXPLAIN', '#FlameGraph', '#DATABASES'],
+    difficulty: 'Advanced',
+    desc: 'Buffer Cache Hits, Seq Scan & Tree Latency',
+    icon: Zap,
+    color: '#0f766e'
+  },
+  {
+    id: 'wiso_abc_xyz',
+    title: 'IHK ABC- & XYZ-Materialanalyse',
+    category: 'wiso',
+    tags: ['#Materialanalyse', '#WISO'],
+    difficulty: 'Intermediate',
+    desc: 'Kumulativ-Werte & 3x3 Beschaffungsmatrix',
+    icon: Zap,
+    color: '#d97706'
+  },
+  {
+    id: 'wireguard_ztna_lab',
+    title: 'WireGuard VPN & Zero-Trust ZTNA',
+    category: 'security',
+    tags: ['#WireGuard', '#Zero', '#Trust', '#ZTNA', '#SECURITY'],
+    difficulty: 'Intermediate',
+    desc: '1-RTT NoiseIK & Cryptokey Routing',
+    icon: Zap,
+    color: '#be123c'
+  },
+  {
+    id: 'promql_alert_lab',
+    title: 'Prometheus PromQL & Alerting',
+    category: 'devops',
+    tags: ['#Prometheus', '#PromQL', '#Alerting', '#DEVOPS'],
+    difficulty: 'Intermediate',
+    desc: 'p95 Latency, Error-Rate & Rule YAMLs',
+    icon: Zap,
+    color: '#15803d'
+  },
+  {
+    id: 'event_sourcing_lab',
+    title: 'Event-Sourcing & CQRS Studio',
+    category: 'devops',
+    tags: ['#Event', '#Sourcing', '#CQRS', '#DEVOPS'],
+    difficulty: 'Intermediate',
+    desc: 'Append-Only Event Log & Read-Model',
+    icon: Zap,
+    color: '#15803d'
+  },
+  {
+    id: 'wiso_loan_collateral',
+    title: 'IHK Darlehensarten & Kredite',
+    category: 'wiso',
+    tags: ['#Darlehensarten', '#Kredite', '#WISO'],
+    difficulty: 'Intermediate',
+    desc: 'Annuität vs. Rate & Realsicherheiten',
+    icon: Zap,
+    color: '#d97706'
+  },
+  {
+    id: 'webrtc_sfu_lab',
+    title: 'WebRTC Media Server (SFU/MCU)',
+    category: 'network',
+    tags: ['#WebRTC', '#Media', '#Server', '#NETWORK'],
+    difficulty: 'Intermediate',
+    desc: 'Simulcast Routing vs. P2P-Mesh',
+    icon: Zap,
+    color: '#0369a1'
+  },
+  {
+    id: 'bpftrace_lab',
+    title: 'Linux BPFtrace Dynamic Tracing',
+    category: 'cloud',
+    tags: ['#Linux', '#BPFtrace', '#Dynamic', '#Tracing', '#CLOUD'],
+    difficulty: 'Advanced',
+    desc: 'Kernel Kprobes, Tracepoints & Syscalls',
+    icon: Zap,
+    color: '#2563eb'
+  },
+  {
+    id: 'postgres_wal_lab',
+    title: 'PostgreSQL WAL & Replication Lag',
+    category: 'databases',
+    tags: ['#PostgreSQL', '#Replication', '#DATABASES'],
+    difficulty: 'Advanced',
+    desc: 'LSN Offsets, Streaming & PITR',
+    icon: Zap,
+    color: '#0f766e'
+  },
+  {
+    id: 'wiso_andler',
+    title: 'IHK Optimale Bestellmenge (Andler)',
+    category: 'wiso',
+    tags: ['#Optimale', '#Bestellmenge', '#Andler', '#WISO'],
+    difficulty: 'Intermediate',
+    desc: 'Losgröße x_opt, Intervalle & Kostenkurve',
+    icon: Zap,
+    color: '#d97706'
+  },
+  {
+    id: 'opentelemetry_tracing_lab',
+    title: 'OpenTelemetry Distributed Tracing',
+    category: 'devops',
+    tags: ['#OpenTelemetry', '#Distributed', '#Tracing', '#DEVOPS'],
+    difficulty: 'Intermediate',
+    desc: 'W3C traceparent & Waterfall Spans',
+    icon: Zap,
+    color: '#15803d'
+  },
+  {
+    id: 'linux_bridge_vxlan_lab',
+    title: 'Linux Bridge & VXLAN Overlay',
+    category: 'network',
+    tags: ['#Linux', '#Bridge', '#VXLAN', '#Overlay', '#NETWORK'],
+    difficulty: 'Intermediate',
+    desc: 'veth-Paare, br0 FDB & UDP 4789 Tunnel',
+    icon: Zap,
+    color: '#0369a1'
+  },
+  {
+    id: 'postgres_partitioning_lab',
+    title: 'PostgreSQL Partitioning & Pruning',
+    category: 'databases',
+    tags: ['#PostgreSQL', '#Partitioning', '#Pruning', '#DATABASES'],
+    difficulty: 'Intermediate',
+    desc: 'Range, List & Hash Partitioning DDL',
+    icon: Zap,
+    color: '#0f766e'
+  },
+  {
+    id: 'wiso_interest',
+    title: 'IHK Zinsrechnung & Zinseszins',
+    category: 'wiso',
+    tags: ['#Zinsrechnung', '#Zinseszins', '#WISO'],
+    difficulty: 'Intermediate',
+    desc: 'Deutsche Methode 30/360 & Aufzinsung',
+    icon: Zap,
+    color: '#d97706'
+  },
+  {
+    id: 'kafka_rebalance_lab',
+    title: 'Kafka Partition Rebalance Studio',
+    category: 'devops',
+    tags: ['#Kafka', '#Rebalance', '#Consumer', '#DEVOPS'],
+    difficulty: 'Intermediate',
+    desc: 'Eager vs. Cooperative Sticky Rebalancing',
+    icon: Zap,
+    color: '#15803d'
+  },
+  {
+    id: 'bgp_anycast_lab',
+    title: 'Linux BGP Routing & Anycast',
+    category: 'network',
+    tags: ['#Linux', '#Routing', '#Anycast', '#NETWORK'],
+    difficulty: 'Advanced',
+    desc: 'eBGP/iBGP Peering, AS-Path & Anycast IP',
+    icon: Zap,
+    color: '#0369a1'
+  },
+  {
+    id: 'tls_handshake_lab',
+    title: 'TLS 1.3 Handshake Studio',
+    category: 'security',
+    tags: ['#Handshake', '#SECURITY'],
+    difficulty: 'Intermediate',
+    desc: '1-RTT Full Handshake & 0-RTT Session Resumption',
+    icon: Zap,
+    color: '#be123c'
+  },
+  {
+    id: 'jwt_attack_lab',
+    title: 'JWT Sicherheitslücken Studio',
+    category: 'security',
+    tags: ['#Sicherheitslücken', '#SECURITY'],
+    difficulty: 'Intermediate',
+    desc: 'alg:none Fälschung, Secret-Bruteforce & kid-Injection',
+    icon: Zap,
+    color: '#be123c'
+  },
+  {
+    id: 'cors_pitfalls_lab',
+    title: 'CORS Fehlkonfigurationen Studio',
+    category: 'security',
+    tags: ['#CORS', '#Fehlkonfigurationen', '#SECURITY'],
+    difficulty: 'Intermediate',
+    desc: 'Origin-Reflection, Regex-Bypass & Wildcard-Konflikt',
+    icon: Zap,
+    color: '#be123c'
+  },
+  {
+    id: 'postgres_fulltext_lab',
+    title: 'PostgreSQL Full-Text Search',
+    category: 'databases',
+    tags: ['#PostgreSQL', '#Full', '#Text', '#Search', '#DATABASES'],
+    difficulty: 'Intermediate',
+    desc: 'tsvector, tsquery & ts_rank Scoring',
+    icon: Zap,
+    color: '#0f766e'
+  },
+  {
+    id: 'wiso_capital_value',
+    title: 'IHK Kapitalwertmethode (NPV)',
+    category: 'wiso',
+    tags: ['#Kapitalwertmethode', '#WISO'],
+    difficulty: 'Intermediate',
+    desc: 'Dynamische Investitionsrechnung & Barwert',
+    icon: Zap,
+    color: '#d97706'
+  },
+  {
+    id: 'grpc_protobuf_lab',
+    title: 'gRPC Protocol Buffers Studio',
+    category: 'network',
+    tags: ['#gRPC', '#Protocol', '#Buffers', '#NETWORK'],
+    difficulty: 'Intermediate',
+    desc: 'Proto3 Schema, Wire Varints & HTTP/2',
+    icon: Zap,
+    color: '#0369a1'
+  },
+  {
+    id: 'data_lineage_etl',
+    title: 'ETL Pipeline & Data Lineage Studio',
+    category: 'databases',
+    tags: ['#Pipeline', '#Data', '#Lineage', '#DATABASES'],
+    difficulty: 'Intermediate',
+    desc: 'FIDP/FIAE Datenintegration, DWH & Schema-Drift Audit',
+    icon: Zap,
+    color: '#0f766e'
+  },
+  {
+    id: 'wiso_bookkeeping_lab',
+    title: 'IHK WISO Doppelte Buchführung (T-Konten, Buchungssätze SKR03, GuV & Bilanz)',
+    category: 'wiso',
+    tags: ['#WISO', '#Doppelte', '#Buchführung', '#Konten', '#Buchungssätze', '#WISO'],
+    difficulty: 'Intermediate',
+    desc: 'Doppelte Buchführung: T-Konten, Buchungssätze (SKR03), GuV und Bilanz.',
+    icon: Zap,
+    color: '#d97706'
+  },
+  {
+    id: 'wiso_bab_lab',
+    title: 'IHK WISO Betriebsabrechnungsbogen BAB (Kostenstellenrechnung, Zuschlagssätze & Kalkulation)',
+    category: 'wiso',
+    tags: ['#WISO', '#Betriebsabrechnungsbogen', '#Kostenstellenrechnung', '#Zuschlagssätze', '#Kalkulation', '#WISO'],
+    difficulty: 'Intermediate',
+    desc: 'Betriebsabrechnungsbogen: Kostenstellenrechnung, Zuschlagssätze und Kalkulation.',
+    icon: Zap,
+    color: '#d97706'
+  },
+  {
+    id: 'kafka',
+    title: 'Apache Kafka Event-Architektur',
+    category: 'devops',
+    tags: ['#Apache', '#Kafka', '#Event', '#Architektur', '#DEVOPS'],
+    difficulty: 'Intermediate',
+    desc: 'Producers, Topics & Consumer Groups',
+    icon: Zap,
+    color: '#15803d'
+  },
+  {
+    id: 'docker',
+    title: 'Docker & Container Lab',
+    category: 'cloud',
+    tags: ['#Docker', '#Container', '#CLOUD'],
+    difficulty: 'Intermediate',
+    desc: 'Dockerfile, Container & Port-Mapping',
+    icon: Zap,
+    color: '#2563eb'
+  },
+  {
+    id: 'cloud_devops',
+    title: 'Cloud & DevOps Praxis',
+    category: 'devops',
+    tags: ['#Cloud', '#DevOps', '#Deployment', '#DEVOPS'],
+    difficulty: 'Intermediate',
+    desc: 'Cloud- und DevOps-Grundlagen: Pipelines, Deployment und Betrieb.',
+    icon: Zap,
+    color: '#15803d'
+  },
+  {
+    id: 'security_lab_v2',
+    title: 'Red vs Blue Team Simulator',
+    category: 'security',
+    tags: ['#Blue', '#Team', '#SECURITY'],
+    difficulty: 'Intermediate',
+    desc: 'Angriffs- & Verteidigungsszenarien',
+    icon: Zap,
+    color: '#be123c'
+  },
+  {
+    id: 'api_studio',
+    title: 'REST vs GraphQL API Studio',
+    category: 'network',
+    tags: ['#REST', '#GraphQL', '#NETWORK'],
+    difficulty: 'Intermediate',
+    desc: 'Endpunkte testen & HTTP-Status-Codes live',
+    icon: Zap,
+    color: '#0369a1'
+  },
+  {
+    id: 'ai_business',
+    title: 'AI & Deep Learning Masterclass',
+    category: 'ai',
+    tags: ['#Deep', '#Learning', '#Masterclass', '#AI'],
+    difficulty: 'Intermediate',
+    desc: 'CNNs, Transformers, RAG & Prompting',
+    icon: Zap,
+    color: '#7c3aed'
+  },
+  {
+    id: 'podcast',
+    title: 'IHK Fachinformatiker Podcast',
+    category: 'ihk',
+    tags: ['#Fachinformatiker', '#Podcast', '#IHK'],
+    difficulty: 'Intermediate',
+    desc: 'Datenschutz, Encodings & Stefan Macke Tipps',
+    icon: Zap,
+    color: '#4338ca'
+  },
+  {
+    id: 'lernfelder',
+    title: 'IHK Lernfelder 1 - 12b',
+    category: 'ihk',
+    tags: ['#Lernfelder', '#IHK'],
+    difficulty: 'Intermediate',
+    desc: 'Offizieller Rahmenlehrplan Berufsschule',
+    icon: Zap,
+    badge: 'IHK Neu',
+    color: '#4338ca'
+  },
+  {
+    id: 'web_components',
+    title: 'Web Components Masterclass',
+    category: 'fiae',
+    tags: ['#Components', '#Masterclass', '#FIAE'],
+    difficulty: 'Intermediate',
+    desc: 'Custom Elements, Shadow DOM & Lit.dev',
+    icon: Zap,
+    color: '#6366f1'
+  },
+  {
+    id: 'tdd',
+    title: 'TDD & Unit-Testing Lab',
+    category: 'fiae',
+    tags: ['#TDD', '#UnitTest', '#Testing', '#FIAE'],
+    difficulty: 'Intermediate',
+    desc: 'Test-Driven Development: Tests zuerst schreiben, dann implementieren.',
+    icon: Zap,
+    color: '#6366f1'
+  },
+  {
+    id: 'architecture',
+    title: 'Systemarchitektur & Microservices',
+    category: 'fiae',
+    tags: ['#Systemarchitektur', '#Microservices', '#FIAE'],
+    difficulty: 'Intermediate',
+    desc: 'Clean Architecture, Scalability & Caching',
+    icon: Zap,
+    color: '#6366f1'
+  },
+  {
+    id: 'design_patterns',
+    title: 'Design Patterns Lab',
+    category: 'fiae',
+    tags: ['#Design', '#Patterns', '#FIAE'],
+    difficulty: 'Intermediate',
+    desc: 'Singleton, Observer, Factory & Strategy',
+    icon: Zap,
+    color: '#6366f1'
+  },
+  {
+    id: 'big_o',
+    title: 'Big-O Komplexitäts-Visualizer',
+    category: 'algorithms',
+    tags: ['#Komplexitäts', '#Visualizer', '#ALGORITHMS'],
+    difficulty: 'Intermediate',
+    desc: 'Laufzeitverhalten bei wachsender Eingabegröße',
+    icon: Zap,
+    color: '#6d28d9'
+  },
+  {
+    id: 'quiz_arena',
+    title: 'IHK Knowledge Quiz Arena',
+    category: 'ihk',
+    tags: ['#Knowledge', '#Quiz', '#Arena', '#IHK'],
+    difficulty: 'Intermediate',
+    desc: 'Schnelligkeits-Quiz & Leaderboard',
+    icon: Zap,
+    color: '#4338ca'
+  },
+  {
+    id: 'languages',
+    title: 'Programmiersprachen Academy',
+    category: 'fiae',
+    tags: ['#Programmiersprachen', '#Academy', '#FIAE'],
+    difficulty: 'Intermediate',
+    desc: 'Python, JavaScript, TypeScript, Java, C#',
+    icon: Zap,
+    color: '#6366f1'
+  },
+  {
+    id: 'ai',
+    title: 'Advanced Prompt Engineering Lab',
+    category: 'ai',
+    tags: ['#Prompt', '#LLM', '#AI'],
+    difficulty: 'Intermediate',
+    desc: 'Prompts gezielt entwerfen, testen und verbessern.',
+    icon: Zap,
+    color: '#7c3aed'
+  },
+  {
+    id: 'tooling',
+    title: 'Entwickler-Setup-Guide',
+    category: 'devops',
+    tags: ['#Entwickler', '#Setup', '#Guide', '#CLOUD'],
+    difficulty: 'Beginner',
+    desc: 'VS Code, Git & Docker einrichten',
+    icon: Zap,
+    color: '#15803d'
+  },
+  {
+    id: 'app_workshop',
+    title: 'App-Workshop: Task-Manager',
+    category: 'fiae',
+    tags: ['#Workshop', '#Task', '#Manager', '#FIAE'],
+    difficulty: 'Intermediate',
+    desc: 'Eigene Web- & Mobile-App von A bis Z bauen',
+    icon: Zap,
+    color: '#6366f1'
   }
 ];
