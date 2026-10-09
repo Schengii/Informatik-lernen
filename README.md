@@ -1,5 +1,7 @@
 # 💻 IT-DevGame – Informatik-lernen
 
+[![CI](https://github.com/Schengii/Informatik-lernen/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Schengii/Informatik-lernen/actions/workflows/ci.yml) [![Lizenz: MIT](https://img.shields.io/badge/Lizenz-MIT-yellow.svg)](LICENSE) [![Live-Demo](https://img.shields.io/badge/Live--Demo-Vercel-2ea44f?logo=vercel)](https://informatik-lernen.vercel.app) ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)
+
 Interaktive Lernplattform und Prüfungsvorbereitung für Fachinformatiker (FIAE, FISI, FIDP, FIDV, IT-SE) nach IHK-Standard – zugleich ein spielerischer Einstieg in die Informatik ohne Vorkenntnisse.
 
 > 🌐 **Live (Vercel):** <https://informatik-lernen.vercel.app> · PWA, offlinefähig
