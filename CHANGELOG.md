@@ -16,7 +16,7 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 - Schriften (Inter, Outfit, Fira Code, Atkinson Hyperlegible) werden lokal über `@fontsource/*` ausgeliefert (`src/styles/fonts.css`) statt per `@import` von Google Fonts – keine Drittanbieter-Anfrage mehr, passend zur DSGVO-Aussage im README.
 
 ### Behoben (Fixed)
-- 43 Komponenten (u. a. `ActivityHeatmapWidget`, `PomodoroTimerWidget`, `AudioSettingsModal` und viele Labs) nutzen Tailwind-Utility-Klassen, für die es kein CSS gab und die daher ungestylt dargestellt wurden. `tailwindcss` + `@tailwindcss/vite` liefern jetzt nur Theme und Utilities (`src/styles/tailwind.css`, ohne Preflight-Reset); `global.css` bleibt unverändert und hat Vorrang.
+- 43 Komponenten (u. a. `ActivityHeatmapWidget`, `PomodoroTimerWidget`, `AudioSettingsModal` und viele Labs) nutzen Tailwind-Utility-Klassen, für die es kein CSS gab und die daher ungestylt dargestellt wurden. `tailwindcss` + `@tailwindcss/vite` liefern jetzt nur Theme und Utilities (`src/styles/tailwind.css`, ohne Preflight-Reset und ohne `@layer`, damit der Reset in `global.css` die Abstands-Utilities nicht überschreibt); `global.css` bleibt unverändert und wird danach geladen.
 
 ## [3.75.0] - 2026-10-07
 
