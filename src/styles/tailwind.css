@@ -1,0 +1,9 @@
+/*
+ * Tailwind-Utilities für die Komponenten, die Klassen wie `bg-slate-900` oder
+ * `rounded-2xl` nutzen. Bewusst OHNE Preflight (kein CSS-Reset): das
+ * Design-System in global.css bleibt unverändert und gewinnt, weil
+ * ungelayerte Regeln gegenüber Layern Vorrang haben.
+ */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
