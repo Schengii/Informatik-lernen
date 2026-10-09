@@ -64,7 +64,7 @@
     "@monaco-editor/react": "^4.7.0",
     "@sentry/react": "^11.1.0",
     "@vercel/analytics": "^2.0.1",
-    "alasql": "^4.17.3",
+    "alasql": "^4.19.1",
     "canvas-confetti": "^1.9.4",
     "framer-motion": "^13.4.6",
     "jspdf": "^4.2.1",
