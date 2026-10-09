@@ -3,7 +3,9 @@
 name: Update lockfile (temporär)
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [fix/tailwind-utilities]
+    paths: ['.github/workflows/update-lockfile.yml']
 
 permissions:
   contents: write
@@ -13,6 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: fix/tailwind-utilities
       - uses: actions/setup-node@v4
         with:
           node-version: 22
