@@ -9,6 +9,17 @@ const IHK_EXAM_PRESETS = [
   { id: 'ap2_winter', name: 'IHK AP2 Winter (November)', month: 10, day: 25 },
 ];
 
+// Berechnet das nächste Vorkommen eines Prüfungstermins (ausserhalb des Renderings, da zeitabhängig).
+function nextPresetIsoDate(preset) {
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  let target = new Date(currentYear, preset.month, preset.day);
+  if (target < now) {
+    target = new Date(currentYear + 1, preset.month, preset.day);
+  }
+  return target.toISOString().slice(0, 10);
+}
+
 export default function ExamCountdownWidget({ setActiveTab }) {
   const { userState, setUserState } = useStore();
   const [targetDateStr, setTargetDateStr] = useState(() => {
@@ -46,12 +57,7 @@ export default function ExamCountdownWidget({ setActiveTab }) {
   };
 
   const handleSelectPreset = (preset) => {
-    const currentYear = new Date().getFullYear();
-    let target = new Date(currentYear, preset.month, preset.day);
-    if (target < new Date()) {
-      target = new Date(currentYear + 1, preset.month, preset.day);
-    }
-    const isoDate = target.toISOString().slice(0, 10);
+    const isoDate = nextPresetIsoDate(preset);
     handleSaveDate(isoDate, preset.id.includes('ap1') ? 'ap1' : 'ap2');
   };
 
