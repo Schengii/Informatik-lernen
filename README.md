@@ -103,3 +103,9 @@ Das Skript erzeugt Engine, Engine-Test und Lab-Komponente und trägt das Lab am 
 
 - **Dokumentation**: README von rund 2100 auf wenige Dutzend Zeilen verschlankt; frühere Fassung unverändert unter `docs/README-Archiv.md`.
 - **Tooling**: `npm run new-lab` (Lab-Scaffold) und `npm run docs:labs` (automatisch erzeugte Lab-Liste).
+
+---
+
+## 📄 Lizenz
+
+Dieses Projekt steht unter der [MIT-Lizenz](LICENSE).

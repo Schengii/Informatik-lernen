@@ -9,6 +9,9 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unveröffentlicht]
 
+### Hinzugefügt (Added)
+- `LICENSE` (MIT) und Feld `license` in `package.json`; Hinweis im README.
+
 ## [3.75.0] - 2026-10-07
 
 ### Hinzugefügt (Added)
