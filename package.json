@@ -61,6 +61,10 @@
     }
   ],
   "dependencies": {
+    "@fontsource/atkinson-hyperlegible": "^5.2.0",
+    "@fontsource/fira-code": "^5.2.0",
+    "@fontsource/inter": "^5.2.0",
+    "@fontsource/outfit": "^5.2.0",
     "@monaco-editor/react": "^4.7.0",
     "@sentry/react": "^11.1.0",
     "@vercel/analytics": "^2.0.1",
