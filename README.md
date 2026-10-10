@@ -6,6 +6,10 @@ Interaktive Lernplattform und Prüfungsvorbereitung für Fachinformatiker (FIAE,
 
 > 🌐 **Live (Vercel):** <https://informatik-lernen.vercel.app> · PWA, offlinefähig
 
+![IT-DevGame – Dashboard mit Lern-Heatmap und IHK-Prüfungs-Countdown](docs/screenshots/dashboard.jpg)
+
+![IT-DevGame – Lab: DNS-over-HTTPS Privacy Inspector](docs/screenshots/lab-dns-privacy.jpg)
+
 ## 📋 Inhalt
 - [Überblick](#-überblick)
 - [Ordnerstruktur](#-ordnerstruktur)
