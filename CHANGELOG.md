@@ -10,6 +10,7 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 ## [Unveröffentlicht]
 
 ### Hinzugefügt (Added)
+- Screenshots (Dashboard, DNS-Privacy-Lab) in `docs/screenshots/` und im README.
 - `LICENSE` (MIT) und Feld `license` in `package.json`; Hinweis im README.
 
 ### Geändert (Changed)
