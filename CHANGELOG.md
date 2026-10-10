@@ -12,6 +12,11 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 ### Hinzugefügt (Added)
 - Screenshots (Dashboard, DNS-Privacy-Lab) in `docs/screenshots/` und im README.
 - `LICENSE` (MIT) und Feld `license` in `package.json`; Hinweis im README.
+- `.env`: Lokale Umgebungsvariablen-Vorlage mit Voreinstellungen für Sentry-Monitoring und Vite-Server (in `.gitignore` geschützt).
+- `.claudeignore`: Umfassend erweiterte Ausschlussregeln für Claude Code (Build-Artefakte, E2E-Reports, Token-Optimierung bei großen Lock-/Archivdateien, Medien und Geheimnisse).
+- Claude Code Slash-Commands (`.claude/commands/`): Automatisierte Befehle `/test`, `/verify`, `/new-lab` und `/review` für standardisierte Workflows mit KI-Assistenten.
+- Community- & GitHub-Dateien: `CONTRIBUTING.md` (ausführlicher Leitfaden für Mitwirkende und KI-Assistenten), `SECURITY.md` (Sicherheitsrichtlinien, Sandbox-Modell, Responsible Disclosure), `CODE_OF_CONDUCT.md` (Contributor Covenant 2.1) sowie `.github/ISSUE_TEMPLATE/config.yml`.
+- Git Pre-Commit Security Hook: `.githooks/pre-commit` verhindert zuverlässig das Committen von `.env`-Dateien, privaten Schlüsseln (`*.pem`, `*.key`) sowie API-Keys (Anthropic, OpenAI, GitHub, AWS etc.); in Git aktiviert über `core.hooksPath .githooks` und Script `"prepare"` in `package.json`.
 
 ### Geändert (Changed)
 - Schriften (Inter, Outfit, Fira Code, Atkinson Hyperlegible) werden lokal über `@fontsource/*` ausgeliefert (`src/styles/fonts.css`) statt per `@import` von Google Fonts – keine Drittanbieter-Anfrage mehr, passend zur DSGVO-Aussage im README.

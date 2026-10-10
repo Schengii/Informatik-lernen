@@ -20,7 +20,8 @@
     "e2e": "playwright test",
     "typecheck": "tsc --noEmit",
     "new-lab": "node scripts/new-lab.js",
-    "docs:labs": "node scripts/gen-lab-list.js"
+    "docs:labs": "node scripts/gen-lab-list.js",
+    "prepare": "git config core.hooksPath .githooks || true"
   },
   "size-limit": [
     {
