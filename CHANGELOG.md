@@ -12,6 +12,12 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 ### Hinzugefügt (Added)
 - `LICENSE` (MIT) und Feld `license` in `package.json`; Hinweis im README.
 
+### Geändert (Changed)
+- Schriften (Inter, Outfit, Fira Code, Atkinson Hyperlegible) werden lokal über `@fontsource/*` ausgeliefert (`src/styles/fonts.css`) statt per `@import` von Google Fonts – keine Drittanbieter-Anfrage mehr, passend zur DSGVO-Aussage im README.
+
+### Behoben (Fixed)
+- 43 Komponenten (u. a. `ActivityHeatmapWidget`, `PomodoroTimerWidget`, `AudioSettingsModal` und viele Labs) nutzen Tailwind-Utility-Klassen, für die es kein CSS gab und die daher ungestylt dargestellt wurden. `tailwindcss` + `@tailwindcss/vite` liefern jetzt nur Theme und Utilities (`src/styles/tailwind.css`, ohne Preflight-Reset und ohne `@layer`, damit der Reset in `global.css` die Abstands-Utilities nicht überschreibt); `global.css` bleibt unverändert und wird danach geladen.
+
 ## [3.75.0] - 2026-10-07
 
 ### Hinzugefügt (Added)
@@ -27,7 +33,8 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 - Neue geteilte Komponente `Shared/LabDrillSection` (einklappbarer Drill ohne XP-Hinweise, rendert die Fragen erst beim Aufklappen).
 - Weitere Drills für `WisoAndlerLab` (Optimale Bestellmenge) und `WisoContributionMarginLab` (Deckungsbeitrag/BEP), je 5 Fragen, per Test gegen die Engines abgesichert.
 - Neue Drills für `RaidCalculatorLab` (5 Fragen) und `WisoLiquiditaetLab` (4 Fragen); die Rechenbeispiele sind per Test gegen die jeweilige Engine abgesichert.
-- Backup-Import robuster: `sanitizeImportedState` prüft Typen je Feld, berechnet das Level aus den XP neu und lehnt fremde JSON-Dateien, Arrays und leere Objekte ab, statt den Fortschritt mit Standardwerten zu überschreiben. Der Export und das Kopieren in die Zwischenablage sichern vorher ein ausstehendes, gebündeltes Schreiben (Tests: `storageImport.test.js`, `BackupModal.test.jsx`).- `README.md` von ca. 2100 auf wenige Dutzend Zeilen verschlankt; die bisherige Fassung liegt unverändert in `docs/README-Archiv.md`.
+- Backup-Import robuster: `sanitizeImportedState` prüft Typen je Feld, berechnet das Level aus den XP neu und lehnt fremde JSON-Dateien, Arrays und leere Objekte ab, statt den Fortschritt mit Standardwerten zu überschreiben. Der Export und das Kopieren in die Zwischenablage sichern vorher ein ausstehendes, gebündeltes Schreiben (Tests: `storageImport.test.js`, `BackupModal.test.jsx`).
+- `README.md` von ca. 2100 auf wenige Dutzend Zeilen verschlankt; die bisherige Fassung liegt unverändert in `docs/README-Archiv.md`.
 - `package.json`-Version von `0.0.0` auf `3.75.0` synchronisiert.
 
 ## [3.74.0] - 2026-10-07

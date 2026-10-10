@@ -1,11 +1,14 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
+    // Nur Theme + Utilities (kein Preflight-Reset), damit global.css unverändert bleibt.
+    tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
       // Die Registrierung übernimmt src/main.jsx selbst (dort hängt auch das
