@@ -20,6 +20,14 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ### Geändert (Changed)
 - Schriften (Inter, Outfit, Fira Code, Atkinson Hyperlegible) werden lokal über `@fontsource/*` ausgeliefert (`src/styles/fonts.css`) statt per `@import` von Google Fonts – keine Drittanbieter-Anfrage mehr, passend zur DSGVO-Aussage im README.
+- `src/App.jsx`: Historische, auskommentierte Versions-Header entfernt und Lazy-Imports der Hubs/Labs übersichtlich gegliedert.
+- `_Projektuebersicht.md`: Versionsstand auf v3.75.0 synchronisiert und Querverweise zu `CONTRIBUTING.md` und `SECURITY.md` ergänzt.
+
+### Entfernt (Removed)
+- `src/App.css`: Unbenutzte Standard-Vite-Template-Styles (185 Zeilen) restlos entfernt.
+- `src/assets/`: Unbenutzte Standard-Assets (`hero.png`, `react.svg`, `vite.svg`) und leeres Verzeichnis entfernt.
+- `src/components/Navigation/AccessibilityToolbar.jsx`: Veraltete, ungenutzte Toolbar-Komponente (189 Zeilen) entfernt (WCAG-Einstellungen sind vollintegrierter Bestandteil von `Navbar.jsx`).
+- `public/icons.svg`: Ungenutztes Icon-Sprite aus altem Starter-Template entfernt.
 
 ### Behoben (Fixed)
 - 43 Komponenten (u. a. `ActivityHeatmapWidget`, `PomodoroTimerWidget`, `AudioSettingsModal` und viele Labs) nutzen Tailwind-Utility-Klassen, für die es kein CSS gab und die daher ungestylt dargestellt wurden. `tailwindcss` + `@tailwindcss/vite` liefern jetzt nur Theme und Utilities (`src/styles/tailwind.css`, ohne Preflight-Reset und ohne `@layer`, damit der Reset in `global.css` die Abstands-Utilities nicht überschreibt); `global.css` bleibt unverändert und wird danach geladen.

@@ -136,6 +136,7 @@ Das Repository ist für nahtlose Zusammenarbeit mit Entwicklern und KI-Agenten (
 
 ### Aktuelle Version (v3.75.0) & Unveröffentlichte Optimierungen
 
+- **Projekt- & Code-Bereinigung**: Entfernung ungenutzter Starter-Template-Dateien (`src/App.css`, `src/assets/`, `public/icons.svg`), Eliminierung toter Komponenten (`AccessibilityToolbar.jsx`) und Verschlankung von `App.jsx`.
 - **Sicherheit & Git Pre-Commit Hook**: Automatischer Secret- und .env-Scanner in `.githooks/pre-commit` (in Git aktiviert über `core.hooksPath .githooks` und `npm run prepare`).
 - **Claude- & GitHub-Integration**: `.env`, umfassend erweiterte `.claudeignore`, Claude Slash-Commands (`/test`, `/verify`, `/new-lab`, `/review`), `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md` und Issue-Template-Konfiguration.
 - **Dokumentation**: README von rund 2100 auf wenige Dutzend Zeilen verschlankt; frühere Fassung unverändert unter `docs/README-Archiv.md`.
