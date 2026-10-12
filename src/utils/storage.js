@@ -23,6 +23,7 @@ import { syncUserStateToIndexedDb } from './indexedDbStoreMiddleware';
  * @property {string} [examTargetType] Prüfungstyp ('ap1' | 'ap2' | 'wiso')
  * @property {Record<string, unknown>} [mistakeJournal]
  * @property {Record<string, import('./labProgressEngine').LabProgressEntry>} [labProgress] Lab-Besuche/-Abschlüsse je Registry-Tab
+ * @property {Record<string, boolean>} [studyPlanWeeks] Abgehakte Wochen im IHK-Lernplaner ({ [weekNum]: boolean })
  * @property {Record<string, unknown>} srsFlashcards
  * @property {string[]} completedTopics
  * @property {string[]} completedGames
@@ -47,6 +48,7 @@ export const initialProfileState = {
   lastActiveDate: '', // letzter Tag mit Aktivität (lokal), Basis der Streak-Berechnung
   examTargetDate: '',
   examTargetType: 'ap2',
+  studyPlanWeeks: {}, // { [weekNum]: boolean }
   srsFlashcards: {}, // { [cardId]: { repetitions, interval, easeFactor, dueDate } }
   mistakeJournal: {}, // { [questionId]: { wrongCount, streak, interval, dueDate, lastSeen } } - siehe mistakeJournalEngine
   labProgress: {}, // { [labKey]: { visits, lastVisit, completed, completedOn } } - siehe labProgressEngine
@@ -296,6 +298,7 @@ const FIELD_VALIDATORS = {
   completedCloze: isStringArray,
   completedProjects: isStringArray,
   unlockedBadges: isStringArray,
+  studyPlanWeeks: isPlainObject,
   srsFlashcards: isPlainObject,
   mistakeJournal: isPlainObject,
   labProgress: isPlainObject,

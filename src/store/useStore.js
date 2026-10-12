@@ -201,6 +201,20 @@ export const useStore = create((set) => {
       });
     },
 
+    toggleStudyPlanWeek: (weekNum) => {
+      set((state) => {
+        const prev = state.userState;
+        const currentWeeks = prev.studyPlanWeeks || {};
+        const updatedWeeks = {
+          ...currentWeeks,
+          [weekNum]: !currentWeeks[weekNum]
+        };
+        const updatedState = { ...prev, studyPlanWeeks: updatedWeeks };
+        saveUserState(updatedState);
+        return { userState: updatedState };
+      });
+    },
+
     // Lab-Fortschritt: Besuch beim Öffnen, Abschluss bei XP-Belohnung des Labs
     recordLabVisit: (labKey) => {
       if (!labKey) return;
