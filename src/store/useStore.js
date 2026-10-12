@@ -252,7 +252,7 @@ export const useStore = create((set) => {
 // Multi-Tab Synchronisation: Aktualisiert offene Tabs bei Änderungen in anderen Fenstern
 if (typeof window !== 'undefined') {
   window.addEventListener('storage', (e) => {
-    if (e.key === 'it_devgame_user_state') {
+    if (e.key === 'informatik_game_state_v1') {
       useStore.getState().refreshStateFromStorage();
     }
   });
