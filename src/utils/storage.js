@@ -174,6 +174,15 @@ const persistStateNow = (state) => {
   } catch {
     // Ignoriere Fehler im synchronen Pfad
   }
+  if (typeof BroadcastChannel !== 'undefined') {
+    try {
+      const channel = new BroadcastChannel('it_devgame_sync');
+      channel.postMessage({ type: 'SYNC_STATE', state });
+      channel.close();
+    } catch {
+      // Ignoriere Fehler in eingeschränkten Umgebungen
+    }
+  }
 };
 
 // Debounced Persistenz: Der Zustand im Zustand-Store (Zustand/zustand) wird
