@@ -76,7 +76,8 @@ export default function IhkWeaknessAuditLab({ onNavigateTab, onRewardXP, userSta
   // Erzeuge Journal-basierte Historie aus echten Falschantworten
   const journalHistory = useMemo(() => {
     const entries = [];
-    for (const [id, record] of Object.entries(mistakeJournal)) {
+    const journal = mistakeJournal || {};
+    for (const [id, record] of Object.entries(journal)) {
       const q = ALL_QUESTIONS_MAP.get(String(id));
       const lfId = mapQuestionToLernfeld(q);
       const wrongCount = record.wrongCount || 1;

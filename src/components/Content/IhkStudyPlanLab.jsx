@@ -265,6 +265,8 @@ export default function IhkStudyPlanLab({ onNavigateTab, onRewardXP, userState }
 
                   <button
                     onClick={() => toggleWeek(week.weekNumber)}
+                    role="checkbox"
+                    aria-checked={isDone}
                     aria-label={`Woche ${week.weekNumber} als ${isDone ? 'offen' : 'erledigt'} markieren`}
                     style={{
                       padding: '8px 16px',

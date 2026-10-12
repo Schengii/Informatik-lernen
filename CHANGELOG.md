@@ -9,9 +9,10 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unveröffentlicht]
 
-### Behoben (Fixed)
 - **A11y (CI, axe `aria-allowed-attr`)**: `IhkStudyPlanLab` setzte `aria-checked` auf `role="listitem"`, das Attribut ist dort nicht erlaubt (7 Treffer in `allLabsA11y.test.jsx`). Entfernt; der Zustand steht weiterhin im Text und `aria-label` des Abhaken-Buttons.
 - **Lint (CI)**: `IhkStudyPlanLab` und `IhkWeaknessAuditLab` nutzten `|| {}` im Render und erzeugten damit bei jedem Render eine neue `useMemo`-Abhängigkeit. Stabile Modul-Konstante `EMPTY_OBJECT` ersetzt das Fallback-Objekt; `npm run lint:ci` (`--deny-warnings`) meldet dazu keine Warnung mehr.
+- **Sicherheits-Header (P1)**: `vercel.json` um `Content-Security-Policy`, `Strict-Transport-Security`, `Permissions-Policy` und `X-Content-Type-Options` ergänzt.
+- **Testing & Dashboard**: `tmp/testing-dashboard.html` und `.gitignore` Eintrag für QA/Audit-Reports eingerichtet.
 
 ## [3.76.0] - 2026-10-12
 
