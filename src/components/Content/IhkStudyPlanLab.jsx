@@ -204,7 +204,6 @@ export default function IhkStudyPlanLab({ onNavigateTab, onRewardXP, userState }
               <div
                 key={week.weekNumber}
                 role="listitem"
-                aria-checked={isDone}
                 style={{
                   background: 'var(--bg-card)',
                   padding: '20px',
