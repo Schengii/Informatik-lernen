@@ -134,8 +134,11 @@ Das Repository ist für nahtlose Zusammenarbeit mit Entwicklern und KI-Agenten (
 - Sicherheitsrichtlinien: [`SECURITY.md`](SECURITY.md)
 - Ausführliche Feature-Beschreibungen und Änderungshistorie bis v3.74.0: [`docs/README-Archiv.md`](docs/README-Archiv.md)
 
-### Aktuelle Version (v3.75.0) & Unveröffentlichte Optimierungen
-
+### Aktuelle Version (v3.76.0) & Neueste IHK-Module
+- **IHK Prüfungs-Countdown & Adaptiver Lernplaner (`ihk_study_plan_lab`)**: Dynamische Prüfungstermine für FIAE, FISI, FIDP, FIDV, IT-SE und ITSM, UTC-sichere Countdown-Berechnung, kanonische Prüfungssimulations-Verlinkung, Wochenplan-Roadmap mit Fortschritts-Persistenz im `userState` (`studyPlanWeeks`) und WCAG 2.1 AA konformes Styling mit ARIA-Listen.
+- **IHK Schwachstellen-Audit Assistent (`ihk_weakness_audit_lab`)**: Reale Lernfeld-Fehleranalyse (LF 1–12) direkt aus dem Fehlerjournal (`userState.mistakeJournal`), gezielte Lab-Wiederholungs-Empfehlungen und interaktive Simulation.
+- **Zentrale Registry & Komponenten-Entkopplung**: Beide Labs sind über `src/data/labRegistry.js` registriert und konsumieren Standard-XP- und Navigations-Props ohne unkontrollierte Store-Kopplung.
+- **Spaced Repetition Flashcards (`FlashcardsModal`)**: Priorisierte Darstellung fälliger Karten nach dem SuperMemo-2 (SM-2) Algorithmus (`dueDate <= today`) und valider TSV-Export für Anki.
 - **Projekt- & Code-Bereinigung**: Entfernung ungenutzter Starter-Template-Dateien (`src/App.css`, `src/assets/`, `public/icons.svg`), Eliminierung toter Komponenten (`AccessibilityToolbar.jsx`) und Verschlankung von `App.jsx`.
 - **Sicherheit & Git Pre-Commit Hook**: Automatischer Secret- und .env-Scanner in `.githooks/pre-commit` (in Git aktiviert über `core.hooksPath .githooks` und `npm run prepare`).
 - **Claude- & GitHub-Integration**: `.env`, umfassend erweiterte `.claudeignore`, Claude Slash-Commands (`/test`, `/verify`, `/new-lab`, `/review`), `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md` und Issue-Template-Konfiguration.

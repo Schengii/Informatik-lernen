@@ -9,7 +9,24 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unveröffentlicht]
 
+### Behoben (Fixed)
+- **A11y (CI, axe `aria-allowed-attr`)**: `IhkStudyPlanLab` setzte `aria-checked` auf `role="listitem"`, das Attribut ist dort nicht erlaubt (7 Treffer in `allLabsA11y.test.jsx`). Entfernt; der Zustand steht weiterhin im Text und `aria-label` des Abhaken-Buttons.
+- **Lint (CI)**: `IhkStudyPlanLab` und `IhkWeaknessAuditLab` nutzten `|| {}` im Render und erzeugten damit bei jedem Render eine neue `useMemo`-Abhängigkeit. Stabile Modul-Konstante `EMPTY_OBJECT` ersetzt das Fallback-Objekt; `npm run lint:ci` (`--deny-warnings`) meldet dazu keine Warnung mehr.
+
+## [3.76.0] - 2026-10-12
+
 ### Hinzugefügt (Added)
+- **IHK Prüfungsplaner & Schwachstellen-Audit**: Vollständige Registrierung in `labRegistry.js` (`ihk_study_plan_lab`, `ihk_weakness_audit_lab` mit kanonischen Routen und Aliasen) sowie Entkopplung von der UI-Root in `App.jsx`.
+- **Fachrichtungen & Dynamische Termine**: `ihkStudyPlanEngine.js` unterstützt nun alle 6 Fachrichtungen (FIAE, FISI, FIDP, FIDV, IT-SE, ITSM) und berechnet Prüfungstermine für das aktuelle und Folgejahr dynamisch.
+- **Fehlerjournal-Integration**: `IhkWeaknessAuditLab` verarbeitet jetzt Live-Daten aus dem realen `userState.mistakeJournal` und mappt falsch beantwortete Prüfungs- und Drill-Fragen auf die jeweiligen IHK-Lernfelder (LF 1–12).
+- **Lernplan-Persistenz**: Abgehakte Wochen (`completedWeeks` / `studyPlanWeeks`) werden im `userState` gesichert und überstehen Reloads sowie Tab-Wechsel.
+- **Spaced Repetition & Anki**: Fällige Flashcards werden im `FlashcardsModal` via SM-2 Due-Date priorisiert (`dueDate <= today`).
+- **Test-Suiten**: Isolierte Komponenten-Tests in `IhkStudyPlanLab.test.jsx` und `IhkWeaknessAuditLab.test.jsx` sowie Randfall-Tests für beide Engines.
+
+### Geändert (Changed)
+- **Barrierefreiheit & Dark-Mode Styling**: Farbschemata in `IhkStudyPlanLab` und `IhkWeaknessAuditLab` verwenden nun semantische CSS-Variablen (`var(--text-main)`, `var(--bg-card)`, `var(--border-color)` etc.) und barrierefreie ARIA-Listen-Semantik (`role="list"`, `role="listitem"`, `aria-checked`).
+- **Storage-Konsistenz**: Multi-Tab-Synchronisation via `BroadcastChannel('it_devgame_sync')` auf das Event `{ type: 'SYNC_STATE' }` standardisiert; Storage-Key-Listener auf `informatik_game_state_v1` harmonisiert.
+- **Datenbereinigung**: Redundante `#WISO`-Tags in `labModulesData.js` bereinigt und Badge-Bedingungen in `BadgesModal.jsx` korrigiert.
 - Screenshots (Dashboard, DNS-Privacy-Lab) in `docs/screenshots/` und im README.
 - `LICENSE` (MIT) und Feld `license` in `package.json`; Hinweis im README.
 - `.env`: Lokale Umgebungsvariablen-Vorlage mit Voreinstellungen für Sentry-Monitoring und Vite-Server (in `.gitignore` geschützt).

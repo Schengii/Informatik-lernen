@@ -19,8 +19,11 @@ import { syncUserStateToIndexedDb } from './indexedDbStoreMiddleware';
  * @property {number} streak
  * @property {number} streakFreezes
  * @property {string} [lastActiveDate] Letzter aktiver Tag (YYYY-MM-DD, lokale Zeit)
+ * @property {string} [examTargetDate] Ziel-Prüfungstermin (YYYY-MM-DD)
+ * @property {string} [examTargetType] Prüfungstyp ('ap1' | 'ap2' | 'wiso')
  * @property {Record<string, unknown>} [mistakeJournal]
  * @property {Record<string, import('./labProgressEngine').LabProgressEntry>} [labProgress] Lab-Besuche/-Abschlüsse je Registry-Tab
+ * @property {Record<string, boolean>} [studyPlanWeeks] Abgehakte Wochen im IHK-Lernplaner ({ [weekNum]: boolean })
  * @property {Record<string, unknown>} srsFlashcards
  * @property {string[]} completedTopics
  * @property {string[]} completedGames
@@ -43,6 +46,9 @@ export const initialProfileState = {
   streak: 1,
   streakFreezes: 0,
   lastActiveDate: '', // letzter Tag mit Aktivität (lokal), Basis der Streak-Berechnung
+  examTargetDate: '',
+  examTargetType: 'ap2',
+  studyPlanWeeks: {}, // { [weekNum]: boolean }
   srsFlashcards: {}, // { [cardId]: { repetitions, interval, easeFactor, dueDate } }
   mistakeJournal: {}, // { [questionId]: { wrongCount, streak, interval, dueDate, lastSeen } } - siehe mistakeJournalEngine
   labProgress: {}, // { [labKey]: { visits, lastVisit, completed, completedOn } } - siehe labProgressEngine
@@ -174,6 +180,15 @@ const persistStateNow = (state) => {
   } catch {
     // Ignoriere Fehler im synchronen Pfad
   }
+  if (typeof BroadcastChannel !== 'undefined') {
+    try {
+      const channel = new BroadcastChannel('it_devgame_sync');
+      channel.postMessage({ type: 'SYNC_STATE', state });
+      channel.close();
+    } catch {
+      // Ignoriere Fehler in eingeschränkten Umgebungen
+    }
+  }
 };
 
 // Debounced Persistenz: Der Zustand im Zustand-Store (Zustand/zustand) wird
@@ -272,6 +287,8 @@ const FIELD_VALIDATORS = {
   role: (v) => typeof v === 'string',
   userName: (v) => typeof v === 'string',
   lastActiveDate: (v) => typeof v === 'string',
+  examTargetDate: (v) => typeof v === 'string',
+  examTargetType: (v) => typeof v === 'string',
   xp: (v) => isFiniteNumber(v) && /** @type {number} */ (v) >= 0,
   level: (v) => isFiniteNumber(v) && /** @type {number} */ (v) >= 1,
   streak: (v) => isFiniteNumber(v) && /** @type {number} */ (v) >= 0,
@@ -281,6 +298,7 @@ const FIELD_VALIDATORS = {
   completedCloze: isStringArray,
   completedProjects: isStringArray,
   unlockedBadges: isStringArray,
+  studyPlanWeeks: isPlainObject,
   srsFlashcards: isPlainObject,
   mistakeJournal: isPlainObject,
   labProgress: isPlainObject,

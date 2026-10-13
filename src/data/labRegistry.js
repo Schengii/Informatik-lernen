@@ -1063,6 +1063,16 @@ export const LAB_REGISTRY = [
     tabs: ['app_workshop'],
     load: () => import('../components/Content/AppWorkshop'),
     xp: { prop: 'onCompleteWorkshop', badge: 'app_builder' }
+  },
+  {
+    tabs: ['ihk_study_plan_lab', 'ihk_study_plan', 'pruefungsplaner'],
+    load: () => import('../components/Content/IhkStudyPlanLab'),
+    xp: { prop: 'onRewardXP', badge: 'study_plan_master' }
+  },
+  {
+    tabs: ['ihk_weakness_audit_lab', 'ihk_weakness_audit', 'schwachstellen_audit'],
+    load: () => import('../components/Content/IhkWeaknessAuditLab'),
+    xp: { prop: 'onRewardXP', badge: 'weakness_audit_master' }
   }
 ];
 

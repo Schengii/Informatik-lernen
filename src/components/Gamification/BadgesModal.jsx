@@ -64,7 +64,7 @@ export default function BadgesModal({ isOpen, onClose, userState }) {
         {/* Badges Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
           {BADGES.map(badge => {
-            const isUnlocked = userState.unlockedBadges.includes(badge.id) || userState.xp > 100;
+            const isUnlocked = Array.isArray(userState?.unlockedBadges) && userState.unlockedBadges.includes(badge.id);
 
             return (
               <div

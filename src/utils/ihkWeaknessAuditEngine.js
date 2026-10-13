@@ -99,18 +99,39 @@ export function generateWeaknessRecommendations(weakFields) {
     let recommendedLab = 'dashboard';
     let tip = 'Theorie im Lernfeld-Modul vertiefen.';
 
-    if (wf.id === 'LF4') {
+    if (wf.id === 'LF1') {
+      recommendedLab = 'wiso_company_forms_lab';
+      tip = 'Rechtsformen, Organe und Unternehmensstrukturen wiederholen.';
+    } else if (wf.id === 'LF2') {
+      recommendedLab = 'rack_configurator';
+      tip = 'Hardware-Komponenten, USV-Dimensionierung und Arbeitsplatzausstattung üben.';
+    } else if (wf.id === 'LF3') {
+      recommendedLab = 'dhcp_dora_lab';
+      tip = 'DHCP DORA-Handshake, Subnetting und Client-Netzwerk-Konfiguration festigen.';
+    } else if (wf.id === 'LF4') {
       recommendedLab = 'bsi_grundschutz_lab';
       tip = 'BSI IT-Grundschutz (BSI 200-2/200-3) und DSGVO TOM-Katalog üben.';
-    } else if (wf.id === 'LF9' || wf.id === 'LF3') {
+    } else if (wf.id === 'LF5') {
+      recommendedLab = 'postgres_index_types_lab';
+      tip = 'SQL-Optimierung, Normalformen und Index-Tuning auffrischen.';
+    } else if (wf.id === 'LF6') {
+      recommendedLab = 'itsm_simulator';
+      tip = 'ITIL Incident Management, SLAs und Ticket-Bearbeitung wiederholen.';
+    } else if (wf.id === 'LF7') {
+      recommendedLab = 'ble_sensor';
+      tip = 'Cyber-physische Systeme, Sensorik und IoT-Protokolle trainieren.';
+    } else if (wf.id === 'LF8') {
+      recommendedLab = 'open_api_contract_lab';
+      tip = 'REST API Schnittstellenverträge und Datenflüsse modellieren.';
+    } else if (wf.id === 'LF9') {
       recommendedLab = 'ipv6_ndp_lab';
       tip = 'IPv6 SLAAC, EUI-64 und Neighbor Discovery Protocol wiederholen.';
     } else if (wf.id === 'LF10' || wf.id === 'LF11') {
       recommendedLab = 'clean_arch_lab';
-      tip = 'Clean Architecture & Dependency Inversion Linter durchgehen.';
-    } else if (wf.id === 'LF5') {
-      recommendedLab = 'postgres_index_types_lab';
-      tip = 'SQL-Optimierung, Normalformen und Index-Tuning auffrischen.';
+      tip = 'Clean Architecture, Hexagonale Architektur & DIP-Linter durchgehen.';
+    } else if (wf.id === 'LF12') {
+      recommendedLab = 'struktogramm_lab';
+      tip = 'Algorithmen-Entwurf, Struktogramme und Schreibtischtests absolvieren.';
     }
 
     return {
