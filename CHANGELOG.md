@@ -9,6 +9,9 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unveröffentlicht]
 
+### Behoben (Fixed)
+- **Lint (CI)**: `IhkStudyPlanLab` und `IhkWeaknessAuditLab` nutzten `|| {}` im Render und erzeugten damit bei jedem Render eine neue `useMemo`-Abhängigkeit. Stabile Modul-Konstante `EMPTY_OBJECT` ersetzt das Fallback-Objekt; `npm run lint:ci` (`--deny-warnings`) meldet dazu keine Warnung mehr.
+
 ## [3.76.0] - 2026-10-12
 
 ### Hinzugefügt (Added)

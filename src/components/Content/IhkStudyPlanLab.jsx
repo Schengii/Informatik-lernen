@@ -11,12 +11,15 @@ import {
 } from '../../utils/ihkStudyPlanEngine';
 import { useStore } from '../../store/useStore';
 
+// Stabile Referenz: ein `|| {}` im Render erzeugt jedes Mal ein neues Objekt und entwertet useMemo-Abhängigkeiten.
+const EMPTY_OBJECT = Object.freeze({});
+
 export default function IhkStudyPlanLab({ onNavigateTab, onRewardXP, userState }) {
   const storeUserState = useStore((s) => s.userState);
   const storeToggleWeek = useStore((s) => s.toggleStudyPlanWeek);
 
   const currentUserState = userState || storeUserState;
-  const persistedWeeks = currentUserState?.studyPlanWeeks || {};
+  const persistedWeeks = currentUserState?.studyPlanWeeks || EMPTY_OBJECT;
 
   const [selectedExamId, setSelectedExamId] = useState('winter_2026');
   const [selectedDiscipline, setSelectedDiscipline] = useState('fiae');

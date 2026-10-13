@@ -12,6 +12,9 @@ import { useStore } from '../../store/useStore';
 import { EXAM_QUESTIONS } from '../../data/examData';
 import { DRILL_QUESTIONS } from '../../data/drillQuestions';
 
+// Stabile Referenz: ein `|| {}` im Render erzeugt jedes Mal ein neues Objekt und entwertet useMemo-Abhängigkeiten.
+const EMPTY_OBJECT = Object.freeze({});
+
 // Lookup-Map aller Fragen nach ID
 const ALL_QUESTIONS_MAP = new Map([...EXAM_QUESTIONS, ...DRILL_QUESTIONS].map((q) => [String(q.id), q]));
 
@@ -68,7 +71,7 @@ function mapQuestionToLernfeld(question) {
 export default function IhkWeaknessAuditLab({ onNavigateTab, onRewardXP, userState }) {
   const storeUserState = useStore((s) => s.userState);
   const currentUserState = userState || storeUserState;
-  const mistakeJournal = currentUserState?.mistakeJournal || {};
+  const mistakeJournal = currentUserState?.mistakeJournal || EMPTY_OBJECT;
 
   // Erzeuge Journal-basierte Historie aus echten Falschantworten
   const journalHistory = useMemo(() => {
