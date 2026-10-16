@@ -93,7 +93,7 @@ export default function ModalContainer({
           <Suspense fallback={null}>
             <BadgesModal
               isOpen={isBadgesModalOpen}
-              unlockedBadges={userState.unlockedBadges}
+              userState={userState}
               onClose={() => setIsBadgesModalOpen(false)}
             />
           </Suspense>

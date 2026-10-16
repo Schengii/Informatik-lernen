@@ -2,7 +2,7 @@ import React from 'react';
 import { BADGES } from '../../utils/storage';
 import { Trophy, X } from 'lucide-react';
 
-export default function BadgesModal({ isOpen, onClose, userState }) {
+export default function BadgesModal({ isOpen, onClose, userState = {} }) {
   if (!isOpen) return null;
 
   return (
@@ -57,7 +57,7 @@ export default function BadgesModal({ isOpen, onClose, userState }) {
           <Trophy size={48} color="var(--accent-amber)" style={{ margin: '0 auto 12px auto' }} />
           <h2 style={{ fontSize: '1.8rem', fontWeight: '800' }}>Deine Entwickler-Erfolge</h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem' }}>
-            Gesammelte XP: <strong style={{ color: 'var(--accent-amber)' }}>{userState.xp} XP</strong> | Aktuelles Level: <strong style={{ color: 'var(--accent-cyan)' }}>Level {userState.level}</strong>
+            Gesammelte XP: <strong style={{ color: 'var(--accent-amber)' }}>{userState?.xp || 0} XP</strong> | Aktuelles Level: <strong style={{ color: 'var(--accent-cyan)' }}>Level {userState?.level || 1}</strong>
           </p>
         </div>
 
