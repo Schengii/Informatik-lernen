@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { FLASHCARDS_DATA } from '../../data/flashcardsData';
 import { Layers, CheckCircle2, XCircle, X, Brain, Clock, Download } from 'lucide-react';
 import { useStore } from '../../store/useStore';
@@ -11,6 +11,17 @@ export default function FlashcardsModal({ isOpen, onClose, onRewardXP }) {
   const [cardIdx, setCardIdx] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [completedCount, setCompletedCount] = useState(0);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
 
   // M18: Due-Date Filter & Priorisierung
   // Fällige Karten (dueDate <= today oder noch nie gelernt) zuerst sortieren
@@ -103,6 +114,9 @@ export default function FlashcardsModal({ isOpen, onClose, onRewardXP }) {
       onClick={onClose}
     >
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="flashcards-modal-title"
         className="glass-panel animate-fade-in"
         style={{
           maxWidth: '650px',
@@ -132,7 +146,7 @@ export default function FlashcardsModal({ isOpen, onClose, onRewardXP }) {
           <span className="badge badge-indigo" style={{ marginBottom: '8px' }}>
             <Layers size={14} /> Karteikarten ({cardIdx + 1} von {sortedCards.length}) • {completedCount} gemeistert
           </span>
-          <h2 style={{ fontSize: '1.8rem', fontWeight: '800', margin: '4px 0', color: 'var(--text-main)' }}>
+          <h2 id="flashcards-modal-title" style={{ fontSize: '1.8rem', fontWeight: '800', margin: '4px 0', color: 'var(--text-main)' }}>
             IT-Karteikarten Trainer
           </h2>
           <span style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
