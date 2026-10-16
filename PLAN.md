@@ -1,111 +1,110 @@
 # Umsetzungsplan (PLAN.md) – Informatik-lernen (IT-DevGame)
 
 ## 1. Ist-Zustand (max. 10 Zeilen)
-- Tech-Stack: React 19, Vite 8 (Rolldown), Zustand Store, Vanilla CSS Design-System (`src/styles/global.css`), Oxlint, Vitest 5, Playwright E2E.
-- Codebasis & Tests: 235 Lab-Komponenten, CI-Pipeline (Lint, Typecheck, Test, Coverage, Build, Size-Limit, E2E) läuft lokal und auf GitHub Actions vollständig grün.
-- Datenarchitektur: Entkoppelte Calculation-Engines (`src/utils/*Engine.js`), zentrale dynamische `LAB_REGISTRY` mit React.lazy.
-- Multi-Tab & Persistenz: Debounced `localStorage` + IndexedDB-Hydration, jedoch fehlerhafte Storage-Key-Mismatch bei Window-Event-Listenern.
-- Gamification & SM-2: SRS-Spaced-Repetition speichert Fälligkeitsdaten in `userState.srsFlashcards`, aber Flashcards-Modal ignoriert Fälligkeiten und läuft rein zyklisch.
-- Prüfungsrelevanz & Lernplaner: `ihkStudyPlanEngine` und `ihkWeaknessAuditEngine` bieten gute Heuristiken, besitzen aber hardcodierte Datumsdaten (Winter 2026 fix) und inkonsistente Verlinkungen.
-- Barrierefreiheit (A11y): Grundlegende WCAG 2.1 AA Konformität und axe-core Tests etabliert, vereinzelt unvollständige CSS-Variablen in neuen Labs.
-- Entwickler-Erfahrung: Schneller CI-Durchlauf (~40s Suite), Oxlint-Prüfung ohne Warnungen, PWA-Service-Worker-Erzeugung im Build intakt.
+1. Tech-Stack: React 19.3, Vite 8.3 (Rolldown), Zustand 5.0, TailwindCSS 4, Oxlint 1.87, Vitest 5.0, Playwright 1.64.
+2. Umfang & Chunks: 235 Lab-Komponenten, PWA-Service-Worker, Vendor-Chunk-Splitting (React, UI, Charts, PDF, SQL) unterhalb aller Size-Limits (Shell 78.6 KB / 105 KB Budget).
+3. Test-Suite: `npm test` (1.895 Tests, 211 Testdateien), `npm run typecheck` und `npm run build` laufen fehlerfrei durch.
+4. CI-Bruch: `npm run lint:ci` scheitert hart (Exit-Code 1) an 28 Oxlint-Warnungen (`set-state-in-effect`, `react(purity)`, `react(immutability)`, `react(refs)`).
+5. Coverage-Grenzlage: Statements 62,05% (Limit 60%), Branches 53,49% (Limit 52%), Functions 47,4% (Limit 45%), Lines 63,62% (Limit 62%).
+6. Kritischer UI-Bug: `BadgesModal` stürzt beim Öffnen wegen fehlender `userState`-Prop-Übergabe in `ModalContainer.jsx` mit uncaught TypeError ab.
+7. Gamification-Lücken: `FlashcardsModal` vergibt keine XP (fehlende Prop), 40+ Lab-Mastery-Badges fehlen im `BADGES`-Katalog, `Sm2SpacedRepetitionLab` hat abgetrennten State & Endlos-XP.
+8. Broken Assets: `pushNotificationManager.js` referenziert nicht existierende `/pwa-192x192.png` Icons (404-Netzwerkfehler).
+9. Architektur & Kopplung: Mehrere Labs (`IhkCheatSheetPdfGenerator`, `LinuxMemoryLab`, `ZkpCryptoVisualizerLab`) brechen die Entkopplung durch direkten Store-Import.
+10. Sicherheit & A11y: Gute Basis (0 `dangerouslySetInnerHTML`), jedoch fehlende Worker-Scope-Sperren (Wasm/SAB) und fehlende Modal-Focus-Traps.
 
 ---
 
 ## 2. Maßnahmen
 
-### Phase 1: Bugfixes, Datenkonsistenz & Persistenz (Abhängigkeiten zuerst)
-- [x] M01 | Multi-Tab Storage-Event Key korrigieren | P1 | S | `src/store/useStore.js` | src/store/useStore.js:255 | Fertig wenn: `e.key === 'informatik_game_state_v1'` geprüft wird und Multi-Tab-Aktualisierung im Storage-Event zuverlässig triggert.
-- [x] M02 | BroadcastChannel Event-Dispatch bei Zustandsaktualisierung | P1 | S | `src/utils/storage.js` | src/utils/storage.js:174 | Fertig wenn: `persistStateNow` eine `SYNC_STATE`-Nachricht via BroadcastChannel versendet und offene Nachbartabs ohne Page-Reload synchronisiert werden.
-- [x] M03 | UserState Typdefinition & Sanitize-Validierung um `examTargetDate` und `examTargetType` erweitern | P1 | S | `src/utils/storage.js` | src/utils/storage.js:22, src/utils/storage.js:271 | Fertig wenn: `FIELD_VALIDATORS` und `initialProfileState` beide Felder validieren und Backup-Importe die Prüfungstermine nicht verwerfen.
-- [x] M04 | Duplizierte Tags in Lab-Moduldefinitionen bereinigen | P1 | S | `src/data/labModulesData.js` | src/data/labModulesData.js:1585, src/data/labModulesData.js:2235, src/data/labModulesData.js:2245 | Fertig wenn: Keine doppelten `#WISO`-Tags in Arrays existieren und die React-Key-Warnung in Tests nicht mehr auftritt.
-- [x] M05 | Echte Badge-Freischaltlogik im Badges-Modal reparieren | P1 | S | `src/components/Gamification/BadgesModal.jsx` | src/components/Gamification/BadgesModal.jsx:67 | Fertig wenn: `isUnlocked` ausschließlich über `userState.unlockedBadges.includes(badge.id)` ermittelt wird und nicht fälschlich alle Badges ab 100 XP freischaltet.
+### Phase 1: CI-Pipeline & Oxlint-Bereinigung (Abhängigkeiten zuerst)
+- [ ] M01 | Oxlint-Warnung react(immutability) in ServiceMeshLab beheben | P1 | S | `src/components/Content/ServiceMeshLab.jsx` | src/components/Content/ServiceMeshLab.jsx:34 | Fertig wenn: `mesh` per `useRef` verwaltet wird, keine direkte Mutation auf `useState`-Werten erfolgt und `npm run lint:ci` fehlerfrei durchläuft.
+- [ ] M02 | Oxlint-Warnungen react(refs) und set-state-in-effect in LinuxMemoryLab beheben | P1 | S | `src/components/Content/LinuxMemoryLab.jsx` | src/components/Content/LinuxMemoryLab.jsx:20, src/components/Content/LinuxMemoryLab.jsx:34, src/components/Content/LinuxMemoryLab.jsx:48 | Fertig wenn: Simulator per Lazy-State `useState(() => new LinuxMemorySimulator(4096, 2048))` initialisiert wird, kein Ref-Lesezugriff im Render erfolgt und `npm run lint:ci` fehlerfrei durchläuft.
+- [ ] M03 | Oxlint-Warnung react(set-state-in-effect) in SqliteWasmStudioLab beheben | P1 | S | `src/components/Content/SqliteWasmStudioLab.jsx` | src/components/Content/SqliteWasmStudioLab.jsx:24 | Fertig wenn: Initialisierung von `SqlSandboxInstance` ohne synchronen `setState`-Aufruf im `useEffect` erfolgt und `npm run lint:ci` keine Warnung ausgibt.
+- [ ] M04 | Oxlint-Warnung react(set-state-in-effect) in CustomChallengeCreatorLab beheben | P1 | S | `src/components/Content/CustomChallengeCreatorLab.jsx` | src/components/Content/CustomChallengeCreatorLab.jsx:42 | Fertig wenn: `customList` über Lazy-Initializer `useState(() => getStoredCustomChallenges())` initialisiert wird, der leere `useEffect` entfällt und `npm run lint:ci` fehlerfrei ist.
+- [ ] M05 | Oxlint-Warnung react(set-state-in-effect) in ExamCountdownWidget beheben | P1 | S | `src/components/Gamification/ExamCountdownWidget.jsx` | src/components/Gamification/ExamCountdownWidget.jsx:36 | Fertig wenn: `daysRemaining` als abgeleiteter Wert über `useMemo` berechnet wird, der synchrone `useEffect` entfällt und `npm run lint:ci` sauber durchläuft.
+- [ ] M06 | Oxlint-Warnungen react(set-state-in-effect) in IhkOralExamSimulator und ExamSimulator beheben | P1 | S | `src/components/Content/IhkOralExamSimulator.jsx`, `src/components/Content/ExamSimulator.jsx` | src/components/Content/IhkOralExamSimulator.jsx:88, src/components/Content/ExamSimulator.jsx:87 | Fertig wenn: Timer-Ablauf im Interval-Callback (`prev <= 1`) behandelt wird statt synchronem `setState` im Effect und `npm run lint:ci` fehlerfrei ist.
+- [ ] M07 | Oxlint-Warnungen react(set-state-in-effect) in CommandPaletteModal und PomodoroTimerWidget beheben | P1 | S | `src/components/Navigation/CommandPaletteModal.jsx`, `src/components/Navigation/PomodoroTimerWidget.jsx` | src/components/Navigation/CommandPaletteModal.jsx:22, src/components/Navigation/PomodoroTimerWidget.jsx:25 | Fertig wenn: Reset-Operationen beim Öffnen über Key-Wechsel oder Event-Handler gesteuert werden und `npm run lint:ci` grün ist.
+- [ ] M08 | Oxlint-Warnungen react(set-state-in-effect) in ZkpCryptoVisualizerLab und P2pQuizDuellLab beheben | P1 | S | `src/components/Content/ZkpCryptoVisualizerLab.jsx`, `src/components/Content/P2pQuizDuellLab.jsx` | src/components/Content/ZkpCryptoVisualizerLab.jsx:24, src/components/Content/P2pQuizDuellLab.jsx:90 | Fertig wenn: Zustandsübergänge bei Schrittwechseln in Event-Handlern erfolgen und `npm run lint:ci` fehlerfrei durchläuft.
+- [ ] M09 | Oxlint-Warnungen react(purity) bei Datumsaufrufen im Render beheben | P1 | S | `src/components/Footer/DsgvoFooterModal.jsx`, `src/components/Gamification/CertificateModal.jsx`, `src/components/Gamification/ActivityHeatmapWidget.jsx`, `src/components/Content/ExamReadinessLab.jsx`, `src/components/Content/OauthRevocationIntrospectionLab.jsx` | src/components/Footer/DsgvoFooterModal.jsx:168, src/components/Gamification/CertificateModal.jsx:8, src/components/Gamification/ActivityHeatmapWidget.jsx:12, src/components/Content/ExamReadinessLab.jsx:17, src/components/Content/OauthRevocationIntrospectionLab.jsx:148 | Fertig wenn: `new Date()` und `Date.now()` außerhalb der Render-Funktion, per Lazy-Initializer oder per `useMemo` gecacht werden und `npm run lint:ci` 0 Warnungen meldet.
 
-### Phase 2: Prüfungs- & Lernplan-Engines (IHK Kernlogik)
-- [x] M06 | Dynamische Prüfungstermin-Berechnung im IHK Study Plan Engine | P1 | M | `src/utils/ihkStudyPlanEngine.js` | src/utils/ihkStudyPlanEngine.js:11-15 | Fertig wenn: `IHK_EXAM_DATES` dynamisch für das aktuelle und Folgejahr basierend auf Frühjahrs-, Sommer- und Winter-Standardterminen generiert wird.
-- [x] M07 | Zeitzonen-sichere Differenzberechnung in `calculateExamCountdown` | P2 | S | `src/utils/ihkStudyPlanEngine.js` | src/utils/ihkStudyPlanEngine.js:63-66 | Fertig wenn: Datumsschlüssel über UTC-Mitternacht (analog `daysBetweenDateKeys`) verglichen werden und Sommer-/Winterzeit-Wechsel keine Rundungsfehler erzeugen.
-- [x] M08 | Verlinkung der Prüfungssimulation im adaptiven Lernplan auf kanonische Route | P1 | S | `src/utils/ihkStudyPlanEngine.js` | src/utils/ihkStudyPlanEngine.js:95 | Fertig wenn: `recommendedLab` in Mock-Exam-Wochen `'exam'` statt des nicht registrierten `'exam_simulator'` referenziert.
-- [x] M09 | Fehlende Fachrichtungen im IHK Study Plan Engine ergänzen | P2 | M | `src/utils/ihkStudyPlanEngine.js` | src/utils/ihkStudyPlanEngine.js:17-22, src/utils/ihkStudyPlanEngine.js:28-55 | Fertig wenn: Fachinformatiker Digitale Vernetzung (FIDV) und IT-Systemmanagement (ITSM) eigene Tracks in `STUDY_TRACKS` und `IHK_DISCIPLINES` besitzen.
-- [x] M10 | Audit-Empfehlungs-Ziele in `ihkWeaknessAuditEngine` auf existente Registry-Labs korrigieren | P1 | S | `src/utils/ihkWeaknessAuditEngine.js` | src/utils/ihkWeaknessAuditEngine.js:109 | Fertig wenn: LF10/LF11 `clean_arch_lab` mit verifizierten Aliasen verknüpft ist und ein Fallback-Routing bei unbekannten Lernfeldern vorhanden ist.
-- [x] M11 | Unit-Test-Abdeckung für `ihkStudyPlanEngine` Randfälle erweitern | P2 | S | `src/utils/ihkStudyPlanEngine.test.js` | src/utils/ihkStudyPlanEngine.test.js:14-27 | Fertig wenn: Tests für alle Fachrichtungen (fiae, fisi, fidp, itse), abgelaufene Termine und Minimum/Maximum-Wochenbereiche vorliegen.
-- [x] M12 | Unit-Test-Abdeckung für `ihkWeaknessAuditEngine` Randfälle erweitern | P2 | S | `src/utils/ihkWeaknessAuditEngine.test.js` | src/utils/ihkWeaknessAuditEngine.test.js:4-30 | Fertig wenn: Tests für leere Historie, 100% Score, unvollständige Daten und alle Lernfeld-Empfehlungen (LF1–LF12) existieren.
+### Phase 2: Kritische Bugfixes, Modals & Gamification-Korrekturen
+- [ ] M10 | BadgesModal Absturz durch fehlendes userState-Prop in ModalContainer beheben | P1 | S | `src/components/Navigation/ModalContainer.jsx` | src/components/Navigation/ModalContainer.jsx:96 | Fertig wenn: `userState={userState}` an `BadgesModal` übergeben wird und das Modal beim Öffnen ohne TypeError rendert.
+- [ ] M11 | FlashcardsModal XP-Vergabe durch Weiterleitung von onRewardXP aktivieren | P1 | S | `src/components/Navigation/ModalContainer.jsx` | src/components/Navigation/ModalContainer.jsx:132-135 | Fertig wenn: `onRewardXP={awardXP}` an `FlashcardsModal` übergeben wird und Nutzer beim Lernen von Flashcards verifizierbar XP erhalten.
+- [ ] M12 | 404-Asset-Fehler in PushNotificationManager bereinigen | P1 | S | `src/utils/pushNotificationManager.js` | src/utils/pushNotificationManager.js:38, src/utils/pushNotificationManager.js:39, src/utils/pushNotificationManager.js:57 | Fertig wenn: Nicht existente `/pwa-192x192.png` Pfade durch `/favicon.svg` oder vorhandene statische Icons ersetzt sind und keine 404-Fehler in der Konsole auftreten.
+- [ ] M13 | Toten Code addXP in WISO-Labs entfernen | P2 | S | `src/components/Content/WisoPaymentMethodsLab.jsx`, `src/components/Content/WisoBookkeepingLab.jsx`, `src/components/Content/WisoBabLab.jsx` | src/components/Content/WisoPaymentMethodsLab.jsx:16, src/components/Content/WisoBookkeepingLab.jsx:17, src/components/Content/WisoBabLab.jsx:18 | Fertig wenn: Der Aufruf `const addXP = useStore((s) => s.addXP);` rückstandslos entfernt ist und keine nicht existenten Store-Methoden referenziert werden.
+- [ ] M14 | Lab-Mastery-Badges in globaler BADGES-Tabelle registrieren | P2 | M | `src/utils/storage.js` | src/utils/storage.js:360-374, src/data/labRegistry.js:17-68 | Fertig wenn: Alle in `labRegistry.js` vergebenen Badges (`stp_rstp_master`, `bpmn_process_master`, `struktogramm_master`, etc.) in `BADGES` definiert sind und im `BadgesModal` angezeigt werden.
+- [ ] M15 | Sm2SpacedRepetitionLab an zentralen Store anbinden und Endlos-XP deckeln | P2 | M | `src/components/Content/Sm2SpacedRepetitionLab.jsx` | src/components/Content/Sm2SpacedRepetitionLab.jsx:41, src/components/Content/Sm2SpacedRepetitionLab.jsx:64 | Fertig wenn: Karten-Updates mit `userState.srsFlashcards` synchronisiert werden und XP nur einmalig bzw. nach Fälligkeit vergeben werden.
 
 ### Phase 3: Komponenten-Entkopplung & Architektur-Standards
-- [x] M13 | IhkStudyPlanLab & IhkWeaknessAuditLab in zentrale Lab-Registry migrieren | P2 | M | `src/data/labRegistry.js`, `src/App.jsx` | src/App.jsx:196-199, src/data/labRegistry.js:1060 | Fertig wenn: Beide Labs über `LAB_REGISTRY` registriert sind, Standard-XP-Props konsumieren und redundante Switch-Cases in `App.jsx` entfallen.
-- [x] M14 | Entkopplung der direkten Zustand-Store-Abhängigkeit in `IhkStudyPlanLab` | P2 | S | `src/components/Content/IhkStudyPlanLab.jsx` | src/components/Content/IhkStudyPlanLab.jsx:15, src/components/Content/IhkStudyPlanLab.jsx:45 | Fertig wenn: Die Komponente `onRewardXP` aus den Props nutzt und den Store nicht direkt für XP-Vergaben importiert.
-- [x] M15 | Entkopplung der direkten Zustand-Store-Abhängigkeit in `IhkWeaknessAuditLab` | P2 | S | `src/components/Content/IhkWeaknessAuditLab.jsx` | src/components/Content/IhkWeaknessAuditLab.jsx:14, src/components/Content/IhkWeaknessAuditLab.jsx:45 | Fertig wenn: Die Komponente `onRewardXP` aus den Props nutzt und den Store nicht direkt für XP-Vergaben importiert.
-- [x] M16 | Verknüpfung des echten Fehlerjournals (`userState.mistakeJournal`) mit dem Schwachstellen-Audit | P2 | M | `src/components/Content/IhkWeaknessAuditLab.jsx` | src/components/Content/IhkWeaknessAuditLab.jsx:15-24 | Fertig wenn: Reale falsch beantwortete Prüfungsfragen aus `mistakeJournal` automatisch in das Lernfeld-Audit einfließen statt fixer Mock-Werte.
-- [x] M17 | Persistierung des Lernplan-Fortschritts in UserState | P2 | M | `src/utils/storage.js`, `src/components/Content/IhkStudyPlanLab.jsx` | src/components/Content/IhkStudyPlanLab.jsx:18, src/components/Content/IhkStudyPlanLab.jsx:33 | Fertig wenn: Abgehakte Wochen (`completedWeeks`) im `userState` gespeichert werden und einen Tab-Wechsel überdauern.
+- [ ] M16 | IhkCheatSheetPdfGenerator entkoppeln und in labRegistry.js registrieren | P2 | S | `src/components/Content/IhkCheatSheetPdfGenerator.jsx`, `src/data/labRegistry.js` | src/components/Content/IhkCheatSheetPdfGenerator.jsx:8, src/components/Content/IhkCheatSheetPdfGenerator.jsx:122, src/data/labRegistry.js:109-111 | Fertig wenn: Die Komponente `onRewardXP` als Prop entgegennimmt, direkter `useStore`-Import entfällt und in `labRegistry.js` `xp: { prop: 'onRewardXP', badge: 'exam_passed' }` hinterlegt ist.
+- [ ] M17 | LinuxMemoryLab und ZkpCryptoVisualizerLab vollständig über Props entkoppeln | P2 | S | `src/components/Content/LinuxMemoryLab.jsx`, `src/components/Content/ZkpCryptoVisualizerLab.jsx` | src/components/Content/LinuxMemoryLab.jsx:8, src/components/Content/LinuxMemoryLab.jsx:43, src/components/Content/ZkpCryptoVisualizerLab.jsx:11, src/components/Content/ZkpCryptoVisualizerLab.jsx:28 | Fertig wenn: Direkte `useStore`- und `awardXP`-Importe entfallen und XP-Vergaben ausschließlich über die Props `onRewardXP` laufen.
+- [ ] M18 | Lernfeld-Mapping-Heuristik aus UI in ihkWeaknessAuditEngine auslagern | P2 | M | `src/components/Content/IhkWeaknessAuditLab.jsx`, `src/utils/ihkWeaknessAuditEngine.js` | src/components/Content/IhkWeaknessAuditLab.jsx:23-45, src/utils/ihkWeaknessAuditEngine.js:34 | Fertig wenn: `mapQuestionToLernfeld` als reine Engine-Funktion nach `ihkWeaknessAuditEngine.js` migriert ist und sowohl `question` als auch `frage` unterstützt.
 
-### Phase 4: Didaktik & Spaced Repetition (SRS Flashcards)
-- [x] M18 | SM-2 Due-Date-Sortierung im Flashcards-Modal aktivieren | P2 | M | `src/components/Gamification/FlashcardsModal.jsx` | src/components/Gamification/FlashcardsModal.jsx:16-18, src/components/Gamification/FlashcardsModal.jsx:60 | Fertig wenn: Fällige Karten (`dueDate <= today`) priorisiert angezeigt werden und gemeisterte Karten nach Intervall pausieren.
-- [x] M19 | Unvollständiges Anki-Exportformat in FlashcardsModal harmonisieren | P3 | S | `src/components/Gamification/FlashcardsModal.jsx` | src/components/Gamification/FlashcardsModal.jsx:24-34 | Fertig wenn: TSV-Export saubere Kopfzeilen und Zeilenumbrüche ohne Formatierungsbrüche in Anki liefert.
+### Phase 4: Sicherheit, Performance & Barrierefreiheit (WCAG 2.1 AA)
+- [ ] M19 | Worker Sandbox Scope Lockdown um WebAssembly und SharedArrayBuffer härten | P2 | S | `src/utils/sandboxEvaluator.js` | src/utils/sandboxEvaluator.js:121-125 | Fertig wenn: `WebAssembly` und `SharedArrayBuffer` in `BLOCKED_WORKER_GLOBALS` eingetragen sind und fremder Code in der Sandbox keinen Zugriff darauf hat.
+- [ ] M20 | Date.now() Performance-Hotspot in Token-Rendering Schleife eliminieren | P2 | S | `src/components/Content/OauthRevocationIntrospectionLab.jsx` | src/components/Content/OauthRevocationIntrospectionLab.jsx:148 | Fertig wenn: Der aktuelle Zeitstempel vor der Schleife einmalig bestimmt wird und nicht pro Token neu aufgerufen wird.
+- [ ] M21 | Semantische ARIA-Attribute und Modal-Rollen für BadgesModal und FlashcardsModal ergänzen | P2 | S | `src/components/Gamification/BadgesModal.jsx`, `src/components/Gamification/FlashcardsModal.jsx` | src/components/Gamification/BadgesModal.jsx:23, src/components/Gamification/FlashcardsModal.jsx:106 | Fertig wenn: Beide Modale `role="dialog"`, `aria-modal="true"`, `aria-labelledby` besitzen und per Tastatur (Escape) schließbar sind.
 
-### Phase 5: Barrierefreiheit (WCAG 2.1 AA) & Styling
-- [x] M20 | Dark-Mode Farbanpassung & Design-Tokens in IhkStudyPlanLab | P2 | S | `src/components/Content/IhkStudyPlanLab.jsx` | src/components/Content/IhkStudyPlanLab.jsx:51, src/components/Content/IhkStudyPlanLab.jsx:126, src/components/Content/IhkStudyPlanLab.jsx:217 | Fertig wenn: Alle Hardcoded-Farben (`#1e293b`, `#ffffff`, `#f1f5f9`) durch semantische Variablen (`var(--text-main)`, `var(--bg-card)`, `var(--bg-tertiary)`) ersetzt sind.
-- [x] M21 | Dark-Mode Farbanpassung & Design-Tokens in IhkWeaknessAuditLab | P2 | S | `src/components/Content/IhkWeaknessAuditLab.jsx` | src/components/Content/IhkWeaknessAuditLab.jsx:51, src/components/Content/IhkWeaknessAuditLab.jsx:94, src/components/Content/IhkWeaknessAuditLab.jsx:137 | Fertig wenn: Empfehlungs- und Status-Boxen im Dark-Mode ausreichend Kontrast (mind. 4.5:1) besitzen und `var(--border-color)` nutzen.
-- [x] M22 | Semantische ARIA-Attribute für Wochenplan-Roadmap | P3 | S | `src/components/Content/IhkStudyPlanLab.jsx` | src/components/Content/IhkStudyPlanLab.jsx:177-268 | Fertig wenn: Wochenelemente als Liste (`role="list"` / `role="listitem"`) strukturiert und Checkbox-Zustände mit `aria-checked` versehen sind.
+### Phase 5: Testabdeckung, CI & Dokumentation
+- [ ] M22 | Isolierte Unit-Tests für pushNotificationManager.js ergänzen | P2 | S | `src/utils/pushNotificationManager.test.js` | src/utils/pushNotificationManager.test.js:1-20 | Fertig wenn: Test-Suite `scheduleDailyReminder`, Notification-Fallback und Service-Worker-Zweig mockt und abdeckt.
+- [ ] M23 | Isolierte Test-Suite für FlashcardsModal SM-2 Sortierung erstellen | P2 | S | `src/components/Gamification/FlashcardsModal.test.jsx` | src/components/Gamification/FlashcardsModal.jsx:18-35 | Fertig wenn: Fälligkeits-Priorisierung, Sortierung nach `dueDate` und TSV-Download isoliert getestet sind.
+- [ ] M24 | Unit-Tests für mapQuestionToLernfeld in ihkWeaknessAuditEngine.test.js anlegen | P2 | S | `src/utils/ihkWeaknessAuditEngine.test.js` | src/utils/ihkWeaknessAuditEngine.test.js:1-35 | Fertig wenn: Alle 12 Lernfelder sowie Randfälle (fehlende Kategorie, Drill-Format mit `frage`) isoliert getestet sind.
+- [ ] M25 | Dokumentation von Badges und PWA-Assets in README.md & CHANGELOG.md angleichen | P3 | S | `README.md`, `CHANGELOG.md` | README.md:33, CHANGELOG.md:1-25 | Fertig wenn: Badge-Übersicht, Lab-Gesamtzahl (235) und behobene Modals im Keep-a-Changelog Format dokumentiert sind.
 
-### Phase 6: Testabdeckung, CI & Dokumentation
-- [x] M23 | Isolierte Komponenten-Tests für `IhkStudyPlanLab` hinzufügen | P2 | S | `src/components/Content/IhkStudyPlanLab.test.jsx` | src/components/Content/IhkStudyPlanLab.jsx:14 | Fertig wenn: Test-Suite Rendern, Fachrichtungswechsel, Wochen-Toggle und XP-Claim abdeckt.
-- [x] M24 | Isolierte Komponenten-Tests für `IhkWeaknessAuditLab` hinzufügen | P2 | S | `src/components/Content/IhkWeaknessAuditLab.test.jsx` | src/components/Content/IhkWeaknessAuditLab.jsx:13 | Fertig wenn: Test-Suite Rendern, Schwachstellen-Erkennung, Drill-Empfehlung und Reset abdeckt.
-- [x] M25 | Dokumentation der neuen IHK Prüfungsplaner- und Audit-Module in README.md | P3 | S | `README.md` | README.md:1-150 | Fertig wenn: Modul-Übersicht, Routing-Tabelle und Funktionsweise in README.md vollständig dokumentiert sind.
-- [x] M26 | Historie und Versionsfortschritt in CHANGELOG.md aktualisieren | P3 | S | `CHANGELOG.md` | CHANGELOG.md:1-50 | Fertig wenn: Alle Plan-Ergänzungen und architektonischen Schritte nach dem Keep-a-Changelog Standard gepflegt sind.
+### Optional (Ideen ohne Beleg im Projektcode)
+- [ ] M26 | (Optional) Offline-Background-Sync via Service Worker Push API | P3 | L | `src/main.jsx` | - | Fertig wenn: Ein echter Web-Push-Service mit Backend-Subscription angebunden ist.
+- [ ] M27 | (Optional) Multi-User WebRTC P2P-Turniere mit externem STUN/TURN Signaling | P3 | L | `src/components/Content/P2pQuizDuellLab.jsx` | - | Fertig wenn: Echte Multi-Client-Turniere über Internet-Grenzen hinweg spielbar sind.
 
 ---
 
 ## 3. Vorgehen je Phase: Reihenfolge, Test nach jeder Phase, Rollback
 
-### Phase 1: Bugfixes, Datenkonsistenz & Persistenz
-- **Reihenfolge**: M01 → M02 → M03 → M04 → M05
+### Phase 1: CI-Pipeline & Oxlint-Bereinigung
+- **Reihenfolge**: M01 → M02 → M03 → M04 → M05 → M06 → M07 → M08 → M09
 - **Test nach Phase**:
-  - `npm run lint:ci`
+  - `npm run lint:ci` (Muss mit Exit-Code 0 und 0 Warnungen abschließen)
   - `npm run typecheck`
-  - `npm test -- src/utils/storage.test.js src/utils/storageImport.test.js src/components/Content/LabsDashboard.test.jsx`
-- **Rollback**: `git checkout -- src/store/useStore.js src/utils/storage.js src/data/labModulesData.js src/components/Gamification/BadgesModal.jsx`
+  - `npm run test:fast`
+- **Rollback**: `git checkout -- src/components/Content/ServiceMeshLab.jsx src/components/Content/LinuxMemoryLab.jsx src/components/Content/SqliteWasmStudioLab.jsx src/components/Content/CustomChallengeCreatorLab.jsx src/components/Gamification/ExamCountdownWidget.jsx src/components/Content/IhkOralExamSimulator.jsx src/components/Content/ExamSimulator.jsx src/components/Navigation/CommandPaletteModal.jsx src/components/Navigation/PomodoroTimerWidget.jsx src/components/Content/ZkpCryptoVisualizerLab.jsx src/components/Content/P2pQuizDuellLab.jsx src/components/Footer/DsgvoFooterModal.jsx src/components/Gamification/CertificateModal.jsx src/components/Gamification/ActivityHeatmapWidget.jsx src/components/Content/ExamReadinessLab.jsx src/components/Content/OauthRevocationIntrospectionLab.jsx`
 
-### Phase 2: Prüfungs- & Lernplan-Engines
-- **Reihenfolge**: M06 → M07 → M08 → M09 → M10 → M11 → M12
+### Phase 2: Kritische Bugfixes, Modals & Gamification-Korrekturen
+- **Reihenfolge**: M10 → M11 → M12 → M13 → M14 → M15
 - **Test nach Phase**:
-  - `npm test -- src/utils/ihkStudyPlanEngine.test.js src/utils/ihkWeaknessAuditEngine.test.js`
-  - `npm run typecheck`
-- **Rollback**: `git checkout -- src/utils/ihkStudyPlanEngine.js src/utils/ihkWeaknessAuditEngine.js src/utils/ihkStudyPlanEngine.test.js src/utils/ihkWeaknessAuditEngine.test.js`
+  - `npm test -- src/utils/storage.test.js src/utils/pushNotificationManager.test.js src/components/Content/LabsDashboard.test.jsx`
+  - Manuelle Prüfung im Browser: Öffnen von BadgesModal und FlashcardsModal (kein Absturz, XP werden gutgeschrieben)
+  - `npm run build`
+- **Rollback**: `git checkout -- src/components/Navigation/ModalContainer.jsx src/utils/pushNotificationManager.js src/components/Content/WisoPaymentMethodsLab.jsx src/components/Content/WisoBookkeepingLab.jsx src/components/Content/WisoBabLab.jsx src/utils/storage.js src/components/Content/Sm2SpacedRepetitionLab.jsx`
 
 ### Phase 3: Komponenten-Entkopplung & Architektur-Standards
-- **Reihenfolge**: M13 → M14 → M15 → M16 → M17
+- **Reihenfolge**: M16 → M17 → M18
 - **Test nach Phase**:
-  - `npm test -- src/components/allLabsSmoke.test.jsx src/components/allLabsA11y.test.jsx`
-  - `npm run build`
-- **Rollback**: `git checkout -- src/data/labRegistry.js src/App.jsx src/components/Content/IhkStudyPlanLab.jsx src/components/Content/IhkWeaknessAuditLab.jsx`
+  - `npm test -- src/utils/ihkWeaknessAuditEngine.test.js src/data/labModulesData.test.js src/components/allLabsSmoke.test.jsx`
+  - `npm run typecheck`
+- **Rollback**: `git checkout -- src/components/Content/IhkCheatSheetPdfGenerator.jsx src/data/labRegistry.js src/components/Content/LinuxMemoryLab.jsx src/components/Content/ZkpCryptoVisualizerLab.jsx src/components/Content/IhkWeaknessAuditLab.jsx src/utils/ihkWeaknessAuditEngine.js`
 
-### Phase 4: Didaktik & Spaced Repetition (SRS Flashcards)
-- **Reihenfolge**: M18 → M19
+### Phase 4: Sicherheit, Performance & Barrierefreiheit (WCAG 2.1 AA)
+- **Reihenfolge**: M19 → M20 → M21
 - **Test nach Phase**:
-  - `npm test -- src/utils/sm2Algorithm.test.js src/components/allLabsSmoke.test.jsx`
-- **Rollback**: `git checkout -- src/components/Gamification/FlashcardsModal.jsx`
+  - `npm test -- src/utils/sandboxRunner.test.js src/components/allLabsA11y.test.jsx`
+  - `npm run build && npm run size`
+- **Rollback**: `git checkout -- src/utils/sandboxEvaluator.js src/components/Content/OauthRevocationIntrospectionLab.jsx src/components/Gamification/BadgesModal.jsx src/components/Gamification/FlashcardsModal.jsx`
 
-### Phase 5: Barrierefreiheit & Design-Tokens
-- **Reihenfolge**: M20 → M21 → M22
+### Phase 5: Testabdeckung, CI & Dokumentation
+- **Reihenfolge**: M22 → M23 → M24 → M25
 - **Test nach Phase**:
-  - `npm test -- src/components/allLabsA11y.test.jsx`
-  - Manuelle Sichtprüfung im Dark-Mode (`data-theme="dark"`)
-- **Rollback**: `git checkout -- src/components/Content/IhkStudyPlanLab.jsx src/components/Content/IhkWeaknessAuditLab.jsx`
-
-### Phase 6: Testabdeckung, CI & Dokumentation
-- **Reihenfolge**: M23 → M24 → M25 → M26
-- **Test nach Phase**:
-  - Vollständige CI-Prüfkette: `npm run lint:ci && npm run typecheck && npm test && npm run test:coverage && npm run build && npm run size`
-- **Rollback**: `git checkout -- README.md CHANGELOG.md src/components/Content/IhkStudyPlanLab.test.jsx src/components/Content/IhkWeaknessAuditLab.test.jsx`
+  - Vollständige CI-Qualitätskette: `npm run lint:ci && npm run typecheck && npm test && npm run test:coverage && npm run build && npm run size`
+  - Regression-Check: Coverage-Schwellenwerte (`statements: 60`, `branches: 52`, `functions: 45`, `lines: 62`) einhalten
+- **Rollback**: `git checkout -- src/utils/pushNotificationManager.test.js src/components/Gamification/FlashcardsModal.test.jsx src/utils/ihkWeaknessAuditEngine.test.js README.md CHANGELOG.md`
 
 ---
 
 ## 4. Risiken und offene Fragen
 
 ### Risiken
-1. **IndexedDB & LocalStorage Schemabruch**: Erweiterungen an `initialProfileState` (`examTargetDate`, Lernplan-Wochenfortschritt) müssen über `sanitizeImportedState` und Default-Spread abgesichert werden, um bestehende Spielstände in Browsern der Nutzer nicht zu korrumpieren.
-2. **Bundle-Size Budget Limit (105 KB App-Shell)**: Werden Labs nicht via dynamischer `LAB_REGISTRY` sondern statisch importiert, droht das Reißen des 105 KB Budgets (`npm run size`). Daher ist Phase 3 strikt einzuhalten.
-3. **React 19 Re-Rendering bei BroadcastChannel Sync**: Beim Empfangen von Sync-Nachrichten darf keine Endlosschleife aus Senden und Empfangen entstehen.
+1. **Oxlint Strict Mode vs. React 19 Hydration**: Das Beheben von `react(set-state-in-effect)` durch `useMemo` oder State-Initialisierungs-Funktionen darf keine unkontrollierten Re-Renders oder Hydration-Mismatches erzeugen.
+2. **Badges-Schema-Erweiterung in UserState**: Werden 40+ neue Badges in `BADGES` (`storage.js`) aufgenommen, muss sichergestellt sein, dass bestehende `userState.unlockedBadges`-Arrays im LocalStorage und IndexedDB kompatibel bleiben und nicht durch Validatoren verworfen werden.
+3. **Coverage-Grenzwerte in vite.config.js**: Da Functions (47,4% vs. 45% Schwelle) und Branches (53,49% vs. 52% Schwelle) sehr nah an der Abbruchgrenze liegen, muss jede neue Engine-Funktion mit isolierten Tests abgesichert werden, um den CI-Build nicht zu gefährden.
 
 ### Offene Fragen
-1. **Lernfeld-Zuordnung im Prüfungsfragen-Katalog**: `EXAM_QUESTIONS` in `src/data/examData.js` nutzen aktuell textuelle Kategorien (`Netzwerke & Subnetting`) statt expliziter Lernfeld-Kennungen (`LF1`–`LF12`). Soll ein Mapping-Objekt Kategorie ↔ LF eingeführt werden, um echte Prüfungsergebnisse präzise in das Schwachstellen-Audit einzuspeisen?
-2. **Prüfungstermine der IHK-Regionalstellen**: Die Termine für AP1 und AP2 unterscheiden sich bundesweit nur um wenige Tage, jedoch weichen Baden-Württemberg und projektbezogene Abgabetermine ab. Reichen Standard-Prüfungsfenster (Frühjahr, Sommer, Herbst/Winter) mit manueller Überschreibmöglichkeit aus?
+1. **Badges-Kategorisierung**: Sollen die über 40 Lab-Badges im `BadgesModal` in Kategorien (z. B. "IHK Kernqualifikationen", "Netzwerktechnik", "Softwareentwicklung", "WISO") unterteilt werden, um die Übersichtlichkeit im Grid zu wahren?
+2. **Push-Notification PWA Service Worker**: Soll `pushNotificationManager.js` persistente Push-Subscriptions über den bereits aktiven Service Worker (`vite-plugin-pwa`) mit echten Trigger-Events nutzen, oder reicht die tab-gebundene lokale Benachrichtigung?
