@@ -47,7 +47,7 @@
 
 ### Phase 5: Testabdeckung, CI & Dokumentation
 - [x] M22 | Isolierte Unit-Tests für pushNotificationManager.js ergänzen | P2 | S | `src/utils/pushNotificationManager.test.js` | src/utils/pushNotificationManager.test.js:1-20 | Fertig wenn: Test-Suite `scheduleDailyReminder`, Notification-Fallback und Service-Worker-Zweig mockt und abdeckt.
-- [ ] M23 | Isolierte Test-Suite für FlashcardsModal SM-2 Sortierung erstellen | P2 | S | `src/components/Gamification/FlashcardsModal.test.jsx` | src/components/Gamification/FlashcardsModal.jsx:18-35 | Fertig wenn: Fälligkeits-Priorisierung, Sortierung nach `dueDate` und TSV-Download isoliert getestet sind.
+- [x] M23 | Isolierte Test-Suite für FlashcardsModal SM-2 Sortierung erstellen | P2 | S | `src/components/Gamification/FlashcardsModal.test.jsx` | src/components/Gamification/FlashcardsModal.jsx:18-35 | Fertig wenn: Fälligkeits-Priorisierung, Sortierung nach `dueDate` und TSV-Download isoliert getestet sind.
 - [ ] M24 | Unit-Tests für mapQuestionToLernfeld in ihkWeaknessAuditEngine.test.js anlegen | P2 | S | `src/utils/ihkWeaknessAuditEngine.test.js` | src/utils/ihkWeaknessAuditEngine.test.js:1-35 | Fertig wenn: Alle 12 Lernfelder sowie Randfälle (fehlende Kategorie, Drill-Format mit `frage`) isoliert getestet sind.
 - [ ] M25 | Dokumentation von Badges und PWA-Assets in README.md & CHANGELOG.md angleichen | P3 | S | `README.md`, `CHANGELOG.md` | README.md:33, CHANGELOG.md:1-25 | Fertig wenn: Badge-Übersicht, Lab-Gesamtzahl (235) und behobene Modals im Keep-a-Changelog Format dokumentiert sind.
 
