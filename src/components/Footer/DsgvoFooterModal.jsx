@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Shield, FileText, ExternalLink, X, Heart, Code2, HelpCircle, GitBranch } from 'lucide-react';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export default function DsgvoFooterModal() {
   const [activeModal, setActiveModal] = useState(null); // 'datenschutz' | 'impressum' | 'dsgvo' | 'faq' | null
 
@@ -165,7 +167,7 @@ export default function DsgvoFooterModal() {
           }}
         >
           <div>
-            © {new Date().getFullYear()} <strong>IT-DevGame</strong> • Entwickelt mit <Heart size={13} style={{ color: 'var(--accent-rose)', display: 'inline', verticalAlign: 'middle' }} /> für IT-Begeisterte &amp; Prüflinge.
+            © {CURRENT_YEAR} <strong>IT-DevGame</strong> • Entwickelt mit <Heart size={13} style={{ color: 'var(--accent-rose)', display: 'inline', verticalAlign: 'middle' }} /> für IT-Begeisterte &amp; Prüflinge.
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>

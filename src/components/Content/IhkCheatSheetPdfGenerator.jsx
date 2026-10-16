@@ -4,6 +4,10 @@ import { FileText, Download, CheckCircle2, Database, Globe, Calculator } from 'l
 import { jsPDF } from 'jspdf';
 import { useStore } from '../../store/useStore';
 
+function getPdfIsoDate() {
+  return new Date().toISOString().slice(0, 10);
+}
+
 export default function IhkCheatSheetPdfGenerator() {
   const { awardXP } = useStore();
   const [selectedTopic, setSelectedTopic] = useState('ihk_wiso');
@@ -116,7 +120,7 @@ export default function IhkCheatSheetPdfGenerator() {
       doc.setTextColor(148, 163, 184);
       doc.text('Generiert mit IT-DevGame | 100% DSGVO & Open Educational Resource (OER)', 14, 285);
 
-      doc.save(`IHK-CheatSheet-${selectedTopic}-${new Date().toISOString().slice(0, 10)}.pdf`);
+      doc.save(`IHK-CheatSheet-${selectedTopic}-${getPdfIsoDate()}.pdf`);
       if (!xpClaimed) {
         setXpClaimed(true);
         awardXP(25, 'exam_passed');

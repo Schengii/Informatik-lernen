@@ -6,6 +6,10 @@ import {
 import { OAuthRevocationIntrospectionEngine } from '../../utils/oauthRevocationIntrospectionEngine';
 import { useStore } from '../../store/useStore';
 
+function checkTokenExpired(exp) {
+  return Math.floor(Date.now() / 1000) >= exp;
+}
+
 export default function OauthRevocationIntrospectionLab() {
   const { awardXP } = useStore();
   const [engine] = useState(() => new OAuthRevocationIntrospectionEngine());
@@ -145,7 +149,7 @@ export default function OauthRevocationIntrospectionLab() {
             {tokens.map((t) => {
               const isSelected = t.token === selectedToken;
               const isRevoked = t.revokedAt !== null;
-              const isExpired = Math.floor(Date.now() / 1000) >= t.exp;
+              const isExpired = checkTokenExpired(t.exp);
 
               return (
                 <div 
