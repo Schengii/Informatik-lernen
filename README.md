@@ -134,7 +134,16 @@ Das Repository ist für nahtlose Zusammenarbeit mit Entwicklern und KI-Agenten (
 - Sicherheitsrichtlinien: [`SECURITY.md`](SECURITY.md)
 - Ausführliche Feature-Beschreibungen und Änderungshistorie bis v3.74.0: [`docs/README-Archiv.md`](docs/README-Archiv.md)
 
-### Aktuelle Version (v3.76.0) & Neueste IHK-Module
+### Aktuelle Version (v3.77.0) & Neueste Verbesserungen
+- **Vollständige Lab-Mastery-Badges (162 Badges)**: Alle 149 Lab-Mastery-Badges aus `src/data/labRegistry.js` sind jetzt lückenlos in der globalen Badge-Tabelle (`src/utils/storage.js`) definiert und werden im `BadgesModal` fehlerfrei angezeigt.
+- **CI & Oxlint-Bereinigung**: Vollständige Beseitigung aller Linter-Warnungen im CI-Modus (`npm run lint:ci --deny-warnings`) über 704 Dateien (Immutabilitätsmuster, React-Purity-Regeln, Timer-Callbacks).
+- **Gamification & Spaced Repetition**: Synchronisation von `Sm2SpacedRepetitionLab` mit `userState.srsFlashcards`, Vermeidung von Endlos-XP-Gains durch Deckelung und saubere XP-Prop-Verdrahtung in `FlashcardsModal`.
+- **Architektur & Komponenten-Entkopplung**: Striktes Props-First-Prinzip bei `IhkCheatSheetPdfGenerator`, `LinuxMemoryLab` und `ZkpCryptoVisualizerLab`. Auslagerung von `mapQuestionToLernfeld` als reine Engine-Funktion nach `ihkWeaknessAuditEngine.js`.
+- **Sicherheit & Härtung**: Web-Worker-Scope Lockdown um `WebAssembly` und `SharedArrayBuffer` gehärtet; Beseitigung des `Date.now()` Hotspots im Token-Rendering.
+- **Barrierefreiheit (WCAG 2.1 AA)**: Semantische Modal-Rollen (`role="dialog"`, `aria-modal="true"`, `aria-labelledby`) und `Escape`-Tastaturunterstützung in `BadgesModal` und `FlashcardsModal`.
+- **Test-Suiten**: Neue isolierte Test-Suiten für Flashcards-Sortierung (`FlashcardsModal.test.jsx`), Push-Notifications (`pushNotificationManager.test.js`) und Lernfeld-Mapping (`ihkWeaknessAuditEngine.test.js`).
+
+### Version 3.76.0 (IHK Prüfungsplaner & Schwachstellen-Audit)
 - **IHK Prüfungs-Countdown & Adaptiver Lernplaner (`ihk_study_plan_lab`)**: Dynamische Prüfungstermine für FIAE, FISI, FIDP, FIDV, IT-SE und ITSM, UTC-sichere Countdown-Berechnung, kanonische Prüfungssimulations-Verlinkung, Wochenplan-Roadmap mit Fortschritts-Persistenz im `userState` (`studyPlanWeeks`) und WCAG 2.1 AA konformes Styling mit ARIA-Listen.
 - **IHK Schwachstellen-Audit Assistent (`ihk_weakness_audit_lab`)**: Reale Lernfeld-Fehleranalyse (LF 1–12) direkt aus dem Fehlerjournal (`userState.mistakeJournal`), gezielte Lab-Wiederholungs-Empfehlungen und interaktive Simulation.
 - **Zentrale Registry & Komponenten-Entkopplung**: Beide Labs sind über `src/data/labRegistry.js` registriert und konsumieren Standard-XP- und Navigations-Props ohne unkontrollierte Store-Kopplung.

@@ -9,10 +9,38 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unveröffentlicht]
 
+## [3.77.0] - 2026-10-16
+
+### Hinzugefügt (Added)
+- **Vollständige Lab-Mastery-Badges (162 Badges)**: Alle 149 in `src/data/labRegistry.js` vergebenen Mastery-Badges (`stp_rstp_master`, `bpmn_process_master`, `struktogramm_master` etc.) sind nun vollständig in `src/utils/storage.js` (`BADGES`) mit Icons und Beschreibungen registriert.
+- **Isolierte Test-Suiten**:
+  - `src/components/Gamification/FlashcardsModal.test.jsx`: Unit-Tests für Fälligkeits-Priorisierung via SuperMemo-2 (SM-2), Kartendrehung und TSV/CSV-Export.
+  - `src/utils/pushNotificationManager.test.js`: Vollständige Mocks und Tests für `scheduleDailyReminder`, Service-Worker-Benachrichtigung und Fallback-Handling.
+  - `src/utils/ihkWeaknessAuditEngine.test.js`: Umfassende Tests für `mapQuestionToLernfeld` über alle 12 IHK-Lernfelder (LF 1–12), inklusive Drill-Format (`frage`/`kategorie`).
+
+### Behoben (Fixed)
+- **CI & Oxlint-Bereinigung**: 0 Warnungen und 0 Fehler im CI-Modus (`npm run lint:ci`) über alle 704 Dateien. Behebung von Immutabilitätsverletzungen (`ServiceMeshLab`), synchronen State-Updates in Effects (`LinuxMemoryLab`, `SqliteWasmStudioLab`), unerwünschten State-Resets (`CommandPaletteModal`, `PomodoroTimerWidget`), Event-Driven-Transitions (`ZkpCryptoVisualizerLab`, `P2pQuizDuellLab`) und Date/Math-Purity-Warnungen.
+- **BadgesModal Stabilität**: Übergabe von `userState` im `ModalContainer` korrigiert und defensive Fallbacks hinzugefügt, wodurch der TypeError beim Öffnen des Badges-Modals behoben wurde.
+- **FlashcardsModal Belohnungen**: Übergabe von `onRewardXP={awardXP}` im `ModalContainer` ergänzt, sodass gemeisterte Karteikarten zuverlässig XP vergeben.
+- **404 PWA-Icons in PushNotificationManager**: Fehlerhafte Pfade (`/pwa-192x192.png`) durch das existierende SVG-Icon (`/favicon.svg`) ersetzt.
+- **Dead Store Imports**: Ungenutzte `addXP`-Destrukturierungen in `WisoPaymentMethodsLab`, `WisoBookkeepingLab` und `WisoBabLab` entfernt.
+- **Sm2SpacedRepetitionLab Synchronisation**: Karten-Updates werden nun mit `userState.srsFlashcards` synchronisiert und Endlos-XP-Exploits durch Sitzungs-Deckelung verhindert.
+
+### Geändert (Changed)
+- **Komponenten-Entkopplung**:
+  - `IhkCheatSheetPdfGenerator`: Von direktem `useStore`-Zugriff entkoppelt, konsumiert `onRewardXP` als Prop und ist in `labRegistry.js` registriert.
+  - `LinuxMemoryLab` & `ZkpCryptoVisualizerLab`: Entkoppelt von direktem Store-Zugriff, XP-Vergabe über Props standardisiert.
+  - `ihkWeaknessAuditEngine`: `mapQuestionToLernfeld` als reine Engine-Funktion ausgelagert, Duplikat in `IhkWeaknessAuditLab` entfernt.
+- **Sicherheit**:
+  - `src/utils/sandboxEvaluator.js`: Web-Worker-Scope Lockdown um `WebAssembly` und `SharedArrayBuffer` in `BLOCKED_WORKER_GLOBALS` erweitert, um Speicherangriffe und Timing-Attacken fremden Nutzercodes zu unterbinden.
+- **Performance**:
+  - `OauthRevocationIntrospectionLab`: `Date.now()` Hotspot in der Token-Rendering-Schleife eliminiert; Zeitstempel wird einmalig vor der Iteration bestimmt.
+- **Barrierefreiheit (WCAG 2.1 AA)**:
+  - `BadgesModal` und `FlashcardsModal` mit semantischen ARIA-Attributen (`role="dialog"`, `aria-modal="true"`, `aria-labelledby`) und `Escape`-Tastatursteuerung ausgestattet.
+
 - **A11y (CI, axe `aria-allowed-attr`)**: `IhkStudyPlanLab` setzte `aria-checked` auf `role="listitem"`, das Attribut ist dort nicht erlaubt (7 Treffer in `allLabsA11y.test.jsx`). Entfernt; der Zustand steht weiterhin im Text und `aria-label` des Abhaken-Buttons.
 - **Lint (CI)**: `IhkStudyPlanLab` und `IhkWeaknessAuditLab` nutzten `|| {}` im Render und erzeugten damit bei jedem Render eine neue `useMemo`-Abhängigkeit. Stabile Modul-Konstante `EMPTY_OBJECT` ersetzt das Fallback-Objekt; `npm run lint:ci` (`--deny-warnings`) meldet dazu keine Warnung mehr.
 - **Sicherheits-Header (P1)**: `vercel.json` um `Content-Security-Policy`, `Strict-Transport-Security`, `Permissions-Policy` und `X-Content-Type-Options` ergänzt.
-- **Testing & Dashboard**: `tmp/testing-dashboard.html` und `.gitignore` Eintrag für QA/Audit-Reports eingerichtet.
 
 ## [3.76.0] - 2026-10-12
 
