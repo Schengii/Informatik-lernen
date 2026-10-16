@@ -141,3 +141,54 @@ export function generateWeaknessRecommendations(weakFields) {
     };
   });
 }
+
+/**
+ * Mappt eine Fragenkategorie bzw. Fragendetails auf ein IHK-Lernfeld (LF 1 - 12)
+ * Unterstützt sowohl `question.question` als auch `question.frage` (Drill-Format).
+ * @param {any} question
+ * @returns {string} lfId (z. B. 'LF4')
+ */
+export function mapQuestionToLernfeld(question) {
+  if (!question) return 'LF1';
+  const category = (question.category || question.kategorie || '').toLowerCase();
+  const text = (question.question || question.frage || '').toLowerCase();
+
+  if (category.includes('wiso') || category.includes('wirtschaft') || category.includes('unternehmen')) {
+    return 'LF1';
+  }
+  if (category.includes('hardware') || category.includes('usv') || category.includes('arbeitsplatz')) {
+    return 'LF2';
+  }
+  if (category.includes('dhcp') || category.includes('client') || text.includes('dora')) {
+    return 'LF3';
+  }
+  if (category.includes('security') || category.includes('datenschutz') || category.includes('dsgvo') || category.includes('bsi')) {
+    return 'LF4';
+  }
+  if (category.includes('datenbank') || category.includes('sql') || category.includes('normalisierung')) {
+    return 'LF5';
+  }
+  if (category.includes('server') || category.includes('itil') || category.includes('itsm') || category.includes('service')) {
+    return 'LF6';
+  }
+  if (category.includes('iot') || category.includes('sensor') || category.includes('industrie') || category.includes('cyber-physisch')) {
+    return 'LF7';
+  }
+  if (category.includes('api') || category.includes('rest') || category.includes('schnittstelle') || category.includes('datenfluss')) {
+    return 'LF8';
+  }
+  if (category.includes('netzwerk') || category.includes('routing') || category.includes('subnet') || category.includes('vlan') || category.includes('ipv6')) {
+    return 'LF9';
+  }
+  if (category.includes('architektur') || category.includes('clean') || category.includes('ui') || category.includes('pattern')) {
+    return 'LF10';
+  }
+  if (category.includes('programmierung') || category.includes('test') || category.includes('unit') || category.includes('tdd')) {
+    return 'LF11';
+  }
+  if (category.includes('algorithmus') || category.includes('struktogramm') || category.includes('entwicklung')) {
+    return 'LF12';
+  }
+
+  return 'LF4'; // Fallback
+}
