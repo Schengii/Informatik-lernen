@@ -421,7 +421,8 @@ export const LAB_REGISTRY = [
   },
   {
     tabs: ['zkp_crypto'],
-    load: () => import('../components/Content/ZkpCryptoVisualizerLab')
+    load: () => import('../components/Content/ZkpCryptoVisualizerLab'),
+    xp: { prop: 'onRewardXP', badge: 'security_expert' }
   },
   {
     tabs: ['oauth_pkce_studio', 'oauth_pkce', 'pkce'],

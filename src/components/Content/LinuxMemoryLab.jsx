@@ -1,11 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import { Cpu, HardDrive, Search, Award } from 'lucide-react';
 import { LinuxMemorySimulator } from '../../utils/linuxMemoryEngine';
-import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';
 
 export default function LinuxMemoryLab({ onRewardXP }) {
-  const { awardXP } = useStore();
   const [addrInput, setAddrInput] = useState('0x7ffd040');
   const [accessResult, setAccessResult] = useState(null);
   const [procRss, setProcRss] = useState(2500);
@@ -31,9 +29,7 @@ export default function LinuxMemoryLab({ onRewardXP }) {
     if (!solved) {
       setSolved(true);
       if (onRewardXP) {
-        onRewardXP(45);
-      } else {
-        awardXP(45, 'linux_memory_master');
+        onRewardXP(45, 'linux_memory_master');
       }
     }
   };
