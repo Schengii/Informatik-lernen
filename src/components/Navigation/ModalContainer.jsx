@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import ErrorBoundary from '../ErrorBoundary';
+import { useStore } from '../../store/useStore';
 
 // Alle Modals sind nur nach expliziter Nutzerinteraktion sichtbar - lazy()
 // hält sie aus dem eager geladenen App-Shell-Bundle heraus.
@@ -68,6 +69,8 @@ export default function ModalContainer({
   refreshStateFromStorage,
   setActiveTab
 }) {
+  const { awardXP } = useStore();
+
   return (
     <>
       {/* Role / Profil Modal */}
@@ -131,6 +134,7 @@ export default function ModalContainer({
           <Suspense fallback={null}>
             <FlashcardsModal
               isOpen={isFlashcardsModalOpen}
+              onRewardXP={awardXP}
               onClose={() => setIsFlashcardsModalOpen(false)}
             />
           </Suspense>
