@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Cpu, HardDrive, Search, Award } from 'lucide-react';
 import { LinuxMemorySimulator } from '../../utils/linuxMemoryEngine';
 import { useStore } from '../../store/useStore';
@@ -12,17 +12,11 @@ export default function LinuxMemoryLab({ onRewardXP }) {
   const [oomAdj, setOomAdj] = useState(0);
   const [solved, setSolved] = useState(false);
 
-  const simRef = useRef(null);
+  const [sim] = useState(() => new LinuxMemorySimulator(4096, 2048));
   const [, setTick] = useState(0);
 
-  useEffect(() => {
-    simRef.current = new LinuxMemorySimulator(4096, 2048);
-    setTick(t => t + 1);
-  }, []);
-
   const handleAccess = () => {
-    if (!simRef.current) return;
-    const res = simRef.current.accessMemory(addrInput);
+    const res = sim.accessMemory(addrInput);
     setAccessResult(res);
     triggerHaptic(res.status === 'TLB_HIT' ? 'SUCCESS' : 'WARNING');
     setTick(t => t + 1);
@@ -30,9 +24,8 @@ export default function LinuxMemoryLab({ onRewardXP }) {
   };
 
   const oomInfo = useMemo(() => {
-    if (!simRef.current) return { oomScore: 0, riskLevel: 'LOW' };
-    return simRef.current.calculateOomScore(procRss, oomAdj);
-  }, [procRss, oomAdj]);
+    return sim.calculateOomScore(procRss, oomAdj);
+  }, [sim, procRss, oomAdj]);
 
   const checkXP = () => {
     if (!solved) {
@@ -45,7 +38,7 @@ export default function LinuxMemoryLab({ onRewardXP }) {
     }
   };
 
-  const stats = simRef.current ? simRef.current.pageFaultStats : { tlbHits: 0, minorFaults: 0, majorFaults: 0 };
+  const stats = sim.pageFaultStats;
 
   return (
     <div style={{ background: 'var(--bg-card)', padding: '28px', borderRadius: 'var(--radius-xl)', border: '1px solid var(--border-color)' }}>
