@@ -1,5 +1,10 @@
 import { describe, it, expect } from 'vitest';
-import { auditWeaknesses, generateWeaknessRecommendations, IHK_LEARN_FIELDS } from './ihkWeaknessAuditEngine';
+import { 
+  auditWeaknesses, 
+  generateWeaknessRecommendations, 
+  mapQuestionToLernfeld,
+  IHK_LEARN_FIELDS 
+} from './ihkWeaknessAuditEngine';
 
 describe('ihkWeaknessAuditEngine', () => {
   it('liefert Standardwerte bei leerer oder ungültiger Historie', () => {
@@ -61,5 +66,37 @@ describe('ihkWeaknessAuditEngine', () => {
     const recs = generateWeaknessRecommendations(specificWeak);
     expect(recs[0].recommendedLab).toBe('bsi_grundschutz_lab');
     expect(recs[1].recommendedLab).toBe('clean_arch_lab');
+  });
+
+  describe('mapQuestionToLernfeld', () => {
+    it('behandelt ungültige oder leere Eingaben mit Fallback-Werten', () => {
+      expect(mapQuestionToLernfeld(null)).toBe('LF1');
+      expect(mapQuestionToLernfeld(undefined)).toBe('LF1');
+      expect(mapQuestionToLernfeld({})).toBe('LF4');
+      expect(mapQuestionToLernfeld({ category: 'unbekannt_xyz' })).toBe('LF4');
+    });
+
+    it('mappt alle 12 Lernfelder anhand typischer Kategorien korrekt', () => {
+      expect(mapQuestionToLernfeld({ category: 'WiSo' })).toBe('LF1');
+      expect(mapQuestionToLernfeld({ category: 'Hardware-Komponenten' })).toBe('LF2');
+      expect(mapQuestionToLernfeld({ category: 'DHCP-Konfiguration' })).toBe('LF3');
+      expect(mapQuestionToLernfeld({ category: 'IT-Security' })).toBe('LF4');
+      expect(mapQuestionToLernfeld({ category: 'Datenbanken' })).toBe('LF5');
+      expect(mapQuestionToLernfeld({ category: 'ITIL Service Management' })).toBe('LF6');
+      expect(mapQuestionToLernfeld({ category: 'IoT Sensoren' })).toBe('LF7');
+      expect(mapQuestionToLernfeld({ category: 'REST API' })).toBe('LF8');
+      expect(mapQuestionToLernfeld({ category: 'Netzwerk Routing' })).toBe('LF9');
+      expect(mapQuestionToLernfeld({ category: 'Clean Architektur' })).toBe('LF10');
+      expect(mapQuestionToLernfeld({ category: 'TDD Programmierung' })).toBe('LF11');
+      expect(mapQuestionToLernfeld({ category: 'Algorithmus Struktogramm' })).toBe('LF12');
+    });
+
+    it('unterstützt Drill-Format mit frage und kategorie Attributen', () => {
+      // kategorie statt category
+      expect(mapQuestionToLernfeld({ kategorie: 'Wirtschaft' })).toBe('LF1');
+      expect(mapQuestionToLernfeld({ kategorie: 'USV Anlagen' })).toBe('LF2');
+      // frage statt question
+      expect(mapQuestionToLernfeld({ frage: 'Welcher Schritt gehört zum DHCP DORA Ablauf?' })).toBe('LF3');
+    });
   });
 });
