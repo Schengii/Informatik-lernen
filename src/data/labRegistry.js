@@ -107,7 +107,8 @@ export const LAB_REGISTRY = [
   },
   {
     tabs: ['cheat_sheets'],
-    load: () => import('../components/Content/IhkCheatSheetPdfGenerator')
+    load: () => import('../components/Content/IhkCheatSheetPdfGenerator'),
+    xp: { prop: 'onRewardXP', badge: 'exam_passed' }
   },
   {
     tabs: ['p2p_duell'],
