@@ -9,6 +9,16 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unveröffentlicht]
 
+### Bereinigung & Code-Qualität (Chore)
+- **Projekt-Bereinigung & Analyse (chore/cleanup)**:
+  - Phase 0: Baseline-Sicherung für Build (1.27s), Oxlint (704 Dateien, 0 Warnungen) und Vitest (1.223 Tests bestanden).
+  - Phase 1: Projektweite Tiefenanalyse auf Duplikate, ungenutzte Exporte, leere Ordner und Code Smells ohne Beanstandung von Fehlern.
+  - Phase 2: Gezielte Härtung und Bereinigung mit hoher Sicherheit:
+    - `src/utils/pushNotificationManager.js`: Vermeidung ungenutzter Instanziierung (`new Notification`).
+    - `src/components/Content/OsProcessSchedulerLab.jsx`: Entfernung des redundanten lokalen Alias `bankerMax` und Bereinigung der `useMemo`-Dependencies.
+    - `src/components/Content/VideoHub.jsx`: Härtung des YouTube-`<iframe>` durch explizite `sandbox`-Attribute (`allow-scripts allow-same-origin allow-presentation`).
+  - Phase 3: Validierung der Zielstruktur nach Stack-Konventionen (`src/`, `docs/`, `e2e/`, `scripts/`, `public/`).
+
 ## [3.77.0] - 2026-10-16
 
 ### Hinzugefügt (Added)
