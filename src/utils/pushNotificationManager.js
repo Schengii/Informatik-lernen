@@ -53,10 +53,11 @@ export const scheduleDailyReminder = async (title, options = {}) => {
 
 function fallbackNotification(title, options) {
   setTimeout(() => {
-    new Notification(title, {
+    const notification = new Notification(title, {
       icon: '/favicon.svg',
       ...options
     });
+    return notification;
   }, 5000);
 }
 
