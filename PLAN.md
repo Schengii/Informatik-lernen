@@ -42,7 +42,7 @@
 
 ### Phase 4: Sicherheit, Performance & Barrierefreiheit (WCAG 2.1 AA)
 - [x] M19 | Worker Sandbox Scope Lockdown um WebAssembly und SharedArrayBuffer härten | P2 | S | `src/utils/sandboxEvaluator.js` | src/utils/sandboxEvaluator.js:121-125 | Fertig wenn: `WebAssembly` und `SharedArrayBuffer` in `BLOCKED_WORKER_GLOBALS` eingetragen sind und fremder Code in der Sandbox keinen Zugriff darauf hat.
-- [ ] M20 | Date.now() Performance-Hotspot in Token-Rendering Schleife eliminieren | P2 | S | `src/components/Content/OauthRevocationIntrospectionLab.jsx` | src/components/Content/OauthRevocationIntrospectionLab.jsx:148 | Fertig wenn: Der aktuelle Zeitstempel vor der Schleife einmalig bestimmt wird und nicht pro Token neu aufgerufen wird.
+- [x] M20 | Date.now() Performance-Hotspot in Token-Rendering Schleife eliminieren | P2 | S | `src/components/Content/OauthRevocationIntrospectionLab.jsx` | src/components/Content/OauthRevocationIntrospectionLab.jsx:148 | Fertig wenn: Der aktuelle Zeitstempel vor der Schleife einmalig bestimmt wird und nicht pro Token neu aufgerufen wird.
 - [ ] M21 | Semantische ARIA-Attribute und Modal-Rollen für BadgesModal und FlashcardsModal ergänzen | P2 | S | `src/components/Gamification/BadgesModal.jsx`, `src/components/Gamification/FlashcardsModal.jsx` | src/components/Gamification/BadgesModal.jsx:23, src/components/Gamification/FlashcardsModal.jsx:106 | Fertig wenn: Beide Modale `role="dialog"`, `aria-modal="true"`, `aria-labelledby` besitzen und per Tastatur (Escape) schließbar sind.
 
 ### Phase 5: Testabdeckung, CI & Dokumentation

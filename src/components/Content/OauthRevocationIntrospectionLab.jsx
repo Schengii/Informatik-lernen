@@ -6,8 +6,8 @@ import {
 import { OAuthRevocationIntrospectionEngine } from '../../utils/oauthRevocationIntrospectionEngine';
 import { useStore } from '../../store/useStore';
 
-function checkTokenExpired(exp) {
-  return Math.floor(Date.now() / 1000) >= exp;
+function getCurrentEpochSeconds() {
+  return Math.floor(Date.now() / 1000);
 }
 
 export default function OauthRevocationIntrospectionLab() {
@@ -146,12 +146,14 @@ export default function OauthRevocationIntrospectionLab() {
             <Key size={18} color="#f59e0b" /> Aktiver Token-Speicher (Auth-Server)
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            {tokens.map((t) => {
-              const isSelected = t.token === selectedToken;
-              const isRevoked = t.revokedAt !== null;
-              const isExpired = checkTokenExpired(t.exp);
+            {(() => {
+              const nowSec = getCurrentEpochSeconds();
+              return tokens.map((t) => {
+                const isSelected = t.token === selectedToken;
+                const isRevoked = t.revokedAt !== null;
+                const isExpired = nowSec >= t.exp;
 
-              return (
+                return (
                 <div 
                   key={t.token}
                   onClick={() => {
@@ -188,7 +190,8 @@ export default function OauthRevocationIntrospectionLab() {
                   </div>
                 </div>
               );
-            })}
+            });
+          })()}
           </div>
 
           {/* Create Token Mini-Form */}
