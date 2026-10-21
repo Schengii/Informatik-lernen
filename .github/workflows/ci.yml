@@ -3,8 +3,18 @@ name: CI
 on:
   push:
     branches: [main]
+    paths-ignore: ['**.md', 'docs/**']
   pull_request:
     branches: [main]
+    paths-ignore: ['**.md', 'docs/**']
+
+permissions:
+  contents: read
+
+# A newer push to the same branch/PR makes the older run pointless.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   test:
@@ -47,10 +57,12 @@ jobs:
         run: npm run size
 
       - name: Get Playwright version
+        if: github.event_name != 'pull_request'
         id: playwright-version
         run: echo "version=$(node -e "console.log(require('./package-lock.json').packages['node_modules/@playwright/test'].version)")" >> "$GITHUB_OUTPUT"
 
       - name: Cache Playwright browsers
+        if: github.event_name != 'pull_request'
         id: playwright-cache
         uses: actions/cache@v6
         with:
@@ -58,18 +70,19 @@ jobs:
           key: playwright-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}
 
       - name: Install Playwright browsers
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        if: github.event_name != 'pull_request' && steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps chromium
 
       - name: Install Playwright OS dependencies only
-        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        if: github.event_name != 'pull_request' && steps.playwright-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium
 
       - name: E2E smoke tests
+        if: github.event_name != 'pull_request'
         run: npm run e2e
 
       - name: Upload Playwright report
-        if: always()
+        if: always() && github.event_name != 'pull_request'
         uses: actions/upload-artifact@v7
         with:
           name: playwright-report
@@ -80,6 +93,8 @@ jobs:
     # Lighthouse-CI gegen den Produktions-Build: A11y < 0.9 bricht den Build
     # (meta-viewport/Zoom-Blocker eingeschlossen); Performance/SEO/Best-Practices
     # warnen nur. Konfiguration: lighthouserc.json
+    # Nur bei Push auf main (spart Actions-Minuten bei PRs).
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
