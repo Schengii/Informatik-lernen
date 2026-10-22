@@ -26,7 +26,7 @@ Stand der Analyse: 2026-10-22, Version 3.77.0, Branch `main`. Dieser Plan ersetz
 
 ### Phase 2: Lieferkette
 - [x] M05 | `npm audit` einordnen und in CI aufnehmen | P2 | S | `.github/workflows/ci.yml`, `package.json` | package-lock.json:5441, .github/workflows/ci.yml:31 | Fertig wenn: belegt ist, dass `react-native-fs` nicht im Build landet (`dist/` enthält es nicht); CI führt `npm audit --omit=dev --omit=optional --audit-level=high` aus und ist grün, Rest ist in Abschnitt 4 dokumentiert.
-- [ ] M06 | `'unsafe-inline'` für Skripte in der CSP entfernen | P3 | M | `index.html`, `vercel.json` | index.html:83, vercel.json:67 | Fertig wenn: Das Inline-Skript in `index.html:83` ausgelagert oder per Hash erlaubt ist und `script-src` kein `'unsafe-inline'` mehr enthält; E2E aus M01 bleibt grün. Nach M02–M04.
+- [x] M06 | `'unsafe-inline'` für Skripte in der CSP entfernen | P3 | M | `index.html`, `vercel.json` | index.html:83, vercel.json:67 | Fertig wenn: Das Inline-Skript in `index.html:83` ausgelagert oder per Hash erlaubt ist und `script-src` kein `'unsafe-inline'` mehr enthält; E2E aus M01 bleibt grün. Nach M02–M04.
 
 ### Phase 3: Barrierefreiheit (WCAG 2.1 AA)
 - [ ] M07 | Gemeinsamen Dialog-Baustein (Escape, Focus-Trap, Fokus-Rückgabe, `role`/`aria-modal`/`aria-labelledby`) anlegen | P2 | M | `src/components/Shared/` (neu), Test daneben | src/components/Gamification/BadgesModal.jsx:9 (Escape-Logik dort lokal dupliziert), src/components/Footer/DsgvoFooterModal.jsx:12, src/components/Gamification/FlashcardsModal.jsx:18 | Fertig wenn: Baustein mit Unit-Test (Tab-Zyklus, Escape, Fokus-Rückgabe) existiert.

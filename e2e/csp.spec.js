@@ -41,3 +41,10 @@ test('Monaco-Editor lädt unter der Produktions-CSP ohne Verstoß', async ({ pag
   await expect(page.locator('.monaco-editor').first()).toBeVisible({ timeout: 20000 });
   expect(await violations(page)).toEqual([]);
 });
+
+test('Startseite lädt ohne Inline-Skript-Verstoß und blendet das Skeleton aus', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('#app-skeleton')).toHaveCount(0, { timeout: 10000 });
+  const scriptViolations = (await violations(page)).filter((entry) => entry.startsWith('script-src'));
+  expect(scriptViolations).toEqual([]);
+});
