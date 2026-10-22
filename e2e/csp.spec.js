@@ -29,7 +29,7 @@ test('Code-Sandbox läuft unter der Produktions-CSP ohne Verstoß', async ({ pag
   expect(await violations(page)).toEqual([]);
 });
 
-test.fixme('Video-Player (YouTube-Embed) wird von der CSP nicht blockiert', async ({ page }) => {
+test('Video-Player (YouTube-Embed) wird von der CSP nicht blockiert', async ({ page }) => {
   await page.goto('/videos');
   await expect(page.locator('iframe[src*="youtube-nocookie.com"]')).toBeVisible();
   expect(await violations(page)).toEqual([]);
