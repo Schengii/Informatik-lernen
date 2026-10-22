@@ -34,7 +34,7 @@ Stand der Analyse: 2026-10-22, Version 3.77.0, Branch `main`. Dieser Plan ersetz
 - [x] M09 | Die 3 bestehenden Dialoge auf den Baustein umstellen | P2 | S | `BadgesModal.jsx`, `FlashcardsModal.jsx`, `DsgvoFooterModal.jsx` | src/components/Gamification/BadgesModal.jsx:38, src/components/Gamification/FlashcardsModal.jsx:117, src/components/Footer/DsgvoFooterModal.jsx:236 (haben `role="dialog"`, aber kein `focus`) | Fertig wenn: lokale Escape-Handler entfallen und Fokus beim Öffnen/Schließen korrekt gesetzt wird (Unit-Test).
 
 ### Phase 4: PWA
-- [ ] M10 | PNG-Icons (192/512, maskable) ins Manifest und als Benachrichtigungs-Icon | P2 | S | `vite.config.js`, `public/`, `src/utils/pushNotificationManager.js`, `scripts/` | vite.config.js:48-54, src/utils/pushNotificationManager.js:38, :39, :57 | Fertig wenn: Manifest enthält PNG 192×192 und 512×512 (inkl. maskable), `pushNotificationManager.js` verweist darauf und Lighthouse-CI (`lighthouserc.json`) bleibt grün.
+- [x] M10 | PNG-Icons (192/512, maskable) ins Manifest und als Benachrichtigungs-Icon | P2 | S | `vite.config.js`, `public/`, `src/utils/pushNotificationManager.js`, `scripts/` | vite.config.js:48-54, src/utils/pushNotificationManager.js:38, :39, :57 | Fertig wenn: Manifest enthält PNG 192×192 und 512×512 (inkl. maskable), `pushNotificationManager.js` verweist darauf und Lighthouse-CI (`lighthouserc.json`) bleibt grün.
 
 ### Phase 5: Tests, CI, Developer Experience
 - [ ] M11 | Doppelten Testlauf in CI entfernen | P2 | S | `.github/workflows/ci.yml` | .github/workflows/ci.yml:30-34 | Fertig wenn: nur `npm run test:coverage` läuft (führt alle Tests aus: 1909 grün im Coverage-Lauf bestätigt) und die CI-Laufzeit sinkt messbar.
