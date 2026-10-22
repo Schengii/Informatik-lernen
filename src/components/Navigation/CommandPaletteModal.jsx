@@ -8,6 +8,7 @@ import {
   Clock, GitPullRequest, Calendar, Key, HardDrive, FileCode, TrendingDown,
   Cloud, Compass, GraduationCap, Route, Scale, Building2, Users, KeyRound
 } from 'lucide-react';
+import { useDialogA11y } from '../Shared/useDialogA11y';
 import { TOPICS } from '../../data/topicsData';
 import { GLOSSARY_TERMS } from '../../data/glossaryData';
 import { LAB_MODULES } from '../../data/labModulesData';
@@ -16,6 +17,8 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
   const [search, setSearch] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef(null);
+  const dialogRef = useRef(null);
+  useDialogA11y(isOpen, onClose, dialogRef, { closeOnEscape: false });
 
   const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
   if (isOpen !== prevIsOpen) {
@@ -321,6 +324,11 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
           exit={{ opacity: 0, scale: 0.95, y: -20 }}
           transition={{ duration: 0.15 }}
           onClick={e => e.stopPropagation()}
+          ref={dialogRef}
+          tabIndex={-1}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Befehlspalette: Module suchen"
           style={{
             width: '100%',
             maxWidth: '640px',

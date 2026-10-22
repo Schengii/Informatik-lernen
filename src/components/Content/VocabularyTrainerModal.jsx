@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { useDialogA11y } from '../Shared/useDialogA11y';
 import { VOCABULARY_LIST } from '../../data/vocabularyData';
 import { BookMarked, Search, Volume2, X } from 'lucide-react';
 
 export default function VocabularyTrainerModal({ isOpen, onClose }) {
+  const dialogRef = useRef(null);
+  useDialogA11y(isOpen, onClose, dialogRef);
   const [searchTerm, setSearchTerm] = useState('');
   const [activeVocabId, setActiveVocabId] = useState(VOCABULARY_LIST[0].id);
 
@@ -57,10 +60,15 @@ export default function VocabularyTrainerModal({ isOpen, onClose }) {
           flexDirection: 'column'
         }}
         onClick={(e) => e.stopPropagation()}
+        ref={dialogRef}
+        tabIndex={-1}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="vocabulary-modal-title"
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
           <div>
-            <h2 style={{ fontSize: '1.8rem', fontWeight: '800', margin: 0, display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-main)' }}>
+            <h2 id="vocabulary-modal-title" style={{ fontSize: '1.8rem', fontWeight: '800', margin: 0, display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-main)' }}>
               <BookMarked size={28} style={{ color: 'var(--accent-teal)' }} /> IT-Vokabeltrainer & Fachbegriffe
             </h2>
             <span style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>

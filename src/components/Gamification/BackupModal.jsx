@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { useDialogA11y } from '../Shared/useDialogA11y';
 import { Download, Upload, ShieldCheck, X, CheckCircle2, AlertCircle } from 'lucide-react';
 import { exportUserDataJSON, importUserDataJSON, flushUserState, loadUserState } from '../../utils/storage';
 
 export default function BackupModal({ isOpen, onClose, onStateRestored }) {
+  const dialogRef = useRef(null);
+  useDialogA11y(isOpen, onClose, dialogRef);
   const [importStatus, setImportStatus] = useState(null);
 
   if (!isOpen) return null;
@@ -63,6 +66,11 @@ export default function BackupModal({ isOpen, onClose, onStateRestored }) {
           position: 'relative'
         }}
         onClick={(e) => e.stopPropagation()}
+        ref={dialogRef}
+        tabIndex={-1}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="backup-modal-title"
       >
         <button
           onClick={onClose}
@@ -74,7 +82,7 @@ export default function BackupModal({ isOpen, onClose, onStateRestored }) {
 
         <div style={{ textAlign: 'center', marginBottom: '24px' }}>
           <ShieldCheck size={36} style={{ color: 'var(--accent-teal)', marginBottom: '8px' }} />
-          <h2 style={{ fontSize: '1.8rem', fontWeight: '800', margin: '4px 0', color: 'var(--text-main)' }}>
+          <h2 id="backup-modal-title" style={{ fontSize: '1.8rem', fontWeight: '800', margin: '4px 0', color: 'var(--text-main)' }}>
             Daten-Backup & Wiederherstellung
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem' }}>
