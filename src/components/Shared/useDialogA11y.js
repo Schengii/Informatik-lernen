@@ -43,7 +43,6 @@ export function useDialogA11y(isOpen, onClose, dialogRef, { closeOnEscape = true
 
     const handleKeyDown = (event) => {
       if (event.key === 'Escape' && closeOnEscape) {
-        event.stopPropagation();
         onCloseRef.current?.();
         return;
       }
@@ -66,9 +65,9 @@ export function useDialogA11y(isOpen, onClose, dialogRef, { closeOnEscape = true
       }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keydown', handleKeyDown);
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keydown', handleKeyDown);
       if (previouslyFocused instanceof HTMLElement && previouslyFocused.isConnected) {
         previouslyFocused.focus();
       }

@@ -1,18 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useRef } from 'react';
+import { useDialogA11y } from '../Shared/useDialogA11y';
 import { BADGES } from '../../utils/storage';
 import { Trophy, X } from 'lucide-react';
 
 export default function BadgesModal({ isOpen, onClose, userState = {} }) {
-  useEffect(() => {
-    if (!isOpen) return;
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, onClose]);
+  const dialogRef = useRef(null);
+  useDialogA11y(isOpen, onClose, dialogRef);
 
   if (!isOpen) return null;
 
@@ -35,6 +28,8 @@ export default function BadgesModal({ isOpen, onClose, userState = {} }) {
       }}
     >
       <div 
+        ref={dialogRef}
+        tabIndex={-1}
         role="dialog"
         aria-modal="true"
         aria-labelledby="badges-modal-title"

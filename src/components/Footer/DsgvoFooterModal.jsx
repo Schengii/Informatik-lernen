@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
+import { useDialogA11y } from '../Shared/useDialogA11y';
 import { Shield, FileText, ExternalLink, X, Heart, Code2, HelpCircle, GitBranch } from 'lucide-react';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -6,16 +7,8 @@ const CURRENT_YEAR = new Date().getFullYear();
 export default function DsgvoFooterModal() {
   const [activeModal, setActiveModal] = useState(null); // 'datenschutz' | 'impressum' | 'dsgvo' | 'faq' | null
 
-  useEffect(() => {
-    if (!activeModal) return;
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') {
-        setActiveModal(null);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [activeModal]);
+  const dialogRef = useRef(null);
+  useDialogA11y(Boolean(activeModal), () => setActiveModal(null), dialogRef);
 
   return (
     <footer
@@ -233,6 +226,8 @@ export default function DsgvoFooterModal() {
           onClick={() => setActiveModal(null)}
         >
           <div
+            ref={dialogRef}
+            tabIndex={-1}
             role="dialog"
             aria-modal="true"
             aria-labelledby="dsgvo-footer-modal-title"

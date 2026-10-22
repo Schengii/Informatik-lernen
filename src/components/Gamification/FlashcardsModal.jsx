@@ -1,4 +1,5 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
+import { useDialogA11y } from '../Shared/useDialogA11y';
 import { FLASHCARDS_DATA } from '../../data/flashcardsData';
 import { Layers, CheckCircle2, XCircle, X, Brain, Clock, Download } from 'lucide-react';
 import { useStore } from '../../store/useStore';
@@ -12,16 +13,8 @@ export default function FlashcardsModal({ isOpen, onClose, onRewardXP }) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [completedCount, setCompletedCount] = useState(0);
 
-  useEffect(() => {
-    if (!isOpen) return;
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, onClose]);
+  const dialogRef = useRef(null);
+  useDialogA11y(isOpen, onClose, dialogRef);
 
   // M18: Due-Date Filter & Priorisierung
   // Fällige Karten (dueDate <= today oder noch nie gelernt) zuerst sortieren
@@ -114,6 +107,8 @@ export default function FlashcardsModal({ isOpen, onClose, onRewardXP }) {
       onClick={onClose}
     >
       <div
+        ref={dialogRef}
+        tabIndex={-1}
         role="dialog"
         aria-modal="true"
         aria-labelledby="flashcards-modal-title"
