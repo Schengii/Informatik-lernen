@@ -31,6 +31,9 @@ test('Code-Sandbox läuft unter der Produktions-CSP ohne Verstoß', async ({ pag
 
 test('Video-Player (YouTube-Embed) wird von der CSP nicht blockiert', async ({ page }) => {
   await page.goto('/videos');
+  // Ohne Klick darf keine Verbindung zu YouTube entstehen (Einwilligung)
+  await expect(page.locator('iframe[src*="youtube-nocookie.com"]')).toHaveCount(0);
+  await page.getByRole('button', { name: /Video von YouTube laden/i }).click();
   await expect(page.locator('iframe[src*="youtube-nocookie.com"]')).toBeVisible();
   expect(await violations(page)).toEqual([]);
 });
