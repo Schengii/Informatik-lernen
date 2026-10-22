@@ -283,7 +283,7 @@ export default function Navbar({
           >
             <Code2 size={22} color="#ffffff" />
           </div>
-          <div>
+          <div className="brand-text">
             <h1 style={{ fontSize: '1.25rem', fontWeight: '900', letterSpacing: '-0.5px', margin: 0, color: 'var(--text-main)' }}>
               IT<span className="text-gradient">-DEVGAME</span>
             </h1>
@@ -578,7 +578,7 @@ export default function Navbar({
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           {/* Quick Search Button (Command Palette) */}
           <button
-            className="btn btn-secondary btn-sm"
+            className="btn btn-secondary btn-sm header-btn"
             onClick={onOpenCommandPalette}
             style={{ 
               gap: '6px', 
@@ -593,14 +593,14 @@ export default function Navbar({
           >
             <Search size={16} />
             <span className="desktop-only" style={{ fontSize: '0.88rem' }}>Suche</span>
-            <kbd style={{ background: 'var(--bg-card)', padding: '2px 5px', borderRadius: '4px', fontSize: '0.7rem', border: '1px solid var(--border-color)', color: 'var(--text-muted)' }}>Ctrl+K</kbd>
+            <kbd className="desktop-only" style={{ background: 'var(--bg-card)', padding: '2px 5px', borderRadius: '4px', fontSize: '0.7rem', border: '1px solid var(--border-color)', color: 'var(--text-muted)' }}>Ctrl+K</kbd>
           </button>
 
           {/* DROPDOWN: Tools & Lernwerkzeuge */}
           <div style={{ position: 'relative' }}>
             <button
               onClick={() => toggleDropdown('tools')}
-              className="btn btn-secondary btn-sm"
+              className="btn btn-secondary btn-sm header-btn"
               style={{
                 minHeight: '40px',
                 padding: '8px 14px',
@@ -699,7 +699,7 @@ export default function Navbar({
           <div style={{ position: 'relative' }}>
             <button
               onClick={() => toggleDropdown('profile_menu')}
-              className="btn btn-secondary btn-sm"
+              className="btn btn-secondary btn-sm header-btn"
               style={{
                 minHeight: '40px',
                 padding: '6px 12px',
@@ -855,7 +855,7 @@ export default function Navbar({
           <button
             className="mobile-only btn btn-secondary btn-sm"
             onClick={() => toggleDropdown('mobile_nav')}
-            style={{ minHeight: '40px', width: '40px', padding: 0, borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+            style={{ minHeight: '40px', width: '40px', flexShrink: 0, padding: 0, borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             aria-label="Navigation öffnen"
           >
             {activeDropdown === 'mobile_nav' ? <X size={20} /> : <Menu size={20} />}
