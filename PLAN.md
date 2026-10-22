@@ -2,7 +2,9 @@
 
 Stand der Analyse: 2026-10-22, Version 3.77.0, Branch `main`. Dieser Plan ersetzt den vorherigen (alle M01–M25 waren erledigt; Verlauf in der Git-Historie). Einzige Arbeitsgrundlage für Umsetzung und Tests.
 
-## 1. Ist-Zustand (max. 10 Zeilen)
+**Umsetzungsstand (2026-10-22, Branch `feat/plan-umsetzung`, Version 3.78.0):** erledigt M01–M11, M14–M18; teilweise M13 (Rest in N01–N03); verworfen M12 (Messung); blockiert/zurückgestellt M19, M20 (Begründung jeweils in der Zeile). Verifikation: `lint:ci`, `typecheck`, `npm audit` (prod), Build, `size`, 1946 Unit-Tests, 38 E2E-Tests grün. Legende: `[x]` erledigt, `[~]` teilweise/verworfen, `[!]` blockiert/zurückgestellt.
+
+## 1. Ist-Zustand (max. 10 Zeilen, Stand der Analyse vor der Umsetzung)
 1. Stack: React 19, Vite 8 (Rolldown), Zustand, Vitest 5, Playwright, Oxlint. 238 Dateien in `src/components/Content/`, 153 `*Engine.js`, alle Engines mit `// @ts-check`.
 2. Gemessen: `lint:ci` 0 Warnungen, `typecheck` fehlerfrei, `build` 4,5 s, `size` alle 6 Limits eingehalten, `npm test` 212 Dateien / 1909 Tests grün (136 s). E2E nicht ausgeführt.
 3. Coverage (gemessen): Statements 62,46 / Branches 54,35 / Functions 47,68 / Lines 64,04 % – knapp über den Schwellen (60/52/45/62).

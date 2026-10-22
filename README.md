@@ -36,14 +36,14 @@ Die **vollständige, automatisch erzeugte Lab-Liste** steht in [`docs/LABS.md`](
 
 ```
 Informatik-lernen/
-├── .agents/AGENTS.md          Regeln für KI-Agenten
+├── .agents/AGENTS.md          Verweis auf CLAUDE.md für KI-Agenten
 ├── .claude/                   Claude Code Einstellungen & Slash-Befehle (/test, /verify, /new-lab, /review)
 ├── .githooks/pre-commit       Sicherheits-Hook (blockiert .env-Dateien & API-Keys)
 ├── .github/                   CI-Workflow, Dependabot, Issue-/PR-Templates, config.yml
 ├── docs/                      LABS.md (generiert), README-Archiv.md (alte Feature-Historie bis v3.74.0)
-├── e2e/                       Playwright-Tests (Smoke, A11y, PWA, Sandbox, Lab-Interaktionen)
+├── e2e/                       Playwright-Tests (Smoke, A11y, PWA, Sandbox, CSP, Lab-Interaktionen)
 ├── public/                    Statische Assets, PWA-Icons
-├── scripts/                   new-lab.js (Lab-Scaffold), gen-lab-list.js (docs/LABS.md), OG-Image
+├── scripts/                   new-lab.js (Lab-Scaffold), gen-lab-list.js (docs/LABS.md), OG-Image, PWA-Icons
 ├── src/
 │   ├── components/            Content/ (Labs), Games/, Navigation/, Shared/, Modals …
 │   ├── data/                  labRegistry.js (Routing), labModulesData.js (Dashboard/Palette), Fragen-/Lerninhalte
@@ -53,7 +53,8 @@ Informatik-lernen/
 ├── .claudeignore              Token- und Datenschutz-Ausschlüsse für Claude Code & CLI
 ├── .env / .env.example        Lokale Umgebungsvariablen (Sentry DSN, Port etc.)
 ├── CHANGELOG.md               Änderungen (Keep a Changelog)
-├── CLAUDE.md / GEMINI.md      Leitfäden für KI-Assistenten
+├── CLAUDE.md / GEMINI.md      Leitfaden für KI-Assistenten (GEMINI.md verweist auf CLAUDE.md)
+├── PLAN.md                    Umsetzungsplan mit Status je Maßnahme
 ├── CONTRIBUTING.md            Entwickler- & Beitragsleitfaden
 ├── SECURITY.md                Sicherheitsrichtlinien & Responsible Disclosure
 ├── CODE_OF_CONDUCT.md         Contributor Covenant Verhaltenskodex
@@ -67,10 +68,10 @@ Informatik-lernen/
 1. **State (`zustand`)**: XP, Level, Badges, Fortschritt, SM-2-Karten, Aktivitätshistorie, Notizen liegen lokal im Browser (`localStorage`) und werden über `indexedDbStoreMiddleware.js` redundant in IndexedDB gesichert (Schutz vor Quota-Überschreitung / gelöschtem LocalStorage). Tab-übergreifender Sync per BroadcastChannel.
 2. **Engine ↔ UI**: Berechnungen stehen als reine Funktionen in `src/utils/*Engine.js` (isoliert getestet), die UI in `src/components/Content/*.jsx` konsumiert sie und vergibt XP.
 3. **Lab-Routing**: Jedes Lab ist ein Eintrag in `src/data/labRegistry.js` und wird per `React.lazy` nachgeladen; `labModulesData.js` liefert Metadaten für Dashboard und Command-Palette (bewusst getrennt, damit Icons/Beschreibungen nicht im Haupt-Bundle landen).
-4. **Code-Sandbox**: Nutzercode läuft in einem Web Worker (3 s Timeout, kein DOM-/Storage-/Netzwerkzugriff) – kein Rückfall auf den Haupt-Thread.
-5. **PWA & Bundle**: `vite-plugin-pwa` mit Precache der App-Chunks; Vendor-Chunks (`react/ui/charts/pdf/sql`) mit `size-limit`-Budgets, schwere Chunks per Runtime-Cache.
+4. **Code-Sandbox**: Nutzercode läuft in einem Web Worker (3 s Timeout, kein DOM-/Storage-/Netzwerkzugriff) – kein Rückfall auf den Haupt-Thread. Der Worker hat in `vercel.json` eine eigene CSP (`'unsafe-eval'` nur dort, `connect-src 'none'`).
+5. **PWA & Bundle**: `vite-plugin-pwa` mit Precache der App-Chunks; Vendor-Chunks (`react/ui/charts/pdf/sql`) mit `size-limit`-Budgets, schwere Chunks (inkl. des lokal gebündelten Monaco-Editors) per Runtime-Cache.
 6. **Audio**: Soundeffekte werden zur Laufzeit per Web Audio API synthetisiert.
-7. **Qualität (CI)**: `lint:ci` → `typecheck` → `test` → `test:coverage` → `build` → `size` → `e2e`. Smoke- und axe-A11y-Tests rendern jedes Lab automatisch.
+7. **Qualität (CI)**: `npm audit` → `lint:ci` → `typecheck` → `test:coverage` (führt alle Tests aus) → `build` → `size` → `e2e`; danach Lighthouse auf dem Build-Artefakt. Smoke- und axe-A11y-Tests rendern jedes Lab automatisch.
 
 ## ♿ Barrierefreiheit
 
@@ -134,7 +135,14 @@ Das Repository ist für nahtlose Zusammenarbeit mit Entwicklern und KI-Agenten (
 - Sicherheitsrichtlinien: [`SECURITY.md`](SECURITY.md)
 - Ausführliche Feature-Beschreibungen und Änderungshistorie bis v3.74.0: [`docs/README-Archiv.md`](docs/README-Archiv.md)
 
-### Aktuelle Version (v3.77.0) & Neueste Verbesserungen
+### Aktuelle Version (v3.78.0) & Neueste Verbesserungen
+- **CSP unter Test**: `vite preview`/E2E liefern die Vercel-Header aus; `e2e/csp.spec.js` prüft Sandbox, YouTube-Player und Monaco ohne CSP-Verstoß. Sandbox-Worker mit eigener CSP, Monaco lokal gebündelt, `script-src` ohne `'unsafe-inline'`.
+- **Barrierefreiheit**: Alle Modals sind modale Dialoge mit Focus-Trap, Escape und Fokus-Rückgabe (`Shared/useDialogA11y`); Oxlint prüft jetzt zusätzlich `jsx-a11y`.
+- **PWA**: PNG-Icons (192/512/maskable), erzeugt mit `node scripts/generate-pwa-icons.js`.
+- **CI**: `npm audit`-Schritt, ein Testlauf statt zwei, Lighthouse ohne zweiten Build, höhere Coverage-Schwellen.
+- Umsetzungsstand und offene Punkte: [`PLAN.md`](PLAN.md).
+
+### Version 3.77.0 (Bereinigung, Badges, Härtung)
 - **Projektweite Bereinigung & Iframe-Härtung**: Beseitigung redundanter Variablen-Aliase (`OsProcessSchedulerLab`), Absicherung der Push-Notification-Instanziierung und Härtung des YouTube-Embeds in `VideoHub` via `sandbox`-Attribute.
 - **Vollständige Lab-Mastery-Badges (162 Badges)**: Alle 149 Lab-Mastery-Badges aus `src/data/labRegistry.js` sind jetzt lückenlos in der globalen Badge-Tabelle (`src/utils/storage.js`) definiert und werden im `BadgesModal` fehlerfrei angezeigt.
 - **CI & Oxlint-Bereinigung**: Vollständige Beseitigung aller Linter-Warnungen im CI-Modus (`npm run lint:ci --deny-warnings`) über 704 Dateien (Immutabilitätsmuster, React-Purity-Regeln, Timer-Callbacks).

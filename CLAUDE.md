@@ -61,7 +61,7 @@ npm run build
 npm run preview
 ```
 
-CI-Reihenfolge: `lint:ci` → `typecheck` → `test` → `test:coverage` → `build` → `size` → `e2e`. Zusätzlich läuft ein separater Lighthouse-CI-Job (`lighthouserc.json`) gegen den Build.
+CI-Reihenfolge: `npm audit --omit=dev --omit=optional` → `lint:ci` → `typecheck` → `test:coverage` (führt alle Tests aus) → `build` → `size` → `e2e`. Zusätzlich läuft ein separater Lighthouse-CI-Job (`lighthouserc.json`) gegen den Build.
 
 ### 🤖 Claude Code Slash-Befehle (`.claude/commands/`)
 - `/test`: Führt vitest im schnellen oder vollständigen Modus aus und analysiert Fehler.
@@ -84,6 +84,8 @@ CI-Reihenfolge: `lint:ci` → `typecheck` → `test` → `test:coverage` → `bu
 4. **Barrierefreiheit (Accessibility & A11y)**:
    - Respektiere Nutzer-Präferenzen für reduzierte Bewegung (`prefers-reduced-motion` und `body.reduced-motion`).
    - Keine Viewport-Zoom-Blocker (`user-scalable=no` verboten).
+   - Jedes Modal mit `isOpen`/`onClose` nutzt `useDialogA11y` (`src/components/Shared/useDialogA11y.js`): Focus-Trap, Escape, Fokus-Rückgabe; der Panel-Container bekommt `ref`, `tabIndex={-1}`, `role="dialog"`, `aria-modal="true"` und `aria-labelledby`. Der Backdrop schließt nur bei `e.target === e.currentTarget`. `src/components/modalsA11y.test.jsx` prüft den Vertrag – neue Modals dort eintragen.
+   - Oxlint nutzt `jsx-a11y` (`.oxlintrc.json`); `label-has-associated-control`, `click-events-have-key-events`, `no-static-element-interactions` und `prefer-tag-over-role` sind bewusst noch aus (offene Punkte N01–N03 in `PLAN.md`).
 5. **README- & CHANGELOG-Wartungsregel** (auch `_Projektuebersicht.md` wird bei neuen Labs gepflegt, siehe Git-Historie):
    - Wann immer Dateien hinzugefügt, verändert oder entfernt werden, müssen `README.md` und `CHANGELOG.md` aktualisiert und die Änderungshistorie fortgeführt werden.
 6. **Fehlerisolation (Error Boundaries)**:
@@ -129,9 +131,15 @@ Achtung: Beide Glob-Tests laden `Content/*.jsx` und schließen `*.test.jsx` aus 
 
 `GEMINI.md` und `.agents/AGENTS.md` enthalten für andere KI-Assistenten weitgehend dieselben Projektregeln. Ändern sich Befehle oder Prinzipien hier, die beiden Dateien mitpflegen. `PLAN.md` ist der laufende Umsetzungsplan, `.claudeignore` hält Build-Artefakte (`dist`, `coverage`, `node_modules`) aus dem Kontext.
 
+## 🔐 CSP & Preview
+
+- Die Header (inkl. CSP) stehen in `vercel.json`. `vite preview` liefert sie lokal mit aus (Plugin `vercelHeadersForPreview` in `vite.config.js`, liest die `source`-Muster als RegExp), die E2E-Tests laufen also unter der Produktions-CSP; `e2e/csp.spec.js` schlägt bei `securitypolicyviolation` fehl.
+- Der Sandbox-Worker (`assets/sandbox.worker-*.js`) hat eine eigene CSP mit `'unsafe-eval'` (nötig für `new Function`, siehe Prinzip 9); die globale Regel schließt ihn per Lookahead aus, damit sich die Header nie überlagern. Die Hauptseite hat weder `'unsafe-eval'` noch `'unsafe-inline'` für Skripte – Inline-Skripte gehören nach `public/` (Beispiel: `skeleton-hide.js`).
+- Neue Fremdquellen (Frames, CDNs, Skripte) brauchen einen CSP-Eintrag **und** einen Fall in `e2e/csp.spec.js`. Monaco kommt aus dem eigenen Bundle (`src/utils/monacoLoader.js`), nicht vom CDN.
+
 ## 📦 Bundle & PWA
 
-`vite.config.js` splittet Vendor-Chunks (`vendor-react/ui/charts/pdf/sql`); `size-limit` in `package.json` prüft deren gzip-Größe nach dem Build. Die großen Chunks (pdf/sql/charts) sind vom Workbox-Precache ausgenommen und werden per Runtime-Cache geladen – neue schwere Abhängigkeiten dürfen diese Limits nicht reißen.
+`vite.config.js` splittet Vendor-Chunks (`vendor-react/ui/charts/pdf/sql`); `size-limit` in `package.json` prüft deren gzip-Größe nach dem Build. PWA-Icons (192/512/maskable) erzeugt `node scripts/generate-pwa-icons.js` aus `public/favicon.svg`. Die großen Chunks (pdf/sql/charts sowie Monaco `editor.api`/`*.worker`) sind vom Workbox-Precache ausgenommen und werden per Runtime-Cache geladen – neue schwere Abhängigkeiten dürfen diese Limits nicht reißen.
 
 ## ♿ A11y-Sicherheitsnetz, Streak & Fehlerjournal
 
