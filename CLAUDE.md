@@ -28,7 +28,7 @@ Voraussetzung: Node >=22.19.0 (`engines` in package.json). CI-Workflow: `.github
 # Entwicklungsserver starten (Standard-Port http://localhost:5173)
 npm run dev
 
-# Vollständige Test-Suite ausführen (Anzahl wächst laufend – exakte Zahl steht in README.md)
+# Vollständige Test-Suite ausführen (Anzahl wächst laufend – die aktuelle Zahl nennt der Lauf selbst)
 npm test
 
 # Schneller Testlauf ohne die langsamen A11y- und Routing-Tests (allLabsA11y, *.routing.test.jsx)

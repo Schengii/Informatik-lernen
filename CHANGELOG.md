@@ -11,7 +11,7 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ### Bereinigung & Code-Qualität (Chore)
 - **Projekt-Bereinigung & Analyse (chore/cleanup)**:
-  - Phase 0: Baseline-Sicherung für Build (1.27s), Oxlint (704 Dateien, 0 Warnungen) und Vitest (1.223 Tests bestanden).
+  - Phase 0: Baseline-Sicherung für Build (1.27s), Oxlint (704 Dateien, 0 Warnungen) und Vitest (1.223 Tests bestanden, Stand der Bereinigung; die aktuelle Zahl nennt `npm test`).
   - Phase 1: Projektweite Tiefenanalyse auf Duplikate, ungenutzte Exporte, leere Ordner und Code Smells ohne Beanstandung von Fehlern.
   - Phase 2: Gezielte Härtung und Bereinigung mit hoher Sicherheit:
     - `src/utils/pushNotificationManager.js`: Vermeidung ungenutzter Instanziierung (`new Notification`).
