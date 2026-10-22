@@ -32,10 +32,8 @@ jobs:
       - name: Type-check (gradueller JSDoc-Typing über @ts-check pro Datei)
         run: npm run typecheck
 
-      - name: Unit tests
-        run: npm test
-
-      - name: Coverage report (gated for src/utils/*Engine.js, informational otherwise)
+      # Führt zugleich die komplette Vitest-Suite aus (ein Lauf statt `npm test` + Coverage).
+      - name: Unit tests + coverage (gated for src/utils/*Engine.js, informational otherwise)
         run: npm run test:coverage
 
       - name: Upload coverage report
