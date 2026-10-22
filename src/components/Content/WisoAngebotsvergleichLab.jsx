@@ -451,6 +451,7 @@ export default function WisoAngebotsvergleichLab({ onRewardXP }) {
                     <td style={{ padding: '0.75rem', textAlign: 'center' }}>
                       <input
                         type="number"
+                        aria-label={`${krit.name}: Bewertung TechSource GmbH (1-10)`}
                         min="1"
                         max="10"
                         value={qualScores['TechSource GmbH']?.[krit.name] ?? 5}
@@ -467,6 +468,7 @@ export default function WisoAngebotsvergleichLab({ onRewardXP }) {
                     <td style={{ padding: '0.75rem', textAlign: 'center' }}>
                       <input
                         type="number"
+                        aria-label={`${krit.name}: Bewertung ByteDirect AG (1-10)`}
                         min="1"
                         max="10"
                         value={qualScores['ByteDirect AG']?.[krit.name] ?? 5}

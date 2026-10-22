@@ -287,6 +287,7 @@ export default function OsProcessSchedulerLab() {
                         <td style={{ padding: '10px' }}>
                           <input
                             type="number"
+                            aria-label={`Ankunftszeit ${p.name}`}
                             min="0"
                             max="20"
                             value={p.arrival}
@@ -300,6 +301,7 @@ export default function OsProcessSchedulerLab() {
                         <td style={{ padding: '10px' }}>
                           <input
                             type="number"
+                            aria-label={`Laufzeit (Burst) ${p.name}`}
                             min="1"
                             max="20"
                             value={p.burst}
@@ -313,6 +315,7 @@ export default function OsProcessSchedulerLab() {
                         <td style={{ padding: '10px' }}>
                           <input
                             type="number"
+                            aria-label={`Priorität ${p.name}`}
                             min="1"
                             max="10"
                             value={p.priority}

@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Terminal, CheckCircle2 } from 'lucide-react';
 
 export default function CliTerminalLab({ onCompleteGame }) {
+  const inputRef = useRef(null);
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
   const [history, setHistory] = useState([
     { type: 'output', text: 'Willkommen im IT-DevGame Terminal Simulator v1.0' },
     { type: 'output', text: 'Tippe "help" für eine Übersicht verfügbarer Befehle.' }
@@ -127,7 +131,7 @@ export default function CliTerminalLab({ onCompleteGame }) {
                 fontSize: '0.95rem',
                 outline: 'none'
               }}
-              autoFocus
+              ref={inputRef}
             />
           </form>
         </div>

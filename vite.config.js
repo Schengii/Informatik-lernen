@@ -1,7 +1,30 @@
+import { readFileSync } from 'node:fs'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
+
+// `vite preview` (und damit die E2E-Tests) liefert dieselben Header wie Vercel
+// aus (CSP, HSTS, ...), sonst bleiben CSP-Verstöße bis zum Deployment
+// unsichtbar. Die `source`-Muster aus vercel.json werden als RegExp gelesen;
+// später passende Regeln überschreiben frühere (wie bei Vercel, siehe Muster
+// mit Lookahead für den Sandbox-Worker, damit sich CSPs nie überlagern).
+function vercelHeadersForPreview() {
+  const { headers = [] } = JSON.parse(readFileSync(new URL('./vercel.json', import.meta.url), 'utf8'))
+  const rules = headers.map(({ source, headers: list }) => ({ pattern: new RegExp(`^${source}$`), list }))
+  return {
+    name: 'vercel-headers-for-preview',
+    configurePreviewServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const path = (req.url ?? '/').split('?')[0]
+        for (const { pattern, list } of rules) {
+          if (pattern.test(path)) list.forEach(({ key, value }) => res.setHeader(key, value))
+        }
+        next()
+      })
+    }
+  }
+}
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -9,6 +32,7 @@ export default defineConfig({
     react(),
     // Nur Theme + Utilities (kein Preflight-Reset), damit global.css unverändert bleibt.
     tailwindcss(),
+    vercelHeadersForPreview(),
     VitePWA({
       registerType: 'autoUpdate',
       // Die Registrierung übernimmt src/main.jsx selbst (dort hängt auch das
@@ -27,11 +51,15 @@ export default defineConfig({
         globIgnores: [
           'assets/vendor-pdf-*.js',
           'assets/vendor-sql-*.js',
-          'assets/vendor-charts-*.js'
+          'assets/vendor-charts-*.js',
+          // Monaco (nur im Monaco-Lab): Editor-Kern und Worker
+          'assets/editor.api-*.js',
+          'assets/editor.worker-*.js',
+          'assets/json.worker-*.js'
         ],
         runtimeCaching: [
           {
-            urlPattern: /\/assets\/vendor-(pdf|sql|charts)-[^/]+\.js$/,
+            urlPattern: /\/assets\/(vendor-(pdf|sql|charts)|editor\.api|editor\.worker|json\.worker)-[^/]+\.js$/,
             handler: 'StaleWhileRevalidate',
             options: {
               cacheName: 'vendor-large-chunks',
@@ -46,12 +74,10 @@ export default defineConfig({
         description: 'Interaktives Informatik-Spiel & Lernplattform',
         theme_color: '#0f172a',
         icons: [
-          {
-            src: 'favicon.svg',
-            sizes: 'any',
-            type: 'image/svg+xml',
-            purpose: 'any maskable'
-          }
+          { src: 'favicon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
+          { src: 'pwa-192x192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
+          { src: 'pwa-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
+          { src: 'pwa-maskable-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }
         ]
       }
     })
@@ -111,12 +137,12 @@ export default defineConfig({
       // knapp unter dem aktuellen Ist-Stand, damit neue Engines nicht
       // ungetestet einsickern können, ohne bestehende Ausreißer zu blockieren.
       thresholds: {
-        // Globale Untergrenze (Ist-Stand 07.10.2026: 61,9 / 53,6 / 47,1 / 63,5 %): verhindert,
+        // Globale Untergrenze (Ist-Stand 22.10.2026: 62,7 / 54,6 / 47,8 / 64,3 %): verhindert,
         // dass neue Komponenten/Utilities die Gesamtabdeckung still absenken.
-        statements: 60,
-        branches: 52,
-        functions: 45,
-        lines: 62,
+        statements: 61,
+        branches: 53,
+        functions: 46,
+        lines: 63,
         'src/utils/**/*Engine.js': {
           lines: 85,
           branches: 70,

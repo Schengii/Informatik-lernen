@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { useDialogA11y } from '../Shared/useDialogA11y';
 import { GLOSSARY_TERMS } from '../../data/glossaryData';
 import { BookOpen, Search, X, Volume2, Pause } from 'lucide-react';
 
 export default function GlossaryModal({ isOpen, onClose }) {
+  const dialogRef = useRef(null);
+  useDialogA11y(isOpen, onClose, dialogRef);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [activeTermId, setActiveTermId] = useState(GLOSSARY_TERMS[0].id);
@@ -60,7 +63,7 @@ export default function GlossaryModal({ isOpen, onClose }) {
         zIndex: 2000,
         padding: '20px'
       }}
-      onClick={onClose}
+      onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       <div
         className="glass-panel animate-fade-in"
@@ -77,12 +80,16 @@ export default function GlossaryModal({ isOpen, onClose }) {
           boxShadow: 'var(--shadow-card)',
           position: 'relative'
         }}
-        onClick={(e) => e.stopPropagation()}
+        ref={dialogRef}
+        tabIndex={-1}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="glossary-modal-title"
       >
         {/* Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', borderBottom: '1px solid var(--border-color)', paddingBottom: '14px' }}>
           <div>
-            <h2 style={{ fontSize: '1.8rem', fontWeight: '800', margin: 0, display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-main)' }}>
+            <h2 id="glossary-modal-title" style={{ fontSize: '1.8rem', fontWeight: '800', margin: 0, display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--text-main)' }}>
               <BookOpen size={28} style={{ color: 'var(--accent-primary)' }} /> Interaktives IT-Lexikon & Fachbegriffe
             </h2>
             <span style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>

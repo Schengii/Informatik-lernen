@@ -9,9 +9,33 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unveröffentlicht]
 
+## [3.78.0] - 2026-10-22
+
+Umsetzung von `PLAN.md` (M01–M20, Details und Status dort).
+
+### Sicherheit (Security)
+- **Produktions-CSP wird jetzt getestet**: `vite preview` und damit die E2E-Tests liefern die Header aus `vercel.json` aus (`vite.config.js`, Plugin `vercelHeadersForPreview`); neue `e2e/csp.spec.js` wertet `securitypolicyviolation`-Ereignisse als Fehler.
+- **Im Browser bestätigte CSP-Fehler behoben**: Der Sandbox-Worker (`new Function`) bekommt eine eigene, strengere CSP (`'unsafe-eval'` nur dort, `connect-src 'none'`), die Hauptseite bleibt ohne `'unsafe-eval'`; `frame-src` erlaubt den YouTube-Player (`youtube-nocookie.com`); Monaco wird lokal gebündelt (`src/utils/monacoLoader.js`) statt vom CDN geladen.
+- **`script-src` ohne `'unsafe-inline'`**: Das Skeleton-Skript liegt jetzt in `public/skeleton-hide.js`.
+- **Lieferkette**: CI führt `npm audit --omit=dev --omit=optional --audit-level=high` aus (die 20 Funde der Rohausgabe stammen nur aus `react-native-fs`, einer optionalen Abhängigkeit von `alasql`, die nicht im Browser-Build landet).
+
+### Barrierefreiheit (A11y)
+- Neuer Baustein `src/components/Shared/useDialogA11y.js` (Focus-Trap, Escape, Fokus-Rückgabe) mit Unit-Tests; alle 11 Modals sind jetzt modale Dialoge (`role="dialog"`, `aria-modal`, Beschriftung); Sammeltest `src/components/modalsA11y.test.jsx`.
+- Oxlint-Plugin `jsx-a11y` aktiviert; 18 Befunde behoben (fehlende `aria-label`s in Wiso-/VLSM-/Scheduler-Labs und Audio-Schalter, `autoFocus` im CLI-Terminal). Drei Massenregeln sind vorerst aus (siehe `PLAN.md` N01–N03).
+
+### PWA
+- PNG-Icons (192, 512, maskable) im Manifest (`scripts/generate-pwa-icons.js`) und als Benachrichtigungs-Icon; Monaco-Chunks sind vom Precache ausgenommen und werden per Runtime-Cache geladen.
+
+### CI & Tooling
+- Tests laufen einmal (`test:coverage`) statt zweimal; der Lighthouse-Job nutzt den `dist`-Artefakt des test-Jobs statt eines zweiten Builds; Coverage-Schwellen auf 61/53/46/63 % angehoben.
+- `monaco-editor` ist jetzt direkte Abhängigkeit.
+
+### Dokumentation
+- `GEMINI.md` und `.agents/AGENTS.md` verweisen auf `CLAUDE.md` (eine Quelle); `CLAUDE.md` um Badges, Multi-Tab-Sync, CSP und Dialog-Regeln ergänzt; Testzahl-Verweise korrigiert.
+
 ### Bereinigung & Code-Qualität (Chore)
 - **Projekt-Bereinigung & Analyse (chore/cleanup)**:
-  - Phase 0: Baseline-Sicherung für Build (1.27s), Oxlint (704 Dateien, 0 Warnungen) und Vitest (1.223 Tests bestanden).
+  - Phase 0: Baseline-Sicherung für Build (1.27s), Oxlint (704 Dateien, 0 Warnungen) und Vitest (1.223 Tests bestanden, Stand der Bereinigung; die aktuelle Zahl nennt `npm test`).
   - Phase 1: Projektweite Tiefenanalyse auf Duplikate, ungenutzte Exporte, leere Ordner und Code Smells ohne Beanstandung von Fehlern.
   - Phase 2: Gezielte Härtung und Bereinigung mit hoher Sicherheit:
     - `src/utils/pushNotificationManager.js`: Vermeidung ungenutzter Instanziierung (`new Notification`).
