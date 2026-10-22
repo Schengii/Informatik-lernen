@@ -223,7 +223,7 @@ export default function DsgvoFooterModal() {
             justifyContent: 'center',
             padding: '20px'
           }}
-          onClick={() => setActiveModal(null)}
+          onClick={(e) => e.target === e.currentTarget && setActiveModal(null)}
         >
           <div
             ref={dialogRef}
@@ -245,7 +245,6 @@ export default function DsgvoFooterModal() {
               border: '2px solid var(--accent-primary)',
               borderRadius: 'var(--radius-xl)'
             }}
-            onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setActiveModal(null)}

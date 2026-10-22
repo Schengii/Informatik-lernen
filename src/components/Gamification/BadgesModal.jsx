@@ -11,7 +11,7 @@ export default function BadgesModal({ isOpen, onClose, userState = {} }) {
 
   return (
     <div 
-      onClick={onClose}
+      onClick={(e) => e.target === e.currentTarget && onClose()}
       style={{
         position: 'fixed',
         top: 0,
@@ -33,7 +33,6 @@ export default function BadgesModal({ isOpen, onClose, userState = {} }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="badges-modal-title"
-        onClick={(e) => e.stopPropagation()}
         style={{
           maxWidth: '700px',
           width: '100%',

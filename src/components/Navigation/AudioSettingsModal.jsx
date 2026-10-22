@@ -61,6 +61,9 @@ export default function AudioSettingsModal({ isOpen, onClose }) {
               </div>
               <button
                 onClick={() => setIsSoundMuted(!isSoundMuted)}
+                role="switch"
+                aria-checked={!isSoundMuted}
+                aria-label="Sound aktivieren"
                 className={`w-12 h-6 flex items-center rounded-full p-1 transition duration-300 ${
                   !isSoundMuted ? 'bg-emerald-600 justify-end' : 'bg-slate-700 justify-start'
                 }`}

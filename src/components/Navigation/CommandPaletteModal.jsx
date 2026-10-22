@@ -373,6 +373,7 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
           </div>
 
           {/* Results List */}
+          {/* oxlint-disable-next-line jsx-a11y/no-noninteractive-tabindex -- scrollbarer Bereich muss per Tastatur fokussierbar sein (WCAG 2.1.1) */}
           <div tabIndex={0} aria-label="Suchergebnisse" style={{ maxHeight: '380px', overflowY: 'auto', padding: '8px' }}>
             {filteredItems.length === 0 ? (
               <div style={{ padding: '32px 16px', textAlign: 'center', color: 'var(--text-muted)' }}>

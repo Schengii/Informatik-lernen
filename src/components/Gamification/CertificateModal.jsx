@@ -93,7 +93,7 @@ export default function CertificateModal({ isOpen, onClose, userState }) {
         zIndex: 2000,
         padding: '20px'
       }}
-      onClick={onClose}
+      onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       <div
         className="glass-panel animate-fade-in"
@@ -111,7 +111,6 @@ export default function CertificateModal({ isOpen, onClose, userState }) {
           position: 'relative',
           textAlign: 'center'
         }}
-        onClick={(e) => e.stopPropagation()}
         ref={dialogRef}
         tabIndex={-1}
         role="dialog"

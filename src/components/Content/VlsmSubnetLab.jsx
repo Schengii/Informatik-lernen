@@ -218,6 +218,7 @@ export default function VlsmSubnetLab({ onRewardXP }) {
                   <td style={{ padding: '8px' }}>
                     <input
                       type="text"
+                      aria-label="Subnetzname"
                       value={s.name}
                       onChange={(e) => handleUpdateName(s.id, e.target.value)}
                       style={{ padding: '4px 8px', borderRadius: '4px', border: '1px solid var(--border-color)', background: 'var(--bg-tertiary)', width: '100%', minWidth: '150px' }}
@@ -226,6 +227,7 @@ export default function VlsmSubnetLab({ onRewardXP }) {
                   <td style={{ padding: '8px' }}>
                     <input
                       type="number"
+                      aria-label={`Benötigte Hosts für ${s.name}`}
                       min="1"
                       value={s.requiredHosts}
                       onChange={(e) => handleUpdateHosts(s.id, e.target.value)}

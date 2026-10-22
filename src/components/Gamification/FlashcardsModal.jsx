@@ -104,7 +104,7 @@ export default function FlashcardsModal({ isOpen, onClose, onRewardXP }) {
         zIndex: 2000,
         padding: '20px'
       }}
-      onClick={onClose}
+      onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       <div
         ref={dialogRef}
@@ -127,7 +127,6 @@ export default function FlashcardsModal({ isOpen, onClose, onRewardXP }) {
           flexDirection: 'column',
           alignItems: 'center'
         }}
-        onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
