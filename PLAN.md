@@ -25,7 +25,7 @@ Stand der Analyse: 2026-10-22, Version 3.77.0, Branch `main`. Dieser Plan ersetz
 - [x] M04 | Monaco-Loader gegen CSP prüfen (Standard-Loader lädt von CDN) | P1 | M | `src/components/Content/MonacoStudioLab.jsx`, `vercel.json`, `vite.config.js` | src/components/Content/MonacoStudioLab.jsx:2, src/components/Content/MonacoStudioLab.jsx:68, vercel.json:67 | Fertig wenn: Editor unter M01-CSP lädt und die `size`-Limits halten; Variante (lokal bündeln vs. CDN-Host in CSP) ist begründet. (Hypothese: `@monaco-editor/react` nutzt standardmäßig jsDelivr – vor Umsetzung im Browser bestätigen.)
 
 ### Phase 2: Lieferkette
-- [ ] M05 | `npm audit` einordnen und in CI aufnehmen | P2 | S | `.github/workflows/ci.yml`, `package.json` | package-lock.json:5441, .github/workflows/ci.yml:31 | Fertig wenn: belegt ist, dass `react-native-fs` nicht im Build landet (`dist/` enthält es nicht); CI führt `npm audit --omit=dev --omit=optional --audit-level=high` aus und ist grün, Rest ist in Abschnitt 4 dokumentiert.
+- [x] M05 | `npm audit` einordnen und in CI aufnehmen | P2 | S | `.github/workflows/ci.yml`, `package.json` | package-lock.json:5441, .github/workflows/ci.yml:31 | Fertig wenn: belegt ist, dass `react-native-fs` nicht im Build landet (`dist/` enthält es nicht); CI führt `npm audit --omit=dev --omit=optional --audit-level=high` aus und ist grün, Rest ist in Abschnitt 4 dokumentiert.
 - [ ] M06 | `'unsafe-inline'` für Skripte in der CSP entfernen | P3 | M | `index.html`, `vercel.json` | index.html:83, vercel.json:67 | Fertig wenn: Das Inline-Skript in `index.html:83` ausgelagert oder per Hash erlaubt ist und `script-src` kein `'unsafe-inline'` mehr enthält; E2E aus M01 bleibt grün. Nach M02–M04.
 
 ### Phase 3: Barrierefreiheit (WCAG 2.1 AA)

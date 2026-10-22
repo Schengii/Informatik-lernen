@@ -21,6 +21,11 @@ jobs:
 
       - run: npm ci
 
+      - name: Dependency audit (Produktions-Abhängigkeiten, ohne optionale)
+        # alasql listet react-native-fs als optionale Abhängigkeit; sie landet
+        # nicht im Browser-Build, löst aber sonst ~20 Funde aus (PLAN.md M05).
+        run: npm audit --omit=dev --omit=optional --audit-level=high
+
       - name: Lint (fails on any warning, e.g. undefined JSX references)
         run: npm run lint:ci
 
