@@ -1,7 +1,15 @@
+import { readFileSync } from 'node:fs'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
+
+// Header-Block für `/(.*)` aus vercel.json (CSP, HSTS, ...) als Objekt.
+function vercelGlobalHeaders() {
+  const { headers = [] } = JSON.parse(readFileSync(new URL('./vercel.json', import.meta.url), 'utf8'))
+  const global = headers.find((entry) => entry.source === '/(.*)')
+  return Object.fromEntries((global?.headers ?? []).map(({ key, value }) => [key, value]))
+}
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -56,6 +64,11 @@ export default defineConfig({
       }
     })
   ],
+  // `vite preview` (und damit die E2E-Tests) liefert dieselben Sicherheits-Header
+  // wie Vercel aus, sonst bleiben CSP-Verstöße bis zum Deployment unsichtbar.
+  preview: {
+    headers: vercelGlobalHeaders()
+  },
   build: {
     cssMinify: true,
     // Budgets werden per gzip geprüft (size-limit) – alle Chunks liegen dort
