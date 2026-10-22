@@ -22,7 +22,7 @@ test('Antwort enthält die CSP aus vercel.json', async ({ page }) => {
   expect(response.headers()['content-security-policy']).toContain("default-src 'self'");
 });
 
-test.fixme('Code-Sandbox läuft unter der Produktions-CSP ohne Verstoß', async ({ page }) => {
+test('Code-Sandbox läuft unter der Produktions-CSP ohne Verstoß', async ({ page }) => {
   await page.goto('/coding_challenges');
   await page.getByRole('button', { name: 'Code Testen' }).click();
   await expect(page.getByText('ALLE TESTFÄLLE BESTANDEN')).toBeVisible();

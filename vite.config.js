@@ -4,11 +4,26 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
-// Header-Block für `/(.*)` aus vercel.json (CSP, HSTS, ...) als Objekt.
-function vercelGlobalHeaders() {
+// `vite preview` (und damit die E2E-Tests) liefert dieselben Header wie Vercel
+// aus (CSP, HSTS, ...), sonst bleiben CSP-Verstöße bis zum Deployment
+// unsichtbar. Die `source`-Muster aus vercel.json werden als RegExp gelesen;
+// später passende Regeln überschreiben frühere (wie bei Vercel, siehe Muster
+// mit Lookahead für den Sandbox-Worker, damit sich CSPs nie überlagern).
+function vercelHeadersForPreview() {
   const { headers = [] } = JSON.parse(readFileSync(new URL('./vercel.json', import.meta.url), 'utf8'))
-  const global = headers.find((entry) => entry.source === '/(.*)')
-  return Object.fromEntries((global?.headers ?? []).map(({ key, value }) => [key, value]))
+  const rules = headers.map(({ source, headers: list }) => ({ pattern: new RegExp(`^${source}$`), list }))
+  return {
+    name: 'vercel-headers-for-preview',
+    configurePreviewServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const path = (req.url ?? '/').split('?')[0]
+        for (const { pattern, list } of rules) {
+          if (pattern.test(path)) list.forEach(({ key, value }) => res.setHeader(key, value))
+        }
+        next()
+      })
+    }
+  }
 }
 
 // https://vite.dev/config/
@@ -17,6 +32,7 @@ export default defineConfig({
     react(),
     // Nur Theme + Utilities (kein Preflight-Reset), damit global.css unverändert bleibt.
     tailwindcss(),
+    vercelHeadersForPreview(),
     VitePWA({
       registerType: 'autoUpdate',
       // Die Registrierung übernimmt src/main.jsx selbst (dort hängt auch das
@@ -64,11 +80,6 @@ export default defineConfig({
       }
     })
   ],
-  // `vite preview` (und damit die E2E-Tests) liefert dieselben Sicherheits-Header
-  // wie Vercel aus, sonst bleiben CSP-Verstöße bis zum Deployment unsichtbar.
-  preview: {
-    headers: vercelGlobalHeaders()
-  },
   build: {
     cssMinify: true,
     // Budgets werden per gzip geprüft (size-limit) – alle Chunks liegen dort
