@@ -115,9 +115,19 @@ Abkürzung: `npm run new-lab -- <PascalName> "<Titel>" [category] [difficulty]` 
 
 Danach: `CHANGELOG.md` + `_Projektuebersicht.md` (und bei Bedarf `README.md`) aktualisieren; Smoke-Test (`allLabsSmoke.test.jsx`) und A11y-Test (`allLabsA11y.test.jsx`, axe-core) greifen automatisch. `labModulesData.test.js` schlägt fehl, wenn ein `LAB_MODULES`-Eintrag keine Route hat.
 
+Badges: Jede in `labRegistry.js` vergebene `xp.badge`-ID muss in `BADGES` (`src/utils/storage.js`) mit Icon und Beschreibung registriert sein, sonst wird das Abzeichen nicht angezeigt.
+
 Prüfungsdrills: Fragen im Format `{ id, frage, optionen, korrektIndex, erklaerung }` in der Engine ablegen (IDs global eindeutig), in `src/data/drillQuestions.js` eintragen und im Lab per `IhkDrillPanel` (mit XP) oder `Shared/LabDrillSection` (ohne XP) einbinden – falsche Antworten landen dann automatisch im Fehlerjournal. Lab-Fortschritt (`labProgress`) wird in `App.jsx` automatisch erfasst, kein Eingriff im Lab nötig.
 
 Achtung: Beide Glob-Tests laden `Content/*.jsx` und schließen `*.test.jsx` aus – Komponententests für Labs dürfen daneben liegen (`Content/XyzLab.test.jsx`, Muster: `TcpStateMachineLab.test.jsx`). Wiederverwendbare Bausteine, die kein eigenständiges Lab sind (z. B. `IhkDrillPanel` für den IHK-Multiple-Choice-Drill), gehören nach `src/components/Shared/`, nicht nach `Content/`.
+
+## 🔄 Store & Multi-Tab
+
+`useStore.js` synchronisiert den Spielstand zwischen Browser-Tabs über einen `BroadcastChannel` (`it_devgame_sync`). Der Spielstand liegt in LocalStorage (`storage.js`), UI-Einstellungen getrennt davon (siehe Prinzip 10).
+
+## 🤝 Parallele KI-Leitfäden
+
+`GEMINI.md` und `.agents/AGENTS.md` enthalten für andere KI-Assistenten weitgehend dieselben Projektregeln. Ändern sich Befehle oder Prinzipien hier, die beiden Dateien mitpflegen. `PLAN.md` ist der laufende Umsetzungsplan, `.claudeignore` hält Build-Artefakte (`dist`, `coverage`, `node_modules`) aus dem Kontext.
 
 ## 📦 Bundle & PWA
 
