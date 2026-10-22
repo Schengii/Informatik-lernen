@@ -22,6 +22,15 @@ export default function IhkOralExamSimulator({ onRewardXP }) {
   const [selectedOption, setSelectedOption] = useState(null);
   const [showFeedback, setShowFeedback] = useState(false);
 
+  // Presentation Checklist items
+  const [checklist, setChecklist] = useState([
+    { id: 'c1', text: 'Einleitung & Motivation (Problemstellung im Betrieb)', checked: false },
+    { id: 'c2', text: 'Projektziel & Soll-Konzept (inkl. Nutzwertanalyse)', checked: false },
+    { id: 'c3', text: 'Hauptteil: Technische Umsetzung & Live-Demonstration/Architektur', checked: false },
+    { id: 'c4', text: 'Wirtschaftlichkeitsbetrachtung & Amortisationsdauer (ROI)', checked: false },
+    { id: 'c5', text: 'Fazit, Lessons Learned & Ausblick', checked: false }
+  ]);
+
   const roleData = ORAL_EXAM_DATA[selectedRole];
   const questions = roleData.questions;
   const currentQuestion = questions[currentQIdx];
