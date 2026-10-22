@@ -9,6 +9,13 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unveröffentlicht]
 
+### Fehlerbehebungen aus dem Qualitäts- und Sicherheitstest (2026-10-22)
+- **Abstürze behoben**: `SqliteWasmStudioLab` (`setSandbox` fehlte nach dem Lint-Fix M03, Wechsel der Beispiel-Datenbank warf), `IhkOralExamSimulator` (Präsentations-Checkliste war nicht definiert), `JwtConfusionLab` (ungültiges Base64URL im Token-Feld warf `atob`). Regressionstests liegen neben den Komponenten.
+- **Robustheit**: `calculateGanttTimeline` fällt bei leerem/ungültigem Startdatum auf das Standarddatum zurück und begrenzt riesige oder nicht endliche Stunden; `WisoFinancingLab` und `OsProcessSchedulerLab` begrenzen Eingaben auf die deklarierten Maxima (verhindert Einfrieren bei z. B. 99999999999999999999).
+- **Layout**: Kopfzeile läuft bei 320 px nicht mehr über (Wortmarke unter 400 px ausgeblendet, Header-Schaltflächen behalten ihre Breite, kein „Ctrl+K“-Hinweis auf Touch-Breiten); Rasterspalten dürfen schrumpfen, Code-Blöcke im JWT-Lab scrollen in sich.
+- **Datenschutz**: YouTube-Videos laden erst nach Klick auf „Video von YouTube laden“ (`VideoHub`, `e2e/csp.spec.js` prüft, dass vorher kein iframe existiert); Datenschutz- und Barrierefreiheitstext an das tatsächliche Verhalten angepasst (YouTube, Server-Logdaten, keine unbelegten AAA-/Zertifizierungsaussagen).
+- **Barrierefreiheit**: Eingabefelder behalten trotz inline `outline: none` eine sichtbare Fokusmarkierung; überlaufende Scroll-Bereiche werden per Tastatur fokussierbar (`applyScrollableFocus` in `a11yAutoLabel.js`); der mobile Menü-Button schrumpft nicht mehr auf 14 px.
+
 ## [3.78.0] - 2026-10-22
 
 Umsetzung von `PLAN.md` (M01–M20, Details und Status dort).
