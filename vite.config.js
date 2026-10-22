@@ -51,11 +51,15 @@ export default defineConfig({
         globIgnores: [
           'assets/vendor-pdf-*.js',
           'assets/vendor-sql-*.js',
-          'assets/vendor-charts-*.js'
+          'assets/vendor-charts-*.js',
+          // Monaco (nur im Monaco-Lab): Editor-Kern und Worker
+          'assets/editor.api-*.js',
+          'assets/editor.worker-*.js',
+          'assets/json.worker-*.js'
         ],
         runtimeCaching: [
           {
-            urlPattern: /\/assets\/vendor-(pdf|sql|charts)-[^/]+\.js$/,
+            urlPattern: /\/assets\/(vendor-(pdf|sql|charts)|editor\.api|editor\.worker|json\.worker)-[^/]+\.js$/,
             handler: 'StaleWhileRevalidate',
             options: {
               cacheName: 'vendor-large-chunks',

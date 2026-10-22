@@ -35,7 +35,7 @@ test('Video-Player (YouTube-Embed) wird von der CSP nicht blockiert', async ({ p
   expect(await violations(page)).toEqual([]);
 });
 
-test.fixme('Monaco-Editor lädt unter der Produktions-CSP ohne Verstoß', async ({ page }) => {
+test('Monaco-Editor lädt unter der Produktions-CSP ohne Verstoß', async ({ page }) => {
   await page.goto('/monaco_studio');
   // Der Editor rendert erst nach erfolgreichem Laden der Monaco-Skripte.
   await expect(page.locator('.monaco-editor').first()).toBeVisible({ timeout: 20000 });
