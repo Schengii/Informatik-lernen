@@ -126,10 +126,12 @@ const registryMarker = 'export const LAB_REGISTRY = [\n';
 const modulesMarker = 'export const LAB_MODULES = [\n';
 if (!registrySrc.includes(registryMarker)) fail('Einfügemarke in labRegistry.js nicht gefunden.');
 if (!modulesSrc.includes(modulesMarker)) fail('Einfügemarke in labModulesData.js nicht gefunden.');
-if (!/\bZap\b/.test(modulesSrc.split('\n')[0])) fail('Icon "Zap" ist in labModulesData.js nicht importiert.');
 
 const newRegistry = registrySrc.replace(registryMarker, registryMarker + registryEntry);
-const newModules = modulesSrc.replace(modulesMarker, modulesMarker + moduleEntry);
+let newModules = modulesSrc.replace(modulesMarker, modulesMarker + moduleEntry);
+if (!newModules.includes("from 'lucide-react'")) {
+  newModules = "import { Zap } from 'lucide-react';\n" + newModules;
+}
 
 if (dryRun) {
   console.log(`[dry-run] würde schreiben:\n  ${files.engine}\n  ${files.test}\n  ${files.lab}`);

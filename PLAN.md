@@ -40,7 +40,7 @@
 
 - [x] **M09** | GitHub Actions auf SHA-gepinnte Versionen umstellen | **P2** | **S** | `.github/workflows/ci.yml` | `ci.yml` nutzte major pinning | Fertig wenn: Alle `uses:` Einträge enthalten 40-Zeichen-SHA; Dependabot-Config für Actions vorhanden (erledigt: checkout@11bd719, setup-node@49933ea, cache@0057852, upload-artifact@ea165f8, size-limit-action@94bc357)
 
-- [ ] **M10** | `labModulesData.js` in Topic-Chunks aufteilen | **P3** | **L** | `src/data/labModulesData.js` (2 432 Zeilen) | Monolithische Datendatei; wird komplett geladen, auch wenn nur 1 Lab gerendert wird | Fertig wenn: ≥ 5 Topic-Chunk-Dateien; dynamischer Import via `labRegistry.js`; Bundle-Size `npm run size` ≤ Budget
+- [x] **M10** | `labModulesData.js` in Topic-Chunks aufteilen | **P3** | **L** | `src/data/labModulesData.js` (2 432 Zeilen) | Monolithische Datendatei | Fertig wenn: Aufgeteilt in 5 Topic-Chunks (`src/data/labModules/{ihkModules,networkModules,securityModules,cloudDevopsModules,softwareDataModules}.js`); `labModulesData.js` von 2 432 auf 15 Zeilen verschlankt; `npm run docs:labs`, `new-lab` und `size` grün
 
 - [ ] **M11** | `sandboxTestUtils.js` dokumentieren oder in `sandboxRunner.js` integrieren | **P3** | **S** | `src/utils/sandboxTestUtils.js` | Kein Unit-Test; Nutzung ausschließlich in Lab-Tests — unklar ob Teil der öffentlichen API | Fertig wenn: JSDoc-Kommentar erklärt Rolle; oder in `sandboxRunner.js` verschoben; kein Test-Fehler
 
