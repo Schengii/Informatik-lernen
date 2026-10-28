@@ -7,7 +7,7 @@ import alasql from 'alasql';
  */
 
 /** @type {Record<string, string>} */
-export const INITIAL_SQL_SEEDS = {
+const INITIAL_SQL_SEEDS = {
   ecommerce: `
 CREATE TABLE customers (
   id INT PRIMARY KEY,

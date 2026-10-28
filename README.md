@@ -54,6 +54,7 @@ Informatik-lernen/
 ├── .env / .env.example        Lokale Umgebungsvariablen (Sentry DSN, Port etc.)
 ├── CHANGELOG.md               Änderungen (Keep a Changelog)
 ├── CLAUDE.md / GEMINI.md      Leitfäden für KI-Assistenten
+├── PLAN.md                    Priorisierter Umsetzungsplan (Arbeitsgrundlage für alle Maßnahmen)
 ├── CONTRIBUTING.md            Entwickler- & Beitragsleitfaden
 ├── SECURITY.md                Sicherheitsrichtlinien & Responsible Disclosure
 ├── CODE_OF_CONDUCT.md         Contributor Covenant Verhaltenskodex
@@ -130,12 +131,14 @@ Das Repository ist für nahtlose Zusammenarbeit mit Entwicklern und KI-Agenten (
 ## 📝 Dokumentation & Änderungshistorie
 
 - Änderungen je Version: [`CHANGELOG.md`](CHANGELOG.md)
+- Umsetzungsplan & offene Aufgaben: [`PLAN.md`](PLAN.md)
 - Lab-Übersicht: [`docs/LABS.md`](docs/LABS.md)
 - Beitragsleitfaden: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 - Sicherheitsrichtlinien: [`SECURITY.md`](SECURITY.md)
 - Ausführliche Feature-Beschreibungen und Änderungshistorie bis v3.74.0: [`docs/README-Archiv.md`](docs/README-Archiv.md)
 
 ### Aktuelle Version (v3.77.0) & Neueste Verbesserungen
+- **Umfassende Dead-Code- & Export-Bereinigung**: Entfernung ungenutzter Datenstrukturen (`LOGIC_GATES_LEVELS`, `DEFAULT_NET_NAMESPACES`, `RESTART_POLICIES`, `UML_DIAGRAM_TYPES`, `FIDO2_ALGORITHMS`, `NDP_MESSAGE_TYPES`), Kapselung privater Modul-Interna (Entfernen redundanter Exporte über 22 Utility-Module), Bereinigung doppelter Aliase (`PROGRAMMING_LANGUAGES`, `TUTORIAL_VIDEOS`, `evaluateOauth21Flow`) und saubere Re-Exporte in `srsAlgorithm.js`.
 - **Sicherheits-Härtung Git Pre-Commit Hook (`.githooks/pre-commit`)**: Aktualisierter und robuster Secret- und .env-Scanner mit automatischer Erkennung von `gitleaks` (bevorzugt) sowie portabler POSIX-Shell-Fallback. Scannt gestagte Diffs selektiv auf API-Keys (`sk-...`, `AIza...`, `ghp_...`, `AKIA...`, `-----BEGIN … PRIVATE KEY-----`, nichtleere Zuweisungen `API_KEY=`, `SECRET=`, `TOKEN=`) und blockiert `.env*` (außer `.env.example`), `*.pem`, `*.key`. Gibt bei Treffern Dateiname und erkanntes Muster aus, maskiert bzw. verschweigt jedoch stets den Geheimwert selbst.
 - **Projektweite Bereinigung & Iframe-Härtung**: Beseitigung redundanter Variablen-Aliase (`OsProcessSchedulerLab`), Absicherung der Push-Notification-Instanziierung und Härtung des YouTube-Embeds in `VideoHub` via `sandbox`-Attribute.
 - **Vollständige Lab-Mastery-Badges (162 Badges)**: Alle 149 Lab-Mastery-Badges aus `src/data/labRegistry.js` sind jetzt lückenlos in der globalen Badge-Tabelle (`src/utils/storage.js`) definiert und werden im `BadgesModal` fehlerfrei angezeigt.
