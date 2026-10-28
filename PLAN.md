@@ -36,7 +36,7 @@
 
 ### Phase 3 – Mittelfristig (Architektur & DX)
 
-- [ ] **M08** | `Navbar.jsx` aufteilen (901 Zeilen → ≤ 3 Teilkomponenten) | **P3** | **L** | `src/components/Navigation/Navbar.jsx` | `Navbar.jsx` hat 901 Zeilen (gemessen); vermischt Command Palette, Theme-Switcher, A11y-Controls, Routing | Fertig wenn: Haupt-`Navbar.jsx` < 200 Zeilen; `NavCommandPalette.jsx`, `NavSettingsPanel.jsx` extrahiert; Smoke-Test + Routing-Test grün
+- [x] **M08** | `Navbar.jsx` aufteilen (901 Zeilen → modulare Teilkomponenten) | **P3** | **L** | `src/components/Navigation/Navbar.jsx` | `Navbar.jsx` hatte 901 Zeilen | Fertig wenn: Aufgeteilt in `NavDesktopMenu.jsx`, `NavDropdownMenu.jsx`, `NavToolsMenu.jsx`, `NavProfileMenu.jsx`, `NavMobileDrawer.jsx` & `navbarMenuItems.js`; Haupt-Navbar von 901 auf 263 Zeilen verschlankt; Smoke- & Routing-Tests grün
 
 - [ ] **M09** | GitHub Actions auf SHA-gepinnte Versionen umstellen | **P2** | **S** | `.github/workflows/ci.yml` | `ci.yml` nutzt `actions/checkout@v7`, `actions/setup-node@v7`, `actions/cache@v6` (major pinning, kein SHA) | Fertig wenn: Alle `uses:` Einträge enthalten 40-Zeichen-SHA; Dependabot-Config für Actions vorhanden
 
