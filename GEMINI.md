@@ -26,6 +26,9 @@ Entwickler- und KI-Leitfaden für das Projekt **Informatik-lernen (IT-DevGame)**
 Voraussetzung: Node >=22.19.0 (`engines` in `package.json`).
 
 ```bash
+# Git Pre-Commit Hook aktivieren (Sicherheits-Scan für .env-Dateien & Secrets)
+git config core.hooksPath .githooks   # oder: npm run prepare
+
 # Entwicklungsserver starten (Standard-Port http://localhost:5173)
 npm run dev
 
@@ -82,3 +85,7 @@ npm run e2e
 
 6. **README & CHANGELOG Maintenance**:
    - Wann immer Dateien hinzugefügt, verändert oder entfernt werden, müssen sowohl `README.md` als auch `CHANGELOG.md` aktualisiert werden.
+
+7. **Sicherheit & Git Pre-Commit Hook**:
+   - Der Pre-Commit Hook (`.githooks/pre-commit`, aktiviert via `git config core.hooksPath .githooks` bzw. `npm run prepare`) blockiert automatisch das Committen von `.env`-Dateien, privaten Schlüsseln (*.pem, *.key) sowie echten API-Keys und Tokens (sk-…, AIza…, ghp_…, AKIA…, `-----BEGIN … PRIVATE KEY-----`, `API_KEY=`, `SECRET=`, `TOKEN=`).
+   - Bevorzugt `gitleaks`, falls installiert, sonst portabler Shell-Fallback. Bei Treffern wird der Commit mit Exit 1 abgebrochen und Datei + Muster genannt (niemals der vertrauliche Wert selbst).

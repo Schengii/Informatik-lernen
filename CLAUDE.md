@@ -25,6 +25,9 @@ Entwickler- und KI-Leitfaden für das Projekt **Informatik-lernen (IT-DevGame)**
 Voraussetzung: Node >=22.19.0 (`engines` in package.json). CI-Workflow: `.github/workflows/ci.yml`.
 
 ```bash
+# Git Pre-Commit Hook aktivieren (Sicherheits-Scan für .env-Dateien & Secrets vor dem Commit)
+git config core.hooksPath .githooks   # alternativ: npm run prepare
+
 # Entwicklungsserver starten (Standard-Port http://localhost:5173)
 npm run dev
 

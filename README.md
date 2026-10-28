@@ -86,7 +86,8 @@ Dyslexie-Modus, Farbenblindheits-Modus, Reduced Motion (`prefers-reduced-motion`
 Voraussetzung: Node ≥ 22.19.
 
 ```bash
-npm install
+npm install            # installiert Abhängigkeiten und aktiviert .githooks via "prepare"
+git config core.hooksPath .githooks  # manuelle Aktivierung des Sicherheits-Pre-Commit-Hooks
 npm run dev            # Entwicklungsserver (http://localhost:5173)
 npm test               # Unit-Tests (Vitest)
 npm run test:fast      # schneller Testlauf ohne A11y-/Routing-Tests
@@ -135,6 +136,7 @@ Das Repository ist für nahtlose Zusammenarbeit mit Entwicklern und KI-Agenten (
 - Ausführliche Feature-Beschreibungen und Änderungshistorie bis v3.74.0: [`docs/README-Archiv.md`](docs/README-Archiv.md)
 
 ### Aktuelle Version (v3.77.0) & Neueste Verbesserungen
+- **Sicherheits-Härtung Git Pre-Commit Hook (`.githooks/pre-commit`)**: Aktualisierter und robuster Secret- und .env-Scanner mit automatischer Erkennung von `gitleaks` (bevorzugt) sowie portabler POSIX-Shell-Fallback. Scannt gestagte Diffs selektiv auf API-Keys (`sk-...`, `AIza...`, `ghp_...`, `AKIA...`, `-----BEGIN … PRIVATE KEY-----`, nichtleere Zuweisungen `API_KEY=`, `SECRET=`, `TOKEN=`) und blockiert `.env*` (außer `.env.example`), `*.pem`, `*.key`. Gibt bei Treffern Dateiname und erkanntes Muster aus, maskiert bzw. verschweigt jedoch stets den Geheimwert selbst.
 - **Projektweite Bereinigung & Iframe-Härtung**: Beseitigung redundanter Variablen-Aliase (`OsProcessSchedulerLab`), Absicherung der Push-Notification-Instanziierung und Härtung des YouTube-Embeds in `VideoHub` via `sandbox`-Attribute.
 - **Vollständige Lab-Mastery-Badges (162 Badges)**: Alle 149 Lab-Mastery-Badges aus `src/data/labRegistry.js` sind jetzt lückenlos in der globalen Badge-Tabelle (`src/utils/storage.js`) definiert und werden im `BadgesModal` fehlerfrei angezeigt.
 - **CI & Oxlint-Bereinigung**: Vollständige Beseitigung aller Linter-Warnungen im CI-Modus (`npm run lint:ci --deny-warnings`) über 704 Dateien (Immutabilitätsmuster, React-Purity-Regeln, Timer-Callbacks).

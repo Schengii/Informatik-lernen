@@ -9,6 +9,14 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unveröffentlicht]
 
+### Sicherheit (Security)
+- **Gehärteter Git Pre-Commit Hook (`.githooks/pre-commit`)**:
+  - Bevorzugt `gitleaks protect --staged`, falls im System installiert, mit nahtlosem portablem Shell-Fallback für Git Bash und POSIX-Shells.
+  - Blockiert gestagte Umgebungs- und Schlüsseldateien: `.env`, `.env.*` (mit expliziter Ausnahme für `.env.example`), `*.pem`, `*.key`.
+  - Blockiert gestagten Code mit sensiblen Key-Mustern: `sk-...`, `AIza...`, `ghp_...`, `AKIA...`, `-----BEGIN … PRIVATE KEY-----` sowie Zuweisungen wie `API_KEY=`, `SECRET=`, `TOKEN=` mit nichtleerem Wert.
+  - Gibt bei Funden ausschließlich den Dateinamen und das zutreffende Muster aus, niemals den eigentlichen Geheimwert.
+  - Aktivierungsbefehl `git config core.hooksPath .githooks` und npm-Script `prepare` in `CLAUDE.md`, `GEMINI.md` und `README.md` dokumentiert.
+
 ### Bereinigung & Code-Qualität (Chore)
 - **Projekt-Bereinigung & Analyse (chore/cleanup)**:
   - Phase 0: Baseline-Sicherung für Build (1.27s), Oxlint (704 Dateien, 0 Warnungen) und Vitest (1.223 Tests bestanden).
