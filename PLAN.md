@@ -42,7 +42,7 @@
 
 - [x] **M10** | `labModulesData.js` in Topic-Chunks aufteilen | **P3** | **L** | `src/data/labModulesData.js` (2 432 Zeilen) | Monolithische Datendatei | Fertig wenn: Aufgeteilt in 5 Topic-Chunks (`src/data/labModules/{ihkModules,networkModules,securityModules,cloudDevopsModules,softwareDataModules}.js`); `labModulesData.js` von 2 432 auf 15 Zeilen verschlankt; `npm run docs:labs`, `new-lab` und `size` grün
 
-- [ ] **M11** | `sandboxTestUtils.js` dokumentieren oder in `sandboxRunner.js` integrieren | **P3** | **S** | `src/utils/sandboxTestUtils.js` | Kein Unit-Test; Nutzung ausschließlich in Lab-Tests — unklar ob Teil der öffentlichen API | Fertig wenn: JSDoc-Kommentar erklärt Rolle; oder in `sandboxRunner.js` verschoben; kein Test-Fehler
+- [x] **M11** | `sandboxTestUtils.js` dokumentieren oder in `sandboxRunner.js` integrieren | **P3** | **S** | `src/utils/sandboxTestUtils.js` | War undokumentiert und ohne Unit-Test | Fertig wenn: JSDoc-Kommentar erklärt Rolle; dedizierte Test-Suite `sandboxTestUtils.test.js` (3 Tests) besteht; kein Test-Fehler
 
 - [ ] **M12** | `og:image`-Script in README dokumentieren | **P3** | **S** | `README.md`, `scripts/generate-og-image.js` | Script existiert, npm-Script `og:image` ist in `package.json` eingetragen, aber kein Hinweis in README | Fertig wenn: README enthält Abschnitt `npm run og:image` mit Beschreibung
 
