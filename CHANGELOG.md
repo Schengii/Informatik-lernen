@@ -18,6 +18,12 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
   - Aktivierungsbefehl `git config core.hooksPath .githooks` und npm-Script `prepare` in `CLAUDE.md`, `GEMINI.md` und `README.md` dokumentiert.
 
 ### Bereinigung & Code-Qualität (Chore)
+- **Umfassende Dead-Code- & Export-Bereinigung (chore/cleanup)**:
+  - Entfernung toter, ungenutzter Datenstrukturen und Tabellen: `LOGIC_GATES_LEVELS` (gamesData), `DEFAULT_NET_NAMESPACES` (linuxNetNsEngine), `RESTART_POLICIES` (systemdServiceEngine), `UML_DIAGRAM_TYPES` (umlEngine), `FIDO2_ALGORITHMS` (webAuthnEngine), `NDP_MESSAGE_TYPES` (ipv6NdpEngine).
+  - Konsolidierung doppelter Exporte & Aliase: `LANGUAGE_MODULES` direkt als `PROGRAMMING_LANGUAGES`, `VIDEO_TUTORIALS` direkt als `TUTORIAL_VIDEOS`, Vereinheitlichung auf `evaluateOauth21Flow` in `oauth21DpopEngine`.
+  - Kapselung privater Modul-Interna: Entfernen redundanter `export`-Keywords über 22 Utility- und Gamification-Module (`SkillTreeWidget`, `customChallengesManager`, `dnssecValidationEngine`, `examReadinessEngine`, `graphqlSandboxEngine`, `ihkRiskAnalysisEngine`, `ihkStudyPlanEngine`, `indexedDbStorage`, `indexedDbStoreMiddleware`, `ipv6Routing`, `jwtConfusionEngine`, `labProgressEngine`, `mistakeJournalEngine`, `oauthPkceEngine`, `raid6GaloisEngine`, `sandboxRunner`, `sqlSandboxEngine`, `srpAuthEngine`, `stpProtocolEngine`, `uiPreferences`, `vectorMathEngine`, `wisoPayrollEngine`).
+  - Bereinigung von Re-Exporten in `src/utils/srsAlgorithm.js`.
+  - Ergänzung des npm-Scripts `"og:image": "node scripts/generate-og-image.js"` in `package.json`.
 - **Projekt-Bereinigung & Analyse (chore/cleanup)**:
   - Phase 0: Baseline-Sicherung für Build (1.27s), Oxlint (704 Dateien, 0 Warnungen) und Vitest (1.223 Tests bestanden).
   - Phase 1: Projektweite Tiefenanalyse auf Duplikate, ungenutzte Exporte, leere Ordner und Code Smells ohne Beanstandung von Fehlern.

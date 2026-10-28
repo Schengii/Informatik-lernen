@@ -21,6 +21,7 @@
     "typecheck": "tsc --noEmit",
     "new-lab": "node scripts/new-lab.js",
     "docs:labs": "node scripts/gen-lab-list.js",
+    "og:image": "node scripts/generate-og-image.js",
     "prepare": "git config core.hooksPath .githooks || true"
   },
   "size-limit": [

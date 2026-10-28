@@ -1,7 +1,7 @@
 import React from 'react';
 import { Award, Sparkles, CheckCircle2, Lock } from 'lucide-react';
 
-export const SKILL_TREE_DATA = [
+const SKILL_TREE_DATA = [
   {
     category: 'Tier 1: IT-Grundlagen',
     nodes: [
