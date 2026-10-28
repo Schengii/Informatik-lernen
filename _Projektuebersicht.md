@@ -5,8 +5,8 @@ tags:
   - tech/react
   - domain/ihk-ausbildung
   - status/active
-version: v3.77.0
-date: 2026-10-16
+version: v3.78.0
+date: 2026-10-28
 ---
 
 # 💻 Informatik-lernen (IT-DevGame) - Projektübersicht
@@ -80,10 +80,10 @@ date: 2026-10-16
 
 ---
 
-## 📊 Aktuelle Test- & Qualitätsmetriken (v3.72.0)
-- **Unit- & Integrationstests**: 1699 bestandene Tests in 183 Test-Dateien (100% Erfolgsquote), 33 E2E-Tests; Lab-Routing vollständig über `src/data/labRegistry.js`
-- **Code-Qualität**: 0 Oxlint Fehler / 0 Warnungen über 644 Quelldateien, `tsc --noEmit` fehlerfrei
-- **Build**: Vite 8 & PWA Offline Service Worker (271 Precache-Einträge)
-- **Performance & Limits**: Alle Chunks innerhalb der Size-Limits (App-Shell 76.55 KB gzipped < 105 KB Limit); Lighthouse: Perf 98 / A11y 98 / BP 100 / SEO 100
+## 📊 Aktuelle Test- & Qualitätsmetriken (v3.78.0)
+- **Unit- & Integrationstests**: 1.945 bestandene Tests in 221 Test-Dateien (100% Erfolgsquote), alle 234 Labs bestehen axe-core Barrierefreiheitsprüfungen; Lab-Routing vollständig über `src/data/labRegistry.js`
+- **Code-Qualität**: 0 Oxlint Fehler / 0 Warnungen über 724 Quelldateien, `tsc --noEmit` fehlerfrei
+- **Build**: Vite 8 & PWA Offline Service Worker (296 Precache-Einträge)
+- **Performance & Limits**: Alle Chunks innerhalb der Size-Limits (App-Shell 87.68 KB gzipped < 105 KB Limit); Lighthouse A11y minScore: 0.95
 - **Vercel-Deployment**: Produktionsreife `vercel.json` mit SPA-Rewrites, Asset-Caching & Security-Headern
 - **A11y**: WCAG 2.1 Konformität (Reduced Motion Support, automatische Labels + axe-core-Test über alle Labs)

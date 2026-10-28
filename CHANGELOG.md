@@ -9,15 +9,40 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unveröffentlicht]
 
-### Tests & Performance
-- **Vitest Performance & Zuverlässigkeit**:
+## [3.78.0] - 2026-10-28
+
+### Architektur & Modularisierung
+- **Navbar Modularisierung (M08)**:
+  - Aufteilung der 901-Zeilen-Komponente `src/components/Navigation/Navbar.jsx` in modulare Unterkomponenten: `NavDesktopMenu.jsx`, `NavDropdownMenu.jsx`, `NavToolsMenu.jsx`, `NavProfileMenu.jsx`, `NavMobileDrawer.jsx` und die Datenstruktur `navbarMenuItems.js`.
+  - Haupt-Navbar auf 263 Zeilen verschlankt bei 100 % Erhalt aller Routing-, Barrierefreiheits- und Tastaturnavigationsfunktionen.
+- **Lab-Moduldaten Partitionierung (M10)**:
+  - Aufteilung der monolithischen `src/data/labModulesData.js` (2.432 Zeilen) in 5 thematische Moduldateien unter `src/data/labModules/`: `ihkModules.js`, `networkModules.js`, `securityModules.js`, `cloudDevopsModules.js` und `softwareDataModules.js`.
+  - Anpassung des Scaffolding-Tools `scripts/new-lab.js` und des Doku-Generators `scripts/gen-lab-list.js`.
+
+### Tests, Qualität & CI
+- **5 Pilot-Lab Interaktions-Test-Suiten (M13)**:
+  - `src/components/Content/SubnettingLab.test.jsx`: CIDR-Berechnung, Adressänderung, Quiz-Interaktion und XP-Belohnung (+25 XP).
+  - `src/components/Content/VlsmSubnetLab.test.jsx`: Hierarchische Subnetz-Planung, dynamisches Hinzufügen von Subnetzen, Zwischenablage-Export und XP-Belohnung (+50 XP).
+  - `src/components/Content/SqlWindowFunctionsLab.test.jsx`: Partitionierung (`PARTITION BY`), Sortierung (`ORDER BY`), SQL-Export und Lab-Validierung (+65 XP).
+  - `src/components/Content/AlgoPlaygroundLab.test.jsx`: Algorithmen-Auswahl, schrittweise Animation und Fertigstellungs-Belohnung (+35 XP).
+  - `src/components/Content/VectorMathEmbeddingLab.test.jsx`: Orthogonale/ähnliche Vektor-Presets, Winkelberechnung und Lab-Validierung (+65 XP).
+  - `allLabsA11y.test.jsx`: Alle 234 Lab-Komponenten bestehen automatische axe-core Barrierefreiheitsprüfungen ohne Regelverletzungen.
+- **Lighthouse CI Barrierefreiheits-Schwellwert (M14)**:
+  - Anhebung der Mindestbewertung (`minScore`) für `categories:accessibility` in `lighthouserc.json` von 0.90 auf 0.95.
+- **Coverage-Schwellwerte angehoben (M07)**:
+  - Anhebung der Vitest-Mindestschwellwerte in `vite.config.js` auf Statements: 62 %, Branches: 53.5 %, Functions: 47 %, Lines: 63.5 %.
+- **GitHub Actions SHA-Pinning (M09)**:
+  - Umstellung aller Actions in `.github/workflows/ci.yml` auf unveränderliche 40-Zeichen-Commit-SHAs (`checkout@11bd719`, `setup-node@49933ea`, `cache@0057852`, `upload-artifact@ea165f8`, `size-limit-action@94bc357`) zur Abwehr von Supply-Chain-Angriffen.
+- **Sandbox Test-Utilities (M11)**:
+  - Vollständige JSDoc-Typisierung und dedizierte Test-Suite `src/utils/sandboxTestUtils.test.js` für `createInlineSandboxWorker`.
+- **Vitest Performance & Zuverlässigkeit (M03–M06)**:
   - Aktivierung von `isolate: false` und Erhöhung von `testTimeout: 15000` in `vite.config.js`. Reduziert die Testlaufzeit von ~258 s auf 64 s (4x Beschleunigung) und eliminiert CPU-Throttling-Timeouts bei komplexen UI-Komponenten (`LabsDashboard.test.jsx`).
   - Neue Unit-Test-Suite `src/utils/audioSystem.test.js` (6 Tests, 100 % Zeilenabdeckung) für Lautstärke-Clamping, Stummschaltung, Synthesizer-SFX und AudioContext-Lifecycle.
   - Neue Unit-Test-Suite `src/utils/sandboxEvaluator.test.js` (9 Tests) für Skript-Modus, Funktions-Kandidaten, Laufzeit- und Syntaxfehler, Log-Kappung und Worker-Scope-Lockdown (`BLOCKED_WORKER_GLOBALS`).
   - Neue Unit-Test-Suite `src/utils/errorMonitoring.test.js` (3 Tests) für fehlerresistente Exception-Weiterleitung und DSN-Prüfung.
 
 ### Sicherheit & Härtung (Security)
-- **Pre-Commit-Kompatibilität & Key-Kapselung**:
+- **Pre-Commit-Kompatibilität & Key-Kapselung (M02)**:
   - `src/utils/jwtConfusionEngine.js`: Reformatierung des Mock-RSA-Schlüssels `SAMPLE_RSA_PRIVATE_KEY` und Entfernung des unnötigen `export`-Keywords (Modul-Internum). Dadurch werden Fehlalarme im POSIX-Pre-Commit-Fallback vermieden, während die Bildungs-Lab-Funktionalität vollständig erhalten bleibt.
 - **Gehärteter Git Pre-Commit Hook (`.githooks/pre-commit`)**:
   - Bevorzugt `gitleaks protect --staged`, falls im System installiert, mit nahtlosem portablem Shell-Fallback für Git Bash und POSIX-Shells.
@@ -27,24 +52,16 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
   - Aktivierungsbefehl `git config core.hooksPath .githooks` und npm-Script `prepare` in `CLAUDE.md`, `GEMINI.md` und `README.md` dokumentiert.
 
 ### Dokumentation
-- **`PLAN.md` (Umsetzungsplan)**: Neue priorisierte Arbeitsgrundlage mit Ist-Zustand, 14 Maßnahmen (M01–M14) in 4 Phasen, Rollback-Strategie und Risikotabelle. Ersetzt die abgearbeitete Vorgänger-Version.
+- **`PLAN.md` (Umsetzungsplan)**: Vollständige Realisierung aller 14 priorisierten Maßnahmen (M01–M14) in 4 Phasen.
+- **`README.md` (M12)**: Dokumentation des Open-Graph-Banner-Generators `npm run og:image` (`scripts/generate-og-image.js`).
 
-### Bereinigung & Code-Qualität (Chore)
+### Bereinigung & Code-Qualität (Chore, M01)
 - **Umfassende Dead-Code- & Export-Bereinigung (chore/cleanup)**:
-  - Phase 2: Entfernung toter, ungenutzter Datenstrukturen und Tabellen: `LOGIC_GATES_LEVELS` (gamesData), `DEFAULT_NET_NAMESPACES` (linuxNetNsEngine), `RESTART_POLICIES` (systemdServiceEngine), `UML_DIAGRAM_TYPES` (umlEngine), `FIDO2_ALGORITHMS` (webAuthnEngine), `NDP_MESSAGE_TYPES` (ipv6NdpEngine).
-  - Phase 2: Konsolidierung doppelter Exporte & Aliase: `LANGUAGE_MODULES` direkt als `PROGRAMMING_LANGUAGES`, `VIDEO_TUTORIALS` direkt als `TUTORIAL_VIDEOS`, Vereinheitlichung auf `evaluateOauth21Flow` in `oauth21DpopEngine`.
-  - Phase 2: Kapselung privater Modul-Interna: Entfernen redundanter `export`-Keywords über 22 Utility- und Gamification-Module (`SkillTreeWidget`, `customChallengesManager`, `dnssecValidationEngine`, `examReadinessEngine`, `graphqlSandboxEngine`, `ihkRiskAnalysisEngine`, `ihkStudyPlanEngine`, `indexedDbStorage`, `indexedDbStoreMiddleware`, `ipv6Routing`, `jwtConfusionEngine`, `labProgressEngine`, `mistakeJournalEngine`, `oauthPkceEngine`, `raid6GaloisEngine`, `sandboxRunner`, `sqlSandboxEngine`, `srpAuthEngine`, `stpProtocolEngine`, `uiPreferences`, `vectorMathEngine`, `wisoPayrollEngine`).
-  - Phase 2: Bereinigung von Re-Exporten in `src/utils/srsAlgorithm.js`.
-  - Phase 2: Ergänzung des npm-Scripts `"og:image": "node scripts/generate-og-image.js"` in `package.json`.
-  - Phase 3: Validierung der Zielstruktur nach Stack-Konventionen (`src/`, `docs/`, `e2e/`, `public/`, `scripts/`, `.githooks/`), Importpfade und Konsistenzprüfungen.
-- **Projekt-Bereinigung & Analyse (chore/cleanup)**:
-  - Phase 0: Baseline-Sicherung für Build (1.27s), Oxlint (704 Dateien, 0 Warnungen) und Vitest (1.223 Tests bestanden).
-  - Phase 1: Projektweite Tiefenanalyse auf Duplikate, ungenutzte Exporte, leere Ordner und Code Smells ohne Beanstandung von Fehlern.
-  - Phase 2: Gezielte Härtung und Bereinigung mit hoher Sicherheit:
-    - `src/utils/pushNotificationManager.js`: Vermeidung ungenutzter Instanziierung (`new Notification`).
-    - `src/components/Content/OsProcessSchedulerLab.jsx`: Entfernung des redundanten lokalen Alias `bankerMax` und Bereinigung der `useMemo`-Dependencies.
-    - `src/components/Content/VideoHub.jsx`: Härtung des YouTube-`<iframe>` durch explizite `sandbox`-Attribute (`allow-scripts allow-same-origin allow-presentation`).
-  - Phase 3: Validierung der Zielstruktur nach Stack-Konventionen (`src/`, `docs/`, `e2e/`, `scripts/`, `public/`).
+  - Entfernung toter, ungenutzter Datenstrukturen und Tabellen: `LOGIC_GATES_LEVELS` (gamesData), `DEFAULT_NET_NAMESPACES` (linuxNetNsEngine), `RESTART_POLICIES` (systemdServiceEngine), `UML_DIAGRAM_TYPES` (umlEngine), `FIDO2_ALGORITHMS` (webAuthnEngine), `NDP_MESSAGE_TYPES` (ipv6NdpEngine).
+  - Konsolidierung doppelter Exporte & Aliase: `LANGUAGE_MODULES` direkt als `PROGRAMMING_LANGUAGES`, `VIDEO_TUTORIALS` direkt als `TUTORIAL_VIDEOS`, Vereinheitlichung auf `evaluateOauth21Flow` in `oauth21DpopEngine`.
+  - Kapselung privater Modul-Interna: Entfernen redundanter `export`-Keywords über 22 Utility- und Gamification-Module.
+  - Bereinigung ungenutzter Instanziierungen und Aliase (`pushNotificationManager.js`, `OsProcessSchedulerLab.jsx`).
+  - Härtung von YouTube-`<iframe>` mit expliziten `sandbox`-Attributen in `VideoHub.jsx`.
 
 ## [3.77.0] - 2026-10-16
 
