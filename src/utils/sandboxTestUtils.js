@@ -28,6 +28,7 @@ export const createInlineSandboxWorker = () => {
     onmessage: null,
     onerror: null,
     terminated: false,
+    /** @param {any} payload */
     postMessage(payload) {
       queueMicrotask(() => {
         if (!worker.terminated) {
