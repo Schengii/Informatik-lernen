@@ -54,6 +54,7 @@ Informatik-lernen/
 ├── .env / .env.example        Lokale Umgebungsvariablen (Sentry DSN, Port etc.)
 ├── CHANGELOG.md               Änderungen (Keep a Changelog)
 ├── CLAUDE.md / GEMINI.md      Leitfäden für KI-Assistenten
+├── PLAN.md                    Priorisierter Umsetzungsplan (Arbeitsgrundlage für alle Maßnahmen)
 ├── CONTRIBUTING.md            Entwickler- & Beitragsleitfaden
 ├── SECURITY.md                Sicherheitsrichtlinien & Responsible Disclosure
 ├── CODE_OF_CONDUCT.md         Contributor Covenant Verhaltenskodex
@@ -130,6 +131,7 @@ Das Repository ist für nahtlose Zusammenarbeit mit Entwicklern und KI-Agenten (
 ## 📝 Dokumentation & Änderungshistorie
 
 - Änderungen je Version: [`CHANGELOG.md`](CHANGELOG.md)
+- Umsetzungsplan & offene Aufgaben: [`PLAN.md`](PLAN.md)
 - Lab-Übersicht: [`docs/LABS.md`](docs/LABS.md)
 - Beitragsleitfaden: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 - Sicherheitsrichtlinien: [`SECURITY.md`](SECURITY.md)

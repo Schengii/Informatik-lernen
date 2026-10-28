@@ -17,6 +17,9 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
   - Gibt bei Funden ausschließlich den Dateinamen und das zutreffende Muster aus, niemals den eigentlichen Geheimwert.
   - Aktivierungsbefehl `git config core.hooksPath .githooks` und npm-Script `prepare` in `CLAUDE.md`, `GEMINI.md` und `README.md` dokumentiert.
 
+### Dokumentation
+- **`PLAN.md` (Umsetzungsplan)**: Neue priorisierte Arbeitsgrundlage mit Ist-Zustand, 14 Maßnahmen (M01–M14) in 4 Phasen, Rollback-Strategie und Risikotabelle. Ersetzt die abgearbeitete Vorgänger-Version.
+
 ### Bereinigung & Code-Qualität (Chore)
 - **Umfassende Dead-Code- & Export-Bereinigung (chore/cleanup)**:
   - Phase 2: Entfernung toter, ungenutzter Datenstrukturen und Tabellen: `LOGIC_GATES_LEVELS` (gamesData), `DEFAULT_NET_NAMESPACES` (linuxNetNsEngine), `RESTART_POLICIES` (systemdServiceEngine), `UML_DIAGRAM_TYPES` (umlEngine), `FIDO2_ALGORITHMS` (webAuthnEngine), `NDP_MESSAGE_TYPES` (ipv6NdpEngine).
