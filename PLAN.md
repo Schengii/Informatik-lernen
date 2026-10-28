@@ -38,7 +38,7 @@
 
 - [x] **M08** | `Navbar.jsx` aufteilen (901 Zeilen → modulare Teilkomponenten) | **P3** | **L** | `src/components/Navigation/Navbar.jsx` | `Navbar.jsx` hatte 901 Zeilen | Fertig wenn: Aufgeteilt in `NavDesktopMenu.jsx`, `NavDropdownMenu.jsx`, `NavToolsMenu.jsx`, `NavProfileMenu.jsx`, `NavMobileDrawer.jsx` & `navbarMenuItems.js`; Haupt-Navbar von 901 auf 263 Zeilen verschlankt; Smoke- & Routing-Tests grün
 
-- [ ] **M09** | GitHub Actions auf SHA-gepinnte Versionen umstellen | **P2** | **S** | `.github/workflows/ci.yml` | `ci.yml` nutzt `actions/checkout@v7`, `actions/setup-node@v7`, `actions/cache@v6` (major pinning, kein SHA) | Fertig wenn: Alle `uses:` Einträge enthalten 40-Zeichen-SHA; Dependabot-Config für Actions vorhanden
+- [x] **M09** | GitHub Actions auf SHA-gepinnte Versionen umstellen | **P2** | **S** | `.github/workflows/ci.yml` | `ci.yml` nutzte major pinning | Fertig wenn: Alle `uses:` Einträge enthalten 40-Zeichen-SHA; Dependabot-Config für Actions vorhanden (erledigt: checkout@11bd719, setup-node@49933ea, cache@0057852, upload-artifact@ea165f8, size-limit-action@94bc357)
 
 - [ ] **M10** | `labModulesData.js` in Topic-Chunks aufteilen | **P3** | **L** | `src/data/labModulesData.js` (2 432 Zeilen) | Monolithische Datendatei; wird komplett geladen, auch wenn nur 1 Lab gerendert wird | Fertig wenn: ≥ 5 Topic-Chunk-Dateien; dynamischer Import via `labRegistry.js`; Bundle-Size `npm run size` ≤ Budget
 
