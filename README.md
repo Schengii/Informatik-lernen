@@ -100,7 +100,15 @@ npm run size           # Bundle-Budgets (nach build)
 npm run e2e            # Playwright gegen den Build
 npm run new-lab        # Lab-Scaffold (siehe unten)
 npm run docs:labs      # docs/LABS.md neu erzeugen
+npm run og:image       # Open-Graph Social-Preview-Bild (1200x630) per Playwright erzeugen
 ```
+
+### 🖼️ Open-Graph Bild generieren
+
+```bash
+npm run og:image
+```
+Rendert die HTML-Vorlage `scripts/og-image-template.html` mit Playwright Chromium und aktualisiert das hochauflösende 1200×630 Vorschaubild unter `public/og-image.png`.
 
 ## 🧩 Neues Lab anlegen
 

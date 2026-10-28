@@ -44,7 +44,7 @@
 
 - [x] **M11** | `sandboxTestUtils.js` dokumentieren oder in `sandboxRunner.js` integrieren | **P3** | **S** | `src/utils/sandboxTestUtils.js` | War undokumentiert und ohne Unit-Test | Fertig wenn: JSDoc-Kommentar erklärt Rolle; dedizierte Test-Suite `sandboxTestUtils.test.js` (3 Tests) besteht; kein Test-Fehler
 
-- [ ] **M12** | `og:image`-Script in README dokumentieren | **P3** | **S** | `README.md`, `scripts/generate-og-image.js` | Script existiert, npm-Script `og:image` ist in `package.json` eingetragen, aber kein Hinweis in README | Fertig wenn: README enthält Abschnitt `npm run og:image` mit Beschreibung
+- [x] **M12** | `og:image`-Script in README dokumentieren | **P3** | **S** | `README.md`, `scripts/generate-og-image.js` | Script existierte ohne Doku-Hinweis | Fertig wenn: README enthält Befehl `npm run og:image` und Beschreibung zur Playwright-Generierung von `public/og-image.png`
 
 ### Phase 4 – Langfristig (Lab-Coverage)
 
