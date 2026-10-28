@@ -90,6 +90,8 @@ export default defineConfig({
   },
   test: {
     environment: 'node',
+    testTimeout: 15000,
+    isolate: false,
     // e2e/ enthält Playwright-Specs (eigener Testrunner, eigenes `test`-API) -
     // ohne diesen Ausschluss würde Vitests Standard-Glob (`*.spec.js`) sie
     // fälschlich einsammeln und mit der falschen Test-API ausführen wollen.

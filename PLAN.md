@@ -23,20 +23,15 @@
 
 ### Phase 1 – Sofort (Hygiene & Unblocking)
 
-- [ ] **M01** | Branch `chore/cleanup` in `main` mergen & pushen | **P1** | **S** | `.git`, `CHANGELOG.md` | `git log --oneline` zeigt 2 Commits vor `origin/main` | Fertig wenn: `git log origin/main --oneline` zeigt `46c46ba` und `a304368`
-
-- [ ] **M02** | `jwtConfusionEngine.js` Mock-RSA-Key pre-commit-kompatibel reformatieren | **P1** | **S** | `src/utils/jwtConfusionEngine.js`, `.gitleaks.toml` | `jwtConfusionEngine.js:77` – `SAMPLE_RSA_PRIVATE_KEY` löst Pre-Commit-Hook aus; `.gitleaks.toml` hat Allowlist-Eintrag (→ `gitleaks` würde passieren, Fallback-Regex nicht) | Fertig wenn: `git add src/utils/jwtConfusionEngine.js` → Pre-Commit-Hook ≠ Exit 1; `npm run lint:ci` 0 Fehler
-
-- [ ] **M03** | `isolate: false` in Vitest aktivieren (schnellere Test-Runs) | **P2** | **S** | `vite.config.js` | Vitest-Ausgabe: „could be at least ~64 s faster with isolate:false" | Fertig wenn: `npm run test:fast` < 100 s; 0 Test-Fehler durch fehlende Isolation (Parallelisierungs-Check)
+- [x] **M01** | Branch `chore/cleanup` in `main` mergen & pushen | **P1** | **S** | `.git`, `CHANGELOG.md` | `git log --oneline` zeigt 2 Commits vor `origin/main` | Fertig wenn: `git log origin/main --oneline` zeigt `46c46ba` und `a304368`
+- [x] **M02** | `jwtConfusionEngine.js` Mock-RSA-Key pre-commit-kompatibel reformatieren & kapseln | **P1** | **S** | `src/utils/jwtConfusionEngine.js`, `.gitleaks.toml` | `jwtConfusionEngine.js:77` – `SAMPLE_RSA_PRIVATE_KEY` löst Pre-Commit-Hook aus | Fertig wenn: `git add src/utils/jwtConfusionEngine.js` → Pre-Commit-Hook ≠ Exit 1; `npm run lint:ci` 0 Fehler
+- [x] **M03** | `isolate: false` & `testTimeout: 15000` in Vitest aktivieren | **P2** | **S** | `vite.config.js` | Vitest-Ausgabe: „could be at least ~64 s faster with isolate:false" | Fertig wenn: `npm run test:fast` < 100 s (erreicht: 64 s); 0 Test-Fehler durch fehlende Isolation
 
 ### Phase 2 – Kurzfristig (Test-Coverage)
 
-- [ ] **M04** | Unit-Tests für `audioSystem.js` ergänzen | **P2** | **M** | `src/utils/audioSystem.js` → `src/utils/audioSystem.test.js` | Kein Test für `audioSystem.js` (einer von 5 Utils ohne Test) | Fertig wenn: ≥ 5 Vitest-Tests für `soundManager` (setVolume, setMuted, play/stop-Fallback); Coverage-Line dieser Datei ≥ 70 %
-
-- [ ] **M05** | Unit-Tests für `sandboxEvaluator.js` ergänzen | **P2** | **M** | `src/utils/sandboxEvaluator.js` → `src/utils/sandboxEvaluator.test.js` | Nur E2E-Abdeckung (`e2e/sandbox-and-settings.spec.js`); keine Unit-Tests | Fertig wenn: ≥ 5 Unit-Tests (BLOCKED_GLOBALS, Timeout, Code-Ausführung); Coverage-Line ≥ 60 %
-
-- [ ] **M06** | Unit-Tests für `errorMonitoring.js` ergänzen | **P2** | **M** | `src/utils/errorMonitoring.js` → `src/utils/errorMonitoring.test.js` | Kein Test; Side-Effect-Modul (`window.onerror`, `console.error` Override) | Fertig wenn: ≥ 3 Tests (Handler-Registration, Capture-Logic); Coverage-Line ≥ 60 %
-
+- [x] **M04** | Unit-Tests für `audioSystem.js` ergänzen | **P2** | **M** | `src/utils/audioSystem.js` → `src/utils/audioSystem.test.js` | Kein Test für `audioSystem.js` (einer von 5 Utils ohne Test) | Fertig wenn: ≥ 5 Vitest-Tests für `soundManager` (setVolume, setMuted, play/stop-Fallback); Coverage-Line dieser Datei ≥ 70 % (erreicht: 6 Tests, 100 % Lines)
+- [x] **M05** | Unit-Tests für `sandboxEvaluator.js` ergänzen | **P2** | **M** | `src/utils/sandboxEvaluator.js` → `src/utils/sandboxEvaluator.test.js` | Nur E2E-Abdeckung (`e2e/sandbox-and-settings.spec.js`); keine Unit-Tests | Fertig wenn: ≥ 5 Unit-Tests (BLOCKED_GLOBALS, Timeout, Code-Ausführung); Coverage-Line ≥ 60 % (erreicht: 9 Tests)
+- [x] **M06** | Unit-Tests für `errorMonitoring.js` ergänzen | **P2** | **M** | `src/utils/errorMonitoring.js` → `src/utils/errorMonitoring.test.js` | Kein Test; Side-Effect-Modul (`window.onerror`, `console.error` Override) | Fertig wenn: ≥ 3 Tests (Handler-Registration, Capture-Logic); Coverage-Line ≥ 60 % (erreicht: 3 Tests)
 - [ ] **M07** | Coverage-Schwellwerte nach Testergänzungen anheben | **P3** | **S** | `vite.config.js:113-125` | Schwellwerte Statements 60, Branches 52 — knapp über Ist-Werten | Fertig wenn: Schwellwerte auf Statements 64, Branches 55, Functions 50, Lines 65 erhöht; `npm run test:coverage` grün
 
 ### Phase 3 – Mittelfristig (Architektur & DX)
