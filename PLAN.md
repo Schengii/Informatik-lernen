@@ -48,7 +48,7 @@
 
 ### Phase 4 – Langfristig (Lab-Coverage)
 
-- [ ] **M13** | Exemplarische Unit-Tests für komplexe Labs ergänzen (5 Pilot-Labs) | **P3** | **L** | `src/components/Content/{SubnettingLab,BinaryConverterLab,OsiModelLab,SqlInjectionLab,AlgorithmVisualizerLab}.jsx` + je `.test.jsx` | ~229 Labs nur über Smoke-Test; keine Interaktions-Tests | Fertig wenn: 5 Pilot-Labs haben je ≥ 3 Interaktionstests (User-Input → State-Change → XP-Vergabe); `allLabsA11y.test.jsx` weiterhin grün
+- [x] **M13** | Exemplarische Unit-Tests für komplexe Labs ergänzen (5 Pilot-Labs) | **P3** | **L** | `src/components/Content/{SubnettingLab,VlsmSubnetLab,SqlWindowFunctionsLab,AlgoPlaygroundLab,VectorMathEmbeddingLab}.jsx` + je `.test.jsx` | ~229 Labs nur über Smoke-Test; keine Interaktions-Tests | Fertig wenn: 5 Pilot-Labs haben je ≥ 3 Interaktionstests (User-Input → State-Change → XP-Vergabe); `allLabsA11y.test.jsx` weiterhin grün (erreicht: je 3 Interaktionstests für SubnettingLab, VlsmSubnetLab, SqlWindowFunctionsLab, AlgoPlaygroundLab, VectorMathEmbeddingLab; allLabsA11y mit 234/234 grün)
 
 - [ ] **M14** | A11y axe-core-Schwellwert in Lighthouse CI auf 0.95 anheben | **P3** | **S** | `lighthouserc.json` | `lighthouserc.json` setzt A11y-Threshold < 0,9; Vitest axe-Tests laufen alle Labs durch | Fertig wenn: `lighthouserc.json` `minScore: 0.95`; `npm run e2e` grün
 
