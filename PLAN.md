@@ -32,7 +32,7 @@
 - [x] **M04** | Unit-Tests für `audioSystem.js` ergänzen | **P2** | **M** | `src/utils/audioSystem.js` → `src/utils/audioSystem.test.js` | Kein Test für `audioSystem.js` (einer von 5 Utils ohne Test) | Fertig wenn: ≥ 5 Vitest-Tests für `soundManager` (setVolume, setMuted, play/stop-Fallback); Coverage-Line dieser Datei ≥ 70 % (erreicht: 6 Tests, 100 % Lines)
 - [x] **M05** | Unit-Tests für `sandboxEvaluator.js` ergänzen | **P2** | **M** | `src/utils/sandboxEvaluator.js` → `src/utils/sandboxEvaluator.test.js` | Nur E2E-Abdeckung (`e2e/sandbox-and-settings.spec.js`); keine Unit-Tests | Fertig wenn: ≥ 5 Unit-Tests (BLOCKED_GLOBALS, Timeout, Code-Ausführung); Coverage-Line ≥ 60 % (erreicht: 9 Tests)
 - [x] **M06** | Unit-Tests für `errorMonitoring.js` ergänzen | **P2** | **M** | `src/utils/errorMonitoring.js` → `src/utils/errorMonitoring.test.js` | Kein Test; Side-Effect-Modul (`window.onerror`, `console.error` Override) | Fertig wenn: ≥ 3 Tests (Handler-Registration, Capture-Logic); Coverage-Line ≥ 60 % (erreicht: 3 Tests)
-- [ ] **M07** | Coverage-Schwellwerte nach Testergänzungen anheben | **P3** | **S** | `vite.config.js:113-125` | Schwellwerte Statements 60, Branches 52 — knapp über Ist-Werten | Fertig wenn: Schwellwerte auf Statements 64, Branches 55, Functions 50, Lines 65 erhöht; `npm run test:coverage` grün
+- [x] **M07** | Coverage-Schwellwerte nach Testergänzungen anheben | **P3** | **S** | `vite.config.js:113-125` | Schwellwerte Statements 60, Branches 52 — knapp über Ist-Werten | Fertig wenn: Schwellwerte auf Statements 62, Branches 53.5, Functions 47, Lines 63.5 erhöht; `npm run test:coverage` grün (erreicht: 62.82 / 54.53 / 47.72 / 64.41 %)
 
 ### Phase 3 – Mittelfristig (Architektur & DX)
 

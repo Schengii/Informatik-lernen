@@ -113,12 +113,12 @@ export default defineConfig({
       // knapp unter dem aktuellen Ist-Stand, damit neue Engines nicht
       // ungetestet einsickern können, ohne bestehende Ausreißer zu blockieren.
       thresholds: {
-        // Globale Untergrenze (Ist-Stand 07.10.2026: 61,9 / 53,6 / 47,1 / 63,5 %): verhindert,
+        // Globale Untergrenze (Ist-Stand 28.10.2026: 62,82 / 54,53 / 47,72 / 64,41 %): verhindert,
         // dass neue Komponenten/Utilities die Gesamtabdeckung still absenken.
-        statements: 60,
-        branches: 52,
-        functions: 45,
-        lines: 62,
+        statements: 62,
+        branches: 53.5,
+        functions: 47,
+        lines: 63.5,
         'src/utils/**/*Engine.js': {
           lines: 85,
           branches: 70,
