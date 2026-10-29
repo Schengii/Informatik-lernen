@@ -7,7 +7,7 @@ import { useStore } from '../../store/useStore';
 
 export default function SqliteWasmStudioLab() {
   const { awardXP } = useStore();
-  const [sandbox] = useState(() => {
+  const [sandbox, setSandbox] = useState(() => {
     const inst = new SqlSandboxInstance();
     inst.loadSeed('ecommerce');
     return inst;

@@ -1,7 +1,7 @@
 {
   "name": "informatiker-game",
   "private": true,
-  "version": "3.77.0",
+  "version": "3.78.0",
   "license": "MIT",
   "type": "module",
   "engines": {
@@ -75,6 +75,7 @@
     "framer-motion": "^14.2.0",
     "jspdf": "^4.2.1",
     "lucide-react": "^1.57.0",
+    "monaco-editor": "0.57.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-router-dom": "^7.18.4",

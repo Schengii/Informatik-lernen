@@ -494,6 +494,10 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     justify-content: center;
   }
+  /* Header-Schaltflächen bleiben kompakt, sonst läuft die Kopfzeile über (320 px) */
+  .btn.header-btn {
+    width: auto;
+  }
   .code-body {
     font-size: 0.82rem;
     padding: 12px;
@@ -1954,3 +1958,24 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.55;
 }
 
+
+/* Sehr schmale Displays (320 px): nur das Logo-Symbol, damit Kopfzeile und Aktionen nebeneinander passen */
+@media (max-width: 400px) {
+  .brand-text {
+    display: none;
+  }
+}
+
+/* Eingabefelder mit inline `outline: none` behalten eine sichtbare Fokusmarkierung (WCAG 2.4.7) */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[contenteditable]:focus-visible {
+  outline: 2px solid var(--accent-primary) !important;
+  outline-offset: 2px;
+}
+
+/* Spalten im Raster dürfen schrumpfen; breiter Inhalt (z. B. <pre>) scrollt dann in sich statt die Seite zu verbreitern */
+.grid-responsive > * {
+  min-width: 0;
+}

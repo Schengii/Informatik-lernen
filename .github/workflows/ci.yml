@@ -21,16 +21,19 @@ jobs:
 
       - run: npm ci
 
+      - name: Dependency audit (Produktions-Abhängigkeiten, ohne optionale)
+        # alasql listet react-native-fs als optionale Abhängigkeit; sie landet
+        # nicht im Browser-Build, löst aber sonst ~20 Funde aus (PLAN.md M05).
+        run: npm audit --omit=dev --omit=optional --audit-level=high
+
       - name: Lint (fails on any warning, e.g. undefined JSX references)
         run: npm run lint:ci
 
       - name: Type-check (gradueller JSDoc-Typing über @ts-check pro Datei)
         run: npm run typecheck
 
-      - name: Unit tests
-        run: npm test
-
-      - name: Coverage report (gated for src/utils/*Engine.js, informational otherwise)
+      # Führt zugleich die komplette Vitest-Suite aus (ein Lauf statt `npm test` + Coverage).
+      - name: Unit tests + coverage (gated for src/utils/*Engine.js, informational otherwise)
         run: npm run test:coverage
 
       - name: Upload coverage report
@@ -45,6 +48,13 @@ jobs:
 
       - name: Bundle size regression check
         run: npm run size
+
+      - name: Upload production build (für den Lighthouse-Job)
+        uses: actions/upload-artifact@v7
+        with:
+          name: dist
+          path: dist/
+          retention-days: 1
 
       - name: Get Playwright version
         id: playwright-version
@@ -80,6 +90,8 @@ jobs:
     # Lighthouse-CI gegen den Produktions-Build: A11y < 0.9 bricht den Build
     # (meta-viewport/Zoom-Blocker eingeschlossen); Performance/SEO/Best-Practices
     # warnen nur. Konfiguration: lighthouserc.json
+    # Nutzt den Build des test-Jobs (kein zweites npm ci/build).
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -87,12 +99,11 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: 22
-          cache: npm
 
-      - run: npm ci
-
-      - name: Production build
-        run: npm run build
+      - uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: dist/
 
       - name: Lighthouse CI
         run: npx --yes @lhci/cli@0.15.x autorun

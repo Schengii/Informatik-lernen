@@ -5,8 +5,8 @@ tags:
   - tech/react
   - domain/ihk-ausbildung
   - status/active
-version: v3.77.0
-date: 2026-10-16
+version: v3.78.0
+date: 2026-10-22
 ---
 
 # 💻 Informatik-lernen (IT-DevGame) - Projektübersicht

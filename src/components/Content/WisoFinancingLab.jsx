@@ -71,7 +71,7 @@ export default function WisoFinancingLab({ onAwardXP }) {
               type="number"
               step="500"
               value={investment}
-              onChange={e => setInvestment(Math.max(500, parseInt(e.target.value) || 500))}
+              onChange={e => setInvestment(Math.min(100000000, Math.max(500, parseInt(e.target.value) || 500)))}
               className="w-full bg-slate-950 border border-slate-700 rounded px-2.5 py-1 text-xs font-mono text-white"
             />
           </div>
@@ -82,7 +82,7 @@ export default function WisoFinancingLab({ onAwardXP }) {
               min="1"
               max="10"
               value={years}
-              onChange={e => setYears(Math.max(1, parseInt(e.target.value) || 1))}
+              onChange={e => setYears(Math.min(10, Math.max(1, parseInt(e.target.value) || 1)))}
               className="w-full bg-slate-950 border border-slate-700 rounded px-2.5 py-1 text-xs font-mono text-white"
             />
           </div>
