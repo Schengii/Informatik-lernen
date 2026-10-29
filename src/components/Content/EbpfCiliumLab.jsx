@@ -41,7 +41,7 @@ export default function EbpfCiliumLab() {
   };
 
   return (
-    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '24px', color: '#f8fafc' }}>
+    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '24px', color: 'var(--text-main)' }}>
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '16px' }}>
         <div>
@@ -53,7 +53,7 @@ export default function EbpfCiliumLab() {
               <h1 style={{ margin: 0, fontSize: '1.75rem', fontWeight: 'bold' }}>
                 eBPF Cilium Service Mesh & L7 Tracing Sandbox
               </h1>
-              <p style={{ margin: '4px 0 0', color: '#94a3b8', fontSize: '0.9rem' }}>
+              <p style={{ margin: '4px 0 0', color: 'var(--text-dim)', fontSize: '0.9rem' }}>
                 Sidecarless Cloud-Native Architektur: Linux Kernel Socket-Bypass (sock_ops / sk_msg) vs. Envoy Sidecars
               </p>
             </div>
@@ -61,7 +61,7 @@ export default function EbpfCiliumLab() {
         </div>
 
         {/* Tab Buttons */}
-        <div style={{ display: 'flex', gap: '8px', background: 'rgba(0,0,0,0.3)', padding: '4px', borderRadius: '8px' }}>
+        <div style={{ display: 'flex', gap: '8px', background: 'var(--bg-tertiary)', padding: '4px', borderRadius: '8px' }}>
           <button
             onClick={() => setActiveTab('topology')}
             style={{
@@ -69,7 +69,7 @@ export default function EbpfCiliumLab() {
               borderRadius: '6px',
               border: 'none',
               background: activeTab === 'topology' ? '#06b6d4' : 'transparent',
-              color: '#fff',
+              color: 'var(--text-main)',
               fontWeight: 'bold',
               cursor: 'pointer'
             }}
@@ -83,7 +83,7 @@ export default function EbpfCiliumLab() {
               borderRadius: '6px',
               border: 'none',
               background: activeTab === 'benchmark' ? '#06b6d4' : 'transparent',
-              color: '#fff',
+              color: 'var(--text-main)',
               fontWeight: 'bold',
               cursor: 'pointer'
             }}
@@ -97,7 +97,7 @@ export default function EbpfCiliumLab() {
               borderRadius: '6px',
               border: 'none',
               background: activeTab === 'code' ? '#06b6d4' : 'transparent',
-              color: '#fff',
+              color: 'var(--text-main)',
               fontWeight: 'bold',
               cursor: 'pointer'
             }}
@@ -108,10 +108,10 @@ export default function EbpfCiliumLab() {
       </div>
 
       {/* Configuration Controls */}
-      <div style={{ background: 'var(--card-bg, #1e293b)', padding: '16px 20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.08)', marginBottom: '24px' }}>
+      <div style={{ background: 'var(--card-bg, #1e293b)', padding: '16px 20px', borderRadius: '12px', border: '1px solid var(--border-color)', marginBottom: '24px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', alignItems: 'center' }}>
           <div>
-            <label style={{ fontSize: '0.8rem', color: '#94a3b8', display: 'block', marginBottom: '4px' }}>
+            <label style={{ fontSize: '0.8rem', color: 'var(--text-dim)', display: 'block', marginBottom: '4px' }}>
               Anzahl Microservice Pods im Cluster: <strong>{podCount} Pods</strong>
             </label>
             <input
@@ -126,7 +126,7 @@ export default function EbpfCiliumLab() {
           </div>
 
           <div>
-            <label style={{ fontSize: '0.8rem', color: '#94a3b8', display: 'block', marginBottom: '4px' }}>
+            <label style={{ fontSize: '0.8rem', color: 'var(--text-dim)', display: 'block', marginBottom: '4px' }}>
               Payload-Größe: <strong>{payloadSize} Bytes</strong>
             </label>
             <input
@@ -141,7 +141,7 @@ export default function EbpfCiliumLab() {
           </div>
 
           <div>
-            <span style={{ fontSize: '0.8rem', color: '#94a3b8', display: 'block', marginBottom: '6px' }}>
+            <span style={{ fontSize: '0.8rem', color: 'var(--text-dim)', display: 'block', marginBottom: '6px' }}>
               L7 Tracing (HTTP Path / Latency):
             </span>
             <button
@@ -151,7 +151,7 @@ export default function EbpfCiliumLab() {
                 borderRadius: '6px',
                 border: 'none',
                 background: enableL7 ? '#10b981' : '#475569',
-                color: '#fff',
+                color: 'var(--text-main)',
                 fontWeight: 'bold',
                 cursor: 'pointer',
                 fontSize: '0.85rem'
@@ -192,11 +192,11 @@ export default function EbpfCiliumLab() {
               <div style={{ padding: '6px', borderRadius: '6px', background: '#06b6d4', color: '#fff' }}>
                 <Zap size={18} />
               </div>
-              <h3 style={{ margin: 0, fontSize: '1.15rem', color: '#22d3ee' }}>
+              <h3 style={{ margin: 0, fontSize: '1.15rem', color: 'var(--accent-cyan)' }}>
                 Cilium eBPF (Sidecarless)
               </h3>
             </div>
-            <p style={{ fontSize: '0.85rem', color: '#94a3b8', margin: '0 0 16px 0' }}>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-dim)', margin: '0 0 16px 0' }}>
               Verbindet Sockets direkt im Linux-Kernel via eBPF Sockmap. Null Sidecars, Umgehung von TCP/IP und iptables.
             </p>
 
@@ -216,7 +216,7 @@ export default function EbpfCiliumLab() {
                   }}
                 >
                   <div>
-                    <span style={{ fontWeight: 'bold', color: hop.type === 'ebpf_bypass' ? '#38bdf8' : '#fff' }}>
+                    <span style={{ fontWeight: 'bold', color: hop.type === 'ebpf_bypass' ? 'var(--accent-cyan)' : 'var(--text-main)' }}>
                       {hop.name}
                     </span>
                     {hop.desc && (
@@ -225,7 +225,7 @@ export default function EbpfCiliumLab() {
                       </div>
                     )}
                   </div>
-                  <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Hop {idx + 1}</span>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>Hop {idx + 1}</span>
                 </div>
               ))}
             </div>
@@ -241,11 +241,11 @@ export default function EbpfCiliumLab() {
               <div style={{ padding: '6px', borderRadius: '6px', background: '#ef4444', color: '#fff' }}>
                 <Layers size={18} />
               </div>
-              <h3 style={{ margin: 0, fontSize: '1.15rem', color: '#f87171' }}>
+              <h3 style={{ margin: 0, fontSize: '1.15rem', color: 'var(--accent-rose)' }}>
                 Klassischer Envoy Sidecar Proxy
               </h3>
             </div>
-            <p style={{ fontSize: '0.85rem', color: '#94a3b8', margin: '0 0 16px 0' }}>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-dim)', margin: '0 0 16px 0' }}>
               Jeder Pod injiziert einen Envoy-Container. Daten durchlaufen 4 User-Kernel Kontextwechsel & iptables.
             </p>
 
@@ -265,7 +265,7 @@ export default function EbpfCiliumLab() {
                   }}
                 >
                   <div>
-                    <span style={{ fontWeight: 'bold', color: hop.type === 'proxy' ? '#fca5a5' : '#fff' }}>
+                    <span style={{ fontWeight: 'bold', color: hop.type === 'proxy' ? 'var(--accent-rose)' : 'var(--text-main)' }}>
                       {hop.name}
                     </span>
                     {hop.desc && (
@@ -274,7 +274,7 @@ export default function EbpfCiliumLab() {
                       </div>
                     )}
                   </div>
-                  <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Hop {idx + 1}</span>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>Hop {idx + 1}</span>
                 </div>
               ))}
             </div>
@@ -288,38 +288,38 @@ export default function EbpfCiliumLab() {
 
       {/* TAB 2: Latenz- & RAM-Vergleich */}
       {activeTab === 'benchmark' && (
-        <div style={{ background: 'var(--card-bg, #1e293b)', padding: '24px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.08)' }}>
-          <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold', margin: '0 0 16px 0', color: '#06b6d4' }}>
+        <div style={{ background: 'var(--card-bg, #1e293b)', padding: '24px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
+          <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold', margin: '0 0 16px 0', color: 'var(--accent-cyan)' }}>
             Direkte Gegenüberstellung der Architekturen ({podCount} Pods)
           </h2>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px', marginBottom: '24px' }}>
             <div style={{ background: 'rgba(6, 182, 212, 0.1)', padding: '16px', borderRadius: '10px', border: '1px solid rgba(6, 182, 212, 0.3)' }}>
               <div style={{ fontSize: '0.8rem', color: '#a5f3fc' }}>Latenz-Speedup (P50)</div>
-              <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#22d3ee' }}>
+              <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--accent-cyan)' }}>
                 ~{ciliumMetrics.speedupFactor}x schneller
               </div>
-              <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: '4px' }}>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)', marginTop: '4px' }}>
                 {ciliumMetrics.latencyP50} ms (eBPF) vs. {envoyMetrics.latencyP50} ms (Envoy)
               </div>
             </div>
 
             <div style={{ background: 'rgba(34, 197, 94, 0.1)', padding: '16px', borderRadius: '10px', border: '1px solid rgba(34, 197, 94, 0.3)' }}>
-              <div style={{ fontSize: '0.8rem', color: '#86efac' }}>Eingesparter Arbeitsspeicher (RAM)</div>
-              <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#4ade80' }}>
+              <div style={{ fontSize: '0.8rem', color: 'var(--accent-emerald)' }}>Eingesparter Arbeitsspeicher (RAM)</div>
+              <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--accent-emerald)' }}>
                 -{envoyMetrics.totalMemoryOverheadMb} MB
               </div>
-              <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: '4px' }}>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)', marginTop: '4px' }}>
                 Keine 65MB Sidecar-Proxies pro Pod erforderlich
               </div>
             </div>
 
             <div style={{ background: 'rgba(168, 85, 247, 0.1)', padding: '16px', borderRadius: '10px', border: '1px solid rgba(168, 85, 247, 0.3)' }}>
               <div style={{ fontSize: '0.8rem', color: '#d8b4fe' }}>CPU-Overhead Entlastung</div>
-              <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#c084fc' }}>
+              <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--accent-purple)' }}>
                 ~{envoyMetrics.cpuOverheadPct - ciliumMetrics.cpuOverheadPct}%
               </div>
-              <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: '4px' }}>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)', marginTop: '4px' }}>
                 Wegfall von doppeltem TCP-Parsing und User/Kernel Kontextwechseln
               </div>
             </div>
@@ -327,32 +327,32 @@ export default function EbpfCiliumLab() {
 
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
             <thead>
-              <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', color: '#94a3b8', textAlign: 'left' }}>
+              <tr style={{ borderBottom: '1px solid var(--border-color)', color: 'var(--text-dim)', textAlign: 'left' }}>
                 <th style={{ padding: '10px' }}>Kriterium</th>
-                <th style={{ padding: '10px', color: '#22d3ee' }}>Cilium eBPF (Sidecarless)</th>
-                <th style={{ padding: '10px', color: '#f87171' }}>Envoy Sidecar Proxy</th>
+                <th style={{ padding: '10px', color: 'var(--accent-cyan)' }}>Cilium eBPF (Sidecarless)</th>
+                <th style={{ padding: '10px', color: 'var(--accent-rose)' }}>Envoy Sidecar Proxy</th>
               </tr>
             </thead>
             <tbody>
-              <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+              <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
                 <td style={{ padding: '10px' }}>Latenz P50</td>
-                <td style={{ padding: '10px', fontWeight: 'bold', color: '#22d3ee' }}>{ciliumMetrics.latencyP50} ms</td>
-                <td style={{ padding: '10px', color: '#f87171' }}>{envoyMetrics.latencyP50} ms</td>
+                <td style={{ padding: '10px', fontWeight: 'bold', color: 'var(--accent-cyan)' }}>{ciliumMetrics.latencyP50} ms</td>
+                <td style={{ padding: '10px', color: 'var(--accent-rose)' }}>{envoyMetrics.latencyP50} ms</td>
               </tr>
-              <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+              <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
                 <td style={{ padding: '10px' }}>Latenz P99</td>
-                <td style={{ padding: '10px', fontWeight: 'bold', color: '#22d3ee' }}>{ciliumMetrics.latencyP99} ms</td>
-                <td style={{ padding: '10px', color: '#f87171' }}>{envoyMetrics.latencyP99} ms</td>
+                <td style={{ padding: '10px', fontWeight: 'bold', color: 'var(--accent-cyan)' }}>{ciliumMetrics.latencyP99} ms</td>
+                <td style={{ padding: '10px', color: 'var(--accent-rose)' }}>{envoyMetrics.latencyP99} ms</td>
               </tr>
-              <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+              <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
                 <td style={{ padding: '10px' }}>RAM-Verbrauch ({podCount} Pods)</td>
-                <td style={{ padding: '10px', fontWeight: 'bold', color: '#4ade80' }}>0 MB (Kernel-native)</td>
-                <td style={{ padding: '10px', color: '#f87171' }}>{envoyMetrics.totalMemoryOverheadMb} MB</td>
+                <td style={{ padding: '10px', fontWeight: 'bold', color: 'var(--accent-emerald)' }}>0 MB (Kernel-native)</td>
+                <td style={{ padding: '10px', color: 'var(--accent-rose)' }}>{envoyMetrics.totalMemoryOverheadMb} MB</td>
               </tr>
               <tr>
                 <td style={{ padding: '10px' }}>L7 Observability (HTTP/gRPC)</td>
-                <td style={{ padding: '10px', color: '#22d3ee' }}>Via eBPF Kernel Tracing (Zero Proxy)</td>
-                <td style={{ padding: '10px', color: '#cbd5e1' }}>Via Envoy HTTP Connection Manager</td>
+                <td style={{ padding: '10px', color: 'var(--accent-cyan)' }}>Via eBPF Kernel Tracing (Zero Proxy)</td>
+                <td style={{ padding: '10px', color: 'var(--text-muted)' }}>Via Envoy HTTP Connection Manager</td>
               </tr>
             </tbody>
           </table>
@@ -361,23 +361,23 @@ export default function EbpfCiliumLab() {
 
       {/* TAB 3: eBPF C-Code */}
       {activeTab === 'code' && (
-        <div style={{ background: 'var(--card-bg, #1e293b)', padding: '24px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.08)' }}>
-          <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold', margin: '0 0 14px 0', color: '#38bdf8' }}>
+        <div style={{ background: 'var(--card-bg, #1e293b)', padding: '24px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
+          <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold', margin: '0 0 14px 0', color: 'var(--accent-cyan)' }}>
             Linux Kernel eBPF Sockmap Redirection C-Programm
           </h2>
-          <p style={{ fontSize: '0.85rem', color: '#94a3b8', margin: '0 0 16px 0' }}>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text-dim)', margin: '0 0 16px 0' }}>
             Dieser C-Code wird vom Cilium Daemon in den Linux Kernel geladen und mittels JIT-Compiler zu nativen CPU-Befehlen assembliert.
           </p>
           <pre style={{
-            background: 'rgba(0,0,0,0.5)',
+            background: 'var(--bg-tertiary)',
             padding: '16px',
             borderRadius: '8px',
             overflowX: 'auto',
             fontSize: '0.85rem',
             fontFamily: 'monospace',
-            color: '#38bdf8',
+            color: 'var(--accent-cyan)',
             lineHeight: '1.5',
-            border: '1px solid rgba(255,255,255,0.08)'
+            border: '1px solid var(--border-color)'
           }}>
             {generateCiliumEbpfSnippet()}
           </pre>

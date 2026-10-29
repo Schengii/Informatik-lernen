@@ -45,7 +45,7 @@ export default function CleanCodeReviewLab() {
       {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px', marginBottom: '24px' }}>
         <div>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '4px 12px', background: 'rgba(239, 68, 68, 0.15)', borderRadius: '20px', color: '#f87171', fontSize: '0.85rem', fontWeight: 'bold', marginBottom: '8px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '4px 12px', background: 'rgba(239, 68, 68, 0.15)', borderRadius: '20px', color: 'var(--accent-rose)', fontSize: '0.85rem', fontWeight: 'bold', marginBottom: '8px' }}>
             <ShieldCheck size={16} /> Code Auditing & Vulnerability Hunter
           </div>
           <h1 style={{ fontSize: '1.8rem', fontWeight: '800', margin: '0 0 6px 0', color: 'var(--text-primary)' }}>
@@ -57,7 +57,7 @@ export default function CleanCodeReviewLab() {
         </div>
 
         {/* Progress Badge */}
-        <div style={{ padding: '8px 16px', borderRadius: '10px', background: 'var(--card-bg, #1e293b)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', fontSize: '0.9rem', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <div style={{ padding: '8px 16px', borderRadius: '10px', background: 'var(--card-bg, #1e293b)', border: '1px solid var(--border-color)', color: 'var(--text-main)', fontSize: '0.9rem', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <Zap size={16} color="#fbbf24" /> Challenge {currentIdx + 1} / {CLEAN_CODE_CHALLENGES.length}
         </div>
       </div>
@@ -66,9 +66,9 @@ export default function CleanCodeReviewLab() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '20px', marginBottom: '24px' }}>
         
         {/* Bad Code Box */}
-        <div style={{ background: '#0f172a', borderRadius: '12px', border: '1px solid rgba(239, 68, 68, 0.4)', overflow: 'hidden' }}>
+        <div style={{ background: 'var(--bg-tertiary)', borderRadius: '12px', border: '1px solid rgba(239, 68, 68, 0.4)', overflow: 'hidden' }}>
           <div style={{ padding: '12px 16px', background: 'rgba(239, 68, 68, 0.15)', borderBottom: '1px solid rgba(239, 68, 68, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#fca5a5', fontSize: '0.9rem', fontWeight: 'bold' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-rose)', fontSize: '0.9rem', fontWeight: 'bold' }}>
               <AlertTriangle size={17} color="#ef4444" />
               <span>{challenge.title}</span>
             </div>
@@ -76,10 +76,10 @@ export default function CleanCodeReviewLab() {
               BUGGY CODE
             </span>
           </div>
-          <pre style={{ margin: 0, padding: '16px', color: '#fca5a5', fontFamily: 'Fira Code, monospace', fontSize: '0.88rem', lineHeight: '1.6', overflowX: 'auto' }}>
+          <pre style={{ margin: 0, padding: '16px', color: 'var(--accent-rose)', fontFamily: 'Fira Code, monospace', fontSize: '0.88rem', lineHeight: '1.6', overflowX: 'auto' }}>
             {challenge.badCode}
           </pre>
-          <div style={{ padding: '12px 16px', background: 'rgba(0,0,0,0.3)', borderTop: '1px solid rgba(255,255,255,0.06)', color: '#94a3b8', fontSize: '0.82rem' }}>
+          <div style={{ padding: '12px 16px', background: 'var(--bg-tertiary)', borderTop: '1px solid var(--border-color)', color: 'var(--text-dim)', fontSize: '0.82rem' }}>
             ⚠️ <strong>Sicherheits-Audit:</strong> {challenge.vulnExplanation}
           </div>
         </div>
@@ -87,8 +87,8 @@ export default function CleanCodeReviewLab() {
         {/* Options & Quiz / Refactored Code */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           
-          <div style={{ background: 'var(--card-bg, #1e293b)', borderRadius: '12px', border: '1px solid var(--border-color, rgba(255,255,255,0.1))', padding: '18px' }}>
-            <h3 style={{ margin: '0 0 14px 0', fontSize: '1rem', fontWeight: 'bold', color: '#fff' }}>
+          <div style={{ background: 'var(--card-bg, #1e293b)', borderRadius: '12px', border: '1px solid var(--border-color, var(--border-color))', padding: '18px' }}>
+            <h3 style={{ margin: '0 0 14px 0', fontSize: '1rem', fontWeight: 'bold', color: 'var(--text-main)' }}>
               Wie muss dieser Code professionell refactored werden?
             </h3>
 
@@ -150,10 +150,10 @@ export default function CleanCodeReviewLab() {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              style={{ background: '#0f172a', borderRadius: '12px', border: '1px solid rgba(34, 197, 94, 0.4)', overflow: 'hidden' }}
+              style={{ background: 'var(--bg-tertiary)', borderRadius: '12px', border: '1px solid rgba(34, 197, 94, 0.4)', overflow: 'hidden' }}
             >
               <div style={{ padding: '10px 16px', background: 'rgba(34, 197, 94, 0.15)', borderBottom: '1px solid rgba(34, 197, 94, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#86efac', fontSize: '0.88rem', fontWeight: 'bold' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-emerald)', fontSize: '0.88rem', fontWeight: 'bold' }}>
                   <CheckCircle2 size={16} color="#22c55e" />
                   <span>Sauberes Production Refactoring</span>
                 </div>
@@ -161,7 +161,7 @@ export default function CleanCodeReviewLab() {
                   CLEAN CODE
                 </span>
               </div>
-              <pre style={{ margin: 0, padding: '14px', color: '#86efac', fontFamily: 'Fira Code, monospace', fontSize: '0.85rem', lineHeight: '1.5', overflowX: 'auto' }}>
+              <pre style={{ margin: 0, padding: '14px', color: 'var(--accent-emerald)', fontFamily: 'Fira Code, monospace', fontSize: '0.85rem', lineHeight: '1.5', overflowX: 'auto' }}>
                 {challenge.refactoredCode}
               </pre>
             </motion.div>
