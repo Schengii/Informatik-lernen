@@ -96,6 +96,7 @@ function measurePage({ minContrast, maxOverflow }) {
   const W = window.innerWidth;
   let overflow = 0;
   let overflowAt = '';
+  let overflowEl = null;
   for (const el of main.querySelectorAll('*')) {
     const rect = el.getBoundingClientRect();
     if (!rect.width || rect.right - W <= overflow) continue;
@@ -107,13 +108,27 @@ function measurePage({ minContrast, maxOverflow }) {
     if (!clipped) {
       overflow = rect.right - W;
       overflowAt = `${el.tagName.toLowerCase()}${el.className && typeof el.className === 'string' ? '.' + el.className.trim().split(/\s+/).slice(0, 2).join('.') : ''}`;
+      overflowEl = el;
     }
+  }
+  // Ursache: das äußerste Element, das aus einem noch passenden Elternelement herausragt.
+  let overflowCause = '';
+  if (overflowEl && overflow > maxOverflow) {
+    let cause = overflowEl;
+    for (let a = overflowEl.parentElement; a && a !== main; a = a.parentElement) {
+      if (a.getBoundingClientRect().right > W + 1) cause = a; else break;
+    }
+    const cs = getComputedStyle(cause);
+    const parent = cause.parentElement ? getComputedStyle(cause.parentElement) : null;
+    const st = cause.getAttribute('style') || '';
+    overflowCause = `${describe(cause).replace(/ \[style:.*$/, '')} w=${Math.round(cause.getBoundingClientRect().width)} ${cs.display}${cs.minWidth !== 'auto' && cs.minWidth !== '0px' ? ' min-width:' + cs.minWidth : ''}${cs.whiteSpace === 'nowrap' ? ' nowrap' : ''}${parent ? ' | parent ' + parent.display + (parent.gridTemplateColumns !== 'none' ? ' cols:' + parent.gridTemplateColumns.slice(0, 40) : '') : ''} | style: ${st.slice(0, 120)}`;
   }
   return {
     lowContrast: lowContrast.length,
     samples: lowContrast.slice(0, 40),
     overflow: overflow > maxOverflow ? Math.round(overflow) : 0,
     overflowAt: overflow > maxOverflow ? overflowAt : '',
+    overflowCause,
   };
 }
 
