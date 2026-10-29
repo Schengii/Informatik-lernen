@@ -150,6 +150,7 @@ Achtung: Beide Glob-Tests laden `Content/*.jsx` und schließen `*.test.jsx` aus 
 
 ## ♿ A11y-Sicherheitsnetz, Streak & Fehlerjournal
 
+- Farben: Inline-Styles nutzen Theme-Variablen (`var(--text-main/muted/dim)`, `var(--bg-*)`, `var(--accent-*)`), keine festen Hex-Werte; Schrift auf Akzentflächen ist `var(--text-on-accent)` (im Dark Mode dunkel, weil die Akzente dort hell sind). Tailwind-Klassen dürfen dunkel gedacht sein (`bg-slate-900 text-emerald-400`): `src/styles/tailwind-light.css` spiegelt die Palette im Light Mode – nach neuen Farbtönen `npm run gen:tailwind-light`. Prüfung: `npm run build`, `npm run preview`, `npm run audit:ui` (Kontrast < 3:1 und Überlauf bei 375 px, beide Themes).
 - `src/utils/a11yAutoLabel.js` vergibt zur Laufzeit (MutationObserver in `App.jsx` auf `<main>`) `aria-label` an unbeschriftete Controls. Das ist ein Fallback: Neue Labs sollten trotzdem echte `<label>`/`aria-label` verwenden. Der axe-Test wendet dieselbe Funktion an.
 - Streak/Tageswechsel: Datumsschlüssel sind **lokale Zeit** (`toLocalDateKey`), nie `toISOString()`. Streak-Logik: `updateStreak` in `storage.js` (wird von `recordDailyActivity` aufgerufen).
 - Fehlerjournal: `mistakeJournalEngine.js` (rein) → Store-Aktion `recordMistakeResults` → `ExamSimulator` (`onRecordResults`) und `MistakeReviewWidget` (Dashboard, lazy). Frage-IDs in `examData.js` müssen eindeutig bleiben (Test `contentIntegrity.test.js`).

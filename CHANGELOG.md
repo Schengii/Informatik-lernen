@@ -9,6 +9,10 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unveröffentlicht]
 
+### Darstellung (PLAN.md Phase 6)
+- **Lesbarer Light und Dark Mode (P15)**: `npm run audit:ui` meldet in beiden Themes keine Route mehr mit Text unter 3:1 (vorher hell 125, dunkel 157 Routen). Neue Variable `--text-on-accent` für Schrift auf Akzentflächen; `src/styles/tailwind-light.css` (`npm run gen:tailwind-light`) spiegelt im Light Mode die Tailwind-Palette der dunkel gestalteten Labs; fest codierte Inline-Farben in rund 150 Komponenten auf Theme-Variablen umgestellt (im Dark Mode farbgleich); Buttons ohne Hintergrundklasse erben nicht mehr das Browser-Grau.
+- **UI-Audit (P14)**: `audit:ui` nennt je Fundstelle Element und Hintergrundquelle und überspringt Verlaufsschrift.
+
 ## [3.79.0] - 2026-10-29
 
 Umsetzung von `PLAN.md` (Analyse vom 2026-10-29: P01–P13, neu gefunden N01–N04; Details, Messwerte und Status dort). Enthält außerdem die bisher unveröffentlichten QA-Fehlerbehebungen und die Branch-Arbeit M01–M14 (Abschnitte darunter).
