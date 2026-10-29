@@ -135,7 +135,10 @@ export default defineConfig({
   test: {
     environment: 'node',
     testTimeout: 15000,
-    isolate: false,
+    // Gemessen 29.10.2026: isolate:false ist nicht schneller (116–117 s gegen
+    // 113–121 s) und ließ in 2 von 3 Läufen 3–6 Tests sporadisch scheitern
+    // (Zustand zwischen Testdateien) – daher Isolation pro Datei.
+    isolate: true,
     // e2e/ enthält Playwright-Specs (eigener Testrunner, eigenes `test`-API) -
     // ohne diesen Ausschluss würde Vitests Standard-Glob (`*.spec.js`) sie
     // fälschlich einsammeln und mit der falschen Test-API ausführen wollen.
