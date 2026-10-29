@@ -10,9 +10,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           # size-limit@14 requires Node >=22.19 (uses node:fs/promises' `glob`
           # export, only available from Node 22+) - Node 20 fails at runtime.
@@ -21,20 +21,23 @@ jobs:
 
       - run: npm ci
 
+      - name: Dependency audit (Produktions-Abhängigkeiten, ohne optionale)
+        # alasql listet react-native-fs als optionale Abhängigkeit; sie landet
+        # nicht im Browser-Build, löst aber sonst ~20 Funde aus (PLAN.md M05).
+        run: npm audit --omit=dev --omit=optional --audit-level=high
+
       - name: Lint (fails on any warning, e.g. undefined JSX references)
         run: npm run lint:ci
 
       - name: Type-check (gradueller JSDoc-Typing über @ts-check pro Datei)
         run: npm run typecheck
 
-      - name: Unit tests
-        run: npm test
-
-      - name: Coverage report (gated for src/utils/*Engine.js, informational otherwise)
+      # Führt zugleich die komplette Vitest-Suite aus (ein Lauf statt `npm test` + Coverage).
+      - name: Unit tests + coverage (gated for src/utils/*Engine.js, informational otherwise)
         run: npm run test:coverage
 
       - name: Upload coverage report
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: coverage-report
           path: coverage/
@@ -46,13 +49,20 @@ jobs:
       - name: Bundle size regression check
         run: npm run size
 
+      - name: Upload production build (für den Lighthouse-Job)
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: dist
+          path: dist/
+          retention-days: 1
+
       - name: Get Playwright version
         id: playwright-version
         run: echo "version=$(node -e "console.log(require('./package-lock.json').packages['node_modules/@playwright/test'].version)")" >> "$GITHUB_OUTPUT"
 
       - name: Cache Playwright browsers
         id: playwright-cache
-        uses: actions/cache@v6
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}
@@ -70,7 +80,7 @@ jobs:
 
       - name: Upload Playwright report
         if: always()
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: playwright-report
           path: playwright-report/
@@ -80,26 +90,27 @@ jobs:
     # Lighthouse-CI gegen den Produktions-Build: A11y < 0.9 bricht den Build
     # (meta-viewport/Zoom-Blocker eingeschlossen); Performance/SEO/Best-Practices
     # warnen nur. Konfiguration: lighthouserc.json
+    # Nutzt den Build des test-Jobs (kein zweites npm ci/build).
+    needs: test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
-          cache: npm
 
-      - run: npm ci
-
-      - name: Production build
-        run: npm run build
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: dist
+          path: dist/
 
       - name: Lighthouse CI
         run: npx --yes @lhci/cli@0.15.x autorun
 
       - name: Upload Lighthouse reports
         if: always()
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: lighthouse-report
           path: .lighthouseci/
@@ -114,18 +125,44 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+    # Eigene Schritte statt andresz1/size-limit-action: die Action ist auch in
+    # der neuesten Version (v1.8.0) eine Node-20-Action und läuft auf
+    # GitHub-Runnern nicht mehr (Node 20 seit 16.09.2026 entfernt).
+    env:
+      BASE_SHA: ${{ github.event.pull_request.base.sha }}
+      PR_SHA: ${{ github.sha }}
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
 
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
           cache: npm
 
-      - run: npm ci
+      - name: Größen des Ziel-Branches
+        # Scheitert der Basis-Build (z. B. sehr alter Stand), zeigt der
+        # Bericht nur die PR-Werte.
+        run: |
+          git checkout --quiet "$BASE_SHA"
+          (npm ci && npm run build && npx size-limit --json > "$RUNNER_TEMP/size-base.json") || echo '[]' > "$RUNNER_TEMP/size-base.json"
 
-      - name: Bundle size trend comment
-        uses: andresz1/size-limit-action@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          skip_step: install
+      - name: Größen des PR
+        run: |
+          git checkout --quiet --force "$PR_SHA"
+          npm ci
+          npm run build
+          npx size-limit --json > "$RUNNER_TEMP/size-pr.json" || true
+
+      - name: Bericht als PR-Kommentar
+        # Bei PRs aus Forks ist der Token schreibgeschützt; der Bericht steht
+        # dann nur in der Job-Zusammenfassung.
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          node scripts/size-report.js "$RUNNER_TEMP/size-base.json" "$RUNNER_TEMP/size-pr.json" > "$RUNNER_TEMP/size-report.md"
+          cat "$RUNNER_TEMP/size-report.md" >> "$GITHUB_STEP_SUMMARY"
+          gh pr comment "$PR_NUMBER" --body-file "$RUNNER_TEMP/size-report.md" --edit-last --create-if-none
