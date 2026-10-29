@@ -51,6 +51,8 @@ export default defineConfig({
         globIgnores: [
           'assets/vendor-pdf-*.js',
           'assets/vendor-sql-*.js',
+          // alasql-Worker (bündelt alasql selbst, nur in den SQL-Labs)
+          'assets/sql.worker-*.js',
           'assets/vendor-charts-*.js',
           // Monaco (nur im Monaco-Lab): Editor-Kern und Worker
           'assets/editor.api-*.js',
@@ -59,7 +61,7 @@ export default defineConfig({
         ],
         runtimeCaching: [
           {
-            urlPattern: /\/assets\/(vendor-(pdf|sql|charts)|editor\.api|editor\.worker|json\.worker)-[^/]+\.js$/,
+            urlPattern: /\/assets\/(vendor-(pdf|sql|charts)|sql\.worker|editor\.api|editor\.worker|json\.worker)-[^/]+\.js$/,
             handler: 'StaleWhileRevalidate',
             options: {
               cacheName: 'vendor-large-chunks',

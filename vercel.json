@@ -36,7 +36,7 @@
       ]
     },
     {
-      "source": "/((?!assets/sandbox\\.worker-).*)",
+      "source": "/((?!assets/(?:sandbox|sql)\\.worker-).*)",
       "headers": [
         {
           "key": "X-Content-Type-Options",
@@ -69,7 +69,7 @@
       ]
     },
     {
-      "source": "/assets/sandbox\\.worker-(.*)",
+      "source": "/assets/(sandbox|sql)\\.worker-(.*)",
       "headers": [
         {
           "key": "X-Content-Type-Options",

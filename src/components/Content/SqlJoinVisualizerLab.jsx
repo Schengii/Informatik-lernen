@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
-import alasql from 'alasql';
+import { runSql } from '../../utils/sqlWorkerClient';
+
+const JOIN_SELECT = 'SELECT u.id, u.name, o.order_id, o.product, o.amount FROM Users u';
+const JOIN_QUERIES = {
+  INNER: `${JOIN_SELECT} INNER JOIN Orders o ON u.id = o.user_id`,
+  LEFT: `${JOIN_SELECT} LEFT JOIN Orders o ON u.id = o.user_id`,
+  RIGHT: `${JOIN_SELECT} RIGHT JOIN Orders o ON u.id = o.user_id`,
+  FULL: `${JOIN_SELECT} OUTER JOIN Orders o ON u.id = o.user_id`,
+  LEFT_ONLY: `${JOIN_SELECT} LEFT JOIN Orders o ON u.id = o.user_id WHERE o.order_id IS NULL`
+};
 import { Database } from 'lucide-react';
 
 const INITIAL_USERS = [
@@ -68,29 +77,24 @@ WHERE o.order_id IS NULL;`;
     }
   };
 
-  const executeJoin = (type) => {
+  const executeJoin = async (type) => {
     setJoinType(type);
+    const joinQuery = JOIN_QUERIES[type];
     try {
-      // Execute in AlaSQL
-      alasql('CREATE TABLE IF NOT EXISTS Users (id INT, name STRING, role STRING)');
-      alasql('CREATE TABLE IF NOT EXISTS Orders (order_id INT, user_id INT, product STRING, amount INT)');
-      alasql('DELETE FROM Users');
-      alasql('DELETE FROM Orders');
-      INITIAL_USERS.forEach(u => alasql('INSERT INTO Users VALUES (?, ?, ?)', [u.id, u.name, u.role]));
-      INITIAL_ORDERS.forEach(o => alasql('INSERT INTO Orders VALUES (?, ?, ?, ?)', [o.order_id, o.user_id, o.product, o.amount]));
-
-      let res = [];
-      if (type === 'INNER') {
-        res = alasql('SELECT u.id, u.name, o.order_id, o.product, o.amount FROM Users u INNER JOIN Orders o ON u.id = o.user_id');
-      } else if (type === 'LEFT') {
-        res = alasql('SELECT u.id, u.name, o.order_id, o.product, o.amount FROM Users u LEFT JOIN Orders o ON u.id = o.user_id');
-      } else if (type === 'RIGHT') {
-        res = alasql('SELECT u.id, u.name, o.order_id, o.product, o.amount FROM Users u RIGHT JOIN Orders o ON u.id = o.user_id');
-      } else if (type === 'FULL') {
-        res = alasql('SELECT u.id, u.name, o.order_id, o.product, o.amount FROM Users u OUTER JOIN Orders o ON u.id = o.user_id');
-      } else if (type === 'LEFT_ONLY') {
-        res = alasql('SELECT u.id, u.name, o.order_id, o.product, o.amount FROM Users u LEFT JOIN Orders o ON u.id = o.user_id WHERE o.order_id IS NULL');
-      }
+      // Execute in AlaSQL (Web Worker, CSP-konform – siehe sqlWorkerClient.js)
+      const results = await runSql([
+        { sql: 'USE alasql' },
+        { sql: 'CREATE TABLE IF NOT EXISTS Users (id INT, name STRING, role STRING)' },
+        { sql: 'CREATE TABLE IF NOT EXISTS Orders (order_id INT, user_id INT, product STRING, amount INT)' },
+        { sql: 'DELETE FROM Users' },
+        { sql: 'DELETE FROM Orders' },
+        ...INITIAL_USERS.map(u => ({ sql: 'INSERT INTO Users VALUES (?, ?, ?)', params: [u.id, u.name, u.role] })),
+        ...INITIAL_ORDERS.map(o => ({ sql: 'INSERT INTO Orders VALUES (?, ?, ?, ?)', params: [o.order_id, o.user_id, o.product, o.amount] })),
+        ...(joinQuery ? [{ sql: joinQuery }] : [])
+      ]);
+      const failed = results.find(r => !r.ok);
+      if (failed) throw new Error(failed.error);
+      const res = joinQuery ? results[results.length - 1].result : [];
       setQueryResult(res);
 
       if (type === quests[activeQuestIdx].targetJoin) {
