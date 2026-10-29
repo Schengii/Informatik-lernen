@@ -151,7 +151,7 @@ export default function VideoHub({ onCompleteVideo }) {
                   width: '36px',
                   height: '36px',
                   borderRadius: '8px',
-                  background: isSelected ? 'var(--gradient-cyber)' : 'var(--bg-secondary)',
+                  background: isSelected ? 'var(--gradient-cta)' : 'var(--bg-secondary)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',

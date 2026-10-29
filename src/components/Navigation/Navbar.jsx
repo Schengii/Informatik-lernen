@@ -108,7 +108,7 @@ export default function Navbar({
               width: '40px',
               height: '40px',
               borderRadius: '12px',
-              background: 'var(--gradient-cyber)',
+              background: 'var(--gradient-cta)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',

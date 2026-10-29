@@ -19,7 +19,7 @@ export default function LanguageAcademy() {
       {/* Header Banner */}
       <div className="glass-panel" style={{ padding: '32px', marginBottom: '24px', border: '2px solid var(--accent-primary)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
-          <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'var(--gradient-cyber)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
+          <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'var(--gradient-cta)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
             <Code2 size={24} />
           </div>
           <div>

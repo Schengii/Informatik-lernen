@@ -82,7 +82,7 @@ export default function SqlDungeon({ onCompleteGame }) {
                 width: '36px',
                 height: '36px',
                 borderRadius: '8px',
-                background: levelIdx === idx ? 'var(--gradient-cyber)' : 'var(--bg-tertiary)',
+                background: levelIdx === idx ? 'var(--gradient-cta)' : 'var(--bg-tertiary)',
                 color: '#fff',
                 fontWeight: '700',
                 border: 'none',

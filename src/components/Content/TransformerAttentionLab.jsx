@@ -254,7 +254,7 @@ export default function TransformerAttentionLab() {
                       style={{
                         height: '100%',
                         width: `${item.percentage}%`,
-                        background: 'var(--gradient-cyber)',
+                        background: 'var(--gradient-cta)',
                         borderRadius: '4px',
                         transition: 'width 0.3s ease'
                       }}

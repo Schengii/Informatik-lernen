@@ -39,7 +39,7 @@ export default function DsgvoFooterModal() {
                   width: '34px',
                   height: '34px',
                   borderRadius: '8px',
-                  background: 'var(--gradient-cyber)',
+                  background: 'var(--gradient-cta)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',

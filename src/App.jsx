@@ -297,7 +297,7 @@ export default function App() {
                       <button
                         className="btn btn-primary"
                         onClick={() => setActiveTab('campaign')}
-                        style={{ minHeight: '48px', fontSize: '0.95rem', background: 'var(--gradient-cyber)', gap: '8px' }}
+                        style={{ minHeight: '48px', fontSize: '0.95rem', background: 'var(--gradient-cta)', gap: '8px' }}
                       >
                         <Compass size={18} /> Story Kampagne
                       </button>

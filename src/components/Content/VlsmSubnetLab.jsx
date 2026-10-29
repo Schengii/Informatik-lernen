@@ -161,7 +161,7 @@ export default function VlsmSubnetLab({ onRewardXP }) {
               style={{
                 width: `${Math.min(100, result.overallUtilizationPercent || 0)}%`,
                 height: '100%',
-                background: result.isOverflow ? 'var(--accent-rose)' : 'var(--gradient-cyber)',
+                background: result.isOverflow ? 'var(--accent-rose)' : 'var(--gradient-cta)',
                 transition: 'width 0.3s'
               }}
             />

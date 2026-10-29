@@ -84,7 +84,7 @@ export default function JwtConfusionLab({ onRewardXP }) {
       {/* Header Banner */}
       <div className="glass-panel" style={{ padding: '24px', marginBottom: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'var(--gradient-cyber)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', boxShadow: '0 8px 16px rgba(79, 70, 229, 0.3)' }}>
+          <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'var(--gradient-cta)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', boxShadow: '0 8px 16px rgba(79, 70, 229, 0.3)' }}>
             <Key size={26} />
           </div>
           <div>
