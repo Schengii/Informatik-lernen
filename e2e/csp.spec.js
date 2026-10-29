@@ -97,3 +97,20 @@ test.describe('SQL-Labs (alasql im Worker) unter der Produktions-CSP', () => {
     expect(await violations(page)).toEqual([]);
   });
 });
+
+// X-XSS-Protection ist entfernt (Browser ignorieren ihn, die CSP schützt);
+// die übrigen Sicherheits-Header müssen für Seite und Worker bestehen bleiben.
+test('Seite und Sandbox-Worker liefern die Sicherheits-Header, ohne X-XSS-Protection', async ({ page }) => {
+  const workerRequest = page.waitForRequest(/\/assets\/sandbox\.worker-[^/]+\.js$/);
+  const response = await page.goto('/coding_challenges');
+  await page.getByRole('button', { name: 'Code Testen' }).click();
+  const workerHeaders = (await page.request.get((await workerRequest).url())).headers();
+  for (const headers of [response.headers(), workerHeaders]) {
+    expect(headers['x-content-type-options']).toBe('nosniff');
+    expect(headers['x-frame-options']).toBe('DENY');
+    expect(headers['referrer-policy']).toBe('strict-origin-when-cross-origin');
+    expect(headers['strict-transport-security']).toContain('max-age=63072000');
+    expect(headers['permissions-policy']).toContain('camera=()');
+    expect(headers['x-xss-protection']).toBeUndefined();
+  }
+});
