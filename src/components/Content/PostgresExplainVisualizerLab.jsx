@@ -25,7 +25,7 @@ export default function PostgresExplainVisualizerLab() {
     const isHeavy = node.nodeType.includes('Hash Join') || node.nodeType.includes('Bitmap Heap Scan');
 
     return (
-      <div key={node.nodeType} style={{ marginLeft: `${depth * 20}px`, marginTop: '8px' }}>
+      <div key={node.nodeType} style={{ marginLeft: depth ? `min(${depth * 20}px, ${depth * 3}vw)` : 0, marginTop: '8px' }}>
         <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => handleSelectNode(node))}
           onClick={() => handleSelectNode(node)}
           style={{
@@ -41,9 +41,9 @@ export default function PostgresExplainVisualizerLab() {
             transition: 'all 0.15s ease'
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
             <ChevronRight size={15} color={isHeavy ? '#f87171' : '#818cf8'} />
-            <span style={{ fontWeight: 'bold', fontSize: '0.88rem', color: isHeavy ? 'var(--accent-rose)' : 'var(--text-main)' }}>
+            <span style={{ fontWeight: 'bold', fontSize: '0.88rem', color: isHeavy ? 'var(--accent-rose)' : 'var(--text-main)', overflowWrap: 'anywhere' }}>
               {node.nodeType}
             </span>
           </div>
@@ -99,7 +99,7 @@ export default function PostgresExplainVisualizerLab() {
       </div>
 
       {/* Execution Tree & Node Inspector */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '20px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(420px, 100%), 1fr))', gap: '20px', marginBottom: '24px' }}>
         
         {/* Left: Interactive Tree */}
         <div style={{ background: 'var(--card-bg, #1e293b)', borderRadius: '12px', border: '1px solid var(--border-color, var(--border-color))', padding: '20px' }}>

@@ -67,7 +67,7 @@ export default function OpentelemetryTracingLab({ onRewardXP }) {
       <div style={{ background: 'var(--bg-secondary)', padding: '18px 22px', borderRadius: '12px', border: '1px solid var(--border-color)', marginBottom: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px' }}>
         <div>
           <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>W3C Distributed Trace Context Header:</span>
-          <div style={{ fontSize: '1.05rem', fontWeight: 'bold', color: 'var(--accent-primary)', fontFamily: 'monospace', marginTop: '4px' }}>
+          <div style={{ fontSize: '1.05rem', fontWeight: 'bold', color: 'var(--accent-primary)', fontFamily: 'monospace', marginTop: '4px', wordBreak: 'break-all' }}>
             traceparent: {traceparent}
           </div>
         </div>

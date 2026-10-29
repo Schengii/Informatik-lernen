@@ -215,7 +215,7 @@ export default function WasmSimdStudioLab() {
               <span style={{ fontSize: '0.8rem', color: 'var(--text-dim)' }}>4x 32-Bit IEEE 754 Floating Point</span>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(0, 1fr))', gap: '8px' }}>
               {vecA.map((val, idx) => (
                 <div key={`a-${idx}`} style={{ background: 'rgba(59, 130, 246, 0.1)', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '8px', padding: '12px', textAlign: 'center' }}>
                   <div style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', marginBottom: '6px' }}>Lane {idx} (Bits {idx*32}..{idx*32+31})</div>
@@ -259,7 +259,7 @@ export default function WasmSimdStudioLab() {
               <span style={{ fontSize: '0.8rem', color: 'var(--text-dim)' }}>4x 32-Bit IEEE 754 Floating Point</span>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(0, 1fr))', gap: '8px' }}>
               {vecB.map((val, idx) => (
                 <div key={`b-${idx}`} style={{ background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '8px', padding: '12px', textAlign: 'center' }}>
                   <div style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)', marginBottom: '6px' }}>Lane {idx} (Bits {idx*32}..{idx*32+31})</div>
@@ -300,7 +300,7 @@ export default function WasmSimdStudioLab() {
                 <div style={{ fontSize: '2rem', fontWeight: '800', color: 'var(--text-main)' }}>{currentResult[0].toFixed(2)}</div>
               </div>
             ) : (
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(0, 1fr))', gap: '8px' }}>
                 {currentResult.map((val, idx) => (
                   <div key={`out-${idx}`} style={{ background: 'var(--bg-tertiary)', borderRadius: '8px', padding: '12px', textAlign: 'center' }}>
                     <div style={{ fontSize: '0.75rem', color: 'var(--accent-purple)', marginBottom: '4px' }}>Result Lane {idx}</div>
@@ -365,7 +365,7 @@ export default function WasmSimdStudioLab() {
           </div>
 
           {benchmarkResult && (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '16px' }}>
               <div style={{ background: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '12px', padding: '20px' }}>
                 <div style={{ fontSize: '0.85rem', color: 'var(--accent-rose)', marginBottom: '6px' }}>Skalarer JavaScript Loop:</div>
                 <div style={{ fontSize: '2rem', fontWeight: '800', color: 'var(--accent-rose)' }}>
@@ -469,7 +469,7 @@ export default function WasmSimdStudioLab() {
             </div>
 
             {/* Matrix & Performance Metrics */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '16px' }}>
               <div style={{ background: 'var(--bg-tertiary)', padding: '16px', borderRadius: '8px' }}>
                 <div style={{ fontSize: '0.82rem', color: 'var(--text-dim)', marginBottom: '8px', fontWeight: 'bold' }}>
                   Aktueller 3x3 Faltungskern ({filterType}):

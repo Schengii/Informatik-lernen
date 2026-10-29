@@ -149,7 +149,7 @@ export default function IhkProjectGanttLab() {
       </div>
 
       {/* Meta Input Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '16px', marginBottom: '24px' }}>
         <div style={{ background: 'var(--card-bg, #1e293b)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
           <label htmlFor="ihk-project-gantt-lab-1" style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-dim)', marginBottom: '6px', fontWeight: 'bold' }}>
             Projektbezeichnung (Antrag):
@@ -335,7 +335,7 @@ export default function IhkProjectGanttLab() {
               key={phase.id || idx}
               style={{
                 display: 'grid',
-                gridTemplateColumns: '1fr 100px 40px',
+                gridTemplateColumns: 'minmax(0, 1fr) 100px 40px',
                 gap: '12px',
                 alignItems: 'center',
                 background: 'var(--bg-tertiary)',

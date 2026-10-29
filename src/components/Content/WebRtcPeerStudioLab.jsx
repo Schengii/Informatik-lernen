@@ -151,7 +151,7 @@ export default function WebRtcPeerStudioLab() {
       </div>
 
       {/* 3-Column Architecture View: Peer A | Signaling Server | Peer B */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(300px, 1fr) minmax(240px, 0.8fr) minmax(300px, 1fr)', gap: '16px' }}>
+      <div className="grid-responsive" style={{ display: 'grid', gridTemplateColumns: 'minmax(min(300px, 100%), 1fr) minmax(min(240px, 100%), 0.8fr) minmax(min(300px, 100%), 1fr)', gap: '16px' }}>
         {/* Peer A (Caller) */}
         <div className="glass-panel" style={{ padding: '20px', borderRadius: 'var(--radius-lg)', borderTop: '4px solid var(--accent-primary)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
@@ -238,7 +238,7 @@ export default function WebRtcPeerStudioLab() {
           <h3 style={{ fontSize: '1.05rem', fontWeight: '700', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
             <Globe size={18} color="var(--accent-primary)" /> Entdeckte ICE Candidates (STUN / TURN / Host)
           </h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '12px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '12px' }}>
             {iceCandidates.map((cand, idx) => (
               <div key={idx} style={{ background: 'var(--bg-secondary)', padding: '12px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>

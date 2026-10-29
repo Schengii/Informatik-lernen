@@ -476,7 +476,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Responsive Grid & Layout Helper */
 .grid-responsive {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 1.5rem;
 }
 
@@ -492,7 +492,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Tablet & Mobile Responsiveness */
 @media (max-width: 1024px) {
   .grid-responsive {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: 1.25rem;
   }
 }
@@ -504,8 +504,9 @@ h1, h2, h3, h4, h5, h6 {
   body {
     padding-bottom: 74px; /* Prevent fixed MobileNav from overlapping footer */
   }
+  /* !important: viele Labs setzen gridTemplateColumns inline (z. B. 'minmax(340px, 1.2fr) minmax(320px, 1fr)') */
   .grid-responsive {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: 1rem;
   }
   .glass-panel {
@@ -760,7 +761,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Booking Rules Grid */
 .booking-rules-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
   gap: 16px;
   margin-bottom: 28px;
 }
@@ -841,7 +842,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Kontenrahmen Grid */
 .kontenrahmen-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
   gap: 12px;
 }
 
@@ -1335,7 +1336,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .zuschlagsatz-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
   gap: 14px;
   margin-bottom: 24px;
 }
@@ -1528,7 +1529,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .payment-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
   gap: 10px;
   margin-bottom: 20px;
 }
@@ -1687,7 +1688,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Preisnachlässe */
 .nachlass-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
   gap: 14px;
 }
 
@@ -2016,4 +2017,17 @@ select:focus-visible,
 /* Spalten im Raster dürfen schrumpfen; breiter Inhalt (z. B. <pre>) scrollt dann in sich statt die Seite zu verbreitern */
 .grid-responsive > * {
   min-width: 0;
+}
+
+/* Handy: Flex-Zeilen der Labs (Tabs, Button- und Badge-Leisten) brechen um, statt rechts unerreichbar
+   aus dem Bild zu ragen. Zeilen mit eigenem flex-wrap oder Scroll-Verhalten bleiben, wie sie sind. */
+@media (max-width: 768px) {
+  main [style*="display: flex"]:not([style*="flex-direction: column"]):not([style*="flex-wrap"]):not([style*="overflow"]),
+  main .flex:not(.flex-col):not(.flex-nowrap):not([class*="overflow-"]) {
+    flex-wrap: wrap;
+  }
+  /* Lange Komposita in Überschriften (z. B. „Geschäftsprozessmodellierung“) dürfen umbrechen */
+  main h1, main h2 {
+    overflow-wrap: anywhere;
+  }
 }
