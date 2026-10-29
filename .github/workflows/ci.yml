@@ -125,18 +125,44 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+    # Eigene Schritte statt andresz1/size-limit-action: die Action ist auch in
+    # der neuesten Version (v1.8.0) eine Node-20-Action und läuft auf
+    # GitHub-Runnern nicht mehr (Node 20 seit 16.09.2026 entfernt).
+    env:
+      BASE_SHA: ${{ github.event.pull_request.base.sha }}
+      PR_SHA: ${{ github.sha }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
           cache: npm
 
-      - run: npm ci
+      - name: Größen des Ziel-Branches
+        # Scheitert der Basis-Build (z. B. sehr alter Stand), zeigt der
+        # Bericht nur die PR-Werte.
+        run: |
+          git checkout --quiet "$BASE_SHA"
+          (npm ci && npm run build && npx size-limit --json > "$RUNNER_TEMP/size-base.json") || echo '[]' > "$RUNNER_TEMP/size-base.json"
 
-      - name: Bundle size trend comment
-        uses: andresz1/size-limit-action@94bc357df29c36c8f8d50ea497c3e225c3c95d1d # v1.8.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          skip_step: install
+      - name: Größen des PR
+        run: |
+          git checkout --quiet --force "$PR_SHA"
+          npm ci
+          npm run build
+          npx size-limit --json > "$RUNNER_TEMP/size-pr.json" || true
+
+      - name: Bericht als PR-Kommentar
+        # Bei PRs aus Forks ist der Token schreibgeschützt; der Bericht steht
+        # dann nur in der Job-Zusammenfassung.
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          node scripts/size-report.js "$RUNNER_TEMP/size-base.json" "$RUNNER_TEMP/size-pr.json" > "$RUNNER_TEMP/size-report.md"
+          cat "$RUNNER_TEMP/size-report.md" >> "$GITHUB_STEP_SUMMARY"
+          gh pr comment "$PR_NUMBER" --body-file "$RUNNER_TEMP/size-report.md" --edit-last --create-if-none
