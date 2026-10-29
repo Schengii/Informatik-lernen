@@ -145,7 +145,14 @@ Das Repository ist für nahtlose Zusammenarbeit mit Entwicklern und KI-Agenten (
 - Sicherheitsrichtlinien: [`SECURITY.md`](SECURITY.md)
 - Ausführliche Feature-Beschreibungen und Änderungshistorie bis v3.74.0: [`docs/README-Archiv.md`](docs/README-Archiv.md)
 
-### Unveröffentlicht (nach v3.78.0)
+### Aktuelle Version (v3.79.0) & Neueste Verbesserungen
+- **SQL-Labs funktionieren unter der Produktions-CSP**: alasql läuft im eigenen Web Worker (`sql.worker.js`), die Hauptseite bleibt ohne `'unsafe-eval'`.
+- **Barrierefreiheit**: Labels sind mit ihren Feldern verknüpft, klickbare Karten per Tastatur (Enter/Leertaste) bedienbar; drei weitere `jsx-a11y`-Regeln sind aktiv.
+- **PWA & CI**: Precache 6,1 → 4,1 MB; GitHub Actions auf Node-24-Versionen per SHA gepinnt; Bundle-Trend im PR über `scripts/size-report.js`.
+- **Stabilität**: Vitest wieder mit Datei-Isolation, E2E im Gesamtlauf stabil, Lighthouse-A11y gemessen 0,98.
+- Umsetzungsstand und offene Punkte: [`PLAN.md`](PLAN.md).
+
+### Version 3.79.0 – Branch-Arbeit M01–M14 (zuvor unveröffentlicht)
 - **Modularisierung & Architektur (M08, M10)**:
   - Aufteilung der 901-Zeilen-Komponente `Navbar.jsx` in modulare Unterkomponenten (`NavDesktopMenu`, `NavDropdownMenu`, `NavToolsMenu`, `NavProfileMenu`, `NavMobileDrawer`, `navbarMenuItems.js`) – Haupt-Navbar auf 263 Zeilen verschlankt.
   - Aufteilung der 2.432-Zeilen-Datendatei `labModulesData.js` in 5 thematische Moduldateien unter `src/data/labModules/` (`ihkModules`, `networkModules`, `securityModules`, `cloudDevopsModules`, `softwareDataModules`).

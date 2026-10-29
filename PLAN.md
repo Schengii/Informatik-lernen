@@ -2,6 +2,8 @@
 
 Stand der Analyse: 2026-10-29, Version 3.78.0, Branch `feat/plan-umsetzung` (= `origin/feat/plan-umsetzung` + Merge von `main`, Commit 706f4a8). Ersetzt beide Vorgänger-Pläne (QA-Plan M01–M20/N01–N06 von `main` und M01–M14 vom Branch; Verlauf in der Git-Historie). **Einzige Arbeitsgrundlage für Umsetzung und Tests.** Legende: `[x]` erledigt, `[~]` teilweise, `[!]` blockiert (Grund in der Zeile).
 
+**Umsetzungsstand (2026-10-29, Branch `feat/plan-umsetzung`, Version 3.79.0):** erledigt P01, P02, P04–P13, N02–N04; teilweise P03 (Precache 6,1 → 4,1 MB, Ziel < 3 MB bewusst verfehlt, offene Frage 4); offen N01 (Header-Prüfung auf einem Vercel-Preview, braucht ein Deployment). Gesamttest: `npm audit` (prod) 0 Funde, `lint:ci` 0, `typecheck` 0, `test:coverage` 1998/1998 grün (63,6/55,4/48,2/65,2 %), Build, `size` (alle 6 Limits), E2E 43/43, Kernfunktionen im Browser (Dashboard per Tastatur, SQL-Join, Karten- und Checkbox-Bedienung, Label-Fokus) geprüft.
+
 ## 1. Ist-Zustand (gemessen am 2026-10-29)
 1. Stack: React 19, Vite 8, Zustand 5, Vitest 5, Playwright 1.64, Oxlint 1.88. 238 Labs in `src/components/Content/`, 153 `*Engine.js`.
 2. `lint:ci` 0 Warnungen, `typecheck` fehlerfrei, `npm audit` (prod) 0 Funde, `build` 5,9 s, `size` alle 6 Limits eingehalten (Haupt-Bundle 88,8/105 KB, PDF 175/190 KB).

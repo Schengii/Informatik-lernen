@@ -9,6 +9,21 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unveröffentlicht]
 
+## [3.79.0] - 2026-10-29
+
+Umsetzung von `PLAN.md` (Analyse vom 2026-10-29: P01–P13, neu gefunden N01–N04; Details, Messwerte und Status dort). Enthält außerdem die bisher unveröffentlichten QA-Fehlerbehebungen und die Branch-Arbeit M01–M14 (Abschnitte darunter).
+
+### Umsetzung PLAN.md (2026-10-29)
+- **SQL-Labs unter der Produktions-CSP (P01)**: alasql läuft im neuen Web Worker `sql.worker.js` mit eigener CSP (`sqlWorkerCore.js`, `sqlWorkerClient.js`; ohne Worker in Node/jsdom direkt im Prozess). Vorher warfen `/sql_joins` (`EvalError`), `/sqlite_studio`, `/sqlite_worker_lab` und das SQL-Dungeon unter der CSP. `SqlSandboxInstance` und `SqliteWorkerBridge` sind asynchron; 5 neue Fälle in `e2e/csp.spec.js`.
+- **CI (P02, N02)**: Alle Actions auf aktuelle Major-Versionen per SHA gepinnt (checkout v7, setup-node v7, upload-artifact v7, download-artifact v8, cache v6, gitleaks-action v3) – v4 und gitleaks v2 liefen auf Node 20, das seit 16.09.2026 nicht mehr auf GitHub-Runnern existiert. Der PR-Bundle-Trend nutzt statt der Node-20-Action `andresz1/size-limit-action` eigene Schritte mit `scripts/size-report.js`.
+- **PWA (P03, P04)**: Precache 6,1 → 4,1 MB (Monaco-Kern `jsonMode`, Sentry `vendor-sentry`, jsPDF-Zusatz `vendor-canvg` und `sql.worker` über den Runtime-Cache). PWA-E2E hat ein eigenes Zeitlimit (90 s), der Command-Palette-Test wartet auf den Mount.
+- **Tests (P05–P07)**: Vitest wieder mit `isolate: true` (gemessen: `false` brachte keinen Zeitgewinn, aber sporadisch rote Tests); Lighthouse-A11y lokal 0,98 (Schwelle 0,95 bleibt); Coverage-Schwellen 63/54,5/47,5/64,5 %.
+- **Sicherheits-Header (P08)**: `X-XSS-Protection` entfernt (von Browsern ignoriert, CSP schützt); ein E2E-Fall prüft die übrigen Header für Seite und Sandbox-Worker.
+- **Barrierefreiheit (P09–P11)**: `label-has-associated-control`, `click-events-have-key-events` und `no-static-element-interactions` sind aktiv. 246 Labels per `htmlFor`/`id` verknüpft, 36 feldlose Labels zu `<span>`; 45 klickbare Karten mit `role="button"`, `tabIndex` und Enter/Leertaste (`Shared/keyActivation.js`); funktionslose Checkboxen im CI/CD- und TOM-Lab schalten jetzt, RAID-6 und ERD haben Tastatur-Buttons, das Navbar-Logo reagiert auf Enter, das TOM-Export-Modal schließt per Escape. `prefer-tag-over-role` bleibt begründet aus (CLAUDE.md).
+- **Developer Experience (P12)**: `npm run new-lab` schreibt in die passende Themendatei unter `src/data/labModules/`.
+- **Inhalt (N04)**: Rohes LaTeX (`$\to$`, `$\times$` u. a.) in 8 Labs durch Unicode ersetzt.
+- **Doku (P13)**: Nicht belegte Testlaufzeit („~64 s“) korrigiert, Versionsüberschriften, `GEMINI.md`/`AGENTS.md` als reine Verweise beschrieben; CLAUDE.md um SQL-Worker, A11y-Muster und Precache-Regeln ergänzt.
+
 ### Fehlerbehebungen aus dem Qualitäts- und Sicherheitstest (2026-10-22)
 - **Abstürze behoben**: `SqliteWasmStudioLab` (`setSandbox` fehlte nach dem Lint-Fix M03, Wechsel der Beispiel-Datenbank warf), `IhkOralExamSimulator` (Präsentations-Checkliste war nicht definiert), `JwtConfusionLab` (ungültiges Base64URL im Token-Feld warf `atob`). Regressionstests liegen neben den Komponenten.
 - **Robustheit**: `calculateGanttTimeline` fällt bei leerem/ungültigem Startdatum auf das Standarddatum zurück und begrenzt riesige oder nicht endliche Stunden; `WisoFinancingLab` und `OsProcessSchedulerLab` begrenzen Eingaben auf die deklarierten Maxima (verhindert Einfrieren bei z. B. 99999999999999999999).

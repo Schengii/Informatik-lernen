@@ -5,8 +5,8 @@ tags:
   - tech/react
   - domain/ihk-ausbildung
   - status/active
-version: v3.78.0
-date: 2026-10-22
+version: v3.79.0
+date: 2026-10-29
 ---
 
 # 💻 Informatik-lernen (IT-DevGame) - Projektübersicht
@@ -80,10 +80,11 @@ date: 2026-10-22
 
 ---
 
-## 📊 Aktuelle Test- & Qualitätsmetriken (v3.78.0)
-- **Unit- & Integrationstests**: 1.945 bestandene Tests in 221 Test-Dateien (100% Erfolgsquote), alle 234 Labs bestehen axe-core Barrierefreiheitsprüfungen; Lab-Routing vollständig über `src/data/labRegistry.js`
-- **Code-Qualität**: 0 Oxlint Fehler / 0 Warnungen über 724 Quelldateien, `tsc --noEmit` fehlerfrei
-- **Build**: Vite 8 & PWA Offline Service Worker (296 Precache-Einträge)
-- **Performance & Limits**: Alle Chunks innerhalb der Size-Limits (App-Shell 87.68 KB gzipped < 105 KB Limit); Lighthouse A11y minScore: 0.95
+## 📊 Aktuelle Test- & Qualitätsmetriken (v3.79.0, gemessen 2026-10-29)
+- **Unit- & Integrationstests**: 1.998 bestandene Tests in 230 Test-Dateien, alle Labs bestehen axe-core Barrierefreiheitsprüfungen; Coverage 63,6 / 55,4 / 48,2 / 65,2 % (Statements/Branches/Functions/Lines); Lab-Routing vollständig über `src/data/labRegistry.js`
+- **E2E**: 43 Playwright-Tests unter der Produktions-CSP (inkl. SQL-Worker, Sandbox, Monaco, PWA-Offline)
+- **Code-Qualität**: 0 Oxlint Fehler / 0 Warnungen (inkl. `jsx-a11y`-Regeln für Labels und Tastaturbedienung), `tsc --noEmit` fehlerfrei, `npm audit` (prod) 0 Funde
+- **Build**: Vite 8 & PWA Offline Service Worker (383 Precache-Einträge, ca. 4,1 MB)
+- **Performance & Limits**: Alle Chunks innerhalb der Size-Limits (App-Shell 89,06 KB gzipped < 105 KB Limit); Lighthouse lokal: A11y 0,98 (minScore 0,95), Performance 0,97
 - **Vercel-Deployment**: Produktionsreife `vercel.json` mit SPA-Rewrites, Asset-Caching & Security-Headern
 - **A11y**: WCAG 2.1 Konformität (Reduced Motion Support, automatische Labels + axe-core-Test über alle Labs)
