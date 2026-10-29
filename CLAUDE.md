@@ -31,7 +31,7 @@ npm run dev
 # Vollständige Test-Suite ausführen (Anzahl wächst laufend – die aktuelle Zahl nennt der Lauf selbst)
 npm test
 
-# Schneller Testlauf ohne die langsamen A11y- und Routing-Tests (allLabsA11y, *.routing.test.jsx)
+# Schneller Testlauf ohne die langsamen A11y- und Routing-Tests (alle *A11y*.test.jsx – also auch modalsA11y – und *.routing.test.jsx)
 npm run test:fast
 
 # Test-Coverage-Report erzeugen (Statements/Branches/Functions/Lines)
@@ -61,11 +61,11 @@ npm run build
 npm run preview
 ```
 
-CI-Reihenfolge: `npm audit --omit=dev --omit=optional` → `lint:ci` → `typecheck` → `test:coverage` (führt alle Tests aus) → `build` → `size` → `e2e`. Zusätzlich läuft ein separater Lighthouse-CI-Job (`lighthouserc.json`) gegen den Build.
+CI-Reihenfolge: `npm audit --omit=dev --omit=optional --audit-level=high` → `lint:ci` → `typecheck` → `test:coverage` (führt alle Tests aus) → `build` → `size` → `e2e`. Zusätzlich läuft ein separater Lighthouse-CI-Job (`lighthouserc.json`) gegen den Build.
 
 ### 🤖 Claude Code Slash-Befehle (`.claude/commands/`)
 - `/test`: Führt vitest im schnellen oder vollständigen Modus aus und analysiert Fehler.
-- `/verify`: Validiert die vollständige 5-stufige CI-Pipeline vor Commits.
+- `/verify`: Führt die 5 lokalen CI-Schritte vor Commits aus (`lint:ci` → `typecheck` → `npm test` → `build` → `size`); `npm audit`, `e2e` und Lighthouse laufen nur in CI.
 - `/new-lab`: Schritt-für-Schritt-Anleitung für die Erstellung neuer IHK-Lernmodule inkl. Scaffolding.
 - `/review`: Strukturiertes Review bezüglich Entkopplung, WCAG 2.1 AA A11y, Sandbox-Sicherheit und Doku.
 
