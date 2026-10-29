@@ -119,10 +119,10 @@ export default function VlsmSubnetLab({ onRewardXP }) {
         }}
       >
         <div>
-          <label style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
+          <label htmlFor="vlsm-subnet-lab-1" style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
             Basis-Netzwerk IP:
           </label>
-          <input
+          <input id="vlsm-subnet-lab-1"
             type="text"
             value={baseIp}
             onChange={(e) => setBaseIp(e.target.value)}
@@ -131,11 +131,11 @@ export default function VlsmSubnetLab({ onRewardXP }) {
         </div>
 
         <div>
-          <label style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
+          <label htmlFor="vlsm-subnet-lab-2" style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
             Basis-Präfix (CIDR):
           </label>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <input
+            <input id="vlsm-subnet-lab-2"
               type="number"
               min="8"
               max="30"
@@ -161,7 +161,7 @@ export default function VlsmSubnetLab({ onRewardXP }) {
               style={{
                 width: `${Math.min(100, result.overallUtilizationPercent || 0)}%`,
                 height: '100%',
-                background: result.isOverflow ? 'var(--accent-rose)' : 'var(--gradient-cyber)',
+                background: result.isOverflow ? 'var(--accent-rose)' : 'var(--gradient-cta)',
                 transition: 'width 0.3s'
               }}
             />

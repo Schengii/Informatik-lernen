@@ -8,6 +8,7 @@ export default function DeploymentGuideModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
+    // oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- Backdrop schließt nur per Maus; Tastatur: Escape und Schließen-Button
     <div
       style={{
         position: 'fixed',

@@ -100,7 +100,15 @@ npm run size           # Bundle-Budgets (nach build)
 npm run e2e            # Playwright gegen den Build
 npm run new-lab        # Lab-Scaffold (siehe unten)
 npm run docs:labs      # docs/LABS.md neu erzeugen
+npm run og:image       # Open-Graph Social-Preview-Bild (1200x630) per Playwright erzeugen
 ```
+
+### 🖼️ Open-Graph Bild generieren
+
+```bash
+npm run og:image
+```
+Rendert die HTML-Vorlage `scripts/og-image-template.html` mit Playwright Chromium und aktualisiert das hochauflösende 1200×630 Vorschaubild unter `public/og-image.png`.
 
 ## 🧩 Neues Lab anlegen
 
@@ -137,7 +145,33 @@ Das Repository ist für nahtlose Zusammenarbeit mit Entwicklern und KI-Agenten (
 - Sicherheitsrichtlinien: [`SECURITY.md`](SECURITY.md)
 - Ausführliche Feature-Beschreibungen und Änderungshistorie bis v3.74.0: [`docs/README-Archiv.md`](docs/README-Archiv.md)
 
-### Aktuelle Version (v3.78.0) & Neueste Verbesserungen
+### Aktuelle Version (v3.79.0) & Neueste Verbesserungen
+- **SQL-Labs funktionieren unter der Produktions-CSP**: alasql läuft im eigenen Web Worker (`sql.worker.js`), die Hauptseite bleibt ohne `'unsafe-eval'`.
+- **Barrierefreiheit**: Labels sind mit ihren Feldern verknüpft, klickbare Karten per Tastatur (Enter/Leertaste) bedienbar; drei weitere `jsx-a11y`-Regeln sind aktiv.
+- **PWA & CI**: Precache 6,1 → 4,1 MB; GitHub Actions auf Node-24-Versionen per SHA gepinnt; Bundle-Trend im PR über `scripts/size-report.js`.
+- **Stabilität**: Vitest wieder mit Datei-Isolation, E2E im Gesamtlauf stabil, Lighthouse-A11y gemessen 0,98.
+- Umsetzungsstand und offene Punkte: [`PLAN.md`](PLAN.md).
+
+### Version 3.79.0 – Branch-Arbeit M01–M14 (zuvor unveröffentlicht)
+- **Modularisierung & Architektur (M08, M10)**:
+  - Aufteilung der 901-Zeilen-Komponente `Navbar.jsx` in modulare Unterkomponenten (`NavDesktopMenu`, `NavDropdownMenu`, `NavToolsMenu`, `NavProfileMenu`, `NavMobileDrawer`, `navbarMenuItems.js`) – Haupt-Navbar auf 263 Zeilen verschlankt.
+  - Aufteilung der 2.432-Zeilen-Datendatei `labModulesData.js` in 5 thematische Moduldateien unter `src/data/labModules/` (`ihkModules`, `networkModules`, `securityModules`, `cloudDevopsModules`, `softwareDataModules`).
+- **Umfassende Testabdeckung & Pilot-Labs (M13)**:
+  - 5 neue Interaktions-Test-Suiten für anspruchsvolle Labs: `SubnettingLab.test.jsx`, `VlsmSubnetLab.test.jsx`, `SqlWindowFunctionsLab.test.jsx`, `AlgoPlaygroundLab.test.jsx` und `VectorMathEmbeddingLab.test.jsx`.
+  - Alle 234 Lab-Komponenten bestehen automatische axe-core Barrierefreiheitsprüfungen ohne Regelverletzungen (`allLabsA11y.test.jsx`).
+- **CI/CD & Lighthouse Härtung (M09, M14)**:
+  - Anhebung des Lighthouse CI Mindestschwellwerts für Barrierefreiheit (`categories:accessibility`) auf `0.95` (`lighthouserc.json`).
+  - GitHub Actions in `.github/workflows/ci.yml` auf unveränderliche 40-Zeichen Git-SHAs gepinnt (Schutz vor Supply-Chain-Angriffen).
+- **Test-Suiten, Vitest-Optimierung & Schwellwerte (M03–M07, M11)**:
+  - Neue dedizierte Test-Suiten für Web Audio API (`audioSystem.test.js`), Worker-Sandbox-Evaluator (`sandboxEvaluator.test.js`), Fehler-Monitoring (`errorMonitoring.test.js`) und Sandbox-Test-Utilities (`sandboxTestUtils.test.js`).
+  - Erhöhte Vitest-Schwellwerte in `vite.config.js` (Statements 62 %, Branches 53.5 %, Functions 47 %, Lines 63.5 %).
+  - `testTimeout: 15000` in `vite.config.js`; `isolate: false` wurde gemessen und wieder verworfen (kein Zeitgewinn, sporadisch rote Tests – siehe `PLAN.md` P05).
+- **Pre-Commit-Kompatibilität & Dead-Code-Bereinigung (M01, M02)**:
+  - Kapselung und Reformatierung des Mock-RSA-Schlüssels in `jwtConfusionEngine.js` ohne False-Positives im Git Pre-Commit Security Hook.
+  - Entfernung toter Datenstrukturen und redundanter Exporte über 22 Utility- und Lab-Module.
+
+
+### Version 3.78.0 (CSP unter Test, Dialoge, PWA, CI)
 - **CSP unter Test**: `vite preview`/E2E liefern die Vercel-Header aus; `e2e/csp.spec.js` prüft Sandbox, YouTube-Player und Monaco ohne CSP-Verstoß. Sandbox-Worker mit eigener CSP, Monaco lokal gebündelt, `script-src` ohne `'unsafe-inline'`.
 - **Barrierefreiheit**: Alle Modals sind modale Dialoge mit Focus-Trap, Escape und Fokus-Rückgabe (`Shared/useDialogA11y`); Oxlint prüft jetzt zusätzlich `jsx-a11y`.
 - **PWA**: PNG-Icons (192/512/maskable), erzeugt mit `node scripts/generate-pwa-icons.js`.
@@ -145,7 +179,6 @@ Das Repository ist für nahtlose Zusammenarbeit mit Entwicklern und KI-Agenten (
 - Umsetzungsstand und offene Punkte: [`PLAN.md`](PLAN.md).
 
 ### Version 3.77.0 (Bereinigung, Badges, Härtung & Tests)
-- **Test-Suiten & Vitest-Optimierung**: Neue dedizierte Test-Suiten für Web Audio API (`audioSystem.test.js`), Worker-Sandbox-Evaluator (`sandboxEvaluator.test.js`) und Fehler-Monitoring (`errorMonitoring.test.js`). Beschleunigung der Testsuite auf ~64s durch `isolate: false` und Erhöhung von `testTimeout: 15000` in `vite.config.js` zur Beseitigung von CPU-Throttling-Timeouts.
 - **Pre-Commit-Kompatibilität**: Kapselung und Reformatierung des Mock-RSA-Schlüssels in `jwtConfusionEngine.js` ohne False-Positives im Git Pre-Commit Security Hook.
 - **Umfassende Dead-Code- & Export-Bereinigung**: Entfernung ungenutzter Datenstrukturen (`LOGIC_GATES_LEVELS`, `DEFAULT_NET_NAMESPACES`, `RESTART_POLICIES`, `UML_DIAGRAM_TYPES`, `FIDO2_ALGORITHMS`, `NDP_MESSAGE_TYPES`), Kapselung privater Modul-Interna (Entfernen redundanter Exporte über 22 Utility-Module), Bereinigung doppelter Aliase (`PROGRAMMING_LANGUAGES`, `TUTORIAL_VIDEOS`, `evaluateOauth21Flow`) und saubere Re-Exporte in `srsAlgorithm.js`.
 - **Sicherheits-Härtung Git Pre-Commit Hook (`.githooks/pre-commit`)**: Aktualisierter und robuster Secret- und .env-Scanner mit automatischer Erkennung von `gitleaks` (bevorzugt) sowie portabler POSIX-Shell-Fallback. Scannt gestagte Diffs selektiv auf API-Keys (`sk-...`, `AIza...`, `ghp_...`, `AKIA...`, `-----BEGIN … PRIVATE KEY-----`, nichtleere Zuweisungen `API_KEY=`, `SECRET=`, `TOKEN=`) und blockiert `.env*` (außer `.env.example`), `*.pem`, `*.key`. Gibt bei Treffern Dateiname und erkanntes Muster aus, maskiert bzw. verschweigt jedoch stets den Geheimwert selbst.

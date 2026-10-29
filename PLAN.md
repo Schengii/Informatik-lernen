@@ -1,98 +1,114 @@
-# PLAN.md – Informatik-lernen (IT-DevGame)
+# Umsetzungsplan (PLAN.md) – Informatik-lernen (IT-DevGame)
 
-> **Einzige Arbeitsgrundlage** für Umsetzung und Tests.  
-> Stand: 2026-10-29 · Branch `main` · Version 3.78.0
+Stand der Analyse: 2026-10-29, Version 3.78.0, Branch `feat/plan-umsetzung` (= `origin/feat/plan-umsetzung` + Merge von `main`, Commit 706f4a8). Ersetzt beide Vorgänger-Pläne (QA-Plan M01–M20/N01–N06 von `main` und M01–M14 vom Branch; Verlauf in der Git-Historie). **Einzige Arbeitsgrundlage für Umsetzung und Tests.** Legende: `[x]` erledigt, `[~]` teilweise, `[!]` blockiert (Grund in der Zeile).
 
----
+**Umsetzungsstand (2026-10-29, Branch `feat/plan-umsetzung`, Version 3.79.0):** erledigt P01, P02, P04–P13, N01–N04; teilweise P03 (Precache 6,1 → 4,1 MB, Ziel < 3 MB bewusst verfehlt, offene Frage 4); N01 auf dem Vercel-Preview des PR bestätigt; im PR-CI bestätigt: P02 (Actions), N02 (Bundle-Trend-Kommentar). Gesamttest: `npm audit` (prod) 0 Funde, `lint:ci` 0, `typecheck` 0, `test:coverage` 1998/1998 grün (63,6/55,4/48,2/65,2 %), Build, `size` (alle 6 Limits), E2E 43/43, Kernfunktionen im Browser (Dashboard per Tastatur, SQL-Join, Karten- und Checkbox-Bedienung, Label-Fokus) geprüft.
 
-## 1. Ist-Zustand
-
-- **Stack**: React 19, Vite 8 (Rolldown), Zustand 5 + localStorage + BroadcastChannel, Vanilla CSS Design-System / TailwindCSS 4, Oxlint 1.88, Vitest 5, Playwright 1.64, PWA (Workbox)
-- **Umfang**: 252 Content-Labs (`src/components/Content/*.jsx`), 177 Utils-Engines, 180 Unit-Test-Dateien, 28 Komponenten-Tests
-- **Build**: `npm run build` ✅ ~13 s; `npm run lint:ci` 0 Fehler/Warnungen; `npm run typecheck` 0 Fehler
-- **Tests**: `npm run test:fast` → alle Tests bestanden; isolierte Tests für Audio, Sandbox, Monitoring & Modals ergänzt
-- **Coverage**: Statements 61,9 % · Branches 53,6 % · Functions 47,1 % · Lines 63,5 % – über Schwellwerten (60/52/45/62)
-- **CI/CD**: GitHub Actions – `npm audit (high) → lint:ci → typecheck → test:coverage → build → size → e2e + Lighthouse`; Actions aktuell major-gepinnt
-- **Sicherheit**: Pre-Commit-Hook ✅; `.gitleaks.toml` ✅; `jwtConfusionEngine.js` Mock-RSA-Key formatiert & allowlisted; Worker-CSP separiert
-- **A11y**: Alle Modals nutzen `useDialogA11y` (Focus-Trap, Escape, Fokus-Rückgabe); Oxlint `jsx-a11y` aktiv
-- **Technische Schulden**: `Navbar.jsx` 901 Zeilen; `labModulesData.js` 2 432 Zeilen; N01–N03 offene Oxlint jsx-a11y Regeln
+## 1. Ist-Zustand (gemessen am 2026-10-29)
+1. Stack: React 19, Vite 8, Zustand 5, Vitest 5, Playwright 1.64, Oxlint 1.88. 238 Labs in `src/components/Content/`, 153 `*Engine.js`.
+2. `lint:ci` 0 Warnungen, `typecheck` fehlerfrei, `npm audit` (prod) 0 Funde, `build` 5,9 s, `size` alle 6 Limits eingehalten (Haupt-Bundle 88,8/105 KB, PDF 175/190 KB).
+3. Unit-Tests: 228 Dateien, 1991 Tests grün, 113 s. Coverage (vor Merge): 63,3 / 55,1 / 48,2 / 64,9 %, Schwellen 62 / 53,5 / 47 / 63,5 %.
+4. E2E: 36 von 37 grün; `pwa-offline.spec.js:10` fällt nur im Parallel-Lauf aus (allein 2/2 grün).
+5. **Funktionsfehler**: Die alasql-Labs laufen unter der Produktions-CSP nicht (`/sql_joins` wirft `EvalError`, `/sqlite_studio` und `/sqlite_worker_lab` melden `script-src eval`). Im Browser bestätigt.
+6. CI: Nach dem Merge sind die Actions gemischt: SHA-gepinnte v4-Versionen (Branch) neben ungepinnten `@v7`/`@v8` (main).
+7. PWA: Der Precache ist 6,1 MB groß (387 Einträge), laut Kommentar sollen es ca. 1–1,5 MB sein. Den größten Teil macht der Monaco-JSON-Chunk mit 1,2 MB aus.
+8. A11y: Vier `jsx-a11y`-Regeln sind aus, mit 291 + 64 + 63 + 20 Befunden. Lighthouse-A11y-Schwelle 0,95, der Wert wurde lokal noch nie gemessen.
+9. Doku: Die Testlaufzeit „~64 s“ in README/CHANGELOG ist nicht belegt (gemessen 113–137 s). `CLAUDE.md` beschreibt die Lab-Daten und `GEMINI.md` nicht mehr richtig.
+10. Bereits erledigt und nicht erneut geplant: CSP-Tests, Dialog-A11y, PWA-Icons, Navbar-Split, Aufteilung von `labModulesData`, Pilot-Lab-Tests, `sandboxTestUtils`-Doku, `og:image`-Doku.
 
 ---
 
 ## 2. Maßnahmen
 
-### Phase 1 – Hygiene & Unblocking
-- [x] **M01** | Branch `chore/cleanup` in `main` mergen & pushen | **P1** | **S** | `.git`, `CHANGELOG.md`
-- [x] **M02** | `jwtConfusionEngine.js` Mock-RSA-Key pre-commit-kompatibel reformatieren & kapseln | **P1** | **S** | `src/utils/jwtConfusionEngine.js`, `.gitleaks.toml`
-- [x] **M03** | `isolate: false` & `testTimeout: 15000` in Vitest aktivieren | **P2** | **S** | `vite.config.js`
+### Phase 1: Funktion unter Produktions-CSP
+- [x] P01 | SQL-Labs (alasql) CSP-konform machen: alasql in einem eigenen Worker mit Worker-CSP ausführen (Muster: Sandbox-Worker), Hauptseite bleibt ohne `'unsafe-eval'` | P1 | L | `src/utils/sqlSandboxEngine.js`, `src/components/Content/SqlJoinVisualizerLab.jsx`, `src/components/Games/SqlDungeon.jsx`, `src/utils/sqliteWorkerBridge.js`, `vercel.json`, `e2e/csp.spec.js` | src/utils/sqlSandboxEngine.js:2, src/components/Content/SqlJoinVisualizerLab.jsx:2, src/components/Games/SqlDungeon.jsx:4, vercel.json:67 (kein `'unsafe-eval'`); Browser-Lauf: `EvalError … at _.Insert.compile (vendor-sql-*.js)` | Fertig wenn: neue Fälle in `e2e/csp.spec.js` für `/sql_joins`, `/sqlite_studio`, `/sqlite_worker_lab` und das SQL-Dungeon-Spiel führen eine Abfrage aus, zeigen ein Ergebnis und melden 0 CSP-Verstöße; `script-src` der Hauptseite enthält kein `'unsafe-eval'`; `size` hält. **Erledigt (2026-10-29):** `sql.worker.js` + `sqlWorkerCore.js` + `sqlWorkerClient.js` (ohne Worker in Node/jsdom direkt im Prozess); `SqlSandboxInstance`, `SqliteWorkerBridge`, `SqliteWasmStudioLab`, `SqlJoinVisualizerLab`, `SqlDungeon` asynchron; Worker-CSP-Regel in `vercel.json` gilt für `sandbox|sql`; Worker ist vom Precache ausgenommen. Geprüft: 5 neue E2E-Fälle grün (2 volle Läufe), 1996 Unit-Tests grün, `size` unverändert (Haupt-Bundle 88,8 KB).
 
-### Phase 2 – Test-Coverage & Härtung
-- [x] **M04** | Unit-Tests für `audioSystem.js` ergänzen | **P2** | **M** | `src/utils/audioSystem.js` → `src/utils/audioSystem.test.js` (6 Tests, 100 % Lines)
-- [x] **M05** | Unit-Tests für `sandboxEvaluator.js` ergänzen | **P2** | **M** | `src/utils/sandboxEvaluator.js` → `src/utils/sandboxEvaluator.test.js` (9 Tests)
-- [x] **M06** | Unit-Tests für `errorMonitoring.js` ergänzen | **P2** | **M** | `src/utils/errorMonitoring.js` → `src/utils/errorMonitoring.test.js` (3 Tests)
-- [ ] **M07** | Coverage-Schwellwerte nach Testergänzungen anheben | **P3** | **S** | `vite.config.js:113-125` | Schwellwerte auf Statements 64, Branches 55, Functions 50, Lines 65 erhöhen; `npm run test:coverage` grün
+### Phase 2: CI, PWA, Testinfrastruktur
+- [x] P02 | GitHub Actions vereinheitlichen: jede Action auf ihre aktuelle Major-Version, als 40-Zeichen-SHA mit Versionskommentar (auch `gitleaks.yml`) | P1 | S | `.github/workflows/ci.yml`, `.github/workflows/gitleaks.yml` | .github/workflows/ci.yml:13 (checkout v4.2.2-SHA, in main war `@v7`), ci.yml:53 (`upload-artifact@v7` ungepinnt), ci.yml:103 (`download-artifact@v8` ungepinnt, lädt Artefakt aus `upload-artifact` v4.6.2 von ci.yml:40), gitleaks.yml:13 (`checkout@v4`) | Fertig wenn: `grep "uses:" .github/workflows/*.yml` zeigt nur SHA-Referenzen, je Action eine einheitliche Version, keine Rückstufung gegenüber `main`; die SHAs sind per `gh api repos/<action>/git/ref/tags/<tag>` überprüft. **Erledigt (2026-10-29):** checkout v7.0.1, setup-node v7.1.0, upload-artifact v7.0.2, download-artifact v8.0.2, cache v6.1.0, size-limit-action v1.8.0, gitleaks-action v3.0.0 (v2 lief auf Node 20, seit 16.09.2026 nicht mehr auf GitHub-Runnern); SHAs per `gh api …/git/ref/tags/<tag>` aufgelöst, YAML per PyYAML geprüft. Die echte Prüfung ist der CI-Lauf des PR.
+- [~] P03 | Precache auf das zurückführen, was der Kommentar zusagt: Monaco-Sprach-/Editor-Chunks aus dem Precache nehmen und per Runtime-Cache laden | P2 | S | `vite.config.js` | vite.config.js:47-49 (Kommentar: „~1–1,5 MB“), Build: `precache 387 entries (6083.84 KiB)`, größter Eintrag `assets/jsonMode-*.js` 1207 KiB | Fertig wenn: der Build meldet einen Precache unter 3 MB, `e2e/pwa-offline.spec.js` grün, Monaco-Lab lädt online (`e2e/csp.spec.js` Monaco-Fall grün). **Teilweise (2026-10-29):** Precache 6,1 → 4,1 MB (388 → 383 Einträge): Monaco-Kern (`jsonMode-*`, 1,2 MB) und Editor-CSS, Sentry (`vendor-sentry`, nur mit DSN) und jsPDF-SVG-Zusatz (`vendor-canvg`) sind ausgenommen und laufen über den Runtime-Cache; Monaco-E2E grün, `size` unverändert. **Ziel < 3 MB bewusst verfehlt:** Der Rest sind zu 2,4 MB die 228 Lab-Chunks, die precacht werden, damit die Labs offline laufen. Kleiner ginge es nur ohne Offline-Labs (offene Frage 4).
+- [x] P04 | PWA-E2E im Parallel-Lauf stabil machen | P2 | S | `e2e/pwa-offline.spec.js` | e2e/pwa-offline.spec.js:10 (✘ im Gesamtlauf nach 31,1 s, allein 2/2 grün) | Fertig wenn: `npm run e2e` dreimal hintereinander ohne Fehler. Nach P03, weil der kleinere Precache die Ursache (Service-Worker-Installation unter Last) bereits entschärfen kann. **Erledigt (2026-10-29):** Ursache war das 30-s-Zeitlimit: `navigator.serviceWorker.ready` wartet auf die Installation des Precache vom gemeinsam genutzten Preview-Server (auch nach P03 noch ca. 35 s im Gesamtlauf). Die PWA-Suite hat jetzt 90 s. Dabei aufgefallen und behoben: `accessibility.spec.js` (Command Palette) drückte Ctrl+K vor dem Mount von React (1 von 3 Läufen rot), jetzt wird vorher auf die Dashboard-Überschrift gewartet. Geprüft: `npm run e2e` dreimal hintereinander 42/42 grün.
+- [x] P05 | `isolate: false` auf dem aktuellen Stand messen und entscheiden | P2 | S | `vite.config.js` | vite.config.js:120; frühere Messung (Plan von main, M12): 125 s mit vs. 136 s ohne, Ziel verfehlt; README.md:161 behauptet ~64 s | Fertig wenn: `npx vitest run` mit beiden Einstellungen gemessen ist, die schnellere Variante bleibt (bei < 10 % Unterschied: `isolate: true`, weniger Risiko für Zustandslecks), Ergebnis hier notiert. **Erledigt (2026-10-29):** je zwei volle Läufe: `isolate: false` 117,4 s / 115,7 s mit 6 bzw. 3 sporadisch roten Tests (ein dritter Lauf grün), `isolate: true` 113,3 s / 120,8 s und beide Male 1996/1996 grün. Kein Zeitgewinn, aber Zustandslecks → `isolate: true` (mit Begründung in `vite.config.js`). Die „~64 s“ aus README/CHANGELOG korrigiert P13.
+- [x] P06 | Lighthouse-A11y-Schwelle 0,95 lokal belegen | P2 | S | `lighthouserc.json` | lighthouserc.json:11 (`minScore: 0.95`, Anhebung ohne dokumentierte Messung) | Fertig wenn: `npx @lhci/cli autorun` gegen `dist/` erreicht ≥ 0,95 A11y (dann bleibt die Schwelle), sonst Schwelle auf den gemessenen Wert abgerundet und Grund notiert. **Erledigt (2026-10-29):** `npx @lhci/cli@0.15.x autorun` mit `lighthouserc.json` gegen `dist/` (Desktop): Accessibility 0,98, Performance 0,97, Best Practices 1, SEO 1, alle Assertions bestanden. Die Schwelle 0,95 bleibt. Abzüge nur für `heading-order` und `label-content-name-mismatch` auf der Startseite.
+- [x] P07 | Coverage-Schwellen auf den neuen Ist-Stand nachziehen | P3 | S | `vite.config.js` | vite.config.js:144-147 (62/53,5/47/63,5) vs. gemessen 63,3/55,1/48,2/64,9 | Fertig wenn: Schwellen ca. 1 Punkt unter dem Ist-Stand nach P01, Kommentar mit Datum aktualisiert, `npm run test:coverage` grün. **Erledigt (2026-10-29):** gemessen 63,79 / 55,37 / 48,59 / 65,36 % → Schwellen 63 / 54,5 / 47,5 / 64,5 %; `test:coverage` grün (1996 Tests).
 
-### Phase 3 – Architektur & DX
-- [ ] **M08** | `Navbar.jsx` aufteilen (901 Zeilen → ≤ 3 Teilkomponenten) | **P3** | **L** | `src/components/Navigation/Navbar.jsx` | `Navbar.jsx` < 200 Zeilen; `NavCommandPalette.jsx`, `NavSettingsPanel.jsx` extrahieren
-- [ ] **M09** | GitHub Actions auf SHA-gepinnte Versionen umstellen | **P2** | **S** | `.github/workflows/ci.yml` | Alle `uses:` Einträge enthalten 40-Zeichen-SHA; Dependabot-Config für Actions vorhanden
-- [ ] **M10** | `labModulesData.js` in Topic-Chunks aufteilen | **P3** | **L** | `src/data/labModulesData.js` (2 432 Zeilen) | Topic-Chunk-Dateien; dynamischer Import via `labRegistry.js`; Bundle-Size `npm run size` ≤ Budget
-- [ ] **M11** | `sandboxTestUtils.js` dokumentieren oder in `sandboxRunner.js` integrieren | **P3** | **S** | `src/utils/sandboxTestUtils.js` | JSDoc-Kommentar oder Zusammenführung
-- [ ] **M12** | `og:image`-Script in README dokumentieren | **P3** | **S** | `README.md`, `scripts/generate-og-image.js`
+### Phase 3: Sicherheits-Header
+- [x] P08 | Veralteten Header `X-XSS-Protection: 1; mode=block` entfernen (Browser ignorieren ihn, der XSS-Auditor ist entfernt; die CSP übernimmt den Schutz) | P3 | S | `vercel.json`, `e2e/csp.spec.js` | vercel.json:50, vercel.json:83 | Fertig wenn: Header in beiden Regeln entfernt, ein E2E-Fall prüft, dass `/` und der Sandbox-Worker die übrigen Sicherheits-Header weiter liefern. **Erledigt (2026-10-29):** in beiden Regeln entfernt; neuer Fall in `e2e/csp.spec.js` prüft `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, HSTS und `Permissions-Policy` für `/coding_challenges` und den Sandbox-Worker sowie das Fehlen von `X-XSS-Protection`. Geprüft: `npx playwright test --workers=2` 43/43 grün.
 
-### Phase 4 – Lab-Coverage & Lighthouse
-- [ ] **M13** | Exemplarische Unit-Tests für komplexe Labs ergänzen (5 Pilot-Labs) | **P3** | **L** | `src/components/Content/{SubnettingLab,BinaryConverterLab,OsiModelLab,SqlInjectionLab,AlgorithmVisualizerLab}.jsx` + je `.test.jsx`
-- [ ] **M14** | A11y axe-core-Schwellwert in Lighthouse CI auf 0.95 anheben | **P3** | **S** | `lighthouserc.json` | `lighthouserc.json` `minScore: 0.95`; `npm run e2e` grün
+### Phase 4: Barrierefreiheit (Oxlint-Regeln wieder einschalten)
+- [x] P09 | Labels mit Eingabefeldern verknüpfen, `jsx-a11y/label-has-associated-control` einschalten (vormals N01) | P2 | L | `.oxlintrc.json`, betroffene Labs | .oxlintrc.json:10; 291 Befunde, z. B. src/components/Content/Raid6GaloisLab.jsx:165, src/components/Content/OauthTokenExchangeLab.jsx:95 | Fertig wenn: Regel nicht mehr `off`, `npm run lint:ci` 0 Warnungen, `allLabsA11y.test.jsx` grün. **Erledigt (2026-10-29):** 289 Befunde in 96 Dateien per Skript behoben: 246 Labels mit `htmlFor`/`id` an das folgende Feld gebunden (IDs `<datei>-<n>`, in Schleifen mit Schlüssel, z. B. `BgpPathSelectionLab`), 36 Labels ohne Feld (Beschriftung von Button-Gruppen/Werten) zu `<span>`, 7 Felder tief im Label über `depth: 4`. Jsdom-Prüfung aller 233 Labs: keine doppelten IDs, kein `for` ohne Ziel. Regel aktiv (Gegenprobe mit Testdatei schlägt an). Geprüft: `lint:ci`, `typecheck`, 1996/1996 Unit-Tests, Build, E2E 43/43 (`--workers=2`).
+- [x] P10 | Klickbare `div`s per Tastatur bedienbar machen, `click-events-have-key-events` und `no-static-element-interactions` einschalten (vormals N02) | P2 | L | `.oxlintrc.json`, betroffene Komponenten | .oxlintrc.json:11-12; 64 + 63 Befunde | Fertig wenn: beide Regeln aktiv, `lint:ci` sauber; Modal-Backdrops (Escape/Schließen-Button vorhanden) nur mit `oxlint-disable-next-line` + Begründung. **Erledigt (2026-10-29):** 62 Stellen. 45 klickbare `div`s haben `role="button"`, `tabIndex={0}` und `onKeyDown={onActivationKey(...)}` (neuer Helfer `Shared/keyActivation.js` mit Test: Enter/Leertaste); dabei behoben: Navbar-Logo hatte `role="button"` ohne Tastatur-Handler. Karten mit eigenem Bedienelement bekommen einen echten Tastaturweg statt `role="button"` (sonst axe `nested-interactive`): CiCd- und TOM-Checkboxen waren funktionslos (`onChange={() => {}}`) und schalten jetzt; RAID-6 hat einen Button „D_i ausfallen lassen/wiederherstellen“, ERD einen Namens-Button. 10 Modal-Backdrops und 2 Propagation-Stopper mit begründetem `oxlint-disable-next-line`; das TOM-Export-Modal schließt jetzt auch per Escape. Geprüft: `lint:ci`, `typecheck`, 1998/1998 Tests (inkl. axe über alle Labs), Build, E2E 43/43.
+- [x] P11 | `prefer-tag-over-role` umsetzen oder begründet abschalten (vormals N03) | P3 | M | `.oxlintrc.json`, u. a. `CertificateModal.jsx`, `MistakeReviewWidget.jsx` | .oxlintrc.json:13; 20 Befunde | Fertig wenn: Regel aktiv mit 0 Befunden, oder bewusst `off` mit Begründung in `CLAUDE.md`. **Erledigt (2026-10-29), bewusst `off`:** nach P10 63 Befunde: 44× `role="button"` auf Karten (`<button>` erlaubt keinen Block-Inhalt und ändert Standardstile ohne visuelle Tests), 12× `role="dialog"` (natives `<dialog>` ist ohne `showModal()` unsichtbar, der Modal-Vertrag mit `useDialogA11y`/`modalsA11y.test.jsx` verlangt `role="dialog"`), 5 Einzelfälle (`progressbar`, `status`, `region`, `listitem`, `checkbox`). Begründung steht in CLAUDE.md, Prinzip 4.
 
-### Nachbereitung QA-Befunde (A11y, Layout & CSP)
-- [ ] **N01** | Labels per `htmlFor`/`id` oder Umschließen mit Eingabefeldern verknüpfen und Regel `jsx-a11y/label-has-associated-control` wieder einschalten | **P2** | **L** | `.oxlintrc.json` und betroffene Lab-Komponenten (291 Befunde)
-- [ ] **N02** | Klickbare `div`s (Karten, Backdrops) per Tastatur bedienbar machen (`button` bzw. `role`+`onKeyDown`) und `click-events-have-key-events` / `no-static-element-interactions` einschalten | **P2** | **L** | `.oxlintrc.json`
-- [ ] **N03** | `prefer-tag-over-role` bewerten (natives `<dialog>`, `<output>`, `<fieldset>`) | **P3** | **M** | `CertificateModal.jsx`, `MistakeReviewWidget.jsx`
-- [ ] **N04** | Verbleibende Überläufe bei 320 px in Labs einzeln beheben (verschachtelte Flex-Container ohne Umbruch, feste Breiten) | **P2** | **L** | Betroffene Labs prüfen
-- [ ] **N05** | Alasql-basierte SQL-Labs unter der Produktions-CSP absichern (`new Function` inalasql): Engine im Sandbox-Worker ausführen oder CSP-konform kapseln | **P1** | **L** | `src/utils/sqlSandboxEngine.js`, `/sql_joins`, `/sqlite_studio`, `/sqlite_worker_lab`
-- [ ] **N06** | Farbkontrast (WCAG 1.4.3) und Schriftgrößen in Labs auditieren | **P2** | **L** | axe `color-contrast` auf allen Routen
+### Phase 5: Developer Experience und Doku
+- [x] P12 | `npm run new-lab` an die aufgeteilten Lab-Daten anpassen: neuer Eintrag landet in der Themendatei unter `src/data/labModules/` (passend zur Kategorie), nicht als Objekt im Spread-Array | P2 | S | `scripts/new-lab.js`, `CLAUDE.md` | scripts/new-lab.js:39, :126-131 (Einfügemarke `export const LAB_MODULES = [` in src/data/labModulesData.js:7); CLAUDE.md:117 nennt noch `labModulesData.js` als Ort | Fertig wenn: Trockenlauf von `new-lab` in einem Wegwerf-Branch schreibt in die richtige Themendatei, `labModulesData.test.js` grün, Trockenlauf danach verworfen; CLAUDE.md-Checkliste nennt `src/data/labModules/*.js`. **Erledigt (2026-10-29):** `scripts/new-lab.js` liest die Themendateien, wählt die Datei, die die Kategorie am häufigsten führt (Rückfall `softwareDataModules.js`), prüft die Tab-ID über alle Themendateien und ergänzt `Zap` im vorhandenen lucide-Import. Trockenlauf auf `tmp/new-lab-probe`: `network` → `networkModules.js`, `security` → `securityModules.js`, unbekannt → `softwareDataModules.js`; mit beiden Probe-Labs 729/729 Daten-, Routing- und Smoke-Tests grün; Branch danach gelöscht. CLAUDE.md-Checkliste Punkt 4 nennt die Themendateien. Nachtrag: CodeQL meldete im PR „Regular expression injection“ (Kategorie aus der Kommandozeile in `new RegExp`, scripts/new-lab.js:42) – jetzt wörtliches Zählen per `split` und Formatprüfung der Kategorie (`^[a-z][a-z0-9_]*$`).
+- [x] P13 | Doku-Fehlangaben korrigieren: Testlaufzeit „~64 s“ (nach P05), Versionsüberschriften in der README, `GEMINI.md`-Beschreibung und N-Verweise in `CLAUDE.md` | P3 | S | `README.md`, `CHANGELOG.md`, `CLAUDE.md` | README.md:161, README.md:175, CHANGELOG.md:44 (64 s; gemessen 113–137 s); README.md:148 („Aktuelle Version v3.78.0“ über unveröffentlichten Änderungen); CLAUDE.md:135 („weitgehend dieselben Projektregeln“, GEMINI.md hat 5, AGENTS.md 3 Zeilen); CLAUDE.md:91 (verweist auf N01–N03) | Fertig wenn: keine der genannten Stellen widerspricht dem gemessenen Stand oder diesem Plan. **Erledigt (2026-10-29):** „64 s“ in README (2×) und CHANGELOG durch das Messergebnis aus P05 ersetzt, der falsch unter 3.77.0 einsortierte Punkt entfernt (steht unter den unveröffentlichten Änderungen); README-Überschrift „Aktuelle Version v3.78.0“ über den unveröffentlichten Änderungen heißt jetzt „Unveröffentlicht“ (wird beim Release zur Version); CLAUDE.md beschreibt GEMINI.md/AGENTS.md als reine Verweise; der N01–N03-Verweis in CLAUDE.md ist mit P11 ersetzt. Der Eintrag in CHANGELOG 3.78.0 (N01–N03) bleibt als Historie.
 
-### Optionale Maßnahmen
-- [ ] **O01** | CSP mit Nonces statt Hashes/Inline prüfen | **P3** | **L** | `index.html`, `vercel.json`
-- [ ] **O02** | Veralteten Header `X-XSS-Protection` entfernen | **P3** | **S** | `vercel.json`
-- [ ] **O03** | Service Worker Offline-Fallback-Seite mit Lernmaterial statt Browser-Default
-- [ ] **O04** | IndexedDB-Migration-Strategie (aktuell kein Versioning dokumentiert)
+### Neu gefunden (bei der Umsetzung)
+- [x] N01 | Header-Regeln in `vercel.json` (`(?:sandbox|sql)` im Lookahead, `(sandbox|sql)` in der Worker-Regel) auf einem Vercel-Preview prüfen | P2 | S | `vercel.json` | vercel.json:39, :72 – lokal prüft `vite preview` die Muster als RegExp, Vercel nutzt path-to-regexp | Fertig wenn: Preview-Deployment liefert für `/assets/sql.worker-*.js` die Worker-CSP und für `/` die globale CSP (Response-Header, wie am 2026-10-22 für den Sandbox-Worker). **Erledigt (2026-10-29):** Preview `informatik-lernen-git-feat-plan-umsetzung-schengii.vercel.app` per `vercel curl` geprüft: `/` und `/assets/index-*.js` liefern genau eine, die globale CSP (ohne `'unsafe-eval'`); `/assets/sql.worker-BncFJQFZ.js` und `/assets/sandbox.worker-BfCCm63Q.js` liefern genau eine, die Worker-CSP (`script-src 'self' 'unsafe-eval'; connect-src 'none'`), dazu HSTS und `nosniff`; `X-XSS-Protection` fehlt überall (P08).
+- [x] N02 | PR-Job „size-limit trend“ ersetzen: `andresz1/size-limit-action` ist auch in der neuesten Version (v1.8.0) eine Node-20-Action und läuft auf GitHub-Runnern nicht mehr | P2 | S | `.github/workflows/ci.yml` | ci.yml:139; `action.yml` der Version: `using: 'node20'`; gitleaks-action-Release v3.0.0: Node 20 seit 16.09.2026 entfernt | Fertig wenn: Der PR-Job läuft grün (eigener Schritt mit `npx size-limit --json` und `gh pr comment`, oder Job entfernt, weil der harte `size`-Schritt im test-Job bleibt). **Erledigt (2026-10-29):** eigene Schritte (Basis- und PR-Build je `size-limit --json`, neues `scripts/size-report.js` erzeugt die Markdown-Tabelle, `gh pr comment --edit-last --create-if-none`, zusätzlich Job-Zusammenfassung; Kommentar-Schritt `continue-on-error` für Fork-PRs). Skript lokal mit echten und veränderten Daten geprüft (Zuwachs, Abnahme, neuer Chunk, fehlende Basis). Die echte Prüfung ist der CI-Lauf des PR.
+
+- [x] N03 | E2E-Suite reagiert empfindlich auf Last: Mit parallel laufenden IDE-Testprozessen (Playwright-`test-server`, Vitest-Explorer) oder `--repeat-each` überschreiten Worker-, Lab- und Smoke-Fälle ihre Zeitlimits (40–60 s), mit `--workers=2` 43/43 grün | P3 | S | `playwright.config.js` | playwright.config.js:9 (`fullyParallel: true`, keine `workers`-Angabe); Läufe vom 2026-10-29 | Fertig wenn: `workers` lokal begrenzt (z. B. 50 %) oder bewusst so belassen und in CLAUDE.md erwähnt; drei Gesamtläufe unter normaler Last grün. **Erledigt (2026-10-29), bewusst belassen:** Playwright nutzt lokal schon 50 % der Kerne (Standard), die drei Gesamtläufe unter normaler Last waren grün (P04); eine feste Begrenzung würde nur die Laufzeit verlängern. CLAUDE.md nennt `--workers=2` für den Fall paralleler Testprozesse.
+
+- [x] N04 | Rohes LaTeX im sichtbaren Text durch Unicode ersetzen (`$\to$` → →, `$\times$` → ×, `$\phi(n)$` → φ(n) usw.), die App rendert kein LaTeX | P3 | S | 9 Labs | src/components/Content/ItsmSimulatorLab.jsx:54, HttpCachingLab.jsx:215, LinuxBridgeVxlanLab.jsx:97/103/113, PkiCertificateLab.jsx:79, SrpZeroKnowledgeLab.jsx:185-188, CryptoKeygenLab.jsx:41, Raid6GaloisLab.jsx:304, VectorSearchLab.jsx:114; Screenshot-Rundgang 2026-10-29 zeigt „Impact $\times$ Urgency“ | Fertig wenn: Suche nach `$\` + Buchstabe in `src/components` liefert 0 Treffer, Smoke-Test grün. **Erledigt (2026-10-29):** 21 Stellen in 8 Labs wörtlich ersetzt (→, ×, φ(n), ≠, D₀/D₁, cos θ); Suche ohne Treffer, Smoke- und axe-Test (469) grün, `lint:ci` sauber.
+
+### Phase 6: Darstellung (Audit vom 2026-10-29, Playwright über alle 229 Lab-Routen der Produktion, 375/1280 px, hell/dunkel)
+Ausgangslage: 229/229 Routen laden ohne JS-Fehler, kein Error-Boundary-Fall, keine kaputten Bilder, keine `href="#"` oder leeren Handler; der Dark Mode ist stimmig. Die Befunde betreffen den Light Mode, die Handy-Breite und die Inhaltstiefe. Ersetzt O01/O02 (offene Frage 3: ja, mit versioniertem Messskript).
+- [x] P14 | Versioniertes UI-Messskript statt `tmp/qa/`: misst je Route Textkontrast (WCAG < 3:1, mit Hintergrund aus den Vorfahren) und Elemente, die bei 375 px rechts aus dem Viewport ragen und nicht in einem scrollbaren Container liegen | P2 | S | `scripts/ui-audit.js`, `package.json` | Audit 2026-10-29: `body { overflow-x: hidden }` (src/styles/global.css:215) versteckt Überläufe, `scrollWidth` meldet deshalb 0; jsdom-axe prüft `color-contrast` nicht | Fertig wenn: `npm run audit:ui` gegen `npm run preview` eine Tabelle und JSON (`tmp/ui-audit/`) für hell/dunkel erzeugt; Belegzahlen für P15/P16 stehen hier. **Erledigt (2026-10-29):** `npm run audit:ui` (Optionen `--base`, `--theme`, `--routes`, `--width`), Farben werden über ein Canvas nach sRGB umgerechnet (Tailwind v4 liefert `oklch()`), 230 Routen je Theme in ca. 100 s. Ausgangswert gegen `vite preview`: hell 125 Routen / 706 Textstellen < 3:1, dunkel 157 Routen / 333 Stellen (davon 189 Stichproben weiße Schrift auf `.btn-primary`, 2,98:1), Überlauf bei 375 px 75 Routen.
+- [x] P15 | Light Mode: dunkle Flächen mit Theme-Textfarbe beheben (vormals O02) | P1 | L | `src/styles/global.css`, betroffene Labs | 17 nie definierte CSS-Variablen fallen auf dunkle Hex-Werte zurück (`--card-bg` 132×, `--accent-indigo` 62×, `--text-secondary` 35×, `--text-primary` 27×, `--surface-card` 15×, `--input-bg` 14× …), z. B. src/components/Content/WisoZuschlagskalkulationLab.jsx:120; dazu 52 Labs mit `bg-slate-800/900/950` bzw. `#0f172a` neben `var(--text-main/muted)`; Screenshot `/wiso_zuschlagskalkulation_lab` hell: Beschriftungen kaum lesbar | Fertig wenn: alle verwendeten Variablen sind in beiden Themes definiert, `npm run audit:ui` meldet im Light Mode keine Route mehr mit Text < 3:1 (bewusst dunkle Terminal-/Code-Fenster mit heller Schrift sind erlaubt), Dark Mode unverändert. **Erledigt (2026-10-29):** `npm run audit:ui` meldet hell 0 / dunkel 0 Routen mit Text < 3:1 (Ausgangswert 125 / 157). Wege: Alias-Variablen; `--text-on-accent` für Schrift auf Akzentflächen; `src/styles/tailwind-light.css` (erzeugt von `npm run gen:tailwind-light`) spiegelt im Light Mode die Tailwind-Palette der 43 dunkel gestalteten Labs; Inline-Farben per Codemod auf `var(--accent-*)`/`var(--bg-*)`/`var(--text-*)` (im Dark Mode farbgleich); `button { background-color: transparent }` statt Browser-Grau (kein Preflight); datengetriebene Textfarben über `color-mix(…, var(--text-main))`. Offen bleibt: Tailwind-`border` ohne Preflight zeichnet Buttons mit `outset`-Rahmen des Browsers.
+- [x] P16 | Handy-Breite: Inhalte, die bei 375 px abgeschnitten und unerreichbar sind (vormals O01) | P1 | L | betroffene Labs, `e2e/` | 75 Labs, u. a. `/webrtc_peer_studio` +533 px, `/backup_strategy_lab` +430, `/personal_notebook` +405, `/itsm_simulator` +385, `/rack_configurator` +345 | Fertig wenn: `npm run audit:ui` meldet 0 Routen mit Überlauf > 4 px bei 375 px; ein E2E-Fall prüft das für eine Auswahl von Labs dauerhaft. **Erledigt (2026-10-29):** `npm run audit:ui` meldet 0 Routen mit Überlauf > 4 px bei 375 px (vorher 78). `minmax(min(Npx, 100%), 1fr)` in 150 Komponenten, `.grid-responsive` unter 768 px einspaltig (`!important` gegen Inline-Raster), Flex-Zeilen in `main` brechen unter 768 px um, 6 Einzelfälle; `e2e/mobile-layout.spec.js` prüft 12 Labs. Das Audit nennt jetzt auch die Überlauf-Ursache.
+- [ ] P17 | Dünne Labs ausbauen (Engine + Interaktion + Drill) | P2 | L | `KafkaEventLab.jsx`, `WasmRustLab.jsx`, danach Docker, Kubernetes, OAuth/OIDC, WebSockets, CloudDevOps | KafkaEventLab.jsx und WasmRustLab.jsx (je 40 Zeilen) zeigen nur zwei statische Code-Blöcke ohne Zustand; weitere Labs mit ca. 73 Zeilen | Fertig wenn: jedes genannte Lab hat eine getestete Engine, mindestens eine Interaktion und einen Prüfungsdrill (`LabDrillSection`). **Teilweise erledigt (2026-10-29):** `KafkaEventLab` (`kafkaEventEngine.js`) und `WasmRustLab` (`wasmBinaryEngine.js`, echtes Wasm-Modul) mit Engine, Tests, Interaktion, Aufgaben/XP, `LabDrillSection` und Quellen (`Shared/SourceList.jsx`). Offen: Docker, Kubernetes, OAuth/OIDC, WebSockets, CloudDevOps.
+- [ ] P18 | Visuelle Regressionstests für ca. 15 Leit-Labs (hell/dunkel × 375/1280) | P3 | M | `e2e/visual.spec.js` | Light-Mode- und Überlauf-Fehler fielen keinem bestehenden Test auf | Fertig wenn: Playwright-Screenshot-Vergleich läuft in CI mit festen Referenzbildern (Linux) und dokumentiertem Update-Weg.
+
+Voraussetzung für die Produktion: PR #48 mergen, dort fehlen noch P01–P13/N01–N04 (live z. B. weiter „Impact $\times$ Urgency“ und SQL-Labs unter CSP).
+
+### Optional (ohne Beleg im versionierten Projekt)
+- [ ] O03 | CSP mit Nonces/Hashes auch für Styles (`style-src 'unsafe-inline'`, vercel.json:67). Erfordert Abkehr von Inline-Styles in über 200 Labs.
+- [ ] O04 | Größte Labs (`StpProtocolLab.jsx` 779 Zeilen u. a.) aufteilen. Nur bei fachlichem Anlass (siehe Begründung zu M20 im Vorgänger-Plan).
+- [ ] O05 | Lab-Registrierung (`labRegistry.js` + `labModules/`) aus einer Quelle erzeugen (Build-Skript), damit ein Lab nur einmal eingetragen wird.
 
 ---
 
 ## 3. Vorgehen je Phase
 
-```
-Phase 1 (M01–M03) → build + lint + test → Commit `chore: phase-1`
-Phase 2 (M04–M07) → build + lint + test:coverage → Commit `test: phase-2`
-Phase 3 (M08–M12) → build + lint + test + size-check → Commit `refactor: phase-3`
-Phase 4 (M13–M14) → build + lint + test + e2e → Commit `test: phase-4`
-QA-Befunde (N01–N06) → isolierte Commits je Regel/Feature
-```
+Allgemein: Eine Maßnahme ergibt einen Commit, die Nachricht beginnt mit der ID (`P01: …`). Die Reihenfolge ist wie aufgeführt. Vor jeder Maßnahme ist `git status` sauber. Basis-Check nach jeder Maßnahme: `npm run lint:ci && npm run typecheck && npm test`. Bei einem Fehler: Ursache analysieren und beheben, höchstens 3 Versuche, danach `[!]` mit Grund und weiter. Rollback immer per `git revert <commit>`, nie `reset --hard` auf geteilten Branches.
 
-**Rollback-Strategie**: Jede Phase ist atomar. Bei Regressions-Fehler: `git revert <commit>` ohne `--no-verify`.
+### Phase 1 (P01)
+- **Reihenfolge**: zuerst die E2E-Fälle schreiben und rot sehen, dann Worker und Engine-Umbau, dann die Labs.
+- **Test**: Basis-Check, `npm run build && npm run size && npm run e2e`, dazu manuell: in `/sql_joins` eine Abfrage ausführen.
+- **Rollback**: `git revert` des P01-Commits. Die SQL-Labs sind dann wieder im heutigen (kaputten) Zustand, alle anderen Labs sind nicht betroffen.
 
-**Teststrategie nach jeder Phase**:
-1. `npm run lint:ci` → 0 Fehler
-2. `npm run typecheck` → 0 Fehler
-3. `npm run test:fast` → alle Tests bestanden
-4. `npm run build` → ✅ keine Fehler
-5. `npm run test:coverage` → Schwellwerte erfüllt
-6. `npm run size` → Bundle-Budgets eingehalten
+### Phase 2 (P02–P07)
+- **Reihenfolge**: P02 → P03 → P04 → P05 → P06 → P07 (P07 zuletzt, weil P01 neue Tests bringt).
+- **Test**: Basis-Check, nach P03/P04 `npm run build && npm run e2e` (dreimal für P04), nach P07 `npm run test:coverage`. P02 lässt sich lokal nur syntaktisch prüfen, die echte Prüfung ist der CI-Lauf des Pull Requests.
+- **Rollback**: `git revert` je Commit. Ein alter Service-Worker-Cache verschwindet nach dem Revert erst mit der nächsten Version oder einem Hard-Reload.
 
----
+### Phase 3 (P08)
+- **Test**: `npm run build && npx playwright test e2e/csp.spec.js`.
+- **Rollback**: `git revert`.
 
-## 4. Risiken & offene Fragen
+### Phase 4 (P09–P11)
+- **Reihenfolge**: P09 → P10 → P11, je Regel ein Commit.
+- **Test**: Basis-Check, `npx vitest run src/components/allLabsA11y.test.jsx src/components/allLabsSmoke.test.jsx src/components/modalsA11y.test.jsx`, `npm run e2e` (`accessibility.spec.js`).
+- **Rollback**: `git revert`. Alternativ die Regel wieder auf `off` setzen, dann bleiben die bereits korrigierten Stellen erhalten.
 
-| # | Risiko / Frage | Wahrscheinlichkeit | Impact | Mitigation |
-|---|---|---|---|---|
-| R1 | `isolate: false` bricht Test-Isolation (globale Mocks) | Mittel | Hoch | Tests mit `--reporter=verbose` überwachen; Mocks in `afterEach` säubern |
-| R2 | `labModulesData.js`-Split bricht dynamische Lab-Suche (Command Palette) | Mittel | Hoch | Import-Mapping sichern; Command-Palette-E2E-Test vor/nach |
-| R3 | SHA-Pinning GH Actions: Dependabot-PRs erhöhen Wartungsaufwand | Niedrig | Niedrig | Dependabot nur für Actions-Gruppe konfigurieren |
-| R4 | `Navbar.jsx`-Refactor bricht Keyboard-Navigation / A11y | Mittel | Mittel | `allLabsA11y.test.jsx` + manueller Tastatur-Test nach Refactor |
-| R5 | Coverage-Threshold-Erhöhung (M07) schlägt wegen ungetesteter Labs fehl | Hoch | Niedrig | Erst nach M04–M06 ausführen; Threshold konservativ erhöhen |
-| R6 | `jwtConfusionEngine.js` (M02): Regex-Reformatierung bricht Lab-Funktionalität | Niedrig | Mittel | Unit-Tests für `jwtConfusionEngine.test.js` vor + nach laufen lassen |
-| R7 | Alasql unter CSP (N05): Worker-Kapselung notwendig | Mittel | Hoch | Reine Web-Worker-Ausführung nutzen analog zu `sandboxRunner.js` |
+### Phase 5 (P12–P13)
+- **Test**: Für P12 einen Trockenlauf von `npm run new-lab` auf einem Wegwerf-Branch, danach `npm test` und den Wegwerf-Branch löschen. Für P13 Sichtprüfung der Stellen.
+- **Rollback**: `git revert`.
 
 ---
 
-*Letzte Aktualisierung: 2026-10-29*
+## 4. Risiken und offene Fragen
+
+### Risiken
+1. **P01 ändert den Ablauf von synchron auf asynchron.** Die SQL-Labs rufen `alasql()` heute synchron auf. Ein Worker antwortet asynchron, also müssen Aufrufer und Tests umgebaut werden. Die Unit-Tests laufen ohne Worker und brauchen deshalb einen Inline-Ersatz (Muster: `sandboxTestUtils.js`).
+2. **P01, CSP:** Eine eigene Worker-CSP mit `'unsafe-eval'` darf nur für die Worker-Datei gelten (Lookahead-Muster wie beim Sandbox-Worker). `'unsafe-eval'` auf der Hauptseite ist ausgeschlossen (CLAUDE.md, Prinzip 9).
+3. **P02:** SHAs werden nur über `gh api` aufgelöst und nie geraten. Ein Major-Wechsel, etwa `upload-artifact` von v4 auf v7, kann das Verhalten ändern. Deshalb ist der CI-Lauf im PR die eigentliche Prüfung.
+4. **P03:** Fehlen Monaco-Chunks im Precache, ist das Monaco-Lab offline nicht nutzbar, bis es einmal online geladen wurde. Diesen Kompromiss trifft das Projekt bereits für `editor.api`.
+5. **P09–P10** betreffen über 100 Dateien und damit viele Stellen, an denen sich das Verhalten ändern kann. Abgesichert ist das nur durch Smoke-, axe- und E2E-Tests, Interaktionstests gibt es nur für wenige Labs.
+6. **Nicht gemessen:** Safari und Firefox sowie Lighthouse in CI (der Wert ist erst nach P06 bekannt).
+
+### Offene Fragen
+1. Wird `SqlDungeon` (Spiele-Tab) wie die Labs auf den SQL-Worker umgestellt? Annahme: ja, es nutzt dieselbe Bibliothek und scheitert an derselben CSP.
+2. Soll die Lab-Registrierung langfristig aus einer Quelle erzeugt werden (O05)?
+3. ~~Sollen O01/O02 mit einem versionierten Messskript (statt `tmp/qa/`) belegt und dann regulär eingeplant werden?~~ Ja, als P14–P16 (2026-10-29).
+4. Sollen die Labs weiter vollständig precacht werden (4,1 MB beim ersten Besuch, alle Labs offline) oder nur App-Shell und zuletzt genutzte Labs (kleinerer Erstdownload, Labs erst nach dem ersten Öffnen offline)?

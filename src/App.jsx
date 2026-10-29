@@ -52,6 +52,7 @@ import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
 import { BookOpen, Sparkles, ArrowRight, CheckCircle, Sprout, Compass } from 'lucide-react';
+import { onActivationKey } from './components/Shared/keyActivation';
 
 // Tabs, die nicht über die `activeLabElement`-Tabelle laufen, sondern als
 // eigene JSX-Blöcke weiter unten gerendert werden. Alles, was weder hier noch
@@ -296,7 +297,7 @@ export default function App() {
                       <button
                         className="btn btn-primary"
                         onClick={() => setActiveTab('campaign')}
-                        style={{ minHeight: '48px', fontSize: '0.95rem', background: 'var(--gradient-cyber)', gap: '8px' }}
+                        style={{ minHeight: '48px', fontSize: '0.95rem', background: 'var(--gradient-cta)', gap: '8px' }}
                       >
                         <Compass size={18} /> Story Kampagne
                       </button>
@@ -391,7 +392,7 @@ export default function App() {
                       {filteredTopics.map((topic) => {
                         const isDone = userState.completedTopics.includes(topic.id);
                         return (
-                          <div
+                          <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setSelectedTopicId(topic.id))}
                             key={topic.id}
                             className="glass-panel glass-panel-hover"
                             onClick={() => setSelectedTopicId(topic.id)}
@@ -444,7 +445,7 @@ export default function App() {
                         fontWeight: '700',
                         fontSize: '0.92rem',
                         background: activeGameId === g.id ? 'var(--accent-primary)' : 'var(--bg-card)',
-                        color: activeGameId === g.id ? '#ffffff' : 'var(--text-main)',
+                        color: activeGameId === g.id ? 'var(--text-on-accent)' : 'var(--text-main)',
                         border: activeGameId === g.id ? '2px solid var(--accent-primary)' : '2px solid var(--border-color)',
                         cursor: 'pointer',
                         whiteSpace: 'nowrap'

@@ -75,7 +75,7 @@ export default function MonacoStudioLab({ onRewardXP }) {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '20px' }}>
         {/* Monaco Editor Container */}
         <div style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', border: '1px solid var(--border-color)' }}>
           {editorStatus === 'ready' ? (
@@ -118,8 +118,8 @@ export default function MonacoStudioLab({ onRewardXP }) {
           </h4>
           <div
             style={{
-              background: '#0f172a',
-              color: '#38bdf8',
+              background: 'var(--bg-card)',
+              color: 'var(--accent-cyan)',
               padding: '20px',
               borderRadius: 'var(--radius-lg)',
               fontFamily: 'monospace',

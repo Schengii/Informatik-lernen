@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { useDialogA11y } from '../Shared/useDialogA11y';
 import { GLOSSARY_TERMS } from '../../data/glossaryData';
 import { BookOpen, Search, X, Volume2, Pause } from 'lucide-react';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function GlossaryModal({ isOpen, onClose }) {
   const dialogRef = useRef(null);
@@ -48,6 +49,7 @@ export default function GlossaryModal({ isOpen, onClose }) {
   };
 
   return (
+    // oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- Backdrop schließt nur per Maus; Tastatur: Escape und Schließen-Button
     <div
       style={{
         position: 'fixed',
@@ -143,7 +145,7 @@ export default function GlossaryModal({ isOpen, onClose }) {
                   fontSize: '0.85rem',
                   fontWeight: '700',
                   background: selectedCategory === cat ? 'var(--accent-primary)' : 'var(--bg-tertiary)',
-                  color: selectedCategory === cat ? '#ffffff' : 'var(--text-muted)',
+                  color: selectedCategory === cat ? 'var(--text-on-accent)' : 'var(--text-muted)',
                   border: selectedCategory === cat ? 'none' : '1px solid var(--border-color)',
                   cursor: 'pointer',
                   whiteSpace: 'nowrap'
@@ -156,13 +158,13 @@ export default function GlossaryModal({ isOpen, onClose }) {
         </div>
 
         {/* Glossary Main Grid (Sidebar List + Detail View) */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(250px, 1fr) 2fr', gap: '20px', flex: 1, overflow: 'hidden' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(min(250px, 100%), 1fr) 2fr', gap: '20px', flex: 1, overflow: 'hidden' }}>
           {/* Terms List */}
           <div style={{ overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '8px', paddingRight: '6px' }}>
             {filteredTerms.map((t) => {
               const isSelected = activeTermId === t.id;
               return (
-                <div
+                <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setActiveTermId(t.id))}
                   key={t.id}
                   onClick={() => setActiveTermId(t.id)}
                   style={{
@@ -242,7 +244,7 @@ export default function GlossaryModal({ isOpen, onClose }) {
                   <strong style={{ fontSize: '0.88rem', color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>
                     💡 Praxis-Beispiel:
                   </strong>
-                  <code style={{ width: '100%', display: 'block', padding: '12px', background: '#0f172a', color: '#f8fafc', borderRadius: '8px', fontSize: '0.9rem' }}>
+                  <code style={{ width: '100%', display: 'block', padding: '12px', background: 'var(--bg-card)', color: 'var(--text-main)', borderRadius: '8px', fontSize: '0.9rem' }}>
                     {activeTerm.example}
                   </code>
                 </div>

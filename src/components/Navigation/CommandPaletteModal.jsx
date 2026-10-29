@@ -12,6 +12,7 @@ import { useDialogA11y } from '../Shared/useDialogA11y';
 import { TOPICS } from '../../data/topicsData';
 import { GLOSSARY_TERMS } from '../../data/glossaryData';
 import { LAB_MODULES } from '../../data/labModulesData';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpenModal }) {
   const [search, setSearch] = useState('');
@@ -302,6 +303,7 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
 
   return (
     <AnimatePresence>
+      {/* oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- Backdrop schließt nur per Maus; Tastatur: Escape und Schließen-Button */}
       <div 
         style={{
           position: 'fixed',
@@ -386,7 +388,10 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
                 const isSelected = index === selectedIndex;
                 const IconComponent = item.icon || Terminal;
                 return (
-                  <div
+                  <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => {
+                      item.action();
+                      onClose();
+                    })}
                     key={item.id || index}
                     onClick={() => {
                       item.action();
@@ -415,7 +420,7 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
                         display: 'flex', 
                         alignItems: 'center', 
                         justifyContent: 'center',
-                        color: isSelected ? '#ffffff' : 'var(--accent-primary)',
+                        color: isSelected ? 'var(--text-on-accent)' : 'var(--accent-primary)',
                         flexShrink: 0
                       }}>
                         <IconComponent size={18} />

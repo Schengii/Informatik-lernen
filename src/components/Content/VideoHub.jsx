@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TUTORIAL_VIDEOS } from '../../data/videosData';
 import { Video, Play, Clock, CheckCircle2, ListFilter, GraduationCap } from 'lucide-react';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function VideoHub({ onCompleteVideo }) {
   const [activeVideoId, setActiveVideoId] = useState(TUTORIAL_VIDEOS[0].id);
@@ -28,7 +29,7 @@ export default function VideoHub({ onCompleteVideo }) {
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '24px' }}>
         
         {/* Main Video Player Card */}
         <div style={{ gridColumn: 'span 2' }}>
@@ -131,7 +132,7 @@ export default function VideoHub({ onCompleteVideo }) {
             const isWatched = completedVideos.includes(video.id);
 
             return (
-              <div
+              <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setActiveVideoId(video.id))}
                 key={video.id}
                 onClick={() => setActiveVideoId(video.id)}
                 className="glass-panel-hover"
@@ -150,7 +151,7 @@ export default function VideoHub({ onCompleteVideo }) {
                   width: '36px',
                   height: '36px',
                   borderRadius: '8px',
-                  background: isSelected ? 'var(--gradient-cyber)' : 'var(--bg-secondary)',
+                  background: isSelected ? 'var(--gradient-cta)' : 'var(--bg-secondary)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',

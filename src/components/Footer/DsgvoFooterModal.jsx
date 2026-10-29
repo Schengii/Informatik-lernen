@@ -26,7 +26,7 @@ export default function DsgvoFooterModal() {
         <div 
           style={{ 
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', 
             gap: '36px',
             marginBottom: '40px'
           }}
@@ -39,7 +39,7 @@ export default function DsgvoFooterModal() {
                   width: '34px',
                   height: '34px',
                   borderRadius: '8px',
-                  background: 'var(--gradient-cyber)',
+                  background: 'var(--gradient-cta)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -208,6 +208,7 @@ export default function DsgvoFooterModal() {
 
       {/* Modal Dialogs */}
       {activeModal && (
+        // oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- Backdrop schließt nur per Maus; Tastatur: Escape und Schließen-Button
         <div
           style={{
             position: 'fixed',

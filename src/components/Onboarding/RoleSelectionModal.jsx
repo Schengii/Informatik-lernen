@@ -96,10 +96,11 @@ export default function RoleSelectionModal({ isOpen, onClose, currentRole, onSel
         </div>
 
         {/* Roles Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '18px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(250px, 100%), 1fr))', gap: '18px' }}>
           {Object.values(USER_ROLES).map((role) => {
             const isSelected = currentRole === role.id;
             return (
+              // oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- Karte ist Mausabkürzung; Tastatur über den Auswahl-Button in der Karte
               <div
                 key={role.id}
                 onClick={() => {

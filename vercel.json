@@ -36,7 +36,7 @@
       ]
     },
     {
-      "source": "/((?!assets/sandbox\\.worker-).*)",
+      "source": "/((?!assets/(?:sandbox|sql)\\.worker-).*)",
       "headers": [
         {
           "key": "X-Content-Type-Options",
@@ -45,10 +45,6 @@
         {
           "key": "X-Frame-Options",
           "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
         },
         {
           "key": "Referrer-Policy",
@@ -69,7 +65,7 @@
       ]
     },
     {
-      "source": "/assets/sandbox\\.worker-(.*)",
+      "source": "/assets/(sandbox|sql)\\.worker-(.*)",
       "headers": [
         {
           "key": "X-Content-Type-Options",
@@ -78,10 +74,6 @@
         {
           "key": "X-Frame-Options",
           "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
         },
         {
           "key": "Referrer-Policy",

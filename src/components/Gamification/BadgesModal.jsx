@@ -10,6 +10,7 @@ export default function BadgesModal({ isOpen, onClose, userState = {} }) {
   if (!isOpen) return null;
 
   return (
+    // oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- Backdrop schließt nur per Maus; Tastatur: Escape und Schließen-Button
     <div 
       onClick={(e) => e.target === e.currentTarget && onClose()}
       style={{
@@ -77,7 +78,7 @@ export default function BadgesModal({ isOpen, onClose, userState = {} }) {
         </div>
 
         {/* Badges Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))', gap: '16px' }}>
           {BADGES.map(badge => {
             const isUnlocked = Array.isArray(userState?.unlockedBadges) && userState.unlockedBadges.includes(badge.id);
 

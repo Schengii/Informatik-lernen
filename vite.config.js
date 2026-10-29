@@ -44,22 +44,31 @@ export default defineConfig({
         enabled: true
       },
       workbox: {
-        // Große Lab-Chunks (vendor-pdf, vendor-sql, vendor-charts, index) aus
-        // dem Precache ausschließen – reduziert SW-Download von ~4,6 MB auf
-        // ~1–1,5 MB. Sie werden per runtimeCaching beim ersten Zugriff
-        // gecacht und danach per StaleWhileRevalidate bedient.
+        // Große, nur bei Bedarf geladene Chunks (PDF, SQL, Charts, Sentry,
+        // Monaco) aus dem Precache ausschließen; sie werden per runtimeCaching
+        // beim ersten Zugriff gecacht und danach per StaleWhileRevalidate
+        // bedient. Der Precache (gemessen 29.10.2026: ca. 4,2 MB) enthält
+        // danach App-Shell und alle Labs, damit die Labs offline laufen.
         globIgnores: [
           'assets/vendor-pdf-*.js',
           'assets/vendor-sql-*.js',
+          // alasql-Worker (bündelt alasql selbst, nur in den SQL-Labs)
+          'assets/sql.worker-*.js',
           'assets/vendor-charts-*.js',
-          // Monaco (nur im Monaco-Lab): Editor-Kern und Worker
+          // canvg/core-js (jsPDF-SVG-Export) und Sentry (nur mit DSN), siehe manualChunks
+          'assets/vendor-canvg-*.js',
+          'assets/vendor-sentry-*.js',
+          // Monaco (nur im Monaco-Lab): Editor-Kern, Worker, Sprachmodus und CSS.
+          // "jsonMode" enthält beim Rolldown-Splitting den Großteil des Kerns (1,2 MB).
           'assets/editor.api-*.js',
+          'assets/jsonMode-*',
+          'assets/editor-*.css',
           'assets/editor.worker-*.js',
           'assets/json.worker-*.js'
         ],
         runtimeCaching: [
           {
-            urlPattern: /\/assets\/(vendor-(pdf|sql|charts)|editor\.api|editor\.worker|json\.worker)-[^/]+\.js$/,
+            urlPattern: /\/assets\/(vendor-(pdf|sql|charts|canvg|sentry)|sql\.worker|editor\.api|editor\.worker|json\.worker|jsonMode|editor)-[^/]+\.(js|css)$/,
             handler: 'StaleWhileRevalidate',
             options: {
               cacheName: 'vendor-large-chunks',
@@ -110,6 +119,15 @@ export default defineConfig({
           if (id.includes('node_modules/alasql/')) {
             return 'vendor-sql';
           }
+          // Feste Namen für Chunks, die nur bei Bedarf laden und deshalb
+          // nicht in den Precache gehören (globIgnores oben): canvg/core-js
+          // lädt jsPDF erst beim SVG-Export, Sentry nur mit gesetzter DSN.
+          if (/node_modules\/(canvg|core-js|rgbcolor|stackblur-canvas|svg-pathdata)\//.test(id)) {
+            return 'vendor-canvg';
+          }
+          if (id.includes('node_modules/@sentry/') || id.includes('node_modules/@sentry-internal/')) {
+            return 'vendor-sentry';
+          }
         }
       }
     }
@@ -117,7 +135,10 @@ export default defineConfig({
   test: {
     environment: 'node',
     testTimeout: 15000,
-    isolate: false,
+    // Gemessen 29.10.2026: isolate:false ist nicht schneller (116–117 s gegen
+    // 113–121 s) und ließ in 2 von 3 Läufen 3–6 Tests sporadisch scheitern
+    // (Zustand zwischen Testdateien) – daher Isolation pro Datei.
+    isolate: true,
     // e2e/ enthält Playwright-Specs (eigener Testrunner, eigenes `test`-API) -
     // ohne diesen Ausschluss würde Vitests Standard-Glob (`*.spec.js`) sie
     // fälschlich einsammeln und mit der falschen Test-API ausführen wollen.
@@ -139,12 +160,12 @@ export default defineConfig({
       // knapp unter dem aktuellen Ist-Stand, damit neue Engines nicht
       // ungetestet einsickern können, ohne bestehende Ausreißer zu blockieren.
       thresholds: {
-        // Globale Untergrenze (Ist-Stand 22.10.2026: 62,7 / 54,6 / 47,8 / 64,3 %): verhindert,
+        // Globale Untergrenze (Ist-Stand 29.10.2026: 63,79 / 55,37 / 48,59 / 65,36 %): verhindert,
         // dass neue Komponenten/Utilities die Gesamtabdeckung still absenken.
-        statements: 61,
-        branches: 53,
-        functions: 46,
-        lines: 63,
+        statements: 63,
+        branches: 54.5,
+        functions: 47.5,
+        lines: 64.5,
         'src/utils/**/*Engine.js': {
           lines: 85,
           branches: 70,

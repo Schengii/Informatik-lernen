@@ -6,6 +6,7 @@ import { useStore } from '../../store/useStore';
 import { calculateSM2 } from '../../utils/srsAlgorithm';
 import { exportToAnkiTsv, exportToCsv } from '../../utils/flashcardIoEngine';
 import { getTodayDateKey } from '../../utils/storage';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function FlashcardsModal({ isOpen, onClose, onRewardXP }) {
   const { userState, updateSrsCard } = useStore();
@@ -89,6 +90,7 @@ export default function FlashcardsModal({ isOpen, onClose, onRewardXP }) {
   };
 
   return (
+    // oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- Backdrop schließt nur per Maus; Tastatur: Escape und Schließen-Button
     <div
       style={{
         position: 'fixed',
@@ -166,7 +168,7 @@ export default function FlashcardsModal({ isOpen, onClose, onRewardXP }) {
         </div>
 
         {/* Flip Card Area */}
-        <div
+        <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setIsFlipped(!isFlipped))}
           onClick={() => setIsFlipped(!isFlipped)}
           style={{
             width: '100%',
@@ -191,7 +193,7 @@ export default function FlashcardsModal({ isOpen, onClose, onRewardXP }) {
               {currentCard.category} • {currentCard.difficulty}
             </span>
             {isDue && (
-              <span style={{ fontSize: '0.75rem', fontWeight: 800, padding: '2px 8px', borderRadius: '4px', background: 'rgba(239, 68, 68, 0.15)', color: '#ef4444' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 800, padding: '2px 8px', borderRadius: '4px', background: 'rgba(239, 68, 68, 0.15)', color: 'var(--accent-rose)' }}>
                 Heute fällig
               </span>
             )}
