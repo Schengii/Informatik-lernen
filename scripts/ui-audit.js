@@ -83,6 +83,8 @@ function measurePage({ minContrast, maxOverflow }) {
     const rect = el.getBoundingClientRect();
     const s = getComputedStyle(el);
     if (!rect.width || !rect.height || s.visibility === 'hidden' || Number(s.opacity) < 0.3) continue;
+    // Verlaufsschrift (.text-gradient: background-clip: text) hat keine messbare Textfarbe
+    if (s.webkitTextFillColor === 'rgba(0, 0, 0, 0)' || s.backgroundClip === 'text') continue;
     const bg = backgroundOf(el);
     const fg = parse(s.color);
     if (!fg) continue;
