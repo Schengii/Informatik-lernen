@@ -168,7 +168,7 @@ export default function OauthPkceStudioLab() {
                 height: '36px',
                 borderRadius: '50%',
                 background: step === st.num ? 'var(--accent-primary)' : step > st.num ? 'var(--accent-green, #10b981)' : 'var(--bg-tertiary)',
-                color: 'var(--text-on-accent)',
+                color: step >= st.num ? 'var(--text-on-accent)' : 'var(--text-muted)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',

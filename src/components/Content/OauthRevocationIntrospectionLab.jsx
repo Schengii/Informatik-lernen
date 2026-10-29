@@ -252,7 +252,7 @@ export default function OauthRevocationIntrospectionLab() {
                 <button
                   type="submit"
                   style={{
-                    background: '#f59e0b',
+                    background: 'var(--accent-amber)',
                     color: '#000000',
                     border: 'none',
                     borderRadius: '6px',

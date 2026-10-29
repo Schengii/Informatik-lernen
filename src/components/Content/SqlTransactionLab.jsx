@@ -125,7 +125,7 @@ export default function SqlTransactionLab() {
               return (
                 <div key={idx} style={{ padding: '8px 10px', borderRadius: '6px', background: isExecuted ? 'rgba(99, 102, 241, 0.2)' : 'rgba(255,255,255,0.03)', borderLeft: isExecuted ? '4px solid #6366f1' : '4px solid transparent' }}>
                   <div style={{ color: isExecuted ? 'var(--accent-primary)' : 'var(--text-dim)', fontWeight: 'bold' }}>{step.cmd}</div>
-                  <div style={{ fontSize: '0.78rem', color: isExecuted ? 'var(--text-dim)' : '#475569', marginTop: '2px' }}>{step.desc}</div>
+                  <div style={{ fontSize: '0.78rem', color: isExecuted ? 'var(--text-muted)' : 'var(--text-dim)', marginTop: '2px' }}>{step.desc}</div>
                 </div>
               );
             })}
@@ -139,7 +139,7 @@ export default function SqlTransactionLab() {
                 width: '100%',
                 padding: '8px',
                 borderRadius: '6px',
-                background: stepAIdx >= scenario.sessionA.length ? 'var(--bg-card-hover)' : '#6366f1',
+                background: stepAIdx >= scenario.sessionA.length ? 'var(--bg-card-hover)' : 'var(--accent-primary)',
                 color: 'var(--text-main)',
                 fontWeight: 'bold',
                 fontSize: '0.85rem',
@@ -165,7 +165,7 @@ export default function SqlTransactionLab() {
               return (
                 <div key={idx} style={{ padding: '8px 10px', borderRadius: '6px', background: isExecuted ? 'rgba(236, 72, 153, 0.2)' : 'rgba(255,255,255,0.03)', borderLeft: isExecuted ? '4px solid #ec4899' : '4px solid transparent' }}>
                   <div style={{ color: isExecuted ? 'var(--accent-rose)' : 'var(--text-dim)', fontWeight: 'bold' }}>{step.cmd}</div>
-                  <div style={{ fontSize: '0.78rem', color: isExecuted ? 'var(--text-dim)' : '#475569', marginTop: '2px' }}>{step.desc}</div>
+                  <div style={{ fontSize: '0.78rem', color: isExecuted ? 'var(--text-muted)' : 'var(--text-dim)', marginTop: '2px' }}>{step.desc}</div>
                 </div>
               );
             })}
@@ -179,7 +179,7 @@ export default function SqlTransactionLab() {
                 width: '100%',
                 padding: '8px',
                 borderRadius: '6px',
-                background: stepBIdx >= scenario.sessionB.length ? 'var(--bg-card-hover)' : '#ec4899',
+                background: stepBIdx >= scenario.sessionB.length ? 'var(--bg-card-hover)' : 'var(--accent-rose)',
                 color: 'var(--text-main)',
                 fontWeight: 'bold',
                 fontSize: '0.85rem',

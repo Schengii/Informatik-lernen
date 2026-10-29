@@ -104,7 +104,7 @@ export default function CodeExecutionDebuggerLab() {
                     transition: 'background 0.2s ease'
                   }}
                 >
-                  <span style={{ width: '32px', color: isActive ? 'var(--accent-primary)' : '#475569', userSelect: 'none', textAlign: 'right', marginRight: '16px', fontWeight: isActive ? 'bold' : 'normal' }}>
+                  <span style={{ width: '32px', color: isActive ? 'var(--accent-primary)' : 'var(--text-dim)', userSelect: 'none', textAlign: 'right', marginRight: '16px', fontWeight: isActive ? 'bold' : 'normal' }}>
                     {lineNum}
                   </span>
                   <span style={{ color: isActive ? 'var(--text-main)' : 'var(--text-muted)', whiteSpace: 'pre' }}>
@@ -148,8 +148,8 @@ export default function CodeExecutionDebuggerLab() {
                 gap: '8px',
                 padding: '8px 20px',
                 borderRadius: '8px',
-                background: isCompleted ? '#22c55e' : '#6366f1',
-                color: 'var(--text-main)',
+                background: isCompleted ? 'var(--accent-emerald)' : 'var(--accent-primary)',
+                color: 'var(--text-on-accent)',
                 fontWeight: 'bold',
                 fontSize: '0.9rem',
                 border: 'none',

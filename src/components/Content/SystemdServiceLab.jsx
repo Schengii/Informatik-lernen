@@ -98,13 +98,13 @@ export default function SystemdServiceLab() {
               serviceState === 'restarting' ? 'rgba(234, 179, 8, 0.2)' :
               serviceState === 'failed' ? 'rgba(239, 68, 68, 0.2)' : 'rgba(148, 163, 184, 0.2)',
             color:
-              serviceState === 'active' ? '#34d399' :
-              serviceState === 'restarting' ? '#facc15' :
-              serviceState === 'failed' ? '#f87171' : '#94a3b8',
+              serviceState === 'active' ? 'var(--accent-emerald)' :
+              serviceState === 'restarting' ? 'var(--accent-amber)' :
+              serviceState === 'failed' ? 'var(--accent-rose)' : 'var(--text-dim)',
             border: `1px solid ${
-              serviceState === 'active' ? '#10b981' :
-              serviceState === 'restarting' ? '#eab308' :
-              serviceState === 'failed' ? '#ef4444' : '#64748b'
+              serviceState === 'active' ? 'var(--accent-emerald)' :
+              serviceState === 'restarting' ? 'var(--accent-amber)' :
+              serviceState === 'failed' ? 'var(--accent-rose)' : '#64748b'
             }`
           }}>
             {serviceState === 'active' ? '● active (running)' :
@@ -128,7 +128,7 @@ export default function SystemdServiceLab() {
               style={{
                 padding: '10px',
                 borderRadius: '8px',
-                background: serviceState === 'active' ? 'var(--bg-card-hover)' : '#10b981',
+                background: serviceState === 'active' ? 'var(--bg-card-hover)' : 'var(--accent-emerald)',
                 color: 'var(--text-main)',
                 fontWeight: 'bold',
                 fontSize: '0.85rem',
@@ -282,8 +282,8 @@ export default function SystemdServiceLab() {
             {logs.map((log, idx) => (
               <div key={idx} style={{ 
                 color: log.includes('FAILURE') || log.includes('Killed') ? 'var(--accent-rose)' : 
-                       log.includes('Restarting') || log.includes('leak') ? '#fde047' : 
-                       log.includes('Started') ? '#34d399' : '#93c5fd',
+                       log.includes('Restarting') || log.includes('leak') ? 'var(--accent-amber)' : 
+                       log.includes('Started') ? 'var(--accent-emerald)' : 'var(--accent-cyan)',
                 marginBottom: '4px' 
               }}>
                 {log}
@@ -300,7 +300,7 @@ export default function SystemdServiceLab() {
       {/* Generated Unit File Preview */}
       <div style={{ background: 'var(--card-bg, #1e293b)', padding: '20px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
         <h3 style={{ fontSize: '1rem', fontWeight: 'bold', color: 'var(--text-main)', margin: '0 0 10px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <FileText size={16} color="#60a5fa" /> /etc/systemd/system/{config.unitName}
+          <FileText size={16} color="var(--accent-cyan)" /> /etc/systemd/system/{config.unitName}
         </h3>
         <pre style={{ margin: 0, padding: '14px', background: 'var(--bg-tertiary)', borderRadius: '8px', color: 'var(--accent-cyan)', fontSize: '0.85rem', lineHeight: '1.5', overflowX: 'auto' }}>
           <code>{unitFileText}</code>

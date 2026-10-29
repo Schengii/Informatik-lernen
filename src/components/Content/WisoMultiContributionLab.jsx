@@ -114,7 +114,7 @@ export default function WisoMultiContributionLab() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.9rem' }}>
           {/* Step 1: Umsatzerlöse */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', background: '#f8fafc', borderRadius: '8px', fontWeight: 700 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', background: 'var(--bg-tertiary)', borderRadius: '8px', fontWeight: 700 }}>
             <span>Umsatzerlöse (Gesamt):</span>
             <span>+{result.totalRevenue.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}</span>
           </div>
@@ -204,7 +204,7 @@ export default function WisoMultiContributionLab() {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '16px' }}>
           {products.map(p => (
-            <div key={p.id} style={{ background: '#f8fafc', padding: '16px', borderRadius: '12px', border: '1px solid #cbd5e1' }}>
+            <div key={p.id} style={{ background: 'var(--bg-tertiary)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
               <strong style={{ fontSize: '1rem' }}>{p.name}</strong>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginTop: '12px' }}>

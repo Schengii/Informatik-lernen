@@ -132,8 +132,8 @@ export default function IhkProjectGanttLab() {
             style={{
               padding: '8px 18px',
               borderRadius: '8px',
-              background: copied ? '#10b981' : '#3b82f6',
-              color: 'var(--text-main)',
+              background: copied ? 'var(--accent-emerald)' : 'var(--accent-primary)',
+              color: 'var(--text-on-accent)',
               fontWeight: 'bold',
               border: 'none',
               cursor: 'pointer',

@@ -269,7 +269,7 @@ export default function BsiGrundschutzLab() {
               {/* Measures */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {mod.measures.map(m => {
-                  const statusColor = m.status === 'yes' ? '#10b981' : m.status === 'partially' ? '#f59e0b' : '#ef4444';
+                  const statusColor = m.status === 'yes' ? 'var(--accent-emerald)' : m.status === 'partially' ? 'var(--accent-amber)' : 'var(--accent-rose)';
                   const statusBg = m.status === 'yes' ? 'rgba(16, 185, 129, 0.1)' : m.status === 'partially' ? 'rgba(245, 158, 11, 0.1)' : 'rgba(239, 68, 68, 0.1)';
 
                   return (
@@ -296,7 +296,7 @@ export default function BsiGrundschutzLab() {
                           borderRadius: '4px',
                           textTransform: 'uppercase',
                           background: m.type === 'basis' ? '#fee2e2' : m.type === 'standard' ? '#e0f2fe' : '#fef3c7',
-                          color: m.type === 'basis' ? '#b91c1c' : m.type === 'standard' ? '#0369a1' : '#b45309'
+                          color: m.type === 'basis' ? '#b91c1c' : m.type === 'standard' ? 'var(--accent-cyan)' : '#b45309'
                         }}>
                           {m.type === 'basis' ? 'Basis' : m.type === 'standard' ? 'Standard' : 'Hoch'}
                         </span>

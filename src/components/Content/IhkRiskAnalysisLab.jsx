@@ -94,8 +94,8 @@ export default function IhkRiskAnalysisLab() {
               padding: '8px 16px',
               borderRadius: '6px',
               border: 'none',
-              background: activeTab === 'matrix' ? '#f59e0b' : 'transparent',
-              color: 'var(--text-main)',
+              background: activeTab === 'matrix' ? 'var(--accent-amber)' : 'transparent',
+              color: activeTab === 'matrix' ? 'var(--text-on-accent)' : 'var(--text-main)',
               fontWeight: 'bold',
               cursor: 'pointer'
             }}
@@ -108,8 +108,8 @@ export default function IhkRiskAnalysisLab() {
               padding: '8px 16px',
               borderRadius: '6px',
               border: 'none',
-              background: activeTab === 'table' ? '#f59e0b' : 'transparent',
-              color: 'var(--text-main)',
+              background: activeTab === 'table' ? 'var(--accent-amber)' : 'transparent',
+              color: activeTab === 'table' ? 'var(--text-on-accent)' : 'var(--text-main)',
               fontWeight: 'bold',
               cursor: 'pointer'
             }}
@@ -122,8 +122,8 @@ export default function IhkRiskAnalysisLab() {
               padding: '8px 16px',
               borderRadius: '6px',
               border: 'none',
-              background: activeTab === 'export' ? '#f59e0b' : 'transparent',
-              color: 'var(--text-main)',
+              background: activeTab === 'export' ? 'var(--accent-amber)' : 'transparent',
+              color: activeTab === 'export' ? 'var(--text-on-accent)' : 'var(--text-main)',
               fontWeight: 'bold',
               cursor: 'pointer',
               display: 'flex',
@@ -434,8 +434,8 @@ export default function IhkRiskAnalysisLab() {
               onClick={handleCopyMarkdown}
               style={{
                 padding: '10px 20px',
-                background: copied ? '#10b981' : '#f59e0b',
-                color: 'var(--text-main)',
+                background: copied ? 'var(--accent-emerald)' : 'var(--accent-amber)',
+                color: 'var(--text-on-accent)',
                 border: 'none',
                 borderRadius: '8px',
                 fontWeight: 'bold',

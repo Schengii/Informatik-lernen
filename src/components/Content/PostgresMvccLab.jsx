@@ -77,8 +77,8 @@ export default function PostgresMvccLab() {
                 flex: 1,
                 padding: '10px',
                 borderRadius: '8px',
-                background: isCompleted ? '#22c55e' : '#10b981',
-                color: 'var(--text-main)',
+                background: isCompleted ? 'var(--accent-emerald)' : 'var(--accent-emerald)',
+                color: 'var(--text-on-accent)',
                 fontWeight: 'bold',
                 fontSize: '0.88rem',
                 border: 'none',
@@ -101,7 +101,7 @@ export default function PostgresMvccLab() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 'bold', color: 'var(--text-main)', fontSize: '0.95rem' }}>
               <Layers size={17} color="#34d399" /> 8 KB Disk Page (users_table_page_0)
             </div>
-            <span style={{ fontSize: '0.75rem', background: '#34d399', color: '#000', padding: '2px 8px', borderRadius: '4px', fontWeight: 'bold' }}>
+            <span style={{ fontSize: '0.75rem', background: 'var(--accent-emerald)', color: '#000', padding: '2px 8px', borderRadius: '4px', fontWeight: 'bold' }}>
               HEAP TUPLES
             </span>
           </div>

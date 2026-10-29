@@ -95,7 +95,7 @@ export default function JwksRotationLab() {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 'bold', color: 'var(--text-main)', fontSize: '0.95rem' }}>
-                <Lock size={17} color="#fbbf24" /> Bearer JWT Payload & Signature Check
+                <Lock size={17} color="var(--accent-amber)" /> Bearer JWT Payload & Signature Check
               </div>
               <span style={{ fontSize: '0.75rem', background: 'var(--accent-emerald)', color: 'var(--text-on-accent)', padding: '2px 8px', borderRadius: '4px', fontWeight: 'bold' }}>
                 RS256 SIGNED
@@ -110,7 +110,7 @@ export default function JwksRotationLab() {
 
               <div style={{ background: 'rgba(168, 85, 247, 0.15)', padding: '10px', borderRadius: '6px', border: '1px solid rgba(168, 85, 247, 0.3)' }}>
                 <div style={{ color: 'var(--accent-purple)', fontWeight: 'bold' }}>// 2. Claims Payload</div>
-                <div style={{ color: '#f3e8ff' }}>{JSON.stringify(JWKS_SETS.sampleJwt.payload)}</div>
+                <div style={{ color: 'var(--accent-purple)' }}>{JSON.stringify(JWKS_SETS.sampleJwt.payload)}</div>
               </div>
 
               <div style={{ background: 'rgba(56, 189, 248, 0.15)', padding: '10px', borderRadius: '6px', border: '1px solid rgba(56, 189, 248, 0.3)' }}>
@@ -126,8 +126,8 @@ export default function JwksRotationLab() {
               marginTop: '16px',
               padding: '12px',
               borderRadius: '8px',
-              background: isValidated ? '#22c55e' : '#6366f1',
-              color: 'var(--text-main)',
+              background: isValidated ? 'var(--accent-emerald)' : 'var(--accent-primary)',
+              color: 'var(--text-on-accent)',
               fontWeight: 'bold',
               fontSize: '0.9rem',
               border: 'none',

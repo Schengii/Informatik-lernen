@@ -134,7 +134,7 @@ export default function LinuxPermissionsLab() {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
               <span style={{ color: 'var(--text-dim)', fontSize: '0.85rem', fontFamily: 'monospace' }}>Linux Shell (Bash)</span>
-              <span style={{ fontSize: '0.78rem', background: '#eab308', color: '#000', padding: '2px 8px', borderRadius: '4px', fontWeight: 'bold' }}>
+              <span style={{ fontSize: '0.78rem', background: 'var(--accent-amber)', color: '#000', padding: '2px 8px', borderRadius: '4px', fontWeight: 'bold' }}>
                 OKTAL: {octalString}
               </span>
             </div>
@@ -163,7 +163,7 @@ export default function LinuxPermissionsLab() {
               marginTop: '20px',
               padding: '12px',
               borderRadius: '8px',
-              background: isCompleted ? '#22c55e' : '#eab308',
+              background: isCompleted ? 'var(--accent-emerald)' : 'var(--accent-amber)',
               color: isCompleted ? 'var(--text-main)' : '#000',
               fontWeight: 'bold',
               fontSize: '0.9rem',

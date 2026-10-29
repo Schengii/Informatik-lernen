@@ -93,8 +93,8 @@ export default function CiCdMatrixLinterLab() {
               padding: '8px 16px',
               borderRadius: '8px',
               border: activeTab === 'yaml' ? '1px solid #6366f1' : '1px solid rgba(255,255,255,0.1)',
-              background: activeTab === 'yaml' ? '#6366f1' : 'rgba(255,255,255,0.05)',
-              color: 'var(--text-main)',
+              background: activeTab === 'yaml' ? 'var(--accent-primary)' : 'rgba(255,255,255,0.05)',
+              color: activeTab === 'yaml' ? 'var(--text-on-accent)' : 'var(--text-main)',
               fontWeight: 'bold',
               fontSize: '0.85rem',
               cursor: 'pointer',
@@ -111,8 +111,8 @@ export default function CiCdMatrixLinterLab() {
               padding: '8px 16px',
               borderRadius: '8px',
               border: activeTab === 'matrix' ? '1px solid #6366f1' : '1px solid rgba(255,255,255,0.1)',
-              background: activeTab === 'matrix' ? '#6366f1' : 'rgba(255,255,255,0.05)',
-              color: 'var(--text-main)',
+              background: activeTab === 'matrix' ? 'var(--accent-primary)' : 'rgba(255,255,255,0.05)',
+              color: activeTab === 'matrix' ? 'var(--text-on-accent)' : 'var(--text-main)',
               fontWeight: 'bold',
               fontSize: '0.85rem',
               cursor: 'pointer',
@@ -149,9 +149,9 @@ export default function CiCdMatrixLinterLab() {
             style={{
               padding: '8px 20px',
               borderRadius: '8px',
-              background: isCompleted ? '#22c55e' : '#6366f1',
+              background: isCompleted ? 'var(--accent-emerald)' : 'var(--accent-primary)',
               border: 'none',
-              color: 'var(--text-main)',
+              color: 'var(--text-on-accent)',
               fontWeight: 'bold',
               fontSize: '0.88rem',
               cursor: isRunning ? 'default' : 'pointer',
@@ -203,7 +203,7 @@ export default function CiCdMatrixLinterLab() {
                     {job.os.includes('ubuntu') ? <Terminal size={17} color="#f97316" /> : job.os.includes('windows') ? <Box size={17} color="#38bdf8" /> : <Apple size={17} color="#e2e8f0" />}
                     <span>{job.os}</span>
                   </div>
-                  <span style={{ fontSize: '0.75rem', padding: '2px 8px', borderRadius: '4px', background: isDone ? '#22c55e' : 'var(--bg-card-hover)', color: 'var(--text-main)', fontWeight: 'bold' }}>
+                  <span style={{ fontSize: '0.75rem', padding: '2px 8px', borderRadius: '4px', background: isDone ? 'var(--accent-emerald)' : 'var(--bg-card-hover)', color: 'var(--text-main)', fontWeight: 'bold' }}>
                     {isDone ? 'PASS' : isCurrent ? 'RUNNING' : 'QUEUED'}
                   </span>
                 </div>

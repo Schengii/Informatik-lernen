@@ -208,7 +208,7 @@ export default function OsProcessSchedulerLab() {
                       minWidth: '32px',
                       height: '46px',
                       background: slot.processId === 'IDLE' ? 'var(--bg-tertiary)' : slot.color,
-                      color: '#ffffff',
+                      color: slot.processId === 'IDLE' ? 'var(--text-main)' : 'var(--text-on-accent)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',

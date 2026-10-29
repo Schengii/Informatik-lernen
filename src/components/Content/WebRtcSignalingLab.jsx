@@ -176,7 +176,7 @@ export default function WebRtcSignalingLab() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-main)', fontWeight: 'bold', fontSize: '0.95rem' }}>
                 <Video size={17} color="#38bdf8" /> RTCDataChannel Live Chat
               </div>
-              <span style={{ fontSize: '0.75rem', padding: '2px 8px', borderRadius: '4px', background: currentStepIdx >= 5 ? '#22c55e' : '#eab308', color: '#000', fontWeight: 'bold' }}>
+              <span style={{ fontSize: '0.75rem', padding: '2px 8px', borderRadius: '4px', background: currentStepIdx >= 5 ? 'var(--accent-emerald)' : 'var(--accent-amber)', color: '#000', fontWeight: 'bold' }}>
                 {currentStepIdx >= 5 ? 'P2P VERBUNDEN' : 'SIGNALING WARTET'}
               </span>
             </div>

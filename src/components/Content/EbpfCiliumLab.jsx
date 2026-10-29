@@ -68,8 +68,8 @@ export default function EbpfCiliumLab() {
               padding: '8px 16px',
               borderRadius: '6px',
               border: 'none',
-              background: activeTab === 'topology' ? '#06b6d4' : 'transparent',
-              color: 'var(--text-main)',
+              background: activeTab === 'topology' ? 'var(--accent-cyan)' : 'transparent',
+              color: activeTab === 'topology' ? 'var(--text-on-accent)' : 'var(--text-main)',
               fontWeight: 'bold',
               cursor: 'pointer'
             }}
@@ -82,8 +82,8 @@ export default function EbpfCiliumLab() {
               padding: '8px 16px',
               borderRadius: '6px',
               border: 'none',
-              background: activeTab === 'benchmark' ? '#06b6d4' : 'transparent',
-              color: 'var(--text-main)',
+              background: activeTab === 'benchmark' ? 'var(--accent-cyan)' : 'transparent',
+              color: activeTab === 'benchmark' ? 'var(--text-on-accent)' : 'var(--text-main)',
               fontWeight: 'bold',
               cursor: 'pointer'
             }}
@@ -96,8 +96,8 @@ export default function EbpfCiliumLab() {
               padding: '8px 16px',
               borderRadius: '6px',
               border: 'none',
-              background: activeTab === 'code' ? '#06b6d4' : 'transparent',
-              color: 'var(--text-main)',
+              background: activeTab === 'code' ? 'var(--accent-cyan)' : 'transparent',
+              color: activeTab === 'code' ? 'var(--text-on-accent)' : 'var(--text-main)',
               fontWeight: 'bold',
               cursor: 'pointer'
             }}
@@ -150,8 +150,8 @@ export default function EbpfCiliumLab() {
                 padding: '6px 14px',
                 borderRadius: '6px',
                 border: 'none',
-                background: enableL7 ? '#10b981' : 'var(--bg-card-hover)',
-                color: 'var(--text-main)',
+                background: enableL7 ? 'var(--accent-emerald)' : 'var(--bg-card-hover)',
+                color: enableL7 ? 'var(--text-on-accent)' : 'var(--text-main)',
                 fontWeight: 'bold',
                 cursor: 'pointer',
                 fontSize: '0.85rem'
@@ -279,7 +279,7 @@ export default function EbpfCiliumLab() {
               ))}
             </div>
 
-            <div style={{ marginTop: '20px', padding: '12px', borderRadius: '8px', background: 'rgba(239, 68, 68, 0.15)', fontSize: '0.85rem', color: '#fee2e2' }}>
+            <div style={{ marginTop: '20px', padding: '12px', borderRadius: '8px', background: 'rgba(239, 68, 68, 0.15)', fontSize: '0.85rem', color: 'var(--accent-rose)' }}>
               <strong>Ergebnis:</strong> {envoyMetrics.hopCount} Hops! Latenz: <strong>{envoyMetrics.latencyP50} ms</strong> (P50). Speicher-Overhead: <strong>{envoyMetrics.totalMemoryOverheadMb} MB</strong>.
             </div>
           </div>

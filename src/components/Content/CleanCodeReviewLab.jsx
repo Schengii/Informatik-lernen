@@ -58,7 +58,7 @@ export default function CleanCodeReviewLab() {
 
         {/* Progress Badge */}
         <div style={{ padding: '8px 16px', borderRadius: '10px', background: 'var(--card-bg, #1e293b)', border: '1px solid var(--border-color)', color: 'var(--text-main)', fontSize: '0.9rem', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <Zap size={16} color="#fbbf24" /> Challenge {currentIdx + 1} / {CLEAN_CODE_CHALLENGES.length}
+          <Zap size={16} color="var(--accent-amber)" /> Challenge {currentIdx + 1} / {CLEAN_CODE_CHALLENGES.length}
         </div>
       </div>
 
@@ -69,7 +69,7 @@ export default function CleanCodeReviewLab() {
         <div style={{ background: 'var(--bg-tertiary)', borderRadius: '12px', border: '1px solid rgba(239, 68, 68, 0.4)', overflow: 'hidden' }}>
           <div style={{ padding: '12px 16px', background: 'rgba(239, 68, 68, 0.15)', borderBottom: '1px solid rgba(239, 68, 68, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-rose)', fontSize: '0.9rem', fontWeight: 'bold' }}>
-              <AlertTriangle size={17} color="#ef4444" />
+              <AlertTriangle size={17} color="var(--accent-rose)" />
               <span>{challenge.title}</span>
             </div>
             <span style={{ fontSize: '0.75rem', background: 'var(--accent-rose)', color: 'var(--text-on-accent)', padding: '2px 8px', borderRadius: '4px', fontWeight: 'bold' }}>
@@ -97,17 +97,17 @@ export default function CleanCodeReviewLab() {
                 const isSelected = selectedOptionId === opt.id;
                 let bg = 'rgba(255,255,255,0.04)';
                 let border = '1px solid rgba(255,255,255,0.1)';
-                let textColor = '#e2e8f0';
+                let textColor = 'var(--text-main)';
 
                 if (isAnswered) {
                   if (opt.correct) {
                     bg = 'rgba(34, 197, 94, 0.2)';
                     border = '1px solid #22c55e';
-                    textColor = '#86efac';
+                    textColor = 'var(--accent-emerald)';
                   } else if (isSelected && !opt.correct) {
                     bg = 'rgba(239, 68, 68, 0.2)';
                     border = '1px solid #ef4444';
-                    textColor = '#fca5a5';
+                    textColor = 'var(--accent-rose)';
                   }
                 }
 
@@ -154,7 +154,7 @@ export default function CleanCodeReviewLab() {
             >
               <div style={{ padding: '10px 16px', background: 'rgba(34, 197, 94, 0.15)', borderBottom: '1px solid rgba(34, 197, 94, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-emerald)', fontSize: '0.88rem', fontWeight: 'bold' }}>
-                  <CheckCircle2 size={16} color="#22c55e" />
+                  <CheckCircle2 size={16} color="var(--accent-emerald)" />
                   <span>Sauberes Production Refactoring</span>
                 </div>
                 <span style={{ fontSize: '0.75rem', background: 'var(--accent-emerald)', color: 'var(--text-on-accent)', padding: '2px 8px', borderRadius: '4px', fontWeight: 'bold' }}>

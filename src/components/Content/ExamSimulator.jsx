@@ -233,7 +233,7 @@ export default function ExamSimulator({ onCompleteExam, onRecordResults }) {
                 padding: '4px 12px',
                 borderRadius: '16px',
                 border: 'none',
-                background: questionFilter === 'bookmarked' ? '#f59e0b' : 'rgba(255, 255, 255, 0.05)',
+                background: questionFilter === 'bookmarked' ? 'var(--accent-amber)' : 'rgba(255, 255, 255, 0.05)',
                 color: questionFilter === 'bookmarked' ? '#000' : 'var(--text-muted)',
                 fontSize: '0.8rem',
                 fontWeight: '700',

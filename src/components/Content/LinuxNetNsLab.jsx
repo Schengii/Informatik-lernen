@@ -87,7 +87,7 @@ export default function LinuxNetNsLab() {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
           {/* Namespace 1 */}
-          <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '12px', border: '2px solid #cbd5e1' }}>
+          <div style={{ background: 'var(--bg-tertiary)', padding: '16px', borderRadius: '12px', border: '2px solid var(--border-color)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
               <Server size={18} color="#0284c7" />
               <strong style={{ fontSize: '0.95rem' }}>ns-web (Container 1)</strong>
@@ -104,7 +104,7 @@ export default function LinuxNetNsLab() {
           </div>
 
           {/* Namespace 2 */}
-          <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '12px', border: '2px solid #cbd5e1' }}>
+          <div style={{ background: 'var(--bg-tertiary)', padding: '16px', borderRadius: '12px', border: '2px solid var(--border-color)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
               <Server size={18} color="#0284c7" />
               <strong style={{ fontSize: '0.95rem' }}>ns-db (Container 2)</strong>

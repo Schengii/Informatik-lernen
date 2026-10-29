@@ -230,6 +230,13 @@ img, video, canvas, svg {
   height: auto;
 }
 
+/* Ohne Tailwind-Preflight bekamen Buttons ohne eigene Hintergrund-/Textfarbe das Browser-Grau
+   (#f0f0f0) und schwarze Schrift – im Dark Mode helle Tabs mit heller Tailwind-Schrift. */
+button {
+  background-color: transparent;
+  color: inherit;
+}
+
 /* Allow absolute dropdown popovers to expand beyond parent wrapper button width */
 .nav-dropdown-popover {
   max-width: none !important;

@@ -202,7 +202,7 @@ ${selectedPipeline.map(id => {
                     </div>
 
                     {idx < selectedPipeline.length - 1 && (
-                      <div style={{ color: '#475569', fontWeight: '800' }}>&rarr;</div>
+                      <div style={{ color: 'var(--text-dim)', fontWeight: '800' }}>&rarr;</div>
                     )}
                   </React.Fragment>
                 );
@@ -227,7 +227,7 @@ ${selectedPipeline.map(id => {
             <div style={{ color: '#64748b', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
               <Terminal size={14} /> Runner Terminal Log
             </div>
-            {logs.length === 0 && <span style={{ color: '#475569' }}>Klicke auf "Pipeline Ausführen" um Runner-Logs zu sehen...</span>}
+            {logs.length === 0 && <span style={{ color: 'var(--text-dim)' }}>Klicke auf "Pipeline Ausführen" um Runner-Logs zu sehen...</span>}
             {logs.map((l, i) => (
               <div key={i} style={{ marginBottom: '4px' }}>{l}</div>
             ))}

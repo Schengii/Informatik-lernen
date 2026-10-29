@@ -243,7 +243,7 @@ export default function LinuxCapSeccompLab() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '8px',
-                background: '#10b981',
+                background: 'var(--accent-emerald)',
                 color: '#000000',
                 border: 'none',
                 borderRadius: '8px',
