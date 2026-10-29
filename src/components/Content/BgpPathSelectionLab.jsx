@@ -153,7 +153,7 @@ export default function BgpPathSelectionLab() {
           <Network size={18} color="#3b82f6" /> BGP Peer Route Candidates (Attribute modifizieren)
         </h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '16px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '16px' }}>
           {candidates.map((c, i) => {
             const isWinner = evaluation.bestRoute?.peerName === c.peerName;
             return (

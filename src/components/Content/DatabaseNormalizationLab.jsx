@@ -124,7 +124,7 @@ export default function DatabaseNormalizationLab({ onRewardXP }) {
         <div>
           {/* Stufen-Switcher Buttons */}
           <div className="glass-panel" style={{ padding: '16px', marginBottom: '20px' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '10px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))', gap: '10px' }}>
               {[
                 { id: '0NF', label: '0. NF (Unnormalisiert)', desc: 'Wiederholgruppen & Mehrfachwerte' },
                 { id: '1NF', label: '1. Normalform', desc: 'Atomare Attribute & Primärschlüssel' },
@@ -334,7 +334,7 @@ export default function DatabaseNormalizationLab({ onRewardXP }) {
             Die 3 klassischen Datenbank-Anomalien im Vergleich
           </h2>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '10px', marginBottom: '20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: '10px', marginBottom: '20px' }}>
             {DATABASE_ANOMALIES.map(anom => (
               <button
                 key={anom.id}
@@ -365,7 +365,7 @@ export default function DatabaseNormalizationLab({ onRewardXP }) {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '16px' }}>
             {/* 1NF Problem */}
             <div style={{ padding: '16px', borderRadius: '8px', border: '1px solid rgba(239, 68, 68, 0.3)', background: 'rgba(239, 68, 68, 0.05)' }}>
               <div style={{ fontWeight: '700', color: 'var(--accent-rose)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>

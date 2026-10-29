@@ -301,7 +301,7 @@ export default function SqlQueryOptimizerLab({ onRewardXP }) {
           <code>SELECT customer_id, total_amount, created_at FROM orders WHERE customer_id = 48291 AND created_at &gt;= &apos;2026-01-01&apos; ORDER BY created_at DESC;</code>?
         </p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '10px', marginBottom: '14px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '10px', marginBottom: '14px' }}>
           <button
             onClick={() => handleDrillCheck('single_customer')}
             className="btn btn-secondary"

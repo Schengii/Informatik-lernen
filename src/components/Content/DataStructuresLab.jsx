@@ -395,7 +395,7 @@ export default function DataStructuresLab({ onRewardXP }) {
 
           {/* Path Result & Log */}
           {graphPath.length > 0 && (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '16px' }}>
               <div style={{ background: 'var(--bg-primary)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
                 <h4 style={{ margin: '0 0 12px 0', color: 'var(--accent-emerald)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Award size={18} /> Optimaler Pfad ({startNode} &rarr; {targetNode})

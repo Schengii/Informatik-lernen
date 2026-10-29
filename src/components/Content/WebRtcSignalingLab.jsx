@@ -97,7 +97,7 @@ export default function WebRtcSignalingLab() {
       </div>
 
       {/* Details Grid: Handshake Step & Live DataChannel Chat */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '20px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(420px, 100%), 1fr))', gap: '20px', marginBottom: '24px' }}>
         
         {/* Left: Step Details */}
         <div style={{ background: 'var(--bg-tertiary)', borderRadius: '12px', border: '1px solid rgba(236, 72, 153, 0.3)', padding: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>

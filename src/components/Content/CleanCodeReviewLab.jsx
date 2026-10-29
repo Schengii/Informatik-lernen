@@ -63,7 +63,7 @@ export default function CleanCodeReviewLab() {
       </div>
 
       {/* Code Vulnerability Box */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '20px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(420px, 100%), 1fr))', gap: '20px', marginBottom: '24px' }}>
         
         {/* Bad Code Box */}
         <div style={{ background: 'var(--bg-tertiary)', borderRadius: '12px', border: '1px solid rgba(239, 68, 68, 0.4)', overflow: 'hidden' }}>

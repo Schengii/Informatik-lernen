@@ -157,7 +157,7 @@ export default function CpuArchitectureLab({ onRewardXP }) {
       </div>
 
       {/* Main Visual Dashboard */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '20px', marginBottom: '24px' }}>
         {/* CPU DIE & REGISTERS */}
         <div style={{ background: 'var(--bg-secondary)', padding: '20px', borderRadius: '16px', border: '2px solid #3b82f6', position: 'relative' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>

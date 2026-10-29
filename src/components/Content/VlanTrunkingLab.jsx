@@ -195,7 +195,7 @@ export default function VlanTrunkingLab({ onRewardXP }) {
           </div>
 
           {/* Regler zur Interaktiven Berechnung */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '20px', marginBottom: '20px' }}>
             <div>
               <label htmlFor="vlan-trunking-lab-1" style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', marginBottom: '6px' }}>
                 VLAN-ID (VID: 1 - 4094):
@@ -249,7 +249,7 @@ export default function VlanTrunkingLab({ onRewardXP }) {
             Switch Weiterleitung: Access- vs. Trunk-Port Verhalten
           </h2>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '20px', marginBottom: '20px' }}>
             {/* Eingang */}
             <div style={{ padding: '16px', borderRadius: '8px', border: '1px solid #334155', background: 'rgba(255, 255, 255, 0.02)' }}>
               <div style={{ fontWeight: '700', color: 'var(--accent-cyan)', marginBottom: '10px' }}>

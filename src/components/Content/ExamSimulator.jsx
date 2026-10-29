@@ -299,7 +299,7 @@ export default function ExamSimulator({ onCompleteExam, onRecordResults }) {
             <h3 style={{ fontSize: '1rem', fontWeight: '800', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
               <BarChart3 size={18} /> Ergebnis nach Wissensgebieten / IHK-Themen:
             </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '12px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: '12px' }}>
               {Object.entries(scoreData.categoryStats).map(([catName, stats]) => {
                 const catPercent = Math.round((stats.correct / stats.total) * 100);
                 const isCatPassed = catPercent >= 50;

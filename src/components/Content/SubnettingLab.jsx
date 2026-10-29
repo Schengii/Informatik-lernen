@@ -123,7 +123,7 @@ export default function SubnettingLab({ onRewardXP }) {
       {/* CALCULATOR TAB */}
       {activeTab === 'calc' && (
         <div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '20px', marginBottom: '24px' }}>
             <div>
               <label htmlFor="subnetting-lab-1" style={{ display: 'block', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>
                 IP-Adresse (IPv4)
@@ -166,7 +166,7 @@ export default function SubnettingLab({ onRewardXP }) {
                 📊 Analyse-Ergebnisse für {ipAddress}/{cidr}
               </h3>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', marginBottom: '20px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))', gap: '16px', marginBottom: '20px' }}>
                 <div style={{ padding: '12px', background: 'var(--bg-card)', borderRadius: 'var(--radius-md)' }}>
                   <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Netz-ID (Network ID)</span>
                   <div style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--accent-emerald)' }}>{result.networkId}</div>

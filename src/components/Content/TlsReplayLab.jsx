@@ -171,7 +171,7 @@ export default function TlsReplayLab() {
       {activeTab === 'interactive' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           {/* Controls Bar */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '16px' }}>
             {/* Request Type */}
             <div style={{ background: 'var(--card-bg, #1e293b)', padding: '16px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
               <label htmlFor="tls-replay-lab-1" style={{ fontSize: '0.85rem', color: 'var(--text-dim)', display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>
@@ -271,7 +271,7 @@ export default function TlsReplayLab() {
           </div>
 
           {/* Inspection Screen */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '20px' }}>
             {/* Session State */}
             <div style={{ background: 'var(--card-bg, #1e293b)', padding: '20px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
               <h3 style={{ margin: '0 0 14px 0', fontSize: '1.1rem', fontWeight: 'bold', color: 'var(--accent-cyan)' }}>
@@ -352,7 +352,7 @@ export default function TlsReplayLab() {
           <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold', margin: '0 0 16px 0', color: 'var(--accent-cyan)' }}>
             TLS 1.3 Server 0-RTT Konfigurations-Audit
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '20px', marginBottom: '24px' }}>
             <div>
               <label htmlFor="tls-replay-lab-3" style={{ fontSize: '0.85rem', color: 'var(--text-dim)', display: 'block', marginBottom: '6px' }}>
                 Nicht-idempotente Anfragen in Early Data:

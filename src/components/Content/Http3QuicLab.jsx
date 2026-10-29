@@ -190,7 +190,7 @@ export default function Http3QuicLab() {
           </div>
 
           {/* Protocol Comparison Side-by-Side */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '20px', marginBottom: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(340px, 100%), 1fr))', gap: '20px', marginBottom: '24px' }}>
             {/* HTTP/2 Card */}
             <div style={{ background: 'var(--card-bg, #1e293b)', borderRadius: '12px', padding: '20px', border: '1px solid rgba(245, 158, 11, 0.3)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
@@ -307,7 +307,7 @@ export default function Http3QuicLab() {
               </button>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '16px' }}>
               {['HTTP/1.1', 'HTTP/2', 'HTTP/3'].map(proto => {
                 const hs = calculateHandshakeLatency(proto, 50, isResumedHandshake);
                 const isH3 = proto === 'HTTP/3';

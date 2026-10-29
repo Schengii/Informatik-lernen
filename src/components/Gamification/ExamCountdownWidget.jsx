@@ -228,7 +228,7 @@ export default function ExamCountdownWidget({ setActiveTab }) {
         <h3 style={{ fontSize: '0.95rem', fontWeight: 700, margin: '0 0 10px 0', display: 'flex', alignItems: 'center', gap: '6px' }}>
           <Zap size={16} color="var(--accent-amber)" /> Täglicher IHK-Power-Sprint (Priorisierte Module)
         </h3>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '12px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: '12px' }}>
           {sprintRecommendations.map((rec) => (
             <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setActiveTab && setActiveTab(rec.tab))}
               key={rec.tab}

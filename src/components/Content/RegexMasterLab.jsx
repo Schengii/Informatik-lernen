@@ -238,7 +238,7 @@ export default function RegexMasterLab({ onRewardXP }) {
       )}
 
       {/* Target Test Area & Live Matches Display */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '20px' }}>
         {/* Test Text Input */}
         <div>
           <label htmlFor="regex-master-lab-1" style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>

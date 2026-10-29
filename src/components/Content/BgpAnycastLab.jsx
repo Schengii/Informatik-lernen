@@ -76,7 +76,7 @@ export default function BgpAnycastLab({ onRewardXP }) {
       </div>
 
       {/* Routes List */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '16px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '16px' }}>
         {bgpData.allRoutes.map((route, idx) => (
           <div
             key={route.peerAsn}

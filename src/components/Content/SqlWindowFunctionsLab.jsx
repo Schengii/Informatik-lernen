@@ -84,7 +84,7 @@ export default function SqlWindowFunctionsLab({ onRewardXP }) {
           <Filter size={18} color="var(--accent-primary)" /> Fenster-Partitionierung &amp; Sortierkriterien
         </h3>
 
-        <div className="grid-responsive" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
+        <div className="grid-responsive" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))', gap: '16px' }}>
           <div>
             <label htmlFor="sql-partition-by" style={{ display: 'block', fontSize: '0.82rem', fontWeight: 'bold', color: 'var(--text-muted)', marginBottom: '6px' }}>
               PARTITION BY:

@@ -58,7 +58,7 @@ export default function ItsmSimulatorLab() {
       </div>
 
       {/* 2-Pane: Ticket Queue + Ticket Detail / CAB */}
-      <div className="grid-responsive" style={{ gridTemplateColumns: 'minmax(340px, 1fr) minmax(380px, 1.2fr)', gap: '20px' }}>
+      <div className="grid-responsive" style={{ gridTemplateColumns: 'minmax(min(340px, 100%), 1fr) minmax(380px, 1.2fr)', gap: '20px' }}>
         {/* Ticket Queue */}
         <div className="glass-panel" style={{ padding: '20px', borderRadius: 'var(--radius-lg)' }}>
           <h2 style={{ fontSize: '1.15rem', fontWeight: '800', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>

@@ -179,7 +179,7 @@ export default function CiCdMatrixLinterLab() {
           </pre>
         </div>
       ) : (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '16px' }}>
           {template.matrixVariants.map((job) => {
             const isDone = completedJobs.includes(job.id);
             const isCurrent = isRunning && !isDone;

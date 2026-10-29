@@ -61,7 +61,7 @@ export default function SkillTreeWidget({ userState }) {
               {tier.category}
             </h3>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))', gap: '16px' }}>
               {tier.nodes.map((node) => {
                 const isUnlocked = unlockedTopics.includes(node.id) || !node.req;
                 const isCompleted = unlockedTopics.includes(node.id);

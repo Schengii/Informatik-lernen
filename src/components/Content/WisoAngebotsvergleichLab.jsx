@@ -185,7 +185,7 @@ export default function WisoAngebotsvergleichLab({ onRewardXP }) {
 
       {/* TAB 1: SKONTO VS KREDIT */}
       {activeTab === 'kredit' && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '1.5rem' }}>
           {/* Eingabe-Panel */}
           <div style={{
             background: 'var(--bg-card, #1e293b)',
@@ -377,7 +377,7 @@ export default function WisoAngebotsvergleichLab({ onRewardXP }) {
             Quantitativer Angebotsvergleich: Vollständiges Kalkulationsschema
           </h2>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
             <AngebotKalkulation
               angebot={angebotA}
               ergebnis={resA}
@@ -488,7 +488,7 @@ export default function WisoAngebotsvergleichLab({ onRewardXP }) {
             </table>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '1rem' }}>
             {qualResult.rangliste.map((item) => (
               <div
                 key={item.anbieterName}

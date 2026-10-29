@@ -71,7 +71,7 @@ export default function RedisCachingLab() {
       </div>
 
       {/* Stats Bar */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px', marginBottom: '20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))', gap: '12px', marginBottom: '20px' }}>
         <div style={{ background: 'var(--card-bg, #1e293b)', padding: '12px 16px', borderRadius: '10px', border: '1px solid var(--border-color, var(--border-color))' }}>
           <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>Erwartete Cache Hit-Ratio:</div>
           <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--accent-emerald)' }}>{strategy.hitRatio}</div>
@@ -83,7 +83,7 @@ export default function RedisCachingLab() {
       </div>
 
       {/* Grid: Strategy Flow & Live Redis Memory Inspector */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '20px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(420px, 100%), 1fr))', gap: '20px', marginBottom: '24px' }}>
         
         {/* Left: Execution Flow */}
         <div style={{ background: 'var(--bg-tertiary)', borderRadius: '12px', border: '1px solid rgba(239, 68, 68, 0.3)', padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>

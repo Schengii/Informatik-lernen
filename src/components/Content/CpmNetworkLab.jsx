@@ -191,7 +191,7 @@ export default function CpmNetworkLab({ onRewardXP }) {
       </div>
 
       {/* KPI Cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))', gap: '16px' }}>
         <div className="glass-panel" style={{ padding: '20px', borderRadius: 'var(--radius-lg)', background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}>
           <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 700 }}>Projektdauer (Gesamt)</div>
           <div style={{ fontSize: '2rem', fontWeight: 900, color: 'var(--accent-primary)', margin: '4px 0' }}>
@@ -233,7 +233,7 @@ export default function CpmNetworkLab({ onRewardXP }) {
             Vorgangsknoten nach DIN 69900 (Metra-Potenzial-Methode)
           </h2>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '18px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(260px, 100%), 1fr))', gap: '18px' }}>
           {cpmData.nodes.map((node) => (
             <div
               key={node.id}
@@ -401,7 +401,7 @@ export default function CpmNetworkLab({ onRewardXP }) {
             </div>
           )}
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: '16px' }}>
             {cpmData.nodes.map((node) => {
               const ans = drillAnswers[node.id] || {};
               const isFieldCorrect = (field) => drillChecked && Number(ans[field]) === node[field];

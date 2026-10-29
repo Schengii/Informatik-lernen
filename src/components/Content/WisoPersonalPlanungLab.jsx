@@ -82,7 +82,7 @@ export default function WisoPersonalPlanungLab({ onRewardXP }) {
         </button>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '20px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(340px, 100%), 1fr))', gap: '20px', marginBottom: '24px' }}>
         {/* Modul 1: Personalbedarfsrechner */}
         <div className="glass-panel" style={{ padding: '20px' }}>
           <h3 style={{ fontSize: '1.1rem', fontWeight: 700, margin: '0 0 16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -240,7 +240,7 @@ export default function WisoPersonalPlanungLab({ onRewardXP }) {
         <h3 style={{ fontSize: '1.1rem', fontWeight: 700, margin: '0 0 12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <Award size={18} color="var(--accent-teal)" /> IHK AP2 WISO Prüfungswissen
         </h3>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px', fontSize: '0.88rem', color: 'var(--text-muted)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '16px', fontSize: '0.88rem', color: 'var(--text-muted)' }}>
           <div>
             <strong style={{ color: 'var(--text-main)' }}>Brutto- vs. Netto-Bedarf:</strong>
             <p style={{ margin: '4px 0 0' }}>Der Bruttobedarf beziffert, wie viele Personen zur Erfüllung aller Aufgaben inkl. Vertretung nötig sind. Der Nettobedarf bestimmt die konkreten Personalmaßnahmen (Einstellung oder Freisetzung).</p>

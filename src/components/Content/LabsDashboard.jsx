@@ -236,7 +236,7 @@ Die Zusammenhänge zwischen Protokollheadern, kaufmännischen Formeln und Progra
       </div>
 
       {/* Lab Cards Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '20px' }}>
         {filteredLabs.map((lab) => {
           const Icon = lab.icon;
           const progress = labProgress?.[resolveLabKey(lab.id)];

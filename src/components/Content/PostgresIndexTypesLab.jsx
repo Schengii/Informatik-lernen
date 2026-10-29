@@ -149,7 +149,7 @@ export default function PostgresIndexTypesLab() {
             <h2 style={{ margin: '0 0 16px 0', fontSize: '1.2rem', color: 'var(--accent-cyan)', fontWeight: 'bold' }}>
               Szenario-Parameter für automatische Index-Empfehlung
             </h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: '16px' }}>
               <div>
                 <label htmlFor="postgres-index-types-lab-1" style={{ fontSize: '0.85rem', color: 'var(--text-dim)', display: 'block', marginBottom: '6px' }}>
                   Spalten-Datentyp:
@@ -266,7 +266,7 @@ export default function PostgresIndexTypesLab() {
             </div>
 
             {/* Performance Metrics Cards */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))', gap: '16px' }}>
               <div style={{ background: 'var(--bg-tertiary)', padding: '14px', borderRadius: '8px' }}>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>Tabellengröße Netto</div>
                 <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: 'var(--text-main)' }}>{recommendedMetrics.tableSizeMb} MB</div>
@@ -316,7 +316,7 @@ export default function PostgresIndexTypesLab() {
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px', marginBottom: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))', gap: '16px', marginBottom: '24px' }}>
             {comparisonData.map(item => (
               <div
                 key={item.id}

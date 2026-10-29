@@ -173,7 +173,7 @@ export default function IhkWirtschaftlichkeitLab() {
 
       {/* TAB 1: Amortisation */}
       {activeTab === 'amortisation' && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '20px' }}>
           {/* Eingabe-Formular */}
           <div style={{ background: 'var(--card-bg, #1e293b)', padding: '20px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
             <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', color: 'var(--text-main)', margin: '0 0 16px 0' }}>
@@ -306,7 +306,7 @@ export default function IhkWirtschaftlichkeitLab() {
       {/* TAB 2: Make or Buy */}
       {activeTab === 'makeorbuy' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '20px' }}>
             {/* Make Inputs */}
             <div style={{ background: 'var(--card-bg, #1e293b)', padding: '20px', borderRadius: '12px', border: '1px solid rgba(59, 130, 246, 0.3)' }}>
               <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', color: 'var(--accent-cyan)', margin: '0 0 14px 0' }}>

@@ -157,7 +157,7 @@ export default function IhkDpiaLab({ onRewardXP }) {
 
       {/* TAB 1: Schwellenwertprüfung */}
       {activeTab === 'threshold' && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '24px' }}>
           <div>
             <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '12px' }}>
               Kriterien der Datenschutzkonferenz (DSK) &amp; Art. 35 Abs. 3
@@ -260,7 +260,7 @@ export default function IhkDpiaLab({ onRewardXP }) {
       {/* TAB 2: Risikomatrix */}
       {activeTab === 'risks' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '16px' }}>
             {evaluatedRisks.map(r => (
               <div
                 key={r.id}

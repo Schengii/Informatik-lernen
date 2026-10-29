@@ -376,7 +376,7 @@ export default function TestverfahrenLab({ onRewardXP }) {
 
       {/* TAB 2: WHITE-BOX TESTING */}
       {activeTab === 'whitebox' && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '1.5rem' }}>
           {/* McCabe Rechner */}
           <div style={{
             background: 'var(--bg-card, #1e293b)',

@@ -59,7 +59,7 @@ export default function RackConfiguratorLab() {
       </div>
 
       {/* KPI Metrics Dashboard */}
-      <div className="grid-responsive" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+      <div className="grid-responsive" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))', gap: '16px' }}>
         <div className="glass-panel" style={{ padding: '20px', borderRadius: 'var(--radius-lg)', textAlign: 'center' }}>
           <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: '700' }}>Höheneinheiten Belegung</span>
           <div style={{ fontSize: '1.7rem', fontWeight: '800', color: 'var(--accent-indigo)', marginTop: '4px' }}>
@@ -94,7 +94,7 @@ export default function RackConfiguratorLab() {
       </div>
 
       {/* Main Rack Visualizer & Device Catalog */}
-      <div className="grid-responsive" style={{ gridTemplateColumns: 'minmax(320px, 1fr) minmax(360px, 1.2fr)', gap: '20px' }}>
+      <div className="grid-responsive" style={{ gridTemplateColumns: 'minmax(min(320px, 100%), 1fr) minmax(360px, 1.2fr)', gap: '20px' }}>
         {/* Visual 42U Rack */}
         <div className="glass-panel" style={{ padding: '20px', borderRadius: 'var(--radius-lg)' }}>
           <h2 style={{ fontSize: '1.15rem', fontWeight: '800', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>

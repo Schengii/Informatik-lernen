@@ -80,7 +80,7 @@ export default function WisoMultiContributionLab() {
       </div>
 
       {/* KPI Overview */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: '16px', marginBottom: '24px' }}>
         <div style={{ background: 'var(--card-bg, #ffffff)', padding: '20px', borderRadius: '14px', border: '1px solid var(--border-color, #e2e8f0)', borderTop: '4px solid #10b981' }}>
           <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase' }}>Betriebsergebnis (Gewinn/Verlust)</div>
           <div style={{ fontSize: '1.75rem', fontWeight: 900, color: result.isProfitable ? 'var(--accent-emerald)' : 'var(--accent-rose)', marginTop: '4px' }}>
@@ -202,7 +202,7 @@ export default function WisoMultiContributionLab() {
           Produkte & Erzeugniskosten anpassen
         </h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '16px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '16px' }}>
           {products.map(p => (
             <div key={p.id} style={{ background: 'var(--bg-tertiary)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
               <strong style={{ fontSize: '1rem' }}>{p.name}</strong>

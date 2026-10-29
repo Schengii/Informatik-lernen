@@ -176,7 +176,7 @@ export default function PersonalNotebookLab() {
       </div>
 
       {/* 2-Pane: Notes Sidebar + Markdown Editor/Preview */}
-      <div className="grid-responsive" style={{ gridTemplateColumns: 'minmax(300px, 1fr) minmax(440px, 2fr)', gap: '20px' }}>
+      <div className="grid-responsive" style={{ gridTemplateColumns: 'minmax(min(300px, 100%), 1fr) minmax(440px, 2fr)', gap: '20px' }}>
         {/* Notes Sidebar */}
         <div className="glass-panel" style={{ padding: '20px', borderRadius: 'var(--radius-lg)' }}>
           {/* Search & Tag Filter */}

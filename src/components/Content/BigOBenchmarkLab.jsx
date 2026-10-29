@@ -63,7 +63,7 @@ export default function BigOBenchmarkLab({ onRewardXP }) {
 
       {/* Inputs Bar */}
       <div style={{ background: 'var(--bg-primary)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', marginBottom: '24px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px', alignItems: 'center' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))', gap: '20px', alignItems: 'center' }}>
           {/* N Size Slider */}
           <div>
             <label style={{ fontSize: '0.88rem', fontWeight: '700', color: 'var(--text-main)', display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
@@ -128,7 +128,7 @@ export default function BigOBenchmarkLab({ onRewardXP }) {
         📈 Komplexitäts-Vergleichstabelle für $N = {nSize.toLocaleString()}$:
       </h4>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))', gap: '14px' }}>
         {ALGORITHMS.map(a => {
           const ops = a.formula(nSize);
           return (

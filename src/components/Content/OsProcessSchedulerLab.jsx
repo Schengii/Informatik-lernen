@@ -235,7 +235,7 @@ export default function OsProcessSchedulerLab() {
             </div>
 
             {/* Performance KPIs */}
-            <div className="grid-responsive" style={{ marginTop: '24px', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+            <div className="grid-responsive" style={{ marginTop: '24px', gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))' }}>
               <div style={{ background: 'var(--bg-secondary)', padding: '16px', borderRadius: 'var(--radius-md)', textAlign: 'center' }}>
                 <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: '700' }}>Durchschnittl. Wartezeit (T_wt)</span>
                 <div style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--accent-teal)', marginTop: '4px' }}>
@@ -391,7 +391,7 @@ export default function OsProcessSchedulerLab() {
             )}
 
             {/* Matrices Grid */}
-            <div className="grid-responsive" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+            <div className="grid-responsive" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '20px' }}>
               {/* Allocation Matrix */}
               <div style={{ background: 'var(--bg-secondary)', padding: '16px', borderRadius: 'var(--radius-md)' }}>
                 <h3 style={{ fontSize: '1rem', fontWeight: '700', marginBottom: '10px' }}>Allocation Matrix (Aktuell belegt)</h3>

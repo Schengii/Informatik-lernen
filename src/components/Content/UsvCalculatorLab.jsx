@@ -157,7 +157,7 @@ export default function UsvCalculatorLab({ onRewardXP }) {
 
       {/* TAB 1: USV LEISTUNGSDIMENSIONIERUNG */}
       {activeTab === 'dimensioning' && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '20px' }}>
           {/* Verbraucher-Tabelle */}
           <div className="glass-panel" style={{ padding: '20px' }}>
             <h2 style={{ fontSize: '1.1rem', fontWeight: '700', marginTop: 0, marginBottom: '14px' }}>
@@ -270,7 +270,7 @@ export default function UsvCalculatorLab({ onRewardXP }) {
             Autonomiezeit-Kalkulation (Überbrückungsdauer im Akkubetrieb)
           </h2>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px', marginBottom: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))', gap: '20px', marginBottom: '24px' }}>
             <div>
               <label htmlFor="usv-calculator-lab-3" style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', marginBottom: '6px' }}>
                 Batterie-Nennspannung (V):
@@ -340,7 +340,7 @@ export default function UsvCalculatorLab({ onRewardXP }) {
             USV-Topologien nach DIN EN 62040-3
           </h2>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px', marginBottom: '28px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '16px', marginBottom: '28px' }}>
             {USV_TOPOLOGIES.map(t => (
               <div key={t.code} style={{ padding: '16px', borderRadius: '8px', border: '1px solid var(--border-color, #334155)', background: 'rgba(255, 255, 255, 0.02)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
@@ -365,7 +365,7 @@ export default function UsvCalculatorLab({ onRewardXP }) {
             <h3 style={{ fontSize: '1.05rem', fontWeight: '700', margin: '0 0 12px 0' }}>
               RZ-Energieeffizienz: PUE-Rechner (Power Usage Effectiveness)
             </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px', marginBottom: '16px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: '16px', marginBottom: '16px' }}>
               <div>
                 <label htmlFor="usv-calculator-lab-6" style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
                   Gesamtenergie des Rechenzentrums (kWh):

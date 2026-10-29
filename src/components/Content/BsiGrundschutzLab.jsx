@@ -159,7 +159,7 @@ export default function BsiGrundschutzLab() {
               Nach dem <strong>Maximum-Prinzip</strong> (BSI 200-2) bestimmt die höchste Einzeleinstufung den kumulierten Gesamtschutzbedarf des Zielobjekts.
             </p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '12px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '12px' }}>
               {Object.values(PROTECTION_LEVELS).map(lvl => (
                 <div key={lvl.id} style={{ padding: '12px 16px', borderRadius: '12px', borderLeft: `4px solid ${lvl.color}`, background: 'var(--bg-subtle, rgba(0,0,0,0.02))' }}>
                   <div style={{ fontWeight: 700, color: `color-mix(in srgb, ${lvl.color} 55%, var(--text-main))`, fontSize: '0.95rem' }}>{lvl.label}</div>
@@ -195,7 +195,7 @@ export default function BsiGrundschutzLab() {
                   </div>
 
                   {/* Selectors */}
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))', gap: '16px' }}>
                     {[
                       { key: 'confidentiality', label: 'Vertraulichkeit (Confidentiality)' },
                       { key: 'integrity', label: 'Integrität (Integrity)' },
@@ -236,7 +236,7 @@ export default function BsiGrundschutzLab() {
       {/* Tab 2: BSI IT-Grundschutz Bausteine */}
       {activeSubTab === 'modules' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))', gap: '16px' }}>
             <div style={{ background: 'var(--card-bg, #ffffff)', padding: '16px', borderRadius: '14px', border: '1px solid var(--border-color, #e2e8f0)' }}>
               <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748b' }}>BASIS-ANFORDERUNGEN</div>
               <div style={{ fontSize: '1.25rem', fontWeight: 800, marginTop: '4px', color: evaluation.basisFulfilled ? 'var(--accent-emerald)' : 'var(--accent-rose)' }}>
@@ -338,7 +338,7 @@ export default function BsiGrundschutzLab() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '16px' }}>
             {NIS2_OBLIGATIONS.map(req => (
               <div key={req.id} style={{ background: 'var(--card-bg, #ffffff)', padding: '20px', borderRadius: '16px', border: '1px solid var(--border-color, #e2e8f0)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>

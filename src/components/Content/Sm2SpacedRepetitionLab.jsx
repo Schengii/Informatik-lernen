@@ -128,7 +128,7 @@ export default function Sm2SpacedRepetitionLab() {
       </div>
 
       {/* 2-Pane: Flashcard Viewer + Ebbinghaus Memory Curve */}
-      <div className="grid-responsive" style={{ gridTemplateColumns: 'minmax(340px, 1.2fr) minmax(320px, 1fr)', gap: '20px' }}>
+      <div className="grid-responsive" style={{ gridTemplateColumns: 'minmax(340px, 1.2fr) minmax(min(320px, 100%), 1fr)', gap: '20px' }}>
         {/* Flashcard Component */}
         <div className="glass-panel" style={{ padding: '24px', borderRadius: 'var(--radius-lg)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>

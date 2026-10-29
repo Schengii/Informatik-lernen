@@ -121,7 +121,7 @@ export default function LinuxCapSeccompLab() {
       </div>
 
       {/* Grid: Capabilities & Seccomp Config */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '20px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(360px, 100%), 1fr))', gap: '20px', marginBottom: '24px' }}>
         
         {/* Capabilities Panel */}
         <div style={{

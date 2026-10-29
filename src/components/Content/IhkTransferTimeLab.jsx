@@ -150,7 +150,7 @@ export default function IhkTransferTimeLab() {
       </div>
 
       {activeTab === 'calculator' && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '1.5rem' }}>
           {/* Eingabebereich */}
           <div className="card" style={{ padding: '1.25rem', borderRadius: '10px' }}>
             <h3 style={{ marginTop: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -284,7 +284,7 @@ export default function IhkTransferTimeLab() {
       )}
 
       {activeTab === 'scenarios' && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '1rem' }}>
           {IHK_SCENARIOS.map((sc) => (
             <div key={sc.id} className="card" style={{ padding: '1.25rem', borderRadius: '10px' }}>
               <h4 style={{ margin: '0 0 0.5rem 0', color: 'var(--primary-color, #2563eb)' }}>{sc.title}</h4>

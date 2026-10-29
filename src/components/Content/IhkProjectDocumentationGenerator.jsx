@@ -156,7 +156,7 @@ ${p.tasks.map(t => `- [x] ${t}`).join('\n')}`).join('\n\n')}
         />
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '24px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(380px, 100%), 1fr))', gap: '24px', marginBottom: '24px' }}>
         
         {/* Left: Phase Planning (Gantt Budget) */}
         <div style={{ background: 'var(--card-bg, #1e293b)', borderRadius: '12px', border: '1px solid var(--border-color, var(--border-color))', padding: '20px' }}>

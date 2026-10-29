@@ -95,7 +95,7 @@ export default function SqlDungeon({ onCompleteGame }) {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '24px' }}>
         
         {/* Left Column: Challenge & Editor */}
         <div>

@@ -395,7 +395,7 @@ export default function DhcpDoraLab({ onRewardXP }) {
                       </span>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.5rem', fontSize: '0.85rem', fontFamily: 'monospace', background: 'var(--bg-tertiary)', padding: '0.5rem 0.75rem', borderRadius: '0.4rem', marginBottom: '0.5rem' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))', gap: '0.5rem', fontSize: '0.85rem', fontFamily: 'monospace', background: 'var(--bg-tertiary)', padding: '0.5rem 0.75rem', borderRadius: '0.4rem', marginBottom: '0.5rem' }}>
                       <div>Src IP: {pkt.srcIp}</div>
                       <div>Dst IP: {pkt.dstIp}</div>
                       <div>Your IP (yiaddr): <span style={{ color: pkt.yiaddr !== '0.0.0.0' ? 'var(--accent-emerald)' : 'inherit' }}>{pkt.yiaddr}</span></div>
@@ -443,7 +443,7 @@ export default function DhcpDoraLab({ onRewardXP }) {
             </div>
 
             {/* Timer Aktionen */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: '1rem' }}>
               <div style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '1rem', borderRadius: '0.5rem', border: '1px solid var(--border-color, #334155)' }}>
                 <strong style={{ display: 'block', fontSize: '0.95rem', color: 'var(--accent-cyan)', marginBottom: '0.25rem' }}>
                   Timer T1 (50% Lease)

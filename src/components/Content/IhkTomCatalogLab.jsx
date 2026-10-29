@@ -85,7 +85,7 @@ export default function IhkTomCatalogLab({ onRewardXP }) {
       </div>
 
       {/* Audit KPI Cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))', gap: '16px', marginBottom: '24px' }}>
         <div style={{ padding: '18px', background: 'var(--bg-secondary)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
           <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 'bold' }}>Compliance-Score</span>
           <div style={{ fontSize: '2rem', fontWeight: '900', color: audit.scorePercent >= 75 ? 'var(--accent-emerald, #10b981)' : 'var(--accent-amber, #f59e0b)', margin: '4px 0' }}>

@@ -71,7 +71,7 @@ export default function CircuitBreakerLab() {
           {stateObj.desc}
         </p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '10px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))', gap: '10px' }}>
           <div style={{ background: 'var(--bg-tertiary)', padding: '10px 14px', borderRadius: '8px' }}>
             <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)', display: 'block' }}>Durchsatz (Requests):</span>
             <strong style={{ color: 'var(--accent-cyan)', fontSize: '1.1rem' }}>{stateObj.metrics.requests} req/s</strong>

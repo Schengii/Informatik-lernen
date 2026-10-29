@@ -196,7 +196,7 @@ export default function OauthPkceStudioLab() {
             Da SPAs und Mobile Apps keinen sicheren Speicher für ein <code>client_secret</code> haben, schützt PKCE (RFC 7636) vor Authorization Code Injection &amp; Interception Attacken.
           </p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '16px', marginBottom: '20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(350px, 100%), 1fr))', gap: '16px', marginBottom: '20px' }}>
             <div style={{ background: 'var(--bg-secondary)', padding: '16px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                 <span style={{ fontWeight: '700', fontSize: '0.88rem', color: 'var(--accent-purple)' }}>
@@ -260,7 +260,7 @@ export default function OauthPkceStudioLab() {
             <h3 style={{ fontSize: '1.05rem', fontWeight: '700', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <UserCheck size={18} color="var(--accent-green, #10b981)" /> Simulierter IdP Consent &amp; Login Screen
             </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px', fontSize: '0.9rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))', gap: '12px', fontSize: '0.9rem' }}>
               <div><strong>Client:</strong> {clientId}</div>
               <div><strong>Redirect URI:</strong> {redirectUri}</div>
               <div><strong>Scope:</strong> {scope}</div>
@@ -353,7 +353,7 @@ export default function OauthPkceStudioLab() {
             </div>
 
             {/* JWT Breakdown */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '16px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '16px' }}>
               <div style={{ background: 'var(--bg-card)', padding: '16px', borderRadius: 'var(--radius-md)' }}>
                 <div style={{ fontSize: '0.82rem', color: '#f43f5e', fontWeight: 'bold', marginBottom: '6px' }}>HEADER (Algorithm &amp; Key ID):</div>
                 <pre style={{ margin: 0, color: 'var(--accent-rose)', fontSize: '0.85rem' }}>

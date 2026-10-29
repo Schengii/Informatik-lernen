@@ -236,7 +236,7 @@ export default function RoutingDijkstraLab({ onRewardXP }) {
 
       {/* Control Panel & Details */}
       {activeTab === 'dijkstra' ? (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '20px' }}>
           <div className="glass-panel" style={{ padding: '20px' }}>
             <h3 style={{ fontSize: '1.1rem', fontWeight: 700, margin: '0 0 14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Play size={18} color="var(--accent-amber)" /> Dijkstra Schritt-Steuerung
@@ -322,7 +322,7 @@ export default function RoutingDijkstraLab({ onRewardXP }) {
         </div>
       ) : (
         /* STP View */
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '20px' }}>
           <div className="glass-panel" style={{ padding: '20px' }}>
             <h3 style={{ fontSize: '1.1rem', fontWeight: 700, margin: '0 0 14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <ShieldAlert size={18} color="var(--accent-rose)" /> Spanning Tree Status (IEEE 802.1D)

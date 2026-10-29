@@ -111,7 +111,7 @@ export default function CleanArchLab() {
         <h2 style={{ fontSize: '1.1rem', fontWeight: 700, margin: '0 0 12px' }}>
           Konzentrische Schichten & Flussrichtung (Dependency Rule)
         </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '12px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: '12px' }}>
           {Object.values(ARCH_LAYERS).map(layer => (
             <div key={layer.id} style={{ padding: '14px', borderRadius: '12px', borderLeft: `4px solid ${layer.color}`, background: layer.bg }}>
               <div style={{ fontWeight: 800, color: `color-mix(in srgb, ${layer.color} 55%, var(--text-main))`, fontSize: '0.9rem' }}>{layer.name}</div>

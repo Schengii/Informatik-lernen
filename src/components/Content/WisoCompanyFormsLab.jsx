@@ -64,7 +64,7 @@ export default function WisoCompanyFormsLab({ onRewardXP }) {
         </button>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '20px', marginBottom: '24px' }}>
         {/* Entscheidungs-Filter */}
         <div className="glass-panel" style={{ padding: '20px' }}>
           <h3 style={{ fontSize: '1.1rem', fontWeight: 700, margin: '0 0 16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -177,7 +177,7 @@ export default function WisoCompanyFormsLab({ onRewardXP }) {
         <h3 style={{ fontSize: '1.1rem', fontWeight: 700, margin: '0 0 12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <Scale size={18} color="var(--accent-teal)" /> IHK AP2 WISO Prüfungsklassiker: Handelsregister-Unterscheidung
         </h3>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px', fontSize: '0.88rem', color: 'var(--text-muted)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '16px', fontSize: '0.88rem', color: 'var(--text-muted)' }}>
           <div>
             <strong style={{ color: 'var(--text-main)' }}>Abteilung A (HRA):</strong>
             <p style={{ margin: '4px 0 0' }}>Für <strong>Einzelkaufleute (e.K.)</strong> und <strong>Personengesellschaften (OHG, KG)</strong>. Kennzeichen: Mindestens ein Vollhafter haftet unbeschränkt mit dem Privatvermögen.</p>

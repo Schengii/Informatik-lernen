@@ -96,7 +96,7 @@ export default function RoleSelectionModal({ isOpen, onClose, currentRole, onSel
         </div>
 
         {/* Roles Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '18px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(250px, 100%), 1fr))', gap: '18px' }}>
           {Object.values(USER_ROLES).map((role) => {
             const isSelected = currentRole === role.id;
             return (

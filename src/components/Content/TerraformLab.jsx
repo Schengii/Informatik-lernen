@@ -118,7 +118,7 @@ export default function TerraformLab({ onRewardXP }) {
       </div>
 
       {/* Plan Summary KPI Cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))', gap: '16px' }}>
         <div className="glass-panel" style={{ padding: '18px', borderRadius: 'var(--radius-lg)', background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}>
           <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 700 }}>Zu erstellen (+)</div>
           <div style={{ fontSize: '1.8rem', fontWeight: 900, color: 'var(--accent-emerald)', margin: '4px 0' }}>

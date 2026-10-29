@@ -87,7 +87,7 @@ export default function KubernetesClusterStudioLab() {
           </div>
           <span className="badge badge-green" style={{ fontSize: '0.75rem' }}>Kubernetes v1.30.2 Ready</span>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))', gap: '12px' }}>
           {[
             { name: 'kube-apiserver', desc: 'REST API & Cluster Gateway', status: '200 OK' },
             { name: 'etcd Key-Value Store', desc: 'Cluster State & Raft Consensus', status: 'Leader Active' },
@@ -110,7 +110,7 @@ export default function KubernetesClusterStudioLab() {
         <h2 style={{ fontSize: '1.2rem', fontWeight: '700', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <Box size={18} color="var(--accent-primary)" /> Workloads &amp; Deployments Controller
         </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '16px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '16px' }}>
           {cluster.deployments.map(dep => {
             const activePods = cluster.pods.filter(p => p.deploymentId === dep.id && p.status === 'Running');
             return (
@@ -141,7 +141,7 @@ export default function KubernetesClusterStudioLab() {
         <h2 style={{ fontSize: '1.2rem', fontWeight: '700', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <Server size={18} color="var(--accent-teal, #14b8a6)" /> Worker Nodes &amp; Pod Allocation
         </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(340px, 100%), 1fr))', gap: '20px' }}>
           {cluster.nodes.map(node => {
             const podsOnNode = cluster.pods.filter(p => p.nodeId === node.id);
             const isReady = node.status === 'Ready';

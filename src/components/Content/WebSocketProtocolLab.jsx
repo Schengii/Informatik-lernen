@@ -97,7 +97,7 @@ export default function WebSocketProtocolLab({ onRewardXP }) {
         <h4 style={{ fontSize: '1rem', fontWeight: '700', color: 'var(--text-main)', margin: '0 0 12px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
           🤝 HTTP 101 Switching Protocols Handshake:
         </h4>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px', fontSize: '0.85rem', fontFamily: 'monospace' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '16px', fontSize: '0.85rem', fontFamily: 'monospace' }}>
           <div style={{ background: 'var(--bg-card)', padding: '12px', borderRadius: 'var(--radius-md)', color: 'var(--accent-cyan)' }}>
             <div style={{ color: '#64748b', fontSize: '0.75rem' }}>CLIENT REQUEST:</div>
             GET /chat HTTP/1.1<br />

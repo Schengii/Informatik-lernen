@@ -137,7 +137,7 @@ export default function IhkRiskAnalysisLab() {
       </div>
 
       {/* Overview Cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))', gap: '16px', marginBottom: '24px' }}>
         <div style={{ background: 'var(--card-bg, #1e293b)', padding: '16px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
           <div style={{ fontSize: '0.8rem', color: 'var(--text-dim)' }}>Erfasste Projektrisiken</div>
           <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: 'var(--accent-cyan)' }}>{analysis.totalCount}</div>
@@ -263,7 +263,7 @@ export default function IhkRiskAnalysisLab() {
             <h3 style={{ margin: '0 0 14px 0', fontSize: '1.1rem', color: 'var(--accent-amber)', fontWeight: 'bold' }}>
               Neues Projektrisiko erfassen
             </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px', marginBottom: '12px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))', gap: '12px', marginBottom: '12px' }}>
               <div>
                 <label htmlFor="ihk-risk-analysis-lab-1" style={{ fontSize: '0.8rem', color: 'var(--text-dim)' }}>Risikobeschreibung:</label>
                 <input id="ihk-risk-analysis-lab-1"

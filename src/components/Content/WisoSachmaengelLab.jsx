@@ -163,7 +163,7 @@ export default function WisoSachmaengelLab({ onRewardXP = () => {} }) {
 
       {/* Simulator Tab */}
       {activeTab === 'simulator' && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '1.5rem' }}>
           {/* Controls Column */}
           <div
             style={{
@@ -498,7 +498,7 @@ export default function WisoSachmaengelLab({ onRewardXP = () => {} }) {
             Mangelarten-Katalog nach BGB § 434 & § 435
           </h2>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '1rem' }}>
             {Object.values(MANGEL_TYPES).map((m) => (
               <div
                 key={m.type}

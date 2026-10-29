@@ -87,7 +87,7 @@ export default function CliTerminalLab({ onCompleteGame }) {
         <strong style={{ fontSize: '0.9rem', color: 'var(--text-main)', display: 'block', marginBottom: '8px' }}>
           🎯 Terminal-Übungsaufgaben:
         </strong>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '8px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))', gap: '8px' }}>
           {tasks.map(t => {
             const isDone = completedTasks.includes(t.id);
             return (

@@ -196,7 +196,7 @@ export default function NatPatSimulatorLab({ onRewardXP }) {
         <div>
           {/* Topologie & Konfiguration */}
           <div className="glass-panel" style={{ padding: '20px', marginBottom: '20px' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '20px' }}>
               {/* Absender (LAN) */}
               <div>
                 <span style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', marginBottom: '8px', color: 'var(--accent-cyan)' }}>
@@ -295,7 +295,7 @@ export default function NatPatSimulatorLab({ onRewardXP }) {
                 Paket-Inspektor: Header-Transformation (Takt {lastPacketLog.timestamp})
               </h3>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '16px', marginBottom: '16px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '16px', marginBottom: '16px' }}>
                 {/* Hinweg: LAN -> Router */}
                 <div style={{ padding: '16px', borderRadius: '8px', border: '1px solid #38bdf8', background: 'rgba(14, 165, 233, 0.05)' }}>
                   <div style={{ fontWeight: '700', color: 'var(--accent-cyan)', marginBottom: '8px' }}>
@@ -407,7 +407,7 @@ export default function NatPatSimulatorLab({ onRewardXP }) {
             RFC 1918 Private IPv4-Adressräume
           </h2>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px', marginBottom: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '16px', marginBottom: '24px' }}>
             {RFC_1918_RANGES.map(r => (
               <div key={r.class} style={{ padding: '16px', borderRadius: '8px', border: '1px solid var(--border-color, #334155)', background: 'rgba(255, 255, 255, 0.02)' }}>
                 <div style={{ fontWeight: '800', color: 'var(--accent-cyan)', fontSize: '1rem', marginBottom: '4px' }}>

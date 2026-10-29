@@ -111,7 +111,7 @@ export default function SystemDesignLab({ onRewardXP }) {
 
       {/* Control Panel Bar */}
       <div style={{ background: 'var(--bg-primary)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', marginBottom: '24px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px', alignItems: 'center' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))', gap: '20px', alignItems: 'center' }}>
           {/* Traffic RPS Slider */}
           <div>
             <label style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-main)', display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
@@ -205,7 +205,7 @@ export default function SystemDesignLab({ onRewardXP }) {
         </div>
 
         {/* App Servers Pool */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', marginBottom: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))', gap: '16px', marginBottom: '24px' }}>
           {servers.map((server) => (
             <div
               key={server.id}
@@ -259,7 +259,7 @@ export default function SystemDesignLab({ onRewardXP }) {
         </div>
 
         {/* Database & Cache Layer */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: '16px' }}>
           {/* Redis Cache */}
           <div style={{ background: 'var(--bg-primary)', padding: '16px', borderRadius: 'var(--radius-md)', border: cacheEnabled ? '1px solid #6366f1' : '1px dashed #334155' }}>
             <div style={{ color: 'var(--accent-primary)', fontSize: '0.8rem', fontWeight: '800' }}>REDIS CACHE CLUSTER</div>

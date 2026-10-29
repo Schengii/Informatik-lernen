@@ -110,7 +110,7 @@ export default function SqlTransactionLab() {
       </div>
 
       {/* Two Parallel SQL Consoles (Session A & Session B) */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '20px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(400px, 100%), 1fr))', gap: '20px', marginBottom: '24px' }}>
         
         {/* Session A */}
         <div style={{ background: 'var(--bg-tertiary)', borderRadius: '12px', border: '1px solid rgba(99, 102, 241, 0.3)', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>

@@ -74,7 +74,7 @@ export default function PromqlAlertLab({ onRewardXP }) {
       </div>
 
       {/* Metric Selector Tabs */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(200px, 100%), 1fr))', gap: '12px', marginBottom: '24px' }}>
         <button
           onClick={() => { setMetricType('LATENCY'); setThreshold(200); triggerHaptic('SELECTION'); }}
           className={`btn ${metricType === 'LATENCY' ? 'btn-primary' : 'btn-secondary'}`}
@@ -144,7 +144,7 @@ export default function PromqlAlertLab({ onRewardXP }) {
       </div>
 
       {/* PromQL Expression & YAML Rule Output */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '20px' }}>
         <div style={{ background: 'var(--bg-secondary)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
           <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--text-muted)', display: 'block', marginBottom: '10px' }}>
             PromQL Auswertungs-Ausdruck:

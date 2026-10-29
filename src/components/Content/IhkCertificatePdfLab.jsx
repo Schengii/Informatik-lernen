@@ -161,7 +161,7 @@ export default function IhkCertificatePdfLab() {
           Zertifikatsdaten anpassen
         </h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px', marginBottom: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '16px', marginBottom: '20px' }}>
           <div>
             <label htmlFor="ihk-certificate-pdf-lab-1" style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary, #64748b)', marginBottom: '6px' }}>
               Vor- und Nachname des Auszubildenden:

@@ -134,7 +134,7 @@ export default function DockerComposeLab({ onRewardXP }) {
 
       {/* Main Content Area based on Tab */}
       {activeTab === 'orchestrator' && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '20px' }}>
           {/* Services List & DAG */}
           <div className="glass-panel" style={{ padding: '24px', borderRadius: 'var(--radius-xl)', background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}>
             <h2 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -240,7 +240,7 @@ export default function DockerComposeLab({ onRewardXP }) {
             Prüfe, ob zwei Container über gemeinsame Docker-Netzwerke kommunizieren können. Aus Sicherheitsgründen sollte der Web-Frontend-Container keinen direkten Netzwerkzugriff auf die interne Datenbank haben!
           </p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px', marginBottom: '20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: '16px', marginBottom: '20px' }}>
             <div>
               <label htmlFor="docker-compose-lab-1" style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, marginBottom: '6px' }}>
                 Quell-Container (From)

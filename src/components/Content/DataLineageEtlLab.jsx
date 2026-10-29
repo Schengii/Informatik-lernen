@@ -63,7 +63,7 @@ export default function DataLineageEtlLab({ onRewardXP }) {
       </div>
 
       {/* Visual Data Lineage Stages */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px', marginBottom: '28px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))', gap: '14px', marginBottom: '28px' }}>
         {etlResult.lineageGraph.map((stage, idx) => (
           <div
             key={stage.stage}
@@ -92,7 +92,7 @@ export default function DataLineageEtlLab({ onRewardXP }) {
       </div>
 
       {/* Main Studio Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(360px, 100%), 1fr))', gap: '20px' }}>
         {/* Left: Raw Data JSON Input */}
         <div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>

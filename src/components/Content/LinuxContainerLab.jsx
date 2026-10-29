@@ -96,7 +96,7 @@ export default function LinuxContainerLab({ onRewardXP }) {
           </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px', marginTop: '16px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(220px, 100%), 1fr))', gap: '12px', marginTop: '16px' }}>
           <div style={{ background: 'var(--bg-primary)', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
             <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Host OS Sicht (Unshared):</span>
             <div style={{ fontSize: '0.95rem', fontWeight: 'bold', color: 'var(--accent-primary)', marginTop: '2px', fontFamily: 'monospace' }}>
@@ -119,7 +119,7 @@ export default function LinuxContainerLab({ onRewardXP }) {
           Cgroups v2 Resource-Limits (`/sys/fs/cgroup/container-01/`):
         </span>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', alignItems: 'center' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: '20px', alignItems: 'center' }}>
           <div>
             <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
               CPU Quota Limit (`cpu.max`): {cpuLimit} Cores

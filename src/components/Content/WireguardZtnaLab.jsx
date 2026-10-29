@@ -60,7 +60,7 @@ export default function WireguardZtnaLab({ onRewardXP }) {
       </div>
 
       {/* Peer Selector Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '12px', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: '12px', marginBottom: '24px' }}>
         {sim.peers.map(peer => (
           <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => { setSelectedPeerId(peer.id); triggerHaptic('SELECTION'); })}
             key={peer.id}

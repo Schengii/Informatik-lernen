@@ -111,7 +111,7 @@ export default function JwtConfusionLab({ onRewardXP }) {
       </div>
 
       {/* Grid Layout: Config, Attack Workbench & Server Verification */}
-      <div className="grid-responsive" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px', marginBottom: '24px' }}>
+      <div className="grid-responsive" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '20px', marginBottom: '24px' }}>
         {/* Left: Server Configuration (Vulnerable vs Hardened) */}
         <div className="glass-panel" style={{ padding: '20px' }}>
           <h2 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>

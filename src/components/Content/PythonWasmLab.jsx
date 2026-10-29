@@ -50,7 +50,7 @@ export default function PythonWasmLab({ onRewardXP }) {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '20px' }}>
         {/* Editor */}
         <div>
           <div className="code-window" style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden' }}>

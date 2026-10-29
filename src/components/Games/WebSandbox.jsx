@@ -79,7 +79,7 @@ button {
         </button>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(340px, 100%), 1fr))', gap: '24px' }}>
         
         {/* Left Column: Code Editor */}
         <div className="glass-panel" style={{ padding: '20px' }}>

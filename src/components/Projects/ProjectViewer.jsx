@@ -27,7 +27,7 @@ export default function ProjectViewer({ onCompleteProject }) {
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '24px' }}>
         
         {/* Project Selector Sidebar */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>

@@ -182,7 +182,7 @@ export default function StruktogrammLab({ onRewardXP }) {
           <div style={{ fontSize: '0.82rem', fontWeight: '700', color: 'var(--text-muted, #94a3b8)', textTransform: 'uppercase', marginBottom: '8px' }}>
             IHK Prüfungs-Szenario wählen:
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '10px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '10px' }}>
             {STRUKTOGRAMM_PRESETS.map(preset => (
               <button
                 key={preset.id}
@@ -464,7 +464,7 @@ export default function StruktogrammLab({ onRewardXP }) {
           <h2 style={{ fontSize: '1.15rem', fontWeight: '700', marginTop: 0, marginBottom: '16px' }}>
             DIN 66261 Normelemente im Überblick
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '16px' }}>
             {DIN_66261_ELEMENTS.map(el => (
               <div key={el.type} style={{ padding: '16px', borderRadius: '8px', border: '1px solid var(--border-color, #334155)', background: 'rgba(255, 255, 255, 0.02)' }}>
                 <div style={{ fontWeight: '700', color: 'var(--accent-primary)', fontSize: '0.95rem', marginBottom: '4px' }}>

@@ -110,7 +110,7 @@ export default function VocabularyTrainerModal({ isOpen, onClose }) {
         </div>
 
         {/* Grid List & Details */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(240px, 1fr) 2fr', gap: '20px', flex: 1, overflow: 'hidden' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(min(240px, 100%), 1fr) 2fr', gap: '20px', flex: 1, overflow: 'hidden' }}>
           <div style={{ overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {filteredVocab.map((v) => (
               <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setActiveVocabId(v.id))}

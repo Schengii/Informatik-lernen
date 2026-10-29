@@ -254,7 +254,7 @@ export default function StpProtocolLab({ onRewardXP = () => {} }) {
 
       {/* Main Tab Content */}
       {activeTab === 'topology' && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '1.5rem' }}>
           {/* Switch Grid */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <h2 style={{ fontSize: '1.15rem', margin: 0, fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -496,7 +496,7 @@ export default function StpProtocolLab({ onRewardXP = () => {} }) {
           </h2>
           <p style={{ color: 'var(--text-dim)', marginBottom: '1.5rem' }}>{convergence.description}</p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
             {convergence.phases.map((phase, idx) => (
               <div
                 key={phase.name}

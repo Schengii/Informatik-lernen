@@ -72,7 +72,7 @@ export default function PacketTracerLab({ onRewardXP }) {
       </div>
 
       {/* Control & Terminal Log */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '20px' }}>
         <div>
           <button className="btn btn-primary" onClick={runPingSimulation} disabled={simulationState === 'pinging'}>
             <Play size={16} /> {simulationState === 'pinging' ? 'Sende Pakete...' : 'ICMP Ping Starten'}

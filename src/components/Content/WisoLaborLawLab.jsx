@@ -117,7 +117,7 @@ export default function WisoLaborLawLab({ onRewardXP }) {
 
       {/* TAB 1: Kündigungsfristen Rechner */}
       {activeSubTab === 'notice' && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '24px' }}>
           {/* Controls */}
           <div style={{ background: 'var(--bg-card-hover)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
             <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -247,7 +247,7 @@ export default function WisoLaborLawLab({ onRewardXP }) {
 
       {/* TAB 2: KSchG & Schutzprüfung */}
       {activeSubTab === 'protection' && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '24px' }}>
           {/* Controls */}
           <div style={{ background: 'var(--bg-card-hover)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
             <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '16px' }}>Betriebs- &amp; Personaldaten</h3>
@@ -369,7 +369,7 @@ export default function WisoLaborLawLab({ onRewardXP }) {
 
       {/* TAB 3: Wissens-Box & IHK Prüfungstipps */}
       {activeSubTab === 'cases' && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '16px' }}>
           <div style={{ background: 'var(--bg-card-hover)', padding: '18px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
             <h4 style={{ fontWeight: 700, fontSize: '1rem', color: 'var(--accent-primary)', marginBottom: '8px' }}>
               Personenbedingte Kündigung

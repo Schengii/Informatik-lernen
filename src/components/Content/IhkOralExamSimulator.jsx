@@ -237,7 +237,7 @@ export default function IhkOralExamSimulator({ onRewardXP }) {
             <h4 style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>
               2. Wähle dein betriebliches Abschlussprojekt:
             </h4>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '16px' }}>
               {roleData.projects.map(p => (
                 <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setSelectedProject(p))}
                   key={p.id}

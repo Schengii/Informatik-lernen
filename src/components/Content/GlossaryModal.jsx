@@ -158,7 +158,7 @@ export default function GlossaryModal({ isOpen, onClose }) {
         </div>
 
         {/* Glossary Main Grid (Sidebar List + Detail View) */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(250px, 1fr) 2fr', gap: '20px', flex: 1, overflow: 'hidden' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(min(250px, 100%), 1fr) 2fr', gap: '20px', flex: 1, overflow: 'hidden' }}>
           {/* Terms List */}
           <div style={{ overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '8px', paddingRight: '6px' }}>
             {filteredTerms.map((t) => {

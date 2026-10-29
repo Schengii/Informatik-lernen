@@ -109,7 +109,7 @@ export default function ComputationWorkerLab({ onRewardXP }) {
       </div>
 
       {/* Task Controls & Benchmark Metrics */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '20px' }}>
         {/* Configuration Card */}
         <div 
           className="glass-panel"
