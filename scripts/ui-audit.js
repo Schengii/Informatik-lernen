@@ -56,19 +56,23 @@ function measurePage({ minContrast, maxOverflow }) {
   };
   const ratio = (x, y) => { const [a, b] = [lum(x), lum(y)].sort((p, q) => q - p); return (a + 0.05) / (b + 0.05); };
   // Hintergrund als Stapel halbtransparenter Ebenen; Verläufe zählen mit ihrer ersten Farbe.
+  const describe = (n) => `${n.tagName.toLowerCase()}${n.className && typeof n.className === 'string' ? '.' + n.className.trim().split(/\s+/).slice(0, 4).join('.') : ''}${n.style?.background || n.style?.backgroundColor ? ` [style: ${(n.style.background || n.style.backgroundColor).slice(0, 40)}]` : ''}`;
+  // Hintergrund als Stapel halbtransparenter Ebenen; Verläufe zählen mit ihrer ersten Farbe.
+  // `from` beschreibt das Element mit der deckenden Ebene (Fundstelle für die Korrektur).
   const backgroundOf = (el) => {
     const layers = [];
+    let from = 'body';
     for (let n = el; n; n = n.parentElement) {
       const s = getComputedStyle(n);
       const grad = s.backgroundImage.includes('gradient') ? parse(s.backgroundImage.match(COLOR)?.[0]) : null;
       for (const c of [grad, parse(s.backgroundColor)]) {
         if (c && c.a > 0) layers.push(c);
       }
-      if (layers.some((l) => l.a >= 1)) break;
+      if (layers.some((l) => l.a >= 1)) { from = describe(n); break; }
     }
     let bg = { r: 255, g: 255, b: 255, a: 1 };
     for (const l of layers.reverse()) bg = over(l, bg);
-    return bg;
+    return { ...bg, from };
   };
 
   const main = document.querySelector('main') || document.body;
@@ -83,7 +87,7 @@ function measurePage({ minContrast, maxOverflow }) {
     const fg = parse(s.color);
     if (!fg) continue;
     const r = ratio(over(fg, bg), bg);
-    if (r < minContrast) lowContrast.push({ text: text.slice(0, 50), ratio: Math.round(r * 100) / 100, color: s.color });
+    if (r < minContrast) lowContrast.push({ text: text.slice(0, 50), ratio: Math.round(r * 100) / 100, color: s.color, el: describe(el), bgFrom: bg.from });
   }
 
   // Überlauf: Elemente, die rechts aus dem Viewport ragen und nicht in einem scrollbaren/abschneidenden Container liegen.
@@ -105,7 +109,7 @@ function measurePage({ minContrast, maxOverflow }) {
   }
   return {
     lowContrast: lowContrast.length,
-    samples: lowContrast.slice(0, 5),
+    samples: lowContrast.slice(0, 40),
     overflow: overflow > maxOverflow ? Math.round(overflow) : 0,
     overflowAt: overflow > maxOverflow ? overflowAt : '',
   };
