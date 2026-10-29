@@ -166,10 +166,10 @@ export default function ExamCountdownWidget({ setActiveTab }) {
 
       {/* Datumseinstellung & Schnellwahl */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center', marginBottom: '20px' }}>
-        <label style={{ fontSize: '0.9rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <label htmlFor="exam-countdown-widget-1" style={{ fontSize: '0.9rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px' }}>
           <Calendar size={16} /> Prüfungstermin:
         </label>
-        <input
+        <input id="exam-countdown-widget-1"
           type="date"
           value={targetDateStr}
           onChange={(e) => handleSaveDate(e.target.value)}

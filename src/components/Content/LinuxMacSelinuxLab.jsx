@@ -90,7 +90,7 @@ export default function LinuxMacSelinuxLab() {
 
             <div className="space-y-3 text-xs">
               <div>
-                <label className="block text-slate-300 font-medium mb-1">MAC Framework:</label>
+                <span className="block text-slate-300 font-medium mb-1">MAC Framework:</span>
                 <div className="grid grid-cols-2 gap-2">
                   <button
                     onClick={() => setMacFramework('SELinux')}
@@ -116,7 +116,7 @@ export default function LinuxMacSelinuxLab() {
               </div>
 
               <div>
-                <label className="block text-slate-300 font-medium mb-1">Betriebsmodus (getenforce):</label>
+                <span className="block text-slate-300 font-medium mb-1">Betriebsmodus (getenforce):</span>
                 <div className="grid grid-cols-3 gap-2">
                   {['Enforcing', 'Permissive', 'Disabled'].map((mode) => (
                     <button
@@ -150,8 +150,8 @@ export default function LinuxMacSelinuxLab() {
               </div>
 
               <div>
-                <label className="block text-slate-300 font-medium mb-1">Ziel-Datei / Ressource:</label>
-                <select
+                <label htmlFor="linux-mac-selinux-lab-1" className="block text-slate-300 font-medium mb-1">Ziel-Datei / Ressource:</label>
+                <select id="linux-mac-selinux-lab-1"
                   value={selectedResourcePath}
                   onChange={(e) => setSelectedResourcePath(e.target.value)}
                   className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white"
@@ -165,7 +165,7 @@ export default function LinuxMacSelinuxLab() {
               </div>
 
               <div>
-                <label className="block text-slate-300 font-medium mb-1">Aktion:</label>
+                <span className="block text-slate-300 font-medium mb-1">Aktion:</span>
                 <div className="grid grid-cols-3 gap-2">
                   {['read', 'write', 'execute'].map((act) => (
                     <button

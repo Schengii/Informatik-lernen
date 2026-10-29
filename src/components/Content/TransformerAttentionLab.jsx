@@ -88,9 +88,9 @@ export default function TransformerAttentionLab() {
         <div className="space-y-6">
           {/* Sentence Selector Bar */}
           <div className="glass-panel" style={{ padding: '20px', borderRadius: 'var(--radius-lg)' }}>
-            <label style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-muted)', display: 'block', marginBottom: '8px' }}>
+            <span style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-muted)', display: 'block', marginBottom: '8px' }}>
               Beispielsatz auswählen:
-            </label>
+            </span>
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
               {SAMPLE_SENTENCES.map(s => (
                 <button

@@ -85,8 +85,8 @@ export default function WisoRentabilitaetLeverageLab() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
               <div>
-                <label className="block text-slate-400 font-medium mb-1">Eigenkapital (€):</label>
-                <input
+                <label htmlFor="wiso-rentabilitaet-leverage-lab-1" className="block text-slate-400 font-medium mb-1">Eigenkapital (€):</label>
+                <input id="wiso-rentabilitaet-leverage-lab-1"
                   type="number"
                   value={params.eigenkapital}
                   onChange={(e) => handleChange('eigenkapital', e.target.value)}
@@ -95,8 +95,8 @@ export default function WisoRentabilitaetLeverageLab() {
               </div>
 
               <div>
-                <label className="block text-slate-400 font-medium mb-1">Fremdkapital (€):</label>
-                <input
+                <label htmlFor="wiso-rentabilitaet-leverage-lab-2" className="block text-slate-400 font-medium mb-1">Fremdkapital (€):</label>
+                <input id="wiso-rentabilitaet-leverage-lab-2"
                   type="number"
                   value={params.fremdkapital}
                   onChange={(e) => handleChange('fremdkapital', e.target.value)}
@@ -105,8 +105,8 @@ export default function WisoRentabilitaetLeverageLab() {
               </div>
 
               <div>
-                <label className="block text-slate-400 font-medium mb-1">Fremdkapital-Zins (% p.a.):</label>
-                <input
+                <label htmlFor="wiso-rentabilitaet-leverage-lab-3" className="block text-slate-400 font-medium mb-1">Fremdkapital-Zins (% p.a.):</label>
+                <input id="wiso-rentabilitaet-leverage-lab-3"
                   type="number"
                   step="0.5"
                   value={params.fremdkapitalZinssatz}
@@ -116,8 +116,8 @@ export default function WisoRentabilitaetLeverageLab() {
               </div>
 
               <div>
-                <label className="block text-slate-400 font-medium mb-1">Jahresüberschuss / Reingewinn (€):</label>
-                <input
+                <label htmlFor="wiso-rentabilitaet-leverage-lab-4" className="block text-slate-400 font-medium mb-1">Jahresüberschuss / Reingewinn (€):</label>
+                <input id="wiso-rentabilitaet-leverage-lab-4"
                   type="number"
                   value={params.jahresueberschuss}
                   onChange={(e) => handleChange('jahresueberschuss', e.target.value)}
@@ -126,8 +126,8 @@ export default function WisoRentabilitaetLeverageLab() {
               </div>
 
               <div className="sm:col-span-2">
-                <label className="block text-slate-400 font-medium mb-1">Umsatzerlöse (€):</label>
-                <input
+                <label htmlFor="wiso-rentabilitaet-leverage-lab-5" className="block text-slate-400 font-medium mb-1">Umsatzerlöse (€):</label>
+                <input id="wiso-rentabilitaet-leverage-lab-5"
                   type="number"
                   value={params.umsatzerloese}
                   onChange={(e) => handleChange('umsatzerloese', e.target.value)}

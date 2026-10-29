@@ -82,8 +82,8 @@ export default function LlmRagChunkingLab() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 border-t border-slate-800/80">
               <div>
-                <label className="block text-slate-400 text-xs font-medium mb-1">Strategie</label>
-                <select
+                <label htmlFor="llm-rag-chunking-lab-1" className="block text-slate-400 text-xs font-medium mb-1">Strategie</label>
+                <select id="llm-rag-chunking-lab-1"
                   value={strategy}
                   onChange={(e) => setStrategy(e.target.value)}
                   className="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-purple-500"
@@ -97,8 +97,8 @@ export default function LlmRagChunkingLab() {
               {strategy !== 'paragraph' && (
                 <>
                   <div>
-                    <label className="block text-slate-400 text-xs font-medium mb-1">Chunk-Größe (Char)</label>
-                    <input
+                    <label htmlFor="llm-rag-chunking-lab-2" className="block text-slate-400 text-xs font-medium mb-1">Chunk-Größe (Char)</label>
+                    <input id="llm-rag-chunking-lab-2"
                       type="number"
                       value={chunkSize}
                       onChange={(e) => setChunkSize(Number(e.target.value) || 100)}
@@ -107,8 +107,8 @@ export default function LlmRagChunkingLab() {
                   </div>
                   {strategy === 'sliding' && (
                     <div>
-                      <label className="block text-slate-400 text-xs font-medium mb-1">Overlap (Char)</label>
-                      <input
+                      <label htmlFor="llm-rag-chunking-lab-3" className="block text-slate-400 text-xs font-medium mb-1">Overlap (Char)</label>
+                      <input id="llm-rag-chunking-lab-3"
                         type="number"
                         value={chunkOverlap}
                         onChange={(e) => setChunkOverlap(Number(e.target.value) || 0)}

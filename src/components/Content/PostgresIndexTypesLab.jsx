@@ -151,10 +151,10 @@ export default function PostgresIndexTypesLab() {
             </h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
               <div>
-                <label style={{ fontSize: '0.85rem', color: '#94a3b8', display: 'block', marginBottom: '6px' }}>
+                <label htmlFor="postgres-index-types-lab-1" style={{ fontSize: '0.85rem', color: '#94a3b8', display: 'block', marginBottom: '6px' }}>
                   Spalten-Datentyp:
                 </label>
-                <select
+                <select id="postgres-index-types-lab-1"
                   value={dataType}
                   onChange={(e) => setDataType(e.target.value)}
                   style={{ width: '100%', padding: '8px 12px', background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.15)', color: '#fff', borderRadius: '6px' }}
@@ -169,10 +169,10 @@ export default function PostgresIndexTypesLab() {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.85rem', color: '#94a3b8', display: 'block', marginBottom: '6px' }}>
+                <label htmlFor="postgres-index-types-lab-2" style={{ fontSize: '0.85rem', color: '#94a3b8', display: 'block', marginBottom: '6px' }}>
                   Abfrage-Muster (SQL Query Pattern):
                 </label>
-                <select
+                <select id="postgres-index-types-lab-2"
                   value={queryPattern}
                   onChange={(e) => setQueryPattern(e.target.value)}
                   style={{ width: '100%', padding: '8px 12px', background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.15)', color: '#fff', borderRadius: '6px' }}
@@ -201,9 +201,9 @@ export default function PostgresIndexTypesLab() {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.85rem', color: '#94a3b8', display: 'block', marginBottom: '6px' }}>
+                <span style={{ fontSize: '0.85rem', color: '#94a3b8', display: 'block', marginBottom: '6px' }}>
                   Physikalische Sortierung auf Disk:
-                </label>
+                </span>
                 <button
                   onClick={() => setIsSorted(!isSorted)}
                   style={{

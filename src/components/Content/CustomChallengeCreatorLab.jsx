@@ -243,8 +243,8 @@ export default function CustomChallengeCreatorLab() {
 
           <div className="space-y-3">
             <div>
-              <label className="text-xs text-slate-300 font-semibold block mb-1">Titel der Challenge:</label>
-              <input
+              <label htmlFor="custom-challenge-creator-lab-1" className="text-xs text-slate-300 font-semibold block mb-1">Titel der Challenge:</label>
+              <input id="custom-challenge-creator-lab-1"
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
@@ -255,8 +255,8 @@ export default function CustomChallengeCreatorLab() {
 
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="text-xs text-slate-300 font-semibold block mb-1">Kategorie:</label>
-                <input
+                <label htmlFor="custom-challenge-creator-lab-2" className="text-xs text-slate-300 font-semibold block mb-1">Kategorie:</label>
+                <input id="custom-challenge-creator-lab-2"
                   type="text"
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
@@ -264,8 +264,8 @@ export default function CustomChallengeCreatorLab() {
                 />
               </div>
               <div>
-                <label className="text-xs text-slate-300 font-semibold block mb-1">Schwierigkeit:</label>
-                <select
+                <label htmlFor="custom-challenge-creator-lab-3" className="text-xs text-slate-300 font-semibold block mb-1">Schwierigkeit:</label>
+                <select id="custom-challenge-creator-lab-3"
                   value={difficulty}
                   onChange={(e) => setDifficulty(e.target.value)}
                   className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white text-sm focus:border-emerald-500 focus:outline-none"
@@ -278,8 +278,8 @@ export default function CustomChallengeCreatorLab() {
             </div>
 
             <div>
-              <label className="text-xs text-slate-300 font-semibold block mb-1">Aufgabenstellung (Markdown unterstützt):</label>
-              <textarea
+              <label htmlFor="custom-challenge-creator-lab-4" className="text-xs text-slate-300 font-semibold block mb-1">Aufgabenstellung (Markdown unterstützt):</label>
+              <textarea id="custom-challenge-creator-lab-4"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 rows={3}
@@ -289,8 +289,8 @@ export default function CustomChallengeCreatorLab() {
             </div>
 
             <div>
-              <label className="text-xs text-slate-300 font-semibold block mb-1">Starter-Code (Vorgabe für Nutzer):</label>
-              <textarea
+              <label htmlFor="custom-challenge-creator-lab-5" className="text-xs text-slate-300 font-semibold block mb-1">Starter-Code (Vorgabe für Nutzer):</label>
+              <textarea id="custom-challenge-creator-lab-5"
                 value={starterCode}
                 onChange={(e) => setStarterCode(e.target.value)}
                 rows={4}
@@ -316,8 +316,8 @@ export default function CustomChallengeCreatorLab() {
           </div>
 
           <div>
-            <label className="text-xs text-slate-300 font-semibold block mb-1">Musterlösung (zum Validieren):</label>
-            <textarea
+            <label htmlFor="custom-challenge-creator-lab-6" className="text-xs text-slate-300 font-semibold block mb-1">Musterlösung (zum Validieren):</label>
+            <textarea id="custom-challenge-creator-lab-6"
               value={solutionCode}
               onChange={(e) => setSolutionCode(e.target.value)}
               rows={4}

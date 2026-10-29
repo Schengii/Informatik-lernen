@@ -92,8 +92,8 @@ export default function OauthTokenExchangeLab({ onRewardXP }) {
       {/* Input Parameters */}
       <div style={{ background: 'var(--bg-secondary)', padding: '18px', borderRadius: '12px', border: '1px solid var(--border-color)', display: 'flex', gap: '14px', flexWrap: 'wrap', alignItems: 'center', marginBottom: '24px' }}>
         <div style={{ flex: 1, minWidth: '180px' }}>
-          <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Subject User:</label>
-          <input
+          <label htmlFor="oauth-token-exchange-lab-1" style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Subject User:</label>
+          <input id="oauth-token-exchange-lab-1"
             type="text"
             value={subjectUser}
             onChange={(e) => setSubjectUser(e.target.value)}
@@ -102,8 +102,8 @@ export default function OauthTokenExchangeLab({ onRewardXP }) {
         </div>
 
         <div style={{ flex: 1, minWidth: '180px' }}>
-          <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Intermediary Service (Actor):</label>
-          <input
+          <label htmlFor="oauth-token-exchange-lab-2" style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Intermediary Service (Actor):</label>
+          <input id="oauth-token-exchange-lab-2"
             type="text"
             value={intermediaryService}
             onChange={(e) => setIntermediaryService(e.target.value)}

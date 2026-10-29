@@ -196,7 +196,7 @@ export default function JwtConfusionLab({ onRewardXP }) {
           {/* Current Raw Token Input/View */}
           <div style={{ marginTop: '12px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-              <label style={{ fontSize: '0.82rem', fontWeight: 700 }}>Aktueller JWT String:</label>
+              <span style={{ fontSize: '0.82rem', fontWeight: 700 }}>Aktueller JWT String:</span>
               <button 
                 onClick={() => handleCopy(currentToken)}
                 style={{ background: 'none', border: 'none', color: 'var(--accent-primary)', fontSize: '0.75rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px' }}

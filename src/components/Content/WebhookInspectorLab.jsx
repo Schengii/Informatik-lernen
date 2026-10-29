@@ -139,8 +139,8 @@ export default function WebhookInspectorLab() {
 
           <div className="space-y-3">
             <div>
-              <label className="text-xs text-slate-300 font-semibold block mb-1">Ziel-Endpoint:</label>
-              <input
+              <label htmlFor="webhook-inspector-lab-1" className="text-xs text-slate-300 font-semibold block mb-1">Ziel-Endpoint:</label>
+              <input id="webhook-inspector-lab-1"
                 type="text"
                 value={endpoint}
                 onChange={(e) => setEndpoint(e.target.value)}
@@ -149,8 +149,8 @@ export default function WebhookInspectorLab() {
             </div>
 
             <div>
-              <label className="text-xs text-slate-300 font-semibold block mb-1">HTTP Request Headers (JSON):</label>
-              <textarea
+              <label htmlFor="webhook-inspector-lab-2" className="text-xs text-slate-300 font-semibold block mb-1">HTTP Request Headers (JSON):</label>
+              <textarea id="webhook-inspector-lab-2"
                 value={headersJson}
                 onChange={(e) => setHeadersJson(e.target.value)}
                 rows={4}
@@ -159,8 +159,8 @@ export default function WebhookInspectorLab() {
             </div>
 
             <div>
-              <label className="text-xs text-slate-300 font-semibold block mb-1">Payload Body (JSON):</label>
-              <textarea
+              <label htmlFor="webhook-inspector-lab-3" className="text-xs text-slate-300 font-semibold block mb-1">Payload Body (JSON):</label>
+              <textarea id="webhook-inspector-lab-3"
                 value={bodyJson}
                 onChange={(e) => setBodyJson(e.target.value)}
                 rows={6}

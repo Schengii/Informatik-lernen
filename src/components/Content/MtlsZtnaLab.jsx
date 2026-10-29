@@ -66,10 +66,10 @@ export default function MtlsZtnaLab({ onRewardXP }) {
           </h3>
 
           <div style={{ marginBottom: '16px' }}>
-            <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>
+            <label htmlFor="mtls-ztna-lab-1" style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>
               Aufrufender Client-Microservice:
             </label>
-            <select
+            <select id="mtls-ztna-lab-1"
               className="input-select"
               value={selectedServiceId}
               onChange={(e) => setSelectedServiceId(e.target.value)}
@@ -82,10 +82,10 @@ export default function MtlsZtnaLab({ onRewardXP }) {
           </div>
 
           <div style={{ marginBottom: '16px' }}>
-            <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>
+            <label htmlFor="mtls-ztna-lab-2" style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>
               Ziel-API Endpunkt:
             </label>
-            <select
+            <select id="mtls-ztna-lab-2"
               className="input-select"
               value={requestedEndpoint}
               onChange={(e) => setRequestedEndpoint(e.target.value)}

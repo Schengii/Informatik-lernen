@@ -142,10 +142,10 @@ export default function IhkStudyPlanLab({ onNavigateTab, onRewardXP, userState }
       {/* Selectors */}
       <div style={{ background: 'var(--bg-card)', padding: '20px', borderRadius: '16px', border: '1px solid var(--border-color)', marginBottom: '24px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
         <div>
-          <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-dim)', marginBottom: '6px' }}>
+          <label htmlFor="ihk-study-plan-lab-1" style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-dim)', marginBottom: '6px' }}>
             IHK Prüfungstermin:
           </label>
-          <select
+          <select id="ihk-study-plan-lab-1"
             value={selectedExamId}
             onChange={(e) => setSelectedExamId(e.target.value)}
             style={{
@@ -166,10 +166,10 @@ export default function IhkStudyPlanLab({ onNavigateTab, onRewardXP, userState }
         </div>
 
         <div>
-          <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-dim)', marginBottom: '6px' }}>
+          <label htmlFor="ihk-study-plan-lab-2" style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-dim)', marginBottom: '6px' }}>
             Deine Fachrichtung:
           </label>
-          <select
+          <select id="ihk-study-plan-lab-2"
             value={selectedDiscipline}
             onChange={(e) => setSelectedDiscipline(e.target.value)}
             style={{

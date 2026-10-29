@@ -68,10 +68,10 @@ export default function SqlIsolationLab({ onAwardXP }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Isolationsstufe wählen */}
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-          <label className="text-sm font-semibold text-slate-300 flex items-center gap-2 mb-3">
+          <span className="text-sm font-semibold text-slate-300 flex items-center gap-2 mb-3">
             <Layers className="w-4 h-4 text-indigo-400" />
             1. Isolationslevel wählen:
-          </label>
+          </span>
           <div className="grid grid-cols-2 gap-2">
             {Object.values(ISOLATION_LEVELS).map((lvl) => {
               const isSelected = selectedLevel === lvl.id;
@@ -95,10 +95,10 @@ export default function SqlIsolationLab({ onAwardXP }) {
 
         {/* Anomalie wählen */}
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-          <label className="text-sm font-semibold text-slate-300 flex items-center gap-2 mb-3">
+          <span className="text-sm font-semibold text-slate-300 flex items-center gap-2 mb-3">
             <ShieldAlert className="w-4 h-4 text-amber-400" />
             2. Transaktions-Anomalie testen:
-          </label>
+          </span>
           <div className="grid grid-cols-2 gap-2">
             {Object.values(ANOMALIES).map((anom) => {
               const isSelected = selectedAnomaly === anom.id;

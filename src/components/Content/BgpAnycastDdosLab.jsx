@@ -119,8 +119,8 @@ export default function BgpAnycastDdosLab({ onRewardXP }) {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
               <div>
-                <label className="text-slate-400 block mb-1">Angriffsmuster:</label>
-                <select
+                <label htmlFor="bgp-anycast-ddos-lab-1" className="text-slate-400 block mb-1">Angriffsmuster:</label>
+                <select id="bgp-anycast-ddos-lab-1"
                   value={attackType}
                   onChange={(e) => setAttackType(e.target.value)}
                   className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1.5 text-slate-200"
@@ -133,8 +133,8 @@ export default function BgpAnycastDdosLab({ onRewardXP }) {
               </div>
 
               <div>
-                <label className="text-slate-400 block mb-1">Angriffsvolumen (Gbps):</label>
-                <input
+                <label htmlFor="bgp-anycast-ddos-lab-2" className="text-slate-400 block mb-1">Angriffsvolumen (Gbps):</label>
+                <input id="bgp-anycast-ddos-lab-2"
                   type="number"
                   min="0"
                   max="150"

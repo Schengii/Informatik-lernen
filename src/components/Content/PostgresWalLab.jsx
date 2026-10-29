@@ -88,8 +88,8 @@ export default function PostgresWalLab({ onRewardXP }) {
       {/* LSN Input Bar */}
       <div style={{ background: 'var(--bg-secondary)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
         <div>
-          <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Primary pg_current_wal_lsn():</label>
-          <input
+          <label htmlFor="postgres-wal-lab-1" style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Primary pg_current_wal_lsn():</label>
+          <input id="postgres-wal-lab-1"
             type="text"
             value={primaryLsn}
             onChange={(e) => setPrimaryLsn(e.target.value)}
@@ -100,8 +100,8 @@ export default function PostgresWalLab({ onRewardXP }) {
         <ArrowRight size={20} style={{ color: 'var(--text-muted)' }} />
 
         <div>
-          <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Standby pg_last_wal_replay_lsn():</label>
-          <input
+          <label htmlFor="postgres-wal-lab-2" style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Standby pg_last_wal_replay_lsn():</label>
+          <input id="postgres-wal-lab-2"
             type="text"
             value={standbyLsn}
             onChange={(e) => setStandbyLsn(e.target.value)}

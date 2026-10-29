@@ -130,9 +130,9 @@ export default function OsProcessSchedulerLab() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
                 <div>
-                  <label style={{ fontSize: '0.82rem', fontWeight: '700', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
+                  <span style={{ fontSize: '0.82rem', fontWeight: '700', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
                     Algorithmus
-                  </label>
+                  </span>
                   <div style={{ display: 'flex', gap: '6px' }}>
                     {[
                       { id: 'FCFS', label: 'FCFS' },
@@ -475,8 +475,8 @@ export default function OsProcessSchedulerLab() {
               </h3>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
                 <div>
-                  <label style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>Ziel-Prozess</label>
-                  <select
+                  <label htmlFor="os-process-scheduler-lab-1" style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>Ziel-Prozess</label>
+                  <select id="os-process-scheduler-lab-1"
                     value={requestTargetProc}
                     onChange={(e) => setRequestTargetProc(Number(e.target.value))}
                     style={{ display: 'block', padding: '6px 12px', borderRadius: '4px', background: 'var(--bg-card)', color: 'var(--text-main)', border: '1px solid var(--border-color)', marginTop: '4px' }}
@@ -488,7 +488,7 @@ export default function OsProcessSchedulerLab() {
                 </div>
 
                 <div>
-                  <label style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>Ressourcen Vektor [R1, R2, R3]</label>
+                  <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>Ressourcen Vektor [R1, R2, R3]</span>
                   <div style={{ display: 'flex', gap: '6px', marginTop: '4px' }}>
                     {requestVector.map((val, idx) => (
                       <input

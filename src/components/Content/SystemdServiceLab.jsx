@@ -233,8 +233,8 @@ export default function SystemdServiceLab() {
           {/* Configuration Inputs */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.85rem' }}>
             <div>
-              <label style={{ color: '#94a3b8' }}>Restart-Policy:</label>
-              <select
+              <label htmlFor="systemd-service-lab-1" style={{ color: '#94a3b8' }}>Restart-Policy:</label>
+              <select id="systemd-service-lab-1"
                 value={config.restart}
                 onChange={(e) => setConfig(prev => ({ ...prev, restart: e.target.value }))}
                 style={{ width: '100%', padding: '6px', background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '6px', color: '#fff' }}
@@ -247,8 +247,8 @@ export default function SystemdServiceLab() {
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
               <div>
-                <label style={{ color: '#94a3b8' }}>Cgroups MemoryMax:</label>
-                <input
+                <label htmlFor="systemd-service-lab-2" style={{ color: '#94a3b8' }}>Cgroups MemoryMax:</label>
+                <input id="systemd-service-lab-2"
                   type="number"
                   value={config.memoryMaxMb}
                   onChange={(e) => setConfig(prev => ({ ...prev, memoryMaxMb: Number(e.target.value) }))}
@@ -257,8 +257,8 @@ export default function SystemdServiceLab() {
               </div>
 
               <div>
-                <label style={{ color: '#94a3b8' }}>RestartSec (Sekunden):</label>
-                <input
+                <label htmlFor="systemd-service-lab-3" style={{ color: '#94a3b8' }}>RestartSec (Sekunden):</label>
+                <input id="systemd-service-lab-3"
                   type="number"
                   value={config.restartSec}
                   onChange={(e) => setConfig(prev => ({ ...prev, restartSec: Number(e.target.value) }))}

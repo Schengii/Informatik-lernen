@@ -128,10 +128,10 @@ export default function WisoZuschlagskalkulationLab() {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <div>
-              <label style={{ fontSize: '0.82rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
+              <label htmlFor="wiso-zuschlagskalkulation-lab-1" style={{ fontSize: '0.82rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
                 Fertigungsmaterial (€ FM):
               </label>
-              <input 
+              <input id="wiso-zuschlagskalkulation-lab-1" 
                 type="number" 
                 value={params.fertigungsmaterial} 
                 onChange={(e) => handleChange('fertigungsmaterial', e.target.value)}
@@ -140,10 +140,10 @@ export default function WisoZuschlagskalkulationLab() {
             </div>
 
             <div>
-              <label style={{ fontSize: '0.82rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
+              <label htmlFor="wiso-zuschlagskalkulation-lab-2" style={{ fontSize: '0.82rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
                 Materialgemeinkostensatz (MGKZ %):
               </label>
-              <input 
+              <input id="wiso-zuschlagskalkulation-lab-2" 
                 type="number" 
                 value={params.materialgemeinkostensatzProzent} 
                 onChange={(e) => handleChange('materialgemeinkostensatzProzent', e.target.value)}
@@ -152,10 +152,10 @@ export default function WisoZuschlagskalkulationLab() {
             </div>
 
             <div>
-              <label style={{ fontSize: '0.82rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
+              <label htmlFor="wiso-zuschlagskalkulation-lab-3" style={{ fontSize: '0.82rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
                 Fertigungslohn (€ FL):
               </label>
-              <input 
+              <input id="wiso-zuschlagskalkulation-lab-3" 
                 type="number" 
                 value={params.fertigungslohn} 
                 onChange={(e) => handleChange('fertigungslohn', e.target.value)}
@@ -164,10 +164,10 @@ export default function WisoZuschlagskalkulationLab() {
             </div>
 
             <div>
-              <label style={{ fontSize: '0.82rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
+              <label htmlFor="wiso-zuschlagskalkulation-lab-4" style={{ fontSize: '0.82rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
                 Fertigungsgemeinkostensatz (FGKZ %):
               </label>
-              <input 
+              <input id="wiso-zuschlagskalkulation-lab-4" 
                 type="number" 
                 value={params.fertigungsgemeinkostensatzProzent} 
                 onChange={(e) => handleChange('fertigungsgemeinkostensatzProzent', e.target.value)}
@@ -177,10 +177,10 @@ export default function WisoZuschlagskalkulationLab() {
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
               <div>
-                <label style={{ fontSize: '0.82rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
+                <label htmlFor="wiso-zuschlagskalkulation-lab-5" style={{ fontSize: '0.82rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
                   VwGKZ (% auf HK):
                 </label>
-                <input 
+                <input id="wiso-zuschlagskalkulation-lab-5" 
                   type="number" 
                   value={params.verwaltungsgemeinkostensatzProzent} 
                   onChange={(e) => handleChange('verwaltungsgemeinkostensatzProzent', e.target.value)}
@@ -188,10 +188,10 @@ export default function WisoZuschlagskalkulationLab() {
                 />
               </div>
               <div>
-                <label style={{ fontSize: '0.82rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
+                <label htmlFor="wiso-zuschlagskalkulation-lab-6" style={{ fontSize: '0.82rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
                   VtGKZ (% auf HK):
                 </label>
-                <input 
+                <input id="wiso-zuschlagskalkulation-lab-6" 
                   type="number" 
                   value={params.vertriebsgemeinkostensatzProzent} 
                   onChange={(e) => handleChange('vertriebsgemeinkostensatzProzent', e.target.value)}
@@ -202,10 +202,10 @@ export default function WisoZuschlagskalkulationLab() {
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
               <div>
-                <label style={{ fontSize: '0.82rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
+                <label htmlFor="wiso-zuschlagskalkulation-lab-7" style={{ fontSize: '0.82rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
                   Gewinnzuschlag (%):
                 </label>
-                <input 
+                <input id="wiso-zuschlagskalkulation-lab-7" 
                   type="number" 
                   value={params.gewinnzuschlagProzent} 
                   onChange={(e) => handleChange('gewinnzuschlagProzent', e.target.value)}
@@ -213,10 +213,10 @@ export default function WisoZuschlagskalkulationLab() {
                 />
               </div>
               <div>
-                <label style={{ fontSize: '0.82rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
+                <label htmlFor="wiso-zuschlagskalkulation-lab-8" style={{ fontSize: '0.82rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
                   Kundenskonto (%):
                 </label>
-                <input 
+                <input id="wiso-zuschlagskalkulation-lab-8" 
                   type="number" 
                   value={params.kundenskontoProzent} 
                   onChange={(e) => handleChange('kundenskontoProzent', e.target.value)}

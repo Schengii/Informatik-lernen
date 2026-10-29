@@ -141,9 +141,9 @@ export default function EbpfCiliumLab() {
           </div>
 
           <div>
-            <label style={{ fontSize: '0.8rem', color: '#94a3b8', display: 'block', marginBottom: '6px' }}>
+            <span style={{ fontSize: '0.8rem', color: '#94a3b8', display: 'block', marginBottom: '6px' }}>
               L7 Tracing (HTTP Path / Latency):
-            </label>
+            </span>
             <button
               onClick={() => setEnableL7(!enableL7)}
               style={{

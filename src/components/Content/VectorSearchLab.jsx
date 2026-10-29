@@ -69,11 +69,11 @@ export default function VectorSearchLab({ onRewardXP }) {
 
       {/* Query Bar */}
       <div style={{ background: 'var(--bg-primary)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', marginBottom: '24px' }}>
-        <label style={{ fontSize: '0.9rem', fontWeight: '700', color: 'var(--text-main)', display: 'block', marginBottom: '8px' }}>
+        <label htmlFor="vector-search-lab-1" style={{ fontSize: '0.9rem', fontWeight: '700', color: 'var(--text-main)', display: 'block', marginBottom: '8px' }}>
           🔍 Nutzer-Abfrage (Semantic Search Query):
         </label>
         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-          <input
+          <input id="vector-search-lab-1"
             type="text"
             value={queryText}
             onChange={(e) => setQueryText(e.target.value)}

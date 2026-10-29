@@ -123,10 +123,10 @@ export default function LinuxNetNsLab() {
           </h2>
 
           <div>
-            <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary, #64748b)', marginBottom: '4px' }}>
+            <label htmlFor="linux-net-ns-lab-1" style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary, #64748b)', marginBottom: '4px' }}>
               Quell-Namespace:
             </label>
-            <select
+            <select id="linux-net-ns-lab-1"
               value={selectedSource}
               onChange={(e) => setSelectedSource(e.target.value)}
               style={{ width: '100%', padding: '8px 12px', borderRadius: '8px', border: '1px solid #cbd5e1', background: 'var(--input-bg, #fff)' }}
@@ -137,11 +137,11 @@ export default function LinuxNetNsLab() {
           </div>
 
           <div>
-            <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary, #64748b)', marginBottom: '4px' }}>
+            <label htmlFor="linux-net-ns-lab-2" style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary, #64748b)', marginBottom: '4px' }}>
               Ziel-IP (lokal oder Internet):
             </label>
             <div style={{ display: 'flex', gap: '8px' }}>
-              <input
+              <input id="linux-net-ns-lab-2"
                 type="text"
                 value={targetIp}
                 onChange={(e) => setTargetIp(e.target.value)}

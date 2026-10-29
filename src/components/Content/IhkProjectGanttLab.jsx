@@ -151,10 +151,10 @@ export default function IhkProjectGanttLab() {
       {/* Meta Input Grid */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px', marginBottom: '24px' }}>
         <div style={{ background: 'var(--card-bg, #1e293b)', padding: '16px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.08)' }}>
-          <label style={{ display: 'block', fontSize: '0.85rem', color: '#94a3b8', marginBottom: '6px', fontWeight: 'bold' }}>
+          <label htmlFor="ihk-project-gantt-lab-1" style={{ display: 'block', fontSize: '0.85rem', color: '#94a3b8', marginBottom: '6px', fontWeight: 'bold' }}>
             Projektbezeichnung (Antrag):
           </label>
-          <input
+          <input id="ihk-project-gantt-lab-1"
             type="text"
             value={projectName}
             onChange={(e) => setProjectName(e.target.value)}
@@ -171,10 +171,10 @@ export default function IhkProjectGanttLab() {
         </div>
 
         <div style={{ background: 'var(--card-bg, #1e293b)', padding: '16px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.08)' }}>
-          <label style={{ display: 'block', fontSize: '0.85rem', color: '#94a3b8', marginBottom: '6px', fontWeight: 'bold' }}>
+          <label htmlFor="ihk-project-gantt-lab-2" style={{ display: 'block', fontSize: '0.85rem', color: '#94a3b8', marginBottom: '6px', fontWeight: 'bold' }}>
             Projekt-Startdatum (Werktag):
           </label>
-          <input
+          <input id="ihk-project-gantt-lab-2"
             type="date"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}

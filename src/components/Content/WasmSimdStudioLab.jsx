@@ -322,8 +322,8 @@ export default function WasmSimdStudioLab() {
 
             <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', color: '#94a3b8', marginBottom: '6px' }}>Datengröße (Float32 Elemente):</label>
-                <select
+                <label htmlFor="wasm-simd-studio-lab-1" style={{ display: 'block', fontSize: '0.85rem', color: '#94a3b8', marginBottom: '6px' }}>Datengröße (Float32 Elemente):</label>
+                <select id="wasm-simd-studio-lab-1"
                   value={itemCount}
                   onChange={(e) => setItemCount(Number(e.target.value))}
                   style={{

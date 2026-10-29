@@ -126,7 +126,7 @@ export default function JwtAttackLab({ onRewardXP }) {
 
           <div style={{ background: 'var(--bg-secondary)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-              <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Server-Verteidigung (Algorithmus-Allowlist):</label>
+              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Server-Verteidigung (Algorithmus-Allowlist):</span>
               <button
                 onClick={() => setDefenseEnabled(!defenseEnabled)}
                 className={`btn ${defenseEnabled ? 'btn-primary' : 'btn-secondary'}`}
@@ -153,10 +153,10 @@ export default function JwtAttackLab({ onRewardXP }) {
 
       {tab === 'weak_secret' && (
         <div style={{ background: 'var(--bg-secondary)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
-          <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
+          <label htmlFor="jwt-attack-lab-1" style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
             Tatsächliches Server-Secret (probiere z. B. "secret" oder ein starkes Secret):
           </label>
-          <input
+          <input id="jwt-attack-lab-1"
             type="text"
             value={actualSecret}
             onChange={(e) => setActualSecret(e.target.value)}
@@ -185,10 +185,10 @@ export default function JwtAttackLab({ onRewardXP }) {
 
       {tab === 'kid_injection' && (
         <div style={{ background: 'var(--bg-secondary)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
-          <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
+          <label htmlFor="jwt-attack-lab-2" style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
             "kid" Header-Wert (probiere Pfad-Traversal wie "../../dev/null"):
           </label>
-          <input
+          <input id="jwt-attack-lab-2"
             type="text"
             value={kidValue}
             onChange={(e) => setKidValue(e.target.value)}
@@ -196,7 +196,7 @@ export default function JwtAttackLab({ onRewardXP }) {
           />
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-            <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Server sanitisiert kid (Allowlist):</label>
+            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Server sanitisiert kid (Allowlist):</span>
             <button
               onClick={() => setKidSanitized(!kidSanitized)}
               className={`btn ${kidSanitized ? 'btn-primary' : 'btn-secondary'}`}

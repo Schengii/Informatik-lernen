@@ -88,10 +88,10 @@ export default function SrpZeroKnowledgeLab({ onRewardXP }) {
           </h3>
 
           <div style={{ marginBottom: '14px' }}>
-            <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
+            <label htmlFor="srp-zero-knowledge-lab-1" style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
               Gespeichertes Passwort:
             </label>
-            <input
+            <input id="srp-zero-knowledge-lab-1"
               type="text"
               className="input-select"
               value={password}
@@ -101,10 +101,10 @@ export default function SrpZeroKnowledgeLab({ onRewardXP }) {
           </div>
 
           <div style={{ marginBottom: '14px' }}>
-            <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
+            <label htmlFor="srp-zero-knowledge-lab-2" style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
               Eingegebenes Login-Passwort (Angriffs-Simulation):
             </label>
-            <input
+            <input id="srp-zero-knowledge-lab-2"
               type="text"
               className="input-select"
               value={inputPassword}

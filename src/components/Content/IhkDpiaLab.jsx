@@ -106,10 +106,10 @@ export default function IhkDpiaLab({ onRewardXP }) {
 
       {/* Project Title Input */}
       <div style={{ marginBottom: '20px', background: 'var(--bg-card-hover)', padding: '16px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
-        <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>
+        <label htmlFor="ihk-dpia-lab-1" style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>
           Titel deines IHK-Abschlussprojekts:
         </label>
-        <input
+        <input id="ihk-dpia-lab-1"
           type="text"
           value={projectTitle}
           onChange={(e) => setProjectTitle(e.target.value)}

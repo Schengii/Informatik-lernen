@@ -88,8 +88,8 @@ export default function RagSemanticCacheLab() {
             </h2>
 
             <div className="space-y-3">
-              <label className="text-xs font-medium text-slate-300">Prompt eingeben:</label>
-              <textarea
+              <label htmlFor="rag-semantic-cache-lab-1" className="text-xs font-medium text-slate-300">Prompt eingeben:</label>
+              <textarea id="rag-semantic-cache-lab-1"
                 value={queryInput}
                 onChange={(e) => setQueryInput(e.target.value)}
                 rows={3}

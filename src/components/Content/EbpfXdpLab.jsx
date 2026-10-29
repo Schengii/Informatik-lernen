@@ -139,8 +139,8 @@ export default function EbpfXdpLab({ onRewardXP }) {
 
       {/* Interactive Packet Test Bar */}
       <div style={{ background: 'var(--bg-secondary)', padding: '18px', borderRadius: '12px', border: '1px solid var(--border-color)', display: 'flex', gap: '14px', flexWrap: 'wrap', alignItems: 'center' }}>
-        <label style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Test-Paket Quell-IP:</label>
-        <input
+        <label htmlFor="ebpf-xdp-lab-1" style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Test-Paket Quell-IP:</label>
+        <input id="ebpf-xdp-lab-1"
           type="text"
           value={ipInput}
           onChange={(e) => setIpInput(e.target.value)}

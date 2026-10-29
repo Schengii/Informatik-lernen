@@ -344,8 +344,8 @@ export default function StruktogrammLab({ onRewardXP }) {
 
             {selectedPresetId === 'rabatt_staffel' && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <label style={{ fontSize: '0.85rem', fontWeight: '700' }}>Test-Bestellwert (€):</label>
-                <input
+                <label htmlFor="struktogramm-lab-1" style={{ fontSize: '0.85rem', fontWeight: '700' }}>Test-Bestellwert (€):</label>
+                <input id="struktogramm-lab-1"
                   type="number"
                   value={traceInputVal}
                   onChange={(e) => { setTraceInputVal(e.target.value); setActiveStepIndex(0); }}

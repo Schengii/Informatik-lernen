@@ -73,10 +73,10 @@ export default function DguvV3ElektronikLab({ onAwardXP }) {
 
       {/* Schutzklassen Auswahl */}
       <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-        <label className="text-sm font-semibold text-slate-300 flex items-center gap-2 mb-3">
+        <span className="text-sm font-semibold text-slate-300 flex items-center gap-2 mb-3">
           <Layers className="w-4 h-4 text-amber-400" />
           1. Elektrische Schutzklasse des Prüflings wählen:
-        </label>
+        </span>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {Object.values(ELECTRICAL_PROTECTION_CLASSES).map(cls => {
             const isSelected = selectedClass === cls.id;
@@ -253,8 +253,8 @@ export default function DguvV3ElektronikLab({ onAwardXP }) {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
           <div className="p-3 bg-slate-800/40 rounded-lg border border-slate-700/60">
-            <label className="text-xs text-slate-400 block mb-1">Batteriebank-Kapazität (Ah):</label>
-            <input
+            <label htmlFor="dguv-v3-elektronik-lab-1" className="text-xs text-slate-400 block mb-1">Batteriebank-Kapazität (Ah):</label>
+            <input id="dguv-v3-elektronik-lab-1"
               type="number"
               min="10"
               max="500"
@@ -265,8 +265,8 @@ export default function DguvV3ElektronikLab({ onAwardXP }) {
             />
           </div>
           <div className="p-3 bg-slate-800/40 rounded-lg border border-slate-700/60">
-            <label className="text-xs text-slate-400 block mb-1">Batteriespannung (V DC):</label>
-            <input
+            <label htmlFor="dguv-v3-elektronik-lab-2" className="text-xs text-slate-400 block mb-1">Batteriespannung (V DC):</label>
+            <input id="dguv-v3-elektronik-lab-2"
               type="number"
               min="12"
               max="96"
@@ -277,8 +277,8 @@ export default function DguvV3ElektronikLab({ onAwardXP }) {
             />
           </div>
           <div className="p-3 bg-slate-800/40 rounded-lg border border-slate-700/60">
-            <label className="text-xs text-slate-400 block mb-1">Serverrack-Verbrauch (Watt):</label>
-            <input
+            <label htmlFor="dguv-v3-elektronik-lab-3" className="text-xs text-slate-400 block mb-1">Serverrack-Verbrauch (Watt):</label>
+            <input id="dguv-v3-elektronik-lab-3"
               type="number"
               min="100"
               max="10000"

@@ -489,8 +489,8 @@ export default function CpmNetworkLab({ onRewardXP }) {
 
         <form onSubmit={handleAddTask} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '14px', alignItems: 'flex-end' }}>
           <div>
-            <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px' }}>Vorgangs-ID (z. B. H)</label>
-            <input
+            <label htmlFor="cpm-network-lab-1" style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px' }}>Vorgangs-ID (z. B. H)</label>
+            <input id="cpm-network-lab-1"
               type="text"
               value={newId}
               onChange={(e) => setNewId(e.target.value)}
@@ -500,8 +500,8 @@ export default function CpmNetworkLab({ onRewardXP }) {
           </div>
 
           <div style={{ gridColumn: 'span 2' }}>
-            <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px' }}>Bezeichnung / Tätigkeit</label>
-            <input
+            <label htmlFor="cpm-network-lab-2" style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px' }}>Bezeichnung / Tätigkeit</label>
+            <input id="cpm-network-lab-2"
               type="text"
               value={newName}
               onChange={(e) => setNewName(e.target.value)}
@@ -511,8 +511,8 @@ export default function CpmNetworkLab({ onRewardXP }) {
           </div>
 
           <div>
-            <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px' }}>Dauer (Zeiteinheiten)</label>
-            <input
+            <label htmlFor="cpm-network-lab-3" style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px' }}>Dauer (Zeiteinheiten)</label>
+            <input id="cpm-network-lab-3"
               type="number"
               min="1"
               max="100"
@@ -523,8 +523,8 @@ export default function CpmNetworkLab({ onRewardXP }) {
           </div>
 
           <div>
-            <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px' }}>Vorgänger (z. B. F, G)</label>
-            <input
+            <label htmlFor="cpm-network-lab-4" style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, marginBottom: '4px' }}>Vorgänger (z. B. F, G)</label>
+            <input id="cpm-network-lab-4"
               type="text"
               value={newPreds}
               onChange={(e) => setNewPreds(e.target.value)}

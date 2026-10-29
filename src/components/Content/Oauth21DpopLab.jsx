@@ -107,9 +107,9 @@ export default function Oauth21DpopLab() {
 
             <div className="space-y-4">
               <div>
-                <label className="text-xs font-medium text-slate-400 mb-1.5 block">
+                <span className="text-xs font-medium text-slate-400 mb-1.5 block">
                   Gewählter Grant Type:
-                </label>
+                </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {Object.entries(OAUTH_GRANT_TYPES).map(([id, label]) => {
                     const isBanned = OAUTH21_DISALLOWED_GRANTS.includes(id);
@@ -248,8 +248,8 @@ export default function Oauth21DpopLab() {
               {/* Request Parameters */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 <div>
-                  <label className="text-slate-400 block mb-1">HTTP-Methode (htm):</label>
-                  <select
+                  <label htmlFor="oauth21-dpop-lab-1" className="text-slate-400 block mb-1">HTTP-Methode (htm):</label>
+                  <select id="oauth21-dpop-lab-1"
                     value={httpMethod}
                     onChange={(e) => setHttpMethod(e.target.value)}
                     className="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1.5 text-slate-200"
@@ -261,8 +261,8 @@ export default function Oauth21DpopLab() {
                   </select>
                 </div>
                 <div>
-                  <label className="text-slate-400 block mb-1">DPoP Token Alter (Sekunden):</label>
-                  <input
+                  <label htmlFor="oauth21-dpop-lab-2" className="text-slate-400 block mb-1">DPoP Token Alter (Sekunden):</label>
+                  <input id="oauth21-dpop-lab-2"
                     type="number"
                     value={proofAgeSec}
                     onChange={(e) => setProofAgeSec(parseInt(e.target.value, 10) || 0)}
@@ -272,8 +272,8 @@ export default function Oauth21DpopLab() {
               </div>
 
               <div>
-                <label className="text-xs text-slate-400 block mb-1">Target Resource URI (htu):</label>
-                <input
+                <label htmlFor="oauth21-dpop-lab-3" className="text-xs text-slate-400 block mb-1">Target Resource URI (htu):</label>
+                <input id="oauth21-dpop-lab-3"
                   type="text"
                   value={targetUri}
                   onChange={(e) => setTargetUri(e.target.value)}

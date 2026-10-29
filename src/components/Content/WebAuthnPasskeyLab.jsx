@@ -126,10 +126,10 @@ export default function WebAuthnPasskeyLab() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
               <div>
-                <label style={{ display: 'block', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '4px' }}>
+                <label htmlFor="web-authn-passkey-lab-1" style={{ display: 'block', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '4px' }}>
                   Benutzername / Identität:
                 </label>
-                <input
+                <input id="web-authn-passkey-lab-1"
                   type="text"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
@@ -138,9 +138,9 @@ export default function WebAuthnPasskeyLab() {
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '8px' }}>
+                <span style={{ display: 'block', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '8px' }}>
                   Authenticator-Typ wählen:
-                </label>
+                </span>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                   <button
                     onClick={() => setAuthenticatorType('platform')}

@@ -125,10 +125,10 @@ export default function SubnettingLab({ onRewardXP }) {
         <div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '24px' }}>
             <div>
-              <label style={{ display: 'block', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>
+              <label htmlFor="subnetting-lab-1" style={{ display: 'block', fontWeight: '700', marginBottom: '8px', color: 'var(--text-main)' }}>
                 IP-Adresse (IPv4)
               </label>
-              <input
+              <input id="subnetting-lab-1"
                 type="text"
                 value={ipAddress}
                 onChange={(e) => setIpAddress(e.target.value)}

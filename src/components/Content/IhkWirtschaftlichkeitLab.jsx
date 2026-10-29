@@ -182,10 +182,10 @@ export default function IhkWirtschaftlichkeitLab() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
               <div>
-                <label style={{ display: 'block', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '4px' }}>
+                <label htmlFor="ihk-wirtschaftlichkeit-lab-1" style={{ display: 'block', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '4px' }}>
                   Projektbezeichnung:
                 </label>
-                <input
+                <input id="ihk-wirtschaftlichkeit-lab-1"
                   type="text"
                   value={projectName}
                   onChange={(e) => setProjectName(e.target.value)}
@@ -194,10 +194,10 @@ export default function IhkWirtschaftlichkeitLab() {
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '4px' }}>
+                <label htmlFor="ihk-wirtschaftlichkeit-lab-2" style={{ display: 'block', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '4px' }}>
                   Einmalige Projekt- & Einführungskosten (€):
                 </label>
-                <input
+                <input id="ihk-wirtschaftlichkeit-lab-2"
                   type="number"
                   step="100"
                   value={initialInvestment}
@@ -207,10 +207,10 @@ export default function IhkWirtschaftlichkeitLab() {
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '4px' }}>
+                <label htmlFor="ihk-wirtschaftlichkeit-lab-3" style={{ display: 'block', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '4px' }}>
                   Jährliche Brutto-Kosteneinsparung (€ / Jahr):
                 </label>
-                <input
+                <input id="ihk-wirtschaftlichkeit-lab-3"
                   type="number"
                   step="100"
                   value={yearlyCostSavings}
@@ -220,10 +220,10 @@ export default function IhkWirtschaftlichkeitLab() {
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '4px' }}>
+                <label htmlFor="ihk-wirtschaftlichkeit-lab-4" style={{ display: 'block', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '4px' }}>
                   Zusätzliche laufende Betriebskosten (€ / Jahr):
                 </label>
-                <input
+                <input id="ihk-wirtschaftlichkeit-lab-4"
                   type="number"
                   step="50"
                   value={additionalRunningCosts}
@@ -314,8 +314,8 @@ export default function IhkWirtschaftlichkeitLab() {
               </h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.85rem' }}>
                 <div>
-                  <label style={{ color: '#94a3b8' }}>Entwicklungszeit (Stunden):</label>
-                  <input
+                  <label htmlFor="ihk-wirtschaftlichkeit-lab-5" style={{ color: '#94a3b8' }}>Entwicklungszeit (Stunden):</label>
+                  <input id="ihk-wirtschaftlichkeit-lab-5"
                     type="number"
                     value={devHours}
                     onChange={(e) => setDevHours(Number(e.target.value))}
@@ -323,8 +323,8 @@ export default function IhkWirtschaftlichkeitLab() {
                   />
                 </div>
                 <div>
-                  <label style={{ color: '#94a3b8' }}>Interner Stundensatz (€ / Std.):</label>
-                  <input
+                  <label htmlFor="ihk-wirtschaftlichkeit-lab-6" style={{ color: '#94a3b8' }}>Interner Stundensatz (€ / Std.):</label>
+                  <input id="ihk-wirtschaftlichkeit-lab-6"
                     type="number"
                     value={devHourlyRate}
                     onChange={(e) => setDevHourlyRate(Number(e.target.value))}
@@ -332,8 +332,8 @@ export default function IhkWirtschaftlichkeitLab() {
                   />
                 </div>
                 <div>
-                  <label style={{ color: '#94a3b8' }}>Hardware/Software einmalig (€):</label>
-                  <input
+                  <label htmlFor="ihk-wirtschaftlichkeit-lab-7" style={{ color: '#94a3b8' }}>Hardware/Software einmalig (€):</label>
+                  <input id="ihk-wirtschaftlichkeit-lab-7"
                     type="number"
                     value={hardwareOnce}
                     onChange={(e) => setHardwareOnce(Number(e.target.value))}
@@ -341,8 +341,8 @@ export default function IhkWirtschaftlichkeitLab() {
                   />
                 </div>
                 <div>
-                  <label style={{ color: '#94a3b8' }}>Jährliche Wartungskosten intern (€ / Jahr):</label>
-                  <input
+                  <label htmlFor="ihk-wirtschaftlichkeit-lab-8" style={{ color: '#94a3b8' }}>Jährliche Wartungskosten intern (€ / Jahr):</label>
+                  <input id="ihk-wirtschaftlichkeit-lab-8"
                     type="number"
                     value={makeMaintenance}
                     onChange={(e) => setMakeMaintenance(Number(e.target.value))}
@@ -359,8 +359,8 @@ export default function IhkWirtschaftlichkeitLab() {
               </h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.85rem' }}>
                 <div>
-                  <label style={{ color: '#94a3b8' }}>Einmalige Einrichtungsgebühr (€):</label>
-                  <input
+                  <label htmlFor="ihk-wirtschaftlichkeit-lab-9" style={{ color: '#94a3b8' }}>Einmalige Einrichtungsgebühr (€):</label>
+                  <input id="ihk-wirtschaftlichkeit-lab-9"
                     type="number"
                     value={saasSetup}
                     onChange={(e) => setSaasSetup(Number(e.target.value))}
@@ -368,8 +368,8 @@ export default function IhkWirtschaftlichkeitLab() {
                   />
                 </div>
                 <div>
-                  <label style={{ color: '#94a3b8' }}>Jährliche SaaS / Support-Lizenz (€ / Jahr):</label>
-                  <input
+                  <label htmlFor="ihk-wirtschaftlichkeit-lab-10" style={{ color: '#94a3b8' }}>Jährliche SaaS / Support-Lizenz (€ / Jahr):</label>
+                  <input id="ihk-wirtschaftlichkeit-lab-10"
                     type="number"
                     value={saasYearlyLicense}
                     onChange={(e) => setSaasYearlyLicense(Number(e.target.value))}
@@ -377,8 +377,8 @@ export default function IhkWirtschaftlichkeitLab() {
                   />
                 </div>
                 <div>
-                  <label style={{ color: '#94a3b8' }}>Betrachtungszeitraum (Jahre):</label>
-                  <input
+                  <label htmlFor="ihk-wirtschaftlichkeit-lab-11" style={{ color: '#94a3b8' }}>Betrachtungszeitraum (Jahre):</label>
+                  <input id="ihk-wirtschaftlichkeit-lab-11"
                     type="number"
                     min="1"
                     max="5"

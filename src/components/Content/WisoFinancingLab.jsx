@@ -66,8 +66,8 @@ export default function WisoFinancingLab({ onAwardXP }) {
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
           <div className="p-3 bg-slate-800/40 rounded-lg border border-slate-700/60">
-            <label className="text-[11px] text-slate-400 block mb-1">Netto-Investition (€):</label>
-            <input
+            <label htmlFor="wiso-financing-lab-1" className="text-[11px] text-slate-400 block mb-1">Netto-Investition (€):</label>
+            <input id="wiso-financing-lab-1"
               type="number"
               step="500"
               value={investment}
@@ -76,8 +76,8 @@ export default function WisoFinancingLab({ onAwardXP }) {
             />
           </div>
           <div className="p-3 bg-slate-800/40 rounded-lg border border-slate-700/60">
-            <label className="text-[11px] text-slate-400 block mb-1">AfA-Dauer (Jahre):</label>
-            <input
+            <label htmlFor="wiso-financing-lab-2" className="text-[11px] text-slate-400 block mb-1">AfA-Dauer (Jahre):</label>
+            <input id="wiso-financing-lab-2"
               type="number"
               min="1"
               max="10"
@@ -87,8 +87,8 @@ export default function WisoFinancingLab({ onAwardXP }) {
             />
           </div>
           <div className="p-3 bg-slate-800/40 rounded-lg border border-slate-700/60">
-            <label className="text-[11px] text-slate-400 block mb-1">Skonto-Satz (%):</label>
-            <input
+            <label htmlFor="wiso-financing-lab-3" className="text-[11px] text-slate-400 block mb-1">Skonto-Satz (%):</label>
+            <input id="wiso-financing-lab-3"
               type="number"
               step="0.5"
               value={skonto}
@@ -97,8 +97,8 @@ export default function WisoFinancingLab({ onAwardXP }) {
             />
           </div>
           <div className="p-3 bg-slate-800/40 rounded-lg border border-slate-700/60">
-            <label className="text-[11px] text-slate-400 block mb-1">Kreditzins p.a. (%):</label>
-            <input
+            <label htmlFor="wiso-financing-lab-4" className="text-[11px] text-slate-400 block mb-1">Kreditzins p.a. (%):</label>
+            <input id="wiso-financing-lab-4"
               type="number"
               step="0.1"
               value={interestRate}
@@ -107,8 +107,8 @@ export default function WisoFinancingLab({ onAwardXP }) {
             />
           </div>
           <div className="p-3 bg-slate-800/40 rounded-lg border border-slate-700/60">
-            <label className="text-[11px] text-slate-400 block mb-1">Leasingrate mtl. (€):</label>
-            <input
+            <label htmlFor="wiso-financing-lab-5" className="text-[11px] text-slate-400 block mb-1">Leasingrate mtl. (€):</label>
+            <input id="wiso-financing-lab-5"
               type="number"
               step="10"
               value={monthlyLease}
@@ -117,8 +117,8 @@ export default function WisoFinancingLab({ onAwardXP }) {
             />
           </div>
           <div className="p-3 bg-slate-800/40 rounded-lg border border-slate-700/60">
-            <label className="text-[11px] text-slate-400 block mb-1">Ertragssteuer (%):</label>
-            <input
+            <label htmlFor="wiso-financing-lab-6" className="text-[11px] text-slate-400 block mb-1">Ertragssteuer (%):</label>
+            <input id="wiso-financing-lab-6"
               type="number"
               step="1"
               value={taxRate}

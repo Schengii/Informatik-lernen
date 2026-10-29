@@ -128,10 +128,10 @@ export default function WisoMaschinenstundensatzLab() {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
               <div>
-                <label className="block text-slate-400 text-xs font-medium mb-1">
+                <label htmlFor="wiso-maschinenstundensatz-lab-1" className="block text-slate-400 text-xs font-medium mb-1">
                   Wiederbeschaffungswert (€)
                 </label>
-                <input
+                <input id="wiso-maschinenstundensatz-lab-1"
                   type="number"
                   value={params.wiederbeschaffungswert}
                   onChange={(e) => handleChange('wiederbeschaffungswert', e.target.value)}
@@ -139,10 +139,10 @@ export default function WisoMaschinenstundensatzLab() {
                 />
               </div>
               <div>
-                <label className="block text-slate-400 text-xs font-medium mb-1">
+                <label htmlFor="wiso-maschinenstundensatz-lab-2" className="block text-slate-400 text-xs font-medium mb-1">
                   Geschätzter Restwert (€)
                 </label>
-                <input
+                <input id="wiso-maschinenstundensatz-lab-2"
                   type="number"
                   value={params.restwert}
                   onChange={(e) => handleChange('restwert', e.target.value)}
@@ -150,10 +150,10 @@ export default function WisoMaschinenstundensatzLab() {
                 />
               </div>
               <div>
-                <label className="block text-slate-400 text-xs font-medium mb-1">
+                <label htmlFor="wiso-maschinenstundensatz-lab-3" className="block text-slate-400 text-xs font-medium mb-1">
                   Nutzungsdauer (Jahre)
                 </label>
-                <input
+                <input id="wiso-maschinenstundensatz-lab-3"
                   type="number"
                   value={params.nutzungsdauerJahre}
                   onChange={(e) => handleChange('nutzungsdauerJahre', e.target.value)}
@@ -161,10 +161,10 @@ export default function WisoMaschinenstundensatzLab() {
                 />
               </div>
               <div>
-                <label className="block text-slate-400 text-xs font-medium mb-1">
+                <label htmlFor="wiso-maschinenstundensatz-lab-4" className="block text-slate-400 text-xs font-medium mb-1">
                   Kalkulatorischer Zinssatz (% p.a.)
                 </label>
-                <input
+                <input id="wiso-maschinenstundensatz-lab-4"
                   type="number"
                   step="0.5"
                   value={params.kalkZinssatzProzent}
@@ -173,10 +173,10 @@ export default function WisoMaschinenstundensatzLab() {
                 />
               </div>
               <div className="sm:col-span-2">
-                <label className="block text-slate-400 text-xs font-medium mb-1">
+                <label htmlFor="wiso-maschinenstundensatz-lab-5" className="block text-slate-400 text-xs font-medium mb-1">
                   Geplante jährliche Maschinenlaufzeit (Stunden / Jahr)
                 </label>
-                <input
+                <input id="wiso-maschinenstundensatz-lab-5"
                   type="number"
                   value={params.jaehrlicheLaufstunden}
                   onChange={(e) => handleChange('jaehrlicheLaufstunden', e.target.value)}
@@ -193,10 +193,10 @@ export default function WisoMaschinenstundensatzLab() {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
               <div>
-                <label className="block text-slate-400 text-xs font-medium mb-1">
+                <label htmlFor="wiso-maschinenstundensatz-lab-6" className="block text-slate-400 text-xs font-medium mb-1">
                   Raumfläche (m²)
                 </label>
-                <input
+                <input id="wiso-maschinenstundensatz-lab-6"
                   type="number"
                   value={params.raumflaecheQm}
                   onChange={(e) => handleChange('raumflaecheQm', e.target.value)}
@@ -204,10 +204,10 @@ export default function WisoMaschinenstundensatzLab() {
                 />
               </div>
               <div>
-                <label className="block text-slate-400 text-xs font-medium mb-1">
+                <label htmlFor="wiso-maschinenstundensatz-lab-7" className="block text-slate-400 text-xs font-medium mb-1">
                   Raumkostensatz (€ / m² / Jahr)
                 </label>
-                <input
+                <input id="wiso-maschinenstundensatz-lab-7"
                   type="number"
                   value={params.raumkostensatzProQm}
                   onChange={(e) => handleChange('raumkostensatzProQm', e.target.value)}
@@ -215,10 +215,10 @@ export default function WisoMaschinenstundensatzLab() {
                 />
               </div>
               <div>
-                <label className="block text-slate-400 text-xs font-medium mb-1">
+                <label htmlFor="wiso-maschinenstundensatz-lab-8" className="block text-slate-400 text-xs font-medium mb-1">
                   Leistungsaufnahme (kW)
                 </label>
-                <input
+                <input id="wiso-maschinenstundensatz-lab-8"
                   type="number"
                   step="0.5"
                   value={params.leistungKw}
@@ -227,10 +227,10 @@ export default function WisoMaschinenstundensatzLab() {
                 />
               </div>
               <div>
-                <label className="block text-slate-400 text-xs font-medium mb-1">
+                <label htmlFor="wiso-maschinenstundensatz-lab-9" className="block text-slate-400 text-xs font-medium mb-1">
                   Strompreis (€ / kWh)
                 </label>
-                <input
+                <input id="wiso-maschinenstundensatz-lab-9"
                   type="number"
                   step="0.01"
                   value={params.strompreisKwh}
@@ -239,10 +239,10 @@ export default function WisoMaschinenstundensatzLab() {
                 />
               </div>
               <div>
-                <label className="block text-slate-400 text-xs font-medium mb-1">
+                <label htmlFor="wiso-maschinenstundensatz-lab-10" className="block text-slate-400 text-xs font-medium mb-1">
                   Instandhaltungskosten (€ / Jahr)
                 </label>
-                <input
+                <input id="wiso-maschinenstundensatz-lab-10"
                   type="number"
                   value={params.instandhaltungProJahr}
                   onChange={(e) => handleChange('instandhaltungProJahr', e.target.value)}
@@ -250,10 +250,10 @@ export default function WisoMaschinenstundensatzLab() {
                 />
               </div>
               <div>
-                <label className="block text-slate-400 text-xs font-medium mb-1">
+                <label htmlFor="wiso-maschinenstundensatz-lab-11" className="block text-slate-400 text-xs font-medium mb-1">
                   Werkzeugkosten (€ / Jahr)
                 </label>
-                <input
+                <input id="wiso-maschinenstundensatz-lab-11"
                   type="number"
                   value={params.werkzeugkostenProJahr}
                   onChange={(e) => handleChange('werkzeugkostenProJahr', e.target.value)}

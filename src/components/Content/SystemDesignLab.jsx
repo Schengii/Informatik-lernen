@@ -131,10 +131,10 @@ export default function SystemDesignLab({ onRewardXP }) {
 
           {/* Load Balancer Algorithm */}
           <div>
-            <label style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
+            <label htmlFor="system-design-lab-1" style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
               Load Balancing Algorithmus:
             </label>
-            <select
+            <select id="system-design-lab-1"
               value={algorithm}
               onChange={(e) => setAlgorithm(e.target.value)}
               style={{ width: '100%', padding: '10px', borderRadius: 'var(--radius-md)', background: 'var(--bg-card)', color: 'var(--text-main)', border: '1px solid var(--border-color)', fontWeight: '600' }}
@@ -147,9 +147,9 @@ export default function SystemDesignLab({ onRewardXP }) {
 
           {/* Redis Cache Toggle */}
           <div>
-            <label style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
+            <span style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
               Redis Caching Layer:
-            </label>
+            </span>
             <button
               onClick={() => setCacheEnabled(!cacheEnabled)}
               style={{

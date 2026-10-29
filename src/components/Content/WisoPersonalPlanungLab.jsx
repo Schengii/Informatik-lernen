@@ -134,8 +134,8 @@ export default function WisoPersonalPlanungLab({ onRewardXP }) {
 
             <div style={{ display: 'flex', gap: '10px' }}>
               <div style={{ flex: 1 }}>
-                <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Abgänge (-):</label>
-                <input
+                <label htmlFor="wiso-personal-planung-lab-1" style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Abgänge (-):</label>
+                <input id="wiso-personal-planung-lab-1"
                   type="number"
                   min="0"
                   max="20"
@@ -145,8 +145,8 @@ export default function WisoPersonalPlanungLab({ onRewardXP }) {
                 />
               </div>
               <div style={{ flex: 1 }}>
-                <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Zugänge (+):</label>
-                <input
+                <label htmlFor="wiso-personal-planung-lab-2" style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Zugänge (+):</label>
+                <input id="wiso-personal-planung-lab-2"
                   type="number"
                   min="0"
                   max="20"
@@ -178,8 +178,8 @@ export default function WisoPersonalPlanungLab({ onRewardXP }) {
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '14px' }}>
             <div>
-              <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Anfangsbestand:</label>
-              <input
+              <label htmlFor="wiso-personal-planung-lab-3" style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Anfangsbestand:</label>
+              <input id="wiso-personal-planung-lab-3"
                 type="number"
                 value={anfangsbestand}
                 onChange={(e) => setAnfangsbestand(Number(e.target.value))}
@@ -187,8 +187,8 @@ export default function WisoPersonalPlanungLab({ onRewardXP }) {
               />
             </div>
             <div>
-              <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Endbestand:</label>
-              <input
+              <label htmlFor="wiso-personal-planung-lab-4" style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Endbestand:</label>
+              <input id="wiso-personal-planung-lab-4"
                 type="number"
                 value={endbestand}
                 onChange={(e) => setEndbestand(Number(e.target.value))}
@@ -196,8 +196,8 @@ export default function WisoPersonalPlanungLab({ onRewardXP }) {
               />
             </div>
             <div>
-              <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Abgänge im Jahr:</label>
-              <input
+              <label htmlFor="wiso-personal-planung-lab-5" style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Abgänge im Jahr:</label>
+              <input id="wiso-personal-planung-lab-5"
                 type="number"
                 value={abgaenge}
                 onChange={(e) => setAbgaenge(Number(e.target.value))}
@@ -205,8 +205,8 @@ export default function WisoPersonalPlanungLab({ onRewardXP }) {
               />
             </div>
             <div>
-              <label style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Zugänge im Jahr:</label>
-              <input
+              <label htmlFor="wiso-personal-planung-lab-6" style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Zugänge im Jahr:</label>
+              <input id="wiso-personal-planung-lab-6"
                 type="number"
                 value={zugaenge}
                 onChange={(e) => setZugaenge(Number(e.target.value))}

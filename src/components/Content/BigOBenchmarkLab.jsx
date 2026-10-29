@@ -82,10 +82,10 @@ export default function BigOBenchmarkLab({ onRewardXP }) {
 
           {/* Algorithm Choice */}
           <div>
-            <label style={{ fontSize: '0.88rem', fontWeight: '700', color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
+            <label htmlFor="big-obenchmark-lab-1" style={{ fontSize: '0.88rem', fontWeight: '700', color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
               Wähle Algorithmus / Komplexität:
             </label>
-            <select
+            <select id="big-obenchmark-lab-1"
               value={selectedAlgoId}
               onChange={(e) => setSelectedAlgoId(e.target.value)}
               style={{ width: '100%', padding: '10px', borderRadius: 'var(--radius-md)', background: 'var(--bg-card)', color: 'var(--text-main)', border: '1px solid var(--border-color)', fontWeight: '700' }}

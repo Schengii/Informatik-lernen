@@ -93,8 +93,8 @@ export default function GrpcProtobufLab({ onRewardXP }) {
 
           <div style={{ marginTop: '14px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
             <div>
-              <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Username (String):</label>
-              <input
+              <label htmlFor="grpc-protobuf-lab-1" style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Username (String):</label>
+              <input id="grpc-protobuf-lab-1"
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -115,7 +115,7 @@ export default function GrpcProtobufLab({ onRewardXP }) {
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>isActive (bool):</label>
+              <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>isActive (bool):</span>
               <button
                 onClick={() => setIsActive(!isActive)}
                 className={`btn ${isActive ? 'btn-primary' : 'btn-secondary'}`}

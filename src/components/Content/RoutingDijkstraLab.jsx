@@ -244,8 +244,8 @@ export default function RoutingDijkstraLab({ onRewardXP }) {
 
             <div style={{ display: 'flex', gap: '12px', marginBottom: '16px' }}>
               <div style={{ flex: 1 }}>
-                <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Startknoten:</label>
-                <select
+                <label htmlFor="routing-dijkstra-lab-1" style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Startknoten:</label>
+                <select id="routing-dijkstra-lab-1"
                   className="input-select"
                   value={startNode}
                   onChange={(e) => { setStartNode(e.target.value); setActiveStepIdx(0); }}
@@ -256,8 +256,8 @@ export default function RoutingDijkstraLab({ onRewardXP }) {
               </div>
 
               <div style={{ flex: 1 }}>
-                <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Zielknoten:</label>
-                <select
+                <label htmlFor="routing-dijkstra-lab-2" style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Zielknoten:</label>
+                <select id="routing-dijkstra-lab-2"
                   className="input-select"
                   value={targetNode}
                   onChange={(e) => { setTargetNode(e.target.value); setActiveStepIdx(0); }}

@@ -242,10 +242,10 @@ export default function DockerComposeLab({ onRewardXP }) {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px', marginBottom: '20px' }}>
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, marginBottom: '6px' }}>
+              <label htmlFor="docker-compose-lab-1" style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, marginBottom: '6px' }}>
                 Quell-Container (From)
               </label>
-              <select
+              <select id="docker-compose-lab-1"
                 value={selectedPingFrom}
                 onChange={(e) => setSelectedPingFrom(e.target.value)}
                 style={{ width: '100%', padding: '10px', borderRadius: 'var(--radius-md)', background: 'var(--bg-primary)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}
@@ -257,10 +257,10 @@ export default function DockerComposeLab({ onRewardXP }) {
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, marginBottom: '6px' }}>
+              <label htmlFor="docker-compose-lab-2" style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, marginBottom: '6px' }}>
                 Ziel-Container (To)
               </label>
-              <select
+              <select id="docker-compose-lab-2"
                 value={selectedPingTo}
                 onChange={(e) => setSelectedPingTo(e.target.value)}
                 style={{ width: '100%', padding: '10px', borderRadius: 'var(--radius-md)', background: 'var(--bg-primary)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}

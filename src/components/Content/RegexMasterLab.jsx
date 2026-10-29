@@ -241,10 +241,10 @@ export default function RegexMasterLab({ onRewardXP }) {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
         {/* Test Text Input */}
         <div>
-          <label style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
+          <label htmlFor="regex-master-lab-1" style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
             📝 Ziel-Text zum Durchsuchen:
           </label>
-          <textarea
+          <textarea id="regex-master-lab-1"
             rows={6}
             value={testText}
             onChange={(e) => setTestText(e.target.value)}

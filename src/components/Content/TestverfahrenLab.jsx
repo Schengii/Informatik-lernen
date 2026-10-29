@@ -225,8 +225,8 @@ export default function TestverfahrenLab({ onRewardXP }) {
 
               {/* Live Eingabetester */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <label style={{ fontSize: '0.85rem', fontWeight: 600 }}>Testwert eingeben:</label>
-                <input
+                <label htmlFor="testverfahren-lab-1" style={{ fontSize: '0.85rem', fontWeight: 600 }}>Testwert eingeben:</label>
+                <input id="testverfahren-lab-1"
                   type="text"
                   value={testInput}
                   onChange={(e) => setTestInput(e.target.value)}

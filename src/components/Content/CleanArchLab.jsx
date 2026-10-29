@@ -149,8 +149,8 @@ export default function CleanArchLab() {
 
         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
           <div style={{ flex: 1, minWidth: '220px' }}>
-            <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, color: '#64748b', marginBottom: '4px' }}>Quelle (Importeur):</label>
-            <select
+            <label htmlFor="clean-arch-lab-1" style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, color: '#64748b', marginBottom: '4px' }}>Quelle (Importeur):</label>
+            <select id="clean-arch-lab-1"
               value={fromSelect}
               onChange={(e) => setFromSelect(e.target.value)}
               style={{ width: '100%', padding: '8px 12px', borderRadius: '8px', border: '1px solid #cbd5e1', background: 'var(--input-bg, #fff)' }}
@@ -164,8 +164,8 @@ export default function CleanArchLab() {
           <div style={{ paddingTop: '20px' }}><ArrowRight size={20} color="#64748b" /></div>
 
           <div style={{ flex: 1, minWidth: '220px' }}>
-            <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, color: '#64748b', marginBottom: '4px' }}>Ziel (Importierte Komponente):</label>
-            <select
+            <label htmlFor="clean-arch-lab-2" style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, color: '#64748b', marginBottom: '4px' }}>Ziel (Importierte Komponente):</label>
+            <select id="clean-arch-lab-2"
               value={toSelect}
               onChange={(e) => setToSelect(e.target.value)}
               style={{ width: '100%', padding: '8px 12px', borderRadius: '8px', border: '1px solid #cbd5e1', background: 'var(--input-bg, #fff)' }}

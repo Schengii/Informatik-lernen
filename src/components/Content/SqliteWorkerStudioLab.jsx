@@ -136,9 +136,9 @@ export default function SqliteWorkerStudioLab() {
         marginBottom: '24px'
       }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-          <label style={{ fontWeight: 600, fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <span style={{ fontWeight: 600, fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
             <Cpu size={18} color="#10b981" /> SQL Abfrage (Im Worker-Thread ausgeführt)
-          </label>
+          </span>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Worker Offloading:</span>
             <button

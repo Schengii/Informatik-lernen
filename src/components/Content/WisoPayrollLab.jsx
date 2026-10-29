@@ -81,10 +81,10 @@ export default function WisoPayrollLab() {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
           <div>
-            <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary, #64748b)', marginBottom: '6px' }}>
+            <label htmlFor="wiso-payroll-lab-1" style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary, #64748b)', marginBottom: '6px' }}>
               Bruttomonatsgehalt (€):
             </label>
-            <input
+            <input id="wiso-payroll-lab-1"
               type="number"
               value={grossSalary}
               onChange={(e) => setGrossSalary(Number(e.target.value))}
@@ -102,10 +102,10 @@ export default function WisoPayrollLab() {
           </div>
 
           <div>
-            <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary, #64748b)', marginBottom: '6px' }}>
+            <label htmlFor="wiso-payroll-lab-2" style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary, #64748b)', marginBottom: '6px' }}>
               Lohnsteuerklasse:
             </label>
-            <select
+            <select id="wiso-payroll-lab-2"
               value={taxClass}
               onChange={(e) => setTaxClass(Number(e.target.value))}
               style={{
@@ -129,10 +129,10 @@ export default function WisoPayrollLab() {
           </div>
 
           <div>
-            <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary, #64748b)', marginBottom: '6px' }}>
+            <label htmlFor="wiso-payroll-lab-3" style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary, #64748b)', marginBottom: '6px' }}>
               Geldwerter Vorteil (€ z. B. Firmenwagen):
             </label>
-            <input
+            <input id="wiso-payroll-lab-3"
               type="number"
               value={benefitsInKind}
               onChange={(e) => setBenefitsInKind(Number(e.target.value))}

@@ -283,10 +283,10 @@ export default function WisoCapitalValueLab({ onRewardXP }) {
             </h3>
 
             <div style={{ marginBottom: '18px' }}>
-              <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 'bold', color: 'var(--text-muted)', marginBottom: '6px' }}>
+              <label htmlFor="wiso-capital-value-lab-1" style={{ display: 'block', fontSize: '0.82rem', fontWeight: 'bold', color: 'var(--text-muted)', marginBottom: '6px' }}>
                 Projektbezeichnung (für IHK Dokumentation):
               </label>
-              <input
+              <input id="wiso-capital-value-lab-1"
                 type="text"
                 value={projectName}
                 onChange={(e) => setProjectName(e.target.value)}

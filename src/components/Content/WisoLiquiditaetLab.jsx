@@ -88,10 +88,10 @@ export default function WisoLiquiditaetLab() {
 
             <div className="space-y-3 text-xs">
               <div>
-                <label className="block text-slate-400 font-medium mb-1">
+                <label htmlFor="wiso-liquiditaet-lab-1" className="block text-slate-400 font-medium mb-1">
                   1. Flüssige Mittel (Kasse, Bankguthaben) (€):
                 </label>
-                <input
+                <input id="wiso-liquiditaet-lab-1"
                   type="number"
                   value={params.fluessigeMittel}
                   onChange={(e) => handleChange('fluessigeMittel', e.target.value)}
@@ -100,10 +100,10 @@ export default function WisoLiquiditaetLab() {
               </div>
 
               <div>
-                <label className="block text-slate-400 font-medium mb-1">
+                <label htmlFor="wiso-liquiditaet-lab-2" className="block text-slate-400 font-medium mb-1">
                   2. Kurzfristige Forderungen & Wertpapiere (€):
                 </label>
-                <input
+                <input id="wiso-liquiditaet-lab-2"
                   type="number"
                   value={params.kurzfristigeForderungen}
                   onChange={(e) => handleChange('kurzfristigeForderungen', e.target.value)}
@@ -112,10 +112,10 @@ export default function WisoLiquiditaetLab() {
               </div>
 
               <div>
-                <label className="block text-slate-400 font-medium mb-1">
+                <label htmlFor="wiso-liquiditaet-lab-3" className="block text-slate-400 font-medium mb-1">
                   3. Vorräte (Waren, Rohstoffe, Erzeugnisse) (€):
                 </label>
-                <input
+                <input id="wiso-liquiditaet-lab-3"
                   type="number"
                   value={params.vorraete}
                   onChange={(e) => handleChange('vorraete', e.target.value)}
@@ -124,10 +124,10 @@ export default function WisoLiquiditaetLab() {
               </div>
 
               <div className="pt-2 border-t border-slate-800">
-                <label className="block text-slate-300 font-semibold mb-1">
+                <label htmlFor="wiso-liquiditaet-lab-4" className="block text-slate-300 font-semibold mb-1">
                   Kurzfristige Verbindlichkeiten (LuL, Kontokorrent) (€):
                 </label>
-                <input
+                <input id="wiso-liquiditaet-lab-4"
                   type="number"
                   value={params.kurzfristigeVerbindlichkeiten}
                   onChange={(e) => handleChange('kurzfristigeVerbindlichkeiten', e.target.value)}

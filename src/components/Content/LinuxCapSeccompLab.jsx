@@ -187,10 +187,10 @@ export default function LinuxCapSeccompLab() {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '16px' }}>
             <div>
-              <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>
+              <label htmlFor="linux-cap-seccomp-lab-1" style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>
                 Systemaufruf (Syscall):
               </label>
-              <select
+              <select id="linux-cap-seccomp-lab-1"
                 value={selectedSyscall}
                 onChange={(e) => setSelectedSyscall(e.target.value)}
                 style={{
@@ -215,10 +215,10 @@ export default function LinuxCapSeccompLab() {
 
             {selectedSyscall === 'bind' && (
               <div>
-                <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>
+                <label htmlFor="linux-cap-seccomp-lab-2" style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>
                   Ziel-Port (Privilegiert falls &lt; 1024):
                 </label>
-                <input 
+                <input id="linux-cap-seccomp-lab-2" 
                   type="number"
                   value={bindPort}
                   onChange={(e) => setBindPort(parseInt(e.target.value, 10) || 80)}

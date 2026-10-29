@@ -199,9 +199,9 @@ export default function NatPatSimulatorLab({ onRewardXP }) {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
               {/* Absender (LAN) */}
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', marginBottom: '8px', color: '#38bdf8' }}>
+                <span style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', marginBottom: '8px', color: '#38bdf8' }}>
                   1. LAN Absender-Host (Inside Local):
-                </label>
+                </span>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   {DEFAULT_NAT_SCENARIO.lanHosts.map(h => (
                     <button
@@ -232,9 +232,9 @@ export default function NatPatSimulatorLab({ onRewardXP }) {
 
               {/* Ziel (WAN) */}
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', marginBottom: '8px', color: '#10b981' }}>
+                <span style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', marginBottom: '8px', color: '#10b981' }}>
                   2. Internet-Ziel (Outside Global):
-                </label>
+                </span>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   {DEFAULT_NAT_SCENARIO.wanTargets.map(t => (
                     <button

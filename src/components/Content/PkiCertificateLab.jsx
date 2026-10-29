@@ -92,11 +92,11 @@ export default function PkiCertificateLab({ onAwardXP }) {
       <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="text-xs font-semibold text-slate-300 block mb-2">
+            <label htmlFor="pki-certificate-lab-1" className="text-xs font-semibold text-slate-300 block mb-2">
               Zu prüfende Host-URL / Domain:
             </label>
             <div className="flex gap-2">
-              <input
+              <input id="pki-certificate-lab-1"
                 type="text"
                 value={domainInput}
                 onChange={e => setDomainInput(e.target.value)}
@@ -113,9 +113,9 @@ export default function PkiCertificateLab({ onAwardXP }) {
           </div>
 
           <div>
-            <label className="text-xs font-semibold text-slate-300 block mb-2">
+            <span className="text-xs font-semibold text-slate-300 block mb-2">
               PKI-Fehlerszenarien simulieren:
-            </label>
+            </span>
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setIsLeafExpired(!isLeafExpired)}

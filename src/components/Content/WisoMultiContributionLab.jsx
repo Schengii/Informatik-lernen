@@ -209,8 +209,8 @@ export default function WisoMultiContributionLab() {
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginTop: '12px' }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: '#64748b' }}>Preis pro Stück (€):</label>
-                  <input
+                  <label htmlFor={`wiso-multi-contribution-lab-1-${p.id}`} style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: '#64748b' }}>Preis pro Stück (€):</label>
+                  <input id={`wiso-multi-contribution-lab-1-${p.id}`}
                     type="number"
                     value={p.pricePerUnit}
                     onChange={(e) => handleUpdateProduct(p.id, 'pricePerUnit', e.target.value)}
@@ -219,8 +219,8 @@ export default function WisoMultiContributionLab() {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: '#64748b' }}>Var. Kosten/Stück (€):</label>
-                  <input
+                  <label htmlFor={`wiso-multi-contribution-lab-2-${p.id}`} style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: '#64748b' }}>Var. Kosten/Stück (€):</label>
+                  <input id={`wiso-multi-contribution-lab-2-${p.id}`}
                     type="number"
                     value={p.variableCostPerUnit}
                     onChange={(e) => handleUpdateProduct(p.id, 'variableCostPerUnit', e.target.value)}
@@ -229,8 +229,8 @@ export default function WisoMultiContributionLab() {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: '#64748b' }}>Absatzmenge (Stück):</label>
-                  <input
+                  <label htmlFor={`wiso-multi-contribution-lab-3-${p.id}`} style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: '#64748b' }}>Absatzmenge (Stück):</label>
+                  <input id={`wiso-multi-contribution-lab-3-${p.id}`}
                     type="number"
                     value={p.unitsSold}
                     onChange={(e) => handleUpdateProduct(p.id, 'unitsSold', e.target.value)}
@@ -239,8 +239,8 @@ export default function WisoMultiContributionLab() {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: '#64748b' }}>Erzeugnisfix (€):</label>
-                  <input
+                  <label htmlFor={`wiso-multi-contribution-lab-4-${p.id}`} style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: '#64748b' }}>Erzeugnisfix (€):</label>
+                  <input id={`wiso-multi-contribution-lab-4-${p.id}`}
                     type="number"
                     value={p.productFixCosts}
                     onChange={(e) => handleUpdateProduct(p.id, 'productFixCosts', e.target.value)}

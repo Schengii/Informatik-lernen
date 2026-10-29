@@ -265,8 +265,8 @@ export default function IhkRiskAnalysisLab() {
             </h3>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px', marginBottom: '12px' }}>
               <div>
-                <label style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Risikobeschreibung:</label>
-                <input
+                <label htmlFor="ihk-risk-analysis-lab-1" style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Risikobeschreibung:</label>
+                <input id="ihk-risk-analysis-lab-1"
                   type="text"
                   placeholder="z. B. Ausfall Staging-Server"
                   value={newTitle}
@@ -277,8 +277,8 @@ export default function IhkRiskAnalysisLab() {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Kategorie:</label>
-                <input
+                <label htmlFor="ihk-risk-analysis-lab-2" style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Kategorie:</label>
+                <input id="ihk-risk-analysis-lab-2"
                   type="text"
                   value={newCategory}
                   onChange={(e) => setNewCategory(e.target.value)}
@@ -287,8 +287,8 @@ export default function IhkRiskAnalysisLab() {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Eintrittswahrscheinlichkeit W (1–5):</label>
-                <select
+                <label htmlFor="ihk-risk-analysis-lab-3" style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Eintrittswahrscheinlichkeit W (1–5):</label>
+                <select id="ihk-risk-analysis-lab-3"
                   value={newProb}
                   onChange={(e) => setNewProb(Number(e.target.value))}
                   style={{ width: '100%', padding: '8px', background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '6px', color: '#fff' }}
@@ -302,8 +302,8 @@ export default function IhkRiskAnalysisLab() {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Schadensausmaß S (1–5):</label>
-                <select
+                <label htmlFor="ihk-risk-analysis-lab-4" style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Schadensausmaß S (1–5):</label>
+                <select id="ihk-risk-analysis-lab-4"
                   value={newImpact}
                   onChange={(e) => setNewImpact(Number(e.target.value))}
                   style={{ width: '100%', padding: '8px', background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '6px', color: '#fff' }}
@@ -317,8 +317,8 @@ export default function IhkRiskAnalysisLab() {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Handlungsstrategie:</label>
-                <select
+                <label htmlFor="ihk-risk-analysis-lab-5" style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Handlungsstrategie:</label>
+                <select id="ihk-risk-analysis-lab-5"
                   value={newStrategy}
                   onChange={(e) => setNewStrategy(e.target.value)}
                   style={{ width: '100%', padding: '8px', background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '6px', color: '#fff' }}
@@ -332,8 +332,8 @@ export default function IhkRiskAnalysisLab() {
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '14px' }}>
               <div>
-                <label style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Präventivmaßnahme (Vermeidung):</label>
-                <input
+                <label htmlFor="ihk-risk-analysis-lab-6" style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Präventivmaßnahme (Vermeidung):</label>
+                <input id="ihk-risk-analysis-lab-6"
                   type="text"
                   placeholder="Was tun wir vorab?"
                   value={newPreventive}
@@ -342,8 +342,8 @@ export default function IhkRiskAnalysisLab() {
                 />
               </div>
               <div>
-                <label style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Notfallplan (Contingency Plan):</label>
-                <input
+                <label htmlFor="ihk-risk-analysis-lab-7" style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Notfallplan (Contingency Plan):</label>
+                <input id="ihk-risk-analysis-lab-7"
                   type="text"
                   placeholder="Was tun wir, wenn das Risiko eintritt?"
                   value={newContingency}
@@ -451,10 +451,10 @@ export default function IhkRiskAnalysisLab() {
           </div>
 
           <div style={{ marginBottom: '16px' }}>
-            <label style={{ fontSize: '0.8rem', color: '#94a3b8', display: 'block', marginBottom: '4px' }}>
+            <label htmlFor="ihk-risk-analysis-lab-8" style={{ fontSize: '0.8rem', color: '#94a3b8', display: 'block', marginBottom: '4px' }}>
               Projektname für die Dokumentation:
             </label>
-            <input
+            <input id="ihk-risk-analysis-lab-8"
               type="text"
               value={projectName}
               onChange={(e) => setProjectName(e.target.value)}

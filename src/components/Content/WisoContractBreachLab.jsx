@@ -75,9 +75,9 @@ export default function WisoContractBreachLab({ onRewardXP }) {
           </h3>
 
           <div style={{ marginBottom: '16px' }}>
-            <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>
+            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>
               Vertragsparteien:
-            </label>
+            </span>
             <div style={{ display: 'flex', gap: '10px' }}>
               <button
                 className={`btn ${partyType === 'b2b' ? 'btn-primary' : 'btn-secondary'}`}
@@ -97,10 +97,10 @@ export default function WisoContractBreachLab({ onRewardXP }) {
           </div>
 
           <div style={{ marginBottom: '16px' }}>
-            <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>
+            <label htmlFor="wiso-contract-breach-lab-1" style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>
               Art des Mangels:
             </label>
-            <select
+            <select id="wiso-contract-breach-lab-1"
               className="input-select"
               value={defectType}
               onChange={(e) => setDefectType(e.target.value)}

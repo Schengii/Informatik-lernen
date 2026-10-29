@@ -94,8 +94,8 @@ export default function WebrtcIceGatheringLab() {
 
             <div className="space-y-3 text-xs">
               <div>
-                <label className="block text-slate-300 font-medium mb-1">Lokaler NAT-Typ (Peer A):</label>
-                <select
+                <label htmlFor="webrtc-ice-gathering-lab-1" className="block text-slate-300 font-medium mb-1">Lokaler NAT-Typ (Peer A):</label>
+                <select id="webrtc-ice-gathering-lab-1"
                   value={localNat}
                   onChange={(e) => setLocalNat(/** @type {any} */ (e.target.value))}
                   className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white"
@@ -108,8 +108,8 @@ export default function WebrtcIceGatheringLab() {
               </div>
 
               <div>
-                <label className="block text-slate-300 font-medium mb-1">Entfernter NAT-Typ (Peer B):</label>
-                <select
+                <label htmlFor="webrtc-ice-gathering-lab-2" className="block text-slate-300 font-medium mb-1">Entfernter NAT-Typ (Peer B):</label>
+                <select id="webrtc-ice-gathering-lab-2"
                   value={remoteNat}
                   onChange={(e) => setRemoteNat(/** @type {any} */ (e.target.value))}
                   className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white"

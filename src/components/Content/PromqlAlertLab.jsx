@@ -127,7 +127,7 @@ export default function PromqlAlertLab({ onRewardXP }) {
             style={{ width: '180px' }}
           />
 
-          <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '10px', marginBottom: '4px' }}>Severity Label:</label>
+          <span style={{ display: 'block', fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '10px', marginBottom: '4px' }}>Severity Label:</span>
           <div style={{ display: 'flex', gap: '6px' }}>
             {['critical', 'warning', 'info'].map(sev => (
               <button

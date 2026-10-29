@@ -63,10 +63,10 @@ export default function CorsPitfallsLab({ onRewardXP }) {
       <div style={{ background: 'var(--bg-secondary)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', marginBottom: '24px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
           <div>
-            <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
+            <label htmlFor="cors-pitfalls-lab-1" style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
               Server CORS-Strategie:
             </label>
-            <select
+            <select id="cors-pitfalls-lab-1"
               value={serverConfig}
               onChange={(e) => setServerConfig(e.target.value)}
               style={{ width: '100%', padding: '8px 12px', background: 'var(--bg-primary)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'var(--text-main)', fontSize: '0.85rem' }}
@@ -76,10 +76,10 @@ export default function CorsPitfallsLab({ onRewardXP }) {
           </div>
 
           <div>
-            <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
+            <label htmlFor="cors-pitfalls-lab-2" style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
               Anfragender Origin (Angreiferseite):
             </label>
-            <input
+            <input id="cors-pitfalls-lab-2"
               type="text"
               value={requestOrigin}
               onChange={(e) => setRequestOrigin(e.target.value)}

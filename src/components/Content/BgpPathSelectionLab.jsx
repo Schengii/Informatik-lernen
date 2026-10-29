@@ -177,8 +177,8 @@ export default function BgpPathSelectionLab() {
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.85rem' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <label style={{ color: 'var(--text-muted)' }}>Local Preference:</label>
-                    <input 
+                    <label htmlFor={`bgp-path-selection-lab-1-${i}`} style={{ color: 'var(--text-muted)' }}>Local Preference:</label>
+                    <input id={`bgp-path-selection-lab-1-${i}`} 
                       type="number"
                       value={c.localPref}
                       onChange={(e) => updateCandidate(i, 'localPref', parseInt(e.target.value, 10) || 0)}
@@ -187,8 +187,8 @@ export default function BgpPathSelectionLab() {
                   </div>
 
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <label style={{ color: 'var(--text-muted)' }}>Weight (Cisco Local):</label>
-                    <input 
+                    <label htmlFor={`bgp-path-selection-lab-2-${i}`} style={{ color: 'var(--text-muted)' }}>Weight (Cisco Local):</label>
+                    <input id={`bgp-path-selection-lab-2-${i}`} 
                       type="number"
                       value={c.weight}
                       onChange={(e) => updateCandidate(i, 'weight', parseInt(e.target.value, 10) || 0)}
@@ -197,8 +197,8 @@ export default function BgpPathSelectionLab() {
                   </div>
 
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <label style={{ color: 'var(--text-muted)' }}>MED (Metric):</label>
-                    <input 
+                    <label htmlFor={`bgp-path-selection-lab-3-${i}`} style={{ color: 'var(--text-muted)' }}>MED (Metric):</label>
+                    <input id={`bgp-path-selection-lab-3-${i}`} 
                       type="number"
                       value={c.med}
                       onChange={(e) => updateCandidate(i, 'med', parseInt(e.target.value, 10) || 0)}
@@ -207,13 +207,13 @@ export default function BgpPathSelectionLab() {
                   </div>
 
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <label style={{ color: 'var(--text-muted)' }}>AS-Path Länge:</label>
+                    <span style={{ color: 'var(--text-muted)' }}>AS-Path Länge:</span>
                     <span style={{ fontWeight: 600 }}>{c.asPath.length} Hops ({c.asPath.join(', ')})</span>
                   </div>
 
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <label style={{ color: 'var(--text-muted)' }}>Origin Code:</label>
-                    <select
+                    <label htmlFor={`bgp-path-selection-lab-4-${i}`} style={{ color: 'var(--text-muted)' }}>Origin Code:</label>
+                    <select id={`bgp-path-selection-lab-4-${i}`}
                       value={c.origin}
                       onChange={(e) => updateCandidate(i, 'origin', e.target.value)}
                       style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '4px', color: '#ffffff', padding: '4px 8px' }}

@@ -174,10 +174,10 @@ export default function TlsReplayLab() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>
             {/* Request Type */}
             <div style={{ background: 'var(--card-bg, #1e293b)', padding: '16px', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.08)' }}>
-              <label style={{ fontSize: '0.85rem', color: '#94a3b8', display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>
+              <label htmlFor="tls-replay-lab-1" style={{ fontSize: '0.85rem', color: '#94a3b8', display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>
                 1. HTTP Request Methode & Payload:
               </label>
-              <select
+              <select id="tls-replay-lab-1"
                 value={selectedMethodKey}
                 onChange={(e) => setSelectedMethodKey(e.target.value)}
                 style={{ width: '100%', padding: '8px 12px', background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.15)', color: '#fff', borderRadius: '6px' }}
@@ -193,10 +193,10 @@ export default function TlsReplayLab() {
 
             {/* Anti-Replay Mechanism */}
             <div style={{ background: 'var(--card-bg, #1e293b)', padding: '16px', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.08)' }}>
-              <label style={{ fontSize: '0.85rem', color: '#94a3b8', display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>
+              <label htmlFor="tls-replay-lab-2" style={{ fontSize: '0.85rem', color: '#94a3b8', display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>
                 2. Serverseitiger Schutzmechanismus:
               </label>
-              <select
+              <select id="tls-replay-lab-2"
                 value={antiReplay}
                 onChange={(e) => setAntiReplay(e.target.value)}
                 style={{ width: '100%', padding: '8px 12px', background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.15)', color: '#fff', borderRadius: '6px' }}
@@ -354,10 +354,10 @@ export default function TlsReplayLab() {
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '24px' }}>
             <div>
-              <label style={{ fontSize: '0.85rem', color: '#94a3b8', display: 'block', marginBottom: '6px' }}>
+              <label htmlFor="tls-replay-lab-3" style={{ fontSize: '0.85rem', color: '#94a3b8', display: 'block', marginBottom: '6px' }}>
                 Nicht-idempotente Anfragen in Early Data:
               </label>
-              <select
+              <select id="tls-replay-lab-3"
                 value={allowNonIdempotent ? 'yes' : 'no'}
                 onChange={(e) => setAllowNonIdempotent(e.target.value === 'yes')}
                 style={{ width: '100%', padding: '8px', background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', borderRadius: '6px' }}
@@ -368,10 +368,10 @@ export default function TlsReplayLab() {
             </div>
 
             <div>
-              <label style={{ fontSize: '0.85rem', color: '#94a3b8', display: 'block', marginBottom: '6px' }}>
+              <label htmlFor="tls-replay-lab-4" style={{ fontSize: '0.85rem', color: '#94a3b8', display: 'block', marginBottom: '6px' }}>
                 Anti-Replay Abwehrmechanismus:
               </label>
-              <select
+              <select id="tls-replay-lab-4"
                 value={auditAntiReplay}
                 onChange={(e) => setAuditAntiReplay(e.target.value)}
                 style={{ width: '100%', padding: '8px', background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', borderRadius: '6px' }}

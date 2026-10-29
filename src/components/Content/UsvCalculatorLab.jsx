@@ -190,10 +190,10 @@ export default function UsvCalculatorLab({ onRewardXP }) {
             {/* Parameter */}
             <div style={{ borderTop: '1px solid #334155', paddingTop: '14px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
               <div style={{ flex: 1, minWidth: '130px' }}>
-                <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
+                <label htmlFor="usv-calculator-lab-1" style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
                   Leistungsfaktor (cos φ):
                 </label>
-                <input
+                <input id="usv-calculator-lab-1"
                   type="number"
                   step="0.05"
                   min="0.5"
@@ -204,10 +204,10 @@ export default function UsvCalculatorLab({ onRewardXP }) {
                 />
               </div>
               <div style={{ flex: 1, minWidth: '130px' }}>
-                <label style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
+                <label htmlFor="usv-calculator-lab-2" style={{ display: 'block', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
                   IHK-Reserve (+%):
                 </label>
-                <input
+                <input id="usv-calculator-lab-2"
                   type="number"
                   min="0"
                   max="50"
@@ -272,10 +272,10 @@ export default function UsvCalculatorLab({ onRewardXP }) {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px', marginBottom: '24px' }}>
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', marginBottom: '6px' }}>
+              <label htmlFor="usv-calculator-lab-3" style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', marginBottom: '6px' }}>
                 Batterie-Nennspannung (V):
               </label>
-              <select
+              <select id="usv-calculator-lab-3"
                 value={batteryVoltage}
                 onChange={(e) => setBatteryVoltage(Number(e.target.value))}
                 style={{ width: '100%', padding: '8px', borderRadius: '6px', border: '1px solid #334155', background: 'var(--bg-card, #0f172a)', color: 'inherit' }}
@@ -287,10 +287,10 @@ export default function UsvCalculatorLab({ onRewardXP }) {
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', marginBottom: '6px' }}>
+              <label htmlFor="usv-calculator-lab-4" style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', marginBottom: '6px' }}>
                 Batterie-Kapazität (Ah):
               </label>
-              <input
+              <input id="usv-calculator-lab-4"
                 type="number"
                 min="10"
                 max="500"
@@ -301,10 +301,10 @@ export default function UsvCalculatorLab({ onRewardXP }) {
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', marginBottom: '6px' }}>
+              <label htmlFor="usv-calculator-lab-5" style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', marginBottom: '6px' }}>
                 Aktuelle IT-Last (W):
               </label>
-              <input
+              <input id="usv-calculator-lab-5"
                 type="number"
                 value={totalRackWatt}
                 disabled
@@ -367,10 +367,10 @@ export default function UsvCalculatorLab({ onRewardXP }) {
             </h3>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px', marginBottom: '16px' }}>
               <div>
-                <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
+                <label htmlFor="usv-calculator-lab-6" style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
                   Gesamtenergie des Rechenzentrums (kWh):
                 </label>
-                <input
+                <input id="usv-calculator-lab-6"
                   type="number"
                   value={facilityEnergy}
                   onChange={(e) => setFacilityEnergy(Number(e.target.value))}
@@ -378,10 +378,10 @@ export default function UsvCalculatorLab({ onRewardXP }) {
                 />
               </div>
               <div>
-                <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
+                <label htmlFor="usv-calculator-lab-7" style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
                   Reine IT-Energie (Server & Storage) (kWh):
                 </label>
-                <input
+                <input id="usv-calculator-lab-7"
                   type="number"
                   value={itEnergy}
                   onChange={(e) => setItEnergy(Number(e.target.value))}

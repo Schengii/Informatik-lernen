@@ -73,8 +73,8 @@ export default function DnsPrivacyLab() {
 
             <div className="space-y-3 text-xs">
               <div>
-                <label className="block text-slate-300 font-medium mb-1">Aufzurufende Domain (FQDN):</label>
-                <input
+                <label htmlFor="dns-privacy-lab-1" className="block text-slate-300 font-medium mb-1">Aufzurufende Domain (FQDN):</label>
+                <input id="dns-privacy-lab-1"
                   type="text"
                   value={domain}
                   onChange={(e) => setDomain(e.target.value)}
@@ -84,7 +84,7 @@ export default function DnsPrivacyLab() {
               </div>
 
               <div>
-                <label className="block text-slate-300 font-medium mb-1">Protokoll:</label>
+                <span className="block text-slate-300 font-medium mb-1">Protokoll:</span>
                 <div className="space-y-2">
                   {[
                     { id: 'PlainDNS', title: 'Klartext-DNS (Standard)', port: 'Port 53 / UDP' },

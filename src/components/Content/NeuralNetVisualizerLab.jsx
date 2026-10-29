@@ -154,7 +154,7 @@ export default function NeuralNetVisualizerLab() {
 
             <div className="space-y-4">
               <div>
-                <label className="text-xs text-slate-300 block mb-1">Aktivierungsfunktion Hidden Layer:</label>
+                <span className="text-xs text-slate-300 block mb-1">Aktivierungsfunktion Hidden Layer:</span>
                 <div className="flex gap-2">
                   {['relu', 'sigmoid', 'tanh'].map((fn) => (
                     <button
@@ -307,8 +307,8 @@ export default function NeuralNetVisualizerLab() {
             </h2>
 
             <div className="space-y-3">
-              <label className="text-xs text-slate-300 block">Trainings-Text:</label>
-              <input
+              <label htmlFor="neural-net-visualizer-lab-1" className="text-xs text-slate-300 block">Trainings-Text:</label>
+              <input id="neural-net-visualizer-lab-1"
                 type="text"
                 value={bpeText}
                 onChange={(e) => setBpeText(e.target.value)}

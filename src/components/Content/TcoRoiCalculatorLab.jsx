@@ -208,8 +208,8 @@ export default function TcoRoiCalculatorLab() {
 
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="text-slate-400 block mb-1">Strom/Kühlung (€/Jahr):</label>
-                <input
+                <label htmlFor="tco-roi-calculator-lab-1" className="text-slate-400 block mb-1">Strom/Kühlung (€/Jahr):</label>
+                <input id="tco-roi-calculator-lab-1"
                   type="number"
                   value={onPremAnnualPowerCooling}
                   onChange={(e) => setOnPremAnnualPowerCooling(Number(e.target.value))}
@@ -217,8 +217,8 @@ export default function TcoRoiCalculatorLab() {
                 />
               </div>
               <div>
-                <label className="text-slate-400 block mb-1">Wartung/Lizenzen (€/Jahr):</label>
-                <input
+                <label htmlFor="tco-roi-calculator-lab-2" className="text-slate-400 block mb-1">Wartung/Lizenzen (€/Jahr):</label>
+                <input id="tco-roi-calculator-lab-2"
                   type="number"
                   value={onPremAnnualLicensesMaintenance}
                   onChange={(e) => setOnPremAnnualLicensesMaintenance(Number(e.target.value))}
@@ -229,8 +229,8 @@ export default function TcoRoiCalculatorLab() {
 
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="text-slate-400 block mb-1">Admin Stunden/Jahr:</label>
-                <input
+                <label htmlFor="tco-roi-calculator-lab-3" className="text-slate-400 block mb-1">Admin Stunden/Jahr:</label>
+                <input id="tco-roi-calculator-lab-3"
                   type="number"
                   value={onPremAdminHoursPerYear}
                   onChange={(e) => setOnPremAdminHoursPerYear(Number(e.target.value))}
@@ -238,8 +238,8 @@ export default function TcoRoiCalculatorLab() {
                 />
               </div>
               <div>
-                <label className="text-slate-400 block mb-1">Stundensatz (€/h):</label>
-                <input
+                <label htmlFor="tco-roi-calculator-lab-4" className="text-slate-400 block mb-1">Stundensatz (€/h):</label>
+                <input id="tco-roi-calculator-lab-4"
                   type="number"
                   value={onPremAdminHourlyRate}
                   onChange={(e) => setOnPremAdminHourlyRate(Number(e.target.value))}
@@ -258,8 +258,8 @@ export default function TcoRoiCalculatorLab() {
 
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="text-slate-400 block mb-1">Einmaliges Setup/Migration (€):</label>
-                <input
+                <label htmlFor="tco-roi-calculator-lab-5" className="text-slate-400 block mb-1">Einmaliges Setup/Migration (€):</label>
+                <input id="tco-roi-calculator-lab-5"
                   type="number"
                   value={cloudOneTimeMigrationCost}
                   onChange={(e) => setCloudOneTimeMigrationCost(Number(e.target.value))}
@@ -267,8 +267,8 @@ export default function TcoRoiCalculatorLab() {
                 />
               </div>
               <div>
-                <label className="text-slate-400 block mb-1">Monatliches Hosting (€/M.):</label>
-                <input
+                <label htmlFor="tco-roi-calculator-lab-6" className="text-slate-400 block mb-1">Monatliches Hosting (€/M.):</label>
+                <input id="tco-roi-calculator-lab-6"
                   type="number"
                   value={cloudMonthlyHosting}
                   onChange={(e) => setCloudMonthlyHosting(Number(e.target.value))}
@@ -279,8 +279,8 @@ export default function TcoRoiCalculatorLab() {
 
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="text-slate-400 block mb-1">Cloud-Admin Std./Jahr:</label>
-                <input
+                <label htmlFor="tco-roi-calculator-lab-7" className="text-slate-400 block mb-1">Cloud-Admin Std./Jahr:</label>
+                <input id="tco-roi-calculator-lab-7"
                   type="number"
                   value={cloudAdminHoursPerYear}
                   onChange={(e) => setCloudAdminHoursPerYear(Number(e.target.value))}
@@ -288,8 +288,8 @@ export default function TcoRoiCalculatorLab() {
                 />
               </div>
               <div>
-                <label className="text-slate-400 block mb-1">Stundensatz (€/h):</label>
-                <input
+                <label htmlFor="tco-roi-calculator-lab-8" className="text-slate-400 block mb-1">Stundensatz (€/h):</label>
+                <input id="tco-roi-calculator-lab-8"
                   type="number"
                   value={cloudAdminHourlyRate}
                   onChange={(e) => setCloudAdminHourlyRate(Number(e.target.value))}

@@ -135,8 +135,8 @@ export default function Ieee754FloatingPointLab() {
             {/* Input & Presets */}
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
               <div className="w-full md:w-80">
-                <label className="text-xs font-semibold text-slate-400 block mb-1">Dezimalwert eingeben</label>
-                <input
+                <label htmlFor="ieee754-floating-point-lab-1" className="text-xs font-semibold text-slate-400 block mb-1">Dezimalwert eingeben</label>
+                <input id="ieee754-floating-point-lab-1"
                   type="text"
                   value={inputNumber}
                   onChange={(e) => handleInputChange(e.target.value)}
@@ -286,8 +286,8 @@ export default function Ieee754FloatingPointLab() {
 
             <div className="space-y-3">
               <div>
-                <label className="text-xs text-slate-300 block mb-1">Dezimaler Ganzzahlwert</label>
-                <input
+                <label htmlFor="ieee754-floating-point-lab-2" className="text-xs text-slate-300 block mb-1">Dezimaler Ganzzahlwert</label>
+                <input id="ieee754-floating-point-lab-2"
                   type="number"
                   value={intVal}
                   onChange={(e) => setIntVal(e.target.value)}
@@ -296,7 +296,7 @@ export default function Ieee754FloatingPointLab() {
               </div>
 
               <div>
-                <label className="text-xs text-slate-300 block mb-1">Wortbreite (Bit)</label>
+                <span className="text-xs text-slate-300 block mb-1">Wortbreite (Bit)</span>
                 <div className="flex gap-2">
                   {[8, 16, 32].map((bits) => (
                     <button

@@ -119,9 +119,9 @@ export default function SqlWindowFunctionsLab({ onRewardXP }) {
           </div>
 
           <div>
-            <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 'bold', color: 'var(--text-muted)', marginBottom: '6px' }}>
+            <span style={{ display: 'block', fontSize: '0.82rem', fontWeight: 'bold', color: 'var(--text-muted)', marginBottom: '6px' }}>
               Richtung:
-            </label>
+            </span>
             <div style={{ display: 'flex', gap: '8px' }}>
               <button
                 onClick={() => setDirection('DESC')}

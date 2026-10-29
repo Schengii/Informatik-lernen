@@ -162,8 +162,8 @@ export default function Raid6GaloisLab() {
                   {isFailed ? '💥 AUSGEFALLEN' : '🟢 ONLINE'}
                 </div>
                 <div style={{ marginTop: '12px' }} onClick={(e) => e.stopPropagation()}>
-                  <label style={{ fontSize: '0.75rem', display: 'block', marginBottom: '4px', color: 'var(--text-muted)' }}>Byte Wert (0-255):</label>
-                  <input 
+                  <label htmlFor={`raid6-galois-lab-1-${i}`} style={{ fontSize: '0.75rem', display: 'block', marginBottom: '4px', color: 'var(--text-muted)' }}>Byte Wert (0-255):</label>
+                  <input id={`raid6-galois-lab-1-${i}`} 
                     type="number" 
                     min="0" 
                     max="255"

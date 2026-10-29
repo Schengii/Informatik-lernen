@@ -195,11 +195,11 @@ export default function CtfChallengeLab({ onRewardXP }) {
 
         {/* Interactive Testing Sandbox */}
         <div style={{ marginBottom: '20px' }}>
-          <label style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
+          <label htmlFor="ctf-challenge-lab-1" style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
             🧪 Interactive Payload Simulator:
           </label>
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-            <input
+            <input id="ctf-challenge-lab-1"
               type="text"
               value={testPayload}
               onChange={(e) => setTestPayload(e.target.value)}

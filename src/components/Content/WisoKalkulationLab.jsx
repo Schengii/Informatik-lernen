@@ -237,8 +237,8 @@ export default function WisoKalkulationLab() {
 
             <div className="space-y-3 text-sm">
               <div>
-                <label className="text-slate-300 block mb-1">Listeneinkaufspreis (LEP in €)</label>
-                <input
+                <label htmlFor="wiso-kalkulation-lab-1" className="text-slate-300 block mb-1">Listeneinkaufspreis (LEP in €)</label>
+                <input id="wiso-kalkulation-lab-1"
                   type="number"
                   value={kalkParams.listeneinkaufspreis}
                   onChange={(e) => setKalkParams({ ...kalkParams, listeneinkaufspreis: Number(e.target.value) })}
@@ -248,8 +248,8 @@ export default function WisoKalkulationLab() {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-slate-300 block mb-1">Lieferantenrabatt (%)</label>
-                  <input
+                  <label htmlFor="wiso-kalkulation-lab-2" className="text-slate-300 block mb-1">Lieferantenrabatt (%)</label>
+                  <input id="wiso-kalkulation-lab-2"
                     type="number"
                     value={kalkParams.lieferantenrabattProzent}
                     onChange={(e) => setKalkParams({ ...kalkParams, lieferantenrabattProzent: Number(e.target.value) })}
@@ -257,8 +257,8 @@ export default function WisoKalkulationLab() {
                   />
                 </div>
                 <div>
-                  <label className="text-slate-300 block mb-1">Lieferskonto (%)</label>
-                  <input
+                  <label htmlFor="wiso-kalkulation-lab-3" className="text-slate-300 block mb-1">Lieferskonto (%)</label>
+                  <input id="wiso-kalkulation-lab-3"
                     type="number"
                     value={kalkParams.lieferskontoProzent}
                     onChange={(e) => setKalkParams({ ...kalkParams, lieferskontoProzent: Number(e.target.value) })}
@@ -268,8 +268,8 @@ export default function WisoKalkulationLab() {
               </div>
 
               <div>
-                <label className="text-slate-300 block mb-1">Bezugskosten (Fracht, Porto in €)</label>
-                <input
+                <label htmlFor="wiso-kalkulation-lab-4" className="text-slate-300 block mb-1">Bezugskosten (Fracht, Porto in €)</label>
+                <input id="wiso-kalkulation-lab-4"
                   type="number"
                   value={kalkParams.bezugskosten}
                   onChange={(e) => setKalkParams({ ...kalkParams, bezugskosten: Number(e.target.value) })}
@@ -279,8 +279,8 @@ export default function WisoKalkulationLab() {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-slate-300 block mb-1">Handlungskosten (%)</label>
-                  <input
+                  <label htmlFor="wiso-kalkulation-lab-5" className="text-slate-300 block mb-1">Handlungskosten (%)</label>
+                  <input id="wiso-kalkulation-lab-5"
                     type="number"
                     value={kalkParams.handlungskostenzuschlagProzent}
                     onChange={(e) => setKalkParams({ ...kalkParams, handlungskostenzuschlagProzent: Number(e.target.value) })}
@@ -288,8 +288,8 @@ export default function WisoKalkulationLab() {
                   />
                 </div>
                 <div>
-                  <label className="text-slate-300 block mb-1">Gewinnzuschlag (%)</label>
-                  <input
+                  <label htmlFor="wiso-kalkulation-lab-6" className="text-slate-300 block mb-1">Gewinnzuschlag (%)</label>
+                  <input id="wiso-kalkulation-lab-6"
                     type="number"
                     value={kalkParams.gewinnzuschlagProzent}
                     onChange={(e) => setKalkParams({ ...kalkParams, gewinnzuschlagProzent: Number(e.target.value) })}
@@ -300,8 +300,8 @@ export default function WisoKalkulationLab() {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-slate-300 block mb-1">Kundenskonto (%)</label>
-                  <input
+                  <label htmlFor="wiso-kalkulation-lab-7" className="text-slate-300 block mb-1">Kundenskonto (%)</label>
+                  <input id="wiso-kalkulation-lab-7"
                     type="number"
                     value={kalkParams.kundenskontoProzent}
                     onChange={(e) => setKalkParams({ ...kalkParams, kundenskontoProzent: Number(e.target.value) })}
@@ -309,8 +309,8 @@ export default function WisoKalkulationLab() {
                   />
                 </div>
                 <div>
-                  <label className="text-slate-300 block mb-1">Kundenrabatt (%)</label>
-                  <input
+                  <label htmlFor="wiso-kalkulation-lab-8" className="text-slate-300 block mb-1">Kundenrabatt (%)</label>
+                  <input id="wiso-kalkulation-lab-8"
                     type="number"
                     value={kalkParams.kundenrabattProzent}
                     onChange={(e) => setKalkParams({ ...kalkParams, kundenrabattProzent: Number(e.target.value) })}
@@ -420,8 +420,8 @@ export default function WisoKalkulationLab() {
 
               <div className="grid grid-cols-2 gap-3 text-xs">
                 <div>
-                  <label className="text-slate-300 block mb-1">Vorgegebener Brutto-VP (€)</label>
-                  <input
+                  <label htmlFor="wiso-kalkulation-lab-9" className="text-slate-300 block mb-1">Vorgegebener Brutto-VP (€)</label>
+                  <input id="wiso-kalkulation-lab-9"
                     type="number"
                     value={rueckParams.bruttoverkaufspreis}
                     onChange={(e) => setRueckParams({ ...rueckParams, bruttoverkaufspreis: Number(e.target.value) })}
@@ -429,8 +429,8 @@ export default function WisoKalkulationLab() {
                   />
                 </div>
                 <div>
-                  <label className="text-slate-300 block mb-1">Gewinnzuschlag (%)</label>
-                  <input
+                  <label htmlFor="wiso-kalkulation-lab-10" className="text-slate-300 block mb-1">Gewinnzuschlag (%)</label>
+                  <input id="wiso-kalkulation-lab-10"
                     type="number"
                     value={rueckParams.gewinnzuschlagProzent}
                     onChange={(e) => setRueckParams({ ...rueckParams, gewinnzuschlagProzent: Number(e.target.value) })}
@@ -438,8 +438,8 @@ export default function WisoKalkulationLab() {
                   />
                 </div>
                 <div>
-                  <label className="text-slate-300 block mb-1">Handlungskosten (%)</label>
-                  <input
+                  <label htmlFor="wiso-kalkulation-lab-11" className="text-slate-300 block mb-1">Handlungskosten (%)</label>
+                  <input id="wiso-kalkulation-lab-11"
                     type="number"
                     value={rueckParams.handlungskostenzuschlagProzent}
                     onChange={(e) => setRueckParams({ ...rueckParams, handlungskostenzuschlagProzent: Number(e.target.value) })}
@@ -447,8 +447,8 @@ export default function WisoKalkulationLab() {
                   />
                 </div>
                 <div>
-                  <label className="text-slate-300 block mb-1">Lieferantenrabatt (%)</label>
-                  <input
+                  <label htmlFor="wiso-kalkulation-lab-12" className="text-slate-300 block mb-1">Lieferantenrabatt (%)</label>
+                  <input id="wiso-kalkulation-lab-12"
                     type="number"
                     value={rueckParams.lieferantenrabattProzent}
                     onChange={(e) => setRueckParams({ ...rueckParams, lieferantenrabattProzent: Number(e.target.value) })}
@@ -489,8 +489,8 @@ export default function WisoKalkulationLab() {
 
               <div className="grid grid-cols-2 gap-3 text-xs">
                 <div>
-                  <label className="text-slate-300 block mb-1">Listeneinkaufspreis LEP (€)</label>
-                  <input
+                  <label htmlFor="wiso-kalkulation-lab-13" className="text-slate-300 block mb-1">Listeneinkaufspreis LEP (€)</label>
+                  <input id="wiso-kalkulation-lab-13"
                     type="number"
                     value={diffParams.listeneinkaufspreis}
                     onChange={(e) => setDiffParams({ ...diffParams, listeneinkaufspreis: Number(e.target.value) })}
@@ -498,8 +498,8 @@ export default function WisoKalkulationLab() {
                   />
                 </div>
                 <div>
-                  <label className="text-slate-300 block mb-1">Markt-Nettoverkaufspreis (€)</label>
-                  <input
+                  <label htmlFor="wiso-kalkulation-lab-14" className="text-slate-300 block mb-1">Markt-Nettoverkaufspreis (€)</label>
+                  <input id="wiso-kalkulation-lab-14"
                     type="number"
                     value={diffParams.nettoverkaufspreis}
                     onChange={(e) => setDiffParams({ ...diffParams, nettoverkaufspreis: Number(e.target.value) })}
@@ -545,8 +545,8 @@ export default function WisoKalkulationLab() {
 
             <div className="space-y-3 text-sm">
               <div>
-                <label className="text-slate-300 block mb-1">Verkaufspreis pro Stück (p in €)</label>
-                <input
+                <label htmlFor="wiso-kalkulation-lab-15" className="text-slate-300 block mb-1">Verkaufspreis pro Stück (p in €)</label>
+                <input id="wiso-kalkulation-lab-15"
                   type="number"
                   value={dbParams.verkaufspreisStueck}
                   onChange={(e) => setDbParams({ ...dbParams, verkaufspreisStueck: Number(e.target.value) })}
@@ -554,8 +554,8 @@ export default function WisoKalkulationLab() {
                 />
               </div>
               <div>
-                <label className="text-slate-300 block mb-1">Variable Stückkosten (kv in €)</label>
-                <input
+                <label htmlFor="wiso-kalkulation-lab-16" className="text-slate-300 block mb-1">Variable Stückkosten (kv in €)</label>
+                <input id="wiso-kalkulation-lab-16"
                   type="number"
                   value={dbParams.variableKostenStueck}
                   onChange={(e) => setDbParams({ ...dbParams, variableKostenStueck: Number(e.target.value) })}
@@ -563,8 +563,8 @@ export default function WisoKalkulationLab() {
                 />
               </div>
               <div>
-                <label className="text-slate-300 block mb-1">Fixkosten gesamt (Kf in €)</label>
-                <input
+                <label htmlFor="wiso-kalkulation-lab-17" className="text-slate-300 block mb-1">Fixkosten gesamt (Kf in €)</label>
+                <input id="wiso-kalkulation-lab-17"
                   type="number"
                   value={dbParams.fixkostenGesamt}
                   onChange={(e) => setDbParams({ ...dbParams, fixkostenGesamt: Number(e.target.value) })}
@@ -572,8 +572,8 @@ export default function WisoKalkulationLab() {
                 />
               </div>
               <div>
-                <label className="text-slate-300 block mb-1">Absatzmenge (x Stück)</label>
-                <input
+                <label htmlFor="wiso-kalkulation-lab-18" className="text-slate-300 block mb-1">Absatzmenge (x Stück)</label>
+                <input id="wiso-kalkulation-lab-18"
                   type="number"
                   value={dbParams.absetzbareMenge}
                   onChange={(e) => setDbParams({ ...dbParams, absetzbareMenge: Number(e.target.value) })}

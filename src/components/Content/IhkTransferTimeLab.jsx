@@ -159,9 +159,9 @@ export default function IhkTransferTimeLab() {
 
             {/* Datenmenge */}
             <div style={{ marginBottom: '1rem' }}>
-              <label style={{ display: 'block', fontWeight: 600, marginBottom: '0.3rem' }}>Datenmenge:</label>
+              <label htmlFor="ihk-transfer-time-lab-1" style={{ display: 'block', fontWeight: 600, marginBottom: '0.3rem' }}>Datenmenge:</label>
               <div style={{ display: 'flex', gap: '0.5rem' }}>
-                <input
+                <input id="ihk-transfer-time-lab-1"
                   type="number"
                   min="0.001"
                   step="any"
@@ -183,9 +183,9 @@ export default function IhkTransferTimeLab() {
 
             {/* Bandbreite */}
             <div style={{ marginBottom: '1rem' }}>
-              <label style={{ display: 'block', fontWeight: 600, marginBottom: '0.3rem' }}>Übertragungsrate (Bandbreite):</label>
+              <label htmlFor="ihk-transfer-time-lab-2" style={{ display: 'block', fontWeight: 600, marginBottom: '0.3rem' }}>Übertragungsrate (Bandbreite):</label>
               <div style={{ display: 'flex', gap: '0.5rem' }}>
-                <input
+                <input id="ihk-transfer-time-lab-2"
                   type="number"
                   min="0.001"
                   step="any"
@@ -207,9 +207,9 @@ export default function IhkTransferTimeLab() {
 
             {/* Schnellauswahl Anschlüsse */}
             <div style={{ marginBottom: '1rem' }}>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, marginBottom: '0.3rem', opacity: 0.8 }}>
+              <span style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, marginBottom: '0.3rem', opacity: 0.8 }}>
                 Schnellauswahl gängiger Anschlüsse:
-              </label>
+              </span>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem' }}>
                 {PRESET_CONNECTIONS.slice(0, 5).map((p) => (
                   <button
@@ -227,7 +227,7 @@ export default function IhkTransferTimeLab() {
             {/* Overhead Slider */}
             <div style={{ marginBottom: '1rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <label style={{ fontWeight: 600 }}>Protokoll-Overhead:</label>
+                <span style={{ fontWeight: 600 }}>Protokoll-Overhead:</span>
                 <span style={{ fontWeight: 700 }}>{overheadPercent}%</span>
               </div>
               <input

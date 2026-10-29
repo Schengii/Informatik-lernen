@@ -134,8 +134,8 @@ export default function IhkProposalPdfLab({ onRewardXP }) {
             </h2>
 
             <div>
-              <label className="text-xs text-slate-400 block mb-1">Ausbildungsberuf (AO 2020):</label>
-              <select
+              <label htmlFor="ihk-proposal-pdf-lab-1" className="text-xs text-slate-400 block mb-1">Ausbildungsberuf (AO 2020):</label>
+              <select id="ihk-proposal-pdf-lab-1"
                 value={selectedOccupation}
                 onChange={(e) => setSelectedOccupation(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200"
@@ -150,8 +150,8 @@ export default function IhkProposalPdfLab({ onRewardXP }) {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="text-xs text-slate-400 block mb-1">Prüfling Name:</label>
-                <input
+                <label htmlFor="ihk-proposal-pdf-lab-2" className="text-xs text-slate-400 block mb-1">Prüfling Name:</label>
+                <input id="ihk-proposal-pdf-lab-2"
                   type="text"
                   value={candidateName}
                   onChange={(e) => setCandidateName(e.target.value)}
@@ -159,8 +159,8 @@ export default function IhkProposalPdfLab({ onRewardXP }) {
                 />
               </div>
               <div>
-                <label className="text-xs text-slate-400 block mb-1">Ausbildungsbetrieb:</label>
-                <input
+                <label htmlFor="ihk-proposal-pdf-lab-3" className="text-xs text-slate-400 block mb-1">Ausbildungsbetrieb:</label>
+                <input id="ihk-proposal-pdf-lab-3"
                   type="text"
                   value={companyName}
                   onChange={(e) => setCompanyName(e.target.value)}
@@ -170,8 +170,8 @@ export default function IhkProposalPdfLab({ onRewardXP }) {
             </div>
 
             <div>
-              <label className="text-xs text-slate-400 block mb-1">Projektbezeichnung (Thema):</label>
-              <input
+              <label htmlFor="ihk-proposal-pdf-lab-4" className="text-xs text-slate-400 block mb-1">Projektbezeichnung (Thema):</label>
+              <input id="ihk-proposal-pdf-lab-4"
                 type="text"
                 value={projectTitle}
                 onChange={(e) => setProjectTitle(e.target.value)}
@@ -180,8 +180,8 @@ export default function IhkProposalPdfLab({ onRewardXP }) {
             </div>
 
             <div>
-              <label className="text-xs text-slate-400 block mb-1">Kurzbeschreibung & Problemstellung:</label>
-              <textarea
+              <label htmlFor="ihk-proposal-pdf-lab-5" className="text-xs text-slate-400 block mb-1">Kurzbeschreibung & Problemstellung:</label>
+              <textarea id="ihk-proposal-pdf-lab-5"
                 rows={3}
                 value={projectGoal}
                 onChange={(e) => setProjectGoal(e.target.value)}

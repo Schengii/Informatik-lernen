@@ -175,10 +175,10 @@ export default function WisoLaborLawLab({ onRewardXP }) {
             )}
 
             <div style={{ marginTop: '20px' }}>
-              <label style={{ fontSize: '0.9rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: 'var(--text-main)' }}>
+              <label htmlFor="wiso-labor-law-lab-1" style={{ fontSize: '0.9rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: 'var(--text-main)' }}>
                 <Calendar size={16} /> Datum des Kündigungszugangs (§ 130 BGB):
               </label>
-              <input
+              <input id="wiso-labor-law-lab-1"
                 type="date"
                 value={receiptDateStr}
                 onChange={(e) => setReceiptDateStr(e.target.value)}

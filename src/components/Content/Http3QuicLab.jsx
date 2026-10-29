@@ -147,10 +147,10 @@ export default function Http3QuicLab() {
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '4px', fontWeight: 'bold' }}>
+                <label htmlFor="http3-quic-lab-1" style={{ display: 'block', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '4px', fontWeight: 'bold' }}>
                   Parallele Ressourcen-Streams:
                 </label>
-                <select
+                <select id="http3-quic-lab-1"
                   value={streamCount}
                   onChange={(e) => setStreamCount(Number(e.target.value))}
                   style={{

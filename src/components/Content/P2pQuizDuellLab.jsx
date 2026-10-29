@@ -166,7 +166,7 @@ export default function P2pQuizDuellLab() {
             </h2>
 
             <div className="space-y-3">
-              <label className="text-xs text-slate-300 block">Wähle die Duell-Schwierigkeit:</label>
+              <span className="text-xs text-slate-300 block">Wähle die Duell-Schwierigkeit:</span>
               <div className="grid grid-cols-3 gap-2">
                 {[
                   { id: 'bot_easy', label: 'Junior Bot', color: 'border-emerald-500' },
@@ -211,9 +211,9 @@ export default function P2pQuizDuellLab() {
               </div>
 
               <div>
-                <label className="text-xs text-slate-300 block mb-1">Raum-Code von Kollegen beitreten:</label>
+                <label htmlFor="p2p-quiz-duell-lab-1" className="text-xs text-slate-300 block mb-1">Raum-Code von Kollegen beitreten:</label>
                 <div className="flex gap-2">
-                  <input
+                  <input id="p2p-quiz-duell-lab-1"
                     type="text"
                     value={joinCodeInput}
                     onChange={(e) => setJoinCodeInput(e.target.value.toUpperCase())}

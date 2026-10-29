@@ -358,10 +358,10 @@ export default function BsiGrundschutzLab() {
         <div style={{ background: 'var(--card-bg, #ffffff)', padding: '24px', borderRadius: '16px', border: '1px solid var(--border-color, #e2e8f0)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '12px' }}>
             <div style={{ flex: 1, minWidth: '240px' }}>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary, #64748b)', marginBottom: '4px' }}>
+              <label htmlFor="bsi-grundschutz-lab-1" style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary, #64748b)', marginBottom: '4px' }}>
                 Projektbezeichnung für IHK-Dokumentation:
               </label>
-              <input
+              <input id="bsi-grundschutz-lab-1"
                 type="text"
                 value={projectName}
                 onChange={(e) => setProjectName(e.target.value)}

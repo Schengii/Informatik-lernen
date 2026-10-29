@@ -197,10 +197,10 @@ export default function VlanTrunkingLab({ onRewardXP }) {
           {/* Regler zur Interaktiven Berechnung */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '20px' }}>
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', marginBottom: '6px' }}>
+              <label htmlFor="vlan-trunking-lab-1" style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', marginBottom: '6px' }}>
                 VLAN-ID (VID: 1 - 4094):
               </label>
-              <input
+              <input id="vlan-trunking-lab-1"
                 type="number"
                 min="1"
                 max="4094"
@@ -210,10 +210,10 @@ export default function VlanTrunkingLab({ onRewardXP }) {
               />
             </div>
             <div>
-              <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', marginBottom: '6px' }}>
+              <label htmlFor="vlan-trunking-lab-2" style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', marginBottom: '6px' }}>
                 PCP Priorität (0 = Standard, 5 = Voice, 7 = Network Control):
               </label>
-              <select
+              <select id="vlan-trunking-lab-2"
                 value={tagPcp}
                 onChange={(e) => setTagPcp(Number(e.target.value))}
                 style={{ width: '100%', padding: '8px', borderRadius: '6px', border: '1px solid #334155', background: 'var(--bg-card, #0f172a)', color: 'inherit' }}
@@ -255,10 +255,10 @@ export default function VlanTrunkingLab({ onRewardXP }) {
               <div style={{ fontWeight: '700', color: '#38bdf8', marginBottom: '10px' }}>
                 1. Eingang (Ingress Port Fa0/1):
               </div>
-              <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '6px' }}>
+              <label htmlFor="vlan-trunking-lab-3" style={{ display: 'block', fontSize: '0.85rem', marginBottom: '6px' }}>
                 Access VLAN des sendenden PCs:
               </label>
-              <select
+              <select id="vlan-trunking-lab-3"
                 value={ingressVlan}
                 onChange={(e) => setIngressVlan(Number(e.target.value))}
                 style={{ width: '100%', padding: '8px', borderRadius: '6px', border: '1px solid #334155', background: 'var(--bg-card, #0f172a)', color: 'inherit' }}
@@ -309,10 +309,10 @@ export default function VlanTrunkingLab({ onRewardXP }) {
 
               {egressMode === 'access' && (
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', marginBottom: '6px' }}>
+                  <label htmlFor="vlan-trunking-lab-4" style={{ display: 'block', fontSize: '0.85rem', marginBottom: '6px' }}>
                     Access-VLAN des Ziel-Ports (Fa0/2):
                   </label>
-                  <select
+                  <select id="vlan-trunking-lab-4"
                     value={egressAccessVlan}
                     onChange={(e) => setEgressAccessVlan(Number(e.target.value))}
                     style={{ width: '100%', padding: '8px', borderRadius: '6px', border: '1px solid #334155', background: 'var(--bg-card, #0f172a)', color: 'inherit' }}

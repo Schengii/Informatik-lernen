@@ -65,10 +65,10 @@ export default function IhkMepSimulatorLab({ onAwardXP }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Prüfungsbereich */}
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
-          <label className="text-sm font-semibold text-slate-300 flex items-center gap-2">
+          <span className="text-sm font-semibold text-slate-300 flex items-center gap-2">
             <Calculator className="w-4 h-4 text-rose-400" />
             1. Gefährdeten Prüfungsbereich auswählen:
-          </label>
+          </span>
           <div className="grid grid-cols-3 gap-2">
             <button
               onClick={() => { setSelectedArea('wiso'); setActiveQuestionIdx(0); }}
@@ -136,10 +136,10 @@ export default function IhkMepSimulatorLab({ onAwardXP }) {
 
         {/* MEP Ergebnisrechner */}
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-4">
-          <label className="text-sm font-semibold text-slate-300 flex items-center gap-2">
+          <span className="text-sm font-semibold text-slate-300 flex items-center gap-2">
             <Award className="w-4 h-4 text-emerald-400" />
             2. Erreichte MEP-Prüfungspunkte simulieren:
-          </label>
+          </span>
           <div className="p-4 rounded-xl bg-slate-800/40 border border-slate-700/60 space-y-3">
             <div className="flex justify-between text-xs">
               <span className="text-slate-300 font-semibold">MEP-Prüfungsleistung (0–100):</span>

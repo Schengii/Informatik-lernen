@@ -90,10 +90,10 @@ export default function Ipv6NdpLab() {
           </h2>
 
           <div>
-            <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary, #64748b)', marginBottom: '4px' }}>
+            <label htmlFor="ipv6-ndp-lab-1" style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary, #64748b)', marginBottom: '4px' }}>
               Client MAC-Adresse:
             </label>
-            <input
+            <input id="ipv6-ndp-lab-1"
               type="text"
               value={macAddress}
               onChange={(e) => setMacAddress(e.target.value)}
@@ -112,10 +112,10 @@ export default function Ipv6NdpLab() {
           </div>
 
           <div>
-            <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary, #64748b)', marginBottom: '4px' }}>
+            <label htmlFor="ipv6-ndp-lab-2" style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary, #64748b)', marginBottom: '4px' }}>
               Router Advertisement (RA) /64 Prefix:
             </label>
-            <input
+            <input id="ipv6-ndp-lab-2"
               type="text"
               value={prefix}
               onChange={(e) => setPrefix(e.target.value)}

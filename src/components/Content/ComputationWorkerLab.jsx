@@ -128,8 +128,8 @@ export default function ComputationWorkerLab({ onRewardXP }) {
           </h2>
 
           <div>
-            <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, marginBottom: '6px' }}>Benchmark-Algorithmus</label>
-            <select
+            <label htmlFor="computation-worker-lab-1" style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, marginBottom: '6px' }}>Benchmark-Algorithmus</label>
+            <select id="computation-worker-lab-1"
               value={taskType}
               onChange={(e) => setTaskType(e.target.value)}
               style={{ width: '100%', padding: '10px', borderRadius: 'var(--radius-md)', background: 'var(--bg-primary)', border: '1px solid var(--border-color)', color: 'var(--text-main)' }}

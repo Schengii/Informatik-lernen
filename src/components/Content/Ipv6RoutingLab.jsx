@@ -130,10 +130,10 @@ export default function Ipv6RoutingLab() {
         <div className="space-y-6">
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-6">
             <div>
-              <label className="text-xs font-semibold text-slate-300 block mb-1">
+              <label htmlFor="ipv6-routing-lab-1" className="text-xs font-semibold text-slate-300 block mb-1">
                 IPv6-Adresse eingeben (vollständig oder komprimiert)
               </label>
-              <input
+              <input id="ipv6-routing-lab-1"
                 type="text"
                 value={ipv6Input}
                 onChange={(e) => setIpv6Input(e.target.value)}
@@ -205,8 +205,8 @@ export default function Ipv6RoutingLab() {
 
             <div className="space-y-3">
               <div>
-                <label className="text-xs text-slate-300 block mb-1">MAC-Adresse (48-Bit)</label>
-                <input
+                <label htmlFor="ipv6-routing-lab-2" className="text-xs text-slate-300 block mb-1">MAC-Adresse (48-Bit)</label>
+                <input id="ipv6-routing-lab-2"
                   type="text"
                   value={macInput}
                   onChange={(e) => setMacInput(e.target.value)}
@@ -216,8 +216,8 @@ export default function Ipv6RoutingLab() {
               </div>
 
               <div>
-                <label className="text-xs text-slate-300 block mb-1">IPv6 Präfix (64-Bit)</label>
-                <input
+                <label htmlFor="ipv6-routing-lab-3" className="text-xs text-slate-300 block mb-1">IPv6 Präfix (64-Bit)</label>
+                <input id="ipv6-routing-lab-3"
                   type="text"
                   value={ipv6Prefix}
                   onChange={(e) => setIpv6Prefix(e.target.value)}
@@ -360,10 +360,10 @@ export default function Ipv6RoutingLab() {
             {/* Inputs */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <label className="text-xs font-semibold text-slate-300 block mb-1">
+                <label htmlFor="ipv6-routing-lab-4" className="text-xs font-semibold text-slate-300 block mb-1">
                   Basis-Präfix
                 </label>
-                <input
+                <input id="ipv6-routing-lab-4"
                   type="text"
                   value={subnetBasePrefix}
                   onChange={(e) => setSubnetBasePrefix(e.target.value)}
@@ -373,10 +373,10 @@ export default function Ipv6RoutingLab() {
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-slate-300 block mb-1">
+                <label htmlFor="ipv6-routing-lab-5" className="text-xs font-semibold text-slate-300 block mb-1">
                   Zugewiesene Präfixlänge (Site Prefix)
                 </label>
-                <select
+                <select id="ipv6-routing-lab-5"
                   value={subnetPrefixLen}
                   onChange={(e) => setSubnetPrefixLen(Number(e.target.value))}
                   className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-white font-mono text-sm"
@@ -389,10 +389,10 @@ export default function Ipv6RoutingLab() {
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-slate-300 block mb-1">
+                <label htmlFor="ipv6-routing-lab-6" className="text-xs font-semibold text-slate-300 block mb-1">
                   Ziel-Subnetzmaske
                 </label>
-                <select
+                <select id="ipv6-routing-lab-6"
                   value={targetSubnetLen}
                   onChange={(e) => setTargetSubnetLen(Number(e.target.value))}
                   className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-white font-mono text-sm"

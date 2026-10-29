@@ -135,10 +135,10 @@ ${p.tasks.map(t => `- [x] ${t}`).join('\n')}`).join('\n\n')}
 
       {/* Project Title Input */}
       <div style={{ background: 'var(--card-bg, #1e293b)', borderRadius: '12px', border: '1px solid var(--border-color, rgba(255,255,255,0.1))', padding: '20px', marginBottom: '24px' }}>
-        <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 'bold', color: 'var(--text-primary)', marginBottom: '8px' }}>
+        <label htmlFor="ihk-project-documentation-generator-1" style={{ display: 'block', fontSize: '0.9rem', fontWeight: 'bold', color: 'var(--text-primary)', marginBottom: '8px' }}>
           Projektbezeichnung (Thema der Projektarbeit):
         </label>
-        <input
+        <input id="ihk-project-documentation-generator-1"
           type="text"
           value={projectTitle}
           onChange={(e) => setProjectTitle(e.target.value)}
@@ -220,8 +220,8 @@ ${p.tasks.map(t => `- [x] ${t}`).join('\n')}`).join('\n\n')}
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '16px' }}>
               <div>
-                <label style={{ fontSize: '0.82rem', color: '#94a3b8', display: 'block', marginBottom: '4px' }}>Stundensatz (€/h):</label>
-                <input
+                <label htmlFor="ihk-project-documentation-generator-2" style={{ fontSize: '0.82rem', color: '#94a3b8', display: 'block', marginBottom: '4px' }}>Stundensatz (€/h):</label>
+                <input id="ihk-project-documentation-generator-2"
                   type="number"
                   value={hourlyRate}
                   onChange={(e) => setHourlyRate(parseInt(e.target.value) || 0)}
@@ -229,8 +229,8 @@ ${p.tasks.map(t => `- [x] ${t}`).join('\n')}`).join('\n\n')}
                 />
               </div>
               <div>
-                <label style={{ fontSize: '0.82rem', color: '#94a3b8', display: 'block', marginBottom: '4px' }}>Jährl. Einsparung (€/a):</label>
-                <input
+                <label htmlFor="ihk-project-documentation-generator-3" style={{ fontSize: '0.82rem', color: '#94a3b8', display: 'block', marginBottom: '4px' }}>Jährl. Einsparung (€/a):</label>
+                <input id="ihk-project-documentation-generator-3"
                   type="number"
                   value={savedCostPerYear}
                   onChange={(e) => setSavedCostPerYear(parseInt(e.target.value) || 0)}
