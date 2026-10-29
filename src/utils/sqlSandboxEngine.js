@@ -231,7 +231,7 @@ export function analyzeSqlInjection(userInput = '', baseQueryTemplate = "SELECT 
 
   const preparedTokens = [
     { type: 'PREPARED_STMT', value: 'SELECT * FROM users WHERE username = ? AND status = ?' },
-    { type: 'SAFE_PARAMETER', value: `Param 1 (String): "${userInput.replace(/"/g, '\\"')}"` },
+    { type: 'SAFE_PARAMETER', value: `Param 1 (String): ${JSON.stringify(userInput)}` },
     { type: 'SAFE_PARAMETER', value: 'Param 2 (String): "active"' }
   ];
 
