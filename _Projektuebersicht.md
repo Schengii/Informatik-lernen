@@ -6,7 +6,7 @@ tags:
   - domain/ihk-ausbildung
   - status/active
 version: v3.78.0
-date: 2026-10-28
+date: 2026-10-22
 ---
 
 # 💻 Informatik-lernen (IT-DevGame) - Projektübersicht

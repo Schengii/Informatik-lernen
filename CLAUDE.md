@@ -31,10 +31,10 @@ git config core.hooksPath .githooks   # alternativ: npm run prepare
 # Entwicklungsserver starten (Standard-Port http://localhost:5173)
 npm run dev
 
-# Vollständige Test-Suite ausführen (Anzahl wächst laufend – exakte Zahl steht in README.md)
+# Vollständige Test-Suite ausführen (Anzahl wächst laufend – die aktuelle Zahl nennt der Lauf selbst)
 npm test
 
-# Schneller Testlauf ohne die langsamen A11y- und Routing-Tests (allLabsA11y, *.routing.test.jsx)
+# Schneller Testlauf ohne die langsamen A11y- und Routing-Tests (alle *A11y*.test.jsx – also auch modalsA11y – und *.routing.test.jsx)
 npm run test:fast
 
 # Test-Coverage-Report erzeugen (Statements/Branches/Functions/Lines)
@@ -64,11 +64,11 @@ npm run build
 npm run preview
 ```
 
-CI-Reihenfolge: `lint:ci` → `typecheck` → `test` → `test:coverage` → `build` → `size` → `e2e`. Zusätzlich läuft ein separater Lighthouse-CI-Job (`lighthouserc.json`) gegen den Build.
+CI-Reihenfolge: `npm audit --omit=dev --omit=optional --audit-level=high` → `lint:ci` → `typecheck` → `test:coverage` (führt alle Tests aus) → `build` → `size` → `e2e`. Zusätzlich läuft ein separater Lighthouse-CI-Job (`lighthouserc.json`) gegen den Build.
 
 ### 🤖 Claude Code Slash-Befehle (`.claude/commands/`)
 - `/test`: Führt vitest im schnellen oder vollständigen Modus aus und analysiert Fehler.
-- `/verify`: Validiert die vollständige 5-stufige CI-Pipeline vor Commits.
+- `/verify`: Führt die 5 lokalen CI-Schritte vor Commits aus (`lint:ci` → `typecheck` → `npm test` → `build` → `size`); `npm audit`, `e2e` und Lighthouse laufen nur in CI.
 - `/new-lab`: Schritt-für-Schritt-Anleitung für die Erstellung neuer IHK-Lernmodule inkl. Scaffolding.
 - `/review`: Strukturiertes Review bezüglich Entkopplung, WCAG 2.1 AA A11y, Sandbox-Sicherheit und Doku.
 
@@ -87,6 +87,8 @@ CI-Reihenfolge: `lint:ci` → `typecheck` → `test` → `test:coverage` → `bu
 4. **Barrierefreiheit (Accessibility & A11y)**:
    - Respektiere Nutzer-Präferenzen für reduzierte Bewegung (`prefers-reduced-motion` und `body.reduced-motion`).
    - Keine Viewport-Zoom-Blocker (`user-scalable=no` verboten).
+   - Jedes Modal mit `isOpen`/`onClose` nutzt `useDialogA11y` (`src/components/Shared/useDialogA11y.js`): Focus-Trap, Escape, Fokus-Rückgabe; der Panel-Container bekommt `ref`, `tabIndex={-1}`, `role="dialog"`, `aria-modal="true"` und `aria-labelledby`. Der Backdrop schließt nur bei `e.target === e.currentTarget`. `src/components/modalsA11y.test.jsx` prüft den Vertrag – neue Modals dort eintragen.
+   - Oxlint nutzt `jsx-a11y` (`.oxlintrc.json`); `label-has-associated-control`, `click-events-have-key-events`, `no-static-element-interactions` und `prefer-tag-over-role` sind bewusst noch aus (offene Punkte N01–N03 in `PLAN.md`).
 5. **README- & CHANGELOG-Wartungsregel** (auch `_Projektuebersicht.md` wird bei neuen Labs gepflegt, siehe Git-Historie):
    - Wann immer Dateien hinzugefügt, verändert oder entfernt werden, müssen `README.md` und `CHANGELOG.md` aktualisiert und die Änderungshistorie fortgeführt werden.
 6. **Fehlerisolation (Error Boundaries)**:
@@ -118,13 +120,29 @@ Abkürzung: `npm run new-lab -- <PascalName> "<Titel>" [category] [difficulty]` 
 
 Danach: `CHANGELOG.md` + `_Projektuebersicht.md` (und bei Bedarf `README.md`) aktualisieren; Smoke-Test (`allLabsSmoke.test.jsx`) und A11y-Test (`allLabsA11y.test.jsx`, axe-core) greifen automatisch. `labModulesData.test.js` schlägt fehl, wenn ein `LAB_MODULES`-Eintrag keine Route hat.
 
+Badges: Jede in `labRegistry.js` vergebene `xp.badge`-ID muss in `BADGES` (`src/utils/storage.js`) mit Icon und Beschreibung registriert sein, sonst wird das Abzeichen nicht angezeigt.
+
 Prüfungsdrills: Fragen im Format `{ id, frage, optionen, korrektIndex, erklaerung }` in der Engine ablegen (IDs global eindeutig), in `src/data/drillQuestions.js` eintragen und im Lab per `IhkDrillPanel` (mit XP) oder `Shared/LabDrillSection` (ohne XP) einbinden – falsche Antworten landen dann automatisch im Fehlerjournal. Lab-Fortschritt (`labProgress`) wird in `App.jsx` automatisch erfasst, kein Eingriff im Lab nötig.
 
 Achtung: Beide Glob-Tests laden `Content/*.jsx` und schließen `*.test.jsx` aus – Komponententests für Labs dürfen daneben liegen (`Content/XyzLab.test.jsx`, Muster: `TcpStateMachineLab.test.jsx`). Wiederverwendbare Bausteine, die kein eigenständiges Lab sind (z. B. `IhkDrillPanel` für den IHK-Multiple-Choice-Drill), gehören nach `src/components/Shared/`, nicht nach `Content/`.
 
+## 🔄 Store & Multi-Tab
+
+`useStore.js` synchronisiert den Spielstand zwischen Browser-Tabs über einen `BroadcastChannel` (`it_devgame_sync`). Der Spielstand liegt in LocalStorage (`storage.js`), UI-Einstellungen getrennt davon (siehe Prinzip 10).
+
+## 🤝 Parallele KI-Leitfäden
+
+`GEMINI.md` und `.agents/AGENTS.md` enthalten für andere KI-Assistenten weitgehend dieselben Projektregeln. Ändern sich Befehle oder Prinzipien hier, die beiden Dateien mitpflegen. `PLAN.md` ist der laufende Umsetzungsplan, `.claudeignore` hält Build-Artefakte (`dist`, `coverage`, `node_modules`) aus dem Kontext.
+
+## 🔐 CSP & Preview
+
+- Die Header (inkl. CSP) stehen in `vercel.json`. `vite preview` liefert sie lokal mit aus (Plugin `vercelHeadersForPreview` in `vite.config.js`, liest die `source`-Muster als RegExp), die E2E-Tests laufen also unter der Produktions-CSP; `e2e/csp.spec.js` schlägt bei `securitypolicyviolation` fehl.
+- Der Sandbox-Worker (`assets/sandbox.worker-*.js`) hat eine eigene CSP mit `'unsafe-eval'` (nötig für `new Function`, siehe Prinzip 9); die globale Regel schließt ihn per Lookahead aus, damit sich die Header nie überlagern. Die Hauptseite hat weder `'unsafe-eval'` noch `'unsafe-inline'` für Skripte – Inline-Skripte gehören nach `public/` (Beispiel: `skeleton-hide.js`).
+- Neue Fremdquellen (Frames, CDNs, Skripte) brauchen einen CSP-Eintrag **und** einen Fall in `e2e/csp.spec.js`. Monaco kommt aus dem eigenen Bundle (`src/utils/monacoLoader.js`), nicht vom CDN.
+
 ## 📦 Bundle & PWA
 
-`vite.config.js` splittet Vendor-Chunks (`vendor-react/ui/charts/pdf/sql`); `size-limit` in `package.json` prüft deren gzip-Größe nach dem Build. Die großen Chunks (pdf/sql/charts) sind vom Workbox-Precache ausgenommen und werden per Runtime-Cache geladen – neue schwere Abhängigkeiten dürfen diese Limits nicht reißen.
+`vite.config.js` splittet Vendor-Chunks (`vendor-react/ui/charts/pdf/sql`); `size-limit` in `package.json` prüft deren gzip-Größe nach dem Build. PWA-Icons (192/512/maskable) erzeugt `node scripts/generate-pwa-icons.js` aus `public/favicon.svg`. Die großen Chunks (pdf/sql/charts sowie Monaco `editor.api`/`*.worker`) sind vom Workbox-Precache ausgenommen und werden per Runtime-Cache geladen – neue schwere Abhängigkeiten dürfen diese Limits nicht reißen.
 
 ## ♿ A11y-Sicherheitsnetz, Streak & Fehlerjournal
 

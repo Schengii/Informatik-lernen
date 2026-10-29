@@ -287,11 +287,12 @@ export default function OsProcessSchedulerLab() {
                         <td style={{ padding: '10px' }}>
                           <input
                             type="number"
+                            aria-label={`Ankunftszeit ${p.name}`}
                             min="0"
                             max="20"
                             value={p.arrival}
                             onChange={(e) => {
-                              const val = Math.max(0, parseInt(e.target.value) || 0);
+                              const val = Math.min(20, Math.max(0, parseInt(e.target.value) || 0));
                               setProcesses(processes.map(x => x.id === p.id ? { ...x, arrival: val } : x));
                             }}
                             style={{ width: '60px', padding: '4px 8px', borderRadius: '4px', border: '1px solid var(--border-color)', background: 'var(--bg-secondary)', color: 'var(--text-main)' }}
@@ -300,11 +301,12 @@ export default function OsProcessSchedulerLab() {
                         <td style={{ padding: '10px' }}>
                           <input
                             type="number"
+                            aria-label={`Laufzeit (Burst) ${p.name}`}
                             min="1"
                             max="20"
                             value={p.burst}
                             onChange={(e) => {
-                              const val = Math.max(1, parseInt(e.target.value) || 1);
+                              const val = Math.min(20, Math.max(1, parseInt(e.target.value) || 1));
                               setProcesses(processes.map(x => x.id === p.id ? { ...x, burst: val } : x));
                             }}
                             style={{ width: '60px', padding: '4px 8px', borderRadius: '4px', border: '1px solid var(--border-color)', background: 'var(--bg-secondary)', color: 'var(--text-main)' }}
@@ -313,11 +315,12 @@ export default function OsProcessSchedulerLab() {
                         <td style={{ padding: '10px' }}>
                           <input
                             type="number"
+                            aria-label={`Priorität ${p.name}`}
                             min="1"
                             max="10"
                             value={p.priority}
                             onChange={(e) => {
-                              const val = Math.max(1, parseInt(e.target.value) || 1);
+                              const val = Math.min(10, Math.max(1, parseInt(e.target.value) || 1));
                               setProcesses(processes.map(x => x.id === p.id ? { ...x, priority: val } : x));
                             }}
                             style={{ width: '60px', padding: '4px 8px', borderRadius: '4px', border: '1px solid var(--border-color)', background: 'var(--bg-secondary)', color: 'var(--text-main)' }}

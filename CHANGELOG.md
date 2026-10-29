@@ -9,7 +9,12 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unveröffentlicht]
 
-## [3.78.0] - 2026-10-28
+### Fehlerbehebungen aus dem Qualitäts- und Sicherheitstest (2026-10-22)
+- **Abstürze behoben**: `SqliteWasmStudioLab` (`setSandbox` fehlte nach dem Lint-Fix M03, Wechsel der Beispiel-Datenbank warf), `IhkOralExamSimulator` (Präsentations-Checkliste war nicht definiert), `JwtConfusionLab` (ungültiges Base64URL im Token-Feld warf `atob`). Regressionstests liegen neben den Komponenten.
+- **Robustheit**: `calculateGanttTimeline` fällt bei leerem/ungültigem Startdatum auf das Standarddatum zurück und begrenzt riesige oder nicht endliche Stunden; `WisoFinancingLab` und `OsProcessSchedulerLab` begrenzen Eingaben auf die deklarierten Maxima (verhindert Einfrieren bei z. B. 99999999999999999999).
+- **Layout**: Kopfzeile läuft bei 320 px nicht mehr über (Wortmarke unter 400 px ausgeblendet, Header-Schaltflächen behalten ihre Breite, kein „Ctrl+K“-Hinweis auf Touch-Breiten); Rasterspalten dürfen schrumpfen, Code-Blöcke im JWT-Lab scrollen in sich.
+- **Datenschutz**: YouTube-Videos laden erst nach Klick auf „Video von YouTube laden“ (`VideoHub`, `e2e/csp.spec.js` prüft, dass vorher kein iframe existiert); Datenschutz- und Barrierefreiheitstext an das tatsächliche Verhalten angepasst (YouTube, Server-Logdaten, keine unbelegten AAA-/Zertifizierungsaussagen).
+- **Barrierefreiheit**: Eingabefelder behalten trotz inline `outline: none` eine sichtbare Fokusmarkierung; überlaufende Scroll-Bereiche werden per Tastatur fokussierbar (`applyScrollableFocus` in `a11yAutoLabel.js`); der mobile Menü-Button schrumpft nicht mehr auf 14 px.
 
 ### Architektur & Modularisierung
 - **Navbar Modularisierung (M08)**:
@@ -55,13 +60,46 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 - **`PLAN.md` (Umsetzungsplan)**: Vollständige Realisierung aller 14 priorisierten Maßnahmen (M01–M14) in 4 Phasen.
 - **`README.md` (M12)**: Dokumentation des Open-Graph-Banner-Generators `npm run og:image` (`scripts/generate-og-image.js`).
 
-### Bereinigung & Code-Qualität (Chore, M01)
+## [3.78.0] - 2026-10-22
+
+Umsetzung von `PLAN.md` (M01–M20, Details und Status dort).
+
+### Sicherheit (Security)
+- **Produktions-CSP wird jetzt getestet**: `vite preview` und damit die E2E-Tests liefern die Header aus `vercel.json` aus (`vite.config.js`, Plugin `vercelHeadersForPreview`); neue `e2e/csp.spec.js` wertet `securitypolicyviolation`-Ereignisse als Fehler.
+- **Im Browser bestätigte CSP-Fehler behoben**: Der Sandbox-Worker (`new Function`) bekommt eine eigene, strengere CSP (`'unsafe-eval'` nur dort, `connect-src 'none'`), die Hauptseite bleibt ohne `'unsafe-eval'`; `frame-src` erlaubt den YouTube-Player (`youtube-nocookie.com`); Monaco wird lokal gebündelt (`src/utils/monacoLoader.js`) statt vom CDN geladen.
+- **`script-src` ohne `'unsafe-inline'`**: Das Skeleton-Skript liegt jetzt in `public/skeleton-hide.js`.
+- **Lieferkette**: CI führt `npm audit --omit=dev --omit=optional --audit-level=high` aus (die 20 Funde der Rohausgabe stammen nur aus `react-native-fs`, einer optionalen Abhängigkeit von `alasql`, die nicht im Browser-Build landet).
+
+### Barrierefreiheit (A11y)
+- Neuer Baustein `src/components/Shared/useDialogA11y.js` (Focus-Trap, Escape, Fokus-Rückgabe) mit Unit-Tests; alle 11 Modals sind jetzt modale Dialoge (`role="dialog"`, `aria-modal`, Beschriftung); Sammeltest `src/components/modalsA11y.test.jsx`.
+- Oxlint-Plugin `jsx-a11y` aktiviert; 18 Befunde behoben (fehlende `aria-label`s in Wiso-/VLSM-/Scheduler-Labs und Audio-Schalter, `autoFocus` im CLI-Terminal). Drei Massenregeln sind vorerst aus (siehe `PLAN.md` N01–N03).
+
+### PWA
+- PNG-Icons (192, 512, maskable) im Manifest (`scripts/generate-pwa-icons.js`) und als Benachrichtigungs-Icon; Monaco-Chunks sind vom Precache ausgenommen und werden per Runtime-Cache geladen.
+
+### CI & Tooling
+- Tests laufen einmal (`test:coverage`) statt zweimal; der Lighthouse-Job nutzt den `dist`-Artefakt des test-Jobs statt eines zweiten Builds; Coverage-Schwellen auf 61/53/46/63 % angehoben.
+- `monaco-editor` ist jetzt direkte Abhängigkeit.
+
+### Dokumentation
+- `GEMINI.md` und `.agents/AGENTS.md` verweisen auf `CLAUDE.md` (eine Quelle); `CLAUDE.md` um Badges, Multi-Tab-Sync, CSP und Dialog-Regeln ergänzt; Testzahl-Verweise korrigiert.
+
+### Bereinigung & Code-Qualität (Chore)
 - **Umfassende Dead-Code- & Export-Bereinigung (chore/cleanup)**:
-  - Entfernung toter, ungenutzter Datenstrukturen und Tabellen: `LOGIC_GATES_LEVELS` (gamesData), `DEFAULT_NET_NAMESPACES` (linuxNetNsEngine), `RESTART_POLICIES` (systemdServiceEngine), `UML_DIAGRAM_TYPES` (umlEngine), `FIDO2_ALGORITHMS` (webAuthnEngine), `NDP_MESSAGE_TYPES` (ipv6NdpEngine).
-  - Konsolidierung doppelter Exporte & Aliase: `LANGUAGE_MODULES` direkt als `PROGRAMMING_LANGUAGES`, `VIDEO_TUTORIALS` direkt als `TUTORIAL_VIDEOS`, Vereinheitlichung auf `evaluateOauth21Flow` in `oauth21DpopEngine`.
-  - Kapselung privater Modul-Interna: Entfernen redundanter `export`-Keywords über 22 Utility- und Gamification-Module.
-  - Bereinigung ungenutzter Instanziierungen und Aliase (`pushNotificationManager.js`, `OsProcessSchedulerLab.jsx`).
-  - Härtung von YouTube-`<iframe>` mit expliziten `sandbox`-Attributen in `VideoHub.jsx`.
+  - Phase 2: Entfernung toter, ungenutzter Datenstrukturen und Tabellen: `LOGIC_GATES_LEVELS` (gamesData), `DEFAULT_NET_NAMESPACES` (linuxNetNsEngine), `RESTART_POLICIES` (systemdServiceEngine), `UML_DIAGRAM_TYPES` (umlEngine), `FIDO2_ALGORITHMS` (webAuthnEngine), `NDP_MESSAGE_TYPES` (ipv6NdpEngine).
+  - Phase 2: Konsolidierung doppelter Exporte & Aliase: `LANGUAGE_MODULES` direkt als `PROGRAMMING_LANGUAGES`, `VIDEO_TUTORIALS` direkt als `TUTORIAL_VIDEOS`, Vereinheitlichung auf `evaluateOauth21Flow` in `oauth21DpopEngine`.
+  - Phase 2: Kapselung privater Modul-Interna: Entfernen redundanter `export`-Keywords über 22 Utility- und Gamification-Module (`SkillTreeWidget`, `customChallengesManager`, `dnssecValidationEngine`, `examReadinessEngine`, `graphqlSandboxEngine`, `ihkRiskAnalysisEngine`, `ihkStudyPlanEngine`, `indexedDbStorage`, `indexedDbStoreMiddleware`, `ipv6Routing`, `jwtConfusionEngine`, `labProgressEngine`, `mistakeJournalEngine`, `oauthPkceEngine`, `raid6GaloisEngine`, `sandboxRunner`, `sqlSandboxEngine`, `srpAuthEngine`, `stpProtocolEngine`, `uiPreferences`, `vectorMathEngine`, `wisoPayrollEngine`).
+  - Phase 2: Bereinigung von Re-Exporten in `src/utils/srsAlgorithm.js`.
+  - Phase 2: Ergänzung des npm-Scripts `"og:image": "node scripts/generate-og-image.js"` in `package.json`.
+  - Phase 3: Validierung der Zielstruktur nach Stack-Konventionen (`src/`, `docs/`, `e2e/`, `public/`, `scripts/`, `.githooks/`), Importpfade und Konsistenzprüfungen.
+- **Projekt-Bereinigung & Analyse (chore/cleanup)**:
+  - Phase 0: Baseline-Sicherung für Build (1.27s), Oxlint (704 Dateien, 0 Warnungen) und Vitest (1.223 Tests bestanden, Stand der Bereinigung; die aktuelle Zahl nennt `npm test`).
+  - Phase 1: Projektweite Tiefenanalyse auf Duplikate, ungenutzte Exporte, leere Ordner und Code Smells ohne Beanstandung von Fehlern.
+  - Phase 2: Gezielte Härtung und Bereinigung mit hoher Sicherheit:
+    - `src/utils/pushNotificationManager.js`: Vermeidung ungenutzter Instanziierung (`new Notification`).
+    - `src/components/Content/OsProcessSchedulerLab.jsx`: Entfernung des redundanten lokalen Alias `bankerMax` und Bereinigung der `useMemo`-Dependencies.
+    - `src/components/Content/VideoHub.jsx`: Härtung des YouTube-`<iframe>` durch explizite `sandbox`-Attribute (`allow-scripts allow-same-origin allow-presentation`).
+  - Phase 3: Validierung der Zielstruktur nach Stack-Konventionen (`src/`, `docs/`, `e2e/`, `scripts/`, `public/`).
 
 ## [3.77.0] - 2026-10-16
 

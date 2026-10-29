@@ -67,8 +67,17 @@ export default function JwtConfusionLab({ onRewardXP }) {
 
   // Decode parts for visual inspection
   const parts = currentToken.split('.');
-  const headerPreview = parts[0] ? atob(parts[0].replace(/-/g, '+').replace(/_/g, '/')) : '';
-  const payloadPreview = parts[1] ? atob(parts[1].replace(/-/g, '+').replace(/_/g, '/')) : '';
+  // Manuell eingegebene Tokens können kein gültiges Base64URL sein → nicht abstürzen, Hinweis anzeigen
+  const decodePart = (part) => {
+    if (!part) return '';
+    try {
+      return atob(part.replace(/-/g, '+').replace(/_/g, '/'));
+    } catch {
+      return '(kein gültiges Base64URL)';
+    }
+  };
+  const headerPreview = decodePart(parts[0]);
+  const payloadPreview = decodePart(parts[1]);
 
   return (
     <div className="container-responsive" style={{ padding: '30px 16px', color: 'var(--text-main)' }}>
@@ -225,14 +234,14 @@ export default function JwtConfusionLab({ onRewardXP }) {
 
           <div style={{ marginBottom: '12px' }}>
             <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--accent-rose)', textTransform: 'uppercase' }}>Header (Algorithmus):</span>
-            <pre style={{ background: 'var(--bg-tertiary)', padding: '10px', borderRadius: '8px', fontSize: '0.82rem', color: 'var(--text-main)', fontFamily: 'var(--font-code)', marginTop: '4px' }}>
+            <pre style={{ background: 'var(--bg-tertiary)', padding: '10px', borderRadius: '8px', fontSize: '0.82rem', color: 'var(--text-main)', fontFamily: 'var(--font-code)', marginTop: '4px', overflowX: 'auto' }}>
               {headerPreview || '{}'}
             </pre>
           </div>
 
           <div style={{ marginBottom: '12px' }}>
             <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--accent-purple)', textTransform: 'uppercase' }}>Payload (Rechte &amp; Claims):</span>
-            <pre style={{ background: 'var(--bg-tertiary)', padding: '10px', borderRadius: '8px', fontSize: '0.82rem', color: 'var(--text-main)', fontFamily: 'var(--font-code)', marginTop: '4px' }}>
+            <pre style={{ background: 'var(--bg-tertiary)', padding: '10px', borderRadius: '8px', fontSize: '0.82rem', color: 'var(--text-main)', fontFamily: 'var(--font-code)', marginTop: '4px', overflowX: 'auto' }}>
               {payloadPreview || '{}'}
             </pre>
           </div>
