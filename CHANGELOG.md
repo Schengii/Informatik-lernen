@@ -9,6 +9,22 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unveröffentlicht]
 
+### Wissensbereich & Lernartikel (Wissen-Ausbau)
+- **Sichere Markdown-Engine (`src/utils/markdownEngine.js`)**:
+  - Parser mit AST-Generierung ohne `dangerouslySetInnerHTML` für sicheres Rendern von Fachartikeln (`src/components/Shared/MarkdownContent.jsx`).
+  - Unterstützung für Überschriften mit Slug-Ankern, Tabellen mit Ausrichtung, Callouts (`info`, `tip`, `warning`, `exam`, `example`), Code-Blöcke, Listen, Trennlinien, Abbildungs-Einbettung und sichere Links.
+  - Vollständige Test-Suite `src/utils/markdownEngine.test.js` (18 Tests).
+- **25 Thematische SVG-Diagramme (`src/assets/topics/`)**:
+  - Maßgeschneiderte Vektordiagramme für Kernkonzepte (OSI-Modell, Subnetting, Normalisierung, Event-Loop, Box-Modell, Von-Neumann-Architektur, Testpyramide u. v. m.).
+  - Dynamischer Image-Resolver `src/data/topicImages.js` mit Vite-Asset-Hashing.
+- **Code-Splitting & Modularisierung (`src/data/topics/`)**:
+  - 24 Fachartikel aus dem monolithischen `topicsData.js` in eigenständige Module unter `src/data/topics/<id>.js` aufgeteilt und per dynamischem `import()` nachgeladen.
+  - Artikel erweitert um Lernziele, formatierte Fachinhalte, mindestens 3 interaktive Übungsaufgaben mit Tipps/Musterlösungen, Prüfungsquizzes und validierte Quellenangaben.
+  - Integritätstest-Suite `src/data/topics.test.js` (195 Tests) sichert Struktur, Eindeutigkeit, Quizfragen und Abbildungen projektweit ab.
+- **Interaktiver TopicReader & Deep-Linking**:
+  - `TopicReader.jsx`: Aufgabentipps schrittweise einblendbar, Musterlösungen ein-/ausklappbar, Quizzes mit Erklärungen und Reset, Artikelnavigation (Vor/Zurück) und Text-to-Speech Vorlesefunktion.
+  - URL-Routing: Wissensartikel über `/wissen/<topicId>` direkt verlinkbar und über die Command Palette erreichbar.
+
 ### Lerninhalte (PLAN.md P17)
 - **Kafka-Lab neu (`/kafka`)**: Statt zweier statischer Code-Blöcke ein interaktives Modell (`kafkaEventEngine.js`): Schlüssel bestimmen die Partition, Consumer Groups teilen Partitionen (überzählige Consumer idle), Offsets und Lag je Gruppe, Repartitionierung, Vergleich mit Message Queues, 4 Aufgaben mit 50 XP (Abzeichen `kafka_event_master`), 6 Drillfragen im Fehlerjournal, Quellenliste.
 - **WebAssembly-Lab neu (`/wasm_rust_studio`)**: Echtes Wasm-Modul aus `wasmBinaryEngine.js` mit Binär-Inspektor (Präambel, Sektionen, LEB128, Exporte), Ausführung von `add`/`mul` im Browser samt i32-Überlauf, `memory.grow()`, 5 Aufgaben mit 50 XP, 6 Drillfragen, Quellenliste. Der Rust-Beispielcode war fehlerhaft (`export fn`) und nutzt jetzt `#[no_mangle] pub extern "C" fn`.
