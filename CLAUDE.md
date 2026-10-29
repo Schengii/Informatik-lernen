@@ -44,7 +44,9 @@ npm run test:coverage
 npm run size
 
 # End-to-End Smoke-Tests gegen den Produktions-Build (Playwright) –
-# startet selbst `npm run preview` auf Port 4173, daher vorher `npm run build`
+# startet selbst `npm run preview` auf Port 4173, daher vorher `npm run build`.
+# Laufen parallel andere Testprozesse (z. B. Test-Explorer der IDE), reißen
+# Worker-/Service-Worker-Fälle ihre Zeitlimits – dann `npx playwright test --workers=2`
 npm run e2e
 
 # Typprüfung der mit `// @ts-check` markierten Dateien
