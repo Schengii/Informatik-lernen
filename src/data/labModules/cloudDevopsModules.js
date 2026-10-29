@@ -537,7 +537,7 @@ export const cloudDevopsModules = [
     category: 'devops',
     tags: ['#Apache', '#Kafka', '#Event', '#Architektur', '#DEVOPS'],
     difficulty: 'Intermediate',
-    desc: 'Producers, Topics & Consumer Groups',
+    desc: 'Interaktiv: Schlüssel → Partition, Consumer Groups, Offsets & Lag, Kafka vs. Queue, IHK-Drill mit Quellen',
     icon: Zap,
     color: '#15803d'
   },
