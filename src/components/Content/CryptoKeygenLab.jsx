@@ -38,7 +38,7 @@ export default function CryptoKeygenLab() {
             RSA Keygen & Diffie-Hellman Math Lab
           </h1>
           <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-            Erlebe die Mathematik hinter RSA: Primzahlengenerierung, Eulersche Totientenfunktion $\phi(n)$, Inverse Modulo-Exponenten und Chiffrierung.
+            Erlebe die Mathematik hinter RSA: Primzahlengenerierung, Eulersche Totientenfunktion φ(n), Inverse Modulo-Exponenten und Chiffrierung.
           </p>
         </div>
 

@@ -301,7 +301,7 @@ export default function Raid6GaloisLab() {
             <strong style={{ color: '#ffffff' }}>Q-Parität (Reed-Solomon Galois-Feld):</strong> {parityResult.formulaQ} über dem Generatorpolynom $x^8 + x^4 + x^3 + x^2 + 1$ (0x11d).
           </div>
           <div>
-            <strong style={{ color: '#ffffff' }}>Warum 2 Ausfälle kein Problem sind:</strong> Mit 2 bekannten Gleichungen (P und Q) und 2 Unbekannten (z. B. $D_0$ und $D_1$) kann das lineare Gleichungssystem in GF(2^8) exakt und eindeutig gelöst werden, da im Galois-Feld jede Zahl $\ne 0$ ein multiplikatives Inverses besitzt.
+            <strong style={{ color: '#ffffff' }}>Warum 2 Ausfälle kein Problem sind:</strong> Mit 2 bekannten Gleichungen (P und Q) und 2 Unbekannten (z. B. D₀ und D₁) kann das lineare Gleichungssystem in GF(2^8) exakt und eindeutig gelöst werden, da im Galois-Feld jede Zahl ≠ 0 ein multiplikatives Inverses besitzt.
           </div>
         </div>
       </div>

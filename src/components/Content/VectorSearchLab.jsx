@@ -111,7 +111,7 @@ export default function VectorSearchLab({ onRewardXP }) {
       {results && (
         <div>
           <h4 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--text-main)', marginBottom: '16px' }}>
-            📊 Ranking nach Kosinus-Ähnlichkeit ($\cos \theta$):
+            📊 Ranking nach Kosinus-Ähnlichkeit (cos θ):
           </h4>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>

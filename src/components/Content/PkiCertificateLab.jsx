@@ -76,7 +76,7 @@ export default function PkiCertificateLab({ onAwardXP }) {
               X.509 PKI & Certificate Chain Validator Studio
             </h1>
             <p className="text-slate-400 mt-1 max-w-2xl text-sm">
-              Visuelle Validierung kryptographischer Vertrauensketten (Root CA $\to$ Intermediate $\to$ End-Entity/Leaf),
+              Visuelle Validierung kryptographischer Vertrauensketten (Root CA → Intermediate → End-Entity/Leaf),
               Hostname-Matching (SAN), Gültigkeitszeiträume und Revocation-Status (CRL / OCSP).
             </p>
           </div>

@@ -94,13 +94,13 @@ export default function LinuxBridgeVxlanLab({ onRewardXP }) {
       {/* Encapsulation Packet Inspector */}
       <div style={{ background: 'var(--bg-secondary)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
         <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--text-muted)', display: 'block', marginBottom: '12px' }}>
-          VXLAN Paket-Struktur (Outer L3 UDP $\rightarrow$ VXLAN Header $\rightarrow$ Inner L2 Payload):
+          VXLAN Paket-Struktur (Outer L3 UDP → VXLAN Header → Inner L2 Payload):
         </span>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {/* Outer Header */}
           <div style={{ padding: '12px', background: '#090d16', border: '1px solid #6366f1', borderRadius: '6px', fontSize: '0.8rem', color: '#818cf8', fontFamily: 'monospace' }}>
-            <strong>[Outer Header (Underlay Network)]</strong> IP {packetData.outerHeader.ip.src} $\rightarrow$ {packetData.outerHeader.ip.dst} | UDP DstPort: {packetData.outerHeader.udp.dstPort}
+            <strong>[Outer Header (Underlay Network)]</strong> IP {packetData.outerHeader.ip.src} → {packetData.outerHeader.ip.dst} | UDP DstPort: {packetData.outerHeader.udp.dstPort}
           </div>
 
           {/* VXLAN Header */}
@@ -110,7 +110,7 @@ export default function LinuxBridgeVxlanLab({ onRewardXP }) {
 
           {/* Inner Payload */}
           <div style={{ padding: '12px', background: '#090d16', border: '1px solid #10b981', borderRadius: '6px', fontSize: '0.8rem', color: '#34d399', fontFamily: 'monospace' }}>
-            <strong>[Inner Payload (Container Virtual Network)]</strong> IP {packetData.innerPayload.ip.src} $\rightarrow$ {packetData.innerPayload.ip.dst} | MAC {packetData.innerPayload.ethernet.src} $\rightarrow$ {packetData.innerPayload.ethernet.dst}
+            <strong>[Inner Payload (Container Virtual Network)]</strong> IP {packetData.innerPayload.ip.src} → {packetData.innerPayload.ip.dst} | MAC {packetData.innerPayload.ethernet.src} → {packetData.innerPayload.ethernet.dst}
           </div>
         </div>
       </div>

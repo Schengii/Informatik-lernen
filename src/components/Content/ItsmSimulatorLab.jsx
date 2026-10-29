@@ -51,7 +51,7 @@ export default function ItsmSimulatorLab() {
               ITIL 4 ITSM &amp; Service Desk Management Simulator
             </h1>
             <p style={{ color: 'var(--text-muted)', marginTop: '6px', maxWidth: '750px', fontSize: '0.95rem' }}>
-              Bearbeite Incidents, Service Requests und Changes mit SLA-Priorisierungsmatrix (Impact $\times$ Urgency) und bewerte Change Requests im Change Advisory Board (CAB).
+              Bearbeite Incidents, Service Requests und Changes mit SLA-Priorisierungsmatrix (Impact × Urgency) und bewerte Change Requests im Change Advisory Board (CAB).
             </p>
           </div>
         </div>

@@ -182,10 +182,10 @@ export default function SrpZeroKnowledgeLab({ onRewardXP }) {
             Über das Netzwerk übertragene Datenpakete:
           </div>
           <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
-            <li>Client $\to$ Server: <code>{`{ username: "${username}", A: "${clientHello.A.toString()}" }`}</code></li>
-            <li>Server $\to$ Client: <code>{`{ salt: "${registration.salt.toString()}", B: "${serverChallenge.B.toString()}" }`}</code></li>
-            <li>Client $\to$ Server: <code>{`{ proofM1: "${authResult.clientProofM1.toString()}" }`}</code> (Beweis ohne Preisgabe)</li>
-            <li>Server $\to$ Client: <code>{`{ proofM2: "${authResult.serverProofM2.toString()}" }`}</code> (Gegenseitige Authentifizierung)</li>
+            <li>Client → Server: <code>{`{ username: "${username}", A: "${clientHello.A.toString()}" }`}</code></li>
+            <li>Server → Client: <code>{`{ salt: "${registration.salt.toString()}", B: "${serverChallenge.B.toString()}" }`}</code></li>
+            <li>Client → Server: <code>{`{ proofM1: "${authResult.clientProofM1.toString()}" }`}</code> (Beweis ohne Preisgabe)</li>
+            <li>Server → Client: <code>{`{ proofM2: "${authResult.serverProofM2.toString()}" }`}</code> (Gegenseitige Authentifizierung)</li>
             <li style={{ color: 'var(--accent-teal)', marginTop: '4px' }}>
               <strong>Zero-Knowledge-Garantie:</strong> Weder das Klartext-Passwort noch ein Hash werden übertragen! Selbst ein Angreifer mit vollständigem Packet-Sniffing kann daraus das Passwort nicht ableiten.
             </li>

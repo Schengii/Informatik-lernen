@@ -212,7 +212,7 @@ export default function HttpCachingLab({ onRewardXP }) {
           </div>
           <div>
             <strong style={{ color: 'var(--text-main)' }}>Cache-Hierarchie:</strong>
-            <p style={{ margin: '4px 0 0' }}>Browser Memory Cache (0ms) $\to$ Service Worker Cache $\to$ Disk Cache $\to$ CDN / Reverse Proxy $\to$ Origin Server.</p>
+            <p style={{ margin: '4px 0 0' }}>Browser Memory Cache (0ms) → Service Worker Cache → Disk Cache → CDN / Reverse Proxy → Origin Server.</p>
           </div>
         </div>
       </div>
