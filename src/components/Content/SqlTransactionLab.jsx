@@ -70,7 +70,7 @@ export default function SqlTransactionLab() {
                 borderRadius: '8px',
                 border: selectedScenarioId === s.id ? '2px solid #a855f7' : '1px solid var(--border-color, rgba(255,255,255,0.1))',
                 background: selectedScenarioId === s.id ? 'rgba(168, 85, 247, 0.2)' : 'var(--card-bg, #1e293b)',
-                color: selectedScenarioId === s.id ? '#e9d5ff' : 'var(--text-secondary, #94a3b8)',
+                color: selectedScenarioId === s.id ? 'var(--accent-purple)' : 'var(--text-secondary, #94a3b8)',
                 fontWeight: 'bold',
                 cursor: 'pointer',
                 fontSize: '0.85rem'
@@ -124,7 +124,7 @@ export default function SqlTransactionLab() {
               const isExecuted = idx < stepAIdx;
               return (
                 <div key={idx} style={{ padding: '8px 10px', borderRadius: '6px', background: isExecuted ? 'rgba(99, 102, 241, 0.2)' : 'rgba(255,255,255,0.03)', borderLeft: isExecuted ? '4px solid #6366f1' : '4px solid transparent' }}>
-                  <div style={{ color: isExecuted ? '#c7d2fe' : 'var(--text-dim)', fontWeight: 'bold' }}>{step.cmd}</div>
+                  <div style={{ color: isExecuted ? 'var(--accent-primary)' : 'var(--text-dim)', fontWeight: 'bold' }}>{step.cmd}</div>
                   <div style={{ fontSize: '0.78rem', color: isExecuted ? 'var(--text-dim)' : '#475569', marginTop: '2px' }}>{step.desc}</div>
                 </div>
               );
@@ -139,7 +139,7 @@ export default function SqlTransactionLab() {
                 width: '100%',
                 padding: '8px',
                 borderRadius: '6px',
-                background: stepAIdx >= scenario.sessionA.length ? '#475569' : '#6366f1',
+                background: stepAIdx >= scenario.sessionA.length ? 'var(--bg-card-hover)' : '#6366f1',
                 color: 'var(--text-main)',
                 fontWeight: 'bold',
                 fontSize: '0.85rem',
@@ -164,7 +164,7 @@ export default function SqlTransactionLab() {
               const isExecuted = idx < stepBIdx;
               return (
                 <div key={idx} style={{ padding: '8px 10px', borderRadius: '6px', background: isExecuted ? 'rgba(236, 72, 153, 0.2)' : 'rgba(255,255,255,0.03)', borderLeft: isExecuted ? '4px solid #ec4899' : '4px solid transparent' }}>
-                  <div style={{ color: isExecuted ? '#fbcfe8' : 'var(--text-dim)', fontWeight: 'bold' }}>{step.cmd}</div>
+                  <div style={{ color: isExecuted ? 'var(--accent-rose)' : 'var(--text-dim)', fontWeight: 'bold' }}>{step.cmd}</div>
                   <div style={{ fontSize: '0.78rem', color: isExecuted ? 'var(--text-dim)' : '#475569', marginTop: '2px' }}>{step.desc}</div>
                 </div>
               );
@@ -179,7 +179,7 @@ export default function SqlTransactionLab() {
                 width: '100%',
                 padding: '8px',
                 borderRadius: '6px',
-                background: stepBIdx >= scenario.sessionB.length ? '#475569' : '#ec4899',
+                background: stepBIdx >= scenario.sessionB.length ? 'var(--bg-card-hover)' : '#ec4899',
                 color: 'var(--text-main)',
                 fontWeight: 'bold',
                 fontSize: '0.85rem',

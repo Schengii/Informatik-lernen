@@ -249,8 +249,8 @@ export default function ErdDesignerLab() {
         </div>
 
         <pre style={{
-          background: '#0f172a',
-          color: '#38bdf8',
+          background: 'var(--bg-card)',
+          color: 'var(--accent-cyan)',
           padding: '20px',
           borderRadius: 'var(--radius-md)',
           fontFamily: 'monospace',

@@ -313,7 +313,7 @@ export default function Http3QuicLab() {
                 const isH3 = proto === 'HTTP/3';
 
                 return (
-                  <div key={proto} style={{ background: isH3 ? 'rgba(56, 189, 248, 0.1)' : 'rgba(0,0,0,0.25)', border: isH3 ? '2px solid #38bdf8' : '1px solid rgba(255,255,255,0.1)', borderRadius: '10px', padding: '16px' }}>
+                  <div key={proto} style={{ background: isH3 ? 'rgba(56, 189, 248, 0.1)' : 'var(--bg-tertiary)', border: isH3 ? '2px solid #38bdf8' : '1px solid rgba(255,255,255,0.1)', borderRadius: '10px', padding: '16px' }}>
                     <div style={{ fontWeight: 'bold', color: isH3 ? 'var(--accent-cyan)' : 'var(--text-main)', marginBottom: '8px' }}>
                       {proto}
                     </div>

@@ -134,7 +134,7 @@ export default function IhkDrillPanel({ title, questions, accentColor, selectedB
 
               {showDrillFeedback && (
                 <div style={{ marginTop: '0.75rem', padding: '0.75rem', borderRadius: '0.5rem', background: 'rgba(255, 255, 255, 0.05)', fontSize: '0.85rem' }}>
-                  <strong style={{ color: selectedIdx === q.korrektIndex ? '#10b981' : '#f59e0b' }}>
+                  <strong style={{ color: selectedIdx === q.korrektIndex ? 'var(--accent-emerald)' : 'var(--accent-amber)' }}>
                     {selectedIdx === q.korrektIndex ? '✓ Richtig!' : '✗ Lösung & Erklärung:'}
                   </strong>{' '}
                   {q.erklaerung}

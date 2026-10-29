@@ -130,7 +130,7 @@ export default function IhkStudyPlanLab({ onNavigateTab, onRewardXP, userState }
         {/* Progress Box */}
         <div style={{ background: 'var(--bg-tertiary)', padding: '16px 24px', borderRadius: '16px', textAlign: 'center', border: '1px solid var(--border-color)' }}>
           <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 600 }}>Lernplan Fortschritt</div>
-          <div style={{ fontSize: '2rem', fontWeight: 900, color: progressPercent >= 70 ? '#10b981' : 'var(--accent-amber)', marginTop: '4px' }}>
+          <div style={{ fontSize: '2rem', fontWeight: 900, color: progressPercent >= 70 ? 'var(--accent-emerald)' : 'var(--accent-amber)', marginTop: '4px' }}>
             {progressPercent}%
           </div>
           <div style={{ fontSize: '0.8rem', color: 'var(--text-dim)' }}>
@@ -221,7 +221,7 @@ export default function IhkStudyPlanLab({ onNavigateTab, onRewardXP, userState }
               >
                 <div style={{ flex: 1, minWidth: '260px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-                    <span style={{ fontSize: '0.8rem', fontWeight: 800, padding: '3px 8px', borderRadius: '6px', background: isDone ? 'rgba(16,185,129,0.15)' : 'rgba(245,158,11,0.15)', color: isDone ? '#10b981' : 'var(--accent-amber)' }}>
+                    <span style={{ fontSize: '0.8rem', fontWeight: 800, padding: '3px 8px', borderRadius: '6px', background: isDone ? 'rgba(16,185,129,0.15)' : 'rgba(245,158,11,0.15)', color: isDone ? 'var(--accent-emerald)' : 'var(--accent-amber)' }}>
                       Woche {week.weekNumber}
                     </span>
                     <span style={{ fontSize: '0.85rem', color: 'var(--text-dim)' }}>~{week.targetHours}h Lernaufwand</span>

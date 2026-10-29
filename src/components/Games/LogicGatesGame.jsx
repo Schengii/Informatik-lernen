@@ -67,7 +67,7 @@ export default function LogicGatesGame({ onCompleteGame }) {
 
         {/* Visual Circuit Diagram */}
         <div style={{
-          background: '#090d16',
+          background: 'var(--bg-secondary)',
           border: '1px solid var(--border-color)',
           borderRadius: 'var(--radius-md)',
           padding: '32px',

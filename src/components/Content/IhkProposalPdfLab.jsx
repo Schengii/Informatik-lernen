@@ -90,7 +90,7 @@ export default function IhkProposalPdfLab({ onRewardXP }) {
               <FileText className="w-8 h-8" />
             </div>
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-white flex items-center gap-3">
+              <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-slate-50 flex items-center gap-3">
                 IHK Projektantrag PDF- & Dokumentations-Generator
                 <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-amber-950/80 border border-amber-500/30 text-amber-400">
                   AP2 Teil A
@@ -115,7 +115,7 @@ export default function IhkProposalPdfLab({ onRewardXP }) {
               type="button"
               onClick={handleDownloadPdf}
               disabled={isExporting}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 text-xs font-bold shadow-lg hover:from-amber-400 hover:to-amber-500 transition"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-black text-xs font-bold shadow-lg hover:from-amber-400 hover:to-amber-500 transition"
             >
               <Download className="w-4 h-4" />
               {isExporting ? 'Generiere...' : 'Druckfertiges PDF'}
@@ -227,7 +227,7 @@ export default function IhkProposalPdfLab({ onRewardXP }) {
                     </tr>
                   ))}
                   <tr className="bg-slate-950/90 font-bold border-t border-slate-700">
-                    <td className="py-2 px-3 text-white">Gesamtbudget</td>
+                    <td className="py-2 px-3 text-slate-50">Gesamtbudget</td>
                     <td className="py-2 px-3 text-slate-400">100% Soll</td>
                     <td className="py-2 px-3 text-right text-amber-300 font-mono">{occ.maxHours} h</td>
                   </tr>

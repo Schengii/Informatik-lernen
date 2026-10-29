@@ -70,7 +70,7 @@ export default function LinuxMemoryLab({ onRewardXP }) {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px', marginBottom: '24px' }}>
         <div style={{ background: 'var(--bg-primary)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
           <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>TLB Cache Hits:</span>
-          <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: '#10b981', marginTop: '4px' }}>
+          <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: 'var(--accent-emerald)', marginTop: '4px' }}>
             {stats.tlbHits} Hits
           </div>
         </div>
@@ -84,7 +84,7 @@ export default function LinuxMemoryLab({ onRewardXP }) {
 
         <div style={{ background: 'var(--bg-primary)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
           <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Major Page Faults (Disk Swap):</span>
-          <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: '#ef4444', marginTop: '4px' }}>
+          <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: 'var(--accent-rose)', marginTop: '4px' }}>
             {stats.majorFaults} Faults
           </div>
         </div>
@@ -163,10 +163,10 @@ export default function LinuxMemoryLab({ onRewardXP }) {
 
           <div style={{ background: 'var(--bg-primary)', padding: '16px', borderRadius: '10px', border: '1px solid var(--border-color)', textAlign: 'center' }}>
             <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Berechneter `oom_score`:</span>
-            <div style={{ fontSize: '2rem', fontWeight: 'bold', color: oomInfo.oomScore >= 600 ? '#ef4444' : '#10b981', marginTop: '4px' }}>
+            <div style={{ fontSize: '2rem', fontWeight: 'bold', color: oomInfo.oomScore >= 600 ? 'var(--accent-rose)' : 'var(--accent-emerald)', marginTop: '4px' }}>
               {oomInfo.oomScore} / 1000
             </div>
-            <div style={{ fontSize: '0.78rem', fontWeight: 'bold', marginTop: '4px', color: oomInfo.oomScore >= 600 ? '#ef4444' : 'var(--text-muted)' }}>
+            <div style={{ fontSize: '0.78rem', fontWeight: 'bold', marginTop: '4px', color: oomInfo.oomScore >= 600 ? 'var(--accent-rose)' : 'var(--text-muted)' }}>
               Risiko: {oomInfo.riskLevel}
             </div>
           </div>

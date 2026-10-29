@@ -307,7 +307,7 @@ export default function ExamSimulator({ onCompleteExam, onRecordResults }) {
                   <div key={catName} style={{ padding: '12px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', fontWeight: '700', marginBottom: '6px' }}>
                       <span style={{ color: 'var(--text-main)' }}>{catName}</span>
-                      <span style={{ color: isCatPassed ? '#10b981' : '#ef4444' }}>{catPercent}%</span>
+                      <span style={{ color: isCatPassed ? 'var(--accent-emerald)' : 'var(--accent-rose)' }}>{catPercent}%</span>
                     </div>
                     <div style={{ height: '6px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '3px', overflow: 'hidden' }}>
                       <div style={{ width: `${catPercent}%`, height: '100%', background: isCatPassed ? '#10b981' : '#ef4444' }} />
@@ -341,7 +341,7 @@ export default function ExamSimulator({ onCompleteExam, onRecordResults }) {
                       border: 'none',
                       background: 'none',
                       cursor: 'pointer',
-                      color: isBookmarked ? '#f59e0b' : 'var(--text-muted)',
+                      color: isBookmarked ? 'var(--accent-amber)' : 'var(--text-muted)',
                       display: 'flex',
                       alignItems: 'center',
                       gap: '4px',

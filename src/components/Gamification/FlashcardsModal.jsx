@@ -193,7 +193,7 @@ export default function FlashcardsModal({ isOpen, onClose, onRewardXP }) {
               {currentCard.category} • {currentCard.difficulty}
             </span>
             {isDue && (
-              <span style={{ fontSize: '0.75rem', fontWeight: 800, padding: '2px 8px', borderRadius: '4px', background: 'rgba(239, 68, 68, 0.15)', color: '#ef4444' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 800, padding: '2px 8px', borderRadius: '4px', background: 'rgba(239, 68, 68, 0.15)', color: 'var(--accent-rose)' }}>
                 Heute fällig
               </span>
             )}

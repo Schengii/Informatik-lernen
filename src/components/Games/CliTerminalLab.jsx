@@ -101,17 +101,17 @@ export default function CliTerminalLab({ onCompleteGame }) {
       </div>
 
       {/* Interactive Terminal Window */}
-      <div style={{ background: '#0f172a', borderRadius: 'var(--radius-lg)', overflow: 'hidden', border: '1px solid #334155' }}>
-        <div style={{ background: '#1e293b', padding: '10px 16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+      <div style={{ background: 'var(--bg-card)', borderRadius: 'var(--radius-lg)', overflow: 'hidden', border: '1px solid #334155' }}>
+        <div style={{ background: 'var(--bg-card-hover)', padding: '10px 16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ef4444' }}></div>
           <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#f59e0b' }}></div>
           <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#10b981' }}></div>
-          <span style={{ fontSize: '0.8rem', color: '#94a3b8', marginLeft: '8px', fontFamily: 'var(--font-code)' }}>bash - dev@it-system:~</span>
+          <span style={{ fontSize: '0.8rem', color: 'var(--text-dim)', marginLeft: '8px', fontFamily: 'var(--font-code)' }}>bash - dev@it-system:~</span>
         </div>
 
-        <div style={{ padding: '20px', minHeight: '260px', maxHeight: '350px', overflowY: 'auto', fontFamily: 'var(--font-code)', fontSize: '0.92rem', color: '#f8fafc', lineHeight: '1.6' }}>
+        <div style={{ padding: '20px', minHeight: '260px', maxHeight: '350px', overflowY: 'auto', fontFamily: 'var(--font-code)', fontSize: '0.92rem', color: 'var(--text-main)', lineHeight: '1.6' }}>
           {history.map((item, idx) => (
-            <div key={idx} style={{ color: item.type === 'input' ? '#818cf8' : '#cbd5e1', whiteSpace: 'pre-wrap' }}>
+            <div key={idx} style={{ color: item.type === 'input' ? 'var(--accent-primary)' : 'var(--text-muted)', whiteSpace: 'pre-wrap' }}>
               {item.text}
             </div>
           ))}

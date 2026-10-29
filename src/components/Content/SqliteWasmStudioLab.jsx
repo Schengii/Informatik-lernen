@@ -84,7 +84,7 @@ export default function SqliteWasmStudioLab() {
   return (
     <div className="space-y-6 max-w-6xl mx-auto p-4 md:p-6 pb-20">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-950 via-cyan-950 to-slate-900 rounded-2xl p-6 text-white shadow-xl border border-blue-700/40 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-blue-950 via-cyan-950 to-slate-900 rounded-2xl p-6 text-slate-50 shadow-xl border border-blue-700/40 relative overflow-hidden">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
@@ -118,7 +118,7 @@ export default function SqliteWasmStudioLab() {
         {/* Schema Explorer */}
         <div className="lg:col-span-4 bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-base font-bold text-white flex items-center gap-2">
+            <h2 className="text-base font-bold text-slate-50 flex items-center gap-2">
               <HardDrive className="w-4 h-4 text-cyan-400" />
               Tabellen-Schema
             </h2>
@@ -211,7 +211,7 @@ export default function SqliteWasmStudioLab() {
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <h3 className="text-base font-bold text-white">Ergebnis-Tabelle</h3>
+                <h3 className="text-base font-bold text-slate-50">Ergebnis-Tabelle</h3>
                 {queryResult && queryResult.success && (
                   <span className="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2.5 py-0.5 rounded border border-emerald-800/60">
                     {queryResult.rowCount} Zeilen ({queryResult.executionTimeMs} ms)

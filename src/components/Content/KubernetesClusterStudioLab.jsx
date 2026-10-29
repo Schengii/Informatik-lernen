@@ -97,7 +97,7 @@ export default function KubernetesClusterStudioLab() {
             <div key={idx} style={{ background: 'var(--bg-secondary)', padding: '12px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span style={{ fontWeight: '700', fontSize: '0.85rem' }}>{cp.name}</span>
-                <span style={{ fontSize: '0.7rem', color: '#10b981', fontWeight: 'bold' }}>● {cp.status}</span>
+                <span style={{ fontSize: '0.7rem', color: 'var(--accent-emerald)', fontWeight: 'bold' }}>● {cp.status}</span>
               </div>
               <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '4px' }}>{cp.desc}</div>
             </div>
@@ -162,7 +162,7 @@ export default function KubernetesClusterStudioLab() {
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div>
-                    <span style={{ fontWeight: '800', fontSize: '1.05rem', color: isReady ? 'var(--text-main)' : '#ef4444' }}>
+                    <span style={{ fontWeight: '800', fontSize: '1.05rem', color: isReady ? 'var(--text-main)' : 'var(--accent-rose)' }}>
                       {node.name}
                     </span>
                     <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>IP: {node.ip}</div>
@@ -177,7 +177,7 @@ export default function KubernetesClusterStudioLab() {
                 </div>
 
                 {/* Pods Container */}
-                <div style={{ minHeight: '140px', background: '#0f172a', padding: '12px', borderRadius: 'var(--radius-md)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <div style={{ minHeight: '140px', background: 'var(--bg-card)', padding: '12px', borderRadius: 'var(--radius-md)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 'bold' }}>
                     Allocated Pods ({podsOnNode.length}):
                   </div>
@@ -200,7 +200,7 @@ export default function KubernetesClusterStudioLab() {
                           alignItems: 'center'
                         }}
                       >
-                        <span style={{ fontWeight: '600', color: '#e2e8f0' }}>{pod.name}</span>
+                        <span style={{ fontWeight: '600', color: 'var(--text-main)' }}>{pod.name}</span>
                         <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>{pod.ip}</span>
                       </div>
                     ))
@@ -244,7 +244,7 @@ export default function KubernetesClusterStudioLab() {
         </div>
 
         {lastRouteTrace && (
-          <motion.div initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} style={{ background: '#0f172a', padding: '16px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+          <motion.div initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} style={{ background: 'var(--bg-card)', padding: '16px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap', fontSize: '0.9rem' }}>
               <span className="badge badge-teal">Client</span>
               <ArrowRight size={14} color="#94a3b8" />

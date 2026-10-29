@@ -178,15 +178,15 @@ ${activeStepsYaml}
       {/* Grid: Live Log Runner & YAML Code Generator */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '20px' }}>
         {/* Live Runner Terminal */}
-        <div style={{ background: '#0f172a', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid #1e293b' }}>
-          <h4 style={{ fontSize: '0.95rem', fontWeight: '700', color: '#f8fafc', margin: '0 0 12px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Terminal size={16} style={{ color: '#38bdf8' }} /> GitHub Actions Live Log Output
+        <div style={{ background: 'var(--bg-card)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid #1e293b' }}>
+          <h4 style={{ fontSize: '0.95rem', fontWeight: '700', color: 'var(--text-main)', margin: '0 0 12px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Terminal size={16} style={{ color: 'var(--accent-cyan)' }} /> GitHub Actions Live Log Output
           </h4>
           <div style={{
-            background: '#020617',
+            background: 'var(--bg-primary)',
             padding: '14px',
             borderRadius: 'var(--radius-md)',
-            color: '#38bdf8',
+            color: 'var(--accent-cyan)',
             fontFamily: 'monospace',
             fontSize: '0.85rem',
             minHeight: '260px',
@@ -198,7 +198,7 @@ ${activeStepsYaml}
               <span style={{ color: '#64748b' }}>Klicke auf "Pipeline ausführen", um den CI/CD Runner zu starten...</span>
             ) : (
               logs.map((line, idx) => (
-                <div key={idx} style={{ marginBottom: '4px', color: line.includes('SUCCESS') ? '#10b981' : line.includes('▶️') ? '#a5b4fc' : '#38bdf8' }}>
+                <div key={idx} style={{ marginBottom: '4px', color: line.includes('SUCCESS') ? 'var(--accent-emerald)' : line.includes('▶️') ? 'var(--accent-primary)' : 'var(--accent-cyan)' }}>
                   {line}
                 </div>
               ))
@@ -207,16 +207,16 @@ ${activeStepsYaml}
         </div>
 
         {/* Generated YAML Code */}
-        <div style={{ background: '#0f172a', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid #1e293b' }}>
-          <h4 style={{ fontSize: '0.95rem', fontWeight: '700', color: '#f8fafc', margin: '0 0 12px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <FileCode size={16} style={{ color: '#10b981' }} /> Generierte Workflow YAML (`.github/workflows/deploy.yml`)
+        <div style={{ background: 'var(--bg-card)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid #1e293b' }}>
+          <h4 style={{ fontSize: '0.95rem', fontWeight: '700', color: 'var(--text-main)', margin: '0 0 12px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <FileCode size={16} style={{ color: 'var(--accent-emerald)' }} /> Generierte Workflow YAML (`.github/workflows/deploy.yml`)
           </h4>
           <pre style={{
             margin: 0,
             padding: '14px',
-            background: '#020617',
+            background: 'var(--bg-primary)',
             borderRadius: 'var(--radius-md)',
-            color: '#a5b4fc',
+            color: 'var(--accent-primary)',
             fontFamily: 'monospace',
             fontSize: '0.82rem',
             minHeight: '260px',

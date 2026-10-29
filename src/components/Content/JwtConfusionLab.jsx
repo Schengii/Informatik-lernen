@@ -268,13 +268,13 @@ export default function JwtConfusionLab({ onRewardXP }) {
         </div>
 
         {verificationResult.warning && (
-          <div style={{ background: 'rgba(239, 68, 68, 0.15)', color: '#ef4444', padding: '12px', borderRadius: '8px', fontWeight: 700, fontSize: '0.9rem', marginBottom: '12px' }}>
+          <div style={{ background: 'rgba(239, 68, 68, 0.15)', color: 'var(--accent-rose)', padding: '12px', borderRadius: '8px', fontWeight: 700, fontSize: '0.9rem', marginBottom: '12px' }}>
             {verificationResult.warning}
           </div>
         )}
 
         {verificationResult.error && (
-          <div style={{ background: 'rgba(239, 68, 68, 0.1)', color: '#ef4444', padding: '12px', borderRadius: '8px', fontSize: '0.9rem', marginBottom: '12px' }}>
+          <div style={{ background: 'rgba(239, 68, 68, 0.1)', color: 'var(--accent-rose)', padding: '12px', borderRadius: '8px', fontSize: '0.9rem', marginBottom: '12px' }}>
             {verificationResult.error}
           </div>
         )}

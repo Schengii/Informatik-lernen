@@ -83,7 +83,7 @@ export default function WisoMultiContributionLab() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px', marginBottom: '24px' }}>
         <div style={{ background: 'var(--card-bg, #ffffff)', padding: '20px', borderRadius: '14px', border: '1px solid var(--border-color, #e2e8f0)', borderTop: '4px solid #10b981' }}>
           <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase' }}>Betriebsergebnis (Gewinn/Verlust)</div>
-          <div style={{ fontSize: '1.75rem', fontWeight: 900, color: result.isProfitable ? '#10b981' : '#ef4444', marginTop: '4px' }}>
+          <div style={{ fontSize: '1.75rem', fontWeight: 900, color: result.isProfitable ? 'var(--accent-emerald)' : 'var(--accent-rose)', marginTop: '4px' }}>
             {result.operatingProfit.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}
           </div>
           <div style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '4px' }}>Nach Abzug aller 4 Fixkostenstufen</div>
@@ -99,7 +99,7 @@ export default function WisoMultiContributionLab() {
 
         <div style={{ background: 'var(--card-bg, #ffffff)', padding: '20px', borderRadius: '14px', border: '1px solid var(--border-color, #e2e8f0)', borderTop: '4px solid #f59e0b' }}>
           <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase' }}>Sicherheitskoeffizient</div>
-          <div style={{ fontSize: '1.75rem', fontWeight: 900, color: '#f59e0b', marginTop: '4px' }}>
+          <div style={{ fontSize: '1.75rem', fontWeight: 900, color: 'var(--accent-amber)', marginTop: '4px' }}>
             {result.safetyMarginPercent}%
           </div>
           <div style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '4px' }}>Umsatz-Puffer vor Verlustzone</div>
@@ -120,7 +120,7 @@ export default function WisoMultiContributionLab() {
           </div>
 
           {/* Variable Kosten */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', color: '#ef4444' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', color: 'var(--accent-rose)' }}>
             <span>- Variable Kosten (Gesamt):</span>
             <span>-{result.totalVariableCosts.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}</span>
           </div>
@@ -132,7 +132,7 @@ export default function WisoMultiContributionLab() {
           </div>
 
           {/* Stufe 2: Erzeugnisfixkosten */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', color: '#ef4444' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', color: 'var(--accent-rose)' }}>
             <span>- Erzeugnisfixkosten (Produktfixkosten):</span>
             <span>-{result.totalProductFixCosts.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}</span>
           </div>
@@ -144,7 +144,7 @@ export default function WisoMultiContributionLab() {
           </div>
 
           {/* Stufe 3: Erzeugnisgruppenfixkosten */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', color: '#ef4444' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', color: 'var(--accent-rose)' }}>
             <span>- Erzeugnisgruppenfixkosten:</span>
             <input
               type="number"
@@ -161,7 +161,7 @@ export default function WisoMultiContributionLab() {
           </div>
 
           {/* Stufe 4: Bereichsfixkosten */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', color: '#ef4444' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', color: 'var(--accent-rose)' }}>
             <span>- Bereichsfixkosten (Abteilungsfixkosten):</span>
             <input
               type="number"
@@ -178,7 +178,7 @@ export default function WisoMultiContributionLab() {
           </div>
 
           {/* Stufe 5: Unternehmensfixkosten */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', color: '#ef4444' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', color: 'var(--accent-rose)' }}>
             <span>- Unternehmensfixkosten (Zentrale Verwaltung):</span>
             <input
               type="number"

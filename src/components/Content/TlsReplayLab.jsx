@@ -237,7 +237,7 @@ export default function TlsReplayLab() {
               style={{
                 flex: '1 1 240px',
                 padding: '12px 20px',
-                background: capturedPacket ? '#ef4444' : '#475569',
+                background: capturedPacket ? '#ef4444' : 'var(--bg-card-hover)',
                 color: 'var(--text-main)',
                 border: 'none',
                 borderRadius: '8px',

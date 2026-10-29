@@ -156,9 +156,9 @@ WHERE o.order_id IS NULL;`;
       {/* Interactive Venn Diagram Visualizer & Controls */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px', marginBottom: '24px' }}>
         {/* Venn Diagram Visualizer */}
-        <div style={{ background: '#0f172a', padding: '24px', borderRadius: 'var(--radius-lg)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-          <h4 style={{ color: '#94a3b8', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '20px' }}>
-            Venn-Diagramm Visualisierung: <span style={{ color: '#38bdf8' }}>{joinType} JOIN</span>
+        <div style={{ background: 'var(--bg-card)', padding: '24px', borderRadius: 'var(--radius-lg)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+          <h4 style={{ color: 'var(--text-dim)', fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '20px' }}>
+            Venn-Diagramm Visualisierung: <span style={{ color: 'var(--accent-cyan)' }}>{joinType} JOIN</span>
           </h4>
 
           {/* SVG Venn Circles */}
@@ -235,11 +235,11 @@ WHERE o.order_id IS NULL;`;
       {/* SQL Output & Live Result Table */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
         {/* Generated SQL Statement */}
-        <div style={{ background: '#0f172a', padding: '18px', borderRadius: 'var(--radius-lg)', border: '1px solid #1e293b' }}>
-          <h4 style={{ color: '#94a3b8', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>
+        <div style={{ background: 'var(--bg-card)', padding: '18px', borderRadius: 'var(--radius-lg)', border: '1px solid #1e293b' }}>
+          <h4 style={{ color: 'var(--text-dim)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>
             Generiertes SQL Statement:
           </h4>
-          <pre style={{ margin: 0, color: '#38bdf8', fontFamily: 'monospace', fontSize: '0.88rem', lineHeight: 1.5 }}>
+          <pre style={{ margin: 0, color: 'var(--accent-cyan)', fontFamily: 'monospace', fontSize: '0.88rem', lineHeight: 1.5 }}>
             {getSqlQuery(joinType)}
           </pre>
         </div>
@@ -267,11 +267,11 @@ WHERE o.order_id IS NULL;`;
               <tbody>
                 {queryResult.map((row, idx) => (
                   <tr key={idx} style={{ borderBottom: '1px solid var(--border-color)' }}>
-                    <td style={{ padding: '6px 10px', color: row.id ? '#38bdf8' : '#64748b' }}>{row.id || 'NULL'}</td>
-                    <td style={{ padding: '6px 10px', color: row.name ? '#f8fafc' : '#64748b' }}>{row.name || 'NULL'}</td>
-                    <td style={{ padding: '6px 10px', color: row.order_id ? '#ec4899' : '#64748b' }}>{row.order_id || 'NULL'}</td>
-                    <td style={{ padding: '6px 10px', color: row.product ? '#f8fafc' : '#64748b' }}>{row.product || 'NULL'}</td>
-                    <td style={{ padding: '6px 10px', color: row.amount ? '#34d399' : '#64748b' }}>{row.amount ? `${row.amount} €` : 'NULL'}</td>
+                    <td style={{ padding: '6px 10px', color: row.id ? 'var(--accent-cyan)' : '#64748b' }}>{row.id || 'NULL'}</td>
+                    <td style={{ padding: '6px 10px', color: row.name ? 'var(--text-main)' : '#64748b' }}>{row.name || 'NULL'}</td>
+                    <td style={{ padding: '6px 10px', color: row.order_id ? 'var(--accent-rose)' : '#64748b' }}>{row.order_id || 'NULL'}</td>
+                    <td style={{ padding: '6px 10px', color: row.product ? 'var(--text-main)' : '#64748b' }}>{row.product || 'NULL'}</td>
+                    <td style={{ padding: '6px 10px', color: row.amount ? 'var(--accent-emerald)' : '#64748b' }}>{row.amount ? `${row.amount} €` : 'NULL'}</td>
                   </tr>
                 ))}
               </tbody>

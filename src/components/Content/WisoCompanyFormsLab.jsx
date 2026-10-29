@@ -144,27 +144,27 @@ export default function WisoCompanyFormsLab({ onRewardXP }) {
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.9rem', lineHeight: '1.5' }}>
-            <div style={{ background: 'rgba(0,0,0,0.3)', padding: '10px', borderRadius: '6px' }}>
+            <div style={{ background: 'var(--bg-tertiary)', padding: '10px', borderRadius: '6px' }}>
               <div style={{ color: 'var(--accent-amber)', fontSize: '0.8rem', fontWeight: 600 }}>HAFTUNG:</div>
               <div style={{ color: 'var(--text-main)' }}>{selectedForm.liability}</div>
             </div>
 
-            <div style={{ background: 'rgba(0,0,0,0.3)', padding: '10px', borderRadius: '6px' }}>
+            <div style={{ background: 'var(--bg-tertiary)', padding: '10px', borderRadius: '6px' }}>
               <div style={{ color: 'var(--accent-teal)', fontSize: '0.8rem', fontWeight: 600 }}>MINDESTKAPITAL:</div>
               <div style={{ color: 'var(--text-main)' }}>{selectedForm.minCapital}</div>
             </div>
 
-            <div style={{ background: 'rgba(0,0,0,0.3)', padding: '10px', borderRadius: '6px' }}>
+            <div style={{ background: 'var(--bg-tertiary)', padding: '10px', borderRadius: '6px' }}>
               <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', fontWeight: 600 }}>HANDELSREGISTER (HRA / HRB):</div>
               <div style={{ color: 'var(--text-main)' }}>{selectedForm.commercialRegister}</div>
             </div>
 
-            <div style={{ background: 'rgba(0,0,0,0.3)', padding: '10px', borderRadius: '6px' }}>
+            <div style={{ background: 'var(--bg-tertiary)', padding: '10px', borderRadius: '6px' }}>
               <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', fontWeight: 600 }}>GESCHÄFTSFÜHRUNG & ORGANE:</div>
               <div style={{ color: 'var(--text-main)' }}>{selectedForm.management} • <em>Organe: {selectedForm.organs}</em></div>
             </div>
 
-            <div style={{ background: 'rgba(0,0,0,0.3)', padding: '10px', borderRadius: '6px' }}>
+            <div style={{ background: 'var(--bg-tertiary)', padding: '10px', borderRadius: '6px' }}>
               <div style={{ color: 'var(--accent-teal)', fontSize: '0.8rem', fontWeight: 600 }}>TYPISCHER EINSATZZWECK:</div>
               <div style={{ color: 'var(--text-main)' }}>{selectedForm.bestFor}</div>
             </div>

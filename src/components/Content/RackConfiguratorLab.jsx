@@ -101,7 +101,7 @@ export default function RackConfiguratorLab() {
             <Server size={18} color="var(--accent-indigo)" /> 42HE Serverschrank (Frontansicht)
           </h2>
 
-          <div style={{ background: '#090d16', border: '3px solid #334155', borderRadius: 'var(--radius-md)', padding: '8px', minHeight: '440px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          <div style={{ background: 'var(--bg-secondary)', border: '3px solid #334155', borderRadius: 'var(--radius-md)', padding: '8px', minHeight: '440px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
             {installedDevices.map((dev) => (
               <div
                 key={dev.instanceId}
@@ -125,7 +125,7 @@ export default function RackConfiguratorLab() {
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <span style={{ color: '#94a3b8', fontSize: '0.75rem' }}>{dev.powerWatts}W</span>
+                  <span style={{ color: 'var(--text-dim)', fontSize: '0.75rem' }}>{dev.powerWatts}W</span>
                   <button
                     onClick={() => handleRemoveDevice(dev.instanceId)}
                     className="btn btn-ghost"

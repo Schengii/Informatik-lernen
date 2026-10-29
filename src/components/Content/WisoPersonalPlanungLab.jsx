@@ -158,7 +158,7 @@ export default function WisoPersonalPlanungLab({ onRewardXP }) {
             </div>
           </div>
 
-          <div style={{ background: 'rgba(0,0,0,0.3)', padding: '14px', borderRadius: '8px', lineHeight: '1.6', fontSize: '0.88rem' }}>
+          <div style={{ background: 'var(--bg-tertiary)', padding: '14px', borderRadius: '8px', lineHeight: '1.6', fontSize: '0.88rem' }}>
             <div>Brutto-Bedarf = {einsatzbedarf} + {bedarfResult.reservebedarf} = <strong>{bedarfResult.bruttoPersonalbedarf} VK</strong></div>
             <div>Zukünftiger Bestand = {aktuellerBestand} - {feststehendeAbgaenge} + {feststehendeZugaenge} = <strong>{bedarfResult.zukuenftigerPersonalbestand} VK</strong></div>
             <div style={{ marginTop: '6px', paddingTop: '6px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
@@ -215,7 +215,7 @@ export default function WisoPersonalPlanungLab({ onRewardXP }) {
             </div>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', background: 'rgba(0,0,0,0.3)', padding: '14px', borderRadius: '8px', fontSize: '0.88rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', background: 'var(--bg-tertiary)', padding: '14px', borderRadius: '8px', fontSize: '0.88rem' }}>
             <div>
               <strong>Fluktuationsrate (ZVEI-Formel):</strong>{' '}
               <span style={{ color: 'var(--accent-teal)', fontWeight: 'bold' }}>{hrMetrics.fluktuationZveiPercent}%</span>

@@ -244,7 +244,7 @@ export default function GlossaryModal({ isOpen, onClose }) {
                   <strong style={{ fontSize: '0.88rem', color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>
                     💡 Praxis-Beispiel:
                   </strong>
-                  <code style={{ width: '100%', display: 'block', padding: '12px', background: '#0f172a', color: '#f8fafc', borderRadius: '8px', fontSize: '0.9rem' }}>
+                  <code style={{ width: '100%', display: 'block', padding: '12px', background: 'var(--bg-card)', color: 'var(--text-main)', borderRadius: '8px', fontSize: '0.9rem' }}>
                     {activeTerm.example}
                   </code>
                 </div>

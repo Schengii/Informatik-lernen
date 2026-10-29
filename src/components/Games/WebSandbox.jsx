@@ -126,8 +126,8 @@ button {
               rows={16}
               style={{
                 width: '100%',
-                background: '#090d16',
-                color: '#e2e8f0',
+                background: 'var(--bg-secondary)',
+                color: 'var(--text-main)',
                 border: 'none',
                 outline: 'none',
                 padding: '14px',

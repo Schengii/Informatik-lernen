@@ -123,7 +123,7 @@ export default function EventSourcingLab({ onRewardXP }) {
             Materialisierte CQRS Read-Model Projektion (`OrderView`):
           </span>
 
-          <pre style={{ margin: 0, padding: '16px', background: '#090d16', color: '#10b981', borderRadius: '8px', fontFamily: 'monospace', fontSize: '0.82rem', lineHeight: '1.5', overflowX: 'auto' }}>
+          <pre style={{ margin: 0, padding: '16px', background: 'var(--bg-secondary)', color: 'var(--accent-emerald)', borderRadius: '8px', fontFamily: 'monospace', fontSize: '0.82rem', lineHeight: '1.5', overflowX: 'auto' }}>
             {JSON.stringify(projectedState, null, 2)}
           </pre>
         </div>

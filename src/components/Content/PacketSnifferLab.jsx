@@ -255,7 +255,7 @@ export default function PacketSnifferLab() {
             <Cpu size={18} color="var(--accent-indigo)" /> Paket Hex-Dump &amp; ASCII-Ansicht
           </h2>
 
-          <div style={{ background: '#0f172a', padding: '16px', borderRadius: 'var(--radius-md)', fontFamily: 'monospace', fontSize: '0.82rem', overflowX: 'auto', maxHeight: '380px', overflowY: 'auto', border: '1px solid #1e293b' }}>
+          <div style={{ background: 'var(--bg-card)', padding: '16px', borderRadius: 'var(--radius-md)', fontFamily: 'monospace', fontSize: '0.82rem', overflowX: 'auto', maxHeight: '380px', overflowY: 'auto', border: '1px solid #1e293b' }}>
             {hexDumpRows.map((row, rIdx) => (
               <div key={rIdx} style={{ display: 'flex', gap: '16px', marginBottom: '4px' }}>
                 <span style={{ color: '#64748b' }}>{row.offsetHex}</span>
@@ -269,7 +269,7 @@ export default function PacketSnifferLab() {
                       <span
                         key={bIdx}
                         style={{
-                          color: highlighted ? '#38bdf8' : '#e2e8f0',
+                          color: highlighted ? 'var(--accent-cyan)' : 'var(--text-main)',
                           background: highlighted ? 'rgba(56, 189, 248, 0.25)' : 'transparent',
                           fontWeight: highlighted ? 'bold' : 'normal',
                           padding: '0 2px',
@@ -283,7 +283,7 @@ export default function PacketSnifferLab() {
                 </div>
 
                 {/* ASCII */}
-                <span style={{ color: '#94a3b8', borderLeft: '1px solid #334155', paddingLeft: '10px' }}>
+                <span style={{ color: 'var(--text-dim)', borderLeft: '1px solid #334155', paddingLeft: '10px' }}>
                   {row.ascii}
                 </span>
               </div>

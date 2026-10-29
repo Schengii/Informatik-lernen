@@ -125,7 +125,7 @@ export default function ServiceMeshLab({ onRewardXP }) {
 
         <div style={{ background: 'var(--bg-primary)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
           <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Client SPIFFE Identity:</span>
-          <div style={{ fontSize: '0.78rem', fontFamily: 'monospace', color: '#10b981', marginTop: '6px', wordBreak: 'break-all' }}>
+          <div style={{ fontSize: '0.78rem', fontFamily: 'monospace', color: 'var(--accent-emerald)', marginTop: '6px', wordBreak: 'break-all' }}>
             <code>spiffe://cluster.local/ns/prod/sa/frontend</code>
           </div>
         </div>
@@ -170,7 +170,7 @@ export default function ServiceMeshLab({ onRewardXP }) {
               <div key={idx} style={{ background: 'var(--bg-primary)', padding: '10px 14px', borderRadius: '8px', fontSize: '0.8rem', border: '1px solid var(--border-color)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--accent-primary)', fontWeight: 'bold' }}>
                   <span>Req #{h.requestId} ➔ {h.selectedVersion}</span>
-                  <span style={{ color: h.mtlsStatus.includes('ESTABLISHED') ? '#10b981' : '#ef4444' }}>{h.mtlsStatus}</span>
+                  <span style={{ color: h.mtlsStatus.includes('ESTABLISHED') ? 'var(--accent-emerald)' : 'var(--accent-rose)' }}>{h.mtlsStatus}</span>
                 </div>
                 <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: '4px' }}>
                   Envoy Port: {h.envoyPortIntercept}
@@ -190,8 +190,8 @@ export default function ServiceMeshLab({ onRewardXP }) {
             style={{
               margin: 0,
               padding: '14px',
-              background: '#090d16',
-              color: '#38bdf8',
+              background: 'var(--bg-secondary)',
+              color: 'var(--accent-cyan)',
               borderRadius: '8px',
               fontFamily: 'monospace',
               fontSize: '0.8rem',

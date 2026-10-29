@@ -28,7 +28,7 @@ export default function AudioSettingsModal({ isOpen, onClose }) {
           role="dialog"
           aria-modal="true"
           aria-labelledby="audio-settings-modal-title"
-          className="bg-slate-900 border border-slate-700 rounded-2xl max-w-md w-full p-6 text-white shadow-2xl space-y-5"
+          className="bg-slate-900 border border-slate-700 rounded-2xl max-w-md w-full p-6 text-slate-50 shadow-2xl space-y-5"
         >
           <div className="flex items-center justify-between border-b border-slate-800 pb-3">
             <div className="flex items-center gap-2.5">
@@ -39,7 +39,7 @@ export default function AudioSettingsModal({ isOpen, onClose }) {
             </div>
             <button
               onClick={onClose}
-              className="p-1.5 hover:bg-slate-800 rounded-xl text-slate-400 hover:text-white transition"
+              className="p-1.5 hover:bg-slate-800 rounded-xl text-slate-400 hover:text-slate-50 transition"
             >
               <X className="w-5 h-5" />
             </button>

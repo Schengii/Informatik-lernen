@@ -63,14 +63,14 @@ export default function PostgresFlamegraphLab({ onRewardXP }) {
 
         <div style={{ background: 'var(--bg-primary)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
           <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Shared Buffer Cache Hit Ratio:</span>
-          <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: '#10b981', marginTop: '4px' }}>
+          <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: 'var(--accent-emerald)', marginTop: '4px' }}>
             {metrics.cacheHitRatioPercent}% Hits
           </div>
         </div>
 
         <div style={{ background: 'var(--bg-primary)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
           <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Disk I/O Reads:</span>
-          <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: metrics.hasSeqScanBottleneck ? '#ef4444' : '#10b981', marginTop: '4px' }}>
+          <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: metrics.hasSeqScanBottleneck ? 'var(--accent-rose)' : 'var(--accent-emerald)', marginTop: '4px' }}>
             {metrics.totalSharedReadBlocks} Blocks (Disk)
           </div>
         </div>

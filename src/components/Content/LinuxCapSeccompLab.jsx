@@ -142,7 +142,7 @@ export default function LinuxCapSeccompLab() {
                   padding: '12px 14px',
                   borderRadius: '10px',
                   cursor: 'pointer',
-                  background: c.active ? 'rgba(16, 185, 129, 0.15)' : 'rgba(0, 0, 0, 0.25)',
+                  background: c.active ? 'rgba(16, 185, 129, 0.15)' : 'var(--bg-tertiary)',
                   border: c.active ? '1px solid #10b981' : '1px solid rgba(255, 255, 255, 0.05)',
                   display: 'flex',
                   justifyContent: 'space-between',

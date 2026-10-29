@@ -98,7 +98,7 @@ export default function MtlsZtnaLab({ onRewardXP }) {
             </select>
           </div>
 
-          <div style={{ background: 'rgba(0,0,0,0.3)', padding: '12px', borderRadius: '6px', fontSize: '0.85rem', fontFamily: 'monospace', lineHeight: '1.6' }}>
+          <div style={{ background: 'var(--bg-tertiary)', padding: '12px', borderRadius: '6px', fontSize: '0.85rem', fontFamily: 'monospace', lineHeight: '1.6' }}>
             <div style={{ color: 'var(--accent-teal)' }}># Client X.509 Identity:</div>
             <div>Common Name: <strong>{clientCert.commonName}</strong></div>
             <div>Serial: <code>{clientCert.serialNumber}</code></div>

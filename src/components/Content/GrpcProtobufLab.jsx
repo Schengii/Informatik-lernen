@@ -60,14 +60,14 @@ export default function GrpcProtobufLab({ onRewardXP }) {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px', marginBottom: '24px' }}>
         <div style={{ background: 'var(--bg-primary)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
           <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Protobuf Wire Size:</span>
-          <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: '#10b981', marginTop: '4px' }}>
+          <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: 'var(--accent-emerald)', marginTop: '4px' }}>
             {protoData.protoBytes} Bytes
           </div>
         </div>
 
         <div style={{ background: 'var(--bg-primary)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
           <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Raw JSON Size:</span>
-          <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: '#ec4899', marginTop: '4px' }}>
+          <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: 'var(--accent-rose)', marginTop: '4px' }}>
             {protoData.jsonBytes} Bytes
           </div>
         </div>
@@ -87,7 +87,7 @@ export default function GrpcProtobufLab({ onRewardXP }) {
           <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--text-muted)', display: 'block', marginBottom: '10px' }}>
             Proto3 Schema (`user_profile.proto`):
           </span>
-          <pre style={{ margin: 0, padding: '14px', background: '#090d16', color: '#38bdf8', borderRadius: '8px', fontFamily: 'monospace', fontSize: '0.8rem', lineHeight: '1.4', overflowX: 'auto', whiteSpace: 'pre-wrap' }}>
+          <pre style={{ margin: 0, padding: '14px', background: 'var(--bg-secondary)', color: 'var(--accent-cyan)', borderRadius: '8px', fontFamily: 'monospace', fontSize: '0.8rem', lineHeight: '1.4', overflowX: 'auto', whiteSpace: 'pre-wrap' }}>
             {protoData.protoSchema}
           </pre>
 
@@ -132,7 +132,7 @@ export default function GrpcProtobufLab({ onRewardXP }) {
           <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--text-muted)', display: 'block', marginBottom: '10px' }}>
             Binärer Wire-Format Byte Stream (Hex):
           </span>
-          <pre style={{ margin: 0, padding: '14px', background: '#090d16', color: '#10b981', borderRadius: '8px', fontFamily: 'monospace', fontSize: '0.95rem', fontWeight: 'bold', lineHeight: '1.4', overflowX: 'auto', whiteSpace: 'pre-wrap' }}>
+          <pre style={{ margin: 0, padding: '14px', background: 'var(--bg-secondary)', color: 'var(--accent-emerald)', borderRadius: '8px', fontFamily: 'monospace', fontSize: '0.95rem', fontWeight: 'bold', lineHeight: '1.4', overflowX: 'auto', whiteSpace: 'pre-wrap' }}>
             {protoData.hexString}
           </pre>
 

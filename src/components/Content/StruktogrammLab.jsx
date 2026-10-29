@@ -82,7 +82,7 @@ export default function StruktogrammLab({ onRewardXP }) {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-              <div style={{ padding: '8px', borderRadius: '8px', background: 'rgba(99, 102, 241, 0.15)', color: '#818cf8' }}>
+              <div style={{ padding: '8px', borderRadius: '8px', background: 'rgba(99, 102, 241, 0.15)', color: 'var(--accent-primary)' }}>
                 <GitFork size={24} />
               </div>
               <h1 style={{ margin: 0, fontSize: '1.45rem', fontWeight: '800' }}>
@@ -94,10 +94,10 @@ export default function StruktogrammLab({ onRewardXP }) {
             </p>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span style={{ padding: '5px 12px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: '700', background: 'rgba(99, 102, 241, 0.15)', color: '#818cf8' }}>
+            <span style={{ padding: '5px 12px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: '700', background: 'rgba(99, 102, 241, 0.15)', color: 'var(--accent-primary)' }}>
               DIN 66261
             </span>
-            <span style={{ padding: '5px 12px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: '700', background: 'rgba(16, 185, 129, 0.15)', color: '#34d399' }}>
+            <span style={{ padding: '5px 12px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: '700', background: 'rgba(16, 185, 129, 0.15)', color: 'var(--accent-emerald)' }}>
               +55 XP
             </span>
           </div>
@@ -228,21 +228,21 @@ export default function StruktogrammLab({ onRewardXP }) {
                 {/* Verzweigung bestellwert >= 500 */}
                 <div style={{ borderBottom: '2px solid #6366f1' }}>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', textAlign: 'center', borderBottom: '1px solid #475569', fontSize: '0.85rem' }}>
-                    <div style={{ padding: '6px', background: 'rgba(16, 185, 129, 0.1)', color: '#34d399', fontWeight: '700' }}>Ja (True)</div>
-                    <div style={{ padding: '6px', background: 'rgba(239, 68, 68, 0.1)', color: '#f87171', fontWeight: '700', borderLeft: '1px solid #475569' }}>Nein (False)</div>
+                    <div style={{ padding: '6px', background: 'rgba(16, 185, 129, 0.1)', color: 'var(--accent-emerald)', fontWeight: '700' }}>Ja (True)</div>
+                    <div style={{ padding: '6px', background: 'rgba(239, 68, 68, 0.1)', color: 'var(--accent-rose)', fontWeight: '700', borderLeft: '1px solid #475569' }}>Nein (False)</div>
                   </div>
                   <div style={{ padding: '6px 12px', textAlign: 'center', fontWeight: '700', background: 'rgba(255, 255, 255, 0.03)', borderBottom: '1px solid #475569' }}>
                     bestellwert &gt;= 500 ?
                   </div>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
-                    <div style={{ padding: '12px', textAlign: 'center', fontWeight: '600', color: '#34d399' }}>
+                    <div style={{ padding: '12px', textAlign: 'center', fontWeight: '600', color: 'var(--accent-emerald)' }}>
                       rabattsatz = 10
                     </div>
                     {/* Verschachtelte Verzweigung >= 200 */}
                     <div style={{ borderLeft: '1px solid #475569' }}>
                       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', textAlign: 'center', borderBottom: '1px solid #475569', fontSize: '0.8rem' }}>
-                        <div style={{ padding: '4px', color: '#34d399', fontWeight: '700' }}>Ja</div>
-                        <div style={{ padding: '4px', color: '#f87171', fontWeight: '700', borderLeft: '1px solid #475569' }}>Nein</div>
+                        <div style={{ padding: '4px', color: 'var(--accent-emerald)', fontWeight: '700' }}>Ja</div>
+                        <div style={{ padding: '4px', color: 'var(--accent-rose)', fontWeight: '700', borderLeft: '1px solid #475569' }}>Nein</div>
                       </div>
                       <div style={{ padding: '4px 8px', textAlign: 'center', fontSize: '0.82rem', fontWeight: '700', borderBottom: '1px solid #475569' }}>
                         bestellwert &gt;= 200 ?
@@ -286,7 +286,7 @@ export default function StruktogrammLab({ onRewardXP }) {
                         werte[i] &gt; max ?
                       </div>
                       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', fontSize: '0.85rem' }}>
-                        <div style={{ padding: '8px', textAlign: 'center', color: '#34d399', fontWeight: '600' }}>max = werte[i]</div>
+                        <div style={{ padding: '8px', textAlign: 'center', color: 'var(--accent-emerald)', fontWeight: '600' }}>max = werte[i]</div>
                         <div style={{ padding: '8px', textAlign: 'center', borderLeft: '1px solid #475569', color: 'var(--text-muted)' }}>tue nichts</div>
                       </div>
                     </div>
@@ -305,7 +305,7 @@ export default function StruktogrammLab({ onRewardXP }) {
                 </div>
                 {/* WHILE Schleife */}
                 <div style={{ borderBottom: '2px solid #6366f1', display: 'flex' }}>
-                  <div style={{ width: '40px', background: 'rgba(16, 185, 129, 0.2)', borderRight: '2px solid #10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', writingMode: 'vertical-rl', fontSize: '0.78rem', fontWeight: '700', padding: '10px 0', letterSpacing: '2px', color: '#34d399' }}>
+                  <div style={{ width: '40px', background: 'rgba(16, 185, 129, 0.2)', borderRight: '2px solid #10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', writingMode: 'vertical-rl', fontSize: '0.78rem', fontWeight: '700', padding: '10px 0', letterSpacing: '2px', color: 'var(--accent-emerald)' }}>
                     WHILE
                   </div>
                   <div style={{ flex: 1, padding: '10px' }}>
@@ -413,7 +413,7 @@ export default function StruktogrammLab({ onRewardXP }) {
           {/* AKTUELLER SCHRITT HIGHLIGHT */}
           {currentStep && (
             <div style={{ padding: '16px', borderRadius: '8px', background: 'rgba(99, 102, 241, 0.1)', border: '1px solid #6366f1', marginBottom: '20px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: '700', color: '#818cf8', marginBottom: '4px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: '700', color: 'var(--accent-primary)', marginBottom: '4px' }}>
                 <ChevronRight size={18} /> Takt {currentStep.stepNumber}: {currentStep.action}
               </div>
               <div style={{ fontSize: '0.92rem' }}>{currentStep.description}</div>
@@ -442,7 +442,7 @@ export default function StruktogrammLab({ onRewardXP }) {
                     }}
                   >
                     <td style={{ padding: '8px 12px' }}>#{s.stepNumber}</td>
-                    <td style={{ padding: '8px 12px', color: '#818cf8' }}>{s.action}</td>
+                    <td style={{ padding: '8px 12px', color: 'var(--accent-primary)' }}>{s.action}</td>
                     <td style={{ padding: '8px 12px', fontFamily: 'monospace' }}>
                       {Object.entries(s.variables)
                         .filter(([k]) => k !== 'array')
@@ -467,7 +467,7 @@ export default function StruktogrammLab({ onRewardXP }) {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>
             {DIN_66261_ELEMENTS.map(el => (
               <div key={el.type} style={{ padding: '16px', borderRadius: '8px', border: '1px solid var(--border-color, #334155)', background: 'rgba(255, 255, 255, 0.02)' }}>
-                <div style={{ fontWeight: '700', color: '#818cf8', fontSize: '0.95rem', marginBottom: '4px' }}>
+                <div style={{ fontWeight: '700', color: 'var(--accent-primary)', fontSize: '0.95rem', marginBottom: '4px' }}>
                   {el.name}
                 </div>
                 <div style={{ fontSize: '0.8rem', color: 'var(--text-muted, #94a3b8)', marginBottom: '8px', fontWeight: '600' }}>

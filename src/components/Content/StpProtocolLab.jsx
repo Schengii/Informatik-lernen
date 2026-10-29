@@ -597,8 +597,8 @@ export default function StpProtocolLab({ onRewardXP = () => {} }) {
           <div style={{ position: 'relative' }}>
             <pre
               style={{
-                background: '#0f172a',
-                color: '#38bdf8',
+                background: 'var(--bg-card)',
+                color: 'var(--accent-cyan)',
                 padding: '1.25rem',
                 borderRadius: 'var(--radius-sm)',
                 overflowX: 'auto',

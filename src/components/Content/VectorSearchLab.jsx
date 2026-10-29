@@ -99,7 +99,7 @@ export default function VectorSearchLab({ onRewardXP }) {
           <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: '700' }}>Vektor Array:</span>
           <div style={{ display: 'flex', gap: '6px', fontFamily: 'monospace' }}>
             {queryVector.map((val, idx) => (
-              <span key={idx} style={{ background: '#0f172a', color: '#38bdf8', padding: '4px 8px', borderRadius: 'var(--radius-sm)', fontSize: '0.82rem' }}>
+              <span key={idx} style={{ background: 'var(--bg-card)', color: 'var(--accent-cyan)', padding: '4px 8px', borderRadius: 'var(--radius-sm)', fontSize: '0.82rem' }}>
                 v{idx + 1}: {val}
               </span>
             ))}

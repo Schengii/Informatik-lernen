@@ -194,7 +194,7 @@ export default function DockerComposeLab({ onRewardXP }) {
             </h2>
 
             <div style={{
-              background: '#0d1117',
+              background: 'var(--bg-secondary)',
               color: '#38ef7d',
               padding: '16px',
               borderRadius: 'var(--radius-md)',
@@ -318,7 +318,7 @@ export default function DockerComposeLab({ onRewardXP }) {
             Generierte docker-compose.yml
           </h2>
           <pre style={{
-            background: '#0d1117',
+            background: 'var(--bg-secondary)',
             color: '#e6edf3',
             padding: '20px',
             borderRadius: 'var(--radius-md)',

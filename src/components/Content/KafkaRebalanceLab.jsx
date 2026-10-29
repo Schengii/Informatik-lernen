@@ -84,7 +84,7 @@ export default function KafkaRebalanceLab({ onRewardXP }) {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px', marginBottom: '24px' }}>
         <div style={{ background: 'var(--bg-primary)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
           <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Consumer Group Downtime:</span>
-          <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: rebalanceData.isZeroDowntime ? '#10b981' : '#ef4444', marginTop: '4px' }}>
+          <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: rebalanceData.isZeroDowntime ? 'var(--accent-emerald)' : 'var(--accent-rose)', marginTop: '4px' }}>
             {rebalanceData.downtimeMs} ms
           </div>
         </div>

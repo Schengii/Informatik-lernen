@@ -168,7 +168,7 @@ export default function Ipv6NdpLab() {
             <span><strong>Other Config Flag (O-Flag = 1)</strong>: Stateless DHCPv6 für DNS/NTP</span>
           </label>
 
-          <label style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.85rem', cursor: 'pointer', color: dadConflict ? '#ef4444' : 'inherit' }}>
+          <label style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.85rem', cursor: 'pointer', color: dadConflict ? 'var(--accent-rose)' : 'inherit' }}>
             <input
               type="checkbox"
               checked={dadConflict}

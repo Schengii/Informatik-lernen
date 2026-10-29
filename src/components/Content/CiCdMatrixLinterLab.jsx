@@ -203,7 +203,7 @@ export default function CiCdMatrixLinterLab() {
                     {job.os.includes('ubuntu') ? <Terminal size={17} color="#f97316" /> : job.os.includes('windows') ? <Box size={17} color="#38bdf8" /> : <Apple size={17} color="#e2e8f0" />}
                     <span>{job.os}</span>
                   </div>
-                  <span style={{ fontSize: '0.75rem', padding: '2px 8px', borderRadius: '4px', background: isDone ? '#22c55e' : '#475569', color: 'var(--text-main)', fontWeight: 'bold' }}>
+                  <span style={{ fontSize: '0.75rem', padding: '2px 8px', borderRadius: '4px', background: isDone ? '#22c55e' : 'var(--bg-card-hover)', color: 'var(--text-main)', fontWeight: 'bold' }}>
                     {isDone ? 'PASS' : isCurrent ? 'RUNNING' : 'QUEUED'}
                   </span>
                 </div>

@@ -72,7 +72,7 @@ export default function JwksRotationLab() {
             {JWKS_SETS.keys.map(k => (
               <div key={k.kid} style={{ background: 'rgba(255,255,255,0.04)', padding: '12px', borderRadius: '8px', border: k.kid === activeKid ? '1px solid #c084fc' : '1px solid rgba(255,255,255,0.08)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-                  <strong style={{ color: '#e9d5ff', fontFamily: 'monospace', fontSize: '0.88rem' }}>kid: "{k.kid}"</strong>
+                  <strong style={{ color: 'var(--accent-purple)', fontFamily: 'monospace', fontSize: '0.88rem' }}>kid: "{k.kid}"</strong>
                   <span style={{ fontSize: '0.75rem', color: 'var(--accent-amber)' }}>alg: {k.alg}</span>
                 </div>
                 <div style={{ fontSize: '0.8rem', color: 'var(--text-dim)' }}>Status: {k.status}</div>
@@ -105,17 +105,17 @@ export default function JwksRotationLab() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontFamily: 'Fira Code, monospace', fontSize: '0.82rem' }}>
               <div style={{ background: 'rgba(239, 68, 68, 0.15)', padding: '10px', borderRadius: '6px', border: '1px solid rgba(239, 68, 68, 0.3)' }}>
                 <div style={{ color: 'var(--accent-rose)', fontWeight: 'bold' }}>// 1. Header (enthält kid für JWKS Matching)</div>
-                <div style={{ color: '#fecaca' }}>{JSON.stringify(JWKS_SETS.sampleJwt.header)}</div>
+                <div style={{ color: 'var(--accent-rose)' }}>{JSON.stringify(JWKS_SETS.sampleJwt.header)}</div>
               </div>
 
               <div style={{ background: 'rgba(168, 85, 247, 0.15)', padding: '10px', borderRadius: '6px', border: '1px solid rgba(168, 85, 247, 0.3)' }}>
-                <div style={{ color: '#e9d5ff', fontWeight: 'bold' }}>// 2. Claims Payload</div>
+                <div style={{ color: 'var(--accent-purple)', fontWeight: 'bold' }}>// 2. Claims Payload</div>
                 <div style={{ color: '#f3e8ff' }}>{JSON.stringify(JWKS_SETS.sampleJwt.payload)}</div>
               </div>
 
               <div style={{ background: 'rgba(56, 189, 248, 0.15)', padding: '10px', borderRadius: '6px', border: '1px solid rgba(56, 189, 248, 0.3)' }}>
-                <div style={{ color: '#bae6fd', fontWeight: 'bold' }}>// 3. RSA Signature (Geprüft mit Public Key)</div>
-                <div style={{ color: '#e0f2fe' }}>{JWKS_SETS.sampleJwt.signature}</div>
+                <div style={{ color: 'var(--accent-cyan)', fontWeight: 'bold' }}>// 3. RSA Signature (Geprüft mit Public Key)</div>
+                <div style={{ color: 'var(--accent-cyan)' }}>{JWKS_SETS.sampleJwt.signature}</div>
               </div>
             </div>
           </div>

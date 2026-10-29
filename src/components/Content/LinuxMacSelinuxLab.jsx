@@ -54,7 +54,7 @@ export default function LinuxMacSelinuxLab() {
               </span>
               <span className="text-xs text-slate-400">DAC vs. MAC (SELinux / AppArmor)</span>
             </div>
-            <h1 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+            <h1 className="text-2xl md:text-3xl font-bold text-slate-50 tracking-tight">
               Linux AppArmor & SELinux Mandatory Access Control Studio
             </h1>
             <p className="text-slate-400 text-sm mt-1 max-w-2xl">
@@ -83,7 +83,7 @@ export default function LinuxMacSelinuxLab() {
         {/* Controls (5 Cols) */}
         <div className="lg:col-span-5 space-y-4">
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
-            <h2 className="text-base font-semibold text-white flex items-center gap-2">
+            <h2 className="text-base font-semibold text-slate-50 flex items-center gap-2">
               <ShieldCheck size={18} className="text-red-400" />
               Sicherheits-Konfiguration
             </h2>
@@ -96,7 +96,7 @@ export default function LinuxMacSelinuxLab() {
                     onClick={() => setMacFramework('SELinux')}
                     className={`p-2 rounded-lg border font-medium transition ${
                       macFramework === 'SELinux'
-                        ? 'bg-red-950/50 border-red-500 text-white'
+                        ? 'bg-red-950/50 border-red-500 text-slate-50'
                         : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200'
                     }`}
                   >
@@ -106,7 +106,7 @@ export default function LinuxMacSelinuxLab() {
                     onClick={() => setMacFramework('AppArmor')}
                     className={`p-2 rounded-lg border font-medium transition ${
                       macFramework === 'AppArmor'
-                        ? 'bg-red-950/50 border-red-500 text-white'
+                        ? 'bg-red-950/50 border-red-500 text-slate-50'
                         : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200'
                     }`}
                   >
@@ -124,7 +124,7 @@ export default function LinuxMacSelinuxLab() {
                       onClick={() => setMacMode(/** @type {any} */ (mode))}
                       className={`p-2 rounded-lg border font-medium text-center transition ${
                         macMode === mode
-                          ? 'bg-red-950/50 border-red-500 text-white'
+                          ? 'bg-red-950/50 border-red-500 text-slate-50'
                           : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200'
                       }`}
                     >
@@ -154,7 +154,7 @@ export default function LinuxMacSelinuxLab() {
                 <select id="linux-mac-selinux-lab-1"
                   value={selectedResourcePath}
                   onChange={(e) => setSelectedResourcePath(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white"
+                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-50"
                 >
                   {DEFAULT_MAC_RESOURCES.map((r) => (
                     <option key={r.path} value={r.path}>
@@ -173,7 +173,7 @@ export default function LinuxMacSelinuxLab() {
                       onClick={() => setAction(/** @type {any} */ (act))}
                       className={`p-1.5 rounded-lg border font-medium text-center capitalize transition ${
                         action === act
-                          ? 'bg-slate-800 border-slate-600 text-white'
+                          ? 'bg-slate-800 border-slate-600 text-slate-50'
                           : 'bg-slate-950 border-slate-800 text-slate-400'
                       }`}
                     >

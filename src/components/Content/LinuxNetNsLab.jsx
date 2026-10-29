@@ -239,8 +239,8 @@ export default function LinuxNetNsLab() {
         </div>
 
         <pre style={{
-          background: '#0f172a',
-          color: '#f8fafc',
+          background: 'var(--bg-card)',
+          color: 'var(--text-main)',
           padding: '16px',
           borderRadius: '10px',
           fontFamily: 'monospace',

@@ -170,7 +170,7 @@ export default function OauthRevocationIntrospectionLab() {
                     padding: '12px 14px',
                     borderRadius: '10px',
                     cursor: 'pointer',
-                    background: isSelected ? 'rgba(245, 158, 11, 0.15)' : 'rgba(0, 0, 0, 0.2)',
+                    background: isSelected ? 'rgba(245, 158, 11, 0.15)' : 'var(--bg-tertiary)',
                     border: isSelected ? '1px solid #f59e0b' : '1px solid rgba(255, 255, 255, 0.05)',
                     transition: 'all 0.2s ease'
                   }}

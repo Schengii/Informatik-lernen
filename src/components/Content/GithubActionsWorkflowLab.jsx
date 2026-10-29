@@ -181,7 +181,7 @@ export default function GithubActionsWorkflowLab({ onRewardXP }) {
           </div>
 
           <div style={{
-            background: '#0d1117',
+            background: 'var(--bg-secondary)',
             color: '#58a6ff',
             padding: '16px',
             borderRadius: 'var(--radius-md)',

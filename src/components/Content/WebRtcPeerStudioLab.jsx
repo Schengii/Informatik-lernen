@@ -171,7 +171,7 @@ export default function WebRtcPeerStudioLab() {
           {sdpOffer && (
             <div style={{ marginTop: '12px' }}>
               <div style={{ fontSize: '0.78rem', fontWeight: 'bold', color: 'var(--accent-primary)', marginBottom: '4px' }}>Local SDP Offer:</div>
-              <pre style={{ margin: 0, padding: '10px', background: '#0f172a', borderRadius: 'var(--radius-sm)', fontSize: '0.72rem', color: '#38bdf8', maxHeight: '140px', overflowY: 'auto' }}>
+              <pre style={{ margin: 0, padding: '10px', background: 'var(--bg-card)', borderRadius: 'var(--radius-sm)', fontSize: '0.72rem', color: 'var(--accent-cyan)', maxHeight: '140px', overflowY: 'auto' }}>
                 {sdpOffer.sdp}
               </pre>
             </div>
@@ -179,7 +179,7 @@ export default function WebRtcPeerStudioLab() {
         </div>
 
         {/* Signaling Server (WebSocket / HTTP Relay) */}
-        <div className="glass-panel" style={{ padding: '20px', borderRadius: 'var(--radius-lg)', background: 'rgba(0,0,0,0.2)', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+        <div className="glass-panel" style={{ padding: '20px', borderRadius: 'var(--radius-lg)', background: 'var(--bg-tertiary)', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
           <Server size={32} color="var(--accent-purple, #a855f7)" style={{ marginBottom: '8px' }} />
           <h3 style={{ fontSize: '1.05rem', fontWeight: '700', margin: 0 }}>Signaling Server</h3>
           <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '4px', marginBottom: '16px' }}>
@@ -205,7 +205,7 @@ export default function WebRtcPeerStudioLab() {
           )}
 
           {step === 5 && (
-            <div style={{ color: '#10b981', fontWeight: 'bold', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <div style={{ color: 'var(--accent-emerald)', fontWeight: 'bold', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
               <CheckCircle2 size={16} /> Direkter P2P Mesh aktiv!
             </div>
           )}
@@ -224,7 +224,7 @@ export default function WebRtcPeerStudioLab() {
           {sdpAnswer && (
             <div style={{ marginTop: '12px' }}>
               <div style={{ fontSize: '0.78rem', fontWeight: 'bold', color: 'var(--accent-teal, #14b8a6)', marginBottom: '4px' }}>Local SDP Answer:</div>
-              <pre style={{ margin: 0, padding: '10px', background: '#0f172a', borderRadius: 'var(--radius-sm)', fontSize: '0.72rem', color: '#4ade80', maxHeight: '140px', overflowY: 'auto' }}>
+              <pre style={{ margin: 0, padding: '10px', background: 'var(--bg-card)', borderRadius: 'var(--radius-sm)', fontSize: '0.72rem', color: 'var(--accent-emerald)', maxHeight: '140px', overflowY: 'auto' }}>
                 {sdpAnswer.sdp}
               </pre>
             </div>
@@ -299,7 +299,7 @@ export default function WebRtcPeerStudioLab() {
           </div>
 
           {/* Chat Messages Stream */}
-          <div style={{ height: '220px', overflowY: 'auto', background: '#0f172a', padding: '16px', borderRadius: 'var(--radius-md)', marginBottom: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          <div style={{ height: '220px', overflowY: 'auto', background: 'var(--bg-card)', padding: '16px', borderRadius: 'var(--radius-md)', marginBottom: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {chatLog.map((msg, idx) => (
               <div 
                 key={idx}
@@ -313,12 +313,12 @@ export default function WebRtcPeerStudioLab() {
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', fontSize: '0.72rem', color: 'var(--text-muted)', marginBottom: '2px' }}>
-                  <span style={{ fontWeight: 'bold', color: msg.sender.includes('Peer A') ? '#a5b4fc' : '#5eead4' }}>{msg.sender}</span>
+                  <span style={{ fontWeight: 'bold', color: msg.sender.includes('Peer A') ? 'var(--accent-primary)' : '#5eead4' }}>{msg.sender}</span>
                   <span>{msg.timestamp} ({msg.latencyMs}ms)</span>
                 </div>
-                <div style={{ fontSize: '0.88rem', color: '#f8fafc' }}>{msg.text}</div>
+                <div style={{ fontSize: '0.88rem', color: 'var(--text-main)' }}>{msg.text}</div>
                 {msg.isDropped && (
-                  <div style={{ fontSize: '0.7rem', color: '#f87171', marginTop: '2px', fontWeight: 'bold' }}>
+                  <div style={{ fontSize: '0.7rem', color: 'var(--accent-rose)', marginTop: '2px', fontWeight: 'bold' }}>
                     ⚠️ Paket verloren (SCTP retransmission required)
                   </div>
                 )}

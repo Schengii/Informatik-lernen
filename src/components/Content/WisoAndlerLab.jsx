@@ -77,14 +77,14 @@ export default function WisoAndlerLab({ onRewardXP }) {
 
         <div style={{ background: 'var(--bg-primary)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
           <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Bestellhäufigkeit &amp; Intervall:</span>
-          <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: '#10b981', marginTop: '4px' }}>
+          <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: 'var(--accent-emerald)', marginTop: '4px' }}>
             {andlerData.nOpt} × (alle {andlerData.tOptDays} Tage)
           </div>
         </div>
 
         <div style={{ background: 'var(--bg-primary)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
           <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Minimale Gesamtkosten:</span>
-          <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: '#10b981', marginTop: '4px' }}>
+          <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: 'var(--accent-emerald)', marginTop: '4px' }}>
             {andlerData.gesamtkosten.toLocaleString('de-DE')} €
           </div>
         </div>
@@ -106,12 +106,12 @@ export default function WisoAndlerLab({ onRewardXP }) {
 
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 14px', background: 'var(--bg-primary)', borderRadius: '6px' }}>
               <span>Lagerhaltungskosten ({lagerkostensatz}% von durchschn. Lagerbestand):</span>
-              <strong style={{ color: '#ec4899' }}>{andlerData.lagerkosten.toLocaleString('de-DE')} €</strong>
+              <strong style={{ color: 'var(--accent-rose)' }}>{andlerData.lagerkosten.toLocaleString('de-DE')} €</strong>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', padding: '12px 14px', background: 'rgba(16, 185, 129, 0.15)', borderRadius: '6px', fontWeight: 'bold', fontSize: '0.95rem' }}>
               <span>= Minimale Gesamtkosten (Schnittpunkt):</span>
-              <strong style={{ color: '#10b981' }}>{andlerData.gesamtkosten.toLocaleString('de-DE')} €</strong>
+              <strong style={{ color: 'var(--accent-emerald)' }}>{andlerData.gesamtkosten.toLocaleString('de-DE')} €</strong>
             </div>
           </div>
         </div>

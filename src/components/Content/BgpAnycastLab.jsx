@@ -88,7 +88,7 @@ export default function BgpAnycastLab({ onRewardXP }) {
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-              <strong style={{ fontSize: '0.95rem', color: route.isBest ? '#10b981' : 'var(--text-main)' }}>
+              <strong style={{ fontSize: '0.95rem', color: route.isBest ? 'var(--accent-emerald)' : 'var(--text-main)' }}>
                 {route.peerName}
               </strong>
               <span className={`badge ${route.isBest ? 'badge-emerald' : 'badge-slate'}`} style={{ fontSize: '0.72rem' }}>

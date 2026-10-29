@@ -160,7 +160,7 @@ export default function BgpPathSelectionLab() {
               <div 
                 key={c.peerName}
                 style={{
-                  background: isWinner ? 'rgba(16, 185, 129, 0.08)' : 'rgba(0, 0, 0, 0.25)',
+                  background: isWinner ? 'rgba(16, 185, 129, 0.08)' : 'var(--bg-tertiary)',
                   border: isWinner ? '2px solid #10b981' : '1px solid rgba(255, 255, 255, 0.05)',
                   borderRadius: '12px',
                   padding: '16px'

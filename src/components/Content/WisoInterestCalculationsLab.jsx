@@ -105,7 +105,7 @@ export default function WisoInterestCalculationsLab({ onRewardXP }) {
 
             <div style={{ background: 'var(--bg-primary)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
               <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Zinsertrag ({tage} Tage à {zinssatz}%):</span>
-              <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: '#10b981', marginTop: '4px' }}>
+              <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: 'var(--accent-emerald)', marginTop: '4px' }}>
                 +{simpleData.zinsen.toLocaleString('de-DE')} €
               </div>
             </div>
@@ -143,7 +143,7 @@ export default function WisoInterestCalculationsLab({ onRewardXP }) {
             <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--text-muted)' }}>
               Zinseszinsentwicklung über {jahre} Jahre (Aufzinsungsfaktor: {compoundData.aufzinsungsfaktor}):
             </span>
-            <div style={{ fontSize: '0.9rem', fontWeight: 'bold', color: '#10b981' }}>
+            <div style={{ fontSize: '0.9rem', fontWeight: 'bold', color: 'var(--accent-emerald)' }}>
               Gesamtzinsen: +{compoundData.gesamtzinsen.toLocaleString('de-DE')} €
             </div>
           </div>
@@ -165,7 +165,7 @@ export default function WisoInterestCalculationsLab({ onRewardXP }) {
               {compoundData.yearlyProgression.map(row => (
                 <tr key={row.jahr} style={{ borderBottom: '1px solid var(--border-color)' }}>
                   <td style={{ padding: '10px', fontWeight: 'bold' }}>Jahr {row.jahr}</td>
-                  <td style={{ padding: '10px', color: '#10b981' }}>+{row.zinsenImJahr.toLocaleString('de-DE')} €</td>
+                  <td style={{ padding: '10px', color: 'var(--accent-emerald)' }}>+{row.zinsenImJahr.toLocaleString('de-DE')} €</td>
                   <td style={{ padding: '10px', fontWeight: 'bold' }}>{row.kapitalEndeJahr.toLocaleString('de-DE')} €</td>
                 </tr>
               ))}

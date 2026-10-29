@@ -84,7 +84,7 @@ export default function BsiGrundschutzLab() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', background: 'var(--card-bg, #ffffff)', padding: '12px 20px', borderRadius: '16px', border: '1px solid var(--border-color, #e2e8f0)', boxShadow: '0 4px 12px rgba(0,0,0,0.04)' }}>
           <div>
             <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', fontWeight: 700, color: '#64748b' }}>BSI Erfüllungsgrad</div>
-            <div style={{ fontSize: '1.5rem', fontWeight: 900, color: evaluation.complianceScore >= 80 ? '#10b981' : evaluation.complianceScore >= 50 ? '#f59e0b' : '#ef4444' }}>
+            <div style={{ fontSize: '1.5rem', fontWeight: 900, color: evaluation.complianceScore >= 80 ? 'var(--accent-emerald)' : evaluation.complianceScore >= 50 ? 'var(--accent-amber)' : 'var(--accent-rose)' }}>
               {evaluation.complianceScore}%
             </div>
           </div>
@@ -239,16 +239,16 @@ export default function BsiGrundschutzLab() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
             <div style={{ background: 'var(--card-bg, #ffffff)', padding: '16px', borderRadius: '14px', border: '1px solid var(--border-color, #e2e8f0)' }}>
               <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748b' }}>BASIS-ANFORDERUNGEN</div>
-              <div style={{ fontSize: '1.25rem', fontWeight: 800, marginTop: '4px', color: evaluation.basisFulfilled ? '#10b981' : '#ef4444' }}>
+              <div style={{ fontSize: '1.25rem', fontWeight: 800, marginTop: '4px', color: evaluation.basisFulfilled ? 'var(--accent-emerald)' : 'var(--accent-rose)' }}>
                 {evaluation.basisFulfilled ? 'Vollständig erfüllt' : `${evaluation.basisImplemented} / ${evaluation.basisTotal} erfüllt`}
               </div>
             </div>
             <div style={{ background: 'var(--card-bg, #ffffff)', padding: '16px', borderRadius: '14px', border: '1px solid var(--border-color, #e2e8f0)' }}>
               <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748b' }}>MASSNAHMEN STATUS</div>
               <div style={{ fontSize: '0.9rem', fontWeight: 600, marginTop: '6px', display: 'flex', gap: '12px' }}>
-                <span style={{ color: '#10b981' }}>✔ {evaluation.implemented} Erfüllt</span>
-                <span style={{ color: '#f59e0b' }}>◐ {evaluation.partial} Teilweise</span>
-                <span style={{ color: '#ef4444' }}>✖ {evaluation.missing} Offen</span>
+                <span style={{ color: 'var(--accent-emerald)' }}>✔ {evaluation.implemented} Erfüllt</span>
+                <span style={{ color: 'var(--accent-amber)' }}>◐ {evaluation.partial} Teilweise</span>
+                <span style={{ color: 'var(--accent-rose)' }}>✖ {evaluation.missing} Offen</span>
               </div>
             </div>
           </div>
@@ -402,7 +402,7 @@ export default function BsiGrundschutzLab() {
 
           <pre style={{
             background: 'var(--code-bg, #0f172a)',
-            color: '#f8fafc',
+            color: 'var(--text-main)',
             padding: '20px',
             borderRadius: '12px',
             fontSize: '0.85rem',

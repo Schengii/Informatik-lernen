@@ -116,8 +116,8 @@ export default function DataLineageEtlLab({ onRewardXP }) {
               padding: '12px',
               fontFamily: 'var(--font-code, monospace)',
               fontSize: '0.82rem',
-              background: '#090d16',
-              color: '#38bdf8',
+              background: 'var(--bg-secondary)',
+              color: 'var(--accent-cyan)',
               borderRadius: 'var(--radius-md)',
               border: '1px solid #1e293b',
               resize: 'vertical'

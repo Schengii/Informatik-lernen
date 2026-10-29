@@ -45,7 +45,7 @@ export default function IhkMepSimulatorLab({ onAwardXP }) {
               <GraduationCap className="w-4 h-4" />
               <span>IHK Notfall-Rettungsanker (AO 2020 & BBiG)</span>
             </div>
-            <h1 className="text-2xl md:text-3xl font-bold text-white">
+            <h1 className="text-2xl md:text-3xl font-bold text-slate-50">
               IHK Mündliche Ergänzungsprüfung (MEP) Simulator
             </h1>
             <p className="text-slate-400 mt-1 max-w-2xl text-sm">
@@ -74,7 +74,7 @@ export default function IhkMepSimulatorLab({ onAwardXP }) {
               onClick={() => { setSelectedArea('wiso'); setActiveQuestionIdx(0); }}
               className={`p-3 rounded-lg border text-xs text-left transition ${
                 selectedArea === 'wiso'
-                  ? 'bg-rose-600/30 border-rose-500 text-white font-bold'
+                  ? 'bg-rose-600/30 border-rose-500 text-slate-50 font-bold'
                   : 'bg-slate-800/40 border-slate-700/60 text-slate-400 hover:bg-slate-800'
               }`}
             >
@@ -85,7 +85,7 @@ export default function IhkMepSimulatorLab({ onAwardXP }) {
               onClick={() => { setSelectedArea('ap2_b1'); setActiveQuestionIdx(0); }}
               className={`p-3 rounded-lg border text-xs text-left transition ${
                 selectedArea === 'ap2_b1'
-                  ? 'bg-rose-600/30 border-rose-500 text-white font-bold'
+                  ? 'bg-rose-600/30 border-rose-500 text-slate-50 font-bold'
                   : 'bg-slate-800/40 border-slate-700/60 text-slate-400 hover:bg-slate-800'
               }`}
             >
@@ -96,7 +96,7 @@ export default function IhkMepSimulatorLab({ onAwardXP }) {
               onClick={() => { setSelectedArea('ap2_b2'); setActiveQuestionIdx(0); }}
               className={`p-3 rounded-lg border text-xs text-left transition ${
                 selectedArea === 'ap2_b2'
-                  ? 'bg-rose-600/30 border-rose-500 text-white font-bold'
+                  ? 'bg-rose-600/30 border-rose-500 text-slate-50 font-bold'
                   : 'bg-slate-800/40 border-slate-700/60 text-slate-400 hover:bg-slate-800'
               }`}
             >
@@ -188,7 +188,7 @@ export default function IhkMepSimulatorLab({ onAwardXP }) {
         <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
           <div className="flex items-center gap-2">
             <Clock className="w-5 h-5 text-indigo-400" />
-            <h2 className="text-lg font-bold text-white">
+            <h2 className="text-lg font-bold text-slate-50">
               Typische IHK-Prüfungsfragen ({currentQuestions.length} Fragen verfügbar)
             </h2>
           </div>
@@ -200,7 +200,7 @@ export default function IhkMepSimulatorLab({ onAwardXP }) {
                 className={`w-7 h-7 rounded-lg text-xs font-bold font-mono transition ${
                   activeQuestionIdx === idx
                     ? 'bg-rose-600 text-white'
-                    : 'bg-slate-800 text-slate-400 hover:text-white'
+                    : 'bg-slate-800 text-slate-400 hover:text-slate-50'
                 }`}
               >
                 {idx + 1}

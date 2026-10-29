@@ -205,7 +205,7 @@ export default function Sm2SpacedRepetitionLab() {
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.08)" />
                 <XAxis dataKey="day" stroke="var(--text-muted)" fontSize={11} />
                 <YAxis stroke="var(--text-muted)" fontSize={11} unit="%" domain={[0, 100]} />
-                <Tooltip contentStyle={{ background: '#0f172a', border: '1px solid #1e293b', borderRadius: '8px', color: '#fff' }} />
+                <Tooltip contentStyle={{ background: 'var(--bg-card)', border: '1px solid #1e293b', borderRadius: '8px', color: '#fff' }} />
                 <Line type="monotone" dataKey="retentionPercent" stroke="var(--accent-teal)" strokeWidth={3} dot={{ r: 3 }} name="Behaltenskraft" />
               </LineChart>
             </ResponsiveContainer>

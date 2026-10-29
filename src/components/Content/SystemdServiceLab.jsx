@@ -128,7 +128,7 @@ export default function SystemdServiceLab() {
               style={{
                 padding: '10px',
                 borderRadius: '8px',
-                background: serviceState === 'active' ? '#334155' : '#10b981',
+                background: serviceState === 'active' ? 'var(--bg-card-hover)' : '#10b981',
                 color: 'var(--text-main)',
                 fontWeight: 'bold',
                 fontSize: '0.85rem',
@@ -149,7 +149,7 @@ export default function SystemdServiceLab() {
               style={{
                 padding: '10px',
                 borderRadius: '8px',
-                background: serviceState === 'inactive' ? '#334155' : '#64748b',
+                background: serviceState === 'inactive' ? 'var(--bg-card-hover)' : '#64748b',
                 color: 'var(--text-main)',
                 fontWeight: 'bold',
                 fontSize: '0.85rem',
@@ -216,7 +216,7 @@ export default function SystemdServiceLab() {
                   borderRadius: '6px',
                   background: 'rgba(234, 179, 8, 0.2)',
                   border: '1px solid #eab308',
-                  color: '#fde047',
+                  color: 'var(--accent-amber)',
                   fontSize: '0.82rem',
                   fontWeight: 'bold',
                   cursor: 'pointer',
@@ -270,7 +270,7 @@ export default function SystemdServiceLab() {
         </div>
 
         {/* Live Journalctl Terminal */}
-        <div style={{ background: '#090d16', padding: '20px', borderRadius: '12px', border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ background: 'var(--bg-secondary)', padding: '20px', borderRadius: '12px', border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
             <span style={{ fontSize: '0.85rem', color: 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '6px', fontFamily: 'monospace' }}>
               <Terminal size={14} /> journalctl -u {config.unitName} -f

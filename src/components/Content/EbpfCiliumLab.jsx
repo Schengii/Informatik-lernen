@@ -150,7 +150,7 @@ export default function EbpfCiliumLab() {
                 padding: '6px 14px',
                 borderRadius: '6px',
                 border: 'none',
-                background: enableL7 ? '#10b981' : '#475569',
+                background: enableL7 ? '#10b981' : 'var(--bg-card-hover)',
                 color: 'var(--text-main)',
                 fontWeight: 'bold',
                 cursor: 'pointer',
@@ -207,7 +207,7 @@ export default function EbpfCiliumLab() {
                   style={{
                     padding: '10px 14px',
                     borderRadius: '8px',
-                    background: hop.type === 'ebpf_bypass' ? 'rgba(6, 182, 212, 0.25)' : 'rgba(0,0,0,0.3)',
+                    background: hop.type === 'ebpf_bypass' ? 'rgba(6, 182, 212, 0.25)' : 'var(--bg-tertiary)',
                     border: hop.type === 'ebpf_bypass' ? '1px solid #06b6d4' : '1px solid rgba(255,255,255,0.06)',
                     fontSize: '0.85rem',
                     display: 'flex',
@@ -220,7 +220,7 @@ export default function EbpfCiliumLab() {
                       {hop.name}
                     </span>
                     {hop.desc && (
-                      <div style={{ fontSize: '0.75rem', color: '#a5f3fc', marginTop: '2px' }}>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--accent-cyan)', marginTop: '2px' }}>
                         ⚡ {hop.desc}
                       </div>
                     )}
@@ -230,7 +230,7 @@ export default function EbpfCiliumLab() {
               ))}
             </div>
 
-            <div style={{ marginTop: '20px', padding: '12px', borderRadius: '8px', background: 'rgba(6, 182, 212, 0.15)', fontSize: '0.85rem', color: '#e0f2fe' }}>
+            <div style={{ marginTop: '20px', padding: '12px', borderRadius: '8px', background: 'rgba(6, 182, 212, 0.15)', fontSize: '0.85rem', color: 'var(--accent-cyan)' }}>
               <strong>Ergebnis:</strong> Nur {ciliumMetrics.hopCount} Hops! Latenz: <strong>{ciliumMetrics.latencyP50} ms</strong> (P50). Kein Speicherverbrauch für Proxies.
             </div>
           </div>
@@ -256,7 +256,7 @@ export default function EbpfCiliumLab() {
                   style={{
                     padding: '8px 12px',
                     borderRadius: '8px',
-                    background: hop.type === 'proxy' ? 'rgba(239, 68, 68, 0.25)' : 'rgba(0,0,0,0.3)',
+                    background: hop.type === 'proxy' ? 'rgba(239, 68, 68, 0.25)' : 'var(--bg-tertiary)',
                     border: hop.type === 'proxy' ? '1px solid #ef4444' : '1px solid rgba(255,255,255,0.06)',
                     fontSize: '0.8rem',
                     display: 'flex',
@@ -269,7 +269,7 @@ export default function EbpfCiliumLab() {
                       {hop.name}
                     </span>
                     {hop.desc && (
-                      <div style={{ fontSize: '0.7rem', color: '#fecaca', marginTop: '2px' }}>
+                      <div style={{ fontSize: '0.7rem', color: 'var(--accent-rose)', marginTop: '2px' }}>
                         ⚠️ {hop.desc}
                       </div>
                     )}
@@ -295,7 +295,7 @@ export default function EbpfCiliumLab() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px', marginBottom: '24px' }}>
             <div style={{ background: 'rgba(6, 182, 212, 0.1)', padding: '16px', borderRadius: '10px', border: '1px solid rgba(6, 182, 212, 0.3)' }}>
-              <div style={{ fontSize: '0.8rem', color: '#a5f3fc' }}>Latenz-Speedup (P50)</div>
+              <div style={{ fontSize: '0.8rem', color: 'var(--accent-cyan)' }}>Latenz-Speedup (P50)</div>
               <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--accent-cyan)' }}>
                 ~{ciliumMetrics.speedupFactor}x schneller
               </div>
@@ -315,7 +315,7 @@ export default function EbpfCiliumLab() {
             </div>
 
             <div style={{ background: 'rgba(168, 85, 247, 0.1)', padding: '16px', borderRadius: '10px', border: '1px solid rgba(168, 85, 247, 0.3)' }}>
-              <div style={{ fontSize: '0.8rem', color: '#d8b4fe' }}>CPU-Overhead Entlastung</div>
+              <div style={{ fontSize: '0.8rem', color: 'var(--accent-purple)' }}>CPU-Overhead Entlastung</div>
               <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--accent-purple)' }}>
                 ~{envoyMetrics.cpuOverheadPct - ciliumMetrics.cpuOverheadPct}%
               </div>

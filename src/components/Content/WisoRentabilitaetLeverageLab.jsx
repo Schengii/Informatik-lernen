@@ -49,7 +49,7 @@ export default function WisoRentabilitaetLeverageLab() {
               </span>
               <span className="text-xs text-slate-400">AP2 WISO Standard</span>
             </div>
-            <h1 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+            <h1 className="text-2xl md:text-3xl font-bold text-slate-50 tracking-tight">
               WISO Rentabilitätskennzahlen & Leverage-Effekt Studio
             </h1>
             <p className="text-slate-400 text-sm mt-1 max-w-2xl">
@@ -64,7 +64,7 @@ export default function WisoRentabilitaetLeverageLab() {
             ) : (
               <button
                 onClick={handleTestTrigger}
-                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold transition shadow"
+                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-bold transition shadow"
               >
                 <Award size={14} /> 60 XP sichern
               </button>
@@ -78,7 +78,7 @@ export default function WisoRentabilitaetLeverageLab() {
         {/* Input Parameters (6 Cols) */}
         <div className="lg:col-span-6 space-y-4">
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
-            <h2 className="text-base font-semibold text-white flex items-center gap-2">
+            <h2 className="text-base font-semibold text-slate-50 flex items-center gap-2">
               <Calculator size={18} className="text-emerald-400" />
               Unternehmensdaten & Kapitalstruktur
             </h2>
@@ -90,7 +90,7 @@ export default function WisoRentabilitaetLeverageLab() {
                   type="number"
                   value={params.eigenkapital}
                   onChange={(e) => handleChange('eigenkapital', e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white font-mono"
+                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-50 font-mono"
                 />
               </div>
 
@@ -100,7 +100,7 @@ export default function WisoRentabilitaetLeverageLab() {
                   type="number"
                   value={params.fremdkapital}
                   onChange={(e) => handleChange('fremdkapital', e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white font-mono"
+                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-50 font-mono"
                 />
               </div>
 
@@ -111,7 +111,7 @@ export default function WisoRentabilitaetLeverageLab() {
                   step="0.5"
                   value={params.fremdkapitalZinssatz}
                   onChange={(e) => handleChange('fremdkapitalZinssatz', e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white font-mono"
+                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-50 font-mono"
                 />
               </div>
 
@@ -121,7 +121,7 @@ export default function WisoRentabilitaetLeverageLab() {
                   type="number"
                   value={params.jahresueberschuss}
                   onChange={(e) => handleChange('jahresueberschuss', e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white font-mono"
+                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-50 font-mono"
                 />
               </div>
 
@@ -131,7 +131,7 @@ export default function WisoRentabilitaetLeverageLab() {
                   type="number"
                   value={params.umsatzerloese}
                   onChange={(e) => handleChange('umsatzerloese', e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white font-mono"
+                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-50 font-mono"
                 />
               </div>
             </div>

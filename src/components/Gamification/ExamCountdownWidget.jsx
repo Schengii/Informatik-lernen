@@ -154,7 +154,7 @@ export default function ExamCountdownWidget({ setActiveTab }) {
           }}>
             <Clock size={24} color={daysRemaining <= 30 ? '#ef4444' : 'var(--accent-primary, #6366f1)'} />
             <div>
-              <div style={{ fontSize: '1.4rem', fontWeight: 800, color: daysRemaining <= 30 ? '#ef4444' : 'var(--accent-primary, #6366f1)' }}>
+              <div style={{ fontSize: '1.4rem', fontWeight: 800, color: daysRemaining <= 30 ? 'var(--accent-rose)' : 'var(--accent-primary, #6366f1)' }}>
                 {daysRemaining > 0 ? `T-Minus ${daysRemaining} Tage` : daysRemaining === 0 ? 'Heute Prüfungstag!' : 'Prüfung abgeschlossen!'}
               </div>
               <div style={{ fontSize: '0.75rem', opacity: 0.8 }}>
@@ -217,7 +217,7 @@ export default function ExamCountdownWidget({ setActiveTab }) {
 
         {readiness.recommendedFocus.length > 0 && (
           <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-            <strong style={{ color: '#ef4444' }}>⚠️ Priorisierter Trainingsbedarf:</strong>{' '}
+            <strong style={{ color: 'var(--accent-rose)' }}>⚠️ Priorisierter Trainingsbedarf:</strong>{' '}
             {readiness.recommendedFocus.slice(0, 2).join(' • ')}
           </div>
         )}

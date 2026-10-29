@@ -42,7 +42,7 @@ export default function WisoFinancingLab({ onAwardXP }) {
               <Calculator className="w-4 h-4" />
               <span>IHK WISO & Investitionsentscheidung (AP2)</span>
             </div>
-            <h1 className="text-2xl md:text-3xl font-bold text-white">
+            <h1 className="text-2xl md:text-3xl font-bold text-slate-50">
               WISO Finanzierungsvergleich: Kauf vs. Kredit vs. Leasing
             </h1>
             <p className="text-slate-400 mt-1 max-w-2xl text-sm">
@@ -60,7 +60,7 @@ export default function WisoFinancingLab({ onAwardXP }) {
 
       {/* Input Parameter Formular */}
       <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-        <h2 className="text-sm font-bold text-white mb-4 flex items-center gap-2">
+        <h2 className="text-sm font-bold text-slate-50 mb-4 flex items-center gap-2">
           <FileSpreadsheet className="w-4 h-4 text-emerald-400" />
           Investitions- & Finanzierungsparameter anpassen:
         </h2>
@@ -72,7 +72,7 @@ export default function WisoFinancingLab({ onAwardXP }) {
               step="500"
               value={investment}
               onChange={e => setInvestment(Math.min(100000000, Math.max(500, parseInt(e.target.value) || 500)))}
-              className="w-full bg-slate-950 border border-slate-700 rounded px-2.5 py-1 text-xs font-mono text-white"
+              className="w-full bg-slate-950 border border-slate-700 rounded px-2.5 py-1 text-xs font-mono text-slate-50"
             />
           </div>
           <div className="p-3 bg-slate-800/40 rounded-lg border border-slate-700/60">
@@ -83,7 +83,7 @@ export default function WisoFinancingLab({ onAwardXP }) {
               max="10"
               value={years}
               onChange={e => setYears(Math.min(10, Math.max(1, parseInt(e.target.value) || 1)))}
-              className="w-full bg-slate-950 border border-slate-700 rounded px-2.5 py-1 text-xs font-mono text-white"
+              className="w-full bg-slate-950 border border-slate-700 rounded px-2.5 py-1 text-xs font-mono text-slate-50"
             />
           </div>
           <div className="p-3 bg-slate-800/40 rounded-lg border border-slate-700/60">
@@ -93,7 +93,7 @@ export default function WisoFinancingLab({ onAwardXP }) {
               step="0.5"
               value={skonto}
               onChange={e => setSkonto(Math.max(0, parseFloat(e.target.value) || 0))}
-              className="w-full bg-slate-950 border border-slate-700 rounded px-2.5 py-1 text-xs font-mono text-white"
+              className="w-full bg-slate-950 border border-slate-700 rounded px-2.5 py-1 text-xs font-mono text-slate-50"
             />
           </div>
           <div className="p-3 bg-slate-800/40 rounded-lg border border-slate-700/60">
@@ -103,7 +103,7 @@ export default function WisoFinancingLab({ onAwardXP }) {
               step="0.1"
               value={interestRate}
               onChange={e => setInterestRate(Math.max(0, parseFloat(e.target.value) || 0))}
-              className="w-full bg-slate-950 border border-slate-700 rounded px-2.5 py-1 text-xs font-mono text-white"
+              className="w-full bg-slate-950 border border-slate-700 rounded px-2.5 py-1 text-xs font-mono text-slate-50"
             />
           </div>
           <div className="p-3 bg-slate-800/40 rounded-lg border border-slate-700/60">
@@ -113,7 +113,7 @@ export default function WisoFinancingLab({ onAwardXP }) {
               step="10"
               value={monthlyLease}
               onChange={e => setMonthlyLease(Math.max(10, parseInt(e.target.value) || 10))}
-              className="w-full bg-slate-950 border border-slate-700 rounded px-2.5 py-1 text-xs font-mono text-white"
+              className="w-full bg-slate-950 border border-slate-700 rounded px-2.5 py-1 text-xs font-mono text-slate-50"
             />
           </div>
           <div className="p-3 bg-slate-800/40 rounded-lg border border-slate-700/60">
@@ -123,7 +123,7 @@ export default function WisoFinancingLab({ onAwardXP }) {
               step="1"
               value={taxRate}
               onChange={e => setTaxRate(Math.max(0, parseFloat(e.target.value) || 0))}
-              className="w-full bg-slate-950 border border-slate-700 rounded px-2.5 py-1 text-xs font-mono text-white"
+              className="w-full bg-slate-950 border border-slate-700 rounded px-2.5 py-1 text-xs font-mono text-slate-50"
             />
           </div>
         </div>
@@ -138,7 +138,7 @@ export default function WisoFinancingLab({ onAwardXP }) {
           >
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="font-bold text-base text-white">{opt.title}</span>
+                <span className="font-bold text-base text-slate-50">{opt.title}</span>
                 {opt.id === 'cash_purchase' && <Banknote className="w-5 h-5 text-emerald-400" />}
                 {opt.id === 'bank_loan' && <CreditCard className="w-5 h-5 text-indigo-400" />}
                 {opt.id === 'leasing' && <Building2 className="w-5 h-5 text-amber-400" />}

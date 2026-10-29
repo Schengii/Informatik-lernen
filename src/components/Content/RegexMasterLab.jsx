@@ -181,7 +181,7 @@ export default function RegexMasterLab({ onRewardXP }) {
 
       {/* Live RegEx Input Bar */}
       <div style={{ display: 'flex', gap: '12px', marginBottom: '20px', flexWrap: 'wrap' }}>
-        <div style={{ display: 'flex', flex: 1, alignItems: 'center', background: '#0f172a', borderRadius: 'var(--radius-md)', border: '1px solid #1e293b', padding: '0 12px' }}>
+        <div style={{ display: 'flex', flex: 1, alignItems: 'center', background: 'var(--bg-card)', borderRadius: 'var(--radius-md)', border: '1px solid #1e293b', padding: '0 12px' }}>
           <span style={{ color: '#64748b', fontFamily: 'monospace', fontWeight: '800', fontSize: '1.1rem' }}>/</span>
           <input
             type="text"
@@ -193,7 +193,7 @@ export default function RegexMasterLab({ onRewardXP }) {
               padding: '12px',
               background: 'transparent',
               border: 'none',
-              color: '#38bdf8',
+              color: 'var(--accent-cyan)',
               fontFamily: 'monospace',
               fontSize: '1rem',
               outline: 'none'
@@ -210,7 +210,7 @@ export default function RegexMasterLab({ onRewardXP }) {
               padding: '12px 4px',
               background: 'transparent',
               border: 'none',
-              color: '#a5b4fc',
+              color: 'var(--accent-primary)',
               fontFamily: 'monospace',
               fontSize: '1rem',
               outline: 'none'
@@ -252,8 +252,8 @@ export default function RegexMasterLab({ onRewardXP }) {
               width: '100%',
               padding: '14px',
               borderRadius: 'var(--radius-md)',
-              background: '#0f172a',
-              color: '#f8fafc',
+              background: 'var(--bg-card)',
+              color: 'var(--text-main)',
               fontFamily: 'monospace',
               fontSize: '0.9rem',
               border: '1px solid #1e293b',
@@ -263,10 +263,10 @@ export default function RegexMasterLab({ onRewardXP }) {
         </div>
 
         {/* Live Match Results */}
-        <div style={{ background: '#0f172a', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid #1e293b' }}>
-          <h4 style={{ fontSize: '0.95rem', fontWeight: '700', color: '#f8fafc', margin: '0 0 12px 0', display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ background: 'var(--bg-card)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid #1e293b' }}>
+          <h4 style={{ fontSize: '0.95rem', fontWeight: '700', color: 'var(--text-main)', margin: '0 0 12px 0', display: 'flex', justifyContent: 'space-between' }}>
             <span>🎯 Gematchte Ergebnisse:</span>
-            <span style={{ color: '#10b981', fontWeight: '800' }}>{matches.length} Treffer</span>
+            <span style={{ color: 'var(--accent-emerald)', fontWeight: '800' }}>{matches.length} Treffer</span>
           </h4>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', maxHeight: '180px', overflowY: 'auto' }}>
@@ -278,7 +278,7 @@ export default function RegexMasterLab({ onRewardXP }) {
                   key={idx}
                   style={{
                     background: 'rgba(99,102,241,0.25)',
-                    color: '#a5b4fc',
+                    color: 'var(--accent-primary)',
                     border: '1px solid #6366f1',
                     padding: '4px 10px',
                     borderRadius: 'var(--radius-md)',

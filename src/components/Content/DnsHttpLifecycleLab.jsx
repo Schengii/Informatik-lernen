@@ -235,10 +235,10 @@ export default function DnsHttpLifecycleLab() {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {[
-              { layer: 'Schicht 7 (Anwendung)', desc: 'HTTP/2, DNS, TLS 1.3 Daten payload', active: currentStep.step <= 5 || currentStep.step >= 7, color: '#38bdf8' },
-              { layer: 'Schicht 4 (Transport)', desc: 'TCP (Port 443 SYN/ACK) & UDP (Port 53)', active: currentStep.step === 6 || currentStep.step <= 5, color: '#818cf8' },
-              { layer: 'Schicht 3 (Vermittlung)', desc: 'IPv4 (185.199.108.153) & IPv6 Routing', active: true, color: '#4ade80' },
-              { layer: 'Schicht 2 & 1 (Netzzugang)', desc: 'Ethernet Frames, Wi-Fi 6, Glasfaser Lichtimpulse', active: true, color: '#fbbf24' }
+              { layer: 'Schicht 7 (Anwendung)', desc: 'HTTP/2, DNS, TLS 1.3 Daten payload', active: currentStep.step <= 5 || currentStep.step >= 7, color: 'var(--accent-cyan)' },
+              { layer: 'Schicht 4 (Transport)', desc: 'TCP (Port 443 SYN/ACK) & UDP (Port 53)', active: currentStep.step === 6 || currentStep.step <= 5, color: 'var(--accent-primary)' },
+              { layer: 'Schicht 3 (Vermittlung)', desc: 'IPv4 (185.199.108.153) & IPv6 Routing', active: true, color: 'var(--accent-emerald)' },
+              { layer: 'Schicht 2 & 1 (Netzzugang)', desc: 'Ethernet Frames, Wi-Fi 6, Glasfaser Lichtimpulse', active: true, color: 'var(--accent-amber)' }
             ].map(l => (
               <div
                 key={l.layer}

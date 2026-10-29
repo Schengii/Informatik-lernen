@@ -211,7 +211,7 @@ export default function PostgresIndexTypesLab() {
                     padding: '8px 12px',
                     borderRadius: '6px',
                     border: 'none',
-                    background: isSorted ? '#10b981' : '#475569',
+                    background: isSorted ? '#10b981' : 'var(--bg-card-hover)',
                     color: 'var(--text-main)',
                     fontWeight: 'bold',
                     cursor: 'pointer'

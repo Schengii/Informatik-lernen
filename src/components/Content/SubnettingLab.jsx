@@ -195,7 +195,7 @@ export default function SubnettingLab({ onRewardXP }) {
 
               <div>
                 <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Binärmaske</span>
-                <code style={{ background: '#0f172a', color: '#38bdf8', padding: '8px 12px', borderRadius: 'var(--radius-md)', display: 'block', fontSize: '0.9rem' }}>
+                <code style={{ background: 'var(--bg-card)', color: 'var(--accent-cyan)', padding: '8px 12px', borderRadius: 'var(--radius-md)', display: 'block', fontSize: '0.9rem' }}>
                   {result.binaryMask}
                 </code>
               </div>

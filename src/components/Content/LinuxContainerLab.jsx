@@ -106,7 +106,7 @@ export default function LinuxContainerLab({ onRewardXP }) {
 
           <div style={{ background: 'var(--bg-primary)', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
             <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Container Namespace Sicht:</span>
-            <div style={{ fontSize: '0.95rem', fontWeight: 'bold', color: '#10b981', marginTop: '2px', fontFamily: 'monospace' }}>
+            <div style={{ fontSize: '0.95rem', fontWeight: 'bold', color: 'var(--accent-emerald)', marginTop: '2px', fontFamily: 'monospace' }}>
               {activeNsObj.containerPid ? `PID ${activeNsObj.containerPid} (Init)` : (activeNsObj.containerInterface || activeNsObj.containerMount || activeNsObj.containerName || (activeNsObj.containerUid !== undefined ? `UID ${activeNsObj.containerUid} (root)` : 'Isolated IPC'))}
             </div>
           </div>
@@ -177,7 +177,7 @@ export default function LinuxContainerLab({ onRewardXP }) {
 
           <div style={{ background: 'var(--bg-primary)', padding: '16px', borderRadius: '10px', border: '1px solid var(--border-color)', textAlign: 'center' }}>
             <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Container Status:</span>
-            <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: processState.oomKilled ? '#ef4444' : (processState.cpuThrottled || processState.memoryThrottled ? '#f59e0b' : '#10b981'), marginTop: '4px' }}>
+            <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: processState.oomKilled ? 'var(--accent-rose)' : (processState.cpuThrottled || processState.memoryThrottled ? 'var(--accent-amber)' : 'var(--accent-emerald)'), marginTop: '4px' }}>
               {processState.status}
             </div>
             <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: '4px' }}>

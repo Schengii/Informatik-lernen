@@ -350,8 +350,8 @@ export default function IhkTransferTimeLab() {
 
           {earnedXp && (
             <div style={{ padding: '1rem', background: '#10b98122', border: '1px solid #10b981', borderRadius: '8px', textAlign: 'center', marginTop: '1rem' }}>
-              <Award size={24} style={{ color: '#10b981', display: 'inline-block', marginBottom: '0.25rem' }} />
-              <div style={{ fontWeight: 700, color: '#10b981' }}>Quiz gemeistert! +50 XP gutgeschrieben.</div>
+              <Award size={24} style={{ color: 'var(--accent-emerald)', display: 'inline-block', marginBottom: '0.25rem' }} />
+              <div style={{ fontWeight: 700, color: 'var(--accent-emerald)' }}>Quiz gemeistert! +50 XP gutgeschrieben.</div>
               <div style={{ fontSize: '0.85rem' }}>Erreichte Punktzahl: {quizScore} / {quizQuestions.length}</div>
             </div>
           )}

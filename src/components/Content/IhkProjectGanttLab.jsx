@@ -383,7 +383,7 @@ export default function IhkProjectGanttLab() {
                 style={{
                   background: 'none',
                   border: 'none',
-                  color: phases.length <= 2 ? '#475569' : '#ef4444',
+                  color: phases.length <= 2 ? '#475569' : 'var(--accent-rose)',
                   cursor: phases.length <= 2 ? 'not-allowed' : 'pointer',
                   padding: '4px'
                 }}

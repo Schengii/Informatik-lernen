@@ -79,7 +79,7 @@ export default function CleanArchLab() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', background: 'var(--card-bg, #ffffff)', padding: '10px 18px', borderRadius: '16px', border: '1px solid var(--border-color, #e2e8f0)' }}>
           <div>
             <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748b' }}>Architektur-Score</div>
-            <div style={{ fontSize: '1.5rem', fontWeight: 900, color: audit.isClean ? '#10b981' : '#ef4444' }}>
+            <div style={{ fontSize: '1.5rem', fontWeight: 900, color: audit.isClean ? 'var(--accent-emerald)' : 'var(--accent-rose)' }}>
               {audit.complianceScore}%
             </div>
           </div>
@@ -258,7 +258,7 @@ export default function CleanArchLab() {
                 style={{
                   background: 'transparent',
                   border: 'none',
-                  color: '#94a3b8',
+                  color: 'var(--text-dim)',
                   cursor: 'pointer',
                   padding: '6px',
                   borderRadius: '6px'

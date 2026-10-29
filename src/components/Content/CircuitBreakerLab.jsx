@@ -47,7 +47,7 @@ export default function CircuitBreakerLab() {
                 borderRadius: '8px',
                 border: selectedStateName === s.state ? `2px solid ${s.color}` : '1px solid var(--border-color, rgba(255,255,255,0.1))',
                 background: selectedStateName === s.state ? `${s.color}25` : 'var(--card-bg, #1e293b)',
-                color: selectedStateName === s.state ? s.color : '#94a3b8',
+                color: selectedStateName === s.state ? s.color : 'var(--text-dim)',
                 fontWeight: 'bold',
                 cursor: 'pointer',
                 fontSize: '0.85rem'

@@ -175,7 +175,7 @@ export default function WisoPayrollLab() {
         {/* Netto */}
         <div style={{ background: 'var(--card-bg, #ffffff)', padding: '24px', borderRadius: '16px', border: '1px solid var(--border-color, #e2e8f0)', borderTop: '4px solid #10b981' }}>
           <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase' }}>Netto-Auszahlung (Arbeitnehmer)</div>
-          <div style={{ fontSize: '2rem', fontWeight: 900, color: '#10b981', marginTop: '6px' }}>
+          <div style={{ fontSize: '2rem', fontWeight: 900, color: 'var(--accent-emerald)', marginTop: '6px' }}>
             {payroll.employee.netSalary.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}
           </div>
           <div style={{ fontSize: '0.85rem', color: '#64748b', marginTop: '4px' }}>
@@ -186,7 +186,7 @@ export default function WisoPayrollLab() {
         {/* AG Gesamtbelastung */}
         <div style={{ background: 'var(--card-bg, #ffffff)', padding: '24px', borderRadius: '16px', border: '1px solid var(--border-color, #e2e8f0)', borderTop: '4px solid #6366f1' }}>
           <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase' }}>Arbeitgeber-Gesamtaufwand</div>
-          <div style={{ fontSize: '2rem', fontWeight: 900, color: '#6366f1', marginTop: '6px' }}>
+          <div style={{ fontSize: '2rem', fontWeight: 900, color: 'var(--accent-primary)', marginTop: '6px' }}>
             {payroll.employer.totalCost.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}
           </div>
           <div style={{ fontSize: '0.85rem', color: '#64748b', marginTop: '4px' }}>
@@ -239,7 +239,7 @@ export default function WisoPayrollLab() {
 
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px', paddingTop: '10px', borderTop: '2px solid #e2e8f0', fontWeight: 800 }}>
               <span>Gesamtabzüge:</span>
-              <span style={{ color: '#ef4444' }}>
+              <span style={{ color: 'var(--accent-rose)' }}>
                 -{(payroll.employee.totalSocial + payroll.employee.totalTaxes).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}
               </span>
             </div>
@@ -276,7 +276,7 @@ export default function WisoPayrollLab() {
 
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px', paddingTop: '10px', borderTop: '2px solid #e2e8f0', fontWeight: 800 }}>
               <span>Zusätzliche AG-Belastung:</span>
-              <span style={{ color: '#6366f1' }}>
+              <span style={{ color: 'var(--accent-primary)' }}>
                 +{payroll.employer.totalSocial.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}
               </span>
             </div>
@@ -286,7 +286,7 @@ export default function WisoPayrollLab() {
 
       {/* IHK Wissen */}
       <div style={{ background: 'var(--card-bg, #ffffff)', padding: '20px', borderRadius: '16px', border: '1px solid var(--border-color, #e2e8f0)' }}>
-        <h3 style={{ fontSize: '1.1rem', fontWeight: 700, margin: '0 0 10px', color: '#10b981' }}>
+        <h3 style={{ fontSize: '1.1rem', fontWeight: 700, margin: '0 0 10px', color: 'var(--accent-emerald)' }}>
           💡 IHK WISO-Wissen: Paritätsprinzip & Beitragsbemessungsgrenzen
         </h3>
         <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text-secondary, #475569)', margin: 0 }}>

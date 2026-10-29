@@ -282,14 +282,14 @@ export default function IhkDpiaLab({ onRewardXP }) {
 
                   <div style={{ display: 'flex', gap: '10px', marginBottom: '14px' }}>
                     <div style={{ flex: 1, padding: '8px', background: 'rgba(239, 68, 68, 0.08)', borderRadius: '6px', textAlign: 'center' }}>
-                      <span style={{ fontSize: '0.75rem', color: '#ef4444', display: 'block' }}>Initiales Risiko</span>
-                      <strong style={{ fontSize: '1.1rem', color: '#ef4444' }}>{r.rawScore}</strong>
+                      <span style={{ fontSize: '0.75rem', color: 'var(--accent-rose)', display: 'block' }}>Initiales Risiko</span>
+                      <strong style={{ fontSize: '1.1rem', color: 'var(--accent-rose)' }}>{r.rawScore}</strong>
                       <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', display: 'block' }}>({r.impact} × {r.likelihood})</span>
                     </div>
 
                     <div style={{ flex: 1, padding: '8px', background: 'rgba(16, 185, 129, 0.08)', borderRadius: '6px', textAlign: 'center' }}>
-                      <span style={{ fontSize: '0.75rem', color: '#10b981', display: 'block' }}>Restrisiko</span>
-                      <strong style={{ fontSize: '1.1rem', color: '#10b981' }}>{r.residualScore}</strong>
+                      <span style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)', display: 'block' }}>Restrisiko</span>
+                      <strong style={{ fontSize: '1.1rem', color: 'var(--accent-emerald)' }}>{r.residualScore}</strong>
                       <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', display: 'block' }}>(-{r.reductionPercent}%)</span>
                     </div>
                   </div>
@@ -311,7 +311,7 @@ export default function IhkDpiaLab({ onRewardXP }) {
           </div>
 
           <div style={{ padding: '16px', background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.2)', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <CheckCircle2 size={24} style={{ color: '#10b981', flexShrink: 0 }} />
+            <CheckCircle2 size={24} style={{ color: 'var(--accent-emerald)', flexShrink: 0 }} />
             <div style={{ fontSize: '0.88rem', color: 'var(--text-main)' }}>
               <strong>Art. 36 DSGVO Freigabe:</strong> Da alle Restrisiken nach Implementierung der technischen und organisatorischen Maßnahmen im vertretbaren Bereich liegen, ist keine vorherige Abstimmung mit der Datenschutzaufsichtsbehörde nötig.
             </div>

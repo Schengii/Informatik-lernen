@@ -162,7 +162,7 @@ export default function WisoContractBreachLab({ onRewardXP }) {
             <FileCheck size={18} color="var(--accent-teal)" /> Rügefristen & Rechtsfolgen
           </h3>
 
-          <div style={{ background: 'rgba(0,0,0,0.3)', padding: '14px', borderRadius: '8px', marginBottom: '16px', lineHeight: '1.6', fontSize: '0.9rem' }}>
+          <div style={{ background: 'var(--bg-tertiary)', padding: '14px', borderRadius: '8px', marginBottom: '16px', lineHeight: '1.6', fontSize: '0.9rem' }}>
             <div><strong>Rechtsgrundlage:</strong> <span className="badge badge-indigo">{noticeResult.legalBasis}</span></div>
             <div style={{ marginTop: '6px' }}><strong>Gesetzliche Rügefrist:</strong></div>
             <div style={{ color: 'var(--text-main)', marginTop: '2px' }}>{noticeResult.duePeriodText}</div>

@@ -118,8 +118,8 @@ export default function MonacoStudioLab({ onRewardXP }) {
           </h4>
           <div
             style={{
-              background: '#0f172a',
-              color: '#38bdf8',
+              background: 'var(--bg-card)',
+              color: 'var(--accent-cyan)',
               padding: '20px',
               borderRadius: 'var(--radius-lg)',
               fontFamily: 'monospace',

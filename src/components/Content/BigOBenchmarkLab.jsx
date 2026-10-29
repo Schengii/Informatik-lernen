@@ -3,11 +3,11 @@ import { Activity, Play } from 'lucide-react';
 import { onActivationKey } from '../Shared/keyActivation';
 
 const ALGORITHMS = [
-  { id: 'o1', name: 'Constant Time - O(1)', type: 'O(1)', formula: (_n) => 1, color: '#10b981', desc: 'Array Index Access, Hash Map Lookup' },
-  { id: 'ologn', name: 'Logarithmic Time - O(log N)', type: 'O(log N)', formula: (n) => Math.round(Math.log2(n)), color: '#38bdf8', desc: 'Binary Search in Sorted Array' },
-  { id: 'on', name: 'Linear Time - O(N)', type: 'O(N)', formula: (n) => n, color: '#6366f1', desc: 'Linear Loop, Array Sum' },
-  { id: 'onlogn', name: 'Linearithmic Time - O(N log N)', type: 'O(N log N)', formula: (n) => Math.round(n * Math.log2(n)), color: '#f59e0b', desc: 'QuickSort, MergeSort' },
-  { id: 'on2', name: 'Quadratic Time - O(N²)', type: 'O(N²)', formula: (n) => n * n, color: '#ef4444', desc: 'BubbleSort, Nested Loops' }
+  { id: 'o1', name: 'Constant Time - O(1)', type: 'O(1)', formula: (_n) => 1, color: 'var(--accent-emerald)', desc: 'Array Index Access, Hash Map Lookup' },
+  { id: 'ologn', name: 'Logarithmic Time - O(log N)', type: 'O(log N)', formula: (n) => Math.round(Math.log2(n)), color: 'var(--accent-cyan)', desc: 'Binary Search in Sorted Array' },
+  { id: 'on', name: 'Linear Time - O(N)', type: 'O(N)', formula: (n) => n, color: 'var(--accent-primary)', desc: 'Linear Loop, Array Sum' },
+  { id: 'onlogn', name: 'Linearithmic Time - O(N log N)', type: 'O(N log N)', formula: (n) => Math.round(n * Math.log2(n)), color: 'var(--accent-amber)', desc: 'QuickSort, MergeSort' },
+  { id: 'on2', name: 'Quadratic Time - O(N²)', type: 'O(N²)', formula: (n) => n * n, color: 'var(--accent-rose)', desc: 'BubbleSort, Nested Loops' }
 ];
 
 export default function BigOBenchmarkLab({ onRewardXP }) {
@@ -101,21 +101,21 @@ export default function BigOBenchmarkLab({ onRewardXP }) {
 
       {/* Benchmark Results */}
       {benchmarkResult && (
-        <div style={{ background: '#0f172a', padding: '24px', borderRadius: 'var(--radius-lg)', border: '1px solid #1e293b', marginBottom: '24px' }}>
+        <div style={{ background: 'var(--bg-card)', padding: '24px', borderRadius: 'var(--radius-lg)', border: '1px solid #1e293b', marginBottom: '24px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '10px' }}>
             <span style={{ background: benchmarkResult.color, color: '#ffffff', padding: '6px 14px', borderRadius: 'var(--radius-md)', fontWeight: '800', fontSize: '0.9rem' }}>
               {benchmarkResult.type}
             </span>
-            <span style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Dauer: {benchmarkResult.timeMs} ms</span>
+            <span style={{ color: 'var(--text-dim)', fontSize: '0.9rem' }}>Dauer: {benchmarkResult.timeMs} ms</span>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '16px', color: '#f8fafc' }}>
-            <div style={{ background: '#020617', padding: '16px', borderRadius: 'var(--radius-md)', border: '1px solid #1e293b' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '16px', color: 'var(--text-main)' }}>
+            <div style={{ background: 'var(--bg-primary)', padding: '16px', borderRadius: 'var(--radius-md)', border: '1px solid #1e293b' }}>
               <div style={{ fontSize: '0.8rem', color: '#64748b' }}>Eingabegröße N</div>
-              <div style={{ fontSize: '1.4rem', fontWeight: '800', color: '#38bdf8' }}>{benchmarkResult.n}</div>
+              <div style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--accent-cyan)' }}>{benchmarkResult.n}</div>
             </div>
 
-            <div style={{ background: '#020617', padding: '16px', borderRadius: 'var(--radius-md)', border: '1px solid #1e293b' }}>
+            <div style={{ background: 'var(--bg-primary)', padding: '16px', borderRadius: 'var(--radius-md)', border: '1px solid #1e293b' }}>
               <div style={{ fontSize: '0.8rem', color: '#64748b' }}>Geschätzte Operationen</div>
               <div style={{ fontSize: '1.4rem', fontWeight: '800', color: benchmarkResult.color }}>{benchmarkResult.ops}</div>
             </div>

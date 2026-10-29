@@ -173,7 +173,7 @@ export default function HttpCachingLab({ onRewardXP }) {
             <span className="badge badge-teal">Quelle: {result.source}</span>
           </div>
 
-          <div style={{ background: 'rgba(0,0,0,0.3)', padding: '14px', borderRadius: '8px', fontFamily: 'monospace', fontSize: '0.85rem', marginBottom: '16px', lineHeight: '1.6' }}>
+          <div style={{ background: 'var(--bg-tertiary)', padding: '14px', borderRadius: '8px', fontFamily: 'monospace', fontSize: '0.85rem', marginBottom: '16px', lineHeight: '1.6' }}>
             <div style={{ color: 'var(--accent-teal)' }}># Response Headers:</div>
             {Object.entries(result.headers).map(([k, v]) => (
               <div key={k}>
@@ -189,7 +189,7 @@ export default function HttpCachingLab({ onRewardXP }) {
             <label style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>
               Empfangener Response Body ({result.body.length} Bytes übertragen):
             </label>
-            <pre style={{ margin: 0, padding: '10px', background: 'rgba(0,0,0,0.4)', borderRadius: '6px', fontSize: '0.8rem', color: result.body ? '#f8fafc' : 'var(--text-muted)' }}>
+            <pre style={{ margin: 0, padding: '10px', background: 'var(--bg-tertiary)', borderRadius: '6px', fontSize: '0.8rem', color: result.body ? 'var(--text-main)' : 'var(--text-muted)' }}>
               {result.body || '(Leer bei 304 Not Modified – 0 Bytes Payload-Transfer!)'}
             </pre>
           </div>

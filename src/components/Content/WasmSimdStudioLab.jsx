@@ -288,22 +288,22 @@ export default function WasmSimdStudioLab() {
           {/* Result Register */}
           <div style={{ background: 'rgba(168, 85, 247, 0.12)', padding: '20px', borderRadius: '12px', border: '2px solid #a855f7' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
-              <span style={{ fontWeight: 'bold', color: '#e9d5ff', fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ fontWeight: 'bold', color: 'var(--accent-purple)', fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <Sparkles size={18} color="#c084fc" /> Ergebnis SIMD Register %v_out
               </span>
-              <span style={{ fontSize: '0.8rem', color: '#d8b4fe' }}>Parallele Ausführung auf SIMD Hardware-ALU</span>
+              <span style={{ fontSize: '0.8rem', color: 'var(--accent-purple)' }}>Parallele Ausführung auf SIMD Hardware-ALU</span>
             </div>
 
             {selectedOp === 'dot' ? (
               <div style={{ background: 'var(--bg-tertiary)', padding: '16px', borderRadius: '8px', textAlign: 'center' }}>
-                <div style={{ fontSize: '0.85rem', color: '#d8b4fe', marginBottom: '6px' }}>Skalarprodukt Σ(Lane[i] * Lane[i]):</div>
+                <div style={{ fontSize: '0.85rem', color: 'var(--accent-purple)', marginBottom: '6px' }}>Skalarprodukt Σ(Lane[i] * Lane[i]):</div>
                 <div style={{ fontSize: '2rem', fontWeight: '800', color: 'var(--text-main)' }}>{currentResult[0].toFixed(2)}</div>
               </div>
             ) : (
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
                 {currentResult.map((val, idx) => (
                   <div key={`out-${idx}`} style={{ background: 'var(--bg-tertiary)', borderRadius: '8px', padding: '12px', textAlign: 'center' }}>
-                    <div style={{ fontSize: '0.75rem', color: '#d8b4fe', marginBottom: '4px' }}>Result Lane {idx}</div>
+                    <div style={{ fontSize: '0.75rem', color: 'var(--accent-purple)', marginBottom: '4px' }}>Result Lane {idx}</div>
                     <div style={{ fontSize: '1.3rem', fontWeight: '800', color: 'var(--accent-cyan)' }}>{val.toFixed(2)}</div>
                   </div>
                 ))}
@@ -387,11 +387,11 @@ export default function WasmSimdStudioLab() {
               </div>
 
               <div style={{ background: 'rgba(168, 85, 247, 0.15)', border: '2px solid #a855f7', borderRadius: '12px', padding: '20px' }}>
-                <div style={{ fontSize: '0.85rem', color: '#d8b4fe', marginBottom: '6px' }}>Hardware-Beschleunigung / Speedup:</div>
+                <div style={{ fontSize: '0.85rem', color: 'var(--accent-purple)', marginBottom: '6px' }}>Hardware-Beschleunigung / Speedup:</div>
                 <div style={{ fontSize: '2rem', fontWeight: '800', color: 'var(--accent-purple)' }}>
                   ~{benchmarkResult.speedup}x Schneller
                 </div>
-                <div style={{ fontSize: '0.75rem', color: '#e9d5ff', marginTop: '6px' }}>
+                <div style={{ fontSize: '0.75rem', color: 'var(--accent-purple)', marginTop: '6px' }}>
                   Durchsatz: <strong>{benchmarkResult.throughputMflops} MFLOPS</strong>
                 </div>
               </div>
@@ -430,7 +430,7 @@ export default function WasmSimdStudioLab() {
                   padding: '8px 16px',
                   borderRadius: '8px',
                   border: filterType === 'sobel' ? '2px solid #a855f7' : '1px solid rgba(255,255,255,0.1)',
-                  background: filterType === 'sobel' ? 'rgba(168, 85, 247, 0.2)' : 'rgba(0,0,0,0.3)',
+                  background: filterType === 'sobel' ? 'rgba(168, 85, 247, 0.2)' : 'var(--bg-tertiary)',
                   color: filterType === 'sobel' ? 'var(--accent-purple)' : 'var(--text-dim)',
                   fontWeight: 'bold',
                   cursor: 'pointer'
@@ -444,7 +444,7 @@ export default function WasmSimdStudioLab() {
                   padding: '8px 16px',
                   borderRadius: '8px',
                   border: filterType === 'gaussianBlur' ? '2px solid #a855f7' : '1px solid rgba(255,255,255,0.1)',
-                  background: filterType === 'gaussianBlur' ? 'rgba(168, 85, 247, 0.2)' : 'rgba(0,0,0,0.3)',
+                  background: filterType === 'gaussianBlur' ? 'rgba(168, 85, 247, 0.2)' : 'var(--bg-tertiary)',
                   color: filterType === 'gaussianBlur' ? 'var(--accent-purple)' : 'var(--text-dim)',
                   fontWeight: 'bold',
                   cursor: 'pointer'
@@ -458,7 +458,7 @@ export default function WasmSimdStudioLab() {
                   padding: '8px 16px',
                   borderRadius: '8px',
                   border: filterType === 'sharpen' ? '2px solid #a855f7' : '1px solid rgba(255,255,255,0.1)',
-                  background: filterType === 'sharpen' ? 'rgba(168, 85, 247, 0.2)' : 'rgba(0,0,0,0.3)',
+                  background: filterType === 'sharpen' ? 'rgba(168, 85, 247, 0.2)' : 'var(--bg-tertiary)',
                   color: filterType === 'sharpen' ? 'var(--accent-purple)' : 'var(--text-dim)',
                   fontWeight: 'bold',
                   cursor: 'pointer'
@@ -499,7 +499,7 @@ export default function WasmSimdStudioLab() {
               </div>
 
               <div style={{ background: 'rgba(168, 85, 247, 0.12)', border: '1px solid rgba(168, 85, 247, 0.3)', padding: '16px', borderRadius: '8px' }}>
-                <div style={{ fontSize: '0.82rem', color: '#d8b4fe', marginBottom: '6px', fontWeight: 'bold' }}>
+                <div style={{ fontSize: '0.82rem', color: 'var(--accent-purple)', marginBottom: '6px', fontWeight: 'bold' }}>
                   SIMD Vektorisierungs-Gewinn (3x3 Faltung):
                 </div>
                 <div style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--accent-purple)', marginBottom: '4px' }}>

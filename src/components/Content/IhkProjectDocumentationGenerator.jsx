@@ -170,7 +170,7 @@ ${p.tasks.map(t => `- [x] ${t}`).join('\n')}`).join('\n\n')}
               padding: '4px 10px',
               borderRadius: '20px',
               background: isBudgetValid ? 'rgba(34, 197, 94, 0.2)' : 'rgba(239, 68, 68, 0.2)',
-              color: isBudgetValid ? '#4ade80' : '#f87171',
+              color: isBudgetValid ? 'var(--accent-emerald)' : 'var(--accent-rose)',
               border: `1px solid ${isBudgetValid ? '#22c55e' : '#ef4444'}`
             }}>
               Summe: {totalCalculatedHours}h / {template.budgetHours}h {isBudgetValid ? '✓ Exakt' : '⚠️ Abweichung'}

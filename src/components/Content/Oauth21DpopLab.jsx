@@ -76,7 +76,7 @@ export default function Oauth21DpopLab() {
             <KeyRound className="w-8 h-8" />
           </div>
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-white flex items-center gap-3">
+            <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-slate-50 flex items-center gap-3">
               OAuth 2.1 & RFC 9449 DPoP Security Studio
               <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-cyan-950/80 border border-cyan-500/30 text-cyan-400">
                 IHK & Cloud Sec
@@ -120,7 +120,7 @@ export default function Oauth21DpopLab() {
                         onClick={() => setSelectedGrant(id)}
                         className={`text-left text-xs p-2.5 rounded-xl border transition-all ${
                           selectedGrant === id
-                            ? 'border-cyan-500 bg-cyan-500/10 text-white font-medium shadow'
+                            ? 'border-cyan-500 bg-cyan-500/10 text-slate-50 font-medium shadow'
                             : 'border-slate-800 bg-slate-950/60 text-slate-400 hover:border-slate-700'
                         }`}
                       >

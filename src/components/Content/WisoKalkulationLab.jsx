@@ -230,7 +230,7 @@ export default function WisoKalkulationLab() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Eingabeparameter */}
           <div className="lg:col-span-5 bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
-            <h2 className="text-lg font-bold text-white flex items-center gap-2">
+            <h2 className="text-lg font-bold text-slate-50 flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-blue-400" />
               Eingabeparameter
             </h2>
@@ -242,7 +242,7 @@ export default function WisoKalkulationLab() {
                   type="number"
                   value={kalkParams.listeneinkaufspreis}
                   onChange={(e) => setKalkParams({ ...kalkParams, listeneinkaufspreis: Number(e.target.value) })}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white"
+                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-50"
                 />
               </div>
 
@@ -253,7 +253,7 @@ export default function WisoKalkulationLab() {
                     type="number"
                     value={kalkParams.lieferantenrabattProzent}
                     onChange={(e) => setKalkParams({ ...kalkParams, lieferantenrabattProzent: Number(e.target.value) })}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-50"
                   />
                 </div>
                 <div>
@@ -262,7 +262,7 @@ export default function WisoKalkulationLab() {
                     type="number"
                     value={kalkParams.lieferskontoProzent}
                     onChange={(e) => setKalkParams({ ...kalkParams, lieferskontoProzent: Number(e.target.value) })}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-50"
                   />
                 </div>
               </div>
@@ -273,7 +273,7 @@ export default function WisoKalkulationLab() {
                   type="number"
                   value={kalkParams.bezugskosten}
                   onChange={(e) => setKalkParams({ ...kalkParams, bezugskosten: Number(e.target.value) })}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white"
+                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-50"
                 />
               </div>
 
@@ -284,7 +284,7 @@ export default function WisoKalkulationLab() {
                     type="number"
                     value={kalkParams.handlungskostenzuschlagProzent}
                     onChange={(e) => setKalkParams({ ...kalkParams, handlungskostenzuschlagProzent: Number(e.target.value) })}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-50"
                   />
                 </div>
                 <div>
@@ -293,7 +293,7 @@ export default function WisoKalkulationLab() {
                     type="number"
                     value={kalkParams.gewinnzuschlagProzent}
                     onChange={(e) => setKalkParams({ ...kalkParams, gewinnzuschlagProzent: Number(e.target.value) })}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-50"
                   />
                 </div>
               </div>
@@ -305,7 +305,7 @@ export default function WisoKalkulationLab() {
                     type="number"
                     value={kalkParams.kundenskontoProzent}
                     onChange={(e) => setKalkParams({ ...kalkParams, kundenskontoProzent: Number(e.target.value) })}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-50"
                   />
                 </div>
                 <div>
@@ -314,7 +314,7 @@ export default function WisoKalkulationLab() {
                     type="number"
                     value={kalkParams.kundenrabattProzent}
                     onChange={(e) => setKalkParams({ ...kalkParams, kundenrabattProzent: Number(e.target.value) })}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-50"
                   />
                 </div>
               </div>
@@ -323,7 +323,7 @@ export default function WisoKalkulationLab() {
 
           {/* Kalkulationsschema Ergebnis */}
           <div className="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
-            <h2 className="text-lg font-bold text-white flex items-center justify-between">
+            <h2 className="text-lg font-bold text-slate-50 flex items-center justify-between">
               <span>Kalkulationsschema (Schritt für Schritt)</span>
               <span className="text-xs px-2.5 py-1 rounded bg-blue-500/20 text-blue-300 border border-blue-400/30">
                 IHK Standard Schema
@@ -410,7 +410,7 @@ export default function WisoKalkulationLab() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             {/* Rückwärtskalkulation */}
             <div className="lg:col-span-6 bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
-              <h2 className="text-lg font-bold text-white flex items-center gap-2">
+              <h2 className="text-lg font-bold text-slate-50 flex items-center gap-2">
                 <ArrowLeftRight className="w-5 h-5 text-blue-400" />
                 IHK Rückwärtskalkulation (Maximaler LEP)
               </h2>
@@ -425,7 +425,7 @@ export default function WisoKalkulationLab() {
                     type="number"
                     value={rueckParams.bruttoverkaufspreis}
                     onChange={(e) => setRueckParams({ ...rueckParams, bruttoverkaufspreis: Number(e.target.value) })}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-slate-50"
                   />
                 </div>
                 <div>
@@ -434,7 +434,7 @@ export default function WisoKalkulationLab() {
                     type="number"
                     value={rueckParams.gewinnzuschlagProzent}
                     onChange={(e) => setRueckParams({ ...rueckParams, gewinnzuschlagProzent: Number(e.target.value) })}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-slate-50"
                   />
                 </div>
                 <div>
@@ -443,7 +443,7 @@ export default function WisoKalkulationLab() {
                     type="number"
                     value={rueckParams.handlungskostenzuschlagProzent}
                     onChange={(e) => setRueckParams({ ...rueckParams, handlungskostenzuschlagProzent: Number(e.target.value) })}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-slate-50"
                   />
                 </div>
                 <div>
@@ -452,7 +452,7 @@ export default function WisoKalkulationLab() {
                     type="number"
                     value={rueckParams.lieferantenrabattProzent}
                     onChange={(e) => setRueckParams({ ...rueckParams, lieferantenrabattProzent: Number(e.target.value) })}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-slate-50"
                   />
                 </div>
               </div>
@@ -479,7 +479,7 @@ export default function WisoKalkulationLab() {
 
             {/* Differenzkalkulation */}
             <div className="lg:col-span-6 bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
-              <h2 className="text-lg font-bold text-white flex items-center gap-2">
+              <h2 className="text-lg font-bold text-slate-50 flex items-center gap-2">
                 <TrendingUp className="w-5 h-5 text-amber-400" />
                 IHK Differenzkalkulation (Gewinnsatz-Prüfung)
               </h2>
@@ -494,7 +494,7 @@ export default function WisoKalkulationLab() {
                     type="number"
                     value={diffParams.listeneinkaufspreis}
                     onChange={(e) => setDiffParams({ ...diffParams, listeneinkaufspreis: Number(e.target.value) })}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-slate-50"
                   />
                 </div>
                 <div>
@@ -503,7 +503,7 @@ export default function WisoKalkulationLab() {
                     type="number"
                     value={diffParams.nettoverkaufspreis}
                     onChange={(e) => setDiffParams({ ...diffParams, nettoverkaufspreis: Number(e.target.value) })}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-slate-50"
                   />
                 </div>
               </div>
@@ -538,7 +538,7 @@ export default function WisoKalkulationLab() {
       {activeTab === 'deckungsbeitrag' && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           <div className="lg:col-span-5 bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
-            <h2 className="text-lg font-bold text-white flex items-center gap-2">
+            <h2 className="text-lg font-bold text-slate-50 flex items-center gap-2">
               <TrendingUp className="w-5 h-5 text-emerald-400" />
               Kostendaten eingeben
             </h2>
@@ -550,7 +550,7 @@ export default function WisoKalkulationLab() {
                   type="number"
                   value={dbParams.verkaufspreisStueck}
                   onChange={(e) => setDbParams({ ...dbParams, verkaufspreisStueck: Number(e.target.value) })}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white"
+                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-50"
                 />
               </div>
               <div>
@@ -559,7 +559,7 @@ export default function WisoKalkulationLab() {
                   type="number"
                   value={dbParams.variableKostenStueck}
                   onChange={(e) => setDbParams({ ...dbParams, variableKostenStueck: Number(e.target.value) })}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white"
+                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-50"
                 />
               </div>
               <div>
@@ -568,7 +568,7 @@ export default function WisoKalkulationLab() {
                   type="number"
                   value={dbParams.fixkostenGesamt}
                   onChange={(e) => setDbParams({ ...dbParams, fixkostenGesamt: Number(e.target.value) })}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white"
+                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-50"
                 />
               </div>
               <div>
@@ -577,14 +577,14 @@ export default function WisoKalkulationLab() {
                   type="number"
                   value={dbParams.absetzbareMenge}
                   onChange={(e) => setDbParams({ ...dbParams, absetzbareMenge: Number(e.target.value) })}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white"
+                  className="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-slate-50"
                 />
               </div>
             </div>
           </div>
 
           <div className="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-6">
-            <h2 className="text-lg font-bold text-white">Analyse & Gewinnschwelle</h2>
+            <h2 className="text-lg font-bold text-slate-50">Analyse & Gewinnschwelle</h2>
 
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
@@ -645,7 +645,7 @@ export default function WisoKalkulationLab() {
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
               <div>
-                <h2 className="text-lg font-bold text-white flex items-center gap-2">
+                <h2 className="text-lg font-bold text-slate-50 flex items-center gap-2">
                   <GitBranch className="w-5 h-5 text-indigo-400" />
                   Netzplan-Berechnung (Critical Path Method - CPM)
                 </h2>
@@ -655,7 +655,7 @@ export default function WisoKalkulationLab() {
               </div>
               <div className="px-4 py-2 bg-indigo-950/60 border border-indigo-700/50 rounded-xl text-right">
                 <span className="text-xs text-indigo-300 block">Kritische Projektdauer</span>
-                <span className="text-xl font-bold text-white">{netzplanResult.projektdauer} Tage</span>
+                <span className="text-xl font-bold text-slate-50">{netzplanResult.projektdauer} Tage</span>
               </div>
             </div>
 
@@ -715,7 +715,7 @@ export default function WisoKalkulationLab() {
       {activeTab === 'wiso_recht' && (
         <div className="space-y-6">
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
-            <h2 className="text-lg font-bold text-white flex items-center gap-2">
+            <h2 className="text-lg font-bold text-slate-50 flex items-center gap-2">
               <Scale className="w-5 h-5 text-amber-400" />
               IHK-Prüfungsfälle: Arbeitsrecht & Betriebswirtschaft
             </h2>

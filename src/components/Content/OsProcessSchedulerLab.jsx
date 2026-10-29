@@ -20,10 +20,10 @@ export default function OsProcessSchedulerLab() {
   const [algorithm, setAlgorithm] = useState('RR'); // FCFS, SJF, RR, Priority
   const [quantum, setQuantum] = useState(2);
   const [processes, setProcesses] = useState([
-    { id: 1, name: 'P1 (Init/System)', arrival: 0, burst: 5, priority: 2, color: '#6366f1' },
-    { id: 2, name: 'P2 (Web Server)', arrival: 1, burst: 4, priority: 1, color: '#10b981' },
-    { id: 3, name: 'P3 (DB Worker)', arrival: 2, burst: 2, priority: 3, color: '#f59e0b' },
-    { id: 4, name: 'P4 (Log Daemon)', arrival: 4, burst: 3, priority: 4, color: '#ec4899' }
+    { id: 1, name: 'P1 (Init/System)', arrival: 0, burst: 5, priority: 2, color: 'var(--accent-primary)' },
+    { id: 2, name: 'P2 (Web Server)', arrival: 1, burst: 4, priority: 1, color: 'var(--accent-emerald)' },
+    { id: 3, name: 'P3 (DB Worker)', arrival: 2, burst: 2, priority: 3, color: 'var(--accent-amber)' },
+    { id: 4, name: 'P4 (Log Daemon)', arrival: 4, burst: 3, priority: 4, color: 'var(--accent-rose)' }
   ]);
 
   // Banker's Algorithm State

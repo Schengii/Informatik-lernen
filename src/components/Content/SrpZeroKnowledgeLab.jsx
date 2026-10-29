@@ -120,7 +120,7 @@ export default function SrpZeroKnowledgeLab({ onRewardXP }) {
             />
           </div>
 
-          <div style={{ background: 'rgba(0,0,0,0.3)', padding: '12px', borderRadius: '6px', fontSize: '0.85rem', fontFamily: 'monospace', lineHeight: '1.6' }}>
+          <div style={{ background: 'var(--bg-tertiary)', padding: '12px', borderRadius: '6px', fontSize: '0.85rem', fontFamily: 'monospace', lineHeight: '1.6' }}>
             <div>Ephemeres Client-Geheimnis <code>a</code> = {clientHello.a.toString()}</div>
             <div style={{ color: 'var(--accent-teal)' }}>Public Key <code>A = g^a % N</code> = {clientHello.A.toString()}</div>
             <div>Berechneter Shared Key <code>S_client</code> = {authResult.clientS.toString()}</div>
@@ -134,14 +134,14 @@ export default function SrpZeroKnowledgeLab({ onRewardXP }) {
             <Terminal size={18} color="var(--accent-indigo)" /> Server-Datenbank & Challenge
           </h3>
 
-          <div style={{ background: 'rgba(0,0,0,0.3)', padding: '12px', borderRadius: '6px', fontSize: '0.85rem', fontFamily: 'monospace', lineHeight: '1.6', marginBottom: '14px' }}>
+          <div style={{ background: 'var(--bg-tertiary)', padding: '12px', borderRadius: '6px', fontSize: '0.85rem', fontFamily: 'monospace', lineHeight: '1.6', marginBottom: '14px' }}>
             <div style={{ color: 'var(--text-muted)' }}># Was der Server speichert (KEIN Passwort!):</div>
             <div>Benutzer: <code>{registration.username}</code></div>
             <div>Salt <code>s</code>: {registration.salt.toString()}</div>
             <div>Password Verifier <code>v = g^x % N</code>: <strong>{registration.verifier.toString()}</strong></div>
           </div>
 
-          <div style={{ background: 'rgba(0,0,0,0.3)', padding: '12px', borderRadius: '6px', fontSize: '0.85rem', fontFamily: 'monospace', lineHeight: '1.6' }}>
+          <div style={{ background: 'var(--bg-tertiary)', padding: '12px', borderRadius: '6px', fontSize: '0.85rem', fontFamily: 'monospace', lineHeight: '1.6' }}>
             <div style={{ color: 'var(--text-muted)' }}># Live Challenge Erzeugung:</div>
             <div>Ephemeres Server-Geheimnis <code>b</code> = {serverChallenge.b.toString()}</div>
             <div style={{ color: 'var(--accent-indigo)' }}>Public Challenge <code>B = (k*v + g^b) % N</code> = {serverChallenge.B.toString()}</div>

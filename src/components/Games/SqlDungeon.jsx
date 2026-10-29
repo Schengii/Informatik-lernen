@@ -140,8 +140,8 @@ export default function SqlDungeon({ onCompleteGame }) {
                 rows={4}
                 style={{
                   width: '100%',
-                  background: '#090d16',
-                  color: '#38bdf8',
+                  background: 'var(--bg-secondary)',
+                  color: 'var(--accent-cyan)',
                   border: 'none',
                   outline: 'none',
                   padding: '14px',
@@ -224,7 +224,7 @@ export default function SqlDungeon({ onCompleteGame }) {
               <h5 style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-muted)', marginBottom: '8px' }}>
                 Schema der Tabelle "mitarbeiter":
               </h5>
-              <code style={{ fontSize: '0.78rem', color: '#94a3b8', background: 'var(--bg-secondary)', padding: '8px', borderRadius: '6px', display: 'block' }}>
+              <code style={{ fontSize: '0.78rem', color: 'var(--text-dim)', background: 'var(--bg-secondary)', padding: '8px', borderRadius: '6px', display: 'block' }}>
                 id (INT), name (VARCHAR), rolle (VARCHAR), gehalt (INT), abteilung_id (INT)
               </code>
             </div>

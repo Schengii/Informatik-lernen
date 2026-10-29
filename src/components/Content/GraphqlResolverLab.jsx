@@ -80,7 +80,7 @@ export default function GraphqlResolverLab() {
             <span style={{ color: 'var(--accent-rose)', fontWeight: 'bold', fontSize: '0.9rem' }}>Incoming GraphQL Query</span>
             <span style={{ fontSize: '0.75rem', background: 'var(--accent-rose)', color: 'var(--text-on-accent)', padding: '2px 8px', borderRadius: '4px' }}>AST PARSED</span>
           </div>
-          <pre style={{ margin: 0, padding: '16px', color: '#fbcfe8', fontFamily: 'Fira Code, monospace', fontSize: '0.88rem', lineHeight: '1.6', overflowX: 'auto' }}>
+          <pre style={{ margin: 0, padding: '16px', color: 'var(--accent-rose)', fontFamily: 'Fira Code, monospace', fontSize: '0.88rem', lineHeight: '1.6', overflowX: 'auto' }}>
             {scenario.query}
           </pre>
           <div style={{ padding: '12px 16px', background: 'var(--bg-tertiary)', borderTop: '1px solid var(--border-color)', color: 'var(--text-dim)', fontSize: '0.82rem' }}>
@@ -103,7 +103,7 @@ export default function GraphqlResolverLab() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {(mode === 'naive' ? scenario.naiveCalls : scenario.dataloaderCalls).map((call) => (
-                <div key={call.step} style={{ background: 'rgba(0,0,0,0.25)', padding: '10px 12px', borderRadius: '8px', borderLeft: `4px solid ${mode === 'naive' ? '#ef4444' : '#10b981'}` }}>
+                <div key={call.step} style={{ background: 'var(--bg-tertiary)', padding: '10px 12px', borderRadius: '8px', borderLeft: `4px solid ${mode === 'naive' ? '#ef4444' : '#10b981'}` }}>
                   <div style={{ fontSize: '0.8rem', color: 'var(--text-dim)', fontWeight: 'bold' }}>{call.resolver}</div>
                   <div style={{ color: mode === 'naive' ? 'var(--accent-rose)' : 'var(--accent-emerald)', fontSize: '0.85rem', fontFamily: 'monospace', marginTop: '2px' }}>{call.sql}</div>
                 </div>
