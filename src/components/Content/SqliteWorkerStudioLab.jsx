@@ -144,8 +144,8 @@ export default function SqliteWorkerStudioLab() {
             <button
               onClick={() => setUseWorker(!useWorker)}
               style={{
-                background: useWorker ? '#10b981' : '#64748b',
-                color: 'var(--text-main)',
+                background: useWorker ? 'var(--accent-emerald)' : 'var(--text-dim)',
+                color: 'var(--bg-card)',
                 border: 'none',
                 borderRadius: '20px',
                 padding: '4px 12px',

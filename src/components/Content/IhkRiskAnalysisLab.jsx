@@ -208,7 +208,7 @@ export default function IhkRiskAnalysisLab() {
                             verticalAlign: 'top'
                           }}
                         >
-                          <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginBottom: '4px' }}>
+                          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
                             RPZ {cellRpz}
                           </div>
                           <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', alignItems: 'center' }}>

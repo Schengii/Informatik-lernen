@@ -96,7 +96,7 @@ export default function GraphqlResolverLab() {
                 <Database size={17} color={mode === 'naive' ? 'var(--accent-rose)' : 'var(--accent-emerald)'} />
                 <span>Datenbank Queries ({mode === 'naive' ? '5 Roundtrips' : '3 Batch Roundtrips'})</span>
               </div>
-              <span style={{ fontSize: '0.78rem', padding: '2px 8px', borderRadius: '4px', background: mode === 'naive' ? 'var(--accent-rose)' : 'var(--accent-emerald)', color: 'var(--text-main)', fontWeight: 'bold' }}>
+              <span style={{ fontSize: '0.78rem', padding: '2px 8px', borderRadius: '4px', background: mode === 'naive' ? 'var(--accent-rose)' : 'var(--accent-emerald)', color: 'var(--text-on-accent)', fontWeight: 'bold' }}>
                 {mode === 'naive' ? 'N+1 INEFFIZIENT' : 'BATCH LOADED'}
               </span>
             </div>

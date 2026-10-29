@@ -297,7 +297,7 @@ export default function LinuxCowSnapshotLab() {
                           </div>
                         </>
                       ) : (
-                        <div className="h-full flex items-center justify-center text-xs font-mono">
+                        <div className="h-full flex items-center justify-center text-xs font-mono text-slate-400">
                           Freier Block
                         </div>
                       )}

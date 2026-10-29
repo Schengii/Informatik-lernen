@@ -120,16 +120,16 @@ export default function RackConfiguratorLab() {
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span className="badge badge-indigo" style={{ padding: '1px 6px', fontSize: '0.72rem' }}>{dev.heightU} HE</span>
+                  <span className="badge badge-indigo" style={{ padding: '1px 6px', fontSize: '0.72rem', color: '#e0e7ff', background: 'rgba(255, 255, 255, 0.12)', borderColor: 'rgba(255, 255, 255, 0.25)' }}>{dev.heightU} HE</span>
                   <span>{dev.name}</span>
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <span style={{ color: 'var(--text-dim)', fontSize: '0.75rem' }}>{dev.powerWatts}W</span>
+                  <span style={{ color: '#cbd5e1', fontSize: '0.75rem' }}>{dev.powerWatts}W</span>
                   <button
                     onClick={() => handleRemoveDevice(dev.instanceId)}
                     className="btn btn-ghost"
-                    style={{ padding: '2px', color: 'var(--accent-rose)' }}
+                    style={{ padding: '2px', color: '#fda4af' }}
                   >
                     <Trash2 size={13} />
                   </button>

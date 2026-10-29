@@ -260,7 +260,7 @@ export default function LinuxMacSelinuxLab() {
                 <Terminal size={14} className="text-red-400" />
                 Live Linux Audit-Log (`/var/log/audit/audit.log`)
               </div>
-              <div className="bg-black/90 p-3 rounded-lg font-mono text-[11px] text-red-400 border border-red-950/60 overflow-x-auto leading-relaxed">
+              <div className="bg-slate-950 p-3 rounded-lg font-mono text-[11px] text-red-400 border border-red-950/60 overflow-x-auto leading-relaxed">
                 {accessResult.avcAuditLog}
               </div>
             </div>

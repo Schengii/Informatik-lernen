@@ -320,7 +320,7 @@ export default function TcoRoiCalculatorLab() {
                   contentStyle={{ backgroundColor: 'var(--bg-card)', borderColor: '#334155', borderRadius: '12px', fontSize: '12px' }}
                   formatter={(value) => `${Number(value).toLocaleString('de-DE')} €`}
                 />
-                <Legend wrapperStyle={{ fontSize: '12px' }} />
+                <Legend wrapperStyle={{ fontSize: '12px' }} formatter={(value) => <span style={{ color: 'var(--text-muted)' }}>{value}</span>} />
                 <Line type="monotone" dataKey="onPremCost" name="On-Premises TCO" stroke="#f43f5e" strokeWidth={3} dot={{ r: 5 }} />
                 <Line type="monotone" dataKey="cloudCost" name="Cloud TCO" stroke="#06b6d4" strokeWidth={3} dot={{ r: 5 }} />
               </LineChart>

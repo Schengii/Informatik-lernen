@@ -47,7 +47,7 @@ export default function CircuitBreakerLab() {
                 borderRadius: '8px',
                 border: selectedStateName === s.state ? `2px solid ${s.color}` : '1px solid var(--border-color, rgba(255,255,255,0.1))',
                 background: selectedStateName === s.state ? `${s.color}25` : 'var(--card-bg, #1e293b)',
-                color: selectedStateName === s.state ? s.color : 'var(--text-dim)',
+                color: selectedStateName === s.state ? 'var(--text-main)' : 'var(--text-dim)',
                 fontWeight: 'bold',
                 cursor: 'pointer',
                 fontSize: '0.85rem'
@@ -63,7 +63,7 @@ export default function CircuitBreakerLab() {
       <div style={{ background: 'var(--card-bg, #1e293b)', borderRadius: '12px', border: '1px solid var(--border-color, var(--border-color))', padding: '20px', marginBottom: '24px' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px', flexWrap: 'wrap', gap: '8px' }}>
           <span style={{ fontSize: '0.88rem', fontWeight: 'bold', color: 'var(--text-main)' }}>Aktiver Circuit Status:</span>
-          <span style={{ fontSize: '0.82rem', padding: '4px 10px', borderRadius: '4px', background: stateObj.color, color: selectedStateName === 'HALF-OPEN' ? '#000' : 'var(--text-main)', fontWeight: 'bold' }}>
+          <span style={{ fontSize: '0.82rem', padding: '4px 10px', borderRadius: '4px', background: stateObj.color, color: '#0b1020', fontWeight: 'bold' }}>
             {stateObj.metrics.status}
           </span>
         </div>
@@ -82,7 +82,7 @@ export default function CircuitBreakerLab() {
           </div>
           <div style={{ background: 'var(--bg-tertiary)', padding: '10px 14px', borderRadius: '8px' }}>
             <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)', display: 'block' }}>Fehlerrate:</span>
-            <strong style={{ color: stateObj.color, fontSize: '1.1rem' }}>{stateObj.metrics.errorRate}</strong>
+            <strong style={{ color: `color-mix(in srgb, ${stateObj.color} 55%, var(--text-main))`, fontSize: '1.1rem' }}>{stateObj.metrics.errorRate}</strong>
           </div>
         </div>
       </div>

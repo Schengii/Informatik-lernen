@@ -177,7 +177,7 @@ export default function SrpZeroKnowledgeLab({ onRewardXP }) {
           </button>
         </div>
 
-        <div style={{ background: 'rgba(15, 23, 42, 0.7)', padding: '14px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.06)' }}>
+        <div style={{ background: 'var(--bg-tertiary)', padding: '14px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
           <div style={{ fontSize: '0.85rem', color: 'var(--accent-amber)', marginBottom: '8px', fontWeight: 600 }}>
             Über das Netzwerk übertragene Datenpakete:
           </div>

@@ -162,7 +162,7 @@ export default function BsiGrundschutzLab() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '12px' }}>
               {Object.values(PROTECTION_LEVELS).map(lvl => (
                 <div key={lvl.id} style={{ padding: '12px 16px', borderRadius: '12px', borderLeft: `4px solid ${lvl.color}`, background: 'var(--bg-subtle, rgba(0,0,0,0.02))' }}>
-                  <div style={{ fontWeight: 700, color: lvl.color, fontSize: '0.95rem' }}>{lvl.label}</div>
+                  <div style={{ fontWeight: 700, color: `color-mix(in srgb, ${lvl.color} 55%, var(--text-main))`, fontSize: '0.95rem' }}>{lvl.label}</div>
                   <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary, #64748b)', marginTop: '4px' }}>{lvl.desc}</div>
                 </div>
               ))}
@@ -179,7 +179,7 @@ export default function BsiGrundschutzLab() {
                 <div key={asset.id} style={{ background: 'var(--card-bg, #ffffff)', padding: '20px', borderRadius: '16px', border: '1px solid var(--border-color, #e2e8f0)', display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px' }}>
                     <div>
-                      <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', padding: '3px 8px', borderRadius: '6px', background: 'var(--badge-bg, #e0f2fe)', color: '#0369a1' }}>
+                      <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', padding: '3px 8px', borderRadius: '6px', background: 'var(--badge-bg, #e0f2fe)', color: 'var(--accent-cyan)' }}>
                         {asset.type}
                       </span>
                       <h3 style={{ fontSize: '1.1rem', fontWeight: 700, margin: '8px 0 4px' }}>{asset.name}</h3>
@@ -188,7 +188,7 @@ export default function BsiGrundschutzLab() {
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', background: `${overallInfo.color}15`, padding: '8px 16px', borderRadius: '12px', border: `1px solid ${overallInfo.color}40` }}>
                       <span style={{ fontSize: '0.8rem', fontWeight: 600 }}>Gesamtschutz:</span>
-                      <span style={{ fontWeight: 800, color: overallInfo.color, fontSize: '0.95rem' }}>
+                      <span style={{ fontWeight: 800, color: `color-mix(in srgb, ${overallInfo.color} 55%, var(--text-main))`, fontSize: '0.95rem' }}>
                         {overallInfo.label.toUpperCase()}
                       </span>
                     </div>

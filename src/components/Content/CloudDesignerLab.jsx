@@ -62,7 +62,7 @@ resource "aws_db_instance" "database" {
               {comp.type === 'compute' && <Server color="#38bdf8" />}
               {comp.type === 'database' && <Database color="#10b981" />}
               {comp.type === 'network' && <Cloud color="#a855f7" />}
-              <span style={{ color: '#fff', fontWeight: '700' }}>{comp.name}</span>
+              <span style={{ color: 'var(--text-main)', fontWeight: '700' }}>{comp.name}</span>
             </div>
             <span className="badge badge-indigo" style={{ fontSize: '0.75rem' }}>{comp.type.toUpperCase()}</span>
           </div>

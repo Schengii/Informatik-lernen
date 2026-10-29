@@ -157,7 +157,7 @@ export default function DnsPrivacyLab() {
                 <Terminal size={14} className="text-cyan-400" />
                 Wireshark / Sniffer Paket-Inhalt Preview:
               </span>
-              <div className="p-3 rounded-xl bg-black/90 font-mono text-[11px] text-cyan-300 border border-slate-800 overflow-x-auto">
+              <div className="p-3 rounded-xl bg-slate-950 font-mono text-[11px] text-cyan-300 border border-slate-800 overflow-x-auto">
                 {inspection.hexDumpPreview}
               </div>
             </div>

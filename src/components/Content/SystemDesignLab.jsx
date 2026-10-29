@@ -199,7 +199,7 @@ export default function SystemDesignLab({ onRewardXP }) {
         <div style={{ textAlign: 'center', marginBottom: '24px' }}>
           <div style={{ display: 'inline-block', background: 'var(--bg-card-hover)', padding: '14px 28px', borderRadius: 'var(--radius-lg)', border: '2px solid #6366f1', boxShadow: '0 0 15px rgba(99,102,241,0.3)' }}>
             <div style={{ color: 'var(--accent-primary)', fontSize: '0.75rem', fontWeight: '800', textTransform: 'uppercase' }}>NGINX LOAD BALANCER</div>
-            <div style={{ color: '#ffffff', fontWeight: '800', fontSize: '1.1rem' }}>{algorithm.toUpperCase().replace('_', ' ')}</div>
+            <div style={{ color: 'var(--text-main)', fontWeight: '800', fontSize: '1.1rem' }}>{algorithm.toUpperCase().replace('_', ' ')}</div>
             <div style={{ color: 'var(--text-dim)', fontSize: '0.8rem' }}>Eingehender Traffic: {rps} RPS</div>
           </div>
         </div>

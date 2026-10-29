@@ -139,7 +139,7 @@ export default function TransformerAttentionLab() {
                             style={{
                               padding: '10px 14px',
                               background: `rgba(99, 102, 241, ${intensity})`,
-                              color: intensity > 0.4 ? '#ffffff' : 'var(--text-muted)',
+                              color: intensity > 0.8 ? '#ffffff' : 'var(--text-main)',
                               fontWeight: intensity > 0.4 ? '800' : 'normal',
                               border: '1px solid rgba(255,255,255,0.08)',
                               borderRadius: '4px',

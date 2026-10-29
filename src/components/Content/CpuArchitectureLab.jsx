@@ -214,7 +214,7 @@ export default function CpuArchitectureLab({ onRewardXP }) {
             padding: '12px', 
             textAlign: 'center' 
           }}>
-            <span style={{ fontSize: '0.78rem', color: 'var(--accent-primary)', fontWeight: 800 }}>⚡ ARITHMETIC LOGIC UNIT (ALU)</span>
+            <span style={{ fontSize: '0.78rem', color: '#a5b4fc', fontWeight: 800 }}>⚡ ARITHMETIC LOGIC UNIT (ALU)</span>
             <div style={{ fontSize: '0.85rem', color: '#e0e7ff', marginTop: '4px' }}>
               Operation: {ir.startsWith('ADD') ? '➕ ADDITION' : ir.startsWith('SUB') ? '➖ SUBTRAKTION' : '💤 IDLE / PASS-THROUGH'}
             </div>

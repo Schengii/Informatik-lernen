@@ -48,7 +48,7 @@ export default function PacketTracerLab({ onRewardXP }) {
         {/* PC 1 */}
         <div style={{ textAlign: 'center', padding: '16px', background: activeHop === 'pc1-router' ? 'rgba(56,189,248,0.2)' : 'var(--bg-card-hover)', borderRadius: '12px', border: '2px solid #38bdf8' }}>
           <HardDrive size={40} color="#38bdf8" />
-          <div style={{ color: '#fff', fontWeight: '700', marginTop: '8px' }}>PC 1</div>
+          <div style={{ color: 'var(--text-main)', fontWeight: '700', marginTop: '8px' }}>PC 1</div>
           <span style={{ color: 'var(--text-dim)', fontSize: '0.8rem' }}>192.168.1.10</span>
         </div>
 
@@ -57,7 +57,7 @@ export default function PacketTracerLab({ onRewardXP }) {
         {/* Router */}
         <div style={{ textAlign: 'center', padding: '16px', background: activeHop === 'router-server' ? 'rgba(56,189,248,0.2)' : 'var(--bg-card-hover)', borderRadius: '12px', border: '2px solid #a855f7' }}>
           <Router size={40} color="#a855f7" />
-          <div style={{ color: '#fff', fontWeight: '700', marginTop: '8px' }}>Core Router</div>
+          <div style={{ color: 'var(--text-main)', fontWeight: '700', marginTop: '8px' }}>Core Router</div>
           <span style={{ color: 'var(--text-dim)', fontSize: '0.8rem' }}>192.168.1.1 / 192.168.2.1</span>
         </div>
 
@@ -66,7 +66,7 @@ export default function PacketTracerLab({ onRewardXP }) {
         {/* Server */}
         <div style={{ textAlign: 'center', padding: '16px', background: simulationState === 'success' ? 'rgba(16,185,129,0.2)' : 'var(--bg-card-hover)', borderRadius: '12px', border: '2px solid #10b981' }}>
           <HardDrive size={40} color="#10b981" />
-          <div style={{ color: '#fff', fontWeight: '700', marginTop: '8px' }}>Web Server</div>
+          <div style={{ color: 'var(--text-main)', fontWeight: '700', marginTop: '8px' }}>Web Server</div>
           <span style={{ color: 'var(--text-dim)', fontSize: '0.8rem' }}>192.168.2.50</span>
         </div>
       </div>

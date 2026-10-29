@@ -207,7 +207,7 @@ export default function AgileScrumSimulatorLab() {
               <XAxis dataKey="day" stroke="#94a3b8" fontSize={11} />
               <YAxis stroke="#94a3b8" fontSize={11} unit=" SP" />
               <Tooltip contentStyle={{ backgroundColor: 'var(--bg-card)', borderColor: '#334155', fontSize: '12px' }} />
-              <Legend wrapperStyle={{ fontSize: '12px' }} />
+              <Legend wrapperStyle={{ fontSize: '12px' }} formatter={(value) => <span style={{ color: 'var(--text-muted)' }}>{value}</span>} />
               <Line type="monotone" dataKey="idealRemaining" name="Ideale Linie (SP)" stroke="#94a3b8" strokeDasharray="5 5" strokeWidth={2} />
               <Line type="monotone" dataKey="actualRemaining" name="Tatsächlicher Verlauf (SP)" stroke="#14b8a6" strokeWidth={3} dot={{ r: 4 }} />
             </LineChart>
