@@ -194,7 +194,7 @@ export default function IhkDpiaLab({ onRewardXP }) {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: '#fff',
+                      color: 'var(--text-on-accent)',
                       marginTop: '2px',
                       flexShrink: 0
                     }}>

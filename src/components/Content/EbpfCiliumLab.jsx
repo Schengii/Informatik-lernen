@@ -166,8 +166,8 @@ export default function EbpfCiliumLab() {
               onClick={handleTestComparison}
               style={{
                 padding: '10px 18px',
-                background: '#06b6d4',
-                color: '#fff',
+                background: 'var(--accent-cyan)',
+                color: 'var(--text-on-accent)',
                 border: 'none',
                 borderRadius: '8px',
                 fontWeight: 'bold',
@@ -189,7 +189,7 @@ export default function EbpfCiliumLab() {
           {/* Cilium eBPF Path */}
           <div style={{ background: 'rgba(6, 182, 212, 0.08)', border: '1px solid rgba(6, 182, 212, 0.4)', borderRadius: '12px', padding: '20px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-              <div style={{ padding: '6px', borderRadius: '6px', background: '#06b6d4', color: '#fff' }}>
+              <div style={{ padding: '6px', borderRadius: '6px', background: 'var(--accent-cyan)', color: 'var(--text-on-accent)' }}>
                 <Zap size={18} />
               </div>
               <h3 style={{ margin: 0, fontSize: '1.15rem', color: 'var(--accent-cyan)' }}>
@@ -238,7 +238,7 @@ export default function EbpfCiliumLab() {
           {/* Envoy Sidecar Path */}
           <div style={{ background: 'rgba(239, 68, 68, 0.08)', border: '1px solid rgba(239, 68, 68, 0.4)', borderRadius: '12px', padding: '20px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-              <div style={{ padding: '6px', borderRadius: '6px', background: '#ef4444', color: '#fff' }}>
+              <div style={{ padding: '6px', borderRadius: '6px', background: 'var(--accent-rose)', color: 'var(--text-on-accent)' }}>
                 <Layers size={18} />
               </div>
               <h3 style={{ margin: 0, fontSize: '1.15rem', color: 'var(--accent-rose)' }}>

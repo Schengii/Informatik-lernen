@@ -136,7 +136,7 @@ export default function IhkTomCatalogLab({ onRewardXP }) {
               borderRadius: '8px',
               border: '1px solid var(--border-color)',
               background: selectedCategory === cat.id ? 'var(--accent-primary)' : 'var(--bg-secondary)',
-              color: selectedCategory === cat.id ? '#fff' : 'var(--text-muted)',
+              color: selectedCategory === cat.id ? 'var(--text-on-accent)' : 'var(--text-muted)',
               fontSize: '0.85rem',
               fontWeight: '600',
               cursor: 'pointer'

@@ -134,7 +134,7 @@ export default function VectorSearchLab({ onRewardXP }) {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                       <span style={{
                         background: idx === 0 ? 'var(--accent-emerald)' : 'var(--bg-card)',
-                        color: idx === 0 ? '#ffffff' : 'var(--text-main)',
+                        color: idx === 0 ? 'var(--text-on-accent)' : 'var(--text-main)',
                         fontWeight: '800',
                         padding: '4px 10px',
                         borderRadius: 'var(--radius-md)',

@@ -161,8 +161,8 @@ export default function DhcpDoraLab({ onRewardXP }) {
                   cursor: 'pointer',
                   fontWeight: 600,
                   fontSize: '0.9rem',
-                  background: isActive ? '#0ea5e9' : 'rgba(255, 255, 255, 0.05)',
-                  color: isActive ? '#fff' : 'var(--text-muted, #94a3b8)',
+                  background: isActive ? 'var(--accent-cyan)' : 'rgba(255, 255, 255, 0.05)',
+                  color: isActive ? 'var(--text-on-accent)' : 'var(--text-muted, #94a3b8)',
                   transition: 'all 0.2s ease'
                 }}
               >
@@ -241,8 +241,8 @@ export default function DhcpDoraLab({ onRewardXP }) {
                     padding: '0.4rem 0.9rem',
                     borderRadius: '0.4rem',
                     border: 'none',
-                    background: '#10b981',
-                    color: '#fff',
+                    background: 'var(--accent-emerald)',
+                    color: 'var(--text-on-accent)',
                     fontSize: '0.85rem',
                     fontWeight: 600,
                     cursor: 'pointer'
@@ -377,8 +377,8 @@ export default function DhcpDoraLab({ onRewardXP }) {
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.5rem' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                         <span style={{
-                          background: pkt.phase === 'DISCOVER' || pkt.phase === 'REQUEST' ? '#0ea5e9' : '#10b981',
-                          color: '#fff',
+                          background: pkt.phase === 'DISCOVER' || pkt.phase === 'REQUEST' ? 'var(--accent-cyan)' : 'var(--accent-emerald)',
+                          color: 'var(--text-on-accent)',
                           fontWeight: 700,
                           fontSize: '0.75rem',
                           padding: '0.2rem 0.5rem',
@@ -459,8 +459,8 @@ export default function DhcpDoraLab({ onRewardXP }) {
                     padding: '0.5rem',
                     borderRadius: '0.4rem',
                     border: 'none',
-                    background: session.clientState === 'BOUND' ? '#0ea5e9' : 'rgba(255,255,255,0.05)',
-                    color: '#fff',
+                    background: session.clientState === 'BOUND' ? 'var(--accent-cyan)' : 'rgba(255,255,255,0.05)',
+                    color: 'var(--text-on-accent)',
                     fontWeight: 600,
                     cursor: session.clientState === 'BOUND' ? 'pointer' : 'not-allowed',
                     fontSize: '0.85rem'
@@ -485,8 +485,8 @@ export default function DhcpDoraLab({ onRewardXP }) {
                     padding: '0.5rem',
                     borderRadius: '0.4rem',
                     border: 'none',
-                    background: session.clientState === 'BOUND' || session.clientState === 'RENEWING' ? '#f59e0b' : 'rgba(255,255,255,0.05)',
-                    color: '#fff',
+                    background: session.clientState === 'BOUND' || session.clientState === 'RENEWING' ? 'var(--accent-amber)' : 'rgba(255,255,255,0.05)',
+                    color: 'var(--text-on-accent)',
                     fontWeight: 600,
                     cursor: session.clientState === 'BOUND' || session.clientState === 'RENEWING' ? 'pointer' : 'not-allowed',
                     fontSize: '0.85rem'
@@ -511,8 +511,8 @@ export default function DhcpDoraLab({ onRewardXP }) {
                     padding: '0.5rem',
                     borderRadius: '0.4rem',
                     border: 'none',
-                    background: session.clientState === 'BOUND' ? '#ef4444' : 'rgba(255,255,255,0.05)',
-                    color: '#fff',
+                    background: session.clientState === 'BOUND' ? 'var(--accent-rose)' : 'rgba(255,255,255,0.05)',
+                    color: 'var(--text-on-accent)',
                     fontWeight: 600,
                     cursor: session.clientState === 'BOUND' ? 'pointer' : 'not-allowed',
                     fontSize: '0.85rem'

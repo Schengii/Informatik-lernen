@@ -131,7 +131,7 @@ export default function RegexMasterLab({ onRewardXP }) {
                 padding: '10px 16px',
                 borderRadius: 'var(--radius-md)',
                 background: isActive ? 'var(--accent-primary)' : 'var(--bg-primary)',
-                color: isActive ? '#ffffff' : 'var(--text-main)',
+                color: isActive ? 'var(--text-on-accent)' : 'var(--text-main)',
                 border: isActive ? '2px solid var(--accent-primary)' : '1px solid var(--border-color)',
                 fontWeight: '700',
                 fontSize: '0.88rem',

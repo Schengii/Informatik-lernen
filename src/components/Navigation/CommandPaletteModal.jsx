@@ -420,7 +420,7 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
                         display: 'flex', 
                         alignItems: 'center', 
                         justifyContent: 'center',
-                        color: isSelected ? '#ffffff' : 'var(--accent-primary)',
+                        color: isSelected ? 'var(--text-on-accent)' : 'var(--accent-primary)',
                         flexShrink: 0
                       }}>
                         <IconComponent size={18} />

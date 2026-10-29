@@ -357,8 +357,8 @@ export default function IhkRiskAnalysisLab() {
               type="submit"
               style={{
                 padding: '10px 18px',
-                background: '#f59e0b',
-                color: '#fff',
+                background: 'var(--accent-amber)',
+                color: 'var(--text-on-accent)',
                 border: 'none',
                 borderRadius: '6px',
                 fontWeight: 'bold',

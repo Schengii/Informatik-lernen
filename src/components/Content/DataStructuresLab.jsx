@@ -281,8 +281,8 @@ export default function DataStructuresLab({ onRewardXP }) {
                       justifyContent: 'center',
                       fontWeight: '800',
                       fontSize: '1.1rem',
-                      background: isVisiting ? '#e11d48' : isTraversed ? 'var(--accent-emerald)' : '#1e293b',
-                      color: '#ffffff',
+                      background: isVisiting ? 'var(--accent-rose)' : isTraversed ? 'var(--accent-emerald)' : 'var(--bg-tertiary)',
+                      color: isVisiting || isTraversed ? 'var(--text-on-accent)' : 'var(--text-main)',
                       border: isVisiting ? '3px solid #fda4af' : '2px solid #334155',
                       boxShadow: isVisiting ? '0 0 20px #e11d48' : 'none',
                       transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -403,7 +403,7 @@ export default function DataStructuresLab({ onRewardXP }) {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                   {graphPath.map((node, i) => (
                     <React.Fragment key={node}>
-                      <span style={{ background: 'var(--accent-emerald)', color: '#ffffff', padding: '6px 14px', borderRadius: 'var(--radius-md)', fontWeight: '800' }}>
+                      <span style={{ background: 'var(--accent-emerald)', color: 'var(--text-on-accent)', padding: '6px 14px', borderRadius: 'var(--radius-md)', fontWeight: '800' }}>
                         {node}
                       </span>
                       {i < graphPath.length - 1 && <ArrowRight size={18} style={{ color: 'var(--text-muted)' }} />}

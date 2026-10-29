@@ -37,7 +37,7 @@ export default function WebSocketsLab() {
               fontWeight: '700',
               fontSize: '0.95rem',
               background: selectedId === p.id ? 'var(--accent-teal)' : 'var(--bg-card)',
-              color: selectedId === p.id ? '#ffffff' : 'var(--text-main)',
+              color: selectedId === p.id ? 'var(--text-on-accent)' : 'var(--text-main)',
               border: selectedId === p.id ? '2px solid var(--accent-teal)' : '2px solid var(--border-color)',
               cursor: 'pointer',
               whiteSpace: 'nowrap'

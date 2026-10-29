@@ -72,7 +72,7 @@ export default function CleanCodeReviewLab() {
               <AlertTriangle size={17} color="#ef4444" />
               <span>{challenge.title}</span>
             </div>
-            <span style={{ fontSize: '0.75rem', background: '#ef4444', color: '#fff', padding: '2px 8px', borderRadius: '4px', fontWeight: 'bold' }}>
+            <span style={{ fontSize: '0.75rem', background: 'var(--accent-rose)', color: 'var(--text-on-accent)', padding: '2px 8px', borderRadius: '4px', fontWeight: 'bold' }}>
               BUGGY CODE
             </span>
           </div>
@@ -157,7 +157,7 @@ export default function CleanCodeReviewLab() {
                   <CheckCircle2 size={16} color="#22c55e" />
                   <span>Sauberes Production Refactoring</span>
                 </div>
-                <span style={{ fontSize: '0.75rem', background: '#22c55e', color: '#fff', padding: '2px 8px', borderRadius: '4px', fontWeight: 'bold' }}>
+                <span style={{ fontSize: '0.75rem', background: 'var(--accent-emerald)', color: 'var(--text-on-accent)', padding: '2px 8px', borderRadius: '4px', fontWeight: 'bold' }}>
                   CLEAN CODE
                 </span>
               </div>
@@ -179,8 +179,8 @@ export default function CleanCodeReviewLab() {
                     gap: '8px',
                     padding: '10px 20px',
                     borderRadius: '8px',
-                    background: '#6366f1',
-                    color: '#fff',
+                    background: 'var(--accent-primary)',
+                    color: 'var(--text-on-accent)',
                     fontWeight: 'bold',
                     border: 'none',
                     cursor: 'pointer'
@@ -197,8 +197,8 @@ export default function CleanCodeReviewLab() {
                     gap: '8px',
                     padding: '10px 20px',
                     borderRadius: '8px',
-                    background: '#22c55e',
-                    color: '#fff',
+                    background: 'var(--accent-emerald)',
+                    color: 'var(--text-on-accent)',
                     fontWeight: 'bold',
                     border: 'none',
                     cursor: 'pointer'

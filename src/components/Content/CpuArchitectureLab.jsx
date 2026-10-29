@@ -165,8 +165,8 @@ export default function CpuArchitectureLab({ onRewardXP }) {
               <Cpu size={16} /> CENTRAL PROCESSING UNIT (CPU)
             </span>
             <span style={{ 
-              background: phase === 'FETCH' ? '#6366f1' : phase === 'DECODE' ? '#f59e0b' : phase === 'EXECUTE' ? '#10b981' : '#ef4444',
-              color: '#fff',
+              background: phase === 'FETCH' ? 'var(--accent-primary)' : phase === 'DECODE' ? 'var(--accent-amber)' : phase === 'EXECUTE' ? 'var(--accent-emerald)' : 'var(--accent-rose)',
+              color: 'var(--text-on-accent)',
               fontSize: '0.72rem',
               fontWeight: 800,
               padding: '2px 8px',

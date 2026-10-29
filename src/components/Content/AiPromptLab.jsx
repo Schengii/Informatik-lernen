@@ -56,7 +56,7 @@ export default function AiPromptLab() {
               fontSize: '0.88rem',
               fontWeight: 700,
               background: activeStep === idx ? 'var(--accent-primary)' : 'var(--bg-tertiary)',
-              color: activeStep === idx ? '#ffffff' : 'var(--text-main)',
+              color: activeStep === idx ? 'var(--text-on-accent)' : 'var(--text-main)',
               border: activeStep === idx ? 'none' : '1px solid var(--border-color)',
               cursor: 'pointer'
             }}

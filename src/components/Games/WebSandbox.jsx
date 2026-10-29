@@ -91,7 +91,7 @@ button {
                 padding: '6px 14px',
                 borderRadius: '6px',
                 background: activeTab === 'html' ? 'var(--accent-cyan)' : 'var(--bg-tertiary)',
-                color: '#fff',
+                color: 'var(--text-on-accent)',
                 fontWeight: '700',
                 border: 'none',
                 cursor: 'pointer'
@@ -105,7 +105,7 @@ button {
                 padding: '6px 14px',
                 borderRadius: '6px',
                 background: activeTab === 'css' ? 'var(--accent-purple)' : 'var(--bg-tertiary)',
-                color: '#fff',
+                color: 'var(--text-on-accent)',
                 fontWeight: '700',
                 border: 'none',
                 cursor: 'pointer'

@@ -135,7 +135,7 @@ export default function BpmnProcessLab({ onRewardXP = () => {} }) {
                 borderRadius: 'var(--radius-sm)',
                 border: '1px solid var(--border-color)',
                 background: selectedTemplateKey === 'order_fulfillment' ? 'var(--accent-teal)' : 'var(--bg-card)',
-                color: selectedTemplateKey === 'order_fulfillment' ? '#ffffff' : 'var(--text-main)',
+                color: selectedTemplateKey === 'order_fulfillment' ? 'var(--text-on-accent)' : 'var(--text-main)',
                 fontWeight: 600,
                 cursor: 'pointer'
               }}
@@ -151,7 +151,7 @@ export default function BpmnProcessLab({ onRewardXP = () => {} }) {
                 borderRadius: 'var(--radius-sm)',
                 border: '1px solid var(--border-color)',
                 background: selectedTemplateKey === 'incident_management' ? 'var(--accent-purple)' : 'var(--bg-card)',
-                color: selectedTemplateKey === 'incident_management' ? '#ffffff' : 'var(--text-main)',
+                color: selectedTemplateKey === 'incident_management' ? 'var(--text-on-accent)' : 'var(--text-main)',
                 fontWeight: 600,
                 cursor: 'pointer'
               }}
@@ -227,7 +227,7 @@ export default function BpmnProcessLab({ onRewardXP = () => {} }) {
                   borderRadius: 'var(--radius-xs)',
                   border: 'none',
                   background: 'var(--accent-teal)',
-                  color: '#ffffff',
+                  color: 'var(--text-on-accent)',
                   fontWeight: 600,
                   cursor: 'pointer',
                   display: 'flex',
@@ -266,7 +266,7 @@ export default function BpmnProcessLab({ onRewardXP = () => {} }) {
                   borderRadius: 'var(--radius-xs)',
                   border: '1px solid var(--border-color)',
                   background: xorChoice === 'Ja' ? 'var(--accent-teal)' : 'var(--bg-primary)',
-                  color: xorChoice === 'Ja' ? '#ffffff' : 'var(--text-main)',
+                  color: xorChoice === 'Ja' ? 'var(--text-on-accent)' : 'var(--text-main)',
                   fontWeight: 600,
                   cursor: 'pointer'
                 }}
@@ -282,7 +282,7 @@ export default function BpmnProcessLab({ onRewardXP = () => {} }) {
                   borderRadius: 'var(--radius-xs)',
                   border: '1px solid var(--border-color)',
                   background: xorChoice === 'Nein' ? 'var(--accent-rose)' : 'var(--bg-primary)',
-                  color: xorChoice === 'Nein' ? '#ffffff' : 'var(--text-main)',
+                  color: xorChoice === 'Nein' ? 'var(--text-on-accent)' : 'var(--text-main)',
                   fontWeight: 600,
                   cursor: 'pointer'
                 }}
@@ -635,7 +635,7 @@ export default function BpmnProcessLab({ onRewardXP = () => {} }) {
                   borderRadius: 'var(--radius-sm)',
                   border: 'none',
                   background: 'var(--accent-teal)',
-                  color: '#ffffff',
+                  color: 'var(--text-on-accent)',
                   fontWeight: 600,
                   cursor: 'pointer'
                 }}

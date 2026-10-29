@@ -134,7 +134,7 @@ export default function SqlQueryOptimizerLab({ onRewardXP }) {
             fontWeight: 700,
             fontSize: '0.88rem',
             background: selectedQuery === 'user_lookup' ? 'var(--accent-primary)' : 'var(--bg-secondary)',
-            color: selectedQuery === 'user_lookup' ? '#fff' : 'var(--text-muted)',
+            color: selectedQuery === 'user_lookup' ? 'var(--text-on-accent)' : 'var(--text-muted)',
             border: '1px solid var(--border-color)',
             cursor: 'pointer'
           }}
@@ -150,7 +150,7 @@ export default function SqlQueryOptimizerLab({ onRewardXP }) {
             fontWeight: 700,
             fontSize: '0.88rem',
             background: selectedQuery === 'status_filter' ? 'var(--accent-primary)' : 'var(--bg-secondary)',
-            color: selectedQuery === 'status_filter' ? '#fff' : 'var(--text-muted)',
+            color: selectedQuery === 'status_filter' ? 'var(--text-on-accent)' : 'var(--text-muted)',
             border: '1px solid var(--border-color)',
             cursor: 'pointer'
           }}
@@ -166,7 +166,7 @@ export default function SqlQueryOptimizerLab({ onRewardXP }) {
             fontWeight: 700,
             fontSize: '0.88rem',
             background: selectedQuery === 'composite_range' ? 'var(--accent-primary)' : 'var(--bg-secondary)',
-            color: selectedQuery === 'composite_range' ? '#fff' : 'var(--text-muted)',
+            color: selectedQuery === 'composite_range' ? 'var(--text-on-accent)' : 'var(--text-muted)',
             border: '1px solid var(--border-color)',
             cursor: 'pointer'
           }}
@@ -198,8 +198,8 @@ export default function SqlQueryOptimizerLab({ onRewardXP }) {
             onClick={() => handleToggleIndex('email')}
             className="btn btn-sm"
             style={{
-              background: hasIndexOnEmail ? '#10b981' : 'var(--bg-card)',
-              color: hasIndexOnEmail ? '#fff' : 'var(--text-main)',
+              background: hasIndexOnEmail ? 'var(--accent-emerald)' : 'var(--bg-card)',
+              color: hasIndexOnEmail ? 'var(--text-on-accent)' : 'var(--text-main)',
               border: hasIndexOnEmail ? '1px solid #10b981' : '1px solid var(--border-color)',
               fontWeight: 700
             }}
@@ -211,8 +211,8 @@ export default function SqlQueryOptimizerLab({ onRewardXP }) {
             onClick={() => handleToggleIndex('status')}
             className="btn btn-sm"
             style={{
-              background: hasIndexOnStatus ? '#10b981' : 'var(--bg-card)',
-              color: hasIndexOnStatus ? '#fff' : 'var(--text-main)',
+              background: hasIndexOnStatus ? 'var(--accent-emerald)' : 'var(--bg-card)',
+              color: hasIndexOnStatus ? 'var(--text-on-accent)' : 'var(--text-main)',
               border: hasIndexOnStatus ? '1px solid #10b981' : '1px solid var(--border-color)',
               fontWeight: 700
             }}
@@ -224,8 +224,8 @@ export default function SqlQueryOptimizerLab({ onRewardXP }) {
             onClick={() => handleToggleIndex('composite')}
             className="btn btn-sm"
             style={{
-              background: hasCompositeIndex ? '#10b981' : 'var(--bg-card)',
-              color: hasCompositeIndex ? '#fff' : 'var(--text-main)',
+              background: hasCompositeIndex ? 'var(--accent-emerald)' : 'var(--bg-card)',
+              color: hasCompositeIndex ? 'var(--text-on-accent)' : 'var(--text-main)',
               border: hasCompositeIndex ? '1px solid #10b981' : '1px solid var(--border-color)',
               fontWeight: 700
             }}

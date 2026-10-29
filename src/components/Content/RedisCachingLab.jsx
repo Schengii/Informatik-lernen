@@ -157,7 +157,7 @@ export default function RedisCachingLab() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 'bold', color: 'var(--text-main)', fontSize: '0.95rem' }}>
               <Server size={17} color="#ef4444" /> Redis In-Memory Keyspace (Port 6379)
             </div>
-            <span style={{ fontSize: '0.75rem', background: '#ef4444', color: '#fff', padding: '2px 8px', borderRadius: '4px', fontWeight: 'bold' }}>
+            <span style={{ fontSize: '0.75rem', background: 'var(--accent-rose)', color: 'var(--text-on-accent)', padding: '2px 8px', borderRadius: '4px', fontWeight: 'bold' }}>
               RAM 0.8ms
             </span>
           </div>

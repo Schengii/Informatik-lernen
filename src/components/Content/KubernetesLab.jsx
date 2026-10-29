@@ -37,7 +37,7 @@ export default function KubernetesLab() {
               fontWeight: '700',
               fontSize: '0.95rem',
               background: selectedId === m.id ? 'var(--accent-indigo)' : 'var(--bg-card)',
-              color: selectedId === m.id ? '#ffffff' : 'var(--text-main)',
+              color: selectedId === m.id ? 'var(--text-on-accent)' : 'var(--text-main)',
               border: selectedId === m.id ? '2px solid var(--accent-indigo)' : '2px solid var(--border-color)',
               cursor: 'pointer',
               whiteSpace: 'nowrap'

@@ -167,7 +167,7 @@ export default function StpProtocolLab({ onRewardXP = () => {} }) {
                 borderRadius: 'var(--radius-sm)',
                 border: '1px solid var(--border-color)',
                 background: mode === 'rstp' ? 'var(--accent-primary)' : 'var(--bg-card)',
-                color: mode === 'rstp' ? '#ffffff' : 'var(--text-main)',
+                color: mode === 'rstp' ? 'var(--text-on-accent)' : 'var(--text-main)',
                 fontWeight: 600,
                 cursor: 'pointer',
                 display: 'flex',
@@ -186,7 +186,7 @@ export default function StpProtocolLab({ onRewardXP = () => {} }) {
                 borderRadius: 'var(--radius-sm)',
                 border: '1px solid var(--border-color)',
                 background: mode === 'stp' ? 'var(--accent-amber)' : 'var(--bg-card)',
-                color: mode === 'stp' ? '#ffffff' : 'var(--text-main)',
+                color: mode === 'stp' ? 'var(--text-on-accent)' : 'var(--text-main)',
                 fontWeight: 600,
                 cursor: 'pointer',
                 display: 'flex',
@@ -470,7 +470,7 @@ export default function StpProtocolLab({ onRewardXP = () => {} }) {
                             borderRadius: 'var(--radius-xs)',
                             border: '1px solid var(--border-color)',
                             background: isDown ? 'var(--accent-emerald)' : 'var(--bg-primary)',
-                            color: isDown ? '#ffffff' : 'var(--accent-rose)',
+                            color: isDown ? 'var(--text-on-accent)' : 'var(--accent-rose)',
                             cursor: 'pointer',
                             fontWeight: 600
                           }}
@@ -583,7 +583,7 @@ export default function StpProtocolLab({ onRewardXP = () => {} }) {
                   borderRadius: 'var(--radius-xs)',
                   border: selectedSwitchId === sw.id ? '1px solid var(--accent-primary)' : '1px solid var(--border-color)',
                   background: selectedSwitchId === sw.id ? 'var(--accent-primary)' : 'var(--bg-primary)',
-                  color: selectedSwitchId === sw.id ? '#ffffff' : 'var(--text-main)',
+                  color: selectedSwitchId === sw.id ? 'var(--text-on-accent)' : 'var(--text-main)',
                   fontWeight: 600,
                   cursor: 'pointer',
                   fontSize: '0.85rem'
@@ -763,7 +763,7 @@ export default function StpProtocolLab({ onRewardXP = () => {} }) {
                   borderRadius: 'var(--radius-sm)',
                   border: 'none',
                   background: 'var(--accent-primary)',
-                  color: '#ffffff',
+                  color: 'var(--text-on-accent)',
                   fontWeight: 600,
                   cursor: 'pointer'
                 }}

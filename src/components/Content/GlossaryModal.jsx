@@ -145,7 +145,7 @@ export default function GlossaryModal({ isOpen, onClose }) {
                   fontSize: '0.85rem',
                   fontWeight: '700',
                   background: selectedCategory === cat ? 'var(--accent-primary)' : 'var(--bg-tertiary)',
-                  color: selectedCategory === cat ? '#ffffff' : 'var(--text-muted)',
+                  color: selectedCategory === cat ? 'var(--text-on-accent)' : 'var(--text-muted)',
                   border: selectedCategory === cat ? 'none' : '1px solid var(--border-color)',
                   cursor: 'pointer',
                   whiteSpace: 'nowrap'

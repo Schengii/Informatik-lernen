@@ -248,8 +248,8 @@ export default function ExamSimulator({ onCompleteExam, onRecordResults }) {
                 padding: '4px 12px',
                 borderRadius: '16px',
                 border: 'none',
-                background: questionFilter === 'unanswered' ? '#ef4444' : 'rgba(255, 255, 255, 0.05)',
-                color: questionFilter === 'unanswered' ? '#fff' : 'var(--text-muted)',
+                background: questionFilter === 'unanswered' ? 'var(--accent-rose)' : 'rgba(255, 255, 255, 0.05)',
+                color: questionFilter === 'unanswered' ? 'var(--text-on-accent)' : 'var(--text-muted)',
                 fontSize: '0.8rem',
                 fontWeight: '700',
                 cursor: 'pointer'

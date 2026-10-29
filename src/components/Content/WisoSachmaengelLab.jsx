@@ -196,7 +196,7 @@ export default function WisoSachmaengelLab({ onRewardXP = () => {} }) {
                     borderRadius: 'var(--radius-xs)',
                     border: '1px solid var(--border-color)',
                     background: contractType === 'B2B_HANDELSKAUF' ? 'var(--accent-primary)' : 'var(--bg-primary)',
-                    color: contractType === 'B2B_HANDELSKAUF' ? '#ffffff' : 'var(--text-main)',
+                    color: contractType === 'B2B_HANDELSKAUF' ? 'var(--text-on-accent)' : 'var(--text-main)',
                     fontWeight: 600,
                     cursor: 'pointer'
                   }}
@@ -214,7 +214,7 @@ export default function WisoSachmaengelLab({ onRewardXP = () => {} }) {
                     borderRadius: 'var(--radius-xs)',
                     border: '1px solid var(--border-color)',
                     background: contractType === 'B2C_VERBRAUCHER' ? 'var(--accent-teal)' : 'var(--bg-primary)',
-                    color: contractType === 'B2C_VERBRAUCHER' ? '#ffffff' : 'var(--text-main)',
+                    color: contractType === 'B2C_VERBRAUCHER' ? 'var(--text-on-accent)' : 'var(--text-main)',
                     fontWeight: 600,
                     cursor: 'pointer'
                   }}
@@ -266,7 +266,7 @@ export default function WisoSachmaengelLab({ onRewardXP = () => {} }) {
                     borderRadius: 'var(--radius-xs)',
                     border: '1px solid var(--border-color)',
                     background: isOpenDefect ? 'var(--accent-amber)' : 'var(--bg-primary)',
-                    color: isOpenDefect ? '#ffffff' : 'var(--text-main)',
+                    color: isOpenDefect ? 'var(--text-on-accent)' : 'var(--text-main)',
                     fontWeight: 600,
                     cursor: 'pointer'
                   }}
@@ -283,7 +283,7 @@ export default function WisoSachmaengelLab({ onRewardXP = () => {} }) {
                     borderRadius: 'var(--radius-xs)',
                     border: '1px solid var(--border-color)',
                     background: !isOpenDefect ? 'var(--accent-purple)' : 'var(--bg-primary)',
-                    color: !isOpenDefect ? '#ffffff' : 'var(--text-main)',
+                    color: !isOpenDefect ? 'var(--text-on-accent)' : 'var(--text-main)',
                     fontWeight: 600,
                     cursor: 'pointer'
                   }}
@@ -666,7 +666,7 @@ export default function WisoSachmaengelLab({ onRewardXP = () => {} }) {
                   borderRadius: 'var(--radius-sm)',
                   border: 'none',
                   background: 'var(--accent-amber)',
-                  color: '#ffffff',
+                  color: 'var(--text-on-accent)',
                   fontWeight: 600,
                   cursor: 'pointer'
                 }}

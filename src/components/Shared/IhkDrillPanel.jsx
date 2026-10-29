@@ -68,7 +68,7 @@ export default function IhkDrillPanel({ title, questions, accentColor, selectedB
           </p>
         </div>
         {xpAmount !== null && xpClaimed && (
-          <span style={{ background: '#10b981', color: '#fff', padding: '0.35rem 0.75rem', borderRadius: '1rem', fontWeight: 600, fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+          <span style={{ background: 'var(--accent-emerald)', color: 'var(--text-on-accent)', padding: '0.35rem 0.75rem', borderRadius: '1rem', fontWeight: 600, fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
             <CheckCircle2 size={16} /> +{xpAmount} XP Erhalten!
           </span>
         )}

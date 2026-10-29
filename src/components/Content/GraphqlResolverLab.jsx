@@ -78,7 +78,7 @@ export default function GraphqlResolverLab() {
         <div style={{ background: 'var(--bg-tertiary)', borderRadius: '12px', border: '1px solid rgba(236, 72, 153, 0.3)', overflow: 'hidden' }}>
           <div style={{ padding: '12px 16px', background: 'rgba(236, 72, 153, 0.15)', borderBottom: '1px solid rgba(236, 72, 153, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <span style={{ color: 'var(--accent-rose)', fontWeight: 'bold', fontSize: '0.9rem' }}>Incoming GraphQL Query</span>
-            <span style={{ fontSize: '0.75rem', background: '#db2777', color: '#fff', padding: '2px 8px', borderRadius: '4px' }}>AST PARSED</span>
+            <span style={{ fontSize: '0.75rem', background: 'var(--accent-rose)', color: 'var(--text-on-accent)', padding: '2px 8px', borderRadius: '4px' }}>AST PARSED</span>
           </div>
           <pre style={{ margin: 0, padding: '16px', color: '#fbcfe8', fontFamily: 'Fira Code, monospace', fontSize: '0.88rem', lineHeight: '1.6', overflowX: 'auto' }}>
             {scenario.query}

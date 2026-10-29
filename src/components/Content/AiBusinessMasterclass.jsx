@@ -38,7 +38,7 @@ export default function AiBusinessMasterclass() {
               fontWeight: '700',
               fontSize: '0.95rem',
               background: selectedId === m.id ? 'var(--accent-primary)' : 'var(--bg-card)',
-              color: selectedId === m.id ? '#ffffff' : 'var(--text-main)',
+              color: selectedId === m.id ? 'var(--text-on-accent)' : 'var(--text-main)',
               border: selectedId === m.id ? '2px solid var(--accent-primary)' : '2px solid var(--border-color)',
               cursor: 'pointer',
               whiteSpace: 'nowrap'

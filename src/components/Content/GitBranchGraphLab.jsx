@@ -264,8 +264,8 @@ export default function GitBranchGraphLab({ onRewardXP }) {
           <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
             <span style={{ fontSize: '0.8rem', color: '#94a3b8', fontWeight: 600 }}>AKTIVER BRANCH (HEAD):</span>
             <span style={{ 
-              background: branches[headBranch]?.color || '#6366f1', 
-              color: '#fff', 
+              background: branches[headBranch]?.color || 'var(--accent-primary)', 
+              color: 'var(--text-on-accent)', 
               padding: '2px 10px', 
               borderRadius: '9999px', 
               fontSize: '0.75rem', 

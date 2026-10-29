@@ -47,7 +47,7 @@ export default function FisiLernfelderHub() {
               fontWeight: 700,
               fontSize: '0.92rem',
               background: selectedYear === filter.id ? 'var(--accent-indigo)' : 'var(--bg-card)',
-              color: selectedYear === filter.id ? '#ffffff' : 'var(--text-main)',
+              color: selectedYear === filter.id ? 'var(--text-on-accent)' : 'var(--text-main)',
               border: selectedYear === filter.id ? '2px solid var(--accent-indigo)' : '1px solid var(--border-color)',
               cursor: 'pointer'
             }}

@@ -170,8 +170,8 @@ export default function WisoAngebotsvergleichLab({ onRewardXP }) {
                   cursor: 'pointer',
                   fontWeight: 600,
                   fontSize: '0.9rem',
-                  background: isActive ? '#10b981' : 'rgba(255, 255, 255, 0.05)',
-                  color: isActive ? '#fff' : 'var(--text-muted, #94a3b8)',
+                  background: isActive ? 'var(--accent-emerald)' : 'rgba(255, 255, 255, 0.05)',
+                  color: isActive ? 'var(--text-on-accent)' : 'var(--text-muted, #94a3b8)',
                   transition: 'all 0.2s ease'
                 }}
               >
@@ -562,7 +562,7 @@ function AngebotKalkulation({ angebot, ergebnis, onChange, titelFarbe, istGuenst
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
         <h3 style={{ margin: 0, fontSize: '1.1rem', color: titelFarbe }}>{angebot.anbieterName}</h3>
         {istGuenstigster && (
-          <span style={{ background: '#10b981', color: '#fff', fontSize: '0.75rem', padding: '0.2rem 0.5rem', borderRadius: '1rem', fontWeight: 700 }}>
+          <span style={{ background: 'var(--accent-emerald)', color: 'var(--text-on-accent)', fontSize: '0.75rem', padding: '0.2rem 0.5rem', borderRadius: '1rem', fontWeight: 700 }}>
             GÜNSTIGSTER
           </span>
         )}

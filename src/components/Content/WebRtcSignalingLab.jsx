@@ -215,9 +215,9 @@ export default function WebRtcSignalingLab() {
               style={{
                 padding: '8px 16px',
                 borderRadius: '6px',
-                background: '#db2777',
+                background: 'var(--accent-rose)',
                 border: 'none',
-                color: '#fff',
+                color: 'var(--text-on-accent)',
                 cursor: currentStepIdx < 5 ? 'default' : 'pointer'
               }}
             >

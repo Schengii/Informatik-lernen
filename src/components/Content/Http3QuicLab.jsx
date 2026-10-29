@@ -174,8 +174,8 @@ export default function Http3QuicLab() {
               style={{
                 padding: '8px 18px',
                 borderRadius: '8px',
-                background: '#0284c7',
-                color: '#fff',
+                background: 'var(--accent-cyan)',
+                color: 'var(--text-on-accent)',
                 fontWeight: 'bold',
                 fontSize: '0.88rem',
                 border: 'none',
@@ -240,7 +240,7 @@ export default function Http3QuicLab() {
                 <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--accent-cyan)', margin: 0 }}>
                   HTTP/3 (QUIC / UDP)
                 </h3>
-                <span style={{ fontSize: '0.75rem', background: '#0284c7', color: '#fff', padding: '3px 8px', borderRadius: '4px', fontWeight: 'bold' }}>
+                <span style={{ fontSize: '0.75rem', background: 'var(--accent-cyan)', color: 'var(--text-on-accent)', padding: '3px 8px', borderRadius: '4px', fontWeight: 'bold' }}>
                   Unabhängige UDP Streams
                 </span>
               </div>

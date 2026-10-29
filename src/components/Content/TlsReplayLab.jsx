@@ -216,8 +216,8 @@ export default function TlsReplayLab() {
               style={{
                 flex: '1 1 240px',
                 padding: '12px 20px',
-                background: '#10b981',
-                color: '#fff',
+                background: 'var(--accent-emerald)',
+                color: 'var(--text-on-accent)',
                 border: 'none',
                 borderRadius: '8px',
                 fontWeight: 'bold',

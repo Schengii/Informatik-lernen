@@ -723,7 +723,7 @@ export default function BackupStrategyLab({ onRewardXP = () => {} }) {
                   borderRadius: 'var(--radius-sm)',
                   border: 'none',
                   background: 'var(--accent-primary)',
-                  color: '#ffffff',
+                  color: 'var(--text-on-accent)',
                   fontWeight: 600,
                   cursor: 'pointer'
                 }}

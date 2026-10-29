@@ -218,7 +218,7 @@ WHERE o.order_id IS NULL;`;
                 padding: '10px 14px',
                 borderRadius: 'var(--radius-md)',
                 background: joinType === btn.id ? 'var(--accent-primary)' : 'var(--bg-card)',
-                color: joinType === btn.id ? '#ffffff' : 'var(--text-main)',
+                color: joinType === btn.id ? 'var(--text-on-accent)' : 'var(--text-main)',
                 border: joinType === btn.id ? '2px solid var(--accent-primary)' : '1px solid var(--border-color)',
                 fontWeight: '700',
                 fontSize: '0.88rem',

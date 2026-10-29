@@ -169,8 +169,8 @@ export default function SystemdServiceLab() {
               style={{
                 padding: '10px',
                 borderRadius: '8px',
-                background: '#0284c7',
-                color: '#fff',
+                background: 'var(--accent-cyan)',
+                color: 'var(--text-on-accent)',
                 fontWeight: 'bold',
                 fontSize: '0.85rem',
                 border: 'none',

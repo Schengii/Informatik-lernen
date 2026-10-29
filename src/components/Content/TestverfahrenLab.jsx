@@ -177,8 +177,8 @@ export default function TestverfahrenLab({ onRewardXP }) {
                   cursor: 'pointer',
                   fontWeight: 600,
                   fontSize: '0.9rem',
-                  background: isActive ? '#6366f1' : 'rgba(255, 255, 255, 0.05)',
-                  color: isActive ? '#fff' : 'var(--text-muted, #94a3b8)',
+                  background: isActive ? 'var(--accent-primary)' : 'rgba(255, 255, 255, 0.05)',
+                  color: isActive ? 'var(--text-on-accent)' : 'var(--text-muted, #94a3b8)',
                   transition: 'all 0.2s ease'
                 }}
               >
@@ -211,8 +211,8 @@ export default function TestverfahrenLab({ onRewardXP }) {
                       padding: '0.4rem 0.8rem',
                       borderRadius: '0.4rem',
                       border: '1px solid var(--border-color, #334155)',
-                      background: selectedPreset === key ? '#6366f1' : 'rgba(255, 255, 255, 0.05)',
-                      color: selectedPreset === key ? '#fff' : 'inherit',
+                      background: selectedPreset === key ? 'var(--accent-primary)' : 'rgba(255, 255, 255, 0.05)',
+                      color: selectedPreset === key ? 'var(--text-on-accent)' : 'inherit',
                       cursor: 'pointer',
                       fontSize: '0.85rem',
                       fontWeight: 500
@@ -354,8 +354,8 @@ export default function TestverfahrenLab({ onRewardXP }) {
                         fontWeight: 700,
                         padding: '0.15rem 0.4rem',
                         borderRadius: '0.3rem',
-                        background: gw.status === 'GÜLTIG' ? '#10b981' : '#ef4444',
-                        color: '#fff'
+                        background: gw.status === 'GÜLTIG' ? 'var(--accent-emerald)' : 'var(--accent-rose)',
+                        color: 'var(--text-on-accent)'
                       }}>
                         {gw.status}
                       </span>
@@ -453,8 +453,8 @@ export default function TestverfahrenLab({ onRewardXP }) {
                 fontWeight: 700,
                 padding: '0.2rem 0.6rem',
                 borderRadius: '0.3rem',
-                background: mccabeRes.risikoKlasse === 'NIEDRIG' ? '#10b981' : mccabeRes.risikoKlasse === 'MITTEL' ? '#f59e0b' : '#ef4444',
-                color: '#fff'
+                background: mccabeRes.risikoKlasse === 'NIEDRIG' ? 'var(--accent-emerald)' : mccabeRes.risikoKlasse === 'MITTEL' ? 'var(--accent-amber)' : 'var(--accent-rose)',
+                color: 'var(--text-on-accent)'
               }}>
                 Risiko: {mccabeRes.risikoKlasse}
               </div>

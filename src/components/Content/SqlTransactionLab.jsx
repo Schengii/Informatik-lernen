@@ -116,7 +116,7 @@ export default function SqlTransactionLab() {
         <div style={{ background: 'var(--bg-tertiary)', borderRadius: '12px', border: '1px solid rgba(99, 102, 241, 0.3)', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
           <div style={{ padding: '12px 16px', background: 'rgba(99, 102, 241, 0.15)', borderBottom: '1px solid rgba(99, 102, 241, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <span style={{ fontWeight: 'bold', color: 'var(--accent-primary)', fontSize: '0.9rem' }}>💻 Client-Session A (Transaction #101)</span>
-            <span style={{ fontSize: '0.75rem', background: '#4f46e5', color: '#fff', padding: '2px 8px', borderRadius: '4px' }}>PID: 4892</span>
+            <span style={{ fontSize: '0.75rem', background: 'var(--accent-primary)', color: 'var(--text-on-accent)', padding: '2px 8px', borderRadius: '4px' }}>PID: 4892</span>
           </div>
 
           <div style={{ padding: '16px', flex: 1, fontFamily: 'Fira Code, monospace', fontSize: '0.88rem', display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -156,7 +156,7 @@ export default function SqlTransactionLab() {
         <div style={{ background: 'var(--bg-tertiary)', borderRadius: '12px', border: '1px solid rgba(236, 72, 153, 0.3)', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
           <div style={{ padding: '12px 16px', background: 'rgba(236, 72, 153, 0.15)', borderBottom: '1px solid rgba(236, 72, 153, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <span style={{ fontWeight: 'bold', color: 'var(--accent-rose)', fontSize: '0.9rem' }}>🌐 Client-Session B (Transaction #102)</span>
-            <span style={{ fontSize: '0.75rem', background: '#db2777', color: '#fff', padding: '2px 8px', borderRadius: '4px' }}>PID: 4910</span>
+            <span style={{ fontSize: '0.75rem', background: 'var(--accent-rose)', color: 'var(--text-on-accent)', padding: '2px 8px', borderRadius: '4px' }}>PID: 4910</span>
           </div>
 
           <div style={{ padding: '16px', flex: 1, fontFamily: 'Fira Code, monospace', fontSize: '0.88rem', display: 'flex', flexDirection: 'column', gap: '10px' }}>

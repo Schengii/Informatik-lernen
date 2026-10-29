@@ -46,7 +46,7 @@ export default function LanguageAcademy() {
               fontWeight: '700',
               fontSize: '0.92rem',
               background: selectedLangId === lang.id ? 'var(--accent-primary)' : 'var(--bg-card)',
-              color: selectedLangId === lang.id ? '#ffffff' : 'var(--text-main)',
+              color: selectedLangId === lang.id ? 'var(--text-on-accent)' : 'var(--text-main)',
               border: selectedLangId === lang.id ? '2px solid var(--accent-primary)' : '1px solid var(--border-color)',
               cursor: 'pointer',
               whiteSpace: 'nowrap',

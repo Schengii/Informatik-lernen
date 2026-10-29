@@ -65,7 +65,7 @@ export default function JwksRotationLab() {
         <div style={{ background: 'var(--bg-tertiary)', borderRadius: '12px', border: '1px solid rgba(168, 85, 247, 0.3)', overflow: 'hidden' }}>
           <div style={{ padding: '12px 16px', background: 'rgba(168, 85, 247, 0.15)', borderBottom: '1px solid rgba(168, 85, 247, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <span style={{ color: 'var(--accent-purple)', fontWeight: 'bold', fontSize: '0.88rem' }}>GET /.well-known/jwks.json</span>
-            <span style={{ fontSize: '0.75rem', background: '#9333ea', color: '#fff', padding: '2px 8px', borderRadius: '4px' }}>PUBLIC KEYS</span>
+            <span style={{ fontSize: '0.75rem', background: 'var(--accent-purple)', color: 'var(--text-on-accent)', padding: '2px 8px', borderRadius: '4px' }}>PUBLIC KEYS</span>
           </div>
 
           <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -97,7 +97,7 @@ export default function JwksRotationLab() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 'bold', color: 'var(--text-main)', fontSize: '0.95rem' }}>
                 <Lock size={17} color="#fbbf24" /> Bearer JWT Payload & Signature Check
               </div>
-              <span style={{ fontSize: '0.75rem', background: '#22c55e', color: '#fff', padding: '2px 8px', borderRadius: '4px', fontWeight: 'bold' }}>
+              <span style={{ fontSize: '0.75rem', background: 'var(--accent-emerald)', color: 'var(--text-on-accent)', padding: '2px 8px', borderRadius: '4px', fontWeight: 'bold' }}>
                 RS256 SIGNED
               </span>
             </div>

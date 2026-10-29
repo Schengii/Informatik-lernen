@@ -445,7 +445,7 @@ export default function App() {
                         fontWeight: '700',
                         fontSize: '0.92rem',
                         background: activeGameId === g.id ? 'var(--accent-primary)' : 'var(--bg-card)',
-                        color: activeGameId === g.id ? '#ffffff' : 'var(--text-main)',
+                        color: activeGameId === g.id ? 'var(--text-on-accent)' : 'var(--text-main)',
                         border: activeGameId === g.id ? '2px solid var(--accent-primary)' : '2px solid var(--border-color)',
                         cursor: 'pointer',
                         whiteSpace: 'nowrap'
