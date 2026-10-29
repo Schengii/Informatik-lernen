@@ -115,7 +115,7 @@ Ein Lab besteht aus vier zusammenhängenden Stellen (sonst ist es nicht erreichb
 1. `src/utils/<name>Engine.js` + `<name>Engine.test.js` – reine Logik.
 2. `src/components/Content/<Name>Lab.jsx` – UI; XP über Prop (`onXPGain` / `onRewardXP`), in `App.jsx` an `awardXP(xp, badgeId)` gebunden.
 3. Ein Eintrag in `src/data/labRegistry.js` (`tabs`, `load`, optional `xp`) – kein Eingriff in `App.jsx` nötig. In `activeLabElement` (`App.jsx`) stehen nur noch die wenigen Tabs, die App-Zustand brauchen (Navigation, `userState`, Fehlerjournal). Jede Tab-ID darf nur einmal vorkommen – `buildRegistryIndex` wirft sonst, `App.routing.test.jsx` rendert jede Registry-Tab-ID.
-4. `src/data/labModulesData.js` – Eintrag in `LAB_MODULES` (`id` = Tab-ID; Quelle für `LabsDashboard` und `CommandPaletteModal`). Neue Einträge stehen am Listenanfang.
+4. `src/data/labModules/<thema>Modules.js` – Eintrag in der Themendatei, die die Kategorie führt (`ihk`/`wiso` → `ihkModules`, `network` → `networkModules`, `security` → `securityModules`, `cloud`/`devops`/`hardware`/`linux` → `cloudDevopsModules`, sonst `softwareDataModules`); `src/data/labModulesData.js` setzt daraus `LAB_MODULES` zusammen (`id` = Tab-ID; Quelle für `LabsDashboard` und `CommandPaletteModal`). Neue Einträge stehen am Listenanfang.
 
 Abkürzung: `npm run new-lab -- <PascalName> "<Titel>" [category] [difficulty]` (`scripts/new-lab.js`) legt Engine, Test, Komponente und die Einträge aus 3. und 4. an. `docs/LABS.md` wird mit `npm run docs:labs` aus `LAB_MODULES` erzeugt (die README enthält keine Lab-Liste mehr).
 

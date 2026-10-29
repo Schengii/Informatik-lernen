@@ -1,12 +1,13 @@
 // Scaffold für ein neues Lab (siehe CLAUDE.md, "Checkliste: Neues Lab anlegen").
 // Legt Engine + Test + Lab-Komponente an und trägt das Lab am Listenanfang in
-// src/data/labRegistry.js und src/data/labModulesData.js ein.
+// src/data/labRegistry.js und in der passenden Themendatei unter
+// src/data/labModules/ ein (die Datei, die die Kategorie bereits führt).
 //
 // Aufruf: npm run new-lab -- <PascalName> "<Titel>" [category] [difficulty]
 //   z. B.: npm run new-lab -- RaidLevel "RAID-Level Studio" hardware Intermediate
 //
 // Mit --dry-run wird nur ausgegeben, was geschrieben würde.
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 const root = new URL('../', import.meta.url);
@@ -31,12 +32,25 @@ const snake = name.replace(/([a-z0-9])([A-Z])/g, '$1_$2').toLowerCase();
 const tabId = `${snake}_lab`;
 const badge = `${snake}_master`;
 
+// Themendateien der Lab-Metadaten (LAB_MODULES setzt sich daraus zusammen,
+// siehe src/data/labModulesData.js). Ziel ist die Datei, die die Kategorie
+// am häufigsten führt; unbekannte Kategorien landen in softwareDataModules.
+const MODULES_DIR = 'src/data/labModules/';
+const FALLBACK_MODULES = 'softwareDataModules.js';
+const topicFiles = readdirSync(p(MODULES_DIR)).filter((f) => f.endsWith('.js'));
+const topicSources = Object.fromEntries(topicFiles.map((f) => [f, readFileSync(p(MODULES_DIR + f), 'utf-8')]));
+const countCategory = (src) => (src.match(new RegExp(`category: '${category}'`, 'g')) || []).length;
+const targetModules = topicFiles
+  .map((f) => [f, countCategory(topicSources[f])])
+  .filter(([, n]) => n > 0)
+  .sort((a, b) => b[1] - a[1])[0]?.[0] || FALLBACK_MODULES;
+
 const files = {
   engine: p(`src/utils/${camel}Engine.js`),
   test: p(`src/utils/${camel}Engine.test.js`),
   lab: p(`src/components/Content/${name}Lab.jsx`),
   registry: p('src/data/labRegistry.js'),
-  modules: p('src/data/labModulesData.js')
+  modules: p(MODULES_DIR + targetModules)
 };
 
 for (const key of ['engine', 'test', 'lab']) {
@@ -44,8 +58,8 @@ for (const key of ['engine', 'test', 'lab']) {
 }
 
 const registrySrc = readFileSync(files.registry, 'utf-8');
-const modulesSrc = readFileSync(files.modules, 'utf-8');
-if (registrySrc.includes(`'${tabId}'`) || modulesSrc.includes(`id: '${tabId}'`)) {
+const modulesSrc = topicSources[targetModules];
+if (registrySrc.includes(`'${tabId}'`) || Object.values(topicSources).some((src) => src.includes(`id: '${tabId}'`))) {
   fail(`Tab-ID ${tabId} ist bereits vergeben.`);
 }
 
@@ -123,19 +137,24 @@ const moduleEntry = `  {
 `;
 
 const registryMarker = 'export const LAB_REGISTRY = [\n';
-const modulesMarker = 'export const LAB_MODULES = [\n';
+const modulesExport = targetModules.replace(/\.js$/, '');
+const modulesMarker = `export const ${modulesExport} = [\n`;
 if (!registrySrc.includes(registryMarker)) fail('Einfügemarke in labRegistry.js nicht gefunden.');
-if (!modulesSrc.includes(modulesMarker)) fail('Einfügemarke in labModulesData.js nicht gefunden.');
+if (!modulesSrc.includes(modulesMarker)) fail(`Einfügemarke "${modulesMarker.trim()}" in ${targetModules} nicht gefunden.`);
 
 const newRegistry = registrySrc.replace(registryMarker, registryMarker + registryEntry);
 let newModules = modulesSrc.replace(modulesMarker, modulesMarker + moduleEntry);
-if (!newModules.includes("from 'lucide-react'")) {
+// Zap als Platzhalter-Icon importieren, falls die Themendatei es noch nicht tut
+const lucideImport = newModules.match(/import \{([^}]*)\} from 'lucide-react';/);
+if (!lucideImport) {
   newModules = "import { Zap } from 'lucide-react';\n" + newModules;
+} else if (!/\bZap\b/.test(lucideImport[1])) {
+  newModules = newModules.replace(lucideImport[0], `import {${lucideImport[1].trimEnd()}, Zap } from 'lucide-react';`);
 }
 
 if (dryRun) {
   console.log(`[dry-run] würde schreiben:\n  ${files.engine}\n  ${files.test}\n  ${files.lab}`);
-  console.log(`[dry-run] Registry-Eintrag für Tab "${tabId}", Modul-Eintrag in Kategorie "${category}".`);
+  console.log(`[dry-run] Registry-Eintrag für Tab "${tabId}", Modul-Eintrag in Kategorie "${category}" → ${MODULES_DIR}${targetModules}.`);
   process.exit(0);
 }
 
@@ -146,5 +165,5 @@ writeFileSync(files.registry, newRegistry);
 writeFileSync(files.modules, newModules);
 
 console.log(`Lab "${title}" angelegt (Tab-ID: ${tabId}).`);
-console.log('Noch zu tun: Engine/UI ausarbeiten, desc/tags/Icon in labModulesData.js anpassen,');
+console.log(`Noch zu tun: Engine/UI ausarbeiten, desc/tags/Icon in ${MODULES_DIR}${targetModules} anpassen,`);
 console.log('README.md, CHANGELOG.md und _Projektuebersicht.md aktualisieren.');
