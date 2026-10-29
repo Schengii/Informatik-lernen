@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Radio, ArrowRight, RotateCcw, CheckCircle2, Video, Send, Zap } from 'lucide-react';
 import { WEBRTC_SIGNALING_STEPS } from '../../data/advancedLabsData';
 import { useStore } from '../../store/useStore';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function WebRtcSignalingLab() {
   const { awardXP } = useStore();
@@ -66,7 +67,7 @@ export default function WebRtcSignalingLab() {
             const isPassed = idx < currentStepIdx;
 
             return (
-              <div
+              <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setCurrentStepIdx(idx))}
                 key={s.step}
                 onClick={() => setCurrentStepIdx(idx)}
                 style={{

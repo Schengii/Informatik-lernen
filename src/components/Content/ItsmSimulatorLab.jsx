@@ -3,6 +3,7 @@ import React, { useState, useMemo } from 'react';
 import { Headphones, AlertCircle, ShieldCheck, Sparkles, Check } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { ITSM_INITIAL_TICKETS, evaluateCabRiskScore } from '../../utils/itsmEngine';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function ItsmSimulatorLab() {
   const { awardXP } = useStore();
@@ -70,7 +71,7 @@ export default function ItsmSimulatorLab() {
               const isResolved = ticket.status === 'Resolved / Closed';
 
               return (
-                <div
+                <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setSelectedTicketId(ticket.id))}
                   key={ticket.id}
                   onClick={() => setSelectedTicketId(ticket.id)}
                   style={{

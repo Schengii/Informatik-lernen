@@ -5,6 +5,7 @@ import NavDesktopMenu from './NavDesktopMenu';
 import NavToolsMenu from './NavToolsMenu';
 import NavProfileMenu from './NavProfileMenu';
 import NavMobileDrawer from './NavMobileDrawer';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function Navbar({
   userState,
@@ -95,7 +96,7 @@ export default function Navbar({
         }}
       >
         {/* 1. Left: Brand Logo */}
-        <div
+        <div onKeyDown={onActivationKey(() => navigateTo('dashboard'))}
           style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', flexShrink: 0 }}
           onClick={() => navigateTo('dashboard')}
           role="button"

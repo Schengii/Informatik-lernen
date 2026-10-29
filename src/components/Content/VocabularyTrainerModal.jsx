@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { useDialogA11y } from '../Shared/useDialogA11y';
 import { VOCABULARY_LIST } from '../../data/vocabularyData';
 import { BookMarked, Search, Volume2, X } from 'lucide-react';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function VocabularyTrainerModal({ isOpen, onClose }) {
   const dialogRef = useRef(null);
@@ -27,6 +28,7 @@ export default function VocabularyTrainerModal({ isOpen, onClose }) {
   };
 
   return (
+    // oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- Backdrop schließt nur per Maus; Tastatur: Escape und Schließen-Button
     <div
       style={{
         position: 'fixed',
@@ -111,7 +113,7 @@ export default function VocabularyTrainerModal({ isOpen, onClose }) {
         <div style={{ display: 'grid', gridTemplateColumns: 'minmax(240px, 1fr) 2fr', gap: '20px', flex: 1, overflow: 'hidden' }}>
           <div style={{ overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {filteredVocab.map((v) => (
-              <div
+              <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setActiveVocabId(v.id))}
                 key={v.id}
                 onClick={() => setActiveVocabId(v.id)}
                 style={{

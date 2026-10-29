@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Cloud, ArrowRight, RotateCcw, CheckCircle2, Layers } from 'lucide-react';
 import { K8S_CNI_PACKET_STEPS } from '../../data/enterpriseLabsData';
 import { useStore } from '../../store/useStore';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function K8sCniOverlayLab() {
   const { awardXP } = useStore();
@@ -55,7 +56,7 @@ export default function K8sCniOverlayLab() {
             const isPassed = idx < currentStepIdx;
 
             return (
-              <div
+              <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setCurrentStepIdx(idx))}
                 key={s.step}
                 onClick={() => setCurrentStepIdx(idx)}
                 style={{

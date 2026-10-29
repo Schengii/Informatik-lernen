@@ -3,6 +3,7 @@ import React, { useState, useMemo } from 'react';
 import { Network, Filter, Layers, Terminal, Sparkles, Cpu } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { SAMPLE_PACKETS, formatHexDump, evaluatePacketFilter } from '../../utils/packetSnifferEngine';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function PacketSnifferLab() {
   const { awardXP } = useStore();
@@ -156,7 +157,7 @@ export default function PacketSnifferLab() {
           <div className="space-y-3" style={{ fontSize: '0.88rem' }}>
             {/* Ethernet Layer */}
             {selectedPacket?.layers.ethernet && (
-              <div
+              <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => handleSelectLayerField(selectedPacket.layers.ethernet.byteRange))}
                 onClick={() => handleSelectLayerField(selectedPacket.layers.ethernet.byteRange)}
                 style={{
                   background: 'var(--bg-secondary)',
@@ -179,7 +180,7 @@ export default function PacketSnifferLab() {
 
             {/* IP Layer */}
             {selectedPacket?.layers.ip && (
-              <div
+              <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => handleSelectLayerField(selectedPacket.layers.ip.byteRange))}
                 onClick={() => handleSelectLayerField(selectedPacket.layers.ip.byteRange)}
                 style={{
                   background: 'var(--bg-secondary)',
@@ -203,7 +204,7 @@ export default function PacketSnifferLab() {
 
             {/* Transport Layer (TCP/UDP) */}
             {selectedPacket?.layers.tcp && (
-              <div
+              <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => handleSelectLayerField(selectedPacket.layers.tcp.byteRange))}
                 onClick={() => handleSelectLayerField(selectedPacket.layers.tcp.byteRange)}
                 style={{
                   background: 'var(--bg-secondary)',
@@ -227,7 +228,7 @@ export default function PacketSnifferLab() {
 
             {/* Application / Payload */}
             {selectedPacket?.layers.payload && selectedPacket.layers.payload.data && (
-              <div
+              <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => handleSelectLayerField(selectedPacket.layers.payload.byteRange))}
                 onClick={() => handleSelectLayerField(selectedPacket.layers.payload.byteRange)}
                 style={{
                   background: 'var(--bg-secondary)',

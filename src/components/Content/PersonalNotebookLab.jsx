@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { BookOpen, Plus, Trash2, Tag, Search, Download, Sparkles, Edit3, Eye, Database } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { saveItem, deleteItem } from '../../utils/indexedDbStorage';
+import { onActivationKey } from '../Shared/keyActivation';
 
 const STORAGE_KEY = 'it_devgame_personal_notes';
 
@@ -211,7 +212,7 @@ export default function PersonalNotebookLab() {
             {filteredNotes.map(n => {
               const isSelected = selectedNoteId === n.id;
               return (
-                <div
+                <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setSelectedNoteId(n.id))}
                   key={n.id}
                   onClick={() => setSelectedNoteId(n.id)}
                   style={{

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Award, FileText, Sun, Moon, Sliders } from 'lucide-react';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function NavProfileMenu({
   userState,
@@ -58,7 +59,7 @@ export default function NavProfileMenu({
       </div>
 
       {/* Badges & Stats Action */}
-      <div
+      <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => { onOpenBadgesModal(); onClose(); })}
         onClick={() => { onOpenBadgesModal(); onClose(); }}
         style={{ padding: '10px 12px', borderRadius: '8px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.88rem', color: 'var(--text-main)', fontWeight: 600 }}
         onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-tertiary)'}
@@ -72,7 +73,7 @@ export default function NavProfileMenu({
         </span>
       </div>
 
-      <div
+      <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => { onOpenCertificateModal(); onClose(); })}
         onClick={() => { onOpenCertificateModal(); onClose(); }}
         style={{ padding: '10px 12px', borderRadius: '8px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.88rem', color: 'var(--text-main)', fontWeight: 600 }}
         onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-tertiary)'}

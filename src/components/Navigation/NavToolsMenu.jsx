@@ -1,5 +1,6 @@
 import React from 'react';
 import { Layers, BookOpen, BookMarked, Rocket, Volume2, ShieldCheck } from 'lucide-react';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function NavToolsMenu({
   onOpenFlashcardsModal,
@@ -29,7 +30,7 @@ export default function NavToolsMenu({
         gap: '4px'
       }}
     >
-      <div
+      <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => { onOpenFlashcardsModal(); onClose(); })}
         onClick={() => { onOpenFlashcardsModal(); onClose(); }}
         style={{ padding: '10px 12px', borderRadius: '8px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.9rem', color: 'var(--text-main)', fontWeight: 600 }}
         onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-tertiary)'}
@@ -38,7 +39,7 @@ export default function NavToolsMenu({
         <Layers size={17} color="var(--accent-purple)" /> IT-Karteikarten (SM-2)
       </div>
 
-      <div
+      <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => { onOpenGlossaryModal(); onClose(); })}
         onClick={() => { onOpenGlossaryModal(); onClose(); }}
         style={{ padding: '10px 12px', borderRadius: '8px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.9rem', color: 'var(--text-main)', fontWeight: 600 }}
         onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-tertiary)'}
@@ -47,7 +48,7 @@ export default function NavToolsMenu({
         <BookOpen size={17} color="var(--accent-primary)" /> IT-Lexikon (200+ Begriffe)
       </div>
 
-      <div
+      <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => { onOpenVocabularyModal(); onClose(); })}
         onClick={() => { onOpenVocabularyModal(); onClose(); }}
         style={{ padding: '10px 12px', borderRadius: '8px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.9rem', color: 'var(--text-main)', fontWeight: 600 }}
         onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-tertiary)'}
@@ -56,7 +57,7 @@ export default function NavToolsMenu({
         <BookMarked size={17} color="var(--accent-teal)" /> Fachwort-Vokabeltrainer
       </div>
 
-      <div
+      <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => { onOpenDeploymentModal(); onClose(); })}
         onClick={() => { onOpenDeploymentModal(); onClose(); }}
         style={{ padding: '10px 12px', borderRadius: '8px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.9rem', color: 'var(--text-main)', fontWeight: 600 }}
         onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-tertiary)'}
@@ -65,7 +66,7 @@ export default function NavToolsMenu({
         <Rocket size={17} color="var(--accent-amber)" /> Live Deployment Guide
       </div>
 
-      <div
+      <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => { onOpenAudioModal(); onClose(); })}
         onClick={() => { onOpenAudioModal(); onClose(); }}
         style={{ padding: '10px 12px', borderRadius: '8px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.9rem', color: 'var(--text-main)', fontWeight: 600 }}
         onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-tertiary)'}
@@ -76,7 +77,7 @@ export default function NavToolsMenu({
 
       <div style={{ height: '1px', background: 'var(--border-color)', margin: '4px 0' }} />
 
-      <div
+      <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => { onOpenBackupModal(); onClose(); })}
         onClick={() => { onOpenBackupModal(); onClose(); }}
         style={{ padding: '10px 12px', borderRadius: '8px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.88rem', color: 'var(--text-muted)', fontWeight: 600 }}
         onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-tertiary)'}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IHK_LERNFELDER } from '../../data/lernfelderData';
 import { GraduationCap, CheckCircle2 } from 'lucide-react';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function FisiLernfelderHub() {
   const [selectedYear, setSelectedYear] = useState('all');
@@ -61,7 +62,7 @@ export default function FisiLernfelderHub() {
         {/* Left Column: List of Lernfelder */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {filteredLernfelder.map(lf => (
-            <div
+            <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setActiveLfId(lf.id))}
               key={lf.id}
               onClick={() => setActiveLfId(lf.id)}
               style={{

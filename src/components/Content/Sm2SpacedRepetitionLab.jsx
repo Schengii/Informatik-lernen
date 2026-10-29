@@ -5,6 +5,7 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianG
 import { useStore } from '../../store/useStore';
 import { calculateSm2NextReview, calculateEbbinghausCurve } from '../../utils/sm2Algorithm';
 import { scheduleDailyReminder } from '../../utils/pushNotificationManager';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export const SM2_SAMPLE_CARDS = [
   {
@@ -138,7 +139,7 @@ export default function Sm2SpacedRepetitionLab() {
           </div>
 
           {/* Interactive Card */}
-          <div
+          <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setIsFlipped(!isFlipped))}
             onClick={() => setIsFlipped(!isFlipped)}
             style={{
               minHeight: '220px',

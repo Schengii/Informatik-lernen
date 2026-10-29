@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { ShieldCheck, Key, ArrowRight, RotateCcw, CheckCircle2, Zap } from 'lucide-react';
 import { RSA_CRYPTO_STEPS } from '../../data/expertLabsData';
 import { useStore } from '../../store/useStore';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function CryptoKeygenLab() {
   const { awardXP } = useStore();
@@ -54,7 +55,7 @@ export default function CryptoKeygenLab() {
             const isActive = idx === currentStepIdx;
             const isPassed = idx < currentStepIdx;
             return (
-              <div
+              <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setCurrentStepIdx(idx))}
                 key={s.step}
                 onClick={() => setCurrentStepIdx(idx)}
                 style={{

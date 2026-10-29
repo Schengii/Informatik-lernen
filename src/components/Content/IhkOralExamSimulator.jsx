@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ORAL_EXAM_DATA } from '../../data/oralExamData';
 import { GraduationCap, Timer, CheckCircle2, ChevronRight, RotateCcw, Sparkles, Mic, MicOff } from 'lucide-react';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function IhkOralExamSimulator({ onRewardXP }) {
   const [selectedRole, setSelectedRole] = useState('ae'); // 'ae' | 'fisi'
@@ -238,7 +239,7 @@ export default function IhkOralExamSimulator({ onRewardXP }) {
             </h4>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>
               {roleData.projects.map(p => (
-                <div
+                <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setSelectedProject(p))}
                   key={p.id}
                   onClick={() => setSelectedProject(p)}
                   style={{
@@ -280,7 +281,7 @@ export default function IhkOralExamSimulator({ onRewardXP }) {
 
           <div style={{ display: 'grid', gap: '12px', marginBottom: '24px' }}>
             {checklist.map(item => (
-              <div
+              <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => toggleChecklist(item.id))}
                 key={item.id}
                 onClick={() => toggleChecklist(item.id)}
                 style={{

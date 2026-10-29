@@ -9,6 +9,7 @@ import {
 } from '../../utils/ihkDpiaEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function IhkDpiaLab({ onRewardXP }) {
   const { awardXP } = useStore();
@@ -169,7 +170,7 @@ export default function IhkDpiaLab({ onRewardXP }) {
               {DPIA_CRITERIA.map(crit => {
                 const isSelected = selectedCriteria.includes(crit.id);
                 return (
-                  <div
+                  <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => toggleCriterion(crit.id))}
                     key={crit.id}
                     onClick={() => toggleCriterion(crit.id)}
                     style={{

@@ -52,6 +52,7 @@ import { USER_ROLES } from './data/userProfiles';
 import { TOPICS } from './data/topicsData';
 
 import { BookOpen, Sparkles, ArrowRight, CheckCircle, Sprout, Compass } from 'lucide-react';
+import { onActivationKey } from './components/Shared/keyActivation';
 
 // Tabs, die nicht über die `activeLabElement`-Tabelle laufen, sondern als
 // eigene JSX-Blöcke weiter unten gerendert werden. Alles, was weder hier noch
@@ -391,7 +392,7 @@ export default function App() {
                       {filteredTopics.map((topic) => {
                         const isDone = userState.completedTopics.includes(topic.id);
                         return (
-                          <div
+                          <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setSelectedTopicId(topic.id))}
                             key={topic.id}
                             className="glass-panel glass-panel-hover"
                             onClick={() => setSelectedTopicId(topic.id)}

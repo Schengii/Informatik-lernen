@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TUTORIAL_VIDEOS } from '../../data/videosData';
 import { Video, Play, Clock, CheckCircle2, ListFilter, GraduationCap } from 'lucide-react';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function VideoHub({ onCompleteVideo }) {
   const [activeVideoId, setActiveVideoId] = useState(TUTORIAL_VIDEOS[0].id);
@@ -131,7 +132,7 @@ export default function VideoHub({ onCompleteVideo }) {
             const isWatched = completedVideos.includes(video.id);
 
             return (
-              <div
+              <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setActiveVideoId(video.id))}
                 key={video.id}
                 onClick={() => setActiveVideoId(video.id)}
                 className="glass-panel-hover"

@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { useDialogA11y } from '../Shared/useDialogA11y';
 import { GLOSSARY_TERMS } from '../../data/glossaryData';
 import { BookOpen, Search, X, Volume2, Pause } from 'lucide-react';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function GlossaryModal({ isOpen, onClose }) {
   const dialogRef = useRef(null);
@@ -48,6 +49,7 @@ export default function GlossaryModal({ isOpen, onClose }) {
   };
 
   return (
+    // oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- Backdrop schließt nur per Maus; Tastatur: Escape und Schließen-Button
     <div
       style={{
         position: 'fixed',
@@ -162,7 +164,7 @@ export default function GlossaryModal({ isOpen, onClose }) {
             {filteredTerms.map((t) => {
               const isSelected = activeTermId === t.id;
               return (
-                <div
+                <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setActiveTermId(t.id))}
                   key={t.id}
                   onClick={() => setActiveTermId(t.id)}
                   style={{

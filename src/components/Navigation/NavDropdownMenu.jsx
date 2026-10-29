@@ -1,4 +1,5 @@
 import React from 'react';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function NavDropdownMenu({ items, activeTab, onSelect, badgeBg = 'rgba(99, 102, 241, 0.15)', badgeColor = 'var(--accent-primary)' }) {
   return (
@@ -25,7 +26,7 @@ export default function NavDropdownMenu({ items, activeTab, onSelect, badgeBg = 
       {items.map((item) => {
         const isActive = activeTab === item.id;
         return (
-          <div
+          <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => onSelect(item.id))}
             key={item.id}
             onClick={() => onSelect(item.id)}
             style={{

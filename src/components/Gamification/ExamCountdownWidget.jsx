@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Calendar, Target, Clock, ChevronRight, Zap, Activity } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { calculateExamReadiness } from '../../utils/examReadinessEngine';
+import { onActivationKey } from '../Shared/keyActivation';
 
 const IHK_EXAM_PRESETS = [
   { id: 'ap1_spring', name: 'IHK AP1 Frühjahr (März)', month: 2, day: 15 },
@@ -229,7 +230,7 @@ export default function ExamCountdownWidget({ setActiveTab }) {
         </h3>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '12px' }}>
           {sprintRecommendations.map((rec) => (
-            <div
+            <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setActiveTab && setActiveTab(rec.tab))}
               key={rec.tab}
               className="glass-panel glass-panel-hover"
               onClick={() => setActiveTab && setActiveTab(rec.tab)}

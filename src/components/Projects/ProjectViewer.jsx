@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MICRO_PROJECTS } from '../../data/projectsData';
 import { FolderGit2, CheckCircle2, Code } from 'lucide-react';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function ProjectViewer({ onCompleteProject }) {
   const [activeProjId, setActiveProjId] = useState(MICRO_PROJECTS[0].id);
@@ -35,7 +36,7 @@ export default function ProjectViewer({ onCompleteProject }) {
             const isDone = completedProjects.includes(proj.id);
 
             return (
-              <div
+              <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setActiveProjId(proj.id))}
                 key={proj.id}
                 onClick={() => setActiveProjId(proj.id)}
                 className="glass-panel-hover"

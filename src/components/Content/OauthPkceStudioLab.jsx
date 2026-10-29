@@ -8,6 +8,7 @@ import {
   buildAuthorizationUrl,
   exchangeCodeForTokens
 } from '../../utils/oauthPkceEngine';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function OauthPkceStudioLab() {
   const { awardXP } = useStore();
@@ -151,7 +152,7 @@ export default function OauthPkceStudioLab() {
             { num: 3, title: '3. Token Exchange', desc: 'Code + Verifier -> JWT' },
             { num: 4, title: '4. Resource API', desc: 'Bearer Token Zugriff' }
           ].map((st) => (
-            <div 
+            <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => st.num <= step && setStep(st.num))} 
               key={st.num}
               onClick={() => st.num <= step && setStep(st.num)}
               style={{

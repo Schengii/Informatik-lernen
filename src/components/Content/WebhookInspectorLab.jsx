@@ -4,6 +4,7 @@ import { Radio, Send, Activity, Award, Globe } from 'lucide-react';
 import { WEBHOOK_PRESETS, simulateWebhookDispatch } from '../../utils/webhookSimulator';
 import { soundManager } from '../../utils/audioSystem';
 import { useStore } from '../../store/useStore';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function WebhookInspectorLab() {
   const { awardXP } = useStore();
@@ -192,7 +193,7 @@ export default function WebhookInspectorLab() {
             ) : (
               <div className="space-y-2 max-h-44 overflow-y-auto mb-4 pr-1">
                 {logs.map((req) => (
-                  <div
+                  <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setSelectedLog(req))}
                     key={req.id}
                     onClick={() => setSelectedLog(req)}
                     className={`p-3 rounded-xl border text-xs font-mono cursor-pointer transition flex items-center justify-between ${

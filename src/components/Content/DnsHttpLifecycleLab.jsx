@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Globe, ArrowRight, Play, CheckCircle2, Network, RotateCcw } from 'lucide-react';
 import { DNS_LIFECYCLE_STEPS } from '../../data/nextGenLabsData';
 import { useStore } from '../../store/useStore';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function DnsHttpLifecycleLab() {
   const { awardXP } = useStore();
@@ -83,7 +84,7 @@ export default function DnsHttpLifecycleLab() {
             const isActive = idx === currentStepIdx;
             const isPassed = idx < currentStepIdx;
             return (
-              <div
+              <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => !isSimulating && setCurrentStepIdx(idx))}
                 key={s.step}
                 onClick={() => !isSimulating && setCurrentStepIdx(idx)}
                 style={{

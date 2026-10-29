@@ -13,6 +13,7 @@ import {
   exportBsiReportMarkdown 
 } from '../../utils/bsiGrundschutzEngine';
 import { useStore } from '../../store/useStore';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function BsiGrundschutzLab() {
   const { awardXP } = useStore();
@@ -272,7 +273,7 @@ export default function BsiGrundschutzLab() {
                   const statusBg = m.status === 'yes' ? 'rgba(16, 185, 129, 0.1)' : m.status === 'partially' ? 'rgba(245, 158, 11, 0.1)' : 'rgba(239, 68, 68, 0.1)';
 
                   return (
-                    <div
+                    <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => handleToggleMeasureStatus(mod.id, m.id))}
                       key={m.id}
                       onClick={() => handleToggleMeasureStatus(mod.id, m.id)}
                       style={{

@@ -129,6 +129,7 @@ ${activeStepsYaml}
         <div style={{ display: 'flex', gap: '12px', overflowX: 'auto', paddingBottom: '12px', alignItems: 'center' }}>
           {stages.map((stage, idx) => (
             <React.Fragment key={stage.id}>
+              {/* oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- Karte ist Mausabkürzung; Tastatur über die Checkbox in der Karte */}
               <div
                 onClick={() => toggleStage(stage.id)}
                 style={{
@@ -149,7 +150,14 @@ ${activeStepsYaml}
                   ) : stage.status === 'running' ? (
                     <RefreshCw size={18} style={{ color: 'var(--accent-primary)', animation: 'spin 1s linear infinite' }} />
                   ) : (
-                    <input type="checkbox" checked={stage.enabled} onChange={() => {}} style={{ cursor: 'pointer' }} />
+                    <input
+                      type="checkbox"
+                      checked={stage.enabled}
+                      aria-label={`Stage ${stage.name} aktivieren`}
+                      onChange={() => toggleStage(stage.id)}
+                      onClick={(e) => e.stopPropagation()}
+                      style={{ cursor: 'pointer' }}
+                    />
                   )}
                 </div>
                 <div style={{ fontWeight: '700', fontSize: '0.92rem', color: 'var(--text-main)', marginBottom: '4px' }}>

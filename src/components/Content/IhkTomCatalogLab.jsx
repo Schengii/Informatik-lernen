@@ -150,6 +150,7 @@ export default function IhkTomCatalogLab({ onRewardXP }) {
       {/* TOM Measures List */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
         {filteredMeasures.map(measure => (
+          // oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- Karte ist Mausabkürzung; Tastatur über die Checkbox in der Karte
           <div
             key={measure.id}
             onClick={() => toggleMeasure(measure.id)}
@@ -187,7 +188,9 @@ export default function IhkTomCatalogLab({ onRewardXP }) {
               <input
                 type="checkbox"
                 checked={measure.isImplemented}
-                onChange={() => {}}
+                aria-label={`${measure.title} umgesetzt`}
+                onChange={() => toggleMeasure(measure.id)}
+                onClick={(e) => e.stopPropagation()}
                 style={{ width: '20px', height: '20px', cursor: 'pointer' }}
               />
             </div>
@@ -197,6 +200,7 @@ export default function IhkTomCatalogLab({ onRewardXP }) {
 
       {/* Export Modal */}
       {showExportModal && (
+        // oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- Backdrop schließt nur per Maus; Tastatur: Escape und Schließen-Button
         <div
           style={{
             position: 'fixed',
@@ -209,7 +213,9 @@ export default function IhkTomCatalogLab({ onRewardXP }) {
             padding: '20px'
           }}
           onClick={() => setShowExportModal(false)}
+          onKeyDown={(e) => e.key === 'Escape' && setShowExportModal(false)}
         >
+          {/* oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- nur Propagation-Stopp für den Backdrop, kein Bedienelement */}
           <div
             style={{
               background: 'var(--bg-card)',

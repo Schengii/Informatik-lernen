@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Database, Layers, ChevronRight } from 'lucide-react';
 import { POSTGRES_EXPLAIN_PLANS } from '../../data/advancedLabsData';
 import { useStore } from '../../store/useStore';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function PostgresExplainVisualizerLab() {
   const { awardXP } = useStore();
@@ -25,7 +26,7 @@ export default function PostgresExplainVisualizerLab() {
 
     return (
       <div key={node.nodeType} style={{ marginLeft: `${depth * 20}px`, marginTop: '8px' }}>
-        <div
+        <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => handleSelectNode(node))}
           onClick={() => handleSelectNode(node)}
           style={{
             padding: '10px 14px',

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Activity, Play } from 'lucide-react';
+import { onActivationKey } from '../Shared/keyActivation';
 
 const ALGORITHMS = [
   { id: 'o1', name: 'Constant Time - O(1)', type: 'O(1)', formula: (_n) => 1, color: '#10b981', desc: 'Array Index Access, Hash Map Lookup' },
@@ -131,7 +132,7 @@ export default function BigOBenchmarkLab({ onRewardXP }) {
         {ALGORITHMS.map(a => {
           const ops = a.formula(nSize);
           return (
-            <div
+            <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => setSelectedAlgoId(a.id))}
               key={a.id}
               onClick={() => setSelectedAlgoId(a.id)}
               style={{

@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { OAuthRevocationIntrospectionEngine } from '../../utils/oauthRevocationIntrospectionEngine';
 import { useStore } from '../../store/useStore';
+import { onActivationKey } from '../Shared/keyActivation';
 
 function getCurrentEpochSeconds() {
   return Math.floor(Date.now() / 1000);
@@ -154,7 +155,12 @@ export default function OauthRevocationIntrospectionLab() {
                 const isExpired = nowSec >= t.exp;
 
                 return (
-                <div 
+                <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => {
+                    setSelectedToken(t.token);
+                    handleIntrospect(t.token);
+                  })}
+                  aria-label={`Token ${t.token} auswählen und prüfen`}
+                  aria-pressed={isSelected}
                   key={t.token}
                   onClick={() => {
                     setSelectedToken(t.token);

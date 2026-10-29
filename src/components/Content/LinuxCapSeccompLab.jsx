@@ -9,6 +9,7 @@ import {
   executeSyscallSandbox 
 } from '../../utils/linuxCapSeccompEngine';
 import { useStore } from '../../store/useStore';
+import { onActivationKey } from '../Shared/keyActivation';
 
 export default function LinuxCapSeccompLab() {
   const { awardXP } = useStore();
@@ -134,7 +135,7 @@ export default function LinuxCapSeccompLab() {
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {Object.values(caps).map((c) => (
-              <div 
+              <div role="button" tabIndex={0} onKeyDown={onActivationKey(() => toggleCap(c.name))} 
                 key={c.name}
                 onClick={() => toggleCap(c.name)}
                 style={{

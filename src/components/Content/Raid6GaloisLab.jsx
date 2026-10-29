@@ -139,6 +139,7 @@ export default function Raid6GaloisLab() {
           {dataDisks.map((byteVal, i) => {
             const isFailed = failedDisks.includes(i);
             return (
+              // oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- Karte ist Mausabkürzung; Tastatur über den Button in der Karte
               <div 
                 key={i}
                 onClick={() => toggleDiskFailure(i)}
@@ -161,6 +162,7 @@ export default function Raid6GaloisLab() {
                 <div style={{ fontSize: '0.8rem', color: isFailed ? '#ef4444' : 'var(--text-muted)' }}>
                   {isFailed ? '💥 AUSGEFALLEN' : '🟢 ONLINE'}
                 </div>
+                {/* oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- nur Propagation-Stopp um das Eingabefeld, kein Bedienelement */}
                 <div style={{ marginTop: '12px' }} onClick={(e) => e.stopPropagation()}>
                   <label htmlFor={`raid6-galois-lab-1-${i}`} style={{ fontSize: '0.75rem', display: 'block', marginBottom: '4px', color: 'var(--text-muted)' }}>Byte Wert (0-255):</label>
                   <input id={`raid6-galois-lab-1-${i}`} 
@@ -185,6 +187,19 @@ export default function Raid6GaloisLab() {
                     0x{byteVal.toString(16).toUpperCase().padStart(2, '0')} ('{String.fromCharCode(byteVal)}')
                   </div>
                 </div>
+                {/* Tastaturweg zum Umschalten (die Karte selbst ist nur Mausabkürzung) */}
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  aria-pressed={isFailed}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleDiskFailure(i);
+                  }}
+                  style={{ marginTop: '10px', padding: '4px 10px', fontSize: '0.75rem' }}
+                >
+                  {isFailed ? `D_${i} wiederherstellen` : `D_${i} ausfallen lassen`}
+                </button>
               </div>
             );
           })}
