@@ -41,7 +41,7 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 - **Sandbox Test-Utilities (M11)**:
   - Vollständige JSDoc-Typisierung und dedizierte Test-Suite `src/utils/sandboxTestUtils.test.js` für `createInlineSandboxWorker`.
 - **Vitest Performance & Zuverlässigkeit (M03–M06)**:
-  - Aktivierung von `isolate: false` und Erhöhung von `testTimeout: 15000` in `vite.config.js`. Reduziert die Testlaufzeit von ~258 s auf 64 s (4x Beschleunigung) und eliminiert CPU-Throttling-Timeouts bei komplexen UI-Komponenten (`LabsDashboard.test.jsx`).
+  - Erhöhung von `testTimeout: 15000` in `vite.config.js` gegen Zeitüberschreitungen bei komplexen UI-Komponenten (`LabsDashboard.test.jsx`). Das zugleich aktivierte `isolate: false` wurde nachgemessen und wieder verworfen (P05: kein Zeitgewinn, sporadisch rote Tests; die genannten „64 s“ ließen sich nicht reproduzieren, gemessen 113–121 s).
   - Neue Unit-Test-Suite `src/utils/audioSystem.test.js` (6 Tests, 100 % Zeilenabdeckung) für Lautstärke-Clamping, Stummschaltung, Synthesizer-SFX und AudioContext-Lifecycle.
   - Neue Unit-Test-Suite `src/utils/sandboxEvaluator.test.js` (9 Tests) für Skript-Modus, Funktions-Kandidaten, Laufzeit- und Syntaxfehler, Log-Kappung und Worker-Scope-Lockdown (`BLOCKED_WORKER_GLOBALS`).
   - Neue Unit-Test-Suite `src/utils/errorMonitoring.test.js` (3 Tests) für fehlerresistente Exception-Weiterleitung und DSN-Prüfung.

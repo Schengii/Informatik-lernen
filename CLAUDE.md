@@ -133,7 +133,7 @@ Achtung: Beide Glob-Tests laden `Content/*.jsx` und schließen `*.test.jsx` aus 
 
 ## 🤝 Parallele KI-Leitfäden
 
-`GEMINI.md` und `.agents/AGENTS.md` enthalten für andere KI-Assistenten weitgehend dieselben Projektregeln. Ändern sich Befehle oder Prinzipien hier, die beiden Dateien mitpflegen. `PLAN.md` ist der laufende Umsetzungsplan, `.claudeignore` hält Build-Artefakte (`dist`, `coverage`, `node_modules`) aus dem Kontext.
+`GEMINI.md` und `.agents/AGENTS.md` sind nur Verweise für andere KI-Assistenten (Gemini/Antigravity bzw. Codex & Co.) auf diese Datei – die Regeln stehen ausschließlich hier und werden nicht dupliziert. `PLAN.md` ist der laufende Umsetzungsplan, `.claudeignore` hält Build-Artefakte (`dist`, `coverage`, `node_modules`) aus dem Kontext.
 
 ## 🔐 CSP & Preview
 
