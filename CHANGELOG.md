@@ -16,7 +16,10 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ### Darstellung (PLAN.md Phase 6)
 - **Lesbarer Light und Dark Mode (P15)**: `npm run audit:ui` meldet in beiden Themes keine Route mehr mit Text unter 3:1 (vorher hell 125, dunkel 157 Routen). Neue Variable `--text-on-accent` für Schrift auf Akzentflächen; `src/styles/tailwind-light.css` (`npm run gen:tailwind-light`) spiegelt im Light Mode die Tailwind-Palette der dunkel gestalteten Labs; fest codierte Inline-Farben in rund 150 Komponenten auf Theme-Variablen umgestellt (im Dark Mode farbgleich); Buttons ohne Hintergrundklasse erben nicht mehr das Browser-Grau.
-- **UI-Audit (P14)**: `audit:ui` nennt je Fundstelle Element und Hintergrundquelle und überspringt Verlaufsschrift.
+- **Handy-Breite (P16)**: Bei 375 px ragt in keinem Lab mehr Inhalt unerreichbar aus dem Bild (vorher 78 Routen, z. B. WebRTC-Studio +533 px, Backup-Lab +430 px). Raster mit Mindestspaltenbreite schrumpfen auf die verfügbare Breite, `.grid-responsive` ist auf dem Handy einspaltig, Tab- und Button-Leisten brechen um; neuer E2E-Test `e2e/mobile-layout.spec.js`.
+- **Abhängigkeiten**: undici 8.12.3, fast-uri 3.1.9, serialize-javascript 7.1.4 (10 Dependabot-Warnungen in Entwicklungsabhängigkeiten); `deepmerge` (niedrig, über workbox-build) hat noch keine korrigierte Version.
+- **Sicherheit**: Die Prepared-Statement-Anzeige im SQL-Injection-Lab maskiert Eingaben per `JSON.stringify` (CodeQL `js/incomplete-sanitization`).
+- **UI-Audit (P14)**: `audit:ui` nennt je Fundstelle Element und Hintergrundquelle bzw. die Ursache eines Überlaufs und überspringt Verlaufsschrift.
 
 ## [3.79.0] - 2026-10-29
 
