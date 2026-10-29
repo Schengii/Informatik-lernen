@@ -9,6 +9,11 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unveröffentlicht]
 
+### Lerninhalte (PLAN.md P17)
+- **Kafka-Lab neu (`/kafka`)**: Statt zweier statischer Code-Blöcke ein interaktives Modell (`kafkaEventEngine.js`): Schlüssel bestimmen die Partition, Consumer Groups teilen Partitionen (überzählige Consumer idle), Offsets und Lag je Gruppe, Repartitionierung, Vergleich mit Message Queues, 4 Aufgaben mit 50 XP (Abzeichen `kafka_event_master`), 6 Drillfragen im Fehlerjournal, Quellenliste.
+- **WebAssembly-Lab neu (`/wasm_rust_studio`)**: Echtes Wasm-Modul aus `wasmBinaryEngine.js` mit Binär-Inspektor (Präambel, Sektionen, LEB128, Exporte), Ausführung von `add`/`mul` im Browser samt i32-Überlauf, `memory.grow()`, 5 Aufgaben mit 50 XP, 6 Drillfragen, Quellenliste. Der Rust-Beispielcode war fehlerhaft (`export fn`) und nutzt jetzt `#[no_mangle] pub extern "C" fn`.
+- **`Shared/SourceList.jsx`**: Quellenangaben für Labs.
+
 ### Darstellung (PLAN.md Phase 6)
 - **Lesbarer Light und Dark Mode (P15)**: `npm run audit:ui` meldet in beiden Themes keine Route mehr mit Text unter 3:1 (vorher hell 125, dunkel 157 Routen). Neue Variable `--text-on-accent` für Schrift auf Akzentflächen; `src/styles/tailwind-light.css` (`npm run gen:tailwind-light`) spiegelt im Light Mode die Tailwind-Palette der dunkel gestalteten Labs; fest codierte Inline-Farben in rund 150 Komponenten auf Theme-Variablen umgestellt (im Dark Mode farbgleich); Buttons ohne Hintergrundklasse erben nicht mehr das Browser-Grau.
 - **UI-Audit (P14)**: `audit:ui` nennt je Fundstelle Element und Hintergrundquelle und überspringt Verlaufsschrift.

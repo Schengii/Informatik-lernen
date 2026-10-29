@@ -24,6 +24,11 @@ date: 2026-10-29
 
 ---
 
+## 🎯 Ausbau dünner Labs (unveröffentlicht, PLAN P17)
+1. **Apache Kafka (`KafkaEventLab.jsx` & `src/utils/kafkaEventEngine.js`)**: Producer mit Schlüssel → Partition, Partitions-Logs mit Offsets, zwei Consumer Groups mit eigener Zuweisung, Lag und Fan-out, Repartitionierung, Vergleich Kafka/Queue, 6 Drillfragen, Quellen (kafka.apache.org, KIP-480, Vault-ADR).
+2. **WebAssembly & Rust (`WasmRustLab.jsx` & `src/utils/wasmBinaryEngine.js`)**: echtes, Byte für Byte erzeugtes Wasm-Modul (add, mul, memory), Binär-Inspektor mit Sektionen und LEB128, Ausführung im Browser mit i32-Überlauf, `memory.grow()`, 6 Drillfragen, Quellen (WebAssembly-Spezifikation, MDN, rustc book).
+3. **`Shared/SourceList.jsx`**: einheitliche Quellenangaben am Ende eines Labs.
+
 ## 🎯 Wichtige Meilensteine (Version 3.73.0)
 1. **DIN 66261 Nassi-Shneiderman Struktogramm Studio (`StruktogrammLab.jsx` & `src/utils/struktogrammEngine.js`)**:
    - Interaktiver DIN 66261 Symbol-Parser & Visualisierer (Sequenz, Verzweigung/IF-THEN-ELSE, Schleifen DOWHILE/WHILEDO/FOR).
