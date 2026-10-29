@@ -95,8 +95,14 @@ export default function App() {
   const navigate = useNavigate();
   const location = useLocation();
   // Führende/abschließende Slashes entfernen, damit auch `/labs/` das Lab öffnet.
-  const activeTab = location.pathname.replace(/^\/+|\/+$/g, '') || 'dashboard';
+  const routePath = location.pathname.replace(/^\/+|\/+$/g, '') || 'dashboard';
+  // Wissensartikel haben eine eigene Adresse (`/wissen/<topicId>`), damit Zurück-Taste,
+  // Lesezeichen und die Command Palette direkt auf einen Artikel zeigen können.
+  const topicRoute = routePath.match(/^wissen\/([\w-]+)$/);
+  const activeTab = topicRoute ? 'wissen' : routePath;
+  const selectedTopicId = topicRoute ? topicRoute[1] : null;
   const setActiveTab = (tab) => navigate(`/${tab}`);
+  const setSelectedTopicId = (topicId) => navigate(topicId ? `/wissen/${topicId}` : '/wissen');
 
   // Lab-Fortschritt: jeder Aufruf eines Registry-Labs zählt als Besuch
   // (Schlüssel = erste Tab-ID des Registry-Eintrags, auch bei Alias-Routen).
@@ -116,9 +122,6 @@ export default function App() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
-
-  // Topic Reader state
-  const [selectedTopicId, setSelectedTopicId] = useState(null);
 
   // Active Mini-Game Selector
   const [activeGameId, setActiveGameId] = useState('sql');
@@ -368,8 +371,11 @@ export default function App() {
                 {selectedTopicId ? (
                   <Suspense fallback={<LabLoadingFallback />}>
                     <TopicReader
+                      key={selectedTopicId}
                       topicId={selectedTopicId}
                       onBack={() => setSelectedTopicId(null)}
+                      onSelectTopic={setSelectedTopicId}
+                      onNavigate={setActiveTab}
                       onCompleteTopic={handleCompleteTopic}
                       isCompleted={userState.completedTopics.includes(selectedTopicId)}
                     />
