@@ -26,6 +26,7 @@ function fail(msg) {
 if (!name || !title) fail('Aufruf: npm run new-lab -- <PascalName> "<Titel>" [category] [difficulty]');
 if (!/^[A-Z][A-Za-z0-9]+$/.test(name)) fail('Name muss PascalCase sein (z. B. RaidLevel).');
 if (!DIFFICULTIES.includes(difficulty)) fail(`difficulty muss eines von ${DIFFICULTIES.join(', ')} sein.`);
+if (!/^[a-z][a-z0-9_]*$/.test(category)) fail('category darf nur Kleinbuchstaben, Ziffern und _ enthalten (z. B. network).');
 
 const camel = name[0].toLowerCase() + name.slice(1);
 const snake = name.replace(/([a-z0-9])([A-Z])/g, '$1_$2').toLowerCase();
@@ -39,7 +40,8 @@ const MODULES_DIR = 'src/data/labModules/';
 const FALLBACK_MODULES = 'softwareDataModules.js';
 const topicFiles = readdirSync(p(MODULES_DIR)).filter((f) => f.endsWith('.js'));
 const topicSources = Object.fromEntries(topicFiles.map((f) => [f, readFileSync(p(MODULES_DIR + f), 'utf-8')]));
-const countCategory = (src) => (src.match(new RegExp(`category: '${category}'`, 'g')) || []).length;
+// Wörtlich zählen statt per RegExp: category kommt von der Kommandozeile
+const countCategory = (src) => src.split(`category: '${category}'`).length - 1;
 const targetModules = topicFiles
   .map((f) => [f, countCategory(topicSources[f])])
   .filter(([, n]) => n > 0)
