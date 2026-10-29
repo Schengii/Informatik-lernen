@@ -246,8 +246,8 @@ export default function CommandPaletteModal({ isOpen, onClose, onNavigate, onOpe
     title: `${t.title} (${t.category})`,
     category: 'Lerneinheiten & Module',
     icon: BookOpen,
-    description: t.description || '',
-    action: () => onNavigate('topic-detail', t)
+    description: t.summary || '',
+    action: () => onNavigate(`wissen/${t.id}`)
   }));
 
   // Glossarbegriffe matchen
