@@ -44,12 +44,45 @@ export default defineConfig({
         enabled: true
       },
       workbox: {
-        // Große, nur bei Bedarf geladene Chunks (PDF, SQL, Charts, Sentry,
-        // Monaco) aus dem Precache ausschließen; sie werden per runtimeCaching
-        // beim ersten Zugriff gecacht und danach per StaleWhileRevalidate
-        // bedient. Der Precache (gemessen 29.10.2026: ca. 4,2 MB) enthält
-        // danach App-Shell und alle Labs, damit die Labs offline laufen.
+        // Kern-Precache optimieren (M16): App-Shell, Styles, Assets und IHK-Kern-Labs
+        // werden direkt beim PWA-Install gecacht (< 2.5 MB). Spezialisierte
+        // On-Demand-Labs und Third-Party-Vendors (Monaco, PDF, SQL, Charts)
+        // werden per StaleWhileRevalidate im Runtime-Cache nachgeladen.
+        globPatterns: [
+          '**/*.{html,css,png,svg,webmanifest}',
+          'assets/index-*.js',
+          'assets/vendor-react-*.js',
+          'assets/vendor-ui-*.js',
+          'assets/purify.*.js',
+          'assets/labModulesData-*.js',
+          'assets/examData-*.js',
+          'assets/CommandPaletteModal-*.js',
+          'assets/TopicReader-*.js',
+          'assets/Wiso*Lab-*.js',
+          'assets/Ihk*Lab-*.js',
+          'assets/*Subnet*Lab-*.js',
+          'assets/*Vlan*Lab-*.js',
+          'assets/*Stp*Lab-*.js',
+          'assets/*Nat*Lab-*.js',
+          'assets/*Dhcp*Lab-*.js',
+          'assets/*Database*Lab-*.js',
+          'assets/*Sql*Lab-*.js',
+          'assets/*Struktogramm*Lab-*.js',
+          'assets/*Algo*Lab-*.js',
+          'assets/*Uml*Lab-*.js',
+          'assets/*Raid*Lab-*.js',
+          'assets/*Backup*Lab-*.js',
+          'assets/*Bsi*Lab-*.js',
+          'assets/*Bpmn*Lab-*.js',
+          'assets/*Docker*Lab-*.js',
+          'assets/*Kubernetes*Lab-*.js',
+          'assets/*WebSockets*Lab-*.js',
+          'assets/*Oauth*Lab-*.js',
+          'assets/*CloudDevOps*Lab-*.js'
+        ],
         globIgnores: [
+          '**/*.woff',
+          '**/*.ttf',
           'assets/vendor-pdf-*.js',
           'assets/vendor-sql-*.js',
           // alasql-Worker (bündelt alasql selbst, nur in den SQL-Labs)
@@ -64,15 +97,35 @@ export default defineConfig({
           'assets/jsonMode-*',
           'assets/editor-*.css',
           'assets/editor.worker-*.js',
-          'assets/json.worker-*.js'
+          'assets/json.worker-*.js',
+          'assets/vendor-monaco-languages-*.js'
         ],
         runtimeCaching: [
+          {
+            urlPattern: /\/assets\/.*\.js$/,
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'on-demand-labs-and-scripts',
+              expiration: {
+                maxEntries: 250,
+                maxAgeSeconds: 60 * 60 * 24 * 30
+              }
+            }
+          },
           {
             urlPattern: /\/assets\/(vendor-(pdf|sql|charts|canvg|sentry)|sql\.worker|editor\.api|editor\.worker|json\.worker|jsonMode|editor)-[^/]+\.(js|css)$/,
             handler: 'StaleWhileRevalidate',
             options: {
               cacheName: 'vendor-large-chunks',
               expiration: { maxAgeSeconds: 60 * 60 * 24 * 30 }
+            }
+          },
+          {
+            urlPattern: /\.(?:woff|woff2|ttf|svg|png|jpg)$/,
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'static-assets',
+              expiration: { maxAgeSeconds: 60 * 60 * 24 * 60 }
             }
           }
         ]

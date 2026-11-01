@@ -45,7 +45,7 @@ PLAN.md ist ab jetzt die einzige Arbeitsgrundlage für Umsetzung und Tests.
 - [x] M15 | TopicReader Tastatur-Fokus, Scroll-Spys und Skip-Links barrierefrei absichern | P3 | S | src/components/Topics/TopicReader.jsx | src/components/Topics/TopicReader.jsx:1 | Fertig wenn: Inhaltsverzeichnis und Markdown-Überschriften per Tab erreichbar sind, aktive Abschnitte per aria-current signalisiert werden und axe-core 0 Fehler meldet.
 
 ### Phase 5: Performance & PWA
-- [ ] M16 | PWA-Precache optimieren: Kern-Labs im Precache vs. On-Demand-Labs im Runtime-Cache | P2 | M | vite.config.js | vite.config.js:50-52, dist Build: 4606 KiB Precache (410 entries) | Fertig wenn: Precache auf < 2.5 MB gesenkt ist, während Offline-Kern-Funktionalität und e2e/pwa-offline.spec.js fehlerfrei bleiben.
+- [x] M16 | PWA-Precache optimieren: Kern-Labs im Precache vs. On-Demand-Labs im Runtime-Cache | P2 | M | vite.config.js | vite.config.js:50-52, dist Build: 4606 KiB Precache (410 entries) | Fertig wenn: Precache auf < 2.5 MB gesenkt ist, während Offline-Kern-Funktionalität und e2e/pwa-offline.spec.js fehlerfrei bleiben.
 - [ ] M17 | SVGs im Wissensbereich auf Dateigröße und Barrierefreiheit (title/desc) prüfen | P3 | S | src/assets/topics/*.svg | src/assets/topics/ (25 SVG-Dateien) | Fertig wenn: Alle Topic-SVGs über svgo komprimiert sind, integrierte <title>-Tags für Screenreader besitzen und keine ungenutzten Metadaten enthalten.
 
 ### Phase 6: Dokumentation & CI
