@@ -41,6 +41,11 @@ Vollständige Umsetzung des Arbeitsplans `PLAN.md` für Release 3.80.0 (Maßnahm
 - **Synchronisation Kennzahlen (M18)**: Dokumentation in README und CLAUDE.md auf 2275 Unit-Tests, 63 E2E-Tests, 252 Labs und 189 Util-Module synchronisiert.
 - **GitHub Actions Audit (M19)**: Verifikation des 40-Zeichen Git-SHA Pinnings und Caching in `.github/workflows/ci.yml`.
 
+### Codebase-Cleanup & Verschlankung
+- **Ungenutzte Alt-Datendateien entfernt**: `cloudData.js`, `dockerData.js`, `k8sData.js`, `oauthData.js` und `websocketData.js` gelöscht (wurden durch die interaktiven Engines aus Phase 3 vollständig abgelöst).
+- **Tote Exporte & Obsolete Filter bereinigt**: Unbenutzten Export `generateSimulatedSignature` in `jwtConfusionEngine.js` privatisiert; veraltete Ausnahmeregel in `.gitleaks.toml` entfernt.
+- **Temporäre Hilfsskripte bereinigt**: Einmaliges Migrationsskript `scripts/optimize-topics-svg.js` entfernt.
+
 ### Wissensbereich & Lernartikel (Wissen-Ausbau)
 - **Sichere Markdown-Engine (`src/utils/markdownEngine.js`)**:
   - Parser mit AST-Generierung ohne `dangerouslySetInnerHTML` für sicheres Rendern von Fachartikeln (`src/components/Shared/MarkdownContent.jsx`).
