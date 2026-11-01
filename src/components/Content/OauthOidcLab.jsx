@@ -139,7 +139,7 @@ export default function OauthOidcLab({ onRewardXP }) {
 
       {/* Tab 1: Auth Flow & PKCE */}
       {activeTab === 'authRequest' && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(min(450px, 100%), 1fr) minmax(min(350px, 100%), 1fr)', gap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '20px' }}>
           <div className="glass-panel" style={{ padding: '20px' }}>
             <h2 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '14px', color: 'var(--text-main)' }}>
               Authorization Request URL Parameter
@@ -303,7 +303,7 @@ export default function OauthOidcLab({ onRewardXP }) {
           </div>
 
           {jwtDecoded.isValid ? (
-            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(min(300px, 100%), 1fr) minmax(min(450px, 100%), 2fr)', gap: '16px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '16px' }}>
               <div className="glass-panel" style={{ padding: '16px', border: '1px solid var(--border-color)' }}>
                 <h4 style={{ fontWeight: 800, color: 'var(--accent-rose)', marginBottom: '8px' }}>1. Header (JOSE)</h4>
                 <pre style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-main)' }}>

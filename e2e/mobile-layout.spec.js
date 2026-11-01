@@ -17,7 +17,12 @@ const ROUTES = [
   'bpmn_process_lab',
   'ihk_grade_calculator',
   'kafka',
-  'wasm_rust_studio'
+  'wasm_rust_studio',
+  'docker',
+  'kubernetes',
+  'websockets',
+  'oauth_oidc',
+  'cloud_devops'
 ];
 
 test.use({ viewport: { width: 375, height: 800 } });

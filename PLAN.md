@@ -41,7 +41,7 @@ PLAN.md ist ab jetzt die einzige Arbeitsgrundlage für Umsetzung und Tests.
 
 ### Phase 4: Barrierefreiheit & Design-System
 - [x] M13 | Farbkontraste für Kern-Routen auditieren und WCAG AA (4.5:1 / 3:1) herstellen | P2 | L | src/styles/global.css, e2e/accessibility.spec.js | e2e/accessibility.spec.js:34, src/styles/global.css:25 | Fertig wenn: KNOWN_DESIGN_DEBT_RULES auf mindestens den 5 Haupt-Dashboards (Home, Labs, Wissensbereich, Leaderboard, Einstellungen) ohne color-contrast-Ausnahme grün durchläuft.
-- [ ] M14 | E2E-Mobile-Layout-Regressionstest auf alle neuen Labs erweitern | P2 | S | e2e/mobile-layout.spec.js | e2e/mobile-layout.spec.js:20, scripts/ui-audit.js:18 | Fertig wenn: e2e/mobile-layout.spec.js stichprobenartig alle Lab-Kategorien bei 375 px Viewport prüft und 0 horizontale Überläufe feststellt.
+- [x] M14 | E2E-Mobile-Layout-Regressionstest auf alle neuen Labs erweitern | P2 | S | e2e/mobile-layout.spec.js | e2e/mobile-layout.spec.js:20, scripts/ui-audit.js:18 | Fertig wenn: e2e/mobile-layout.spec.js stichprobenartig alle Lab-Kategorien bei 375 px Viewport prüft und 0 horizontale Überläufe feststellt.
 - [ ] M15 | TopicReader Tastatur-Fokus, Scroll-Spys und Skip-Links barrierefrei absichern | P3 | S | src/components/Topics/TopicReader.jsx | src/components/Topics/TopicReader.jsx:1 | Fertig wenn: Inhaltsverzeichnis und Markdown-Überschriften per Tab erreichbar sind, aktive Abschnitte per aria-current signalisiert werden und axe-core 0 Fehler meldet.
 
 ### Phase 5: Performance & PWA

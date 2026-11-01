@@ -162,7 +162,7 @@ export default function WebSocketsLab({ onRewardXP }) {
 
       {/* Tab 1: Handshake */}
       {activeTab === 'handshake' && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(min(450px, 100%), 1fr) minmax(min(350px, 100%), 1fr)', gap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '20px' }}>
           <div className="glass-panel" style={{ padding: '20px' }}>
             <h2 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '14px', color: 'var(--text-main)' }}>
               Client Upgrade Request Header

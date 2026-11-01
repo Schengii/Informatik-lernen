@@ -135,7 +135,7 @@ export default function DockerLab({ onRewardXP }) {
 
       {/* Tab 1: Dockerfile Linter */}
       {activeTab === 'dockerfile' && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(min(450px, 100%), 1fr) minmax(min(350px, 100%), 1fr)', gap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '20px' }}>
           <div className="glass-panel" style={{ padding: '20px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
               <label htmlFor="dockerfile-editor" style={{ fontWeight: 700, color: 'var(--text-main)' }}>

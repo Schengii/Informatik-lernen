@@ -149,7 +149,7 @@ export default function KubernetesLab({ onRewardXP }) {
 
       {/* Tab 1: Manifest Validator */}
       {activeTab === 'manifest' && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(min(450px, 100%), 1fr) minmax(min(350px, 100%), 1fr)', gap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '20px' }}>
           <div className="glass-panel" style={{ padding: '20px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
               <label htmlFor="k8s-manifest-editor" style={{ fontWeight: 700, color: 'var(--text-main)' }}>
