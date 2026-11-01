@@ -74,7 +74,6 @@ export default function SkillTreeWidget({ userState }) {
                       border: isCompleted ? '2px solid var(--accent-emerald)' : isUnlocked ? '1px solid var(--border-color)' : '1px dashed var(--border-color)',
                       padding: '20px',
                       borderRadius: 'var(--radius-lg)',
-                      opacity: isUnlocked ? 1 : 0.6,
                       position: 'relative'
                     }}
                   >

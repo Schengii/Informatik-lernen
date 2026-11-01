@@ -79,3 +79,15 @@ for (const route of ['labs', 'tcp_state_machine_lab', 'raid_calculator_lab', 'wi
     await assertNoSeriousA11yViolations(page, `im Lab /${route}`);
   });
 }
+
+test('Haupt-Dashboards erfüllen WCAG AA Farbkontrast ohne Ausnahmen (M13)', async ({ page }) => {
+  for (const path of ['/', '/labs', '/wissen']) {
+    await page.goto(path);
+    await page.waitForLoadState('networkidle');
+    const results = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa'])
+      .analyze();
+    const serious = results.violations.filter((v) => v.impact === 'critical' || v.impact === 'serious');
+    expect(serious, `Kritische A11y/Kontrast-Mängel auf ${path}: ${serious.map((s) => s.id).join(', ')}`).toEqual([]);
+  }
+});
