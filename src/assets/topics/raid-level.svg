@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">Datenverteilung bei RAID 0 (Striping), RAID 1 (Spiegelung), RAID 5 (verteilte Parität) und RAID 10 (gespiegelte Stripes)</title>
+  <desc id="d">Visuelle Gegenüberstellung der Festplattenaufteilung: RAID 0 mit Block-Striping, RAID 1 mit Spiegelung, RAID 5 mit rotierender Parität und RAID 10 als Kombination.</desc>
   <rect width="720" height="330" fill="#ffffff"/>
   <text x="360" y="26" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">RAID-Level im Vergleich</text>
   <defs>

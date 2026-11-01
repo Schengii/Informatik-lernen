@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">Event Loop: Call Stack, Web APIs, Microtask-Queue und Task-Queue. Nach jeder Aufgabe werden alle Microtasks abgearbeitet, dann kann gerendert werden, dann folgt die nächste Aufgabe.</title>
+  <desc id="d">Ablaufdiagramm mit Call Stack für synchrone Funktionen, Web APIs im Hintergrund, Microtask Queue für Promises und Task Queue für Timer.</desc>
   <rect width="720" height="330" fill="#ffffff"/>
   <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#0f172a"/></marker></defs>
   <text x="360" y="26" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">Event Loop im Browser</text>

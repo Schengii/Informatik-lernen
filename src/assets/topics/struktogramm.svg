@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 290" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 290" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">Struktogramm nach Nassi-Shneiderman zur Suche des Maximums: Zuweisung, Zählschleife mit eingebetteter Verzweigung und Ausgabe</title>
+  <desc id="d">DIN 66261 Nassi-Shneiderman Diagramm mit sequentiellen Anweisungen, Zählschleife und Verzweigung zur Ermittlung des Maximums.</desc>
   <rect width="720" height="290" fill="#ffffff"/>
   <text x="360" y="26" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">Struktogramm: Maximum einer Liste finden</text>
   <rect x="150" y="116" width="460" height="92" fill="#eef2ff"/>

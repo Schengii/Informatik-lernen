@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">Die drei Schutzziele der Informationssicherheit als Dreieck: Vertraulichkeit, Integrität und Verfügbarkeit, jeweils mit Bedrohung und Maßnahme</title>
+  <desc id="d">Die CIA-Triade der IT-Sicherheit: Dreieck aus Vertraulichkeit (Confidentiality), Integrität (Integrity) und Verfügbarkeit (Availability).</desc>
   <rect width="720" height="330" fill="#ffffff"/>
   <text x="360" y="26" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">Schutzziele der Informationssicherheit (CIA-Triade)</text>
   <polygon points="360,60 210,290 510,290" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>

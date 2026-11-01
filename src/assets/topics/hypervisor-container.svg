@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">Schichtenvergleich: Hypervisor Typ 1 direkt auf der Hardware, Hypervisor Typ 2 auf einem Host-Betriebssystem, Container teilen sich den Kernel des Hosts</title>
+  <desc id="d">Gegenüberstellung: Typ-1 Hypervisor auf Bare-Metal, Typ-2 Hypervisor auf Host-Betriebssystem und schlanke Container mit geteiltem Host-Kernel.</desc>
   <rect width="720" height="340" fill="#ffffff"/>
   <text x="360" y="26" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">Typ-1-Hypervisor · Typ-2-Hypervisor · Container</text>
   <g font-size="13" text-anchor="middle">

@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">Die fünf Säulen der Sozialversicherung mit Beitragssätzen 2026: Krankenversicherung 14,6 Prozent plus Zusatzbeitrag, Rentenversicherung 18,6 Prozent, Arbeitslosenversicherung 2,6 Prozent, Pflegeversicherung 3,6 Prozent, Unfallversicherung trägt der Arbeitgeber allein</title>
+  <desc id="d">Die fünf gesetzlichen Säulen in Deutschland: Kranken-, Pflege-, Renten-, Arbeitslosen- und Unfallversicherung mit aktuellen Beitragssätzen und Arbeitgeberanteilen.</desc>
   <rect width="720" height="320" fill="#ffffff"/>
   <text x="360" y="26" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">Die fünf Säulen der Sozialversicherung (Stand 2026)</text>
   <polygon points="40,64 360,40 680,64" fill="#0f172a"/>

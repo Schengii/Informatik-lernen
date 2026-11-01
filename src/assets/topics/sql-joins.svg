@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">Mengendiagramme der JOIN-Arten: INNER JOIN liefert nur übereinstimmende Zeilen, LEFT JOIN alle Zeilen der linken Tabelle, RIGHT JOIN alle der rechten, FULL OUTER JOIN alle Zeilen beider Tabellen</title>
+  <desc id="d">Venn-Diagramme zur Veranschaulichung relationaler Mengenoperationen: Inner Join, Left Join, Right Join und Full Outer Join.</desc>
   <rect width="720" height="260" fill="#ffffff"/>
   <text x="360" y="26" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">JOIN-Arten: Welche Zeilen kommen ins Ergebnis?</text>
   <defs>

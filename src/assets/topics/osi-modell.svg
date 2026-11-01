@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">OSI-Modell mit sieben Schichten neben dem TCP/IP-Modell mit vier Schichten, dazu Dateneinheiten, Protokolle und Geräte je Schicht</title>
+  <desc id="d">7 Schichten des ISO/OSI-Referenzmodells von Bitübertragung bis Anwendungsschicht mit Zuordnung zu den 4 Schichten des TCP/IP-Modells und Protokollen.</desc>
   <rect width="720" height="420" fill="#ffffff"/>
   <text x="360" y="26" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">OSI-Modell und TCP/IP-Modell</text>
   <g font-size="12" fill="#475569" font-weight="700">

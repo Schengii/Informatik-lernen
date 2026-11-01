@@ -46,7 +46,7 @@ PLAN.md ist ab jetzt die einzige Arbeitsgrundlage für Umsetzung und Tests.
 
 ### Phase 5: Performance & PWA
 - [x] M16 | PWA-Precache optimieren: Kern-Labs im Precache vs. On-Demand-Labs im Runtime-Cache | P2 | M | vite.config.js | vite.config.js:50-52, dist Build: 4606 KiB Precache (410 entries) | Fertig wenn: Precache auf < 2.5 MB gesenkt ist, während Offline-Kern-Funktionalität und e2e/pwa-offline.spec.js fehlerfrei bleiben.
-- [ ] M17 | SVGs im Wissensbereich auf Dateigröße und Barrierefreiheit (title/desc) prüfen | P3 | S | src/assets/topics/*.svg | src/assets/topics/ (25 SVG-Dateien) | Fertig wenn: Alle Topic-SVGs über svgo komprimiert sind, integrierte <title>-Tags für Screenreader besitzen und keine ungenutzten Metadaten enthalten.
+- [x] M17 | SVGs im Wissensbereich auf Dateigröße und Barrierefreiheit (title/desc) prüfen | P3 | S | src/assets/topics/*.svg | src/assets/topics/ (25 SVG-Dateien) | Fertig wenn: Alle Topic-SVGs über svgo komprimiert sind, integrierte <title>-Tags für Screenreader besitzen und keine ungenutzten Metadaten enthalten.
 
 ### Phase 6: Dokumentation & CI
 - [ ] M18 | Dokumentation der Testanzahl, E2E-Fälle und Coverage in README und CLAUDE.md aktualisieren | P3 | S | README.md, CLAUDE.md | CLAUDE.md:32, README.md:161 | Fertig wenn: Alle Doku-Angaben exakt mit den gemessenen Zahlen (2228 Unit-Tests, 55 E2E-Tests, 252 Labs, 178 Engines) übereinstimmen.

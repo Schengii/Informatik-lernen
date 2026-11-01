@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">CSS-Box-Modell: Inhalt, umgeben von Innenabstand (padding), Rahmen (border) und Außenabstand (margin)</title>
+  <desc id="d">Schematische Darstellung der Schichten: Äußerer Rand margin, Rahmen border, Innenabstand padding und innerster Block content.</desc>
   <rect width="720" height="320" fill="#ffffff"/>
   <text x="360" y="26" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">Das CSS-Box-Modell</text>
   <rect x="80" y="44" width="560" height="236" fill="#fef3c7" stroke="#b45309" stroke-dasharray="6 4"/>

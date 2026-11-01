@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">UTF-8 kodiert Zeichen mit 1 bis 4 Byte: A als 41, ä als C3 A4, Euro als E2 82 AC, Emoji als F0 9F 98 80</title>
+  <desc id="d">Binäres Bytemuster und Bitverteilung nach RFC 3629 für ASCII (1 Byte), Umlaute (2 Byte), Währungssymbole (3 Byte) und Emojis (4 Byte).</desc>
   <rect width="720" height="300" fill="#ffffff"/>
   <text x="360" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">UTF-8: 1 bis 4 Byte je Zeichen</text>
   <g font-size="14" fill="#475569" font-weight="600">

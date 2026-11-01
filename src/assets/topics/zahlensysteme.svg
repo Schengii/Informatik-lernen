@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">Stellenwerte der Dualzahl 1010 1101: 128 + 32 + 8 + 4 + 1 = 173, in Hexadezimal AD</title>
+  <desc id="d">Gegenüberstellung und Umrechnung zwischen Dualsystem (Basis 2), Hexadezimalsystem (Basis 16) und Dezimalsystem (Basis 10).</desc>
   <rect width="720" height="300" fill="#ffffff"/>
   <text x="360" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">Dualzahl 1010 1101 → Dezimal 173 → Hex AD</text>
   <g font-size="14" text-anchor="middle">

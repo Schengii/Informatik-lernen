@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">Vorgangsknoten-Netzplan mit sechs Vorgängen. Kritischer Pfad A, B, D, F mit 15 Tagen Projektdauer; C und E haben je einen Tag Gesamtpuffer.</title>
+  <desc id="d">Netzplantechnik mit 6 Vorgangsknoten, frühesten und spätesten Anfangs- und Endzeitpunkten, Pufferzeiten und dem rot hervorgehobenen kritischen Pfad.</desc>
   <rect width="720" height="340" fill="#ffffff"/>
   <defs>
     <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#0f172a"/></marker>

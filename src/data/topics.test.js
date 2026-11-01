@@ -1,4 +1,7 @@
 import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { TOPICS, TOPIC_LEVELS, TOPIC_CONTENT_IDS, loadTopicContent } from './topicsData';
 import { TOPIC_IMAGE_NAMES } from './topicImages';
 import { LAB_REGISTRY } from './labRegistry';
@@ -85,4 +88,17 @@ describe('Wissensartikel (topicsData + topics/*.js)', () => {
       });
     });
   }
+
+  it('alle 25 Topic-SVGs besitzen Barrierefreiheits-Tags (title, desc, aria-labelledby) (M17)', () => {
+    const topicsSvgDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../assets/topics');
+    const svgFiles = fs.readdirSync(topicsSvgDir).filter((f) => f.endsWith('.svg'));
+    expect(svgFiles.length).toBe(25);
+    for (const f of svgFiles) {
+      const content = fs.readFileSync(path.join(topicsSvgDir, f), 'utf8');
+      expect(content, `${f} muss title besitzen`).toContain('<title id="t">');
+      expect(content, `${f} muss desc besitzen`).toContain('<desc id="d">');
+      expect(content, `${f} muss aria-labelledby="t d" besitzen`).toContain('aria-labelledby="t d"');
+      expect(content, `${f} muss role="img" besitzen`).toContain('role="img"');
+    }
+  });
 });

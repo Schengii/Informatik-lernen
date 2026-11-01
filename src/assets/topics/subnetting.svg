@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">Das Netz 192.168.10.0/24 wird durch zwei geliehene Bits in vier /26-Subnetze mit je 64 Adressen und 62 nutzbaren Hosts geteilt</title>
+  <desc id="d">Binäre Adressaufteilung einer IPv4-Adresse in Netzanteil, Subnetzanteil und Hostanteil mit variabler Subnetzmaske (VLSM).</desc>
   <rect width="720" height="300" fill="#ffffff"/>
   <text x="360" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">192.168.10.0/24 → 4 Subnetze /26</text>
   <text x="360" y="52" text-anchor="middle" font-size="13" fill="#475569">2 Bits aus dem Hostteil leihen: 2² = 4 Subnetze, 2⁶ = 64 Adressen, davon 62 für Hosts</text>

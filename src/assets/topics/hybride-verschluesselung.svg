@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" font-family="Inter, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">Hybride Verschlüsselung: Alice verschlüsselt die Nachricht mit einem zufälligen Sitzungsschlüssel (AES) und den Sitzungsschlüssel mit Bobs öffentlichem Schlüssel (RSA). Bob entschlüsselt den Sitzungsschlüssel mit seinem privaten Schlüssel und damit die Nachricht.</title>
+  <desc id="d">Kombination aus asymmetrischem Schlüsselaustausch per RSA/ECC Public Key und schneller symmetrischer AES-Verschlüsselung der Nutzdaten.</desc>
   <rect width="720" height="320" fill="#ffffff"/>
   <defs>
     <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#0f172a"/></marker>
