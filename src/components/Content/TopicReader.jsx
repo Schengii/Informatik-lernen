@@ -73,6 +73,7 @@ export default function TopicReader({ topicId, onBack, onCompleteTopic, isComple
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [speechUnsupported, setSpeechUnsupported] = useState(false);
+  const [activeSectionId, setActiveSectionId] = useState(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -96,6 +97,44 @@ export default function TopicReader({ topicId, onBack, onCompleteTopic, isComple
   const data = loaded.id === topic?.id ? loaded.content : null;
   const blocks = useMemo(() => (data ? parseMarkdown(data.content) : []), [data]);
   const toc = useMemo(() => extractToc(blocks), [blocks]);
+  const quiz = data?.quiz || [];
+
+  // Scroll-Spy per IntersectionObserver für barrierefreie Fortschrittsanzeige im TOC
+  useEffect(() => {
+    if (!data || typeof IntersectionObserver === 'undefined') return undefined;
+
+    const headingIds = [
+      ...toc.map((t) => t.id),
+      ...(data.exercises?.length > 0 ? ['uebungsaufgaben'] : []),
+      ...(quiz.length > 0 ? ['wissens-check'] : [])
+    ];
+
+    const elements = headingIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    if (elements.length === 0) return undefined;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries.filter((e) => e.isIntersecting);
+        if (visibleEntries.length > 0) {
+          const sorted = visibleEntries.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+          setActiveSectionId(sorted[0].target.id);
+        }
+      },
+      {
+        rootMargin: '0px 0px -60% 0px',
+        threshold: [0, 0.5, 1.0]
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [data, toc, quiz.length]);
 
   if (!topic) {
     return (
@@ -145,12 +184,14 @@ export default function TopicReader({ topicId, onBack, onCompleteTopic, isComple
   const jumpTo = (id) => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: document.body.classList.contains('reduced-motion') ? 'auto' : 'smooth', block: 'start' });
+      if (!el.hasAttribute('tabindex')) {
+        el.setAttribute('tabindex', '-1');
+      }
+      el.scrollIntoView({ behavior: document.body?.classList?.contains('reduced-motion') ? 'auto' : 'smooth', block: 'start' });
       el.focus({ preventScroll: true });
     }
   };
 
-  const quiz = data?.quiz || [];
   const correctCount = quiz.filter((q, i) => selectedAnswers[i] === q.correct).length;
   const allAnswered = Object.keys(selectedAnswers).length === quiz.length;
 
@@ -162,7 +203,19 @@ export default function TopicReader({ topicId, onBack, onCompleteTopic, isComple
   const sectionTitle = { fontSize: '1.4rem', fontWeight: 800, margin: 0, color: 'var(--text-main)' };
 
   return (
-    <div style={{ maxWidth: '900px', margin: '0 auto', paddingBottom: '60px' }}>
+    <div style={{ maxWidth: '900px', margin: '0 auto', paddingBottom: '60px', position: 'relative' }}>
+      {/* Skip-Link für Barrierefreiheit & Tastaturnavigation */}
+      <a
+        href="#artikel-inhalt"
+        className="skip-link"
+        onClick={(e) => {
+          e.preventDefault();
+          jumpTo('artikel-inhalt');
+        }}
+      >
+        Direkt zum Artikelinhalt springen
+      </a>
+
       <button
         onClick={onBack}
         className="btn btn-secondary btn-sm"
@@ -242,31 +295,66 @@ export default function TopicReader({ topicId, onBack, onCompleteTopic, isComple
               <h2 style={{ fontSize: '1rem', fontWeight: 800, margin: '0 0 10px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-main)' }}>
                 <ListOrdered size={18} style={{ color: 'var(--accent-primary)' }} aria-hidden="true" /> Inhalt
               </h2>
-              <ol style={{ margin: 0, paddingLeft: '22px', display: 'grid', gap: '4px' }}>
-                {toc.map((item) => (
-                  <li key={item.id}>
-                    <a
-                      href={`#${item.id}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        jumpTo(item.id);
-                      }}
-                      style={{ color: 'var(--accent-primary)', fontWeight: 600 }}
-                    >
-                      {item.text}
-                    </a>
-                  </li>
-                ))}
+              <ol style={{ margin: 0, paddingLeft: '22px', display: 'grid', gap: '6px' }}>
+                {toc.map((item) => {
+                  const isActive = activeSectionId === item.id;
+                  return (
+                    <li key={item.id}>
+                      <a
+                        href={`#${item.id}`}
+                        aria-current={isActive ? 'location' : undefined}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          jumpTo(item.id);
+                        }}
+                        style={{
+                          color: isActive ? 'var(--accent-primary)' : 'var(--text-main)',
+                          fontWeight: isActive ? 700 : 500,
+                          textDecoration: isActive ? 'underline' : 'none',
+                          padding: '2px 4px',
+                          borderRadius: '4px',
+                          display: 'inline-block'
+                        }}
+                      >
+                        {item.text}
+                      </a>
+                    </li>
+                  );
+                })}
                 {data.exercises?.length > 0 && (
                   <li>
-                    <a href="#uebungsaufgaben" onClick={(e) => { e.preventDefault(); jumpTo('uebungsaufgaben'); }} style={{ color: 'var(--accent-primary)', fontWeight: 600 }}>
+                    <a
+                      href="#uebungsaufgaben"
+                      aria-current={activeSectionId === 'uebungsaufgaben' ? 'location' : undefined}
+                      onClick={(e) => { e.preventDefault(); jumpTo('uebungsaufgaben'); }}
+                      style={{
+                        color: activeSectionId === 'uebungsaufgaben' ? 'var(--accent-amber)' : 'var(--text-main)',
+                        fontWeight: activeSectionId === 'uebungsaufgaben' ? 700 : 500,
+                        textDecoration: activeSectionId === 'uebungsaufgaben' ? 'underline' : 'none',
+                        padding: '2px 4px',
+                        borderRadius: '4px',
+                        display: 'inline-block'
+                      }}
+                    >
                       Übungsaufgaben
                     </a>
                   </li>
                 )}
                 {quiz.length > 0 && (
                   <li>
-                    <a href="#wissens-check" onClick={(e) => { e.preventDefault(); jumpTo('wissens-check'); }} style={{ color: 'var(--accent-primary)', fontWeight: 600 }}>
+                    <a
+                      href="#wissens-check"
+                      aria-current={activeSectionId === 'wissens-check' ? 'location' : undefined}
+                      onClick={(e) => { e.preventDefault(); jumpTo('wissens-check'); }}
+                      style={{
+                        color: activeSectionId === 'wissens-check' ? 'var(--accent-primary)' : 'var(--text-main)',
+                        fontWeight: activeSectionId === 'wissens-check' ? 700 : 500,
+                        textDecoration: activeSectionId === 'wissens-check' ? 'underline' : 'none',
+                        padding: '2px 4px',
+                        borderRadius: '4px',
+                        display: 'inline-block'
+                      }}
+                    >
                       Wissens-Check
                     </a>
                   </li>
@@ -276,7 +364,7 @@ export default function TopicReader({ topicId, onBack, onCompleteTopic, isComple
           )}
 
           {/* Artikel */}
-          <div className="glass-panel" style={{ padding: '32px', marginBottom: '24px' }}>
+          <div id="artikel-inhalt" tabIndex={-1} className="glass-panel" style={{ padding: '32px', marginBottom: '24px', outline: 'none' }}>
             <MarkdownContent blocks={blocks} onNavigate={onNavigate} />
 
             {data.codeSnippet && (

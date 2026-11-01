@@ -91,3 +91,26 @@ test('Haupt-Dashboards erfüllen WCAG AA Farbkontrast ohne Ausnahmen (M13)', asy
     expect(serious, `Kritische A11y/Kontrast-Mängel auf ${path}: ${serious.map((s) => s.id).join(', ')}`).toEqual([]);
   }
 });
+
+test('TopicReader Skip-Link und Tastaturnavigation sind barrierefrei (M15)', async ({ page }) => {
+  await page.goto('/wissen/algorithmen_datenstrukturen');
+  await page.waitForLoadState('networkidle');
+
+  // Skip-Link existiert und springt per Tastatur zum Hauptinhalt
+  const skipLink = page.locator('a.skip-link');
+  await expect(skipLink).toBeAttached();
+  await skipLink.focus();
+  await skipLink.press('Enter');
+  await expect(page.locator('#artikel-inhalt')).toBeFocused();
+
+  // Inhaltsverzeichnis prüft barrierefreie Links
+  const tocNav = page.locator('nav[aria-label="Inhaltsverzeichnis"]');
+  if (await tocNav.isVisible()) {
+    const tocLinks = tocNav.locator('ol li a');
+    const count = await tocLinks.count();
+    expect(count).toBeGreaterThan(0);
+  }
+
+  // A11y-Audit auf dem Wissensartikel mit axe-core
+  await assertNoSeriousA11yViolations(page, 'im Wissensartikel');
+});
