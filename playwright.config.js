@@ -26,7 +26,9 @@ export default defineConfig({
     // Dev-Server - so werden Build-/Code-Splitting-Regressionen mit erfasst.
     command: 'npm run preview -- --port 4173',
     url: 'http://localhost:4173',
-    reuseExistingServer: !process.env.CI,
+    // Nie unbemerkt fremde/veraltete Server auf Port 4173 wiederverwenden,
+    // um Fehlalarme durch Port-Kollisionen anderer Node-Prozesse zu verhindern (M01).
+    reuseExistingServer: false,
     timeout: 60_000
   }
 });

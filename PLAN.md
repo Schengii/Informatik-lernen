@@ -22,7 +22,7 @@ PLAN.md ist ab jetzt die einzige Arbeitsgrundlage für Umsetzung und Tests.
 ## 2. Maßnahmen
 
 ### Phase 1: CI, E2E & Developer Experience (Grundlage für Tests & Stabilität)
-- [ ] M01 | Playwright reuseExistingServer absichern oder Port-Kollision abfangen | P1 | S | playwright.config.js | playwright.config.js:29 | Fertig wenn: E2E-Suite startet immer den verifizierten lokalen Build und greift nicht unbemerkt auf fremde Prozesse auf Port 4173 zu; e2e läuft isoliert grün.
+- [x] M01 | Playwright reuseExistingServer absichern oder Port-Kollision abfangen | P1 | S | playwright.config.js | playwright.config.js:29 | Fertig wenn: E2E-Suite startet immer den verifizierten lokalen Build und greift nicht unbemerkt auf fremde Prozesse auf Port 4173 zu; e2e läuft isoliert grün.
 - [ ] M02 | Playwright Worker-Standardbegrenzung konfigurieren gegen OOM und Timeouts | P1 | S | playwright.config.js | playwright.config.js:9 | Fertig wenn: playwright.config.js begrenzt workers (z. B. auf 2 oder CI-gerecht), sodass npx playwright test ohne CLI-Flags lokal und im CI ohne Speicherabbruch (OOM) durchläuft.
 - [ ] M03 | UI-Audit Lifecycle automatisieren (Startet lokalen Preview-Server falls inaktiv) | P2 | S | scripts/ui-audit.js, package.json | scripts/ui-audit.js:17, package.json:24 | Fertig wenn: npm run audit:ui ohne vorheriges manuelles Starten eines zweiten Terminals auf localhost:4173 durchläuft oder saubere Fehlermeldung ausgibt.
 - [ ] M04 | Vitest Coverage-Schwellen auf aktuellen Ist-Stand anheben | P2 | S | vite.config.js | vite.config.js:165-168 | Fertig wenn: statements auf 64%, branches auf 55%, functions auf 48.5%, lines auf 65.5% angehoben sind und npm run test:coverage grün durchläuft.
