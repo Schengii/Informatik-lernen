@@ -29,7 +29,7 @@ PLAN.md ist ab jetzt die einzige Arbeitsgrundlage für Umsetzung und Tests.
 
 ### Phase 2: Sicherheit & Abhängigkeiten
 - [x] M05 | npm audit Warnungen in Dev-Dependencies (deepmerge / minimatch) beheben | P2 | M | package.json, package-lock.json | package.json:90, npm audit: 19 Funde (deepmerge in vite-plugin-pwa, minimatch in vitest-Tools) | Fertig wenn: npm audit --audit-level=moderate 0 Schwachstellen meldet oder Overrides sauber in package.json dokumentiert sind ohne Breaking Changes.
-- [ ] M06 | E2E-CSP-Abdeckung auf Wissensartikel (/topic/:id) ausweiten | P2 | S | e2e/csp.spec.js | e2e/csp.spec.js:20, src/components/Topics/TopicReader.jsx:1 | Fertig wenn: Neuer Test in e2e/csp.spec.js verifiziert, dass Wissensartikel unter CSP fehlerfrei laden und 0 CSP-Verstöße in der Browser-Konsole werfen.
+- [x] M06 | E2E-CSP-Abdeckung auf Wissensartikel (/topic/:id) ausweiten | P2 | S | e2e/csp.spec.js | e2e/csp.spec.js:20, src/components/Topics/TopicReader.jsx:1 | Fertig wenn: Neuer Test in e2e/csp.spec.js verifiziert, dass Wissensartikel unter CSP fehlerfrei laden und 0 CSP-Verstöße in der Browser-Konsole werfen.
 
 ### Phase 3: Codequalität & Architektur (Dünne Labs nach CLAUDE.md-Standard ausbauen)
 - [ ] M07 | DockerLab ausbauen (Engine, interaktive Validierung und Drill-Sektion) | P2 | M | src/components/Content/DockerLab.jsx, src/utils/dockerEngine.js, src/utils/dockerEngine.test.js | src/components/Content/DockerLab.jsx:1 | Fertig wenn: Dockerfile/Compose-Syntax per neuer dockerEngine validiert wird, XP-Vergabe integriert ist, dockerEngine.test.js > 85% Line-Coverage hat und DockerLab interaktiv ist.

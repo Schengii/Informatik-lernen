@@ -52,6 +52,13 @@ test('Startseite lädt ohne Inline-Skript-Verstoß und blendet das Skeleton aus'
   expect(scriptViolations).toEqual([]);
 });
 
+test('Wissensartikel (/wissen/:id) lädt unter der Produktions-CSP ohne Verstoß (M06)', async ({ page }) => {
+  const response = await page.goto('/wissen/algorithmen_datenstrukturen');
+  expect(response.headers()['content-security-policy']).toContain("default-src 'self'");
+  await expect(page.getByRole('heading', { name: /Algorithmen/i }).first()).toBeVisible({ timeout: 15000 });
+  expect(await violations(page)).toEqual([]);
+});
+
 // alasql übersetzt Abfragen per `new Function`; das ist nur im eigenen
 // SQL-Worker erlaubt (eigene CSP in vercel.json), nie auf der Hauptseite.
 // Der erste Auftrag startet den Worker (alasql, ca. 500 KB) - unter Last dauert das.
