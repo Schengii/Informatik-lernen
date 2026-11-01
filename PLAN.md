@@ -28,7 +28,7 @@ PLAN.md ist ab jetzt die einzige Arbeitsgrundlage für Umsetzung und Tests.
 - [x] M04 | Vitest Coverage-Schwellen auf aktuellen Ist-Stand anheben | P2 | S | vite.config.js | vite.config.js:165-168 | Fertig wenn: statements auf 64%, branches auf 55%, functions auf 48.5%, lines auf 65.5% angehoben sind und npm run test:coverage grün durchläuft.
 
 ### Phase 2: Sicherheit & Abhängigkeiten
-- [ ] M05 | npm audit Warnungen in Dev-Dependencies (deepmerge / minimatch) beheben | P2 | M | package.json, package-lock.json | package.json:90, npm audit: 19 Funde (deepmerge in vite-plugin-pwa, minimatch in vitest-Tools) | Fertig wenn: npm audit --audit-level=moderate 0 Schwachstellen meldet oder Overrides sauber in package.json dokumentiert sind ohne Breaking Changes.
+- [x] M05 | npm audit Warnungen in Dev-Dependencies (deepmerge / minimatch) beheben | P2 | M | package.json, package-lock.json | package.json:90, npm audit: 19 Funde (deepmerge in vite-plugin-pwa, minimatch in vitest-Tools) | Fertig wenn: npm audit --audit-level=moderate 0 Schwachstellen meldet oder Overrides sauber in package.json dokumentiert sind ohne Breaking Changes.
 - [ ] M06 | E2E-CSP-Abdeckung auf Wissensartikel (/topic/:id) ausweiten | P2 | S | e2e/csp.spec.js | e2e/csp.spec.js:20, src/components/Topics/TopicReader.jsx:1 | Fertig wenn: Neuer Test in e2e/csp.spec.js verifiziert, dass Wissensartikel unter CSP fehlerfrei laden und 0 CSP-Verstöße in der Browser-Konsole werfen.
 
 ### Phase 3: Codequalität & Architektur (Dünne Labs nach CLAUDE.md-Standard ausbauen)
