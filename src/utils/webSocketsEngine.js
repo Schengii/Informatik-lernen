@@ -183,3 +183,4 @@ export const WEBSOCKETS_DRILL_QUESTIONS = [
     explanation: 'WebSockets erlauben gleichzeitigen bidirektionalen Vollduplex-Datenaustausch mit minimalem Frame-Overhead (2–10 Bytes), während SSE nur Server-Push liefert und Polling ständige HTTP-Header-Overheads erzeugt.'
   }
 ];
+

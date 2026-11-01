@@ -140,13 +140,13 @@ export function simulateReconciliation(desiredReplicas, currentPods) {
   } else if (diff < 0) {
     // Überzählige Pods entfernen
     let toRemove = Math.abs(diff);
-    updatedPods = updatedPods.map((p) => {
-      if (toRemove > 0 && p.status !== 'Terminating') {
+    updatedPods = updatedPods.filter(() => {
+      if (toRemove > 0) {
         toRemove--;
-        return { ...p, status: 'Terminating' };
+        return false;
       }
-      return p;
-    }).filter((p) => p.status !== 'Terminating');
+      return true;
+    });
   }
 
   return {

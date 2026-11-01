@@ -72,11 +72,12 @@ export function base64UrlDecode(str) {
     while (base64.length % 4 !== 0) {
       base64 += '=';
     }
-    // Browser & Node kompatibel
-    if (typeof atob === 'function') {
-      return decodeURIComponent(escape(atob(base64)));
+    // Browser & Node kompatibel via global atob
+    const atobFn = typeof atob === 'function' ? atob : (typeof globalThis !== 'undefined' ? globalThis.atob : null);
+    if (atobFn) {
+      return decodeURIComponent(escape(atobFn(base64)));
     }
-    return Buffer.from(base64, 'base64').toString('utf8');
+    throw new Error('Base64-Decoder nicht verfügbar.');
   } catch {
     throw new Error('Ungültiges Base64URL Format.');
   }
@@ -113,9 +114,10 @@ export function parseAndValidateJwt(tokenString) {
       signatureSnippet: parts[2].substring(0, 16) + '...'
     };
   } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
     return {
       isValid: false,
-      error: `JSON Parsing Fehler im JWT: ${err.message}`,
+      error: `JSON Parsing Fehler im JWT: ${msg}`,
       header: null,
       payload: null,
       isExpired: false
@@ -206,3 +208,4 @@ export const OAUTH_OIDC_DRILL_QUESTIONS = [
     explanation: 'Refresh Token Rotation verhindert den Missbrauch gestohlener langlebiger Tokens: Ein Refresh Token darf nur genau einmal eingelöst werden. Versucht ein Angreifer einen bereits verwendeten Token zu nutzen, erkennt der Server den Diebstahl und sperrt die gesamte Session.'
   }
 ];
+

@@ -11,7 +11,9 @@
  */
 export function validateDockerfile(content) {
   const lines = content.split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#'));
+  /** @type {string[]} */
   const issues = [];
+  /** @type {Array<{ instruction: string, rest: string, lineNumber: number, cached?: boolean }>} */
   const layers = [];
   let hasFrom = false;
   let hasCmdOrEntry = false;

@@ -1,6 +1,9 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
+// Axe-Core Analysen sind CPU-intensiv, insbesondere bei parallelen Testläufen über 250+ Lab-Kacheln
+test.describe.configure({ timeout: 120_000 });
+
 // Automatisierter A11y-Audit (axe-core) für die wichtigsten Einstiegspunkte.
 // Ergänzt die manuelle Accessibility-Arbeit (reduced-motion, Kontrastmodi)
 // aus CLAUDE.md um automatisierte, reproduzierbare Prüfung gegen WCAG 2.1 A/AA
