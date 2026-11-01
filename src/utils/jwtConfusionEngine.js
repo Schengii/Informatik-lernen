@@ -56,7 +56,7 @@ export function base64UrlDecode(str) {
  * @param {string} key
  * @param {string} [alg]
  */
-export function generateSimulatedSignature(headerB64, payloadB64, key, alg = 'HS256') {
+function generateSimulatedSignature(headerB64, payloadB64, key, alg = 'HS256') {
   if (alg.toLowerCase() === 'none') {
     return '';
   }
