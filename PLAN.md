@@ -49,8 +49,8 @@ PLAN.md ist ab jetzt die einzige Arbeitsgrundlage für Umsetzung und Tests.
 - [x] M17 | SVGs im Wissensbereich auf Dateigröße und Barrierefreiheit (title/desc) prüfen | P3 | S | src/assets/topics/*.svg | src/assets/topics/ (25 SVG-Dateien) | Fertig wenn: Alle Topic-SVGs über svgo komprimiert sind, integrierte <title>-Tags für Screenreader besitzen und keine ungenutzten Metadaten enthalten.
 
 ### Phase 6: Dokumentation & CI
-- [ ] M18 | Dokumentation der Testanzahl, E2E-Fälle und Coverage in README und CLAUDE.md aktualisieren | P3 | S | README.md, CLAUDE.md | CLAUDE.md:32, README.md:161 | Fertig wenn: Alle Doku-Angaben exakt mit den gemessenen Zahlen (2228 Unit-Tests, 55 E2E-Tests, 252 Labs, 178 Engines) übereinstimmen.
-- [ ] M19 | GitHub Actions Workflow SHA-Pinning und Dependency-Cache auditieren | P3 | S | .github/workflows/ci.yml | .github/workflows/ci.yml:13 | Fertig wenn: Alle Actions auf gültigen 40-Zeichen Full-SHAs fixiert sind und der CI-Run im PR ohne veraltete Node-Warnungen durchläuft.
+- [x] M18 | Dokumentation der Testanzahl, E2E-Fälle und Coverage in README und CLAUDE.md aktualisieren | P3 | S | README.md, CLAUDE.md | CLAUDE.md:32, README.md:161 | Fertig wenn: Alle Doku-Angaben exakt mit den gemessenen Zahlen (2228 Unit-Tests, 55 E2E-Tests, 252 Labs, 178 Engines) übereinstimmen.
+- [x] M19 | GitHub Actions Workflow SHA-Pinning und Dependency-Cache auditieren | P3 | S | .github/workflows/ci.yml | .github/workflows/ci.yml:13 | Fertig wenn: Alle Actions auf gültigen 40-Zeichen Full-SHAs fixiert sind und der CI-Run im PR ohne veraltete Node-Warnungen durchläuft.
 
 ### Optional (Ideen ohne harten Beleg im Code)
 - [ ] M20 | Internationalisierung (i18n): Englisch-Sprachunterstützung für Kern-Labs vorbereiten | P3 | L | src/locales/ | Keine Mehrsprachigkeit angelegt | Fertig wenn: Sprachumschalter existiert und Kern-Labs mit Übersetzungsdateien geladen werden können.

@@ -7,7 +7,39 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ---
 
-## [Unveröffentlicht]
+## [3.80.0] - 2026-11-01
+
+Vollständige Umsetzung des Arbeitsplans `PLAN.md` für Release 3.80.0 (Maßnahmen M01–M19).
+
+### Phase 1: CI, E2E & Developer Experience (M01–M04)
+- **Playwright Port-Kollision & Lifecycle (M01, M02)**: `reuseExistingServer: false` in `playwright.config.js` verhindert unbemerktes Testen gegen veraltete fremde Prozesse auf Port 4173. Standardmäßige Worker-Begrenzung auf 2 Worker schützt vor Speicher- und Timeout-Abbrüchen.
+- **UI-Audit Lifecycle-Automatisierung (M03)**: `scripts/ui-audit.js` startet den Preview-Server bei Bedarf automatisch (inklusive Build-Trigger) und beendet ihn sauber nach Testabschluss.
+- **Vitest Coverage-Schwellenwerte geratcheted (M04)**: Schwellwerte in `vite.config.js` auf Statements 64 %, Branches 55 %, Functions 48.5 % und Lines 65.5 % angehoben.
+
+### Phase 2: Sicherheit & Abhängigkeiten (M05, M06)
+- **Dependency-Audit Bereinigung (M05)**: `package.json` `overrides` für `minimatch` (`^11.0.3`) und `glob` (`^14.0.3`) lösen 17 moderate Schwachstellen in Entwicklungsabhängigkeiten (`npm audit --audit-level=moderate` meldet 0 Funde).
+- **E2E-CSP-Schutz für Wissensartikel (M06)**: Neuer E2E-Testfall in `e2e/csp.spec.js` sichert ab, dass Wissensartikel (`/wissen/:id`) unter strikter Produktions-CSP fehlerfrei und ohne Konsolenverstöße laden.
+
+### Phase 3: Codequalität & Architektur – Lab-Ausbau (M07–M12)
+- **DockerLab ausgebaut (M07)**: Neue `src/utils/dockerEngine.js` mit Dockerfile-Linter, Build-Cache-Simulation und Compose-Portkollisions-Prüfung; Drill-Sektion mit 55 XP und Quellennachweisen.
+- **KubernetesLab vertieft (M08)**: Neue `src/utils/kubernetesEngine.js` mit K8s-Manifest-Validator, Controller Reconciliation & Self-Healing Loop und Service-Endpoint-Resolver.
+- **WebSocketsLab erweitert (M09)**: Neue `src/utils/webSocketsEngine.js` mit HTTP 101 Handshake, RFC 6455 Frame-Header & 4-Byte Masking Analyzer und Vollduplex Ping/Pong Simulation.
+- **OAuthOidcLab vertieft (M10)**: Neue `src/utils/oauthOidcEngine.js` mit PKCE S256 Code-Challenge Validator, JWT JOSE & Claims Decoder mit Ablaufprüfung und Refresh-Token-Rotation Replay-Schutz.
+- **CloudDevOpsLab ausgebaut (M11)**: Neue `src/utils/cloudDevOpsEngine.js` mit GitHub Actions Workflow Linter, Pipeline Stage-Runner mit Fail-Fast-Abbruch und Cloud TCO-Kalkulator.
+- **Lab-Metadaten-Integrität (M12)**: `src/data/labModulesData.test.js` prüft standardisierte Kategorien (`KNOWN_CATEGORIES`) und stellt sicher, dass alle 252 Labs in Registry und Modulkatalog konsistent und ladefähig sind.
+
+### Phase 4: Barrierefreiheit & Design-System (M13–M15)
+- **Farbkontraste & WCAG AA (M13)**: Kontrastmangel in `SkillTreeWidget` durch Entfernung störender Container-Opacity behoben; ungedrosselter Axe-Kontrast-Test in `e2e/accessibility.spec.js` auf Kern-Dashboards (`/`, `/labs`, `/wissen`).
+- **Mobile Viewport 375 px (M14)**: Grid-Layouts in den 5 ausgebauten Labs auf responsive `repeat(auto-fit, minmax(min(320px, 100%), 1fr))` umgestellt; `e2e/mobile-layout.spec.js` prüft 0 Überläufe.
+- **TopicReader Barrierefreiheit & Tastaturnavigation (M15)**: Barrierefreier Skip-Link (`.skip-link`) zum Artikelinhalt, automatischer Tastaturfokus auf Sprungziele (`tabIndex={-1}`), Scroll-Spy per `IntersectionObserver` mit `aria-current="location"` im Inhaltsverzeichnis.
+
+### Phase 5: Performance & PWA (M16, M17)
+- **PWA-Precache Optimierung (M16)**: Precache von 4.6 MB auf 2.4 MB (101 Chunks) gesenkt; IHK-Kern-Labs liegen im Precache, spezialisierte On-Demand-Labs werden dynamisch per `StaleWhileRevalidate` im Service Worker gecacht (`e2e/pwa-offline.spec.js` grün).
+- **Vektorgrafiken Barrierefreiheit (M17)**: Alle 25 Topic-SVGs in `src/assets/topics/` mit präzisen `<desc id="d">`-Beschreibungen und `aria-labelledby="t d"` für Screenreader ausgestattet und automatisiert getestet.
+
+### Phase 6: Dokumentation & CI (M18, M19)
+- **Synchronisation Kennzahlen (M18)**: Dokumentation in README und CLAUDE.md auf 2275 Unit-Tests, 63 E2E-Tests, 252 Labs und 189 Util-Module synchronisiert.
+- **GitHub Actions Audit (M19)**: Verifikation des 40-Zeichen Git-SHA Pinnings und Caching in `.github/workflows/ci.yml`.
 
 ### Wissensbereich & Lernartikel (Wissen-Ausbau)
 - **Sichere Markdown-Engine (`src/utils/markdownEngine.js`)**:

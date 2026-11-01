@@ -147,14 +147,15 @@ Das Repository ist für nahtlose Zusammenarbeit mit Entwicklern und KI-Agenten (
 - Sicherheitsrichtlinien: [`SECURITY.md`](SECURITY.md)
 - Ausführliche Feature-Beschreibungen und Änderungshistorie bis v3.74.0: [`docs/README-Archiv.md`](docs/README-Archiv.md)
 
-### Aktuelle Version (v3.79.0) & Neueste Verbesserungen
-- **SQL-Labs funktionieren unter der Produktions-CSP**: alasql läuft im eigenen Web Worker (`sql.worker.js`), die Hauptseite bleibt ohne `'unsafe-eval'`.
-- **Barrierefreiheit**: Labels sind mit ihren Feldern verknüpft, klickbare Karten per Tastatur (Enter/Leertaste) bedienbar; drei weitere `jsx-a11y`-Regeln sind aktiv.
-- **PWA & CI**: Precache 6,1 → 4,1 MB; GitHub Actions auf Node-24-Versionen per SHA gepinnt; Bundle-Trend im PR über `scripts/size-report.js`.
-- **Stabilität**: Vitest wieder mit Datei-Isolation, E2E im Gesamtlauf stabil, Lighthouse-A11y gemessen 0,98.
-- Umsetzungsstand und offene Punkte: [`PLAN.md`](PLAN.md).
+### Aktuelle Version (v3.80.0) & Neueste Verbesserungen
+- **Vollständige Umsetzung PLAN.md (M01–M19)**: 2.275 Unit-Tests, 63 Playwright E2E-Tests, 252 Labs und 189 Util- und Engine-Module.
+- **Lab-Ausbau & Simulationen**: Vollständiger Ausbau von DockerLab, KubernetesLab, WebSocketsLab, OAuthOidcLab und CloudDevOpsLab mit eigenen Engines, Lintern und XP-Drills.
+- **Barrierefreiheit (WCAG AA & 375 px)**: TopicReader mit Tastatur-Skip-Link, Fokus-Management und Scroll-Spy (`aria-current="location"`); alle 25 Topic-SVGs mit `<desc id="d">` und `<title id="t">`; 0 Layout-Überläufe bei 375 px.
+- **PWA-Precache Optimierung**: Precache auf 2.4 MB (101 Chunks) gesenkt; Kern-Labs offline geprecacht, On-Demand-Labs über StaleWhileRevalidate Runtime-Cache bedient.
+- **CI, Sicherheit & Coverage**: 0 moderate/hohe npm audit Warnungen; Coverage-Schwellen auf Statements 64 %, Branches 55 %, Functions 48.5 %, Lines 65.5 % geratcheted.
+- Umsetzungsstand und Historie: [`PLAN.md`](PLAN.md) und [`CHANGELOG.md`](CHANGELOG.md).
 
-### Version 3.79.0 – Branch-Arbeit M01–M14 (zuvor unveröffentlicht)
+### Version 3.79.0 (zuvor veröffentlicht)
 - **Modularisierung & Architektur (M08, M10)**:
   - Aufteilung der 901-Zeilen-Komponente `Navbar.jsx` in modulare Unterkomponenten (`NavDesktopMenu`, `NavDropdownMenu`, `NavToolsMenu`, `NavProfileMenu`, `NavMobileDrawer`, `navbarMenuItems.js`) – Haupt-Navbar auf 263 Zeilen verschlankt.
   - Aufteilung der 2.432-Zeilen-Datendatei `labModulesData.js` in 5 thematische Moduldateien unter `src/data/labModules/` (`ihkModules`, `networkModules`, `securityModules`, `cloudDevopsModules`, `softwareDataModules`).

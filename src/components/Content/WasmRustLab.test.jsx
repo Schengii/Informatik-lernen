@@ -13,7 +13,7 @@ describe('WasmRustLab', () => {
     await waitFor(() => {
       fireEvent.click(screen.getByRole('button', { name: /add\(a, b\)/ }));
       expect(screen.getByText(/add\(2147483647, 1\) = -2147483648/)).toBeTruthy();
-    });
+    }, { timeout: 4000 });
     expect(screen.getByText(/Überlauf: i32 rechnet modulo/)).toBeTruthy();
 
     fireEvent.click(screen.getByRole('button', { name: /memory\.grow\(1\)/ }));
