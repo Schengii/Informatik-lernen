@@ -2203,3 +2203,10 @@ select:focus-visible,
   outline: 2px solid #ffffff;
   outline-offset: 2px;
 }
+
+/* Header-Badge (XP/Level): auf schmalen Bildschirmen ohne Symbole, damit "0 XP" und "Lvl 1" nicht umbrechen */
+@media (max-width: 480px) {
+  .nav-badge-icon {
+    display: none;
+  }
+}

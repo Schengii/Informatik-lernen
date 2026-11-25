@@ -14,6 +14,9 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 - **Karteikarten im Lernmix**: Bis zu 3 Karteikarten (fällige zuerst, dann neue) stehen am Anfang des Tages-Lernmix; die Selbstbewertung (Nochmal/Schwer/Gut/Leicht) aktualisiert den SM-2-Status. Der Mix bleibt bei 10 Aufgaben insgesamt.
 - Neue Engine `src/utils/learningMixEngine.js` (`@ts-check`) mit Tests, neue Store-Aktionen `recordPlacementResult` und `recordDailyMixResult`, neue Spielstand-Felder `placementResult` und `dailyMixLog`.
 
+### Behoben
+- **Mobile Header & Pomodoro-Timer (375 px)**: Das XP/Level-Badge im Header bricht nicht mehr in zwei Zeilen um (`white-space: nowrap`, Symbole unter 480 px ausgeblendet). Der schwebende Pomodoro-Timer zeigt auf kleinen Bildschirmen nur das Symbol (Zeit erst bei laufendem Timer, kleinerer Rand) und überdeckt dadurch weniger Inhalt; der Button hat ein `aria-label`.
+
 ---
 
 ## [3.80.0] - 2026-11-01
