@@ -4,8 +4,60 @@ import { BookOpen, Plus, Trash2, Tag, Search, Download, Sparkles, Edit3, Eye, Da
 import { useStore } from '../../store/useStore';
 import { saveItem, deleteItem } from '../../utils/indexedDbStorage';
 import { onActivationKey } from '../Shared/keyActivation';
+import { NOTEBOOK_TEMPLATES } from '../../data/notebookTemplates';
+import { parseMarkdown } from '../../utils/markdownLite';
 
 const STORAGE_KEY = 'it_devgame_personal_notes';
+
+/** Aktuelle Zeit als Anzeige-Text (außerhalb der Komponente, damit der Render rein bleibt). */
+const nowLabel = () => new Date().toLocaleString('de-DE', { dateStyle: 'short', timeStyle: 'short' });
+
+function InlineTokens({ tokens }) {
+  return tokens.map((t, i) => {
+    if (t.type === 'bold') return <strong key={i}>{t.text}</strong>;
+    if (t.type === 'code') {
+      return <code key={i} style={{ background: 'var(--bg-tertiary)', padding: '1px 6px', borderRadius: '4px', fontSize: '0.88em' }}>{t.text}</code>;
+    }
+    return <React.Fragment key={i}>{t.text}</React.Fragment>;
+  });
+}
+
+/** Rendert Markdown als React-Elemente (ohne HTML-Einschleusung). */
+function MarkdownPreview({ markdown }) {
+  const blocks = parseMarkdown(markdown);
+  const cellStyle = { padding: '6px 10px', border: '1px solid var(--border-color)', textAlign: 'left' };
+  return (
+    <>
+      {blocks.map((b, i) => {
+        switch (b.type) {
+          case 'heading': {
+            const sizes = { 1: '1.5rem', 2: '1.3rem', 3: '1.15rem', 4: '1.02rem' };
+            return <div key={i} role="heading" aria-level={Math.min(b.level + 1, 6)} style={{ fontWeight: 800, fontSize: sizes[b.level], margin: '14px 0 6px' }}><InlineTokens tokens={b.tokens} /></div>;
+          }
+          case 'code':
+            return <pre key={i} style={{ background: 'var(--bg-tertiary)', padding: '12px', borderRadius: 'var(--radius-md)', overflowX: 'auto', fontSize: '0.85rem', margin: '8px 0' }}><code>{b.text}</code></pre>;
+          case 'list': {
+            const ListTag = b.ordered ? 'ol' : 'ul';
+            return <ListTag key={i} style={{ margin: '6px 0', paddingLeft: '22px' }}>{b.items.map((item, j) => <li key={j}><InlineTokens tokens={item} /></li>)}</ListTag>;
+          }
+          case 'table':
+            return (
+              <div key={i} style={{ overflowX: 'auto', margin: '8px 0' }}>
+                <table style={{ borderCollapse: 'collapse', fontSize: '0.88rem' }}>
+                  <thead><tr>{b.header.map((h, j) => <th key={j} scope="col" style={{ ...cellStyle, background: 'var(--bg-tertiary)' }}><InlineTokens tokens={h} /></th>)}</tr></thead>
+                  <tbody>{b.rows.map((row, r) => <tr key={r}>{row.map((c, j) => <td key={j} style={cellStyle}><InlineTokens tokens={c} /></td>)}</tr>)}</tbody>
+                </table>
+              </div>
+            );
+          case 'quote':
+            return <blockquote key={i} style={{ margin: '8px 0', padding: '8px 14px', borderLeft: '4px solid var(--accent-teal)', background: 'var(--bg-tertiary)', borderRadius: '4px' }}><InlineTokens tokens={b.tokens} /></blockquote>;
+          default:
+            return <p key={i} style={{ margin: '6px 0' }}><InlineTokens tokens={b.tokens} /></p>;
+        }
+      })}
+    </>
+  );
+}
 
 const INITIAL_SAMPLE_NOTES = [
   {
@@ -111,6 +163,32 @@ export default function PersonalNotebookLab() {
     }
   };
 
+  const handleAddTemplate = (template) => {
+    const id = `tpl_${template.id}`;
+    if (notes.some((n) => n.id === id)) {
+      setSelectedNoteId(id);
+      setSearchQuery('');
+      setSelectedTag('ALL');
+      return;
+    }
+    const newNote = {
+      id,
+      title: template.title,
+      tags: [...template.tags],
+      content: template.content,
+      updatedAt: nowLabel()
+    };
+    setNotes([newNote, ...notes]);
+    setSelectedNoteId(id);
+    setSearchQuery('');
+    setSelectedTag('ALL');
+    saveItem('notes', newNote).catch(() => {});
+    if (!noteCreatedXpClaimed) {
+      setNoteCreatedXpClaimed(true);
+      awardXP(10, 'note_created');
+    }
+  };
+
   const handleUpdateCurrentNote = (field, value) => {
     setNotes(notes.map(n => {
       if (n.id === selectedNoteId) {
@@ -175,6 +253,33 @@ export default function PersonalNotebookLab() {
         </div>
       </div>
 
+      {/* Spickzettel-Vorlagen */}
+      <details className="glass-panel" style={{ padding: '16px 20px', borderRadius: 'var(--radius-lg)' }}>
+        <summary style={{ cursor: 'pointer', fontWeight: 800, color: 'var(--text-main)' }}>
+          📚 Spickzettel-Vorlagen ({NOTEBOOK_TEMPLATES.length}) – mit einem Klick als eigene Notiz hinzufügen
+        </summary>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))', gap: '10px', marginTop: '14px' }}>
+          {NOTEBOOK_TEMPLATES.map((tpl) => {
+            const added = notes.some((n) => n.id === `tpl_${tpl.id}`);
+            return (
+              <div key={tpl.id} style={{ padding: '12px 14px', borderRadius: 'var(--radius-md)', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)' }}>
+                <div style={{ fontWeight: 700, color: 'var(--text-main)', marginBottom: '4px' }}>{tpl.title}</div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '8px' }}>{tpl.description}</div>
+                <button
+                  type="button"
+                  onClick={() => handleAddTemplate(tpl)}
+                  className={`btn ${added ? 'btn-ghost' : 'btn-secondary'}`}
+                  style={{ padding: '6px 12px', fontSize: '0.82rem' }}
+                  aria-label={`${added ? 'Öffnen' : 'Hinzufügen'}: ${tpl.title}`}
+                >
+                  {added ? 'Öffnen' : 'Hinzufügen'}
+                </button>
+              </div>
+            );
+          })}
+        </div>
+      </details>
+
       {/* 2-Pane: Notes Sidebar + Markdown Editor/Preview */}
       <div className="grid-responsive" style={{ gridTemplateColumns: 'minmax(min(300px, 100%), 1fr) minmax(440px, 2fr)', gap: '20px' }}>
         {/* Notes Sidebar */}
@@ -186,6 +291,7 @@ export default function PersonalNotebookLab() {
               <input
                 type="text"
                 placeholder="Notizen durchsuchen..."
+                aria-label="Notizen durchsuchen"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 style={{ flex: 1, background: 'transparent', border: 'none', color: 'var(--text-main)', outline: 'none', fontSize: '0.88rem' }}
@@ -292,6 +398,7 @@ export default function PersonalNotebookLab() {
               <input
                 type="text"
                 placeholder="Komma-getrennte Tags (z.B. IHK, SQL, Docker)..."
+                aria-label="Tags der Notiz, durch Komma getrennt"
                 value={selectedNote.tags?.join(', ') || ''}
                 onChange={(e) => {
                   const tagsArr = e.target.value.split(',').map(t => t.trim()).filter(Boolean);
@@ -320,11 +427,10 @@ export default function PersonalNotebookLab() {
                   color: 'var(--text-main)',
                   lineHeight: '1.6',
                   fontSize: '0.92rem',
-                  whiteSpace: 'pre-wrap',
                   fontFamily: 'system-ui, sans-serif'
                 }}
               >
-                {selectedNote.content}
+                <MarkdownPreview markdown={selectedNote.content} />
               </div>
             ) : (
               <textarea
