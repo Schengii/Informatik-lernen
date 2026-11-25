@@ -15,6 +15,14 @@ import { ANDLER_DRILL_QUESTIONS } from '../utils/wisoAndlerEngine';
 import { CONTRIBUTION_MARGIN_DRILL_QUESTIONS } from '../utils/wisoContributionMarginEngine';
 import { KAFKA_DRILL_QUESTIONS } from '../utils/kafkaEventEngine';
 import { WASM_DRILL_QUESTIONS } from '../utils/wasmBinaryEngine';
+import { DOCKER_DRILL_QUESTIONS } from '../utils/dockerEngine';
+import { K8S_DRILL_QUESTIONS } from '../utils/kubernetesEngine';
+import { OAUTH_OIDC_DRILL_QUESTIONS } from '../utils/oauthOidcEngine';
+import { CLOUD_DEVOPS_DRILL_QUESTIONS } from '../utils/cloudDevOpsEngine';
+import { IHK_CLASS_DRILL_QUESTIONS } from '../utils/umlEngine';
+import { WEBSOCKETS_DRILL_QUESTIONS } from '../utils/webSocketsEngine';
+import { IHK_BAB_DRILL_QUESTIONS } from '../utils/wisoBabEngine';
+import { normalizeDrillQuestions } from '../utils/drillFormat';
 
 // Quelle je Lab: `lab` ist die Modul-ID aus LAB_MODULES (Grundlage für Lernpfad-Empfehlungen).
 const SOURCES = [
@@ -31,12 +39,19 @@ const SOURCES = [
   { lab: 'wiso_andler', questions: ANDLER_DRILL_QUESTIONS },
   { lab: 'wiso_contribution_margin', questions: CONTRIBUTION_MARGIN_DRILL_QUESTIONS },
   { lab: 'kafka', questions: KAFKA_DRILL_QUESTIONS },
-  { lab: 'wasm_rust_studio', questions: WASM_DRILL_QUESTIONS }
+  { lab: 'wasm_rust_studio', questions: WASM_DRILL_QUESTIONS },
+  { lab: 'docker', questions: DOCKER_DRILL_QUESTIONS },
+  { lab: 'kubernetes', questions: K8S_DRILL_QUESTIONS },
+  { lab: 'oauth_oidc', questions: OAUTH_OIDC_DRILL_QUESTIONS },
+  { lab: 'cloud_devops', questions: CLOUD_DEVOPS_DRILL_QUESTIONS },
+  { lab: 'uml_diagram', questions: IHK_CLASS_DRILL_QUESTIONS },
+  { lab: 'websockets', questions: WEBSOCKETS_DRILL_QUESTIONS },
+  { lab: 'wiso_bab_lab', questions: IHK_BAB_DRILL_QUESTIONS }
 ];
 
 /** @type {Array<{ id: string, question: string, options: string[], correct: number, explanation: string }>} */
-export const DRILL_QUESTIONS = SOURCES.flatMap((source) => source.questions).map((q) => ({
-  id: String(q.id),
+export const DRILL_QUESTIONS = SOURCES.flatMap((source) => normalizeDrillQuestions(source.questions)).map((q) => ({
+  id: q.id,
   question: q.frage,
   options: q.optionen,
   correct: q.korrektIndex,
