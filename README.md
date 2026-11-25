@@ -45,9 +45,9 @@ Informatik-lernen/
 ├── public/                    Statische Assets, PWA-Icons
 ├── scripts/                   new-lab.js (Lab-Scaffold), gen-lab-list.js (docs/LABS.md), OG-Image, PWA-Icons
 ├── src/
-│   ├── assets/topics/         25 SVG-Diagramme für Wissensartikel
+│   ├── assets/topics/         37 SVG-Diagramme für Wissensartikel
 │   ├── components/            Content/ (Labs, TopicReader), Games/, Navigation/, Shared/ …
-│   ├── data/                  labRegistry.js, labModulesData.js, topicsData.js, topics/ (24 Artikel)
+│   ├── data/                  labRegistry.js, labModulesData.js, topicsData.js, topics/ (35 Artikel)
 │   ├── store/                 Zustand-Store (useStore.js) mit LocalStorage-/IndexedDB-Persistenz
 │   ├── styles/global.css      CSS-Variablen-Design-System & Markdown-Typografie
 │   └── utils/                 *Engine.js (reine Logik), markdownEngine.js, storage, uiPreferences
@@ -73,7 +73,7 @@ Informatik-lernen/
 5. **PWA & Bundle**: `vite-plugin-pwa` mit Precache der App-Chunks; Vendor-Chunks (`react/ui/charts/pdf/sql`) mit `size-limit`-Budgets, schwere Chunks (inkl. des lokal gebündelten Monaco-Editors) per Runtime-Cache.
 6. **Audio**: Soundeffekte werden zur Laufzeit per Web Audio API synthetisiert.
 7. **Qualität (CI)**: `npm audit` → `lint:ci` → `typecheck` → `test:coverage` (führt alle Tests aus) → `build` → `size` → `e2e`; danach Lighthouse auf dem Build-Artefakt. Smoke- und axe-A11y-Tests rendern jedes Lab automatisch.
-8. **Wissensartikel (Wissen)**: 24 modularisierte Lernartikel (`src/data/topics/`) mit sicherer Markdown-Engine (`src/utils/markdownEngine.js`), interaktiven Aufgaben, Quizzes und SVG-Diagrammen (`src/assets/topics/`). Lazy-Loading per dynamischem Import und Deep-Linking (`/wissen/<topicId>`).
+8. **Wissensartikel (Wissen)**: 35 modularisierte Lernartikel (`src/data/topics/`, u. a. Hardware, Elektrotechnik/USV, Betriebssysteme, Netzwerkdienste, IT-Sicherheit im Betrieb, ITSM, DevOps/Container, Softwarearchitektur, Datenanalyse/ML, IIoT/Industrie 4.0, Beschaffung/Bilanz, Qualität/Fachgespräch) mit sicherer Markdown-Engine (`src/utils/markdownEngine.js`), interaktiven Aufgaben, Quizzes und SVG-Diagrammen (`src/assets/topics/`). Lazy-Loading per dynamischem Import und Deep-Linking (`/wissen/<topicId>`).
 
 ## ♿ Barrierefreiheit
 

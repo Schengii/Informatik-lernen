@@ -24,6 +24,13 @@ date: 2026-10-29
 
 ---
 
+## 📚 Theorieausbau im Wissen-Tab (unveröffentlicht)
+1. **Zwölf neue Theorieartikel** in `src/data/topics/` (Metadaten in `topicsData.js`, Abbildungen in `src/assets/topics/`): Hardware & Rechnerarchitektur, Elektrotechnik/USV/Arbeitsschutz, Betriebssysteme & Administration, Netzwerkdienste & -technik, IT-Sicherheit im Betrieb, ITSM/ITIL, DevOps/Container/CI-CD, Softwarearchitektur/Microservices, Datenanalyse/Statistik/ML (FIDP), IIoT/Industrie 4.0 (FIDV), Beschaffung/Bilanz/Zahlungsverkehr, Qualität/Dokumentation/Fachgespräch.
+2. Jeder Artikel: Lernziele, Rechenwege, Prüfungshinweise, Übungen mit Lösung, Quiz, Lab-Verweise, Quellen mit Prüfdatum und eine eigene SVG-Abbildung. Der Test `topics.test.js` verlangt jetzt mindestens 37 SVGs mit Barrierefreiheits-Tags.
+3. Quellen sind auf Erreichbarkeit geprüft, aber nicht Satz für Satz verglichen. Fristen (E-Rechnung) und IHK-Vorgaben vor Verwendung gegen die aktuelle Rechtslage prüfen.
+
+---
+
 ## 🎯 Ausbau dünner Labs (unveröffentlicht, PLAN P17)
 1. **Apache Kafka (`KafkaEventLab.jsx` & `src/utils/kafkaEventEngine.js`)**: Producer mit Schlüssel → Partition, Partitions-Logs mit Offsets, zwei Consumer Groups mit eigener Zuweisung, Lag und Fan-out, Repartitionierung, Vergleich Kafka/Queue, 6 Drillfragen, Quellen (kafka.apache.org, KIP-480, Vault-ADR).
 2. **WebAssembly & Rust (`WasmRustLab.jsx` & `src/utils/wasmBinaryEngine.js`)**: echtes, Byte für Byte erzeugtes Wasm-Modul (add, mul, memory), Binär-Inspektor mit Sektionen und LEB128, Ausführung im Browser mit i32-Überlauf, `memory.grow()`, 6 Drillfragen, Quellen (WebAssembly-Spezifikation, MDN, rustc book).
