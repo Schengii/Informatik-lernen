@@ -1,4 +1,5 @@
 import { FLASHCARDS_EXTRA } from './flashcardsExtra';
+import { FLASHCARD_MORE } from './vertiefungDataRest';
 const BASE_FLASHCARDS_DATA = [
   {
     id: 1,
@@ -142,4 +143,6 @@ const BASE_FLASHCARDS_DATA = [
   }
 ];
 
-export const FLASHCARDS_DATA = [...BASE_FLASHCARDS_DATA, ...FLASHCARDS_EXTRA];
+export const FLASHCARDS_DATA = [...BASE_FLASHCARDS_DATA, ...FLASHCARDS_EXTRA].map((card) => (
+  FLASHCARD_MORE[card.id] ? { ...card, more: FLASHCARD_MORE[card.id] } : card
+));

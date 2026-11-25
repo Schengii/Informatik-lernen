@@ -10,6 +10,8 @@ import {
   availabilityClasses
 } from '../../utils/availabilityEngine';
 import SelfTestQuiz from '../Shared/SelfTestQuiz';
+import DeepDive from '../Shared/DeepDive';
+import { ARCH_NODE_DEEPDIVES } from '../../data/vertiefungDataRest';
 
 const SECTIONS = [
   { id: 'components', label: 'Komponenten' },
@@ -83,6 +85,7 @@ function ComponentsSection() {
           <strong style={{ fontSize: '0.88rem', color: 'var(--accent-primary)', display: 'block', marginBottom: '4px' }}>⚙️ Technische Umsetzung:</strong>
           <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>{activeNode.details}</p>
         </div>
+        <DeepDive key={activeNode.id} deepDive={ARCH_NODE_DEEPDIVES[activeNode.id]} />
       </div>
     </div>
   );

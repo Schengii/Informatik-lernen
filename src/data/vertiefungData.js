@@ -1,10 +1,11 @@
+import { GUIDE_DEEPDIVES_REST } from './vertiefungDataRest';
 // Fachliche Vertiefungen zu den bestehenden Inhalten unter „Kurse & Wissen“.
 // Schlüssel = ID des vorhandenen Eintrags. Format: { md: Markdown, sources?: [{ label, url }] }.
 // Das Markdown wird von Shared/MarkdownView gerendert (Überschriften, Listen, Tabellen, Code).
 const md = (...lines) => lines.join('\n');
 
 // ---------------------------------------------------------------- Einsteiger-Kurs
-export const GUIDE_DEEPDIVES = {
+const GUIDE_DEEPDIVES_BASE = {
   eva_prinzip: {
     md: md(
       '### Von-Neumann-Architektur',
@@ -331,3 +332,5 @@ export const WC_DEEPDIVES = {
     sources: [{ label: 'MDN: Web Components', url: 'https://developer.mozilla.org/en-US/docs/Web/API/Web_components' }]
   }
 };
+
+export const GUIDE_DEEPDIVES = { ...GUIDE_DEEPDIVES_BASE, ...GUIDE_DEEPDIVES_REST };

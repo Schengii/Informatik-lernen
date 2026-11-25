@@ -1,3 +1,4 @@
+import { LANGUAGE_EXTRA_TOPICS_REST } from './vertiefungDataRest';
 // Fachliche Vertiefungen (Teil 2): Praxisprojekte, Kampagnenkapitel und zusätzliche Fachthemen
 // innerhalb der bestehenden Programmiersprachen. Schlüssel = ID des vorhandenen Eintrags.
 const md = (...lines) => lines.join('\n');
@@ -159,7 +160,7 @@ export const CAMPAIGN_DEEPDIVES = {
 };
 
 // ---------------------------------------------------------------- Zusätzliche Fachthemen je Sprache
-export const LANGUAGE_EXTRA_TOPICS = {
+const LANGUAGE_EXTRA_TOPICS_BASE = {
   python: [
     {
       title: '5. Comprehensions & Generatoren',
@@ -478,3 +479,5 @@ export const LANGUAGE_EXTRA_TOPICS = {
     }
   ]
 };
+
+export const LANGUAGE_EXTRA_TOPICS = { ...LANGUAGE_EXTRA_TOPICS_BASE, ...LANGUAGE_EXTRA_TOPICS_REST };
