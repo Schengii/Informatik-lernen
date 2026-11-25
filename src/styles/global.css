@@ -237,6 +237,14 @@ button {
   color: inherit;
 }
 
+/* Formularelemente erben sonst die Browser-Schrift (Arial) statt Inter/Barrierefreiheits-Schrift */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
 /* Allow absolute dropdown popovers to expand beyond parent wrapper button width */
 .nav-dropdown-popover {
   max-width: none !important;
@@ -2209,4 +2217,17 @@ select:focus-visible,
   .nav-badge-icon {
     display: none;
   }
+}
+
+/* Fußzeilen-Links: ausreichend große Trefferfläche (WCAG 2.5.8) und Tastaturfokus */
+.footer-link {
+  display: inline-block;
+  padding: 6px 0;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.footer-link:hover,
+.footer-link:focus-visible {
+  color: var(--accent-primary);
 }
