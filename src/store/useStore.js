@@ -211,6 +211,26 @@ export const useStore = create((set) => {
       });
     },
 
+    // Berufsfilter (Labs-Dashboard und Lernpfad)
+    setCareerFilter: (careerId) => {
+      if (typeof careerId !== 'string') return;
+      set((state) => {
+        const updatedState = { ...state.userState, careerFilter: careerId };
+        saveUserState(updatedState);
+        return { userState: updatedState };
+      });
+    },
+
+    // Lernpfad-Empfehlung ausblenden, bis `untilDate` (YYYY-MM-DD) erreicht ist
+    snoozePathLab: (labId, untilDate) => {
+      if (typeof labId !== 'string' || typeof untilDate !== 'string') return;
+      set((state) => {
+        const updatedState = { ...state.userState, pathSnoozed: { ...(state.userState.pathSnoozed || {}), [labId]: untilDate } };
+        saveUserState(updatedState);
+        return { userState: updatedState };
+      });
+    },
+
     // Täglicher Lernmix abgeschlossen: { date, correct, total }
     recordDailyMixResult: (log) => {
       if (!log || typeof log !== 'object') return;
