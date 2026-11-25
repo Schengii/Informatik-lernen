@@ -273,6 +273,66 @@ export const TOPICS = [
     icon: '🤖',
     readTime: '10 Min',
     summary: 'KI, Machine Learning und Deep Learning abgegrenzt, Lernarten, Training mit Verlustfunktion und Gradientenabstieg, Overfitting, CNN, Transformer, LLMs, RAG und die Risikoklassen des EU AI Act.'
+  },
+  {
+    id: 'hardware_rechnerarchitektur',
+    title: 'Hardware & Rechnerarchitektur: CPU, RAM, Mainboard, Schnittstellen und Beschaffung',
+    category: 'IT-Systeme',
+    difficultyLevel: 'Azubi / IHK',
+    targetRoles: ['azubi', 'junior', 'pro'],
+    icon: '🖥️',
+    readTime: '9 Min',
+    summary: 'Aufbau eines PCs, Kenngrößen von CPU und RAM, Datenraten von DDR, SATA, PCIe und USB, Netzteil und Stromkosten, Auswahl und Beschaffung von Arbeitsplätzen.'
+  },
+  {
+    id: 'elektrotechnik_usv_arbeitsschutz',
+    title: 'Elektrotechnik, USV & Arbeitsschutz (DGUV V3)',
+    category: 'IT-Systeme',
+    difficultyLevel: 'Azubi / IHK',
+    targetRoles: ['azubi', 'junior', 'pro'],
+    icon: '⚡',
+    readTime: '10 Min',
+    summary: 'Ohmsches Gesetz, Wirk- und Scheinleistung, USV-Bauarten und Dimensionierung, Überbrückungszeit, Schutzmaßnahmen, fünf Sicherheitsregeln, Prüfwerte nach DGUV V3 und PUE.'
+  },
+  {
+    id: 'betriebssysteme_administration',
+    title: 'Betriebssysteme & Administration: Linux, Windows, Active Directory',
+    category: 'IT-Systeme',
+    difficultyLevel: 'Azubi / IHK',
+    targetRoles: ['azubi', 'junior', 'pro'],
+    icon: '🐧',
+    readTime: '8 Min',
+    summary: 'Kernel, Prozesse und Dateisysteme, MBR gegen GPT, Linux-Rechte mit chmod, systemd, NTFS- und Freigaberechte, Active Directory, GPO, AGDLP, Updates, Rollout und Skripting.'
+  },
+  {
+    id: 'netzwerkdienste_technik',
+    title: 'Netzwerkdienste & -technik: DHCP, DNS, VLAN, Routing, WLAN, VPN, Firewall',
+    category: 'Netzwerke',
+    difficultyLevel: 'Azubi / IHK',
+    targetRoles: ['azubi', 'junior', 'pro'],
+    icon: '🛰️',
+    readTime: '10 Min',
+    summary: 'DHCP-Ablauf, DNS-Records, VLAN und Trunking, Inter-VLAN-Routing, Routing-Tabelle, NAT, WLAN-Standards, VPN, Firewall mit DMZ, strukturierte Verkabelung und Fehlersuche.'
+  },
+  {
+    id: 'it_sicherheit_betrieb',
+    title: 'IT-Sicherheit im Betrieb: Risikoanalyse, Härtung, Patch-Management, Incident Response',
+    category: 'Sicherheit & Recht',
+    difficultyLevel: 'Azubi / IHK',
+    targetRoles: ['azubi', 'junior', 'pro'],
+    icon: '🛡️',
+    readTime: '8 Min',
+    summary: 'Schutzbedarf und Maximumprinzip, Risikomatrix und ALE, Risikobehandlung, Systemhärtung, CVSS und Patching, Segmentierung, Logging, Incident Response, BCM und ISMS.'
+  },
+  {
+    id: 'itsm_itil_support',
+    title: 'IT-Service-Management & Support: ITIL, Incident, Problem, Change, SLA',
+    category: 'IT-Systeme',
+    difficultyLevel: 'Azubi / IHK',
+    targetRoles: ['azubi', 'junior', 'pro'],
+    icon: '🎧',
+    readTime: '8 Min',
+    summary: 'Incident, Service Request, Problem und Change, Priorität aus Auswirkung und Dringlichkeit, Support-Ebenen, CMDB, SLA, OLA und UC, MTBF, MTTR und Verfügbarkeit.'
   }
 ];
 
