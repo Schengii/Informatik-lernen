@@ -1090,3 +1090,23 @@ export function buildRegistryIndex(registry = LAB_REGISTRY) {
   }
   return index;
 }
+
+let prefetchIndex = null;
+const prefetched = new Set();
+
+/**
+ * Lädt den Chunk eines Labs vorab (z. B. beim Überfahren eines Menüeintrags), damit der
+ * spätere Tab-Wechsel ohne Ladezeit rendert. Unbekannte Tab-IDs und Fehler werden ignoriert;
+ * jedes Lab wird höchstens einmal angefordert.
+ * @param {string} tabId
+ */
+export function prefetchLab(tabId) {
+  if (prefetched.has(tabId)) return;
+  prefetchIndex = prefetchIndex || buildRegistryIndex();
+  const entry = prefetchIndex.get(tabId);
+  if (!entry) return;
+  prefetched.add(tabId);
+  Promise.resolve()
+    .then(() => entry.load())
+    .catch(() => prefetched.delete(tabId));
+}

@@ -14,6 +14,13 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 - **Karteikarten im Lernmix**: Bis zu 3 Karteikarten (fällige zuerst, dann neue) stehen am Anfang des Tages-Lernmix; die Selbstbewertung (Nochmal/Schwer/Gut/Leicht) aktualisiert den SM-2-Status. Der Mix bleibt bei 10 Aufgaben insgesamt.
 - Neue Engine `src/utils/learningMixEngine.js` (`@ts-check`) mit Tests, neue Store-Aktionen `recordPlacementResult` und `recordDailyMixResult`, neue Spielstand-Felder `placementResult` und `dailyMixLog`.
 
+### Geändert
+- **Labs vorladen**: Beim Überfahren oder Fokussieren eines Menüeintrags lädt `prefetchLab` (`src/data/labRegistry.js`) den Lab-Chunk vorab, jedes Lab höchstens einmal; der Tab-Wechsel rendert dadurch ohne Ladezeit.
+- **Service Worker nur im Produktions-Build registriert** (`src/main.jsx`): Im Dev-Server entfällt der Konsolenfehler „unsupported MIME type“.
+
+### Tests
+- Golden-Tests mit von Hand gerechneten Werten für `vlsmEngine` (klassische IHK-Aufgabe 100/50/25/10 Hosts, Hostzahl-Grenzfälle), `raidEngine` (RAID 0/1, Mindestplatten) und `wisoZuschlagskalkulationEngine` (Skonto/Rabatt „im Hundert“ bis zum Bruttoverkaufspreis); Test für `prefetchLab`.
+
 ### Behoben
 - **UI-Audit (`scripts/ui-audit.js`) misst korrekt**: Messung erst nach Abschalten der CSS-Übergänge (vorher Zwischenwerte beim Theme-Wechsel), echte Alpha-Komposition, Verläufe (je Farbstopp, schlechtester Wert) und Verlaufstext (`background-clip: text`) werden berücksichtigt; von einem abschneidenden Vorfahren verdeckter Überstand (dekorative Kreise, Monaco) zählt nicht mehr als Überlauf. Ergebnis über alle 230 Routen: vorher bis zu 176 Kontrast- und 75 Überlauf-Funde je Theme, jetzt nur 1 echter Fund.
 - **JWKS-Rotation-Lab**: Weißer Text auf dem Button „Schlüsselpaar Rotieren“ erreichte auf dem Verlauf nur 2,64:1; der Verlauf ist abgedunkelt (`#7e22ce` → `#9333ea`).
