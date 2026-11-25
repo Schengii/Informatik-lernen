@@ -30,7 +30,6 @@ import { syncUserStateToIndexedDb } from './indexedDbStoreMiddleware';
  * @property {import('./learningMixEngine').PlacementResult | null} [placementResult] Ergebnis des Einstufungstests
  * @property {{ date: string, correct: number, total: number } | null} [dailyMixLog] Zuletzt abgeschlossener Tages-Lernmix
  * @property {Record<string, import('./labProgressEngine').LabProgressEntry>} [labProgress] Lab-Besuche/-Abschlüsse je Registry-Tab
- * @property {Record<string, boolean>} [studyPlanWeeks] Abgehakte Wochen im IHK-Lernplaner ({ [weekNum]: boolean })
  * @property {Record<string, unknown>} srsFlashcards
  * @property {string[]} completedTopics
  * @property {string[]} completedGames
@@ -55,7 +54,6 @@ export const initialProfileState = {
   lastActiveDate: '', // letzter Tag mit Aktivität (lokal), Basis der Streak-Berechnung
   examTargetDate: '',
   examTargetType: 'ap2',
-  studyPlanWeeks: {}, // { [weekNum]: boolean }
   srsFlashcards: {}, // { [cardId]: { repetitions, interval, easeFactor, dueDate } }
   pathSnoozed: {}, // { [labId]: 'YYYY-MM-DD' } - siehe learningPathEngine
   studyPlanStart: '', // Beginn des 4-Wochen-Plans - siehe studyPlanEngine
@@ -312,7 +310,6 @@ const FIELD_VALIDATORS = {
   completedCloze: isStringArray,
   completedProjects: isStringArray,
   unlockedBadges: isStringArray,
-  studyPlanWeeks: isPlainObject,
   srsFlashcards: isPlainObject,
   mistakeJournal: isPlainObject,
   pathSnoozed: isPlainObject,

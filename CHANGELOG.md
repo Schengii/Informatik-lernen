@@ -24,6 +24,9 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 ### Tests
 - Golden-Tests mit von Hand gerechneten Werten für `vlsmEngine` (klassische IHK-Aufgabe 100/50/25/10 Hosts, Hostzahl-Grenzfälle), `raidEngine` (RAID 0/1, Mindestplatten) und `wisoZuschlagskalkulationEngine` (Skonto/Rabatt „im Hundert“ bis zum Bruttoverkaufspreis); Test für `prefetchLab`.
 
+### Entfernt
+- **Altbestand des Prüfungsplaners (Phase 4d)**: `generateAdaptiveStudyPlan`, die feste Themenliste `STUDY_TRACKS` und `IHK_EXAM_DATES` aus `ihkStudyPlanEngine.js` sowie Store-Aktion `toggleStudyPlanWeek` und Spielstand-Feld `studyPlanWeeks` sind entfernt. Alte Spielstände mit `studyPlanWeeks` bleiben ladbar (unbekannte Felder werden beim Import beibehalten) und werden nicht mehr verwendet.
+
 ### Behoben
 - **Prüfungsplaner**: Der Planer hatte eine eigene Prüfungswahl (Vorgabe `winter_2026`) neben dem Termin im Dashboard; jetzt gilt überall `examTargetDate`. Die Häkchen je Woche (`studyPlanWeeks`) entfallen; die Altdaten bleiben im Spielstand, werden aber nicht mehr angezeigt.
 - **Prüfungstermin-Vorlagen im Dashboard**: `nextPresetIsoDate` nutzte `toISOString()` und lieferte in Zeitzonen östlich von UTC den Vortag (z. B. 4. statt 5. Mai); jetzt wird das lokale Datum verwendet.
