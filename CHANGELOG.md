@@ -15,6 +15,8 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 - Neue Engine `src/utils/learningMixEngine.js` (`@ts-check`) mit Tests, neue Store-Aktionen `recordPlacementResult` und `recordDailyMixResult`, neue Spielstand-Felder `placementResult` und `dailyMixLog`.
 
 ### Behoben
+- **UI-Audit (`scripts/ui-audit.js`) misst korrekt**: Messung erst nach Abschalten der CSS-Übergänge (vorher Zwischenwerte beim Theme-Wechsel), echte Alpha-Komposition, Verläufe (je Farbstopp, schlechtester Wert) und Verlaufstext (`background-clip: text`) werden berücksichtigt; von einem abschneidenden Vorfahren verdeckter Überstand (dekorative Kreise, Monaco) zählt nicht mehr als Überlauf. Ergebnis über alle 230 Routen: vorher bis zu 176 Kontrast- und 75 Überlauf-Funde je Theme, jetzt nur 1 echter Fund.
+- **JWKS-Rotation-Lab**: Weißer Text auf dem Button „Schlüsselpaar Rotieren“ erreichte auf dem Verlauf nur 2,64:1; der Verlauf ist abgedunkelt (`#7e22ce` → `#9333ea`).
 - **Mobile Header & Pomodoro-Timer (375 px)**: Das XP/Level-Badge im Header bricht nicht mehr in zwei Zeilen um (`white-space: nowrap`, Symbole unter 480 px ausgeblendet). Der schwebende Pomodoro-Timer zeigt auf kleinen Bildschirmen nur das Symbol (Zeit erst bei laufendem Timer, kleinerer Rand) und überdeckt dadurch weniger Inhalt; der Button hat ein `aria-label`.
 
 ---
