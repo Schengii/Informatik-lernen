@@ -76,6 +76,15 @@ export default function AiBusinessMasterclass() {
           <strong style={{ color: 'var(--accent-amber)', fontSize: '0.9rem', display: 'block', marginBottom: '4px' }}>💡 Pro-Tipp / Best Practice:</strong>
           <p style={{ margin: 0, fontSize: '0.94rem', color: 'var(--text-main)' }}>{activeModule.bestPractice}</p>
         </div>
+
+        {activeModule.source?.url && /^https:\/\//.test(activeModule.source.url) && (
+          <p style={{ margin: '16px 0 0', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+            Quelle:{' '}
+            <a href={activeModule.source.url} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-primary)' }}>
+              {activeModule.source.label || activeModule.source.url}
+            </a>
+          </p>
+        )}
       </div>
     </div>
   );
