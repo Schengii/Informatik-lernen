@@ -12,6 +12,12 @@ afterEach(() => cleanup());
 
 const answerAll = (max) => {
   for (let i = 0; i < max; i++) {
+    const flip = screen.queryByRole('button', { name: /Antwort zeigen/i });
+    if (flip) {
+      fireEvent.click(flip);
+      fireEvent.click(screen.getByRole('button', { name: 'Gut' }));
+      continue;
+    }
     const group = screen.queryByRole('group', { name: /Antwortmöglichkeiten/i });
     if (!group) break;
     fireEvent.click(group.querySelector('button'));
@@ -32,6 +38,14 @@ describe('LearningMixWidget', () => {
     answerAll(10);
     expect(useStore.getState().userState.dailyMixLog.total).toBe(10);
     expect(screen.getByText(/Tages-Lernmix geschafft/i)).toBeTruthy();
+  });
+
+  it('nimmt Karteikarten in den Lernmix auf und aktualisiert deren SM-2-Status', () => {
+    useStore.setState((st) => ({ userState: { ...st.userState, srsFlashcards: {} } }));
+    render(<LearningMixWidget />);
+    fireEvent.click(screen.getByRole('button', { name: /Tages-Lernmix starten/i }));
+    answerAll(10);
+    expect(Object.keys(useStore.getState().userState.srsFlashcards).length).toBe(3);
   });
 
   it('speichert das Einstufungsergebnis', () => {

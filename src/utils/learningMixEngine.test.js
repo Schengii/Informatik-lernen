@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   domainOfQuestion, seededRandom, buildPlacementTest, scorePlacement,
-  placementToDomainStats, mergeDomainStats, weakestDomains, buildDailyMix
+  placementToDomainStats, mergeDomainStats, weakestDomains, buildDailyMix, pickMixCards
 } from './learningMixEngine';
 import { EXAM_QUESTIONS } from '../data/examData';
 
@@ -73,5 +73,22 @@ describe('buildDailyMix', () => {
     const mix = buildDailyMix({ journal, questions: pool, now: NOW });
     expect(mix.dueCount).toBe(6);
     expect(mix.ids).not.toContain('unbekannt');
+  });
+});
+
+describe('Karteikarten im Lernmix', () => {
+  const cards = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }];
+
+  it('wählt fällige Karten zuerst (älteste zuerst), dann neue, max. 3', () => {
+    const srs = { 1: { dueDate: '2026-06-09' }, 2: { dueDate: '2026-06-01' }, 3: { dueDate: '2026-07-01' } };
+    const res = pickMixCards(srs, cards, NOW);
+    expect(res.ids).toEqual(['2', '1', '4']);
+    expect(res.dueCount).toBe(2);
+  });
+
+  it('reduziert die Fragenzahl, sodass der Mix insgesamt 10 Aufgaben hat', () => {
+    const mix = buildDailyMix({ journal: {}, questions: EXAM_QUESTIONS, cards, srsData: {}, now: NOW });
+    expect(mix.cardIds).toHaveLength(3);
+    expect(mix.ids).toHaveLength(7);
   });
 });

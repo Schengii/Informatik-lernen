@@ -12,6 +12,7 @@ export const PLACEMENT_DOMAINS = ['ap1', 'ap2_1', 'ap2_2', 'wiso'];
 export const PLACEMENT_PER_DOMAIN = 3;
 export const DAILY_MIX_SIZE = 10;
 const MAX_DUE_IN_MIX = 6;
+export const MAX_CARDS_IN_MIX = 3;
 
 /**
  * @typedef {Object} MixQuestion
@@ -162,6 +163,26 @@ export function weakestDomains(placement) {
 }
 
 /**
+ * Karteikarten für den Lernmix: zuerst fällige (älteste Fälligkeit zuerst),
+ * dann noch nie gelernte in Katalogreihenfolge.
+ * @param {Record<string, { dueDate?: string }> | null | undefined} srsData
+ * @param {{ id: number|string }[]} cards
+ * @param {Date} [now]
+ * @param {number} [limit]
+ * @returns {{ ids: string[], dueCount: number }}
+ */
+export function pickMixCards(srsData, cards, now = new Date(), limit = MAX_CARDS_IN_MIX) {
+  const today = toDateKey(now);
+  const data = srsData || {};
+  const due = cards
+    .filter((c) => data[c.id]?.dueDate && /** @type {string} */ (data[c.id].dueDate) <= today)
+    .sort((a, b) => /** @type {string} */ (data[a.id].dueDate).localeCompare(/** @type {string} */ (data[b.id].dueDate)));
+  const fresh = cards.filter((c) => !data[c.id]?.dueDate);
+  const ids = [...due, ...fresh].slice(0, limit).map((c) => String(c.id));
+  return { ids, dueCount: Math.min(due.length, limit) };
+}
+
+/**
  * Täglicher Lernmix: zuerst fällige Fehler (max. 6), dann neue Fragen
  * abwechselnd aus den schwächsten Bereichen. Pro Tag stabil (Seed = Datum).
  * @param {{
@@ -169,15 +190,19 @@ export function weakestDomains(placement) {
  *   questions: MixQuestion[],
  *   placement?: PlacementResult | null,
  *   extraKnownIds?: string[],
+ *   cards?: { id: number|string }[],
+ *   srsData?: Record<string, { dueDate?: string }> | null,
  *   now?: Date,
  *   size?: number
  * }} input
- * @returns {{ ids: string[], dueCount: number }}
+ * @returns {{ ids: string[], dueCount: number, cardIds: string[], dueCardCount: number }}
  */
-export function buildDailyMix({ journal, questions, placement, extraKnownIds = [], now = new Date(), size = DAILY_MIX_SIZE }) {
+export function buildDailyMix({ journal, questions, placement, extraKnownIds = [], cards = [], srsData = null, now = new Date(), size = DAILY_MIX_SIZE }) {
+  const picked = pickMixCards(srsData, cards, now);
+  const questionSize = size - picked.ids.length;
   // extraKnownIds: weitere beantwortbare Fragen (z. B. Lab-Drills), die nur als fällige Fehler vorkommen dürfen
   const known = new Set([...questions.map((q) => String(q.id)), ...extraKnownIds]);
-  const due = getDueMistakeIds(journal, now).filter((id) => known.has(id)).slice(0, MAX_DUE_IN_MIX);
+  const due = getDueMistakeIds(journal, now).filter((id) => known.has(id)).slice(0, Math.min(MAX_DUE_IN_MIX, questionSize));
   const rng = seededRandom(toDateKey(now));
   const taken = new Set(due);
   const inJournal = new Set(Object.keys(journal || {}));
@@ -194,7 +219,7 @@ export function buildDailyMix({ journal, questions, placement, extraKnownIds = [
 
   const ids = [...due];
   let progressed = true;
-  while (ids.length < size && progressed) {
+  while (ids.length < questionSize && progressed) {
     progressed = false;
     for (const d of order) {
       const next = pools[d].find((id) => !taken.has(id));
@@ -202,8 +227,8 @@ export function buildDailyMix({ journal, questions, placement, extraKnownIds = [
       taken.add(next);
       ids.push(next);
       progressed = true;
-      if (ids.length >= size) break;
+      if (ids.length >= questionSize) break;
     }
   }
-  return { ids, dueCount: due.length };
+  return { ids, dueCount: due.length, cardIds: picked.ids, dueCardCount: picked.dueCount };
 }

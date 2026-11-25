@@ -11,6 +11,7 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ### Hinzugefügt
 - **Einstufungstest & täglicher Lernmix**: Neues Dashboard-Widget `LearningMixWidget` mit 12-Fragen-Einstufungstest (je 3 Fragen aus AP1, AP2 Planung, AP2 Entwicklung, WiSo) und Tages-Lernmix (10 Fragen: fällige Fehler zuerst, dann neue Fragen aus den schwächsten Bereichen, pro Tag stabil). Das Einstufungsergebnis fließt als Startwert in den Bereitschafts-Score (`ExamCountdownWidget`); falsche Antworten landen im Fehlerjournal. XP: 20 für den Einstufungstest, Lernmix einmal täglich (5 + 2 je richtige Antwort).
+- **Karteikarten im Lernmix**: Bis zu 3 Karteikarten (fällige zuerst, dann neue) stehen am Anfang des Tages-Lernmix; die Selbstbewertung (Nochmal/Schwer/Gut/Leicht) aktualisiert den SM-2-Status. Der Mix bleibt bei 10 Aufgaben insgesamt.
 - Neue Engine `src/utils/learningMixEngine.js` (`@ts-check`) mit Tests, neue Store-Aktionen `recordPlacementResult` und `recordDailyMixResult`, neue Spielstand-Felder `placementResult` und `dailyMixLog`.
 
 ---
