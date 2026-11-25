@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Calendar, Target, Clock, ChevronRight, Zap, Activity } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { calculateExamReadiness } from '../../utils/examReadinessEngine';
+import { placementToDomainStats, mergeDomainStats } from '../../utils/learningMixEngine';
 import { onActivationKey } from '../Shared/keyActivation';
 
 const IHK_EXAM_PRESETS = [
@@ -86,7 +87,8 @@ export default function ExamCountdownWidget({ setActiveTab }) {
       }
     };
 
-    return calculateExamReadiness(domainStats);
+    // Einstufungstest liefert einen Startwert, auch wenn noch keine Themen abgeschlossen sind
+    return calculateExamReadiness(mergeDomainStats(domainStats, placementToDomainStats(userState.placementResult)));
   }, [userState]);
 
   const sprintRecommendations = useMemo(() => [

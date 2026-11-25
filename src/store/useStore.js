@@ -201,6 +201,26 @@ export const useStore = create((set) => {
       });
     },
 
+    // Einstufungstest: Ergebnis je Bereich (siehe learningMixEngine.scorePlacement)
+    recordPlacementResult: (placement) => {
+      if (!placement || typeof placement !== 'object') return;
+      set((state) => {
+        const updatedState = { ...state.userState, placementResult: placement };
+        saveUserState(updatedState);
+        return { userState: updatedState };
+      });
+    },
+
+    // Täglicher Lernmix abgeschlossen: { date, correct, total }
+    recordDailyMixResult: (log) => {
+      if (!log || typeof log !== 'object') return;
+      set((state) => {
+        const updatedState = { ...state.userState, dailyMixLog: log };
+        saveUserState(updatedState);
+        return { userState: updatedState };
+      });
+    },
+
     toggleStudyPlanWeek: (weekNum) => {
       set((state) => {
         const prev = state.userState;

@@ -40,6 +40,7 @@ const CareerRoadmap = lazy(() => import('./components/Content/CareerRoadmap'));
 
 // Zentrale Labs, Simulatoren & Hubs
 // Lazy: zieht examData (Fragenkatalog) nicht in den Haupt-Chunk
+const LearningMixWidget = lazy(() => import('./components/Gamification/LearningMixWidget'));
 const MistakeReviewWidget = lazy(() => import('./components/Gamification/MistakeReviewWidget'));
 const LabsDashboard = lazy(() => import('./components/Content/LabsDashboard'));
 const CampaignQuestHub = lazy(() => import('./components/Content/CampaignQuestHub'));
@@ -329,6 +330,11 @@ export default function App() {
 
                 {/* IHK Prüfungs-Countdown & T-Minus Sprint */}
                 <ExamCountdownWidget setActiveTab={setActiveTab} />
+
+                {/* Einstufungstest & täglicher Lernmix */}
+                <Suspense fallback={null}>
+                  <LearningMixWidget />
+                </Suspense>
 
                 {/* Fehlerjournal: fällige Wiederholungen */}
                 <Suspense fallback={null}>

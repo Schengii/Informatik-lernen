@@ -22,6 +22,8 @@ import { syncUserStateToIndexedDb } from './indexedDbStoreMiddleware';
  * @property {string} [examTargetDate] Ziel-Prüfungstermin (YYYY-MM-DD)
  * @property {string} [examTargetType] Prüfungstyp ('ap1' | 'ap2' | 'wiso')
  * @property {Record<string, unknown>} [mistakeJournal]
+ * @property {import('./learningMixEngine').PlacementResult | null} [placementResult] Ergebnis des Einstufungstests
+ * @property {{ date: string, correct: number, total: number } | null} [dailyMixLog] Zuletzt abgeschlossener Tages-Lernmix
  * @property {Record<string, import('./labProgressEngine').LabProgressEntry>} [labProgress] Lab-Besuche/-Abschlüsse je Registry-Tab
  * @property {Record<string, boolean>} [studyPlanWeeks] Abgehakte Wochen im IHK-Lernplaner ({ [weekNum]: boolean })
  * @property {Record<string, unknown>} srsFlashcards
@@ -50,6 +52,8 @@ export const initialProfileState = {
   examTargetType: 'ap2',
   studyPlanWeeks: {}, // { [weekNum]: boolean }
   srsFlashcards: {}, // { [cardId]: { repetitions, interval, easeFactor, dueDate } }
+  placementResult: null, // Einstufungstest - siehe learningMixEngine
+  dailyMixLog: null, // { date, correct, total } des letzten Tages-Lernmix
   mistakeJournal: {}, // { [questionId]: { wrongCount, streak, interval, dueDate, lastSeen } } - siehe mistakeJournalEngine
   labProgress: {}, // { [labKey]: { visits, lastVisit, completed, completedOn } } - siehe labProgressEngine
   completedTopics: [],
@@ -301,6 +305,8 @@ const FIELD_VALIDATORS = {
   studyPlanWeeks: isPlainObject,
   srsFlashcards: isPlainObject,
   mistakeJournal: isPlainObject,
+  placementResult: (v) => v === null || isPlainObject(v),
+  dailyMixLog: (v) => v === null || isPlainObject(v),
   labProgress: isPlainObject,
   savedCodeSnippets: isPlainObject,
   activityHistory: isPlainObject,
