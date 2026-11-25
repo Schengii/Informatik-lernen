@@ -16,18 +16,19 @@ Eine Architektur ist keine Technikliste, sondern ein **Kompromiss zwischen Quali
 
 ## Qualitätsmerkmale nach ISO/IEC 25010
 
-Die Norm nennt acht Produktqualitätsmerkmale. Aus ihnen leiten sich die Anforderungen an die Architektur ab:
+Die Ausgabe von 2011 nannte acht Produktqualitätsmerkmale, die Neufassung von 2023 nennt **neun**: Neu ist die Betriebssicherheit (*Safety*), Benutzbarkeit heißt jetzt Interaktionsfähigkeit und Übertragbarkeit heißt Flexibilität. Aus diesen Merkmalen leiten sich die Anforderungen an die Architektur ab:
 
 | Merkmal | Frage | Beispiel für eine Anforderung |
 | :--- | :--- | :--- |
 | **Funktionale Eignung** | Tut das System das Richtige? | Rechnungen enthalten alle Pflichtangaben |
 | **Leistungseffizienz** | Wie schnell und ressourcenschonend? | Antwort auf 95 % der Anfragen unter 300 ms |
 | **Kompatibilität** | Arbeitet es mit anderen Systemen zusammen? | Schnittstelle zum ERP über REST |
-| **Interaktionsfähigkeit (Usability)** | Wie gut ist es bedienbar und barrierefrei? | Neue Nutzer buchen in unter 2 Minuten |
+| **Interaktionsfähigkeit (früher Benutzbarkeit)** | Wie gut ist es bedienbar und barrierefrei? | Neue Nutzer buchen in unter 2 Minuten |
 | **Zuverlässigkeit** | Verfügbar, fehlertolerant, wiederherstellbar? | 99,9 % Verfügbarkeit, Wiederanlauf in 15 Minuten |
 | **Sicherheit** | Schutz von Daten und Zugriff? | Rollenkonzept, verschlüsselte Übertragung |
 | **Wartbarkeit** | Leicht änderbar und testbar? | Neues Zahlungsverfahren in unter 5 Personentagen |
-| **Übertragbarkeit (Portabilität)** | Auf andere Umgebungen übertragbar? | Läuft in Container und Cloud |
+| **Flexibilität (früher Übertragbarkeit)** | Auf andere Umgebungen übertragbar, skalierbar? | Läuft in Container und Cloud |
+| **Betriebssicherheit (Safety, neu 2023)** | Gefährdet es Menschen oder Umwelt nicht? | Steuerung fährt bei Fehler in sicheren Zustand |
 
 > [!tip] Praxis
 > Formuliere Qualitätsziele **messbar** („Antwortzeit unter 300 ms bei 500 gleichzeitigen Nutzern“) statt vage („soll schnell sein“). Nur dann lassen sie sich testen und gegeneinander abwägen.
@@ -222,6 +223,7 @@ Architekturentscheidungen werden als **Architecture Decision Record (ADR)** fest
   ],
   sources: [
     { title: 'Martin Fowler und James Lewis: Microservices', url: 'https://martinfowler.com/articles/microservices.html' },
+    { title: 'arc42: Update on ISO 25010, version 2023', url: 'https://quality.arc42.org/articles/iso-25010-update-2023' },
     { title: 'Wikipedia: ISO/IEC 9126 (Vorgänger von ISO/IEC 25010)', url: 'https://en.wikipedia.org/wiki/ISO/IEC_9126' },
     { title: 'microservices.io: Pattern Language (Chris Richardson)', url: 'https://microservices.io/patterns/index.html' },
     { title: 'Wikipedia: Softwarearchitektur', url: 'https://de.wikipedia.org/wiki/Softwarearchitektur' },

@@ -82,7 +82,7 @@ Dokumentation ist **Teil der Leistung**, nicht Zusatzaufgabe. Eine Lösung ohne 
 Die Abschlussprüfung Teil 2 der IT-Berufe (Fachinformatiker/-in, Ausbildungsordnung 2020) enthält eine **betriebliche Projektarbeit**. Die Rahmenbedingungen nach den IHK-Hinweisen (Details und Umfang legt die zuständige IHK fest, deshalb vor Beginn deren Handreichung für den eigenen Beruf lesen):
 
 - **Projektantrag:** Beschreibt Thema, Projektumfeld, Ziel, geplante Durchführung und Zeitplan. Der **Prüfungsausschuss genehmigt** ihn. Erst danach beginnt die Durchführung. Der Antrag muss realistisch und im Stundenrahmen machbar sein.
-- **Durchführung** im Ausbildungsbetrieb **in eigener Verantwortung** und im vorgegebenen Zeitrahmen (je nach Fachrichtung 40 oder 80 Stunden).
+- **Durchführung** im Ausbildungsbetrieb **in eigener Verantwortung** und im vorgegebenen Zeitrahmen (nach den IHK-Hinweisen bis zu 80 Stunden in der Anwendungsentwicklung und höchstens 40 Stunden bei Systemintegration, Daten- und Prozessanalyse und Digitaler Vernetzung, jeweils als Arbeitszeit einschließlich Dokumentation).
 - **Dokumentation:** Schriftliche Darstellung des Projekts mit praxisbezogenen Unterlagen, im vorgegebenen Umfang.
 - **Präsentation** (höchstens etwa 15 Minuten) und **Fachgespräch** (mindestens 15 Minuten). Zusammen dauern beide höchstens 30 Minuten.
 - **Gewichtung:** Innerhalb dieses Prüfungsbereichs zählen die Projektarbeit mit Dokumentation und die Präsentation mit Fachgespräch jeweils etwa zur Hälfte (Quelle: IHK-Hinweise, verbindlich ist die Prüfungsordnung der zuständigen Stelle).

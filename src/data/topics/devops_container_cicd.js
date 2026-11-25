@@ -16,7 +16,7 @@ Der Kern lautet: **kleine Änderungen, häufig, automatisiert getestet und ausge
 
 ## DORA-Kennzahlen: Wie gut liefern wir?
 
-Die Forschungsgruppe DORA hat vier Kennzahlen für die Leistungsfähigkeit von Softwareteams etabliert:
+Die Forschungsgruppe DORA hat vier Kennzahlen („Four Keys“) für die Leistungsfähigkeit von Softwareteams etabliert. Die letzte heißt in neueren DORA-Berichten *Failed Deployment Recovery Time* (Wiederherstellungszeit nach fehlgeschlagenem Deployment), und seit dem Bericht 2024 kommt als fünfte Größe die **Rework-Rate** (Anteil ungeplanter Deployments) hinzu:
 
 | Kennzahl | Frage | Beispiel |
 | :--- | :--- | :--- |
@@ -25,7 +25,7 @@ Die Forschungsgruppe DORA hat vier Kennzahlen für die Leistungsfähigkeit von S
 | **Änderungsfehlerrate** (Change Failure Rate) | Welcher Anteil der Deployments verursacht eine Störung? | 3 von 60 = 5 % |
 | **Wiederherstellungszeit** (Time to Restore) | Wie schnell sind wir nach einer Störung wieder gesund? | im Mittel 45 Minuten |
 
-Die ersten beiden messen die **Geschwindigkeit**, die letzten beiden die **Stabilität**. Gute Teams sind bei beiden stark. Wer nur die Geschwindigkeit erhöht und die Fehlerrate ignoriert, verbessert nichts.
+Die ersten beiden messen die **Geschwindigkeit**, die letzten beiden die **Stabilität** (neuere Berichte ordnen die Wiederherstellungszeit teils der Geschwindigkeit zu, die Einteilung dient hier nur der Orientierung). Gute Teams sind bei beiden stark. Wer nur die Geschwindigkeit erhöht und die Fehlerrate ignoriert, verbessert nichts.
 
 ## Continuous Integration, Delivery und Deployment
 

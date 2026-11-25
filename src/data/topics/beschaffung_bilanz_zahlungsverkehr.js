@@ -80,7 +80,7 @@ Eine ordnungsgemäße **Rechnung** enthält nach § 14 UStG unter anderem: volls
 
 Die **Umsatzsteuer** beträgt 19 % (Regelsatz) oder 7 % (ermäßigt). Brutto = Netto · 1,19. Umgekehrt: Netto = Brutto : 1,19. Beispiel: 1.428,00 Euro brutto ergeben 1.200,00 Euro netto und 228,00 Euro Umsatzsteuer.
 
-**E-Rechnung:** Seit dem **1. Januar 2025** müssen inländische Unternehmen im B2B-Bereich **elektronische Rechnungen empfangen** können. Eine E-Rechnung ist ein strukturierter, maschinenlesbarer Datensatz nach der europäischen Norm EN 16931 (z. B. **XRechnung** oder **ZUGFeRD** ab Profil EN 16931). Ein PDF per E-Mail gilt dagegen nicht als E-Rechnung. Für die Ausstellung gelten gestaffelte Übergangsfristen (nach Unternehmensgröße und Vorjahresumsatz bis Ende 2026 und 2027). Wegen dieser Fristen sollte man den aktuellen Stand der Rechtslage bei Bedarf beim Bundesfinanzministerium prüfen.
+**E-Rechnung:** Seit dem **1. Januar 2025** müssen inländische Unternehmen im B2B-Bereich **elektronische Rechnungen empfangen** können. Eine E-Rechnung ist ein strukturierter, maschinenlesbarer Datensatz nach der europäischen Norm EN 16931 (z. B. **XRechnung** oder **ZUGFeRD** ab Profil EN 16931). Ein PDF per E-Mail gilt dagegen nicht als E-Rechnung. Für die Ausstellung gelten Übergangsfristen: Für Leistungen bis zum 31.12.2026 darf noch jede Rechnungsform genutzt werden, bei einem Vorjahresumsatz von höchstens 800.000 Euro sogar bis zum 31.12.2027. Ab 2028 ist die E-Rechnung im inländischen B2B-Verkehr grundsätzlich Pflicht. Den aktuellen Stand sollte man in den FAQ des Bundesfinanzministeriums prüfen, weil sich Auslegungen noch ändern.
 
 **Aufbewahrungsfristen:** **Buchungsbelege** (z. B. Rechnungen) **8 Jahre**, **Handels- und Geschäftsbriefe** **6 Jahre**, **Bücher, Inventare, Jahresabschlüsse und Bilanzen** **10 Jahre** (§ 147 AO, § 257 HGB). Die Frist beginnt mit dem Ende des Kalenderjahres, in dem das Dokument entstanden ist. Elektronische Dokumente müssen **unveränderbar** und **lesbar** archiviert werden (GoBD).
 
@@ -93,7 +93,7 @@ Die **Umsatzsteuer** beträgt 19 % (Regelsatz) oder 7 % (ermäßigt). Brutto = N
 | **SEPA-Echtzeitüberweisung (Instant Payment)** | Gutschrift in wenigen Sekunden, rund um die Uhr |
 | **Dauerauftrag** | regelmäßig, gleicher Betrag (z. B. Miete) |
 | **SEPA-Basislastschrift** | Empfänger zieht ein, Mandat nötig, der Zahler kann **8 Wochen** ohne Angabe von Gründen zurückgeben, bei fehlendem Mandat bis zu 13 Monate |
-| **SEPA-Firmenlastschrift** | nur zwischen Unternehmen, keine Rückgabe nach Einlösung |
+| **SEPA-Firmenlastschrift** | nur zwischen Unternehmen, keine Rückgabe ohne Grund nach Einlösung (bei nicht autorisiertem Einzug bleibt die 13-Monats-Frist) |
 | **Kartenzahlung** (Debitkarte, Kreditkarte) | Zahlungsgarantie für den Händler, Gebühren |
 | **Zahlungsdienste** (z. B. PayPal) | Käuferschutz, Gebühren für den Verkäufer |
 
@@ -134,7 +134,7 @@ Vier Grundtypen von Geschäftsfällen und ihre Wirkung auf die Bilanzsumme:
 
 ### Abschreibung
 
-Anlagegüter verlieren durch Nutzung an Wert. Die **Abschreibung (AfA)** verteilt die Anschaffungskosten auf die Nutzungsdauer. Bei der **linearen Abschreibung** gilt: jährlicher Betrag = (Anschaffungskosten − Restwert) : Nutzungsdauer. Ein Server für 6.000 Euro netto mit 5 Jahren Nutzungsdauer und ohne Restwert wird mit 1.200 Euro pro Jahr abgeschrieben. Für **digitale Wirtschaftsgüter** (Computerhardware, Betriebs- und Anwendersoftware) wird nach einem BMF-Schreiben von 2021 eine Nutzungsdauer von **einem Jahr** zugelassen. **Geringwertige Wirtschaftsgüter (GWG)** bis 800 Euro netto können im Anschaffungsjahr sofort voll abgeschrieben werden. Die Abschreibung ist ein **Aufwand ohne Auszahlung** (nicht zahlungswirksam) und mindert den Gewinn.
+Anlagegüter verlieren durch Nutzung an Wert. Die **Abschreibung (AfA)** verteilt die Anschaffungskosten auf die Nutzungsdauer. Bei der **linearen Abschreibung** gilt: jährlicher Betrag = (Anschaffungskosten − Restwert) : Nutzungsdauer. Ein Server für 6.000 Euro netto mit 5 Jahren Nutzungsdauer und ohne Restwert wird mit 1.200 Euro pro Jahr abgeschrieben. Für **digitale Wirtschaftsgüter** (Computerhardware, Betriebs- und Anwendersoftware) wird nach einem BMF-Schreiben von 2021 (angepasst 2022) eine Nutzungsdauer von **einem Jahr** als Wahlrecht zugelassen. Eine längere Nutzungsdauer bleibt möglich. In der Handelsbilanz gilt weiterhin die tatsächliche Nutzungsdauer. **Geringwertige Wirtschaftsgüter (GWG)** bis 800 Euro netto können im Anschaffungsjahr sofort voll abgeschrieben werden. Die Abschreibung ist ein **Aufwand ohne Auszahlung** (nicht zahlungswirksam) und mindert den Gewinn.
 
 ### Kennzahlen aus der Bilanz
 

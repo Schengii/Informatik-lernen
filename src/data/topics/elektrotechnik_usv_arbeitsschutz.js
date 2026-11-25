@@ -136,7 +136,7 @@ Beispiel: Ein 20 m langes Kabel mit 1,5 mm² führt 10 A.
 
 1. ΔU = 2 * 20 m * 10 A / (56 * 1,5) = 400 / 84 = 4,76 V.
 2. Bezogen auf 230 V sind das 4,76 / 230 = 2,07 %.
-3. Für Verbraucher wird üblicherweise ein Spannungsfall von höchstens 3 % angestrebt (Orientierung in der Installationsnorm DIN VDE 0100-520). Hier ist der Wert also noch zulässig. Bei doppelter Länge wären es 4,1 % und ein größerer Querschnitt nötig.
+3. Als Orientierung gilt: DIN VDE 0100-520 empfiehlt zwischen Hausanschluss und Verbraucher höchstens 4 %, DIN 18015-1 nennt für Wohngebäude 3 % zwischen Zähler und Verbrauchsmittel. Der Wert von 2,07 % bleibt unter beiden Grenzen. Bei doppelter Länge wären es 4,1 %, also über beiden Grenzen, und ein größerer Querschnitt wäre nötig. Maßgeblich ist immer die aktuelle Norm.
 
 ## Leistungsfaktor und USV-Auslegung
 
@@ -169,7 +169,7 @@ Brände entstehen im IT-Umfeld oft durch überlastete Steckdosenleisten, defekte
 
 - **Brandklassen (DIN EN 2):** A feste Stoffe (Holz, Papier), B flüssige Stoffe, C Gase, D Metalle, F Speiseöle und -fette.
 - **Elektrobrände:** Erst den Strom abschalten, wenn gefahrlos möglich. Wasser und Schaum sind bei Spannung gefährlich. Geeignet sind Kohlendioxid-Löscher (rückstandsfrei, aber Erstickungsgefahr in kleinen Räumen) oder Pulverlöscher (verschmutzt Technik stark).
-- **Sicherheitsabstände an Niederspannungsanlagen bis 1000 V** (DIN VDE 0132): beim Löschen mit Sprühstrahl mindestens 1 m, mit Vollstrahl mindestens 5 m.
+- **Sicherheitsabstände an Niederspannungsanlagen bis 1000 V** (DIN VDE 0132): beim Löschen mit Sprühstrahl mindestens 1 m, mit Vollstrahl mindestens 5 m (Werte für CM-Strahlrohr bei 5 bar; die Norm gilt nicht für Anlagen bis 50 V Wechsel- bzw. 120 V Gleichspannung).
 - **Gaslöschanlagen** (Inertgas oder chemische Löschgase) löschen im Rechenzentrum ohne Wasserschaden, brauchen aber einen dichten Raum und eine Warnung vor dem Fluten.
 
 ## Erste Hilfe bei Stromunfällen
@@ -184,7 +184,7 @@ Brände entstehen im IT-Umfeld oft durch überlastete Steckdosenleisten, defekte
 
 Die Stromversorgung wird nach dem Schutzbedarf redundant aufgebaut: **N** bedeutet keine Redundanz, **N+1** ein zusätzliches Modul, **2N** zwei vollständig getrennte Versorgungspfade (A- und B-Strang). Ein Server mit zwei Netzteilen hängt mit je einem Netzteil an A und B.
 
-Das Uptime Institute unterscheidet vier **Tier-Klassen** für Rechenzentren. Typische Verfügbarkeiten aus der Literatur: Tier I etwa 99,671 %, Tier II etwa 99,741 %, Tier III etwa 99,982 % und Tier IV etwa 99,995 %. Das entspricht Ausfallzeiten von ca. 28,8 h, 22,7 h, 1,6 h und 0,4 h pro Jahr. Ab Tier III ist Wartung ohne Abschalten möglich (gleichzeitig wartbar), Tier IV ist zusätzlich fehlertolerant.
+Das Uptime Institute unterscheidet vier **Tier-Klassen** für Rechenzentren. Typische Verfügbarkeiten aus der Literatur (historische Richtwerte des Uptime Institute, nicht Bestandteil des aktuellen Standards): Tier I etwa 99,671 %, Tier II etwa 99,741 %, Tier III etwa 99,982 % und Tier IV etwa 99,995 %. Das entspricht Ausfallzeiten von ca. 28,8 h, 22,7 h, 1,6 h und 0,4 h pro Jahr. Ab Tier III ist Wartung ohne Abschalten möglich (gleichzeitig wartbar), Tier IV ist zusätzlich fehlertolerant.
 
 **ESD-Schutz (elektrostatische Entladung):** Bauteile können durch Entladung unter 100 V zerstört werden, obwohl der Mensch erst ab ca. 3000 V etwas spürt. Deshalb: ESD-Armband mit Schutzwiderstand (üblich 1 MOhm), leitfähige Unterlage und antistatische Verpackung.
 

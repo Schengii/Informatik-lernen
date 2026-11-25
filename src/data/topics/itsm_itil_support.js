@@ -163,7 +163,7 @@ Verfügbarkeit = (vereinbarte Servicezeit - Ausfallzeit) / vereinbarte Serviceze
 | Wiedereröffnungsquote | wiedereröffnete / geschlossene Tickets | Nachhaltigkeit der Lösungen |
 | Backlog | offene Tickets | Auslastung, Engpässe |
 | Kundenzufriedenheit (CSAT) | Bewertung nach Ticketschluss | Wahrnehmung des Kunden |
-| MTBSI | mittlere Zeit zwischen Störungen = MTBF + MTTR | Stabilität des Services |
+| MTBSI | mittlere Zeit zwischen zwei Störungen = MTBF + MTTR (ITIL-v3-Begriff, in ITIL 4 nicht mehr enthalten) | Stabilität des Services |
 
 Eine einzelne Zahl täuscht leicht: Wer nur die Lösungsdauer drückt, schließt Tickets zu früh. Deshalb werden Kennzahlen kombiniert betrachtet und mit Zielen versehen.
 
