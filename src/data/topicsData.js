@@ -333,6 +333,66 @@ export const TOPICS = [
     icon: '🎧',
     readTime: '14 Min',
     summary: 'Incident, Service Request, Problem und Change, Priorität aus Auswirkung und Dringlichkeit, Support-Ebenen, CMDB, SLA, OLA und UC, MTBF, MTTR und Verfügbarkeit.'
+  },
+  {
+    id: 'devops_container_cicd',
+    title: 'DevOps, Container & CI/CD: Pipeline, Docker, Kubernetes, Deployment',
+    category: 'Softwareentwicklung',
+    difficultyLevel: 'Azubi / IHK',
+    targetRoles: ['azubi', 'junior', 'pro'],
+    icon: '🐳',
+    readTime: '15 Min',
+    summary: 'DevOps und DORA-Kennzahlen, CI, Continuous Delivery und Deployment, Pipeline-Stufen, Container und Images, Dockerfile, Kubernetes-Grundbausteine, Blue-Green und Canary, Infrastructure as Code, GitOps, Observability.'
+  },
+  {
+    id: 'softwarearchitektur_microservices',
+    title: 'Softwarearchitektur: Qualitätsmerkmale, Schichten, Monolith und Microservices, Resilienz',
+    category: 'Softwareentwicklung',
+    difficultyLevel: 'Senior / Expert',
+    targetRoles: ['azubi', 'junior', 'pro'],
+    icon: '🏗️',
+    readTime: '16 Min',
+    summary: 'ISO 25010, Kopplung und Kohäsion, SOLID, Schichten, MVC, hexagonale und ereignisgesteuerte Architektur, Monolith gegen Microservices, CAP, Saga, Circuit Breaker, Verfügbarkeit von Dienstketten, ADR.'
+  },
+  {
+    id: 'datenanalyse_statistik_ml',
+    title: 'Datenanalyse, Statistik & Machine Learning: Kennzahlen, Regression, Modellbewertung',
+    category: 'Künstliche Intelligenz',
+    difficultyLevel: 'Azubi / IHK',
+    targetRoles: ['azubi', 'junior', 'pro'],
+    icon: '📊',
+    readTime: '16 Min',
+    summary: 'Mittelwert, Median, Standardabweichung, IQR und Ausreißer, Korrelation und Regression, Datenaufbereitung, überwachtes und unüberwachtes Lernen, Overfitting, Konfusionsmatrix, Präzision, Trefferquote und F1.'
+  },
+  {
+    id: 'iiot_industrie40',
+    title: 'IIoT & Industrie 4.0: Automatisierungspyramide, SPS, OPC UA, MQTT, OT-Sicherheit',
+    category: 'IT-Systeme',
+    difficultyLevel: 'Senior / Expert',
+    targetRoles: ['azubi', 'junior', 'pro'],
+    icon: '🏭',
+    readTime: '17 Min',
+    summary: 'Industrie 4.0 und CPS, Automatisierungspyramide, Sensoren und 4-20-mA-Signale, SPS-Zyklus und IEC 61131-3, Feldbus und Industrial Ethernet, MQTT und OPC UA, Edge, OEE, IT/OT-Sicherheit nach IEC 62443.'
+  },
+  {
+    id: 'beschaffung_bilanz_zahlungsverkehr',
+    title: 'Beschaffung, Bilanz & Zahlungsverkehr: Angebotsvergleich, Skonto, Buchen, Kennzahlen',
+    category: 'Projekt & Wirtschaft',
+    difficultyLevel: 'Azubi / IHK',
+    targetRoles: ['azubi', 'junior', 'pro'],
+    icon: '🧾',
+    readTime: '17 Min',
+    summary: 'Beschaffungsprozess, Kaufvertrag, Mängelrüge und Verzug, Bezugskalkulation, Skonto, Nutzwertanalyse, Rechnung und E-Rechnung, Zahlungsarten, Bilanz, Buchungssätze, Abschreibung, Eigenkapitalquote und Liquidität.'
+  },
+  {
+    id: 'qualitaet_dokumentation_fachgespraech',
+    title: 'Qualität, Dokumentation & Fachgespräch: Abnahme, Projektabschluss, IHK-Projektarbeit',
+    category: 'Projekt & Wirtschaft',
+    difficultyLevel: 'Azubi / IHK',
+    targetRoles: ['azubi', 'junior', 'pro'],
+    icon: '📝',
+    readTime: '16 Min',
+    summary: 'Qualitätsmanagement, PDCA, SMART-Ziele, Abnahmeprotokoll, Übergabe, Soll-Ist-Vergleich, Lessons Learned, Dokumentationsarten, Aufbau der Projektdokumentation, Präsentation und Fachgespräch.'
   }
 ];
 
