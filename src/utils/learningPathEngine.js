@@ -46,7 +46,7 @@ export const CAREER_FILTERS = [
 /** Tage, ab denen die Prüfungsnähe IHK-Labs bevorzugt. */
 export const EXAM_PROXIMITY_DAYS = 60;
 
-const DEV_CATEGORIES = ['algorithms', 'databases', 'fiae', 'code', 'ai'];
+const DEV_CATEGORIES = ['algorithms', 'databases', 'database', 'fiae', 'code', 'ai', 'architecture', 'tools'];
 const PLAN_CATEGORIES = ['network', 'security', 'cloud', 'devops', 'hardware', 'linux'];
 
 /** Passende Schwierigkeitsgrade je Rolle. */
@@ -93,6 +93,22 @@ export function countMistakesByDomain(journal, questions) {
 }
 
 /**
+ * Anzahl offener Journal-Einträge je Lab (nur Drill-Fragen, die einem Lab zugeordnet sind).
+ * @param {Record<string, unknown> | null | undefined} journal
+ * @param {Record<string, string>} labByQuestionId Frage-ID → Modul-ID (`DRILL_LAB_BY_QUESTION_ID`)
+ * @returns {Record<string, number>}
+ */
+export function countMistakesByLab(journal, labByQuestionId) {
+  /** @type {Record<string, number>} */
+  const counts = {};
+  for (const id of Object.keys(journal || {})) {
+    const lab = labByQuestionId[id];
+    if (lab) counts[lab] = (counts[lab] || 0) + 1;
+  }
+  return counts;
+}
+
+/**
  * Verbleibende Tage bis zum Datum (YYYY-MM-DD), negativ wenn vorbei, `null` ohne gültiges Datum.
  * @param {string | undefined | null} dateStr
  * @param {Date} now
@@ -128,6 +144,7 @@ function weaknessOf({ placement, domain }) {
  * @param {PathLab[]} input.modules
  * @param {any} [input.placement] Ergebnis des Einstufungstests
  * @param {Record<string, number>} [input.mistakeCounts] Offene Fehler je Bereich (`countMistakesByDomain`)
+ * @param {Record<string, number>} [input.labMistakeCounts] Offene Drill-Fehler je Lab (`countMistakesByLab`)
  * @param {Record<string, { completed?: boolean }> | null} [input.progress]
  * @param {(moduleId: string) => string} [input.resolveKey] Modul-ID → Schlüssel im Fortschritt
  * @param {string} [input.role]
@@ -142,6 +159,7 @@ export function recommendLearningPath({
   modules,
   placement = null,
   mistakeCounts = {},
+  labMistakeCounts = {},
   progress = null,
   resolveKey = (id) => id,
   role = 'anfaenger',
@@ -166,19 +184,22 @@ export function recommendLearningPath({
       const domain = domainOfLab(lab);
       const { weakness, rate } = weaknessOf({ placement, domain });
       const mistakes = domain ? mistakeCounts[domain] || 0 : 0;
+      const labMistakes = labMistakeCounts[lab.id] || 0;
       const started = Boolean(progress?.[resolveKey(lab.id)]);
       const ihk = isIhkRelated(lab);
 
       const score =
         3 * weakness +
         2 * Math.min(1, mistakes / 5) +
+        2 * Math.min(1, labMistakes / 3) +
         (examNear && ihk ? 2 : 0) +
         (fitting.includes(lab.difficulty) ? 1 : 0) +
         (started ? 1 : 0);
 
       /** @type {string} */
       let reason = 'Passt zu deinem Niveau';
-      if (domain && mistakes > 0) reason = `${mistakes} offene Fehler im Bereich ${DOMAIN_LABELS[domain]}`;
+      if (labMistakes > 0) reason = `${labMistakes} offene Fehler in den Drill-Fragen dieses Labs`;
+      else if (domain && mistakes > 0) reason = `${mistakes} offene Fehler im Bereich ${DOMAIN_LABELS[domain]}`;
       else if (domain && rate !== null && domain === weakest && weakness > 0) {
         reason = `Dein schwächster Bereich: ${DOMAIN_LABELS[domain]} (${Math.round(rate * 100)} % im Einstufungstest)`;
       } else if (examNear && ihk) reason = `Prüfung in ${days} Tagen – IHK-relevant`;

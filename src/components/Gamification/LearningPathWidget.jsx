@@ -5,7 +5,8 @@ import { LAB_MODULES } from '../../data/labModulesData';
 import { buildRegistryIndex } from '../../data/labRegistry';
 import { EXAM_QUESTIONS } from '../../data/examData';
 import { toDateKey } from '../../utils/mistakeJournalEngine';
-import { CAREER_FILTERS, countMistakesByDomain, recommendLearningPath } from '../../utils/learningPathEngine';
+import { DRILL_LAB_BY_QUESTION_ID } from '../../data/drillQuestions';
+import { CAREER_FILTERS, countMistakesByDomain, countMistakesByLab, recommendLearningPath } from '../../utils/learningPathEngine';
 
 // Dashboard-Karte "Empfohlen für dich": die 3 besten nächsten Labs mit Begründung,
 // abgeleitet aus Einstufungstest, Fehlerjournal, Prüfungstermin, Rolle und Fortschritt.
@@ -26,6 +27,7 @@ export default function LearningPathWidget({ onSelectLab }) {
         modules: LAB_MODULES,
         placement: userState.placementResult,
         mistakeCounts: countMistakesByDomain(userState.mistakeJournal, EXAM_QUESTIONS),
+        labMistakeCounts: countMistakesByLab(userState.mistakeJournal, DRILL_LAB_BY_QUESTION_ID),
         progress: userState.labProgress,
         resolveKey: resolveLabKey,
         role: userState.role,

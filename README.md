@@ -149,7 +149,7 @@ Das Repository ist für nahtlose Zusammenarbeit mit Entwicklern und KI-Agenten (
 
 ### Aktuelle Version (v3.80.0) & Neueste Verbesserungen
 - **Vollständige Umsetzung PLAN.md (M01–M19)**: 2.288 Unit-Tests, 63 Playwright E2E-Tests, 252 Labs und 189 Util- und Engine-Module.
-- **Lernpfad „Empfohlen für dich“**: Die Dashboard-Karte `LearningPathWidget` (Logik in `src/utils/learningPathEngine.js`) empfiehlt 3 Labs mit Begründung aus Einstufungstest, Fehlerjournal, Prüfungstermin, Rolle und Fortschritt; Berufsfilter und „Nicht jetzt“ werden im Spielstand gespeichert.
+- **Lernpfad „Empfohlen für dich“**: Die Dashboard-Karte `LearningPathWidget` (Logik in `src/utils/learningPathEngine.js`) empfiehlt 3 Labs mit Begründung aus Einstufungstest, Fehlerjournal, Prüfungstermin, Rolle und Fortschritt; Berufsfilter und „Nicht jetzt“ werden im Spielstand gespeichert. Drill-Fehler heben das jeweilige Lab, `src/data/labExamDomains.js` ordnet IHK-Labs einem Prüfungsbereich zu.
 - **Einstufungstest & täglicher Lernmix**: Das Dashboard-Widget „Heute lernen“ (`LearningMixWidget`, Logik in `src/utils/learningMixEngine.js`) startet einen 12-Fragen-Einstufungstest als Startwert für den Bereitschafts-Score und einen Tages-Lernmix mit 10 Aufgaben (fällige Fehler, bis zu 3 Karteikarten nach SM-2, neue Fragen aus den schwächsten Bereichen).
 - **Lab-Ausbau & Simulationen**: Vollständiger Ausbau von DockerLab, KubernetesLab, WebSocketsLab, OAuthOidcLab und CloudDevOpsLab mit eigenen Engines, Lintern und XP-Drills.
 - **Barrierefreiheit (WCAG AA & 375 px)**: TopicReader mit Tastatur-Skip-Link, Fokus-Management und Scroll-Spy (`aria-current="location"`); alle 25 Topic-SVGs mit `<desc id="d">` und `<title id="t">`; 0 Layout-Überläufe bei 375 px.

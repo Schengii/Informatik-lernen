@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { domainOfLab, daysUntil, countMistakesByDomain, recommendLearningPath } from './learningPathEngine';
+import { domainOfLab, daysUntil, countMistakesByDomain, countMistakesByLab, recommendLearningPath } from './learningPathEngine';
 
 const NOW = new Date(2026, 5, 10); // 10.06.2026
 const lab = (id, category, extra = {}) => ({ id, category, tags: [], difficulty: 'Intermediate', ...extra });
@@ -102,5 +102,24 @@ describe('recommendLearningPath', () => {
     const res = recommendLearningPath({ modules: MODULES, now: NOW });
     expect(res).toHaveLength(3);
     expect(res[0].reason).toBe('Passt zu deinem Niveau');
+  });
+});
+
+describe('Drill-Fehler je Lab', () => {
+  it('countMistakesByLab zählt nur zugeordnete Drill-Fragen', () => {
+    const map = { d1: 'raid_calculator', d2: 'raid_calculator', d3: 'docker' };
+    expect(countMistakesByLab({ d1: {}, d2: {}, d3: {}, 42: {} }, map)).toEqual({ raid_calculator: 2, docker: 1 });
+  });
+
+  it('stellt ein Lab mit eigenen Drill-Fehlern voran und nennt den Grund', () => {
+    const res = recommendLearningPath({ modules: MODULES, labMistakeCounts: { sec_a: 3 }, now: NOW });
+    expect(res[0].lab.id).toBe('sec_a');
+    expect(res[0].reason).toBe('3 offene Fehler in den Drill-Fragen dieses Labs');
+  });
+
+  it('Lab-Fehler schlagen die Bereichs-Fehler in der Begründung', () => {
+    const res = recommendLearningPath({ modules: MODULES, mistakeCounts: { ap2_2: 5 }, labMistakeCounts: { db_a: 1 }, now: NOW });
+    expect(res[0].lab.id).toBe('db_a');
+    expect(res[0].reason).toMatch(/Drill-Fragen dieses Labs/);
   });
 });
