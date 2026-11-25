@@ -122,6 +122,80 @@ Die Gebäudeverkabelung ist in drei Bereiche gegliedert: **Primär** (zwischen G
 | 4 | Port erreichbar? (\`nc\`, \`Test-NetConnection\`), Firewall-Regel |
 | 7 | Dienst läuft? (\`curl\`, Logfiles, DNS-Auflösung) |
 
+## Switching vertieft: Schleifen, Bündelung, Port-Sicherheit
+
+**Spanning Tree (STP, IEEE 802.1D / schneller RSTP 802.1w):** Verbindet man Switches redundant über mehrere Wege, entsteht eine Schleife. Ethernet-Rahmen haben keine Lebensdauer (kein TTL), deshalb kreisen Broadcasts endlos und erzeugen einen *Broadcast-Sturm*, der das Netz lahmlegt. STP wählt eine **Root Bridge**, berechnet für jeden Switch den günstigsten Weg dorthin und **sperrt redundante Ports logisch** (Zustand *blocking/discarding*). Fällt eine aktive Leitung aus, schaltet STP einen gesperrten Port frei. RSTP tut das in Sekunden statt in 30 bis 50 Sekunden.
+
+**Link Aggregation (LACP, IEEE 802.1AX, früher 802.3ad):** Mehrere physische Leitungen werden zu einem logischen Link gebündelt. Das erhöht die Bandbreite (zwei 1-Gbit-Links ergeben keine einzelne 2-Gbit-Verbindung pro Datenstrom, sondern verteilen die Datenströme) und fällt bei Ausfall eines Kabels nicht aus. Die Gegenstellen müssen die gleiche Konfiguration verwenden.
+
+**Port Security und Schutz am Zugangsport:** Begrenzung der MAC-Adressen pro Port, Abschalten ungenutzter Ports, **802.1X** für portbasierte Anmeldung (Radius), **DHCP-Snooping** gegen untergeschobene DHCP-Server und **BPDU-Guard** gegen fremde Switches an Endgeräteports.
+
+**Power over Ethernet (PoE):** Der Switch speist Telefone, Access Points und Kameras über das Datenkabel. 802.3af liefert bis 15,4 W am Switch (12,95 W am Gerät), 802.3at (PoE+) bis 30 W, 802.3bt (PoE++) bis 60 W oder 90 W. Bei der Planung zählt das **PoE-Budget** des gesamten Switches, nicht nur der Einzelport.
+
+## IPv6 im Netzwerkbetrieb
+
+IPv6-Adressen haben 128 Bit und werden hexadezimal geschrieben, z. B. \`2001:db8:10:1::25\`. Die Doppel-Doppelpunkt-Schreibweise \`::\` darf pro Adresse einmal Nullblöcke zusammenfassen. Das übliche Subnetzpräfix ist **/64**, die unteren 64 Bit bilden die Schnittstellenkennung.
+
+- **SLAAC:** Ein Gerät bildet seine Adresse selbst aus dem Präfix, das der Router per *Router Advertisement* ankündigt.
+- **DHCPv6:** liefert zusätzliche Informationen (z. B. DNS) oder Adressen zentral.
+- **NDP (Neighbor Discovery):** ersetzt ARP und nutzt ICMPv6, das man deshalb nicht pauschal sperren darf.
+- Es gibt **kein NAT** als Standardmittel und keine Broadcasts, dafür Multicast. Der Schutz erfolgt durch Firewall-Regeln, nicht durch Adressübersetzung.
+- Link-lokale Adressen beginnen mit \`fe80::/10\`, globale Unicast-Adressen derzeit mit \`2000::/3\`, private Unique-Local-Adressen mit \`fc00::/7\`.
+
+## Weitere DNS-Einträge und E-Mail-Dienste
+
+| Eintragstyp | Bedeutung | Beispiel |
+| :--- | :--- | :--- |
+| A / AAAA | Name auf IPv4- / IPv6-Adresse | \`www  A  203.0.113.10\` |
+| CNAME | Alias auf einen anderen Namen | \`shop CNAME www.example.org.\` |
+| MX | zuständiger Mailserver mit Priorität | \`MX 10 mail.example.org.\` |
+| NS | zuständiger Nameserver der Zone | \`NS ns1.example.org.\` |
+| PTR | Rückwärtsauflösung IP → Name | \`10.113.0.203.in-addr.arpa\` |
+| TXT | freier Text, z. B. SPF, DKIM, DMARC | \`v=spf1 mx -all\` |
+| SOA | Zonenverwaltung: Seriennummer, Zeitwerte | |
+
+**Mail-Protokolle:** SMTP überträgt Mails (Port 25 zwischen Servern, 587 für das Einreichen durch Clients, 465 mit implizitem TLS). IMAP (143, mit TLS 993) belässt Mails auf dem Server und synchronisiert, POP3 (110, mit TLS 995) lädt sie herunter. Gegen gefälschte Absender helfen **SPF** (welche Server dürfen für die Domain senden), **DKIM** (digitale Signatur der Mail) und **DMARC** (Richtlinie, was bei Fehlschlag passiert, und Berichte). Alle drei werden als DNS-Einträge veröffentlicht.
+
+## Wichtige Dienste und Ports im Überblick
+
+| Dienst | Port / Protokoll | Zweck |
+| :--- | :--- | :--- |
+| SSH | 22 TCP | verschlüsselte Fernwartung, Dateitransfer (SFTP) |
+| DNS | 53 UDP und TCP | Namensauflösung, Zonentransfer über TCP |
+| DHCP | 67/68 UDP | Adressvergabe |
+| NTP | 123 UDP | Zeitsynchronisation (wichtig für Logs, Kerberos, Zertifikate) |
+| LDAP / LDAPS | 389 / 636 TCP | Verzeichnisdienst |
+| Kerberos | 88 TCP/UDP | Anmeldung in Active Directory |
+| SMB | 445 TCP | Windows-Datei- und Druckfreigaben |
+| NFS | 2049 TCP/UDP | Linux-/Unix-Dateifreigaben |
+| RDP | 3389 TCP | Windows-Fernzugriff |
+| SNMP | 161/162 UDP | Überwachung und Traps |
+| Syslog | 514 UDP | zentrale Protokollierung |
+
+**Zeit ist ein Dienst:** Weichen die Uhren um mehr als wenige Minuten ab, scheitern Kerberos-Anmeldungen, TLS-Zertifikate wirken abgelaufen und Logs lassen sich nicht korrelieren. Darum gehören NTP-Quellen zur Grundausstattung.
+
+## Proxy, Reverse Proxy und Lastverteilung
+
+Ein **Forward-Proxy** vermittelt Anfragen interner Clients ins Internet (Filter, Cache, Protokollierung). Ein **Reverse-Proxy** steht vor Servern, nimmt Anfragen aus dem Internet an und leitet sie weiter (TLS-Terminierung, Schutz, Verteilung). Ein **Load Balancer** verteilt Anfragen auf mehrere Server nach Verfahren wie Round Robin, geringste Verbindungen oder Gewichtung und prüft per *Health Check* ihre Erreichbarkeit. Zusammen mit einer **Web Application Firewall (WAF)** schützt diese Schicht Webanwendungen vor typischen Angriffen auf Anwendungsebene.
+
+## Dienstgüte (QoS) und Sprachverkehr
+
+Echtzeitverkehr wie Telefonie reagiert empfindlich auf Verzögerung (*Delay*), Schwankung der Laufzeit (*Jitter*) und Paketverlust. Als Richtwert gilt für Sprache eine Laufzeit von höchstens etwa 150 ms in eine Richtung (ITU-T G.114). **QoS** priorisiert solchen Verkehr: Pakete werden mit einem Wert im IP-Header markiert (**DSCP**, Sprache üblicherweise *EF* = 46), und die Netzwerkgeräte bedienen markierte Klassen bevorzugt. Wichtig ist, dass die Markierung durchgängig vom Endgerät bis zum WAN-Übergang vertrauenswürdig behandelt wird, sonst verpufft sie. VLANs trennen Sprache und Daten zusätzlich logisch (eigenes Voice-VLAN).
+
+## Systematische Netzwerkdiagnose
+
+Gehe **von unten nach oben** durch die Schichten und teste jeweils den nächsten Schritt:
+
+1. **Link:** Kabel gesteckt, Link-LED, Port aktiv? (\`ip link\`, Switch-Port-Status)
+2. **Eigene IP:** Adresse, Maske und Gateway plausibel, keine 169.254.x.x (APIPA/Link-Local bedeutet: DHCP nicht erreicht)? (\`ipconfig /all\`, \`ip a\`)
+3. **Gateway:** \`ping\` auf das Standardgateway. Danach \`ping\` auf eine IP im Internet, z. B. 1.1.1.1.
+4. **DNS:** \`ping\` auf einen Namen. Klappt die IP, aber nicht der Name, ist DNS das Problem (\`nslookup\`, \`dig\`).
+5. **Weg verfolgen:** \`traceroute\` (Linux) oder \`tracert\` (Windows) zeigt, wo Pakete hängen bleiben.
+6. **Dienst und Port:** Ist der Port erreichbar? (\`Test-NetConnection -Port 443\`, \`ss -tulpn\` auf dem Server, Firewall-Regel prüfen)
+7. **Mitschneiden:** Mit Wireshark oder \`tcpdump\` sieht man, was wirklich auf dem Draht passiert (z. B. DHCP-Discover ohne Antwort).
+
+Ein erfolgreicher \`ping\` beweist nur, dass ICMP durchkommt. Er sagt nichts über TCP-Ports. Umgekehrt blockieren manche Firewalls ICMP, obwohl der Dienst läuft.
+
 > [!exam] Prüfungshinweis
 > Typische Aufgaben: VLSM-Subnetze berechnen, DORA-Ablauf, VLAN-Konzept mit Trunk und Gateway, Firewall-Regeln mit DMZ, Auswahl von Kabeltyp und Länge, Fehlersuche nach Schichtenmodell.
 `,

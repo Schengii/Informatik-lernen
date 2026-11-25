@@ -111,6 +111,88 @@ Eine **CMDB** (Configuration Management Database) speichert **Configuration Item
 - **Datenschutz**: Beim Fernzugriff auf Geräte die Zustimmung einholen und nur das für die Lösung Nötige einsehen.
 - **Wissen dokumentieren**: Lösung kurz festhalten, damit der nächste Fall schneller geht.
 
+## Service Desk und Supportorganisation
+
+Der **Service Desk** ist die zentrale Anlaufstelle (*Single Point of Contact*, SPOC) zwischen Nutzern und IT. Er nimmt Meldungen auf, löst, was er kann, und koordiniert den Rest. Üblich sind verschiedene Organisationsformen:
+
+| Modell | Beschreibung | Vorteile | Nachteile |
+| :--- | :--- | :--- | :--- |
+| Lokaler Service Desk | vor Ort beim Kunden | persönlicher Kontakt, Ortskenntnis | teuer, bei mehreren Standorten doppelt |
+| Zentraler Service Desk | ein Standort für alle | einheitliche Qualität, Skaleneffekte | weniger Ortskenntnis |
+| Virtueller Service Desk | verteilte Mitarbeiter, gemeinsames Ticketsystem | flexibel, Zugriff auf Know-how | erfordert gute Werkzeuge und Disziplin |
+| Follow the Sun | Übergabe an Standorte in anderen Zeitzonen | 24 Stunden Erreichbarkeit ohne Nachtschicht | hoher Abstimmungsaufwand |
+
+**Support-Stufen (Level):** Im **1st Level** werden Anfragen aufgenommen, kategorisiert und einfache Fälle gelöst (Passwort zurücksetzen, bekannte Fehler). Der **2nd Level** bearbeitet fachlich tiefere Störungen (Server, Netzwerk, Anwendung). Im **3rd Level** arbeiten Spezialisten, Entwickler oder Hersteller. Wird ein Ticket in eine höhere Stufe übergeben, spricht man von **funktionaler Eskalation**. Die **hierarchische Eskalation** informiert dagegen Vorgesetzte, etwa wenn eine Frist der Vereinbarung droht verletzt zu werden. Beide Eskalationswege sollten im Prozess mit Zeitgrenzen festgelegt sein.
+
+## Service Request und Servicekatalog
+
+Anfragen nach Standardleistungen (Neuer Benutzer, Softwareinstallation, Zugriff auf ein Laufwerk, Hardware-Ausgabe) sind keine Störungen. Sie laufen im **Request Fulfilment** nach vorab festgelegten Abläufen und mit Genehmigung durch die zuständige Stelle. Der **Servicekatalog** beschreibt die angebotenen Services mit Leistung, Preis, Bearbeitungszeit und Zuständigkeit. Das hat drei Vorteile: Nutzer wissen, was sie bekommen können, die Bearbeitung ist planbar, und Standardfälle lassen sich automatisieren (z. B. Onboarding-Paket für neue Mitarbeiter).
+
+## Lebenszyklus eines Tickets
+
+1. **Erfassen:** Meldung (Telefon, Mail, Portal, Chat, automatisch aus dem Monitoring), eindeutige Ticketnummer, Kontaktdaten.
+2. **Kategorisieren und priorisieren:** Incident oder Request? Welcher Service ist betroffen? Priorität aus Auswirkung und Dringlichkeit.
+3. **Erstdiagnose:** Wissensdatenbank durchsuchen, Standardlösung anwenden, Rückfragen stellen.
+4. **Weiterleiten (Eskalation):** Bei Bedarf in den 2nd oder 3rd Level mit allen bisherigen Informationen übergeben.
+5. **Lösen und wiederherstellen:** Lösung oder Workaround umsetzen und testen.
+6. **Abschließen:** Nutzer bestätigt die Lösung, Dokumentation, Ursachencode, ggf. Problem-Ticket oder Change anstoßen. Typischerweise wird ein Ticket nicht sofort geschlossen, sondern nach einer Frist ohne Rückmeldung automatisch.
+
+Reagieren Nutzer, dass das Problem wieder auftritt, wird das Ticket **wiedereröffnet**. Eine hohe Wiedereröffnungsrate ist ein Hinweis auf oberflächliche Lösungen.
+
+## Wissensmanagement
+
+Eine gepflegte **Wissensdatenbank** (Knowledge Base) spart Zeit und senkt die Zahl der Eskalationen. Gute Artikel sind kurz, nach Symptom formuliert (nicht nach interner Technik), mit Schritt-für-Schritt-Lösung, Gültigkeit (Version, Datum) und Verantwortlichem. Die Methode **KCS (Knowledge-Centered Service)** empfiehlt, Wissen direkt bei der Ticketbearbeitung festzuhalten, statt später in einem eigenen Projekt. Veraltete Artikel sind schädlich, darum gehören Überprüfung und Löschung zum Prozess. In der Datenbank der **Known Errors** steht zu jedem bekannten Fehler der Workaround.
+
+## Servicezeiten, Verfügbarkeit und SLA-Rechnung
+
+In einem SLA gilt Verfügbarkeit nur innerhalb der **vereinbarten Servicezeit**, und geplante Wartungsfenster zählen meist nicht als Ausfall. Dann gilt:
+
+Verfügbarkeit = (vereinbarte Servicezeit - Ausfallzeit) / vereinbarte Servicezeit
+
+**Beispiel:** Ein Service ist montags bis freitags von 7 bis 19 Uhr vereinbart (12 h * 5 Tage * 4 Wochen = 240 h pro Monat). Es gab einen ungeplanten Ausfall von 3 h. Verfügbarkeit = (240 - 3) / 240 = 98,75 %. Vereinbart waren 99 %, die Vorgabe ist also **nicht** erfüllt, denn erlaubt wären nur 2,4 h Ausfall. Je nach Vertrag fallen **Service Credits** (Gutschriften) oder Vertragsstrafen an.
+
+**Reaktions- und Lösungszeit:** Das SLA nennt für jede Priorität Zeiten, z. B. Priorität 1 (kritisch): Reaktion in 15 Minuten, Wiederherstellung in 4 Stunden. Die Uhr läuft meist nur während der Servicezeit und wird angehalten, wenn man auf eine Antwort des Kunden wartet. Wichtige Begriffe: **SLA** (Vereinbarung mit dem Kunden), **OLA** (interne Vereinbarung zwischen Abteilungen), **UC** (Underpinning Contract, Vertrag mit externem Lieferanten). Das SLA darf nur zugesagt werden, wenn OLA und UC es tragen. Verspricht der Service Desk 4 Stunden, aber der Lieferant liefert Ersatzteile erst nach 8 Stunden, kann das SLA nicht gehalten werden.
+
+## Weitere Kennzahlen und ihre Aussage
+
+| Kennzahl | Berechnung | Aussage |
+| :--- | :--- | :--- |
+| First-Contact-Resolution (FCR) | im Erstkontakt gelöste Tickets / alle Tickets | Qualität des 1st Level |
+| Mittlere Lösungsdauer | Summe der Bearbeitungszeiten / Anzahl | Effizienz, Trend |
+| SLA-Erfüllungsgrad | Tickets innerhalb der Zeit / alle Tickets | Einhaltung der Zusagen |
+| Wiedereröffnungsquote | wiedereröffnete / geschlossene Tickets | Nachhaltigkeit der Lösungen |
+| Backlog | offene Tickets | Auslastung, Engpässe |
+| Kundenzufriedenheit (CSAT) | Bewertung nach Ticketschluss | Wahrnehmung des Kunden |
+| MTBSI | mittlere Zeit zwischen Störungen = MTBF + MTTR | Stabilität des Services |
+
+Eine einzelne Zahl täuscht leicht: Wer nur die Lösungsdauer drückt, schließt Tickets zu früh. Deshalb werden Kennzahlen kombiniert betrachtet und mit Zielen versehen.
+
+## Ereignisüberwachung und Monitoring
+
+**Event Management** erkennt Zustandsänderungen von Services und Komponenten (Festplatte zu 90 % voll, Dienst gestoppt, Zertifikat läuft in 14 Tagen ab). Ereignisse werden gefiltert und nach Bedeutung geordnet: Information, Warnung, Ausnahme. Aus einer Ausnahme kann automatisch ein Incident entstehen. Gute Überwachung warnt **vor** dem Ausfall (proaktiv), denn jede vermiedene Störung spart Aufwand. Werkzeuge wie Nagios, Icinga, Zabbix oder Prometheus fragen Werte per SNMP, Agent oder Schnittstelle ab. Zu viele Alarme führen zu *Alarmmüdigkeit*, deshalb Schwellwerte sinnvoll wählen.
+
+## Konfigurations- und Asset-Management vertieft
+
+Die **CMDB** (Configuration Management Database) enthält **Konfigurationselemente** (*Configuration Items*, CI): Server, Switches, Software, Verträge, Services und die **Beziehungen** dazwischen. Daraus ergibt sich bei einem Ausfall oder Change sofort: Welche Services hängen an dieser Komponente? Das **Asset-Management** beschreibt den **Lebenszyklus** von Hardware und Software: Planung, Beschaffung, Inbetriebnahme, Betrieb, Wartung, Außerbetriebnahme und Entsorgung (inklusive sicherer Datenlöschung). Inventarnummer, Standort, Verantwortlicher, Garantieende und Lizenzstatus gehören in den Datensatz. Veraltete CMDB-Daten sind schlimmer als keine, deshalb wird der Bestand regelmäßig automatisch abgeglichen.
+
+## Change und Release in der Praxis
+
+- **Changetypen:** *Standard-Change* (vorab genehmigt, geringes Risiko, z. B. Passwort-Reset oder Installation freigegebener Software), *Normaler Change* (Bewertung und Genehmigung, größere Änderungen werden vom Change Advisory Board (CAB) beurteilt) und *Notfall-Change* (dringende Behebung einer schweren Störung, beschleunigte Genehmigung, Nachdokumentation).
+- **Bestandteile eines Change-Antrags:** Beschreibung, Begründung, betroffene Services und CIs, Risiko, Test, Zeitplan, **Rückfallplan (Rollback)**, Kommunikation an Betroffene.
+- **Release und Deployment:** Mehrere Changes werden zu einem *Release* gebündelt, getestet (Testumgebung, Pilotgruppe) und stufenweise ausgerollt. Nach dem Rollout prüft ein *Post-Implementation-Review*, ob das Ziel erreicht wurde.
+
+> [!example] Beispiel: Firmware-Update der Core-Switches
+> Risiko hoch (Netzausfall möglich), daher Normaler Change mit CAB. Wartungsfenster Samstag 22 bis 24 Uhr, Test in der Laborumgebung, Konfigurationsbackup als Rückfallplan, Information an alle Standorte, danach Überprüfung der Verbindungen und Dokumentation in der CMDB.
+
+## Kommunikation am Service Desk
+
+- **Aktiv zuhören**, Namen nennen, Problem in eigenen Worten wiederholen und bestätigen.
+- **Geschlossene Fragen** („Funktioniert es mit dem Kabel?“) klären Fakten, **offene Fragen** („Was passiert genau, wenn Sie drucken?“) liefern Details.
+- **Verständlich** formulieren, Fachbegriffe erklären, Erwartungen nennen: „Ich melde mich spätestens bis 15 Uhr.“
+- **Ruhig bleiben** bei verärgerten Anrufern: Verständnis zeigen, nicht rechtfertigen, Lösungsweg und nächsten Schritt nennen.
+- **Fernwartung:** Zustimmung einholen, auf sensible Inhalte auf dem Bildschirm achten, Sitzung dokumentieren und beenden.
+- **Schriftlich:** Mails kurz, strukturiert und höflich, mit Ticketnummer im Betreff.
+
 > [!exam] Prüfungshinweis
 > Häufig verlangt: Ticket als Incident, Problem, Change oder Service Request klassifizieren, Priorität aus Auswirkung und Dringlichkeit bestimmen, Verfügbarkeit aus MTBF und MTTR berechnen und die Rolle von SLA, OLA und UC erklären.
 `,

@@ -102,6 +102,72 @@ Gesetzlich gilt die **Gewährleistung** (in der Regel 2 Jahre auf neue Waren). E
 
 Gehe nach dem **Ausschlussprinzip** vor: Netz und Kabel prüfen, Komponenten nacheinander tauschen oder entfernen, Fehlermeldung oder Pieptöne (POST-Codes) im Handbuch nachschlagen. Typische Ursachen: lose RAM-Riegel, defektes Netzteil, überhitzte CPU, leere BIOS-Batterie (Zeit springt zurück). Arbeite stets **ohne Spannung** und mit **ESD-Schutz** (Armband oder Erdung), weil statische Entladung Bauteile zerstören kann.
 
+## Speicherhierarchie: warum es mehrere Speicherebenen gibt
+
+Schneller Speicher ist teuer und klein, großer Speicher ist günstig und langsam. Moderne Rechner kombinieren deshalb mehrere Ebenen. Je weiter unten, desto größer, billiger und langsamer.
+
+| Ebene | Typische Größe | Typische Zugriffszeit (Größenordnung) | Flüchtig? |
+| :--- | :--- | :--- | :---: |
+| Register in der CPU | wenige hundert Byte | unter 1 ns | ja |
+| L1-Cache (je Kern) | 32 bis 64 KiB | ca. 1 ns | ja |
+| L2- / L3-Cache | 256 KiB bis 1 MiB je Kern / mehrere MiB bis > 100 MiB gemeinsam | wenige ns bis ca. 10 ns | ja |
+| Arbeitsspeicher (DRAM) | 8 bis 128 GiB und mehr | ca. 50 bis 100 ns | ja |
+| NVMe-SSD | 256 GB bis mehrere TB | ca. 10 bis 100 µs | nein |
+| HDD | 1 bis 20 TB und mehr | ca. 5 bis 10 ms | nein |
+
+Der Cache funktioniert, weil Programme meist Daten wiederverwenden (*zeitliche Lokalität*) oder benachbarte Daten nacheinander lesen (*räumliche Lokalität*). Wird ein Wert im Cache gefunden, spricht man von einem **Cache-Hit**, sonst von einem **Cache-Miss**. Die Zahlen oben sind Größenordnungen und unterscheiden sich je nach Modell deutlich. In der Prüfung zählt das Verhältnis: Zwischen RAM und HDD liegen etwa fünf Zehnerpotenzen.
+
+## Rechenbeispiele für die Prüfung
+
+**Datenrate umrechnen.** Netzwerk- und Schnittstellenraten stehen meist in Bit pro Sekunde, Dateigrößen in Byte. Ein Byte hat 8 Bit. Also gilt: 1 Gbit/s = 1000 Mbit/s = 125 MB/s (Brutto, ohne Protokoll-Overhead). Eine 10-GB-Datei braucht bei 1 Gbit/s und 80 % realer Auslastung: 10 GB * 8 = 80 Gbit; 80 Gbit / 0,8 Gbit/s = 100 s.
+
+**Speicherbedarf eines Bildes.** Ein unkomprimiertes Full-HD-Bild mit 24 Bit Farbtiefe hat 1920 * 1080 = 2 073 600 Pixel. Mal 3 Byte ergibt 6 220 800 Byte, also rund 6,2 MB (dezimal) oder 5,9 MiB (binär). Ein Video mit 30 Bildern pro Sekunde braucht unkomprimiert damit ca. 187 MB/s, deshalb gibt es Kompression.
+
+**Arbeitsspeicherbandbreite.** Die Bandbreite eines Moduls ergibt sich aus Übertragungsrate mal Busbreite. DDR4-3200 überträgt 3200 Millionen Transfers pro Sekunde über 64 Bit (8 Byte): 3200 * 8 Byte = 25,6 GB/s. Im Dual-Channel-Betrieb verdoppelt sich der Wert auf 51,2 GB/s, sofern beide Kanäle mit je einem Modul bestückt sind. DDR5-4800 erreicht je Kanal 38,4 GB/s.
+
+**Netzteil, Verlustleistung und Stromkosten.** Ein Rechner braucht 300 W an Gleichstromleistung. Das Netzteil hat 85 % Wirkungsgrad.
+
+1. Aufnahme aus der Steckdose: 300 W / 0,85 = 352,9 W.
+2. Verlustleistung (wird zu Wärme): 352,9 W - 300 W = 52,9 W.
+3. Bei 8 h an 220 Tagen: 0,3529 kW * 1760 h = 621 kWh.
+4. Bei 0,35 Euro/kWh: 621 kWh * 0,35 Euro = 217,40 Euro im Jahr.
+
+Ein effizienteres Netzteil mit 92 % Wirkungsgrad zieht nur 326 W (Ersparnis ca. 27 W) und spart bei diesem Nutzungsprofil rund 17 Euro im Jahr. Wirtschaftlich entscheidet die Amortisationszeit: Mehrpreis geteilt durch jährliche Ersparnis.
+
+## Firmware, Bootvorgang und Sicherheit
+
+Beim Einschalten läuft zuerst die **Firmware** (früher BIOS, heute meist **UEFI**). Der POST (*Power-On Self-Test*) prüft Prozessor, Speicher und Grundkomponenten. Danach startet UEFI das Betriebssystem über den Bootloader auf der EFI-Systempartition.
+
+- **MBR** (Master Boot Record, BIOS-Zeit): maximal 4 primäre Partitionen, Datenträger bis 2 TiB nutzbar.
+- **GPT** (GUID Partition Table, UEFI): sehr große Datenträger und viele Partitionen, redundante Partitionstabelle.
+- **Secure Boot** startet nur kryptografisch signierte Bootloader und schützt vor manipulierten Startkomponenten (Bootkits).
+- **TPM** (Trusted Platform Module) speichert Schlüssel hardwaregeschützt, etwa für die Laufwerksverschlüsselung. Windows 11 verlangt TPM 2.0.
+- **Firmware-Updates** schließen Sicherheitslücken, bergen aber ein Risiko: Ein Stromausfall während des Flashens kann das Mainboard unbrauchbar machen. Deshalb nur mit stabiler Stromversorgung und nach Herstelleranleitung aktualisieren.
+
+## Server und Rechenzentrumshardware
+
+Server sind auf Verfügbarkeit und Wartbarkeit ausgelegt, nicht auf Spitzenleistung für Einzelplatz-Software.
+
+- **19-Zoll-Rack:** Die Breite der Geräteeinbauebene beträgt 19 Zoll (482,6 mm). Die Höhe wird in **Höheneinheiten (HE, englisch U)** gemessen, 1 HE = 44,45 mm. Ein Standard-Rack hat meist 42 HE.
+- **Redundanz:** zwei Netzteile (N+1 oder 2N), gespiegelte Systemlaufwerke (RAID 1), mehrere Netzwerkkarten (Bonding/Teaming), ECC-Arbeitsspeicher.
+- **Hot-Swap:** Netzteile, Lüfter und Laufwerke lassen sich im laufenden Betrieb tauschen.
+- **Out-of-Band-Management:** Eigene Verwaltungskarten (iLO, iDRAC, IPMI/BMC) erlauben Zugriff, Neustart und Konsole auch bei abgestürztem Betriebssystem. Sie gehören in ein getrenntes Management-Netz, weil sie sonst ein attraktives Angriffsziel sind.
+- **Kühlung:** Warm- und Kaltgang trennen, Blindblenden einsetzen und die Abwärme aller Geräte planen. Elektrische Leistung wird fast vollständig zu Wärme: 1 kW Aufnahme heißt rund 1 kW Kühlleistung.
+
+## Fehlerbilder und erste Prüfschritte
+
+| Symptom | Wahrscheinliche Ursache | Erster Prüfschritt |
+| :--- | :--- | :--- |
+| Kein Lebenszeichen, keine Lüfter | Netzteil, Netzkabel, Steckdosenleiste | anderes Kabel und Steckdose testen, Netzteilschalter prüfen |
+| Lüfter laufen, aber kein Bild | RAM, Grafikkarte, falsch gesteckte Kabel | RAM neu stecken, einzeln testen, Monitorkabel prüfen |
+| Piepcodes beim Start | POST meldet Hardwarefehler | Code im Mainboardhandbuch nachschlagen |
+| Zufällige Neustarts unter Last | Überhitzung, schwaches Netzteil | Temperaturen auslesen, Lüfter und Kühler reinigen, Wärmeleitpaste prüfen |
+| Datum und Uhrzeit springen zurück | leere CMOS-Batterie (CR2032) | Batterie wechseln |
+| Datenträger wird nicht erkannt | Kabel, Anschluss, defekter Datenträger | anderen Port und anderes Kabel testen, SMART-Werte prüfen |
+| Blue Screen mit wechselnden Fehlern | defekter Arbeitsspeicher oder Treiber | Speichertest (z. B. MemTest86), Treiber zurücksetzen |
+
+Dokumentiere jeden Schritt im Ticket. Bei Servern mit Garantie gilt: Erst Fehlerbild und Seriennummer sichern, dann den Herstellersupport einbeziehen, bevor Komponenten getauscht werden, die zum Garantieverlust führen könnten.
+
 > [!exam] Prüfungshinweis
 > In AP1 werden gern Datenraten (Bit/Byte), Netzteilberechnung mit Wirkungsgrad, Speicherbedarf von Bildern, RAID-Kapazität und der Vergleich zweier Angebote verlangt. Rechenweg immer mit Einheiten aufschreiben.
 `,

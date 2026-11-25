@@ -122,6 +122,72 @@ Die gesamte elektrische Leistung eines Servers wird zu **Wärme**. 1 kW IT-Leist
 
 Der ideale Wert ist 1,0, übliche Werte liegen höher. Sinkt der PUE von 1,8 auf 1,3, sinkt der Energiebedarf für dieselbe IT-Last um mehr als 27 %. Maßnahmen: Kalt- und Warmgangeinhausung, höhere Betriebstemperaturen, effiziente USV und Free Cooling.
 
+## Schaltungen und Leitungsberechnung
+
+**Reihenschaltung:** Der Strom ist überall gleich, die Teilspannungen addieren sich, die Widerstände addieren sich: R_ges = R1 + R2 + ...
+
+**Parallelschaltung:** Die Spannung ist überall gleich, die Teilströme addieren sich, die Leitwerte addieren sich: 1/R_ges = 1/R1 + 1/R2 + ... Zwei gleiche Widerstände von je 100 Ohm ergeben parallel 50 Ohm. Alle Steckdosen und Verbraucher im Haushalt und im Rack hängen parallel an der Netzspannung. Je mehr Geräte, desto größer der Gesamtstrom.
+
+**Verlustleistung in der Leitung:** P_Verlust = I² * R. Der Strom geht quadratisch ein: Verdoppelt sich der Strom, vervierfacht sich die Wärme in der Leitung. Darum werden Leitungen nach dem Strom dimensioniert und überlastete Mehrfachsteckdosen warm.
+
+**Spannungsfall auf einer Leitung** (Wechselstrom, einphasig, Hin- und Rückleiter): ΔU = 2 * l * I / (κ * A). Für Kupfer gilt κ ≈ 56 m/(Ohm * mm²).
+
+Beispiel: Ein 20 m langes Kabel mit 1,5 mm² führt 10 A.
+
+1. ΔU = 2 * 20 m * 10 A / (56 * 1,5) = 400 / 84 = 4,76 V.
+2. Bezogen auf 230 V sind das 4,76 / 230 = 2,07 %.
+3. Für Verbraucher wird üblicherweise ein Spannungsfall von höchstens 3 % angestrebt (Orientierung in der Installationsnorm DIN VDE 0100-520). Hier ist der Wert also noch zulässig. Bei doppelter Länge wären es 4,1 % und ein größerer Querschnitt nötig.
+
+## Leistungsfaktor und USV-Auslegung
+
+Bei Wechselstrom mit Blindanteil unterscheidet man **Scheinleistung S** (in VA), **Wirkleistung P** (in W) und **Blindleistung Q** (in var). Es gilt P = S * cos φ. Der **Leistungsfaktor** cos φ liegt bei modernen Netzteilen mit Leistungsfaktorkorrektur (PFC) meist bei 0,9 bis 0,99.
+
+Eine USV mit 1000 VA und Leistungsfaktor 0,9 liefert 900 W Wirkleistung. Neuere Online-USVs sind teils mit Leistungsfaktor 1,0 spezifiziert, ältere mit 0,7 bis 0,9. Entscheidend ist immer die Angabe in Watt im Datenblatt.
+
+**Faustformel für die Batterielaufzeit:** Batterieenergie in Wh = Spannung * Kapazität in Ah. Zwei 12-V-Blei-Akkus mit je 9 Ah in Reihe ergeben 24 V * 9 Ah = 216 Wh. Davon sind realistisch nur etwa 80 % nutzbar (Wechselrichterverluste, Entladetiefe). Bei 300 W Last: 216 Wh * 0,8 / 300 W = 0,58 h, also rund 35 Minuten. In der Praxis ist die Laufzeit bei hoher Last kürzer, weil die nutzbare Kapazität mit steigendem Entladestrom sinkt, und sie nimmt über die Jahre mit der Alterung der Batterie ab. Nach Herstellerangabe werden Bleiakkus in USVs oft nach 3 bis 5 Jahren getauscht.
+
+Ein Beispiel für eine vollständige Auslegung:
+
+1. Verbraucher addieren (z. B. Server 350 W, Switch 60 W, Storage 190 W = 600 W).
+2. Reserve von 20 bis 30 % für Erweiterungen aufschlagen (600 W * 1,25 = 750 W).
+3. Gewünschte Überbrückungszeit festlegen. Sie muss reichen, um Systeme geordnet herunterzufahren (häufig 5 bis 15 Minuten) oder bis ein Generator übernimmt.
+4. USV mit mindestens dieser Wirkleistung und passender Batterie auswählen, Bauart nach Schutzbedarf (siehe Abbildung).
+
+## Schutzarten, Schutzklassen und Fehlerstromschutz
+
+**IP-Schutzarten (IEC 60529)** bestehen aus zwei Ziffern: Die erste (0 bis 6) bewertet den Schutz gegen Fremdkörper und Berührung, die zweite (0 bis 9) den Schutz gegen Wasser. IP20 (Finger-, aber kein Wasserschutz) reicht in trockenen Büro- und Serverräumen. IP54 schützt gegen Staubablagerung und Spritzwasser, IP65 ist staubdicht und strahlwassergeschützt.
+
+**Schutzklassen** bezeichnen das Konzept des Berührungsschutzes: Klasse I hat einen Schutzleiteranschluss (Gehäuse geerdet, Schuko-Stecker), Klasse II ist schutzisoliert (Euro-Stecker, kein Schutzleiter), Klasse III arbeitet mit Schutzkleinspannung.
+
+**Fehlerstromschutzeinrichtung (RCD, umgangssprachlich FI):** Sie vergleicht Hin- und Rückstrom. Weicht die Differenz um mehr als den Bemessungsfehlerstrom ab, trennt sie das Netz. Ein 30-mA-RCD dient dem Personenschutz. Wichtig für IT: Netzteile, USVs und Frequenzumrichter können glatte Gleichfehlerströme erzeugen. Dann braucht man je nach Gerät einen RCD Typ A oder Typ B, ein einfacher Typ AC reicht nicht aus. Der Leitungsschutzschalter (Sicherungsautomat) schützt dagegen nur vor Überlast und Kurzschluss, nicht vor Berührung.
+
+Wirkung des Stroms auf den Menschen (Richtwerte): Ab etwa 0,5 mA ist Strom spürbar, ab etwa 10 mA kann man sich von der Elektrode oft nicht mehr lösen, ab etwa 30 mA besteht die Gefahr von Herzkammerflimmern. Als nicht berührungsgefährlich gilt Kleinspannung bis 50 V Wechselspannung oder 120 V Gleichspannung.
+
+## Brandschutz im Serverraum
+
+Brände entstehen im IT-Umfeld oft durch überlastete Steckdosenleisten, defekte Netzteile oder Batterien. Maßnahmen sind **vorbeugend** (Brandlast gering halten, nichts lagern, Leitungen nicht überlasten, Brandabschnitte), **melden** (Rauchmelder mit Frühesterkennung, Aufschaltung auf eine Leitstelle) und **löschen**.
+
+- **Brandklassen (DIN EN 2):** A feste Stoffe (Holz, Papier), B flüssige Stoffe, C Gase, D Metalle, F Speiseöle und -fette.
+- **Elektrobrände:** Erst den Strom abschalten, wenn gefahrlos möglich. Wasser und Schaum sind bei Spannung gefährlich. Geeignet sind Kohlendioxid-Löscher (rückstandsfrei, aber Erstickungsgefahr in kleinen Räumen) oder Pulverlöscher (verschmutzt Technik stark).
+- **Sicherheitsabstände an Niederspannungsanlagen bis 1000 V** (DIN VDE 0132): beim Löschen mit Sprühstrahl mindestens 1 m, mit Vollstrahl mindestens 5 m.
+- **Gaslöschanlagen** (Inertgas oder chemische Löschgase) löschen im Rechenzentrum ohne Wasserschaden, brauchen aber einen dichten Raum und eine Warnung vor dem Fluten.
+
+## Erste Hilfe bei Stromunfällen
+
+1. **Selbstschutz:** Niemals ein Opfer berühren, solange es unter Spannung steht. Stromkreis abschalten, Stecker ziehen oder Sicherung ausschalten.
+2. **Notruf 112** absetzen.
+3. Bei Bewusstlosigkeit ohne normale Atmung: **Herz-Lungen-Wiederbelebung** (Druckmassage 100 bis 120 pro Minute, Verwendung eines Defibrillators/AED, falls vorhanden).
+4. Auch bei scheinbarer Erholung ärztlich untersuchen lassen, denn Herzrhythmusstörungen können mit Verzögerung auftreten.
+5. Den Unfall dokumentieren und melden (Verbandbuch, Unfallanzeige an Vorgesetzte und Berufsgenossenschaft).
+
+## Redundanz und Verfügbarkeitsklassen
+
+Die Stromversorgung wird nach dem Schutzbedarf redundant aufgebaut: **N** bedeutet keine Redundanz, **N+1** ein zusätzliches Modul, **2N** zwei vollständig getrennte Versorgungspfade (A- und B-Strang). Ein Server mit zwei Netzteilen hängt mit je einem Netzteil an A und B.
+
+Das Uptime Institute unterscheidet vier **Tier-Klassen** für Rechenzentren. Typische Verfügbarkeiten aus der Literatur: Tier I etwa 99,671 %, Tier II etwa 99,741 %, Tier III etwa 99,982 % und Tier IV etwa 99,995 %. Das entspricht Ausfallzeiten von ca. 28,8 h, 22,7 h, 1,6 h und 0,4 h pro Jahr. Ab Tier III ist Wartung ohne Abschalten möglich (gleichzeitig wartbar), Tier IV ist zusätzlich fehlertolerant.
+
+**ESD-Schutz (elektrostatische Entladung):** Bauteile können durch Entladung unter 100 V zerstört werden, obwohl der Mensch erst ab ca. 3000 V etwas spürt. Deshalb: ESD-Armband mit Schutzwiderstand (üblich 1 MOhm), leitfähige Unterlage und antistatische Verpackung.
+
 > [!exam] Prüfungshinweis
 > Typisch sind Aufgaben zur USV-Dimensionierung (W, VA, Autonomiezeit), zur Energiekostenberechnung (kWh mal Preis), zu Schutzklassen und IP-Codes sowie die Bewertung eines Prüfprotokolls nach DGUV V3. Immer Einheiten mitführen und die Rechnung Schritt für Schritt notieren.
 `,

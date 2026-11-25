@@ -115,6 +115,78 @@ Das **Business Continuity Management (BCM)** sorgt dafür, dass kritische Gesch�
 
 Ein **ISMS** steuert Sicherheit als fortlaufenden Prozess (Plan, Do, Check, Act). Grundlagen sind die Norm **ISO/IEC 27001** und der **BSI-Standard 200-2** (IT-Grundschutz mit den Vorgehensweisen Basis-, Standard- und Kern-Absicherung). Menschen sind Teil der Sicherheit: **Awareness-Schulungen** und Phishing-Übungen senken das Risiko deutlich.
 
+## Angriffsarten und passende Gegenmaßnahmen
+
+Kenne zu jedem Angriff die Schutzziele, die er verletzt, und eine passende Gegenmaßnahme.
+
+| Angriff | Funktionsweise | Verletztes Schutzziel | Gegenmaßnahmen |
+| :--- | :--- | :--- | :--- |
+| Phishing / Spear-Phishing | gefälschte Mails oder Seiten locken Zugangsdaten oder Klicks heraus | Vertraulichkeit | Schulung, Mehr-Faktor-Authentifizierung, Mailfilter, Meldeweg für Verdachtsfälle |
+| Ransomware | verschlüsselt Daten und fordert Lösegeld | Verfügbarkeit, Integrität | Offline-Backups, Patchen, Rechte begrenzen, Netzsegmentierung |
+| Brute Force / Passwort-Spraying | Passwörter durchprobieren, oder wenige gängige Passwörter bei vielen Konten | Vertraulichkeit | Kontosperre, Rate Limiting, MFA, lange Passwörter |
+| Credential Stuffing | gestohlene Zugangsdaten aus Leaks bei anderen Diensten testen | Vertraulichkeit | einmalige Passwörter, Passwortmanager, MFA |
+| Man-in-the-Middle | Angreifer schaltet sich in die Kommunikation | Vertraulichkeit, Integrität | TLS mit Zertifikatsprüfung, VPN, geschützte Switch-Ports |
+| (D)DoS | Überlastung durch Anfragen | Verfügbarkeit | Rate Limiting, Filter beim Provider, Skalierung, DDoS-Schutzdienst |
+| SQL-Injection | Eingabe wird als SQL-Befehl ausgeführt | Vertraulichkeit, Integrität | parametrisierte Abfragen, Eingabevalidierung, minimale DB-Rechte |
+| Cross-Site-Scripting (XSS) | Schadskript wird in eine Webseite eingeschleust | Vertraulichkeit, Integrität | Ausgabe kodieren, Content-Security-Policy |
+| Social Engineering (z. B. CEO-Fraud, Vishing) | Mensch wird manipuliert (Autorität, Zeitdruck) | alle | Vier-Augen-Prinzip bei Zahlungen, Rückruf über bekannte Nummer, Schulung |
+
+**Malware-Begriffe:** Ein *Virus* braucht einen Wirt und die Mithilfe des Nutzers, ein *Wurm* verbreitet sich selbstständig über das Netz, ein *Trojaner* tarnt sich als nützliches Programm, *Spyware* späht aus, ein *Rootkit* versteckt sich tief im System, ein *Botnet* ist ein Verbund ferngesteuerter Rechner.
+
+## Zugriffskontrolle und Authentifizierung im Betrieb
+
+- **Prinzip der minimalen Rechte (Least Privilege):** Nutzer und Dienste erhalten nur die Rechte, die sie für ihre Aufgabe brauchen. Administratorkonten werden nur für administrative Tätigkeiten benutzt, nicht fürs Surfen oder Mailen.
+- **Rollenbasierte Zugriffskontrolle (RBAC):** Rechte hängen an Rollen (Buchhaltung, Vertrieb), nicht an Personen. Bei Eintritt, Wechsel und Austritt wird die Rollenzuordnung geändert (*Joiner-Mover-Leaver*).
+- **Mehr-Faktor-Authentifizierung (MFA):** kombiniert mindestens zwei Faktoren aus Wissen (Passwort), Besitz (Token, Smartphone-App, Sicherheitsschlüssel) und Sein (Biometrie). Am robustesten sind phishingresistente Verfahren wie FIDO2-Sicherheitsschlüssel.
+- **Passwortrichtlinien:** Das BSI und das US-amerikanische NIST empfehlen heute eher lange Passwörter oder Passphrasen und einen Passwortmanager als häufige erzwungene Wechsel. Ein Wechsel ist nötig bei Verdacht auf Kompromittierung.
+- **Vier-Augen-Prinzip und Funktionstrennung:** Kritische Vorgänge (Freigabe von Zahlungen, Änderung an Firewallregeln) erfordern zwei Personen.
+- **Privilegierte Zugänge:** getrennte Admin-Konten, Protokollierung der Sitzungen, zeitlich befristete Rechte.
+
+## Verschlüsselung im Betrieb anwenden
+
+Welche Verfahren es gibt, steht im Artikel zur Kryptografie. Im Betrieb zählt, **wo** man sie einsetzt:
+
+- **Daten im Ruhezustand:** Laufwerksverschlüsselung (BitLocker, LUKS), verschlüsselte Backups, Verschlüsselung in Datenbanken.
+- **Daten in Bewegung:** TLS für Web, Mail und Datenbankzugriffe, SSH, VPN (IPsec, WireGuard, OpenVPN).
+- **Mail:** S/MIME oder OpenPGP für Ende-zu-Ende-Schutz der Inhalte, TLS schützt nur den Transportweg zwischen Servern.
+- **Schlüsselverwaltung:** Schlüssel und Zertifikate haben ein Ablaufdatum und einen Lebenszyklus (erzeugen, verteilen, erneuern, widerrufen). Abgelaufene Zertifikate sind ein häufiger Ausfallgrund und sollten überwacht werden. Wiederherstellungsschlüssel gesondert und sicher aufbewahren.
+
+## Schwachstellenmanagement im Detail
+
+1. **Bestand kennen:** Ohne Inventar (Hardware, Software, Versionen) lässt sich nichts bewerten.
+2. **Schwachstellen erkennen:** Hersteller- und BSI-Warnmeldungen, Schwachstellenscanner (z. B. OpenVAS/Greenbone oder kommerzielle Scanner), Penetrationstests.
+3. **Bewerten:** Der **CVSS-Basiswert** (0,0 bis 10,0) bewertet die technische Schwere: 0,1 bis 3,9 niedrig, 4,0 bis 6,9 mittel, 7,0 bis 8,9 hoch, 9,0 bis 10,0 kritisch. Zusätzlich zählen Ausnutzbarkeit im Umfeld (aus dem Internet erreichbar? Exploit verfügbar?) und Schutzbedarf des Systems.
+4. **Beheben oder mindern:** Patch, Konfigurationsänderung, Abschalten des Dienstes, Isolieren als Zwischenlösung.
+5. **Nachweisen:** Erneut scannen und im Ticket dokumentieren.
+
+Ein **Penetrationstest** ist ein autorisierter, vereinbarter Angriffsversuch. Ohne schriftliche Erlaubnis der Betreiber ist das Scannen und Angreifen fremder Systeme strafbar (§ 202c StGB, „Hackerparagraf“, und weitere).
+
+## Rechnen mit Verfügbarkeit
+
+Verfügbarkeit in Prozent = (Betriebszeit / Gesamtzeit) * 100. Ein Jahr hat 8760 Stunden.
+
+| Verfügbarkeit | Erlaubte Ausfallzeit pro Jahr |
+| :--- | :--- |
+| 99 % | 87,6 Stunden (ca. 3,65 Tage) |
+| 99,9 % | 8,76 Stunden |
+| 99,99 % | 52,6 Minuten |
+| 99,999 % | 5,3 Minuten |
+
+Hängen Komponenten in **Reihe** (alle müssen laufen), multiplizieren sich die Verfügbarkeiten: Zwei Systeme mit je 99,9 % ergeben 99,9 % * 99,9 % = 99,8 %. **Parallele Redundanz** (eine reicht) verbessert den Wert: 1 - (1 - 0,99) * (1 - 0,99) = 99,99 %, vorausgesetzt der Ausfall ist unabhängig und die Umschaltung funktioniert.
+
+## IT-Forensik und Beweissicherung
+
+Nach einem Vorfall kann es nötig sein, Beweise zu sichern, etwa für eine Anzeige oder eine arbeitsrechtliche Maßnahme.
+
+- **Reihenfolge der Flüchtigkeit:** Zuerst sichern, was am schnellsten verloren geht: Arbeitsspeicher und laufende Prozesse, dann Netzwerkverbindungen, danach Datenträger, zuletzt Backups und Archive. Ein verdächtiges System deshalb nicht vorschnell ausschalten, sondern vom Netz trennen, wenn der Schaden begrenzt werden muss.
+- **Originale schützen:** Mit Schreibschutz ein bitgenaues Abbild (Image) erstellen und mit dem Abbild arbeiten. Einen **Hashwert** (z. B. SHA-256) vom Original und von der Kopie bilden, um die Unverändertheit nachzuweisen.
+- **Beweiskette (Chain of Custody):** Lückenlos dokumentieren, wer wann welches Medium in Händen hatte, mit Datum, Uhrzeit und Unterschrift.
+- **Rechtliche Rahmenbedingungen:** Datenschutz und Mitbestimmung beachten. Bei Verdacht auf Straftaten die Geschäftsleitung und den Datenschutzbeauftragten einbeziehen, bei Personenbezug gilt die Meldepflicht von 72 Stunden an die Aufsichtsbehörde.
+
+## Staffelung der Verteidigung (Defense in Depth) und Zero Trust
+
+**Defense in Depth** setzt auf mehrere unabhängige Schutzschichten: physisch (Zutritt), Netzwerk (Firewall, Segmentierung), System (Härtung, Patches), Anwendung (sichere Entwicklung), Daten (Verschlüsselung, Backup) und Mensch (Schulung, Richtlinien). Fällt eine Schicht aus, fängt die nächste auf. **Zero Trust** geht noch weiter: Kein Gerät und kein Nutzer wird allein wegen seiner Position im internen Netz vertraut. Jeder Zugriff wird geprüft (Identität, Gerätezustand, Kontext) und auf das Nötige begrenzt.
+
 > [!exam] Prüfungshinweis
 > Gefragt werden häufig die Schutzbedarfsfeststellung mit Maximumprinzip, eine Risikomatrix mit Begründung, die ALE-Rechnung zur Wirtschaftlichkeit, Maßnahmen nach TOM-Kategorien sowie die Reihenfolge der Schritte bei einem Sicherheitsvorfall.
 `,

@@ -128,6 +128,82 @@ Get-ChildItem C:\\Daten -Recurse | Where-Object Length -gt 100MB
 3. Hypothese bilden, **eine** Änderung testen, Ergebnis dokumentieren.
 4. Bei Systemfehlern den Wiederherstellungsmodus oder ein Image nutzen.
 
+## Startvorgang und Prozesse
+
+**Bootkette:** UEFI-Firmware → Bootloader (Linux: GRUB, Windows: Windows Boot Manager) → Betriebssystemkern → erster Prozess (Linux: systemd, PID 1) → Dienste → Anmeldung. Bleibt das System stehen, grenzt die Stelle den Fehler ein: Kein Bootmenü deutet auf Firmware oder Bootloader, ein Absturz beim Laden des Kerns auf Treiber oder Dateisystem, ein Hänger bei Diensten auf einen fehlerhaften Dienst.
+
+**Prozess und Thread:** Ein **Prozess** ist ein laufendes Programm mit eigenem Adressraum. Ein **Thread** ist ein Ausführungsstrang innerhalb eines Prozesses und teilt sich dessen Speicher. Der **Scheduler** verteilt die Rechenzeit auf die Prozesse, indem er sie im Wechsel auf die Prozessorkerne legt (Zeitscheibenverfahren).
+
+**Virtueller Speicher:** Jeder Prozess sieht einen eigenen, zusammenhängenden Adressraum. Das Betriebssystem bildet ihn auf RAM und, wenn dieser knapp wird, auf eine Auslagerungsdatei ab (Linux: Swap-Partition oder Swapfile, Windows: pagefile.sys). Wird ständig ausgelagert, bricht die Leistung ein, weil Plattenzugriffe um Größenordnungen langsamer sind als RAM (*Thrashing*). Dann hilft mehr Arbeitsspeicher, nicht mehr Auslagerungsdatei.
+
+| Aufgabe | Linux | Windows (PowerShell / CMD) |
+| :--- | :--- | :--- |
+| Prozesse anzeigen | \`ps aux\`, \`top\`, \`htop\` | \`Get-Process\`, \`tasklist\`, Task-Manager |
+| Prozess beenden | \`kill <PID>\`, \`kill -9 <PID>\` | \`Stop-Process -Id <PID>\`, \`taskkill\` |
+| Dienste verwalten | \`systemctl status/start/stop/enable <dienst>\` | \`Get-Service\`, \`Start-Service\`, \`services.msc\` |
+| Logs lesen | \`journalctl -u <dienst>\`, \`/var/log/\` | Ereignisanzeige, \`Get-WinEvent\` |
+| Netzwerkkonfiguration | \`ip a\`, \`ip route\` | \`ipconfig /all\`, \`Get-NetIPConfiguration\` |
+| Offene Ports | \`ss -tulpn\` | \`netstat -ano\`, \`Get-NetTCPConnection\` |
+| Datenträger | \`df -h\`, \`lsblk\` | \`Get-Volume\`, Datenträgerverwaltung |
+| Namensauflösung testen | \`dig\`, \`nslookup\` | \`nslookup\`, \`Resolve-DnsName\` |
+
+\`kill\` sendet standardmäßig SIGTERM (höfliche Aufforderung zum Beenden). SIGKILL (\`-9\`) beendet sofort ohne Aufräumen und ist nur der letzte Ausweg.
+
+## Linux vertieft: Verzeichnisse, Rechte, Paketverwaltung, Zeitsteuerung
+
+**Verzeichnisstruktur (FHS):** \`/etc\` Konfiguration, \`/var\` veränderliche Daten und Logs, \`/home\` Benutzerdaten, \`/usr\` Programme und Bibliotheken, \`/bin\` und \`/sbin\` Grundbefehle, \`/tmp\` temporäre Dateien, \`/dev\` Gerätedateien, \`/proc\` Prozess- und Kerneldaten, \`/mnt\` und \`/media\` eingebundene Datenträger.
+
+**Standardrechte und umask:** Neue Dateien starten theoretisch mit 666, Verzeichnisse mit 777. Die **umask** zieht Rechte ab. Bei umask 022 entstehen Dateien mit 644 (rw-r--r--) und Verzeichnisse mit 755 (rwxr-xr-x). Bei umask 027 entstehen 640 und 750, die Gruppe darf lesen, andere nichts.
+
+**Sonderrechte:** **SUID** (4000) lässt ein Programm mit den Rechten des Dateieigentümers laufen (Beispiel \`passwd\`). **SGID** (2000) wirkt entsprechend für die Gruppe und lässt in Verzeichnissen neue Dateien die Gruppe erben. Das **Sticky-Bit** (1000) erlaubt in einem Verzeichnis wie \`/tmp\` (Modus 1777) nur dem Eigentümer, seine Dateien zu löschen. SUID-Programme sind ein klassisches Angriffsziel, deshalb gezielt prüfen: \`find / -perm -4000 -type f\`.
+
+**Paketverwaltung:** Software kommt aus signierten Repositories. Debian/Ubuntu: \`apt update\` (Paketlisten aktualisieren), \`apt upgrade\` (Pakete aktualisieren), \`apt install <paket>\`. Red Hat/Fedora: \`dnf install\`, \`dnf upgrade\`. Bevor man Pakete installiert, werden die Listen erneuert, sonst fehlen aktuelle Versionen.
+
+**Zeitgesteuerte Aufgaben mit cron:** Ein Eintrag in der crontab besteht aus fünf Zeitfeldern und dem Befehl: Minute, Stunde, Tag des Monats, Monat, Wochentag.
+
+\`30 2 * * 1-5 /usr/local/bin/backup.sh\` startet das Skript montags bis freitags um 2:30 Uhr. \`*/15 * * * *\` läuft alle 15 Minuten, \`0 4 1 * *\` am Ersten jedes Monats um 4:00 Uhr. Bearbeitet wird die Tabelle mit \`crontab -e\`. Unter systemd gibt es als Alternative *Timer-Units*. In Windows übernimmt die **Aufgabenplanung** (Task Scheduler) diese Rolle.
+
+## Windows vertieft: Rechte, Verschlüsselung, Verwaltung
+
+**NTFS und Freigabe zusammen:** Greift man über das Netzwerk auf eine Freigabe zu, werden **Freigabeberechtigungen** und **NTFS-Berechtigungen** beide ausgewertet, und es gilt das jeweils **restriktivere** Ergebnis. Üblich ist, die Freigabe großzügig (z. B. „Authentifizierte Benutzer: Ändern“) zu setzen und die Feinsteuerung auf NTFS-Ebene zu erledigen. NTFS-Rechte werden vererbt, ein explizites **Verweigern** schlägt ein Erlauben. Verwaltet werden sie im Dialog „Sicherheit“ oder mit \`icacls\`.
+
+**Benutzerkontensteuerung (UAC):** Auch Administratoren arbeiten normalerweise mit eingeschränktem Token und bestätigen administrative Aktionen. Das erschwert es Schadsoftware, sich unbemerkt Administratorrechte zu holen.
+
+**Laufwerksverschlüsselung:** Windows bietet **BitLocker** (am besten mit TPM und PIN), Linux **LUKS/dm-crypt**. Wiederherstellungsschlüssel gehören gesichert, in Domänen z. B. im Active Directory, und nicht auf dasselbe Gerät.
+
+**Windows-Betriebsarten:** Clients (Windows 10/11 Pro, Enterprise) und Server (Windows Server) unterscheiden sich in Rollen und Lizenzierung. Server-Rollen wie Active Directory-Domänendienste, DNS, DHCP, Datei- und Druckdienste installiert man nach Bedarf, und die **Server Core**-Installation ohne grafische Oberfläche verkleinert die Angriffsfläche und den Patch-Aufwand.
+
+**Remote-Verwaltung:** SSH (Linux, inzwischen auch Windows), **RDP** (Port 3389) für grafischen Zugriff, **PowerShell Remoting** über WinRM. Direkter RDP-Zugang aus dem Internet ist ein häufiger Einbruchsweg und gehört hinter ein VPN oder ein Gateway mit Mehr-Faktor-Authentifizierung.
+
+## Dateisysteme im Vergleich
+
+| Dateisystem | Typischer Einsatz | Besonderheiten |
+| :--- | :--- | :--- |
+| FAT32 | USB-Stick, Kameras, UEFI-Systempartition | Datei höchstens 4 GiB minus 1 Byte, keine Rechte, kein Journaling |
+| exFAT | große USB-Sticks, SD-Karten | Dateien über 4 GiB, keine Rechteverwaltung |
+| NTFS | Windows-Systeme und -Server | Rechte (ACL), Journaling, Verschlüsselung (EFS), Komprimierung, Quotas |
+| ext4 | Standard vieler Linux-Distributionen | Journaling, Rechte nach Eigentümer/Gruppe, robust und ausgereift |
+| XFS | Server mit sehr großen Dateien | hohe Parallelität, nur vergrößerbar, nicht verkleinerbar |
+| Btrfs / ZFS | Speichersysteme, NAS | Snapshots, Prüfsummen gegen stille Datenfehler, integrierte Volume-Verwaltung |
+
+**Journaling** protokolliert Änderungen vor dem Schreiben, damit das Dateisystem nach einem Absturz schnell wieder konsistent ist, ohne eine lange Prüfung wie \`fsck\` oder \`chkdsk\` ablaufen zu lassen.
+
+## Rollout, Imaging und Lizenzen vertieft
+
+Eine große Zahl Clients installiert man nicht von Hand. Typisch ist ein **Image**: Ein Referenzsystem wird einmal sauber vorbereitet und verallgemeinert (bei Windows mit Sysprep, damit jeder Rechner eine eigene SID und Maschinenkennung erhält) und dann verteilt. Moderne Verfahren trennen Betriebssystem, Anwendungen und Konfiguration: Netzwerkstart per PXE, Installation per Automatisierungsdatei (Windows: Antwortdatei, Linux: Kickstart oder Preseed), danach Software über ein Verteilungssystem und Einstellungen über Richtlinien. Vorteile: gleiche Konfiguration, wiederholbar, schnell neu aufsetzbar, weniger Fehler.
+
+**Lizenzarten:** **OEM** (an die Hardware gebunden, nicht übertragbar), **Retail** (Einzelhandel, übertragbar), **Volumenlizenz** (für Organisationen, Aktivierung per Schlüssel oder Server), **Abonnement** (Nutzung auf Zeit, z. B. Microsoft 365) und bei Servern **Client Access Licenses (CAL)** für den Zugriff der Nutzer oder Geräte. Open-Source-Software unterliegt eigenen Lizenzbedingungen (GPL, MIT, Apache), die man ebenfalls dokumentieren und einhalten muss. Wer mehr Lizenzen einsetzt als gekauft, riskiert Nachforderungen. Wer ungenutzte Lizenzen bezahlt, verschwendet Geld. Deshalb gehört ein **Lizenzmanagement** zur Bestandsführung.
+
+## Systematische Fehlersuche vertieft
+
+1. **Fehler eingrenzen:** Was genau geht nicht? Seit wann? Was wurde zuletzt geändert (Update, Treiber, Konfiguration)? Betrifft es einen Nutzer, eine Gruppe oder alle?
+2. **Reproduzieren** und **Logs** lesen: Ereignisanzeige, \`journalctl -xe\`, Anwendungslogs. Die erste Fehlermeldung im Log ist meist aussagekräftiger als die letzte.
+3. **Hypothese** bilden und mit der kleinstmöglichen Änderung prüfen. Immer nur eine Änderung gleichzeitig.
+4. **Zurückkehren** können: Vor Eingriffen Konfiguration sichern, bei Windows Wiederherstellungspunkt oder Snapshot der virtuellen Maschine.
+5. **Dokumentieren:** Ursache, Lösung und Prävention im Ticket oder in der Wissensdatenbank festhalten.
+
+Typische Fälle: Platte voll (\`df -h\`, auf Linux auch Inodes mit \`df -i\`), Dienst startet nicht (Status und Log, Abhängigkeiten, Portkonflikt), Anmeldung schlägt fehl (Uhrzeit weicht bei Kerberos mehr als 5 Minuten ab, Konto gesperrt, Passwort abgelaufen), Freigabe nicht erreichbar (Namensauflösung, Firewall, Freigabe- und NTFS-Rechte).
+
 > [!exam] Prüfungshinweis
 > Häufig gefragt: Rechte mit chmod als Zahl, die Wirkung von Freigabe- plus NTFS-Rechten, AGDLP, Unterschied MBR und GPT sowie die Reihenfolge der Gruppenrichtlinien (LSDOU). Rechne Rechte immer Ziffer für Ziffer (4 + 2 + 1).
 `,

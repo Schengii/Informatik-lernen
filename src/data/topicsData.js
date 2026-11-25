@@ -281,7 +281,7 @@ export const TOPICS = [
     difficultyLevel: 'Azubi / IHK',
     targetRoles: ['azubi', 'junior', 'pro'],
     icon: '🖥️',
-    readTime: '9 Min',
+    readTime: '14 Min',
     summary: 'Aufbau eines PCs, Kenngrößen von CPU und RAM, Datenraten von DDR, SATA, PCIe und USB, Netzteil und Stromkosten, Auswahl und Beschaffung von Arbeitsplätzen.'
   },
   {
@@ -291,7 +291,7 @@ export const TOPICS = [
     difficultyLevel: 'Azubi / IHK',
     targetRoles: ['azubi', 'junior', 'pro'],
     icon: '⚡',
-    readTime: '10 Min',
+    readTime: '15 Min',
     summary: 'Ohmsches Gesetz, Wirk- und Scheinleistung, USV-Bauarten und Dimensionierung, Überbrückungszeit, Schutzmaßnahmen, fünf Sicherheitsregeln, Prüfwerte nach DGUV V3 und PUE.'
   },
   {
@@ -301,7 +301,7 @@ export const TOPICS = [
     difficultyLevel: 'Azubi / IHK',
     targetRoles: ['azubi', 'junior', 'pro'],
     icon: '🐧',
-    readTime: '8 Min',
+    readTime: '14 Min',
     summary: 'Kernel, Prozesse und Dateisysteme, MBR gegen GPT, Linux-Rechte mit chmod, systemd, NTFS- und Freigaberechte, Active Directory, GPO, AGDLP, Updates, Rollout und Skripting.'
   },
   {
@@ -311,7 +311,7 @@ export const TOPICS = [
     difficultyLevel: 'Azubi / IHK',
     targetRoles: ['azubi', 'junior', 'pro'],
     icon: '🛰️',
-    readTime: '10 Min',
+    readTime: '14 Min',
     summary: 'DHCP-Ablauf, DNS-Records, VLAN und Trunking, Inter-VLAN-Routing, Routing-Tabelle, NAT, WLAN-Standards, VPN, Firewall mit DMZ, strukturierte Verkabelung und Fehlersuche.'
   },
   {
@@ -321,7 +321,7 @@ export const TOPICS = [
     difficultyLevel: 'Azubi / IHK',
     targetRoles: ['azubi', 'junior', 'pro'],
     icon: '🛡️',
-    readTime: '8 Min',
+    readTime: '13 Min',
     summary: 'Schutzbedarf und Maximumprinzip, Risikomatrix und ALE, Risikobehandlung, Systemhärtung, CVSS und Patching, Segmentierung, Logging, Incident Response, BCM und ISMS.'
   },
   {
@@ -331,7 +331,7 @@ export const TOPICS = [
     difficultyLevel: 'Azubi / IHK',
     targetRoles: ['azubi', 'junior', 'pro'],
     icon: '🎧',
-    readTime: '8 Min',
+    readTime: '14 Min',
     summary: 'Incident, Service Request, Problem und Change, Priorität aus Auswirkung und Dringlichkeit, Support-Ebenen, CMDB, SLA, OLA und UC, MTBF, MTTR und Verfügbarkeit.'
   }
 ];
