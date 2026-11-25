@@ -23,6 +23,16 @@ import { IHK_CLASS_DRILL_QUESTIONS } from '../utils/umlEngine';
 import { WEBSOCKETS_DRILL_QUESTIONS } from '../utils/webSocketsEngine';
 import { IHK_BAB_DRILL_QUESTIONS } from '../utils/wisoBabEngine';
 import { normalizeDrillQuestions } from '../utils/drillFormat';
+import {
+  DGUV_V3_DRILL_QUESTIONS,
+  BSI_GRUNDSCHUTZ_DRILL_QUESTIONS,
+  DPIA_DRILL_QUESTIONS,
+  TOM_DRILL_QUESTIONS,
+  CPM_DRILL_QUESTIONS,
+  NWA_DRILL_QUESTIONS,
+  TCO_DRILL_QUESTIONS,
+  ITSM_DRILL_QUESTIONS
+} from './labDrillsIhk';
 
 // Quelle je Lab: `lab` ist die Modul-ID aus LAB_MODULES (Grundlage für Lernpfad-Empfehlungen).
 const SOURCES = [
@@ -46,7 +56,15 @@ const SOURCES = [
   { lab: 'cloud_devops', questions: CLOUD_DEVOPS_DRILL_QUESTIONS },
   { lab: 'uml_diagram', questions: IHK_CLASS_DRILL_QUESTIONS },
   { lab: 'websockets', questions: WEBSOCKETS_DRILL_QUESTIONS },
-  { lab: 'wiso_bab_lab', questions: IHK_BAB_DRILL_QUESTIONS }
+  { lab: 'wiso_bab_lab', questions: IHK_BAB_DRILL_QUESTIONS },
+  { lab: 'dguv_v3_lab', questions: DGUV_V3_DRILL_QUESTIONS },
+  { lab: 'bsi_grundschutz_lab', questions: BSI_GRUNDSCHUTZ_DRILL_QUESTIONS },
+  { lab: 'ihk_dpia_lab', questions: DPIA_DRILL_QUESTIONS },
+  { lab: 'ihk_tom_catalog_lab', questions: TOM_DRILL_QUESTIONS },
+  { lab: 'cpm_network', questions: CPM_DRILL_QUESTIONS },
+  { lab: 'nwa_scoring', questions: NWA_DRILL_QUESTIONS },
+  { lab: 'tco_roi_lab', questions: TCO_DRILL_QUESTIONS },
+  { lab: 'itsm_simulator', questions: ITSM_DRILL_QUESTIONS }
 ];
 
 /** @type {Array<{ id: string, question: string, options: string[], correct: number, explanation: string }>} */
