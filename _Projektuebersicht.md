@@ -82,6 +82,9 @@ date: 2026-10-29
 8. **KI-, Tooling- & Entwickler-Infrastruktur (Claude, Gemini & GitHub)**:
    - `CHANGELOG.md` nach Keep a Changelog Standard, `GEMINI.md` als Leitfaden für Google Antigravity & Gemini.
    - `.gitattributes` für LF-Normalisierung, GitHub PR-/Issue-Templates (`.github/`), Dependabot und `.vscode/`.
+9. **Einstufungstest & täglicher Lernmix (`LearningMixWidget.jsx` & `src/utils/learningMixEngine.js`)**:
+   - Einstufungstest mit 12 Fragen (je 3 aus AP1, AP2 Planung, AP2 Entwicklung, WiSo); das Ergebnis (`userState.placementResult`) fließt als Startwert in den Bereitschafts-Score des `ExamCountdownWidget` (+20 XP).
+   - Tages-Lernmix mit 10 Aufgaben pro Tag: fällige Fehler aus dem Fehlerjournal, bis zu 3 Karteikarten (SM-2) und neue Fragen aus den schwächsten Bereichen; Ergebnis in `userState.dailyMixLog`, XP einmal täglich.
 
 ---
 

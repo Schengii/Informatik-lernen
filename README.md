@@ -30,7 +30,7 @@ Interaktive Lernplattform und Prüfungsvorbereitung für Fachinformatiker (FIAE,
 | 🚀 Junior Developer | Coding-Challenges (Web-Worker-Sandbox), SQL-Sandbox, Git, REST/GraphQL, Docker, CI/CD |
 | 🔥 Senior / Architekten | Kubernetes, eBPF, DNSSEC, TLS 1.3, WebAuthn, RAG/LLM, Observability, Linux-Kernel-Themen |
 
-Die **vollständige, automatisch erzeugte Lab-Liste** steht in [`docs/LABS.md`](docs/LABS.md) (Quelle: `src/data/labModulesData.js`, Aktualisierung mit `npm run docs:labs`). Gamification: XP, Level, Badges, Streak, 365-Tage-Heatmap, Spaced Repetition (SM-2), Fehlerjournal.
+Die **vollständige, automatisch erzeugte Lab-Liste** steht in [`docs/LABS.md`](docs/LABS.md) (Quelle: `src/data/labModulesData.js`, Aktualisierung mit `npm run docs:labs`). Gamification: XP, Level, Badges, Streak, 365-Tage-Heatmap, Spaced Repetition (SM-2), Fehlerjournal, Einstufungstest und täglicher Lernmix.
 
 ## 📁 Ordnerstruktur
 
@@ -148,7 +148,8 @@ Das Repository ist für nahtlose Zusammenarbeit mit Entwicklern und KI-Agenten (
 - Ausführliche Feature-Beschreibungen und Änderungshistorie bis v3.74.0: [`docs/README-Archiv.md`](docs/README-Archiv.md)
 
 ### Aktuelle Version (v3.80.0) & Neueste Verbesserungen
-- **Vollständige Umsetzung PLAN.md (M01–M19)**: 2.275 Unit-Tests, 63 Playwright E2E-Tests, 252 Labs und 189 Util- und Engine-Module.
+- **Vollständige Umsetzung PLAN.md (M01–M19)**: 2.288 Unit-Tests, 63 Playwright E2E-Tests, 252 Labs und 189 Util- und Engine-Module.
+- **Einstufungstest & täglicher Lernmix**: Das Dashboard-Widget „Heute lernen“ (`LearningMixWidget`, Logik in `src/utils/learningMixEngine.js`) startet einen 12-Fragen-Einstufungstest als Startwert für den Bereitschafts-Score und einen Tages-Lernmix mit 10 Aufgaben (fällige Fehler, bis zu 3 Karteikarten nach SM-2, neue Fragen aus den schwächsten Bereichen).
 - **Lab-Ausbau & Simulationen**: Vollständiger Ausbau von DockerLab, KubernetesLab, WebSocketsLab, OAuthOidcLab und CloudDevOpsLab mit eigenen Engines, Lintern und XP-Drills.
 - **Barrierefreiheit (WCAG AA & 375 px)**: TopicReader mit Tastatur-Skip-Link, Fokus-Management und Scroll-Spy (`aria-current="location"`); alle 25 Topic-SVGs mit `<desc id="d">` und `<title id="t">`; 0 Layout-Überläufe bei 375 px.
 - **PWA-Precache Optimierung**: Precache auf 2.4 MB (101 Chunks) gesenkt; Kern-Labs offline geprecacht, On-Demand-Labs über StaleWhileRevalidate Runtime-Cache bedient.
