@@ -1,3 +1,4 @@
+import { EXAM_QUESTIONS_EXTRA } from './examQuestionsExtra';
 export const IHK_EXAM_MODES = [
   {
     id: 'ap1',
@@ -815,6 +816,7 @@ export const EXAM_QUESTIONS = [
     points: 10,
     explanation: 'Zutrittskontrolle verhindert den physischen Zutritt unbefugter Personen zu Verarbeitungsanlagen (z. B. Schließanlagen, Zäune, Pförtner). Zugangskontrolle regelt den Login am System, Zugriffskontrolle die Datenberechtigungen.'
   }
+  ,...EXAM_QUESTIONS_EXTRA
 ];
 
 export const getIhkGrade = (percent) => {
