@@ -32,7 +32,7 @@ Diese Sitzung (Inhalte):
 ## Offene Punkte
 - **Quellen nicht geprüft**: Alle Fachinhalte und Links (arXiv, OWASP, EUR-Lex, dejure, OASIS, OPC Foundation, ISA, NIST, BSI, RFC, IHK, Fowler, Azure, SRE) stammen aus Modellwissen, die Links wurden nicht abgerufen. Stichprobe gegen die Originale ist nötig, besonders DIN-Grenzwerte (VDE 0701-0702), PoE-Werte, Gesetzesangaben (BGB, HGB, ArbZG, BBiG, DSGVO) und Handelskalkulation.
 - Nur teilweise im Browser angesehen: KI-Modul 6, Praxisprojekte, Einsteiger-Kapitel 1, Verfügbarkeitsrechner, Notizen-Vorschau (Subnetting), CPM-Drill. Übrige neue Inhalte nur über Tests geprüft.
-- Weitere Lücken: Quiz-Arena hat nur 3 Kategorien (`quizArenaData.js`), keine Prüfungsfragen zu Projektarbeit/Fachgespräch in FIDP/FIDV/ITSE, Karteikarten und Drills ohne Quellenfeld.
+- Weitere Lücken: keine Prüfungsfragen zu Projektarbeit/Fachgespräch in FIDP/FIDV/ITSE, Karteikarten und Drills ohne Quellenfeld.
 - Kleinigkeiten ohne Entscheidung: gemischte Button-Stile innerhalb von Labs, Texte unter 12 px.
 - E2E-Test „Command Palette A11y“ fällt bei hoher Rechnerlast sporadisch durch (einzeln grün).
 - `README.md` und `_Projektuebersicht.md` nennen den Theorieausbau (35 Artikel, 37 SVGs). Unter Version 3.76.0 steht in der README noch die Beschreibung des alten Planers (Historie).
@@ -40,4 +40,4 @@ Diese Sitzung (Inhalte):
 - Origin enthielt einen fremden Merge-Commit (102e447), dessen Inhalt nicht geprüft wurde.
 
 ## Nächster Schritt
-Restliche Angaben der Theorieartikel gegen Primärquellen lesen (Gesetzestexte, IHK-Handreichung der zuständigen Kammer); E-Rechnung-Fristen vor Verwendung erneut im BMF-FAQ prüfen. Anschließend die Lücken oben schließen, zuerst Quiz-Arena-Kategorien und Fragen zu Projekt/Fachgespräch.
+Restliche Angaben der Theorieartikel gegen Primärquellen lesen (Gesetzestexte, IHK-Handreichung der zuständigen Kammer); E-Rechnung-Fristen vor Verwendung erneut im BMF-FAQ prüfen. Anschließend die Lücken oben schließen, zuerst Fragen zu Projekt/Fachgespräch in FIDP/FIDV/ITSE. Die Quiz-Arena hat jetzt 11 Kategorien (`quizArenaData.js` plus `quizArenaDataTheorie.js`).
