@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { BookOpen, ArrowRight } from 'lucide-react';
 import { ANFAENGER_GUIDES } from '../../data/anfaengerGuides';
 import SelfTestQuiz from '../Shared/SelfTestQuiz';
+import DeepDive from '../Shared/DeepDive';
+import { GUIDE_DEEPDIVES } from '../../data/vertiefungData';
 
 /** Stellt **fetten** Text hervor, ohne HTML einzuschleusen. */
 function RichText({ text }) {
@@ -70,6 +72,8 @@ export default function AnfaengerGuideHub() {
             {activeGuide.example}
           </p>
         </div>
+
+        <DeepDive deepDive={GUIDE_DEEPDIVES[activeGuide.id]} />
 
         {activeGuide.quiz?.length > 0 && <SelfTestQuiz key={activeGuide.id} quiz={activeGuide.quiz} />}
 
