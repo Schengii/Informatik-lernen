@@ -3,6 +3,7 @@ import { Calendar, Target, Clock, ChevronRight, Zap, Activity } from 'lucide-rea
 import { useStore } from '../../store/useStore';
 import { calculateExamReadiness } from '../../utils/examReadinessEngine';
 import { placementToDomainStats, mergeDomainStats } from '../../utils/learningMixEngine';
+import { toDateKey } from '../../utils/mistakeJournalEngine';
 import { onActivationKey } from '../Shared/keyActivation';
 
 const IHK_EXAM_PRESETS = [
@@ -19,7 +20,7 @@ function nextPresetIsoDate(preset) {
   if (target < now) {
     target = new Date(currentYear + 1, preset.month, preset.day);
   }
-  return target.toISOString().slice(0, 10);
+  return toDateKey(target); // lokale Zeit; toISOString() verschob das Datum in UTC+ um einen Tag
 }
 
 function calculateDaysRemaining(targetDateStr) {

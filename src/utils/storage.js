@@ -23,6 +23,9 @@ import { syncUserStateToIndexedDb } from './indexedDbStoreMiddleware';
  * @property {string} [examTargetType] Prüfungstyp ('ap1' | 'ap2' | 'wiso')
  * @property {Record<string, unknown>} [mistakeJournal]
  * @property {Record<string, string>} [pathSnoozed] Lab-ID → Datum, bis zu dem die Lernpfad-Empfehlung ausgeblendet bleibt
+ * @property {string} [studyPlanStart] Beginn der Woche 1 des Prüfungsplans (YYYY-MM-DD)
+ * @property {number} [studyHoursPerWeek] Geplante Lernstunden pro Woche
+ * @property {string[]} [mixDays] Letzte Tage (YYYY-MM-DD), an denen der Tages-Lernmix erledigt wurde
  * @property {string} [careerFilter] Berufsfilter ('all' | 'ap1' | 'fiae' | 'fisi' | 'itse' | 'wiso')
  * @property {import('./learningMixEngine').PlacementResult | null} [placementResult] Ergebnis des Einstufungstests
  * @property {{ date: string, correct: number, total: number } | null} [dailyMixLog] Zuletzt abgeschlossener Tages-Lernmix
@@ -55,6 +58,9 @@ export const initialProfileState = {
   studyPlanWeeks: {}, // { [weekNum]: boolean }
   srsFlashcards: {}, // { [cardId]: { repetitions, interval, easeFactor, dueDate } }
   pathSnoozed: {}, // { [labId]: 'YYYY-MM-DD' } - siehe learningPathEngine
+  studyPlanStart: '', // Beginn des 4-Wochen-Plans - siehe studyPlanEngine
+  studyHoursPerWeek: 6,
+  mixDays: [], // letzte 14 Tage mit erledigtem Tages-Lernmix
   careerFilter: 'all', // Berufsfilter von Labs-Dashboard und Lernpfad
   placementResult: null, // Einstufungstest - siehe learningMixEngine
   dailyMixLog: null, // { date, correct, total } des letzten Tages-Lernmix
@@ -311,6 +317,9 @@ const FIELD_VALIDATORS = {
   mistakeJournal: isPlainObject,
   pathSnoozed: isPlainObject,
   careerFilter: (v) => typeof v === 'string',
+  studyPlanStart: (v) => typeof v === 'string',
+  studyHoursPerWeek: (v) => isFiniteNumber(v) && /** @type {number} */ (v) > 0 && /** @type {number} */ (v) <= 60,
+  mixDays: isStringArray,
   placementResult: (v) => v === null || isPlainObject(v),
   dailyMixLog: (v) => v === null || isPlainObject(v),
   labProgress: isPlainObject,

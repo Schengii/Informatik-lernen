@@ -122,8 +122,11 @@ export function daysUntil(dateStr, now) {
   return Math.round((target.getTime() - today.getTime()) / 86400000);
 }
 
-/** @param {PathLab} lab */
-function isIhkRelated(lab) {
+/**
+ * Hat das Lab IHK-Bezug (Badge oder Tag)?
+ * @param {PathLab} lab
+ */
+export function isIhkRelated(lab) {
   return Boolean(lab.badge?.includes('IHK')) || (lab.tags || []).some((t) => /ihk|ap1|ap2/i.test(t));
 }
 
@@ -150,6 +153,7 @@ function weaknessOf({ placement, domain }) {
  * @param {string} [input.role]
  * @param {string | null} [input.examDate] YYYY-MM-DD
  * @param {string} [input.careerId]
+ * @param {string[]} [input.excludeIds] Lab-IDs, die nicht empfohlen werden sollen (z. B. schon im Plan)
  * @param {Record<string, string>} [input.snoozed] Lab-ID → Datum, bis zu dem es ausgeblendet bleibt (exklusiv)
  * @param {Date} [input.now]
  * @param {number} [input.limit]
@@ -166,6 +170,7 @@ export function recommendLearningPath({
   examDate = null,
   careerId = 'all',
   snoozed = {},
+  excludeIds = [],
   now = new Date(),
   limit = 3
 }) {
@@ -179,6 +184,7 @@ export function recommendLearningPath({
     .map((lab, index) => ({ lab, index }))
     .filter(({ lab }) => !progress?.[resolveKey(lab.id)]?.completed)
     .filter(({ lab }) => !(snoozed[lab.id] && today < snoozed[lab.id]))
+    .filter(({ lab }) => !excludeIds.includes(lab.id))
     .filter(({ lab }) => matchesCareer(lab, careerId))
     .map(({ lab, index }) => {
       const domain = domainOfLab(lab);

@@ -211,6 +211,19 @@ export const useStore = create((set) => {
       });
     },
 
+    // Einstellungen des Prüfungsplans: Beginn von Woche 1 und Lernstunden pro Woche
+    setStudyPlanPrefs: ({ planStart, hoursPerWeek } = {}) => {
+      set((state) => {
+        const patch = {};
+        if (typeof planStart === 'string') patch.studyPlanStart = planStart;
+        if (Number.isFinite(hoursPerWeek) && hoursPerWeek > 0 && hoursPerWeek <= 60) patch.studyHoursPerWeek = hoursPerWeek;
+        if (Object.keys(patch).length === 0) return state;
+        const updatedState = { ...state.userState, ...patch };
+        saveUserState(updatedState);
+        return { userState: updatedState };
+      });
+    },
+
     // Berufsfilter (Labs-Dashboard und Lernpfad)
     setCareerFilter: (careerId) => {
       if (typeof careerId !== 'string') return;
@@ -235,7 +248,10 @@ export const useStore = create((set) => {
     recordDailyMixResult: (log) => {
       if (!log || typeof log !== 'object') return;
       set((state) => {
-        const updatedState = { ...state.userState, dailyMixLog: log };
+        // Erledigte Tage für den Wochenfortschritt im Prüfungsplan (letzte 14 behalten)
+        const days = Array.isArray(state.userState.mixDays) ? state.userState.mixDays : [];
+        const mixDays = typeof log.date === 'string' ? [...new Set([...days, log.date])].sort().slice(-14) : days;
+        const updatedState = { ...state.userState, dailyMixLog: log, mixDays };
         saveUserState(updatedState);
         return { userState: updatedState };
       });

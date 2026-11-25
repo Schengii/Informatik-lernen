@@ -1092,6 +1092,17 @@ export function buildRegistryIndex(registry = LAB_REGISTRY) {
 }
 
 let prefetchIndex = null;
+
+/**
+ * Schlüssel, unter dem der Fortschritt eines Labs gespeichert wird (erste Tab-ID des Registry-Eintrags;
+ * Aliase zeigen auf denselben Schlüssel). Unbekannte IDs bleiben unverändert.
+ * @param {string} id
+ * @returns {string}
+ */
+export function resolveLabKey(id) {
+  prefetchIndex = prefetchIndex || buildRegistryIndex();
+  return prefetchIndex.get(id)?.tabs[0] ?? id;
+}
 const prefetched = new Set();
 
 /**

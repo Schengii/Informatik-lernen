@@ -2,17 +2,16 @@ import React, { useMemo, useState } from 'react';
 import { Compass, BellOff } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { LAB_MODULES } from '../../data/labModulesData';
-import { buildRegistryIndex } from '../../data/labRegistry';
+import { resolveLabKey } from '../../data/labRegistry';
 import { EXAM_QUESTIONS } from '../../data/examData';
 import { toDateKey } from '../../utils/mistakeJournalEngine';
 import { DRILL_LAB_BY_QUESTION_ID } from '../../data/drillQuestions';
+import { useStudyPlan } from '../Shared/useStudyPlan';
+import { MIX_DAYS_TARGET } from '../../utils/studyPlanEngine';
 import { CAREER_FILTERS, countMistakesByDomain, countMistakesByLab, recommendLearningPath } from '../../utils/learningPathEngine';
 
 // Dashboard-Karte "Empfohlen für dich": die 3 besten nächsten Labs mit Begründung,
 // abgeleitet aus Einstufungstest, Fehlerjournal, Prüfungstermin, Rolle und Fortschritt.
-// Fortschritt wird je Registry-Eintrag (erste Tab-ID) gespeichert; Aliase zeigen auf denselben Schlüssel.
-const REGISTRY_INDEX = buildRegistryIndex();
-const resolveLabKey = (id) => REGISTRY_INDEX.get(id)?.tabs[0] ?? id;
 
 export default function LearningPathWidget({ onSelectLab }) {
   const userState = useStore((s) => s.userState);
@@ -21,6 +20,8 @@ export default function LearningPathWidget({ onSelectLab }) {
   const [now] = useState(() => new Date());
 
   const careerId = userState.careerFilter || 'all';
+  const plan = useStudyPlan();
+  const week = plan.weeks.find((w) => w.isCurrent);
   const recommendations = useMemo(
     () =>
       recommendLearningPath({
@@ -59,6 +60,17 @@ export default function LearningPathWidget({ onSelectLab }) {
           </select>
         </div>
       </div>
+
+      {week && (
+        <p style={{ marginBottom: '12px', fontSize: '0.9rem' }}>
+          <strong>Diese Woche:</strong>{' '}
+          {week.targets.labs > 0 ? `${Math.min(week.done.labs, week.targets.labs)}/${week.targets.labs} Labs · ` : ''}
+          {Math.min(week.done.mixDays, MIX_DAYS_TARGET)}/{MIX_DAYS_TARGET} Lernmix-Tage ·{' '}
+          <button type="button" className="btn btn-secondary btn-sm" onClick={() => onSelectLab('ihk_study_plan_lab')} style={{ width: 'auto', minHeight: 0, padding: '2px 10px' }}>
+            Prüfungsplan öffnen
+          </button>
+        </p>
+      )}
 
       {!userState.placementResult && (
         <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '12px' }}>

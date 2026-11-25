@@ -84,6 +84,7 @@ date: 2026-10-29
    - `.gitattributes` für LF-Normalisierung, GitHub PR-/Issue-Templates (`.github/`), Dependabot und `.vscode/`.
 9. **Einstufungstest & täglicher Lernmix (`LearningMixWidget.jsx` & `src/utils/learningMixEngine.js`)**:
    - Einstufungstest mit 12 Fragen (je 3 aus AP1, AP2 Planung, AP2 Entwicklung, WiSo); das Ergebnis (`userState.placementResult`) fließt als Startwert in den Bereitschafts-Score des `ExamCountdownWidget` (+20 XP).
+   - Adaptiver Prüfungsplan (`IhkStudyPlanLab.jsx` & `src/utils/studyPlanEngine.js`): rollierender 4-Wochen-Plan mit Phasen Lernen/Vertiefen/Festigen; Fortschritt aus `labProgress` und `userState.mixDays`, Einstellungen `studyPlanStart` und `studyHoursPerWeek`.
    - Lernpfad-Karte „Empfohlen für dich“ (`LearningPathWidget.jsx` & `src/utils/learningPathEngine.js`): 3 begründete Lab-Empfehlungen aus Einstufungsergebnis, Fehlerjournal, Prüfungstermin, Rolle und Fortschritt; Berufsfilter (`userState.careerFilter`) und Ausblenden (`userState.pathSnoozed`).
    - Tages-Lernmix mit 10 Aufgaben pro Tag: fällige Fehler aus dem Fehlerjournal, bis zu 3 Karteikarten (SM-2) und neue Fragen aus den schwächsten Bereichen; Ergebnis in `userState.dailyMixLog`, XP einmal täglich.
 
