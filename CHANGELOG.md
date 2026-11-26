@@ -11,6 +11,8 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ### Geändert
 
+- Labs-&-Tools-Dropdown: Suchfeld (Titel, Beschreibung, Badge) und Gruppen nach Themengebiet statt einer langen flachen Liste (`NavDropdownMenu` mit `searchable`/`groupOf`, `labsMenuGroupOf` in `navbarMenuItems.js`).
+
 - Prüfungs-Countdown (`ExamCountdownWidget`): Bei weniger als 5 bearbeiteten Aufgaben zeigt das Widget „noch zu wenig Daten“ statt Score und Notenprognose (vorher z. B. „6,4 % / Note 5“).
 - **UI-Verbesserungen nach Gesamtdurchgang**: Seitenwechsel scrollt an den Anfang und setzt den Fokus auf `<main>` (`App.jsx`); Dashboard zeigt Lernmix, Fehlerjournal und Lernpfad zuerst, Countdown, Heatmap, Skill-Baum und Skill-Matrix sind einklappbar (`Shared/DashboardSection.jsx`, Zustand im LocalStorage), dazu ein „Weiter: <Lab>“-Button im Hero (`findResumeLab` in `labProgressEngine.js`); das „Neu“-Abzeichen tragen nur noch die drei jüngsten Labs je Themendatei (`labModulesData.js`); Labs-Hub mit Status-Filter (Offen/Erledigt), Level-Filter, Fortschritt je Themengebiet und ruhigerem Karten-Button („Starten“/„Fortsetzen“, hervorgehoben nur bei Empfehlungen); rohes LaTeX im Untertitel des Angebotsvergleich-Labs entfernt.
 
