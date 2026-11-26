@@ -10,6 +10,8 @@ IT-DevGame testen und verbessern. UI-Review-Punkte abarbeiten.
 - Labs-&-Tools-Dropdown: Suchfeld und Gruppen nach Themengebiet (`NavDropdownMenu.jsx`, `navbarMenuItems.js`), Tests in `NavDropdownMenu.test.jsx`. Vollständig geprüft: lint:ci, typecheck, 2592 Tests, build, size, e2e 63/63.
 - Geprüft (Countdown): lint:ci, typecheck, 2586 Tests, build grün. e2e und size diesmal nicht gelaufen.
 
+- PWA-Update repariert (6d8600e): Toast schickt `SKIP_WAITING` (`src/utils/pwaUpdate.js`), `ErrorBoundary` heilt veraltete Chunks einmalig per Cache-Leeren + Reload (`src/utils/chunkErrorRecovery.js`). Im echten Browser geprüft (Seite A → Deploy B → Klick → B). Flaky Lernmix-Test repariert (12db65c). Vollständig grün: lint, typecheck, 2605 Tests, build, size, e2e 63/63.
+
 ## Entscheidungen
 - Badge-Begrenzung zentral in `labModulesData.js`; das Tools-Dropdown (`navbarMenuItems.js`) trägt weiter viele „Neu“-Badges.
 - Filter-Chips heißen „Offen/Erledigt“ (ein Test erwartet genau ein „Abgeschlossen“).
@@ -21,9 +23,10 @@ IT-DevGame testen und verbessern. UI-Review-Punkte abarbeiten.
 - Visuelle Sichtprüfung im Browser steht aus (Filter-Chips, einklappbare Bereiche, Countdown-Text).
 - jsdom-Meldung „Not implemented: scrollTo()“ im Testlauf (harmlos, Stub im Test-Setup möglich).
 - Dev-Server/Preview der Sitzung läuft evtl. noch.
-- Dropdown nicht im Browser angesehen (Fokus aufs Suchfeld, Mobil-Drawer nutzt das Menü nicht).
+- Dropdown im Browser geprüft (Suche, 12 Gruppen, 7 ungruppierte Einträge: Hub + Labs, die nicht in `LAB_MODULES` stehen). Mobil-Drawer nutzt das Menü nicht.
+- Dashboard-Kacheln „Empfohlene Lernbereiche & Flagship Studios“ (`App.jsx`/Dashboard) tragen fast alle „(IHK) NEU“; Kopfzeile sagt „V3.48.0“, App ist 3.80.0.
 - Nicht umgesetzt: Slider `accent-color`, Wissen-Karten ohne Vorschaubild, Skill-Baum-Hinweise, Timer-Tooltip, Texte unter 12 px.
 - Fachinhalte und Links nicht gegen Primärquellen geprüft (DIN, BGB, HGB, DSGVO u. a.).
 
 ## Nächster Schritt
-Dropdown im Browser ansehen, dann Stichprobe der Fachinhalte (WiSo/Recht).
+Dashboard-Kacheln bereinigen (Badges, Versionstext), dann Stichprobe der Fachinhalte (WiSo/Recht).
