@@ -4,9 +4,9 @@
 IT-DevGame testen und verbessern. UI-Review-Punkte abarbeiten.
 
 ## Erledigt
-- Commit 92a298e (Labs-Dashboard, einklappbare Dashboard-Bereiche, Resume-Button, Neu-Badge-Grenze, Hub-Filter, Scroll/Fokus bei Routenwechsel) liegt auf main, ungepusht.
+- Commits 92a298e (Labs-Dashboard, einklappbare Dashboard-Bereiche, Resume-Button, Neu-Badge-Grenze, Hub-Filter, Scroll/Fokus bei Routenwechsel), 9f918ab und c7240ee liegen auf main, ungepusht.
 - `npm run audit:ui` für Dashboard (`''`), `labs`, `dashboard`: hell und dunkel bei 375 px, 0 Kontrast- und 0 Überlauf-Funde.
-- Countdown-Widget: unter 5 bearbeiteten Aufgaben „noch zu wenig Daten“ statt Score/Note (`ExamCountdownWidget.jsx`, `MIN_TASKS_FOR_READINESS`), neuer Test, CHANGELOG ergänzt. **Ungecommittet.**
+- Countdown-Widget: unter 5 bearbeiteten Aufgaben „noch zu wenig Daten“ statt Score/Note (`ExamCountdownWidget.jsx`, `MIN_TASKS_FOR_READINESS`), neuer Test, CHANGELOG ergänzt (Commit 9f918ab).
 - Labs-&-Tools-Dropdown: Suchfeld und Gruppen nach Themengebiet (`NavDropdownMenu.jsx`, `navbarMenuItems.js`), Tests in `NavDropdownMenu.test.jsx`. Vollständig geprüft: lint:ci, typecheck, 2592 Tests, build, size, e2e 63/63.
 - Geprüft (Countdown): lint:ci, typecheck, 2586 Tests, build grün. e2e und size diesmal nicht gelaufen.
 
