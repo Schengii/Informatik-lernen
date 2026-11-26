@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { BookOpen, ArrowRight } from 'lucide-react';
 import { ANFAENGER_GUIDES } from '../../data/anfaengerGuides';
+import { ANFAENGER_THEORIE } from '../../data/anfaengerTheorie';
+import MarkdownView from '../Shared/MarkdownView';
 import SelfTestQuiz from '../Shared/SelfTestQuiz';
 import DeepDive from '../Shared/DeepDive';
 import { GUIDE_DEEPDIVES } from '../../data/vertiefungData';
@@ -11,12 +13,18 @@ function RichText({ text }) {
   return parts.map((part, i) => (i % 2 === 1 ? <strong key={i}>{part}</strong> : <React.Fragment key={i}>{part}</React.Fragment>));
 }
 
-export default function AnfaengerGuideHub() {
-  const [selectedId, setSelectedId] = useState(ANFAENGER_GUIDES[0].id);
+const ALL_CHAPTERS = [...ANFAENGER_GUIDES, ...ANFAENGER_THEORIE];
+const NAV_GROUPS = [
+  { label: 'Teil 1: Grundkurs (kompakt, mit Vertiefung)', chapters: ANFAENGER_GUIDES },
+  { label: 'Teil 2: Theorie-Lesebuch (ausführlich zum Nachlesen)', chapters: ANFAENGER_THEORIE }
+];
 
-  const activeIndex = Math.max(0, ANFAENGER_GUIDES.findIndex((g) => g.id === selectedId));
-  const activeGuide = ANFAENGER_GUIDES[activeIndex];
-  const nextGuide = ANFAENGER_GUIDES[activeIndex + 1];
+export default function AnfaengerGuideHub() {
+  const [selectedId, setSelectedId] = useState(ALL_CHAPTERS[0].id);
+
+  const activeIndex = Math.max(0, ALL_CHAPTERS.findIndex((g) => g.id === selectedId));
+  const activeGuide = ALL_CHAPTERS[activeIndex];
+  const nextGuide = ALL_CHAPTERS[activeIndex + 1];
 
   return (
     <div style={{ maxWidth: '1000px', margin: '0 auto', paddingBottom: '60px' }}>
@@ -29,32 +37,37 @@ export default function AnfaengerGuideHub() {
         </h1>
         <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem' }}>
           Keine Vorkenntnisse erforderlich! Lerne Schritt für Schritt, wie Computer, Netzwerke & Code funktionieren.
-          {' '}{ANFAENGER_GUIDES.length} Kapitel mit Selbsttest.
+          {' '}{ALL_CHAPTERS.length} Kapitel mit Selbsttest: erst der kompakte Grundkurs, dann das ausführliche Theorie-Lesebuch mit Glossar.
         </p>
       </div>
 
-      <div style={{ display: 'flex', gap: '10px', marginBottom: '24px', overflowX: 'auto' }}>
-        {ANFAENGER_GUIDES.map((g) => (
-          <button
-            key={g.id}
-            onClick={() => setSelectedId(g.id)}
-            style={{
-              minHeight: '48px',
-              padding: '10px 20px',
-              borderRadius: 'var(--radius-md)',
-              fontWeight: '700',
-              fontSize: '0.95rem',
-              background: selectedId === g.id ? 'var(--accent-emerald)' : 'var(--bg-card)',
-              color: selectedId === g.id ? 'var(--text-on-accent)' : 'var(--text-main)',
-              border: selectedId === g.id ? '2px solid var(--accent-emerald)' : '2px solid var(--border-color)',
-              cursor: 'pointer',
-              whiteSpace: 'nowrap'
-            }}
-          >
-            {g.icon} {g.title}
-          </button>
-        ))}
-      </div>
+      {NAV_GROUPS.map((group) => (
+        <div key={group.label} style={{ marginBottom: '16px' }}>
+          <div style={{ fontWeight: 800, fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '8px' }}>{group.label}</div>
+          <div style={{ display: 'flex', gap: '10px', overflowX: 'auto', paddingBottom: '4px' }}>
+            {group.chapters.map((g) => (
+              <button
+                key={g.id}
+                onClick={() => setSelectedId(g.id)}
+                style={{
+                  minHeight: '48px',
+                  padding: '10px 20px',
+                  borderRadius: 'var(--radius-md)',
+                  fontWeight: '700',
+                  fontSize: '0.95rem',
+                  background: selectedId === g.id ? 'var(--accent-emerald)' : 'var(--bg-card)',
+                  color: selectedId === g.id ? 'var(--text-on-accent)' : 'var(--text-main)',
+                  border: selectedId === g.id ? '2px solid var(--accent-emerald)' : '2px solid var(--border-color)',
+                  cursor: 'pointer',
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                {g.icon} {g.title}
+              </button>
+            ))}
+          </div>
+        </div>
+      ))}
 
       <div className="glass-panel" style={{ padding: '32px' }}>
         <span className="badge badge-indigo" style={{ marginBottom: '12px' }}>{activeGuide.category}</span>
@@ -73,6 +86,18 @@ export default function AnfaengerGuideHub() {
           </p>
         </div>
 
+        {activeGuide.theorie && (
+          <article
+            aria-label={`Theorie: ${activeGuide.title}`}
+            style={{ marginTop: '28px', paddingTop: '20px', borderTop: '1px solid var(--border-color)', lineHeight: 1.7, fontSize: '1.02rem', color: 'var(--text-main)' }}
+          >
+            {activeGuide.readTime && (
+              <span className="badge badge-teal" style={{ marginBottom: '8px' }}>📖 Lesezeit: {activeGuide.readTime}</span>
+            )}
+            <MarkdownView markdown={activeGuide.theorie} />
+          </article>
+        )}
+
         <DeepDive deepDive={GUIDE_DEEPDIVES[activeGuide.id]} />
 
         {activeGuide.quiz?.length > 0 && <SelfTestQuiz key={activeGuide.id} quiz={activeGuide.quiz} />}
@@ -84,6 +109,19 @@ export default function AnfaengerGuideHub() {
               {activeGuide.source.label || activeGuide.source.url}
             </a>
           </p>
+        )}
+
+        {activeGuide.sources?.some((s) => /^https:\/\//.test(s.url)) && (
+          <div style={{ margin: '20px 0 0', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+            <strong>Quellen und weiterführende Links:</strong>
+            <ul style={{ margin: '6px 0 0', paddingLeft: '20px' }}>
+              {activeGuide.sources.filter((s) => /^https:\/\//.test(s.url)).map((s) => (
+                <li key={s.url}>
+                  <a href={s.url} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-primary)' }}>{s.label || s.url}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
 
         {nextGuide && (

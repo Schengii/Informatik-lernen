@@ -28,6 +28,8 @@ date: 2026-10-29
 1. **Zwölf neue Theorieartikel** in `src/data/topics/` (Metadaten in `topicsData.js`, Abbildungen in `src/assets/topics/`): Hardware & Rechnerarchitektur, Elektrotechnik/USV/Arbeitsschutz, Betriebssysteme & Administration, Netzwerkdienste & -technik, IT-Sicherheit im Betrieb, ITSM/ITIL, DevOps/Container/CI-CD, Softwarearchitektur/Microservices, Datenanalyse/Statistik/ML (FIDP), IIoT/Industrie 4.0 (FIDV), Beschaffung/Bilanz/Zahlungsverkehr, Qualität/Dokumentation/Fachgespräch.
 2. Jeder Artikel: Lernziele, Rechenwege, Prüfungshinweise, Übungen mit Lösung, Quiz, Lab-Verweise, Quellen mit Prüfdatum und eine eigene SVG-Abbildung. Der Test `topics.test.js` verlangt jetzt mindestens 37 SVGs mit Barrierefreiheits-Tags.
 3. Quellen sind auf Erreichbarkeit geprüft, aber nicht Satz für Satz verglichen. Fristen (E-Rechnung) und IHK-Vorgaben vor Verwendung gegen die aktuelle Rechtslage prüfen.
+4. **Drei weitere Grundlagen-Artikel** (Boolesche Logik & Zahlendarstellung, Programmierlogik mit PAP/Struktogramm, Vom Klick zur Webseite) mit je einer SVG; damit 38 Artikel und 40 SVGs.
+5. **Einsteiger-Kurs mit Theorie-Lesebuch**: Der Kurs besteht jetzt aus Teil 1 (12 kompakte Kapitel mit Vertiefung) und Teil 2 (10 ausführliche Kapitel inkl. Glossar, Daten in `anfaengerTheorie*.js`).
 
 ---
 
