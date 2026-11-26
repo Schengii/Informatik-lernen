@@ -9,6 +9,12 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ## [Unveröffentlicht]
 
+### Behoben
+
+- PWA-Update: „Jetzt aktualisieren“ lud nur neu und lieferte weiter die alte Version, weil der neue Service Worker (vite-plugin-pwa 2.x: `skipWaiting` nur per Nachricht) dauerhaft wartete. Der Toast schickt jetzt `SKIP_WAITING` und lädt nach dem Übernehmen neu (`src/utils/pwaUpdate.js`).
+
+- Veraltete Chunks nach einem Deploy: Scheitert ein `import()` mit „Failed to fetch dynamically imported module“ (offene Seite kennt alte Hashes, Service Worker/SPA-Fallback liefert kein JS), leert die `ErrorBoundary` einmalig Service Worker und Caches und lädt neu (Sperrfrist 60 s gegen Schleifen); „Erneut versuchen“ erzwingt das bei Chunk-Fehlern (`src/utils/chunkErrorRecovery.js`). Vorher lud der Retry denselben kaputten Chunk erneut.
+
 ### Geändert
 
 - Labs-&-Tools-Dropdown: Suchfeld (Titel, Beschreibung, Badge) und Gruppen nach Themengebiet statt einer langen flachen Liste (`NavDropdownMenu` mit `searchable`/`groupOf`, `labsMenuGroupOf` in `navbarMenuItems.js`).
