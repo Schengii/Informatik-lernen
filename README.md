@@ -45,7 +45,7 @@ Informatik-lernen/
 ├── public/                    Statische Assets, PWA-Icons
 ├── scripts/                   new-lab.js (Lab-Scaffold), gen-lab-list.js (docs/LABS.md), OG-Image, PWA-Icons
 ├── src/
-│   ├── assets/topics/         40 SVG-Diagramme für Wissensartikel
+│   ├── assets/topics/         52 SVG-Diagramme für Wissensartikel und Einsteiger-Kurs
 │   ├── components/            Content/ (Labs, TopicReader), Games/, Navigation/, Shared/ …
 │   ├── data/                  labRegistry.js, labModulesData.js, topicsData.js, topics/ (38 Artikel)
 │   ├── store/                 Zustand-Store (useStore.js) mit LocalStorage-/IndexedDB-Persistenz

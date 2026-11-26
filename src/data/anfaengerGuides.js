@@ -239,7 +239,7 @@ Abfrage: SELECT name FROM kunde WHERE stadt = 'Köln';  -> Ergebnis: Mia`,
     category: 'Sicherheit',
     content: `Viele Angriffe zielen nicht auf Technik, sondern auf Menschen. Mit wenigen Gewohnheiten schützt du dich gut:
 
-- **Starke Passwörter**: lang (mindestens 12 bis 15 Zeichen), für jeden Dienst **einzigartig**. Ein **Passwortmanager** merkt sie sich für dich.
+- **Starke Passwörter**: lang statt kurz (laut BSI mindestens 8 Zeichen mit vier Zeichenarten, besser deutlich länger, ab 25 Zeichen auch ohne Sonderzeichen), für jeden Dienst **einzigartig**. Ein **Passwortmanager** merkt sie sich für dich.
 - **Zwei-Faktor-Authentifizierung (2FA)**: Zusätzlich zum Passwort braucht man einen zweiten Nachweis, z. B. einen Code aus einer App.
 - **Phishing erkennen**: Falsche Mails oder Nachrichten täuschen vor, von Bank oder Paketdienst zu kommen, und setzen dich unter Zeitdruck. Prüfe den Absender, klicke nicht auf verdächtige Links und gib keine Passwörter weiter.
 - **Updates einspielen**: Sie schließen bekannte Sicherheitslücken.

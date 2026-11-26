@@ -5,7 +5,10 @@ import { ANFAENGER_THEORIE } from '../../data/anfaengerTheorie';
 import MarkdownView from '../Shared/MarkdownView';
 import SelfTestQuiz from '../Shared/SelfTestQuiz';
 import DeepDive from '../Shared/DeepDive';
+import MiniAufgaben from '../Shared/MiniAufgaben';
 import { GUIDE_DEEPDIVES } from '../../data/vertiefungData';
+import { GRUNDKURS_EXTRA } from '../../data/anfaengerGrundkurs';
+import { resolveTopicImage } from '../../data/topicImages';
 
 /** Stellt **fetten** Text hervor, ohne HTML einzuschleusen. */
 function RichText({ text }) {
@@ -15,7 +18,7 @@ function RichText({ text }) {
 
 const ALL_CHAPTERS = [...ANFAENGER_GUIDES, ...ANFAENGER_THEORIE];
 const NAV_GROUPS = [
-  { label: 'Teil 1: Grundkurs (kompakt, mit Vertiefung)', chapters: ANFAENGER_GUIDES },
+  { label: 'Teil 1: Grundkurs (Schritt für Schritt, mit Grafiken und Aufgaben)', chapters: ANFAENGER_GUIDES },
   { label: 'Teil 2: Theorie-Lesebuch (ausführlich zum Nachlesen)', chapters: ANFAENGER_THEORIE }
 ];
 
@@ -25,6 +28,12 @@ export default function AnfaengerGuideHub() {
   const activeIndex = Math.max(0, ALL_CHAPTERS.findIndex((g) => g.id === selectedId));
   const activeGuide = ALL_CHAPTERS[activeIndex];
   const nextGuide = ALL_CHAPTERS[activeIndex + 1];
+  const extra = GRUNDKURS_EXTRA[activeGuide.id];
+  const theorie = activeGuide.theorie || extra?.theorie;
+  const readTime = activeGuide.readTime || extra?.readTime;
+  const bildUrl = extra?.bild ? resolveTopicImage(extra.bild.src) : null;
+  const aufgaben = extra?.aufgaben;
+  const sources = (activeGuide.sources || extra?.sources || []).filter((s) => /^https:\/\//.test(s.url));
 
   return (
     <div style={{ maxWidth: '1000px', margin: '0 auto', paddingBottom: '60px' }}>
@@ -86,23 +95,37 @@ export default function AnfaengerGuideHub() {
           </p>
         </div>
 
-        {activeGuide.theorie && (
+        {(theorie || bildUrl) && (
           <article
             aria-label={`Theorie: ${activeGuide.title}`}
             style={{ marginTop: '28px', paddingTop: '20px', borderTop: '1px solid var(--border-color)', lineHeight: 1.7, fontSize: '1.02rem', color: 'var(--text-main)' }}
           >
-            {activeGuide.readTime && (
-              <span className="badge badge-teal" style={{ marginBottom: '8px' }}>📖 Lesezeit: {activeGuide.readTime}</span>
+            {readTime && (
+              <span className="badge badge-teal" style={{ marginBottom: '8px' }}>📖 Lesezeit: {readTime}</span>
             )}
-            <MarkdownView markdown={activeGuide.theorie} />
+            {bildUrl && (
+              <figure style={{ margin: '12px 0 16px' }}>
+                <img
+                  src={bildUrl}
+                  alt={extra.bild.alt}
+                  style={{ width: '100%', height: 'auto', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', background: '#ffffff' }}
+                />
+                {extra.bild.caption && (
+                  <figcaption style={{ marginTop: '6px', fontSize: '0.85rem', color: 'var(--text-muted)', textAlign: 'center' }}>{extra.bild.caption}</figcaption>
+                )}
+              </figure>
+            )}
+            {theorie && <MarkdownView markdown={theorie} />}
           </article>
         )}
+
+        <MiniAufgaben aufgaben={aufgaben} />
 
         <DeepDive deepDive={GUIDE_DEEPDIVES[activeGuide.id]} />
 
         {activeGuide.quiz?.length > 0 && <SelfTestQuiz key={activeGuide.id} quiz={activeGuide.quiz} />}
 
-        {activeGuide.source?.url && /^https:\/\//.test(activeGuide.source.url) && (
+        {activeGuide.source?.url && /^https:\/\//.test(activeGuide.source.url) && !sources.some((s) => s.url === activeGuide.source.url) && (
           <p style={{ margin: '20px 0 0', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
             Quelle:{' '}
             <a href={activeGuide.source.url} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-primary)' }}>
@@ -111,11 +134,11 @@ export default function AnfaengerGuideHub() {
           </p>
         )}
 
-        {activeGuide.sources?.some((s) => /^https:\/\//.test(s.url)) && (
+        {sources.length > 0 && (
           <div style={{ margin: '20px 0 0', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
             <strong>Quellen und weiterführende Links:</strong>
             <ul style={{ margin: '6px 0 0', paddingLeft: '20px' }}>
-              {activeGuide.sources.filter((s) => /^https:\/\//.test(s.url)).map((s) => (
+              {sources.map((s) => (
                 <li key={s.url}>
                   <a href={s.url} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-primary)' }}>{s.label || s.url}</a>
                 </li>

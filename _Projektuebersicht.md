@@ -30,6 +30,7 @@ date: 2026-10-29
 3. Quellen sind auf Erreichbarkeit geprüft, aber nicht Satz für Satz verglichen. Fristen (E-Rechnung) und IHK-Vorgaben vor Verwendung gegen die aktuelle Rechtslage prüfen.
 4. **Drei weitere Grundlagen-Artikel** (Boolesche Logik & Zahlendarstellung, Programmierlogik mit PAP/Struktogramm, Vom Klick zur Webseite) mit je einer SVG; damit 38 Artikel und 40 SVGs.
 5. **Einsteiger-Kurs mit Theorie-Lesebuch**: Der Kurs besteht jetzt aus Teil 1 (12 kompakte Kapitel mit Vertiefung) und Teil 2 (10 ausführliche Kapitel inkl. Glossar, Daten in `anfaengerTheorie*.js`).
+6. **Einsteiger-Kurs Teil 1 ausgebaut**: Alle 12 Grundkurs-Kapitel haben jetzt Theorietext, Grafik (SVG in `src/assets/topics/`), kleine Aufgaben mit Lösung (`Shared/MiniAufgaben.jsx`) und Quellen (`anfaengerGrundkurs*.js`); damit 52 SVGs.
 
 ---
 
