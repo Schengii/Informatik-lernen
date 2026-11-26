@@ -55,6 +55,36 @@ export const TOPICS = [
     summary: 'Wie aus Zeichen Bytes werden: ASCII, ISO-8859-1, Unicode und UTF-8 im Detail, Mojibake erkennen sowie die Austauschformate CSV, JSON, XML, YAML und Markdown.'
   },
   {
+    id: 'boolesche_logik_zahlendarstellung',
+    title: 'Boolesche Logik & Zahlendarstellung: Gatter, Zweierkomplement, Bitoperationen',
+    category: 'Grundlagen',
+    difficultyLevel: 'Einsteiger',
+    targetRoles: ['anfaenger', 'azubi', 'junior', 'pro'],
+    icon: '🔢',
+    readTime: '10 Min',
+    summary: 'AND, OR, NOT, XOR, NAND und NOR mit Wahrheitstabellen, De Morgan, Halbaddierer, negative Zahlen im Zweierkomplement, Wertebereiche, Bitoperationen und Rundungsfehler bei Gleitkommazahlen.'
+  },
+  {
+    id: 'programmierlogik_pap_struktogramm',
+    title: 'Programmierlogik: Variablen, Schleifen, Pseudocode, PAP & Struktogramm',
+    category: 'Grundlagen',
+    difficultyLevel: 'Einsteiger',
+    targetRoles: ['anfaenger', 'azubi', 'junior', 'pro'],
+    icon: '🧩',
+    readTime: '11 Min',
+    summary: 'Eigenschaften eines Algorithmus, Datentypen und Operatoren, Sequenz, Verzweigung und die drei Schleifenarten, Pseudocode, Programmablaufplan und Struktogramm, Schreibtischtest sowie Syntax-, Laufzeit- und Logikfehler.'
+  },
+  {
+    id: 'web_vom_klick_zur_seite',
+    title: 'Vom Klick zur Webseite: URL, DNS, TCP, TLS und HTTP Schritt für Schritt',
+    category: 'Grundlagen',
+    difficultyLevel: 'Einsteiger',
+    targetRoles: ['anfaenger', 'azubi', 'junior', 'pro'],
+    icon: '🌍',
+    readTime: '11 Min',
+    summary: 'Aufbau einer URL, Namensauflösung per DNS und Record-Typen, TCP-Handshake, TLS-Zertifikate, HTTP-Methoden und Statuscodes, Rendering, Caching sowie Fehlersuche mit nslookup, curl und Browser-Entwicklertools.'
+  },
+  {
     id: 'subnetting_ipv4_ipv6',
     title: 'IP-Adressierung & Subnetting (IPv4 und IPv6)',
     category: 'Netzwerke',
