@@ -17,6 +17,8 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ### Geändert
 
+- Dashboard-Kacheln „Empfohlene Lernbereiche“: Themen-Badges (IHK, FISI, Cloud & DevOps, Studio …) statt fast durchgängig „Neu“; der fest verdrahtete Hinweis „Neu aktualisiert v3.48.0“ entfällt (`DashboardQuickAccessGrid.jsx`).
+
 - Labs-&-Tools-Dropdown: Suchfeld (Titel, Beschreibung, Badge) und Gruppen nach Themengebiet statt einer langen flachen Liste (`NavDropdownMenu` mit `searchable`/`groupOf`, `labsMenuGroupOf` in `navbarMenuItems.js`).
 
 - Prüfungs-Countdown (`ExamCountdownWidget`): Bei weniger als 5 bearbeiteten Aufgaben zeigt das Widget „noch zu wenig Daten“ statt Score und Notenprognose (vorher z. B. „6,4 % / Note 5“).
@@ -48,6 +50,8 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 - Neue Engine `src/utils/learningMixEngine.js` (`@ts-check`) mit Tests, neue Store-Aktionen `recordPlacementResult` und `recordDailyMixResult`, neue Spielstand-Felder `placementResult` und `dailyMixLog`.
 
 ### Geändert
+
+- Dashboard-Kacheln „Empfohlene Lernbereiche“: Themen-Badges (IHK, FISI, Cloud & DevOps, Studio …) statt fast durchgängig „Neu“; der fest verdrahtete Hinweis „Neu aktualisiert v3.48.0“ entfällt (`DashboardQuickAccessGrid.jsx`).
 - **Labs vorladen**: Beim Überfahren oder Fokussieren eines Menüeintrags lädt `prefetchLab` (`src/data/labRegistry.js`) den Lab-Chunk vorab, jedes Lab höchstens einmal; der Tab-Wechsel rendert dadurch ohne Ladezeit.
 - **Service Worker nur im Produktions-Build registriert** (`src/main.jsx`): Im Dev-Server entfällt der Konsolenfehler „unsupported MIME type“.
 
