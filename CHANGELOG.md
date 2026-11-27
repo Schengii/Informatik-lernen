@@ -21,6 +21,8 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ### Geändert
 
+- Stichtagswerte (BBG, Beitragssätze, Beispiel-Basiszins) zentral in `src/data/legalConstants.js` mit Stand-Datum; ein Test schlägt an, wenn der Stand älter als 13 Monate ist. `wisoPayrollEngine.js` und `wisoDunningEngine.js` beziehen die Werte von dort.
+
 - WiSo-Labs: Hinweis im Mahnwesen-Lab, dass der Basiszinssatz ein Beispielwert ist, und im Lohn-Lab, dass die Lohnsteuer eine vereinfachte Näherung ist.
 
 - Dashboard-Kacheln „Empfohlene Lernbereiche“: Themen-Badges (IHK, FISI, Cloud & DevOps, Studio …) statt fast durchgängig „Neu“; der fest verdrahtete Hinweis „Neu aktualisiert v3.48.0“ entfällt (`DashboardQuickAccessGrid.jsx`).
@@ -56,6 +58,8 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 - Neue Engine `src/utils/learningMixEngine.js` (`@ts-check`) mit Tests, neue Store-Aktionen `recordPlacementResult` und `recordDailyMixResult`, neue Spielstand-Felder `placementResult` und `dailyMixLog`.
 
 ### Geändert
+
+- Stichtagswerte (BBG, Beitragssätze, Beispiel-Basiszins) zentral in `src/data/legalConstants.js` mit Stand-Datum; ein Test schlägt an, wenn der Stand älter als 13 Monate ist. `wisoPayrollEngine.js` und `wisoDunningEngine.js` beziehen die Werte von dort.
 
 - WiSo-Labs: Hinweis im Mahnwesen-Lab, dass der Basiszinssatz ein Beispielwert ist, und im Lohn-Lab, dass die Lohnsteuer eine vereinfachte Näherung ist.
 

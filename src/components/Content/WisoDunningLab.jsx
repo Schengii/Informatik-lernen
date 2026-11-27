@@ -9,6 +9,7 @@ import {
 } from '../../utils/wisoDunningEngine';
 import { useStore } from '../../store/useStore';
 import { triggerHaptic } from '../../utils/haptics';
+import { BASISZINSSATZ_BEISPIEL_PERCENT } from '../../data/legalConstants';
 
 export default function WisoDunningLab({ onRewardXP }) {
   const { awardXP } = useStore();
@@ -34,7 +35,7 @@ export default function WisoDunningLab({ onRewardXP }) {
       rechnungsbetrag,
       verzugstage,
       isB2B,
-      basiszinssatzPercent: 3.62
+      basiszinssatzPercent: BASISZINSSATZ_BEISPIEL_PERCENT
     });
   }, [rechnungsbetrag, verzugstage, isB2B]);
 
@@ -141,7 +142,7 @@ export default function WisoDunningLab({ onRewardXP }) {
       {/* Default Interest Calculation Section */}
       <div style={{ background: 'var(--bg-secondary)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', marginBottom: '24px' }}>
         <p style={{ margin: '0 0 10px', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-          Hinweis: Der Basiszinssatz (hier 3,62 %) ist ein Beispielwert und ändert sich halbjährlich. Den aktuellen Wert veröffentlicht die Deutsche Bundesbank.
+          Hinweis: Der Basiszinssatz (hier {BASISZINSSATZ_BEISPIEL_PERCENT.toString().replace('.', ',')} %) ist ein Beispielwert und ändert sich halbjährlich. Den aktuellen Wert veröffentlicht die Deutsche Bundesbank.
         </p>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px', marginBottom: '14px' }}>
           <span style={{ fontSize: '0.9rem', fontWeight: 'bold', color: 'var(--accent-primary)' }}>
