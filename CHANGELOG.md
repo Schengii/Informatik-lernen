@@ -21,6 +21,8 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ### Geändert
 
+- Verhaltens-Tests für `WisoFinancingLab`, `WisoMaschinenstundensatzLab` und `WisoLiquiditaetLab` (Anzeige gegen Engine, Eingaben, XP).
+
 - Verhaltens-Tests für `WisoBreakEvenLab`, `WisoZuschlagskalkulationLab`, `IhkTransferTimeLab` und `IhkGradeCalculatorLab` (Anzeige gegen Engine, Eingaben, Szenarien, MEP-Hinweis, XP).
 
 - Verhaltens-Tests für die IHK-Rechenlabs `RaidCalculatorLab`, `NwaScoringLab` und `CpmNetworkLab` (Anzeige gegen Engine-Ergebnis, Eingaben, Szenarien, XP nur einmal).
@@ -64,6 +66,8 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 - Neue Engine `src/utils/learningMixEngine.js` (`@ts-check`) mit Tests, neue Store-Aktionen `recordPlacementResult` und `recordDailyMixResult`, neue Spielstand-Felder `placementResult` und `dailyMixLog`.
 
 ### Geändert
+
+- Verhaltens-Tests für `WisoFinancingLab`, `WisoMaschinenstundensatzLab` und `WisoLiquiditaetLab` (Anzeige gegen Engine, Eingaben, XP).
 
 - Verhaltens-Tests für `WisoBreakEvenLab`, `WisoZuschlagskalkulationLab`, `IhkTransferTimeLab` und `IhkGradeCalculatorLab` (Anzeige gegen Engine, Eingaben, Szenarien, MEP-Hinweis, XP).
 
