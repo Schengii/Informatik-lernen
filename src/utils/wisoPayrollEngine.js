@@ -9,10 +9,10 @@
  * Beitragssätze der Sozialversicherung (Standard-Werte nach IHK-Rahmenlehrplan)
  */
 const SOCIAL_RATES = {
-  HEALTH: { employee: 0.073, employer: 0.073, additionalAvg: 0.017 }, // 14,6% + 1,7% Zusatzbeitrag (je 50%)
+  HEALTH: { employee: 0.073, employer: 0.073, additionalAvg: 0.029 }, // 14,6% + 2,9% durchschnittlicher Zusatzbeitrag 2026 (je 50%)
   PENSION: { employee: 0.093, employer: 0.093 }, // 18,6% geteilt durch 2
   UNEMPLOYMENT: { employee: 0.013, employer: 0.013 }, // 2,6% geteilt durch 2
-  CARE_BASE: { employee: 0.022, employer: 0.022 }, // Pflegeversicherung Basis 4,0% geteilt durch 2
+  CARE_BASE: { employee: 0.018, employer: 0.018 }, // Pflegeversicherung 3,6% geteilt durch 2 (seit 01.01.2025)
   CARE_CHILDLESS_SURCHARGE: 0.006 // +0,6% für Kinderlose ab 23 Jahren
 };
 
@@ -20,8 +20,8 @@ const SOCIAL_RATES = {
  * Beitragsbemessungsgrenzen (BBG) Monatsbasis
  */
 const CONTRIBUTION_CEILINGS = {
-  HEALTH_CARE_MONTHLY: 5175.0,  // KV / PV BBG
-  PENSION_UNEMP_MONTHLY: 7550.0 // RV / AV BBG (West)
+  HEALTH_CARE_MONTHLY: 5812.5,  // KV / PV BBG 2026
+  PENSION_UNEMP_MONTHLY: 8450.0 // RV / AV BBG 2026 (bundeseinheitlich)
 };
 
 /**

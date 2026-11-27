@@ -11,6 +11,8 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ### Behoben
 
+- WiSo-Lohnabrechnung: Sozialversicherungswerte auf Stand 2026 (BBG KV/PV 5.812,50 €, RV/AV 8.450 €, Pflegeversicherung 3,6 % statt 4,0 %, durchschnittlicher Zusatzbeitrag 2,9 %), vorher Stand 2024 (`wisoPayrollEngine.js`).
+
 - PWA-Update: „Jetzt aktualisieren“ lud nur neu und lieferte weiter die alte Version, weil der neue Service Worker (vite-plugin-pwa 2.x: `skipWaiting` nur per Nachricht) dauerhaft wartete. Der Toast schickt jetzt `SKIP_WAITING` und lädt nach dem Übernehmen neu (`src/utils/pwaUpdate.js`).
 
 - Veraltete Chunks nach einem Deploy: Scheitert ein `import()` mit „Failed to fetch dynamically imported module“ (offene Seite kennt alte Hashes, Service Worker/SPA-Fallback liefert kein JS), leert die `ErrorBoundary` einmalig Service Worker und Caches und lädt neu (Sperrfrist 60 s gegen Schleifen); „Erneut versuchen“ erzwingt das bei Chunk-Fehlern (`src/utils/chunkErrorRecovery.js`). Vorher lud der Retry denselben kaputten Chunk erneut.
@@ -62,6 +64,8 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 - **Altbestand des Prüfungsplaners (Phase 4d)**: `generateAdaptiveStudyPlan`, die feste Themenliste `STUDY_TRACKS` und `IHK_EXAM_DATES` aus `ihkStudyPlanEngine.js` sowie Store-Aktion `toggleStudyPlanWeek` und Spielstand-Feld `studyPlanWeeks` sind entfernt. Alte Spielstände mit `studyPlanWeeks` bleiben ladbar (unbekannte Felder werden beim Import beibehalten) und werden nicht mehr verwendet.
 
 ### Behoben
+
+- WiSo-Lohnabrechnung: Sozialversicherungswerte auf Stand 2026 (BBG KV/PV 5.812,50 €, RV/AV 8.450 €, Pflegeversicherung 3,6 % statt 4,0 %, durchschnittlicher Zusatzbeitrag 2,9 %), vorher Stand 2024 (`wisoPayrollEngine.js`).
 - **Web-Components-Hub**: `**fett**` in der Einleitung wurde als Sternchen angezeigt.
 - **Notizen-Vorschau**: Die „Vorschau“ zeigte bisher den rohen Markdown-Text; sie rendert jetzt das Markdown.
 - **Einsteiger-Kurs**: `**fett**` in den Kapiteltexten wurde als Sternchen angezeigt; die Hervorhebung wird jetzt korrekt dargestellt.
