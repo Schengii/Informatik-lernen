@@ -11,6 +11,8 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ### Behoben
 
+- Lohn-Lab: Beschriftungen (Zusatzbeitrag, Pflegeversicherung, Beitragsbemessungsgrenzen) zeigten noch Werte von 2024, obwohl die Beträge schon nach 2026 rechneten; sie werden jetzt aus `legalConstants.js` abgeleitet.
+
 - WiSo-Rechtsformen: Gesetzeszitate und Gewinnverteilung nach dem MoPeG (seit 1.1.2024) korrigiert: GbR-Geschäftsführung § 715 BGB, OHG-Haftung § 126 HGB, Führung/Vertretung §§ 116, 124 HGB; die 4-%-Verzinsung der Kapitalanteile (OHG/KG) entfällt (`wisoCompanyFormsEngine.js`).
 
 - WiSo-Lohnabrechnung: Sozialversicherungswerte auf Stand 2026 (BBG KV/PV 5.812,50 €, RV/AV 8.450 €, Pflegeversicherung 3,6 % statt 4,0 %, durchschnittlicher Zusatzbeitrag 2,9 %), vorher Stand 2024 (`wisoPayrollEngine.js`).
@@ -94,6 +96,8 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 - **Altbestand des Prüfungsplaners (Phase 4d)**: `generateAdaptiveStudyPlan`, die feste Themenliste `STUDY_TRACKS` und `IHK_EXAM_DATES` aus `ihkStudyPlanEngine.js` sowie Store-Aktion `toggleStudyPlanWeek` und Spielstand-Feld `studyPlanWeeks` sind entfernt. Alte Spielstände mit `studyPlanWeeks` bleiben ladbar (unbekannte Felder werden beim Import beibehalten) und werden nicht mehr verwendet.
 
 ### Behoben
+
+- Lohn-Lab: Beschriftungen (Zusatzbeitrag, Pflegeversicherung, Beitragsbemessungsgrenzen) zeigten noch Werte von 2024, obwohl die Beträge schon nach 2026 rechneten; sie werden jetzt aus `legalConstants.js` abgeleitet.
 
 - WiSo-Rechtsformen: Gesetzeszitate und Gewinnverteilung nach dem MoPeG (seit 1.1.2024) korrigiert: GbR-Geschäftsführung § 715 BGB, OHG-Haftung § 126 HGB, Führung/Vertretung §§ 116, 124 HGB; die 4-%-Verzinsung der Kapitalanteile (OHG/KG) entfällt (`wisoCompanyFormsEngine.js`).
 

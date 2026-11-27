@@ -56,4 +56,15 @@ describe('WisoPayrollLab', () => {
     render(<WisoPayrollLab />);
     expect(screen.getByText(/vereinfachte Näherung/)).toBeTruthy();
   });
+
+  it('beschriftet Beitragssätze und Beitragsbemessungsgrenzen mit den Werten 2026', () => {
+    const { container } = render(<WisoPayrollLab />);
+    const t = norm(container.textContent);
+    expect(t).toContain('Zusatz 1,45%');
+    expect(t).toContain('AG-Anteil Pflegeversicherung (1,8%)');
+    expect(t).toContain('KV/PV: 5.812,50');
+    expect(t).toContain('RV/AV: 8.450');
+    expect(t).not.toContain('7.550');
+    expect(t).not.toContain('2,2%');
+  });
 });
