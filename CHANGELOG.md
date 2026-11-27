@@ -19,6 +19,8 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ### Geändert
 
+- WiSo-Labs: Hinweis im Mahnwesen-Lab, dass der Basiszinssatz ein Beispielwert ist, und im Lohn-Lab, dass die Lohnsteuer eine vereinfachte Näherung ist.
+
 - Dashboard-Kacheln „Empfohlene Lernbereiche“: Themen-Badges (IHK, FISI, Cloud & DevOps, Studio …) statt fast durchgängig „Neu“; der fest verdrahtete Hinweis „Neu aktualisiert v3.48.0“ entfällt (`DashboardQuickAccessGrid.jsx`).
 
 - Labs-&-Tools-Dropdown: Suchfeld (Titel, Beschreibung, Badge) und Gruppen nach Themengebiet statt einer langen flachen Liste (`NavDropdownMenu` mit `searchable`/`groupOf`, `labsMenuGroupOf` in `navbarMenuItems.js`).
@@ -52,6 +54,8 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 - Neue Engine `src/utils/learningMixEngine.js` (`@ts-check`) mit Tests, neue Store-Aktionen `recordPlacementResult` und `recordDailyMixResult`, neue Spielstand-Felder `placementResult` und `dailyMixLog`.
 
 ### Geändert
+
+- WiSo-Labs: Hinweis im Mahnwesen-Lab, dass der Basiszinssatz ein Beispielwert ist, und im Lohn-Lab, dass die Lohnsteuer eine vereinfachte Näherung ist.
 
 - Dashboard-Kacheln „Empfohlene Lernbereiche“: Themen-Badges (IHK, FISI, Cloud & DevOps, Studio …) statt fast durchgängig „Neu“; der fest verdrahtete Hinweis „Neu aktualisiert v3.48.0“ entfällt (`DashboardQuickAccessGrid.jsx`).
 - **Labs vorladen**: Beim Überfahren oder Fokussieren eines Menüeintrags lädt `prefetchLab` (`src/data/labRegistry.js`) den Lab-Chunk vorab, jedes Lab höchstens einmal; der Tab-Wechsel rendert dadurch ohne Ladezeit.

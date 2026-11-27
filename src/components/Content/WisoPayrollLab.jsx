@@ -47,6 +47,9 @@ export default function WisoPayrollLab() {
               <p style={{ margin: '4px 0 0', color: 'var(--text-secondary, #64748b)', fontSize: '0.95rem' }}>
                 Sozialabgaben (KV, PV, RV, AV), Steuerklassen I–VI & Arbeitgeber-Gesamtkostenbelastung nach IHK-Standard
               </p>
+              <p style={{ margin: '4px 0 0', color: 'var(--text-muted)', fontSize: '0.8rem' }}>
+                Lohnsteuer ist eine vereinfachte Näherung (Pauschalfaktoren je Steuerklasse, nicht der amtliche Tarif) und ersetzt keine echte Abrechnung.
+              </p>
             </div>
           </div>
         </div>
