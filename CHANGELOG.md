@@ -21,6 +21,8 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 
 ### Geändert
 
+- Verhaltens-Tests für `WisoPayrollLab` und `WisoDunningLab` (Engine-Anbindung, Eingaben, Kirchensteuer-Option, B2B/B2C-Umschaltung, XP nur einmal).
+
 - Stichtagswerte (BBG, Beitragssätze, Beispiel-Basiszins) zentral in `src/data/legalConstants.js` mit Stand-Datum; ein Test schlägt an, wenn der Stand älter als 13 Monate ist. `wisoPayrollEngine.js` und `wisoDunningEngine.js` beziehen die Werte von dort.
 
 - WiSo-Labs: Hinweis im Mahnwesen-Lab, dass der Basiszinssatz ein Beispielwert ist, und im Lohn-Lab, dass die Lohnsteuer eine vereinfachte Näherung ist.
@@ -58,6 +60,8 @@ und dieses Projekt hält sich an [Semantic Versioning](https://semver.org/spec/v
 - Neue Engine `src/utils/learningMixEngine.js` (`@ts-check`) mit Tests, neue Store-Aktionen `recordPlacementResult` und `recordDailyMixResult`, neue Spielstand-Felder `placementResult` und `dailyMixLog`.
 
 ### Geändert
+
+- Verhaltens-Tests für `WisoPayrollLab` und `WisoDunningLab` (Engine-Anbindung, Eingaben, Kirchensteuer-Option, B2B/B2C-Umschaltung, XP nur einmal).
 
 - Stichtagswerte (BBG, Beitragssätze, Beispiel-Basiszins) zentral in `src/data/legalConstants.js` mit Stand-Datum; ein Test schlägt an, wenn der Stand älter als 13 Monate ist. `wisoPayrollEngine.js` und `wisoDunningEngine.js` beziehen die Werte von dort.
 
