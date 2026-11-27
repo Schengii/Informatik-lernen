@@ -18,8 +18,13 @@ IT-DevGame testen und verbessern. UI-Review-Punkte abarbeiten.
 - Alias-Bereinigung der Lab-IDs bleibt offen (gefährdet alte Spielstände).
 - Export/Import des Spielstands existiert bereits (`BackupModal`, `sanitizeImportedState`) – kein Handlungsbedarf.
 
+## Zuletzt (2026-11-27)
+- Dashboard-Kacheln: Themen-Badges, Versionshinweis entfernt (937ffa3).
+- WiSo-Stichprobe: Lohn-Engine auf Werte 2026 (BBG, Pflege 3,6 %, Zusatzbeitrag 2,9 %); Hinweise zu Basiszins und Lohnsteuer-Näherung. Kündigungsfristen, Verzug (§ 288), Sachmängel geprüft und korrekt.
+- Offen: Basiszins 3,62 % ist fester Beispielwert; weitere Rechtsthemen (DSGVO, Urheberrecht, HGB) nicht geprüft.
+
 ## Offene Punkte
-- Nur Routen `''`, `labs`, `dashboard` auditiert, nicht alle 229 Labs (`npm run audit:ui` ohne `--routes`).
+- UI-Audit über alle 230 Routen: hell und dunkel bei 375 px, 0 Kontrast- und 0 Überlauf-Funde (erledigt).
 - Visuelle Sichtprüfung im Browser steht aus (Filter-Chips, einklappbare Bereiche, Countdown-Text).
 - jsdom-Meldung „Not implemented: scrollTo()“ im Testlauf (harmlos, Stub im Test-Setup möglich).
 - Dev-Server/Preview der Sitzung läuft evtl. noch.
